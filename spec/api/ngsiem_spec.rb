@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -46,6 +45,325 @@ describe 'Ngsiem' do
   describe 'test an instance of Ngsiem' do
     it 'should create an instance of Ngsiem' do
       expect(@api_instance).to be_instance_of(Falcon::Ngsiem)
+    end
+  end
+
+  # unit tests for bulk_install_parsers
+  # Installs multiple CrowdStrike-managed out-of-the-box (OOTB) parsers into the customer&#39;s repository in a single operation. This endpoint provisions multiple pre-built parsers with their specific versions for the requesting customer ID (CID). The parsers are installed as-is and cannot be modified by the customer. Requires an array of parsers with parser_id and version in the request body. Maximum 100 parsers per request.
+  # @param body bulk install parsers request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiParserBulkInstallResponseV1]
+  describe 'bulk_install_parsers test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for clone_parser
+  # Clone an existing parser with a new name
+  # @param body clone parser request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiCloneParserResponseV1]
+  describe 'clone_parser test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for create_dashboard_from_template
+  # Create Dashboard from LogScale YAML Template in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @option opts [String] :name name of the dashboard
+  # @option opts [File] :yaml_template LogScale dashboard YAML template content, see schema at https://schemas.humio.com/
+  # @return [ApiCreateDashboardFromTemplateResponseV1]
+  describe 'create_dashboard_from_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for create_lookup_file
+  # Create Lookup File in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @option opts [String] :filename Filename of the lookup file to create
+  # @option opts [File] :file file content to upload
+  # @return [ApiCreateLookupFileResponseV1]
+  describe 'create_lookup_file test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for create_parser
+  # Create Parser in NGSIEM. This endpoint has been deprecated in favour of the POST /entities/parsers-template/v1 API.
+  # @param body create parser request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiCreateParserResponseV1]
+  describe 'create_parser test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for create_parser_from_template
+  # Create Parser from LogScale YAML Template in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :repository name of repository
+  # @option opts [File] :yaml_template LogScale Parser YAML template content, see schema at https://schemas.humio.com/
+  # @return [ApiCreateParserFromTemplateResponseV1]
+  describe 'create_parser_from_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for create_saved_query
+  # Create Saved Query from LogScale YAML Template in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @option opts [File] :yaml_template LogScale Saved Query YAML template content, see schema at https://schemas.humio.com/
+  # @return [ApiCreateSavedQueryResponseV1]
+  describe 'create_saved_query test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for delete_dashboard
+  # Delete Dashboard in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :ids dashboard ID value
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @return [ApiDeleteDashboardResponseV1]
+  describe 'delete_dashboard test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for delete_lookup_file
+  # Delete Lookup File in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filename lookup file filename
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @return [ApiDeleteLookupFileResponseV1]
+  describe 'delete_lookup_file test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for delete_parser
+  # Delete Parser in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :ids parser ID value
+  # @option opts [String] :repository name of repository
+  # @return [ApiDeleteParserResponseV1]
+  describe 'delete_parser test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for delete_saved_query
+  # Delete Saved Query in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :ids saved query ID value
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @return [ApiDeleteSavedQueryResponseV1]
+  describe 'delete_saved_query test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for external_create_connector_config
+  # Create a new configuration for a data connector
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DataconnectionmanagementGenericCreateResponse]
+  describe 'external_create_connector_config test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for external_create_data_connection
+  # Create a new data connection
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DataconnectionmanagementGenericResourcesResponse]
+  describe 'external_create_data_connection test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for external_delete_connector_configs
+  # Delete data connection config
+  # @param connector_id Unique identifier of the connector
+  # @param ids Unique identifiers of the config(s) to delete
+  # @param [Hash] opts the optional parameters
+  # @return [MsaReplyAffectedEntities]
+  describe 'external_delete_connector_configs test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for external_delete_data_connection
+  # Delete a data connection
+  # @param ids Unique identifier of the data connection
+  # @param [Hash] opts the optional parameters
+  # @return [MsaReplyAffectedEntities]
+  describe 'external_delete_data_connection test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for external_get_data_connection_by_id
+  # Get data connection by ID
+  # @param ids Unique identifier of the data connection
+  # @param [Hash] opts the optional parameters
+  # @return [DataconnectionmanagementDataConnectionResponse]
+  describe 'external_get_data_connection_by_id test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for external_get_data_connection_status
+  # Get data connection provisioning status
+  # @param ids Unique identifier of the data connection
+  # @param [Hash] opts the optional parameters
+  # @return [DataconnectionmanagementConnectionStatusResponse]
+  describe 'external_get_data_connection_status test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for external_get_data_connection_token
+  # Get Ingest token for data connection
+  # @param ids Unique identifier of the data connection
+  # @param [Hash] opts the optional parameters
+  # @return [DataconnectionmanagementConnectionTokenResponse]
+  describe 'external_get_data_connection_token test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for external_list_connector_configs
+  # List configurations for a data connector
+  # @param ids Unique identifier of the data connector
+  # @param [Hash] opts the optional parameters
+  # @return [DataconnectionmanagementConfigResponse]
+  describe 'external_list_connector_configs test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for external_list_data_connections
+  # List and search data connections
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter Optional filter criteria in FQL format
+  # @option opts [Integer] :offset Starting position for pagination
+  # @option opts [Integer] :limit Maximum number of items to return
+  # @option opts [String] :sort Sort field and direction
+  # @return [DataconnectionmanagementDataConnectionResponse]
+  describe 'external_list_data_connections test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for external_list_data_connectors
+  # List available data connectors
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter Optional filter criteria in FQL format
+  # @option opts [Integer] :offset Starting position for pagination
+  # @option opts [Integer] :limit Maximum number of items to return
+  # @option opts [String] :sort Sort field and direction
+  # @return [DataconnectionmanagementDataConnectorResponse]
+  describe 'external_list_data_connectors test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for external_patch_connector_config
+  # Patch configurations for a data connector
+  # @param ids Unique id of the config to update
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [MsaReplyAffectedEntities]
+  describe 'external_patch_connector_config test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for external_regenerate_data_connection_token
+  # Regenerate Ingest token for data connection
+  # @param ids Unique identifier of the data connection
+  # @param [Hash] opts the optional parameters
+  # @return [DataconnectionmanagementConnectionTokenResponse]
+  describe 'external_regenerate_data_connection_token test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for external_update_data_connection
+  # Update a data connection
+  # @param ids Unique identifier of the data connection
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [MsaReplyAffectedEntities]
+  describe 'external_update_data_connection test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for external_update_data_connection_status
+  # Update data connection status
+  # @param ids Unique identifier of the data connection
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DataconnectionmanagementConnectionStatusResponse]
+  describe 'external_update_data_connection_status test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_dashboard_template
+  # Retrieve Dashboard in NGSIEM as LogScale YAML Template
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :ids dashboard ID value
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @return [ApiGetDashboardTemplateResponseV1]
+  describe 'get_dashboard_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_lookup_file
+  # Retrieve Lookup File in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filename lookup file filename
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @return [nil]
+  describe 'get_lookup_file test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
@@ -88,6 +406,42 @@ describe 'Ngsiem' do
     end
   end
 
+  # unit tests for get_parser
+  # Retrieve Parser in NGSIEM. This endpoint has been deprecated in favour of the GET /entities/parsers-template/v1 API.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :ids parser ID value
+  # @option opts [String] :repository name of repository
+  # @return [ApiGetParserResponseV1]
+  describe 'get_parser test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_parser_template
+  # Retrieve Parser in NGSIEM as LogScale YAML Template
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :ids parser ID value
+  # @option opts [String] :repository name of repository
+  # @return [ApiGetParserTemplateResponseV1]
+  describe 'get_parser_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_saved_query_template
+  # Retrieve Saved Query in NGSIEM as LogScale YAML Template
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :ids saved query ID value
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @return [ApiGetSavedQueryResponseV1]
+  describe 'get_saved_query_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_search_status_v1
   # Get status of search
   # @param repository name of repository
@@ -95,6 +449,75 @@ describe 'Ngsiem' do
   # @param [Hash] opts the optional parameters
   # @return [ApiQueryJobsResults]
   describe 'get_search_status_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for install_parser
+  # Installs a CrowdStrike-managed out-of-the-box (OOTB) parser into the customer&#39;s repository. This endpoint provisions a pre-built parser with a specific version for the requesting customer ID (CID). The parser is installed as-is and cannot be modified by the customer. Requires parser_id and version in the request body.
+  # @param body create parser install request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiParserInstallResponseV1]
+  describe 'install_parser test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for list_dashboards
+  # List Dashboards in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :limit maximum number of results to return
+  # @option opts [String] :offset number of results to offset the returned results by
+  # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @return [ApiListDashboardsResponseV1]
+  describe 'list_dashboards test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for list_lookup_files
+  # List Lookup Files in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :limit maximum number of results to return
+  # @option opts [String] :offset number of results to offset the returned results by
+  # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @return [ApiListLookupFilesResponseV1]
+  describe 'list_lookup_files test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for list_parsers
+  # List Parsers in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :limit maximum number of results to return
+  # @option opts [String] :offset number of results to offset the returned results by
+  # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+  # @option opts [String] :repository name of repository
+  # @option opts [String] :update_available filter parsers by update availability
+  # @option opts [String] :parser_type filter parsers by type
+  # @return [ApiListParsersResponseV1]
+  describe 'list_parsers test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for list_saved_queries
+  # Get Saved Queries in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :limit maximum number of results to return
+  # @option opts [String] :offset number of results to offset the returned results by
+  # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @return [ApiListSavedQueriesResponseV1]
+  describe 'list_saved_queries test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -119,6 +542,108 @@ describe 'Ngsiem' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'stop_search_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for test_parser_from_template
+  # Test Parser from LogScale YAML Template in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :yaml_template LogScale Parser YAML template content, see schema at https://schemas.humio.com/
+  # @option opts [Boolean] :schema_validation_enabled When true, schema validation is enforced (CPS) and validates against Crowdstrike Parsing Standard
+  # @return [ApiTestParserFromTemplateResponseV1]
+  describe 'test_parser_from_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_dashboard_from_template
+  # Update Dashboard from LogScale YAML Template in NGSIEM.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @option opts [String] :ids id of the dashboard
+  # @option opts [File] :yaml_template LogScale dashboard YAML template content, see schema at https://schemas.humio.com/
+  # @return [ApiUpdateDashboardFromTemplateResponseV1]
+  describe 'update_dashboard_from_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_lookup_file
+  # Update an entire Lookup File in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @option opts [String] :filename Filename of the lookup file to update
+  # @option opts [File] :file file content to upload
+  # @return [ApiUpdateLookupFileResponseV1]
+  describe 'update_lookup_file test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_lookup_file_entries
+  # Update entries in an existing Lookup File in NGSIEM
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @option opts [String] :filename Filename of the lookup file to update
+  # @option opts [File] :file The file content for updating or appending the entries
+  # @option opts [String] :update_mode How to update the file entries
+  # @option opts [String] :key_columns For update mode, the comma separated list of key columns to use when matching entries (REQUIRED when update_mode&#x3D;update)
+  # @option opts [String] :ignore_case For update mode, whether to ignore case when matching keys (REQUIRED when update_mode&#x3D;update)
+  # @return [ApiUpdateLookupFileEntriesResponseV1]
+  describe 'update_lookup_file_entries test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_parser
+  # Update Parser in NGSIEM. Please note that name changes are not supported, but rather should be created as a new parser.  This endpoint has been deprecated in favour of the PATCH /entities/parsers-template/v1 API.
+  # @param body update parser request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiUpdateParserResponseV1]
+  describe 'update_parser test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_parser_auto_update_policy
+  # Updates a parser auto update policy - &#39;on&#39; enables auto-updates, &#39;off&#39; disables them
+  # @param body update parser auto update policy request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiUpdateAutoUpdatePolicyResponseV1]
+  describe 'update_parser_auto_update_policy test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_parser_from_template
+  # Update Parser in NGSIEM from YAML Template. Please note that name changes are not supported, but rather should be created as a new parser.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :repository name of repository
+  # @option opts [String] :ids id of the parser
+  # @option opts [File] :yaml_template LogScale Parser YAML template content, see schema at https://schemas.humio.com/
+  # @return [ApiUpdateParserFromTemplateResponseV1]
+  describe 'update_parser_from_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_saved_query_from_template
+  # Update Saved Query from LogScale YAML Template in NGSIEM.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @option opts [String] :ids id of the saved query
+  # @option opts [File] :yaml_template LogScale Saved Query YAML template content, see schema at https://schemas.humio.com/
+  # @return [ApiUpdateSavedQueryResponseV1]
+  describe 'update_saved_query_from_template test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

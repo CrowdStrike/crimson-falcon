@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -153,6 +152,9 @@ describe 'Hosts' do
   # Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
   # @param body
   # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The maximum number of results to return [1-100].
+  # @option opts [String] :from The inclusive beginning of the time window to search.
+  # @option opts [String] :to The inclusive end of the time window to search.
   # @return [DeviceapiLoginHistoryResponseV1]
   describe 'query_device_login_history_v2 test' do
     it 'should work' do

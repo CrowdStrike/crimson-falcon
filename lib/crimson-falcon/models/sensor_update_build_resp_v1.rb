@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -33,6 +32,9 @@ require 'time'
 module Falcon
   class SensorUpdateBuildRespV1
     attr_accessor :build
+
+    # Indicates whether or not the build configured on the policy is categorized as a LTS build (Long Term Support)
+    attr_accessor :is_lts_build
 
     attr_accessor :platform
 
@@ -67,6 +69,7 @@ module Falcon
     def self.attribute_map
       {
         :'build' => :'build',
+        :'is_lts_build' => :'is_lts_build',
         :'platform' => :'platform',
         :'sensor_version' => :'sensor_version',
         :'stage' => :'stage'
@@ -82,6 +85,7 @@ module Falcon
     def self.openapi_types
       {
         :'build' => :'String',
+        :'is_lts_build' => :'Boolean',
         :'platform' => :'String',
         :'sensor_version' => :'String',
         :'stage' => :'String'
@@ -113,6 +117,10 @@ module Falcon
         self.build = attributes[:'build']
       end
 
+      if attributes.key?(:'is_lts_build')
+        self.is_lts_build = attributes[:'is_lts_build']
+      end
+
       if attributes.key?(:'platform')
         self.platform = attributes[:'platform']
       end
@@ -134,6 +142,10 @@ module Falcon
         invalid_properties.push('invalid value for "build", build cannot be nil.')
       end
 
+      if @is_lts_build.nil?
+        invalid_properties.push('invalid value for "is_lts_build", is_lts_build cannot be nil.')
+      end
+
       if @platform.nil?
         invalid_properties.push('invalid value for "platform", platform cannot be nil.')
       end
@@ -153,6 +165,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @build.nil?
+      return false if @is_lts_build.nil?
       return false if @platform.nil?
       return false if @sensor_version.nil?
       return false if @stage.nil?
@@ -177,6 +190,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           build == o.build &&
+          is_lts_build == o.is_lts_build &&
           platform == o.platform &&
           sensor_version == o.sensor_version &&
           stage == o.stage
@@ -191,7 +205,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [build, platform, sensor_version, stage].hash
+      [build, is_lts_build, platform, sensor_version, stage].hash
     end
 
     # Builds the object from hash

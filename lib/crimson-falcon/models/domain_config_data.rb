@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -35,6 +34,8 @@ module Falcon
     attr_accessor :auth
 
     attr_accessor :data
+
+    attr_accessor :definition_id
 
     attr_accessor :enable_system_workflow
 
@@ -58,6 +59,10 @@ module Falcon
 
     attr_accessor :resource_response
 
+    attr_accessor :tags
+
+    attr_accessor :tags_map
+
     attr_accessor :token_parameters
 
     attr_accessor :x_www_form_urlencoded
@@ -67,6 +72,7 @@ module Falcon
       {
         :'auth' => :'auth',
         :'data' => :'data',
+        :'definition_id' => :'definition_id',
         :'enable_system_workflow' => :'enable_system_workflow',
         :'graphical_password_algorithm' => :'graphical_password_algorithm',
         :'id' => :'id',
@@ -78,6 +84,8 @@ module Falcon
         :'permissions' => :'permissions',
         :'resource_id' => :'resource_id',
         :'resource_response' => :'resource_response',
+        :'tags' => :'tags',
+        :'tags_map' => :'tags_map',
         :'token_parameters' => :'token_parameters',
         :'x_www_form_urlencoded' => :'x-www-form-urlencoded'
       }
@@ -93,6 +101,7 @@ module Falcon
       {
         :'auth' => :'String',
         :'data' => :'String',
+        :'definition_id' => :'String',
         :'enable_system_workflow' => :'Boolean',
         :'graphical_password_algorithm' => :'DomainGPAs',
         :'id' => :'String',
@@ -104,6 +113,8 @@ module Falcon
         :'permissions' => :'Array<String>',
         :'resource_id' => :'String',
         :'resource_response' => :'String',
+        :'tags' => :'Array<String>',
+        :'tags_map' => :'Hash<String, String>',
         :'token_parameters' => :'Hash<String, Array<String>>',
         :'x_www_form_urlencoded' => :'Object'
       }
@@ -136,6 +147,10 @@ module Falcon
 
       if attributes.key?(:'data')
         self.data = attributes[:'data']
+      end
+
+      if attributes.key?(:'definition_id')
+        self.definition_id = attributes[:'definition_id']
       end
 
       if attributes.key?(:'enable_system_workflow')
@@ -184,6 +199,18 @@ module Falcon
         self.resource_response = attributes[:'resource_response']
       end
 
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
+      end
+
+      if attributes.key?(:'tags_map')
+        if (value = attributes[:'tags_map']).is_a?(Hash)
+          self.tags_map = value
+        end
+      end
+
       if attributes.key?(:'token_parameters')
         if (value = attributes[:'token_parameters']).is_a?(Hash)
           self.token_parameters = value
@@ -220,6 +247,7 @@ module Falcon
       self.class == o.class &&
           auth == o.auth &&
           data == o.data &&
+          definition_id == o.definition_id &&
           enable_system_workflow == o.enable_system_workflow &&
           graphical_password_algorithm == o.graphical_password_algorithm &&
           id == o.id &&
@@ -231,6 +259,8 @@ module Falcon
           permissions == o.permissions &&
           resource_id == o.resource_id &&
           resource_response == o.resource_response &&
+          tags == o.tags &&
+          tags_map == o.tags_map &&
           token_parameters == o.token_parameters &&
           x_www_form_urlencoded == o.x_www_form_urlencoded
     end
@@ -244,7 +274,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [auth, data, enable_system_workflow, graphical_password_algorithm, id, immutable_params, json, name, on_prem, params, permissions, resource_id, resource_response, token_parameters, x_www_form_urlencoded].hash
+      [auth, data, definition_id, enable_system_workflow, graphical_password_algorithm, id, immutable_params, json, name, on_prem, params, permissions, resource_id, resource_response, tags, tags_map, token_parameters, x_www_form_urlencoded].hash
     end
 
     # Builds the object from hash

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -268,6 +267,94 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Upload a new put-file to use for the RTR `put` command.
+    # @param file [File] put-file to upload
+    # @param description [String] File description
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :name File name (if different than actual file name)
+    # @option opts [String] :comments_for_audit_log The audit log comment
+    # @return [EmpowerapiMsaPFResponseV2]
+    def r_tr_create_put_files_v2(file, description, opts = {})
+      data, _status_code, _headers = r_tr_create_put_files_v2_with_http_info(file, description, opts)
+      data
+    end
+
+    # Upload a new put-file to use for the RTR &#x60;put&#x60; command.
+    # @param file [File] put-file to upload
+    # @param description [String] File description
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :name File name (if different than actual file name)
+    # @option opts [String] :comments_for_audit_log The audit log comment
+    # @return [Array<(EmpowerapiMsaPFResponseV2, Integer, Hash)>] EmpowerapiMsaPFResponseV2 data, response status code and response headers
+    def r_tr_create_put_files_v2_with_http_info(file, description, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_create_put_files_v2 ...'
+      end
+      # verify the required parameter 'file' is set
+      if @api_client.config.client_side_validation && file.nil?
+        fail ArgumentError, "Missing the required parameter 'file' when calling RealTimeResponseAdmin.r_tr_create_put_files_v2"
+      end
+      # verify the required parameter 'description' is set
+      if @api_client.config.client_side_validation && description.nil?
+        fail ArgumentError, "Missing the required parameter 'description' when calling RealTimeResponseAdmin.r_tr_create_put_files_v2"
+      end
+      if @api_client.config.client_side_validation && !opts[:'name'].nil? && opts[:'name'].to_s.length > 32766
+        fail ArgumentError, 'invalid value for "opts[:"name"]" when calling RealTimeResponseAdmin.r_tr_create_put_files_v2, the character length must be smaller than or equal to 32766.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'comments_for_audit_log'].nil? && opts[:'comments_for_audit_log'].to_s.length > 4096
+        fail ArgumentError, 'invalid value for "opts[:"comments_for_audit_log"]" when calling RealTimeResponseAdmin.r_tr_create_put_files_v2, the character length must be smaller than or equal to 4096.'
+      end
+
+      # resource path
+      local_var_path = '/real-time-response/entities/put-files/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['file'] = file
+      form_params['description'] = description
+      form_params['name'] = opts[:'name'] if !opts[:'name'].nil?
+      form_params['comments_for_audit_log'] = opts[:'comments_for_audit_log'] if !opts[:'comments_for_audit_log'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EmpowerapiMsaPFResponseV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"RealTimeResponseAdmin.r_tr_create_put_files_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_create_put_files_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Upload a new custom-script to use for the RTR `runscript` command.
     # @param description [String] File description
     # @param permission_type [String] Permission for the custom-script. Valid permission values:   - &#x60;private&#x60;, usable by only the user who uploaded it   - &#x60;group&#x60;, usable by all RTR Admins   - &#x60;public&#x60;, usable by all active-responders and RTR admins
@@ -361,6 +448,103 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_create_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Upload a new custom-script to use for the RTR `runscript` command.
+    # @param description [String] File description
+    # @param permission_type [String] Permission for the custom-script. Valid permission values:   - &#x60;private&#x60;, usable by only the user who uploaded it   - &#x60;group&#x60;, usable by all RTR Admins   - &#x60;public&#x60;, usable by all active-responders and RTR admins
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :file custom-script file to upload.  These should be powershell scripts.
+    # @option opts [String] :name File name (if different than actual file name)
+    # @option opts [String] :comments_for_audit_log The audit log comment
+    # @option opts [String] :content The script text that you want to use to upload
+    # @option opts [Array<String>] :platform Platforms for the file. Currently supports: windows, mac, linux, . If no platform is provided, it will default to &#39;windows&#39;
+    # @return [EmpowerapiMsaPFResponseV2]
+    def r_tr_create_scripts_v2(description, permission_type, opts = {})
+      data, _status_code, _headers = r_tr_create_scripts_v2_with_http_info(description, permission_type, opts)
+      data
+    end
+
+    # Upload a new custom-script to use for the RTR &#x60;runscript&#x60; command.
+    # @param description [String] File description
+    # @param permission_type [String] Permission for the custom-script. Valid permission values:   - &#x60;private&#x60;, usable by only the user who uploaded it   - &#x60;group&#x60;, usable by all RTR Admins   - &#x60;public&#x60;, usable by all active-responders and RTR admins
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :file custom-script file to upload.  These should be powershell scripts.
+    # @option opts [String] :name File name (if different than actual file name)
+    # @option opts [String] :comments_for_audit_log The audit log comment
+    # @option opts [String] :content The script text that you want to use to upload
+    # @option opts [Array<String>] :platform Platforms for the file. Currently supports: windows, mac, linux, . If no platform is provided, it will default to &#39;windows&#39;
+    # @return [Array<(EmpowerapiMsaPFResponseV2, Integer, Hash)>] EmpowerapiMsaPFResponseV2 data, response status code and response headers
+    def r_tr_create_scripts_v2_with_http_info(description, permission_type, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_create_scripts_v2 ...'
+      end
+      # verify the required parameter 'description' is set
+      if @api_client.config.client_side_validation && description.nil?
+        fail ArgumentError, "Missing the required parameter 'description' when calling RealTimeResponseAdmin.r_tr_create_scripts_v2"
+      end
+      # verify the required parameter 'permission_type' is set
+      if @api_client.config.client_side_validation && permission_type.nil?
+        fail ArgumentError, "Missing the required parameter 'permission_type' when calling RealTimeResponseAdmin.r_tr_create_scripts_v2"
+      end
+      if @api_client.config.client_side_validation && !opts[:'name'].nil? && opts[:'name'].to_s.length > 32766
+        fail ArgumentError, 'invalid value for "opts[:"name"]" when calling RealTimeResponseAdmin.r_tr_create_scripts_v2, the character length must be smaller than or equal to 32766.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'comments_for_audit_log'].nil? && opts[:'comments_for_audit_log'].to_s.length > 4096
+        fail ArgumentError, 'invalid value for "opts[:"comments_for_audit_log"]" when calling RealTimeResponseAdmin.r_tr_create_scripts_v2, the character length must be smaller than or equal to 4096.'
+      end
+
+      # resource path
+      local_var_path = '/real-time-response/entities/scripts/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['description'] = description
+      form_params['permission_type'] = permission_type
+      form_params['file'] = opts[:'file'] if !opts[:'file'].nil?
+      form_params['name'] = opts[:'name'] if !opts[:'name'].nil?
+      form_params['comments_for_audit_log'] = opts[:'comments_for_audit_log'] if !opts[:'comments_for_audit_log'].nil?
+      form_params['content'] = opts[:'content'] if !opts[:'content'].nil?
+      form_params['platform'] = @api_client.build_collection_param(opts[:'platform'], :csv) if !opts[:'platform'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EmpowerapiMsaPFResponseV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"RealTimeResponseAdmin.r_tr_create_scripts_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_create_scripts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1228,6 +1412,102 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_update_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Upload a new scripts to replace an existing one.
+    # @param id [String] ID to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :file custom-script file to upload.  These should be powershell scripts.
+    # @option opts [String] :description File description
+    # @option opts [String] :name File name (if different than actual file name)
+    # @option opts [String] :comments_for_audit_log The audit log comment
+    # @option opts [String] :permission_type Permission for the custom-script. Valid permission values:   - &#x60;private&#x60;, usable by only the user who uploaded it   - &#x60;group&#x60;, usable by all RTR Admins   - &#x60;public&#x60;, usable by all active-responders and RTR admins (default to 'none')
+    # @option opts [String] :content The script text that you want to use to upload
+    # @option opts [Array<String>] :platform Platforms for the file. Currently supports: windows, mac, linux,
+    # @return [EmpowerapiMsaPFResponseV2]
+    def r_tr_update_scripts_v2(id, opts = {})
+      data, _status_code, _headers = r_tr_update_scripts_v2_with_http_info(id, opts)
+      data
+    end
+
+    # Upload a new scripts to replace an existing one.
+    # @param id [String] ID to update
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :file custom-script file to upload.  These should be powershell scripts.
+    # @option opts [String] :description File description
+    # @option opts [String] :name File name (if different than actual file name)
+    # @option opts [String] :comments_for_audit_log The audit log comment
+    # @option opts [String] :permission_type Permission for the custom-script. Valid permission values:   - &#x60;private&#x60;, usable by only the user who uploaded it   - &#x60;group&#x60;, usable by all RTR Admins   - &#x60;public&#x60;, usable by all active-responders and RTR admins (default to 'none')
+    # @option opts [String] :content The script text that you want to use to upload
+    # @option opts [Array<String>] :platform Platforms for the file. Currently supports: windows, mac, linux,
+    # @return [Array<(EmpowerapiMsaPFResponseV2, Integer, Hash)>] EmpowerapiMsaPFResponseV2 data, response status code and response headers
+    def r_tr_update_scripts_v2_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_update_scripts_v2 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling RealTimeResponseAdmin.r_tr_update_scripts_v2"
+      end
+      if @api_client.config.client_side_validation && !opts[:'name'].nil? && opts[:'name'].to_s.length > 32766
+        fail ArgumentError, 'invalid value for "opts[:"name"]" when calling RealTimeResponseAdmin.r_tr_update_scripts_v2, the character length must be smaller than or equal to 32766.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'comments_for_audit_log'].nil? && opts[:'comments_for_audit_log'].to_s.length > 4096
+        fail ArgumentError, 'invalid value for "opts[:"comments_for_audit_log"]" when calling RealTimeResponseAdmin.r_tr_update_scripts_v2, the character length must be smaller than or equal to 4096.'
+      end
+
+      # resource path
+      local_var_path = '/real-time-response/entities/scripts/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['id'] = id
+      form_params['file'] = opts[:'file'] if !opts[:'file'].nil?
+      form_params['description'] = opts[:'description'] if !opts[:'description'].nil?
+      form_params['name'] = opts[:'name'] if !opts[:'name'].nil?
+      form_params['comments_for_audit_log'] = opts[:'comments_for_audit_log'] if !opts[:'comments_for_audit_log'].nil?
+      form_params['permission_type'] = opts[:'permission_type'] if !opts[:'permission_type'].nil?
+      form_params['content'] = opts[:'content'] if !opts[:'content'].nil?
+      form_params['platform'] = @api_client.build_collection_param(opts[:'platform'], :csv) if !opts[:'platform'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EmpowerapiMsaPFResponseV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"RealTimeResponseAdmin.r_tr_update_scripts_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_update_scripts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

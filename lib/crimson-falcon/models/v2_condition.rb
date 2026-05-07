@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -42,6 +41,9 @@ module Falcon
 
     attr_accessor :expression
 
+    # Optional user provided name for the condition.
+    attr_accessor :name
+
     attr_accessor :_next
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -52,6 +54,7 @@ module Falcon
         :'_else' => :'else',
         :'else_if' => :'else_if',
         :'expression' => :'expression',
+        :'name' => :'name',
         :'_next' => :'next'
       }
     end
@@ -69,6 +72,7 @@ module Falcon
         :'_else' => :'Array<String>',
         :'else_if' => :'String',
         :'expression' => :'String',
+        :'name' => :'String',
         :'_next' => :'Array<String>'
       }
     end
@@ -118,6 +122,10 @@ module Falcon
         self.expression = attributes[:'expression']
       end
 
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
       if attributes.key?(:'_next')
         if (value = attributes[:'_next']).is_a?(Array)
           self._next = value
@@ -153,6 +161,7 @@ module Falcon
           _else == o._else &&
           else_if == o.else_if &&
           expression == o.expression &&
+          name == o.name &&
           _next == o._next
     end
 
@@ -165,7 +174,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cel_expression, display, _else, else_if, expression, _next].hash
+      [cel_expression, display, _else, else_if, expression, name, _next].hash
     end
 
     # Builds the object from hash

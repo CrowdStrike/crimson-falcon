@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -73,8 +72,8 @@ describe 'IntelligenceFeeds' do
   # unit tests for query_feed_archives
   # Queries the accessible feed types for a customer. Returns a list of feed item IDs which can be later downloaded
   # @param feed_name Feed Name
-  # @param feed_interval Feed interval must be one of: dump|daily|hourly|minutely
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :feed_interval Feed interval must be one of: - dump: Complete historical data snapshot - daily: Daily aggregated updates - hourly: Hourly incremental updates - minutely: Minute-by-minute updates - any: Automatically combines the appropriate intervals to provide complete, up-to-date data with minimal overlap  Defaults to &#39;any&#39; if not specified.
   # @option opts [String] :since Since is a valid timestamp in RFC3399 format. Restrictions: minutely: now()-2h, hourly: now()-2d, daily: now()-5d; dump: now()-7d
   # @return [RestapiIndicatorFeedQueryResponse]
   describe 'query_feed_archives test' do

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -49,11 +48,356 @@ describe 'Default' do
     end
   end
 
+  # unit tests for combined_query_installed_patches
+  # Get installed patches information for hosts
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :after Pagination token for next page
+  # @option opts [Integer] :limit Maximum number of results
+  # @option opts [String] :filter FQL query specifying the filter parameters.    Empty value means to not filter on anything.    Available filter fields that supports exact match: aid, cid, hostname, reboot_required    Available filter fields that supports wildcard (*): N/A    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): N/A    All filter fields and operations supports negation (!)
+  # @option opts [String] :sort Sort field and direction. Available sort fields: hostname.     Ex: &#39;hostname|asc&#39; or &#39;hostname|desc&#39;.
+  # @return [DomainSPAPICombinedInstalledPatchesResponse]
+  describe 'combined_query_installed_patches test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for delete_collections_v1
+  # Cancel Collections
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :ids Collection IDs
+  # @return [DomainEntitiesCollectionsResponseV1]
+  describe 'delete_collections_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for delete_configs_v1
+  # Retires a custom configuration
+  # @param ids Configuration IDs
+  # @param [Hash] opts the optional parameters
+  # @return [DomainEntitiesConfigurationsResponseV1]
+  describe 'delete_configs_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_collection_counts_by_v1
+  # Get Collection counts by field names: collection_tag and state
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL filter
+  # @option opts [String] :limit Limit
+  # @option opts [String] :offset Offset
+  # @option opts [String] :sort Sort
+  # @return [DomainAggregateCollectionCountsByResponseV1]
+  describe 'get_collection_counts_by_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_collections_v1
+  # Get Collections with given IDs, Platform, Agent/Collector IDs, States
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :ids Collection IDs
+  # @option opts [String] :platform Platform
+  # @option opts [Array<String>] :aids Agent IDs
+  # @option opts [Array<String>] :ffcids Falcon Forensics Collector IDs
+  # @option opts [Array<String>] :states Falcon Forensics Collection States
+  # @option opts [String] :sort Sort
+  # @return [DomainEntitiesCollectionsResponseV1]
+  describe 'get_collections_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_collectors_v1
+  # Get collectors
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :ids Collector IDs
+  # @option opts [String] :platform Platform
+  # @option opts [String] :sort Sort
+  # @return [DomainEntitiesCollectorsResponseV1]
+  describe 'get_collectors_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_combined_collections_v1
+  # Get Collections with given IDs, Platform, Agent/Collector IDs, States
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :ids Collection IDs
+  # @option opts [String] :filter FQL filter
+  # @option opts [String] :limit Limit
+  # @option opts [String] :offset Offset
+  # @option opts [String] :sort Sort
+  # @return [DomainEntitiesCollectionsResponseV1]
+  describe 'get_combined_collections_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_combined_collectors_v1
+  # Get collectors for the given Customer ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :ids Collector IDs
+  # @option opts [String] :filter FQL filter
+  # @option opts [String] :limit Limit
+  # @option opts [String] :offset Offset
+  # @option opts [String] :sort Sort
+  # @return [DomainEntitiesCollectorsResponseV1]
+  describe 'get_combined_collectors_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_combined_configs_v1
+  # Get Configurations for the given Customer ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :ids Configuration IDs
+  # @option opts [String] :filter FQL filter
+  # @option opts [String] :limit Limit
+  # @option opts [String] :offset Offset
+  # @option opts [String] :sort Sort
+  # @return [DomainEntitiesConfigurationsResponseV1]
+  describe 'get_combined_configs_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_combined_templates_v1
+  # Get Templates with the given IDs
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :ids Template IDs
+  # @option opts [String] :filter FQL filter
+  # @option opts [String] :limit Limit
+  # @option opts [String] :offset Offset
+  # @option opts [String] :sort Sort
+  # @return [DomainEntitiesTemplatesResponseV1]
+  describe 'get_combined_templates_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_config_download_v1
+  # Download offline Configuration file using ID
+  # @param id Configuration ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :collection_tag Configuration Collection Tag
+  # @option opts [Boolean] :self_destruct Self-Destruct config
+  # @return [Array<Integer>]
+  describe 'get_config_download_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_configs_v1
+  # Get Configurations with the given IDs
+  # @param ids Configuration IDs
+  # @param [Hash] opts the optional parameters
+  # @return [DomainEntitiesConfigurationsResponseV1]
+  describe 'get_configs_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_templates_v1
+  # Get Templates with the given IDs
+  # @param ids Template IDs
+  # @param [Hash] opts the optional parameters
+  # @return [DomainEntitiesTemplatesResponseV1]
+  describe 'get_templates_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for post_collections_v1
+  # Create Collections
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DomainEntitiesCollectionsResponseV1]
+  describe 'post_collections_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for post_collectors_v1
+  # shutdown collectors with self_destruct option
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DomainEntitiesCollectorsResponseV1]
+  describe 'post_collectors_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for post_configs_v1
+  # Creates a new custom configuration
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DomainEntitiesConfigurationsResponseV1]
+  describe 'post_configs_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for post_deploy_v1
+  # deploy collector to managed endpoints
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DomainEntitiesCollectorsResponseV1]
+  describe 'post_deploy_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for post_graphql_query_mixin0
   # - request graphql query
   # @param [Hash] opts the optional parameters
   # @return [Hash<String, Object>]
   describe 'post_graphql_query_mixin0 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for put_collections_v1
+  # Update Collections
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DomainEntitiesCollectionsResponseV1]
+  describe 'put_collections_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for put_configs_v1
+  # Creates or replaces an existing custom configuration
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DomainEntitiesConfigurationsResponseV1]
+  describe 'put_configs_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for search_collections_v1
+  # Search Collections for the given Customer ID and/or Platform in states
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :platform Platform
+  # @option opts [Array<String>] :states Falcon Forensics Collection States
+  # @option opts [Array<String>] :aids Agent IDs
+  # @option opts [Array<String>] :ffcids Falcon Forensics Collector IDs
+  # @option opts [String] :filter FQL filter
+  # @option opts [String] :limit Limit
+  # @option opts [String] :offset Offset
+  # @option opts [String] :sort Sort
+  # @return [DomainQueriesResponseV1]
+  describe 'search_collections_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for search_collectors_v1
+  # Search Collectors for the given Customer ID and Platform
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :platform Platform
+  # @option opts [String] :filter FQL filter
+  # @option opts [String] :limit Limit
+  # @option opts [String] :offset Offset
+  # @option opts [String] :sort Sort
+  # @return [DomainQueriesResponseV1]
+  describe 'search_collectors_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for search_configs_v1
+  # Search Configurations for the given Customer ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL filter
+  # @option opts [String] :limit Limit
+  # @option opts [String] :offset Offset
+  # @option opts [String] :sort Sort
+  # @return [DomainQueriesResponseV1]
+  describe 'search_configs_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for search_templates_v1
+  # Search Templates
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL filter
+  # @option opts [String] :limit Limit
+  # @option opts [String] :offset Offset
+  # @option opts [String] :sort Sort
+  # @return [DomainQueriesResponseV1]
+  describe 'search_templates_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for v1_host_configs_post
+  # Configures all hosts in the provided host group to be ready to accept an execute API call
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [PluginsonpremapiOnPremConfigureResponse]
+  describe 'v1_host_configs_post test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for v1_status_get
+  # Fetches the host configs within the provided host group.
+  # @param ids ID of host group(s) to get configuration for.
+  # @param [Hash] opts the optional parameters
+  # @return [PluginsonpremapiOnPremGetHostConfigsResponse]
+  describe 'v1_status_get test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for validate_collection_v1
+  # Validates a configuration collection
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DomainResponseV1]
+  describe 'validate_collection_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for validate_config_v1
+  # Validates a custom configuration
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DomainResponseV1]
+  describe 'validate_config_v1 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

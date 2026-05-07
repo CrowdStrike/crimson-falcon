@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -60,11 +59,11 @@ describe 'CloudSnapshots' do
     end
   end
 
-  # unit tests for get_credentials_mixin0_mixin60
+  # unit tests for get_credentials_mixin0_mixin54
   # Gets the registry credentials
   # @param [Hash] opts the optional parameters
   # @return [ModelsRegistryCredentialsResponse]
-  describe 'get_credentials_mixin0_mixin60 test' do
+  describe 'get_credentials_mixin0_mixin54 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

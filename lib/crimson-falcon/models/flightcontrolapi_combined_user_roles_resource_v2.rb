@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -52,6 +51,8 @@ module Falcon
 
     attr_accessor :user_group_name
 
+    attr_accessor :user_type
+
     attr_accessor :uuid
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -67,6 +68,7 @@ module Falcon
         :'role_name' => :'role_name',
         :'user_group_id' => :'user_group_id',
         :'user_group_name' => :'user_group_name',
+        :'user_type' => :'user_type',
         :'uuid' => :'uuid'
       }
     end
@@ -89,6 +91,7 @@ module Falcon
         :'role_name' => :'String',
         :'user_group_id' => :'String',
         :'user_group_name' => :'String',
+        :'user_type' => :'String',
         :'uuid' => :'String'
       }
     end
@@ -154,6 +157,10 @@ module Falcon
         self.user_group_name = attributes[:'user_group_name']
       end
 
+      if attributes.key?(:'user_type')
+        self.user_type = attributes[:'user_type']
+      end
+
       if attributes.key?(:'uuid')
         self.uuid = attributes[:'uuid']
       end
@@ -192,6 +199,7 @@ module Falcon
           role_name == o.role_name &&
           user_group_id == o.user_group_id &&
           user_group_name == o.user_group_name &&
+          user_type == o.user_type &&
           uuid == o.uuid
     end
 
@@ -204,7 +212,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, cid_group_id, cid_group_name, expires_at, grant_type, parent_cid, role_id, role_name, user_group_id, user_group_name, uuid].hash
+      [cid, cid_group_id, cid_group_name, expires_at, grant_type, parent_cid, role_id, role_name, user_group_id, user_group_name, user_type, uuid].hash
     end
 
     # Builds the object from hash

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -272,30 +271,6 @@ describe 'ASPM' do
   # @param [Hash] opts the optional parameters
   # @return [TypesGetCloudSecurityIntegrationStateResponse]
   describe 'get_cloud_security_integration_state test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for get_cspm_inventory_ba_services
-  # Gets services ordered by risk score for given BA
-  # @param business_application_name Business application name
-  # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :offset Pagination offset
-  # @option opts [Integer] :limit Pagination limit
-  # @return [TypesGeneralQueryResponse]
-  describe 'get_cspm_inventory_ba_services test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for get_cspm_inventory_service_details
-  # Gets all service details for CSPM Inventory.
-  # @param persistent_signature Service signature
-  # @param [Hash] opts the optional parameters
-  # @return [TypesGeneralQueryResponse]
-  describe 'get_cspm_inventory_service_details test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

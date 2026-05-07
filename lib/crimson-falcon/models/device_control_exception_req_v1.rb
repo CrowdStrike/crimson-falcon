@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,36 +31,66 @@ require 'time'
 
 module Falcon
   class DeviceControlExceptionReqV1
+    # Action to be taken for devices matching this exception. Note: BLOCK_EXECUTE and BLOCK_WRITE_EXECUTE only valid for MASS_STORAGE class
     attr_accessor :action
 
+    # Combined identifier in the format 'vendorID_productID_serialNumber'. Not allowed if use_wildcard is true.
     attr_accessor :combined_id
 
+    # Description for this exception. Maximum length: 512 characters.
     attr_accessor :description
 
+    # yyyy-mm-ddThh:mm:ssZ (UTC) format of the time to remove the exception if temporary. Must be in the future.
     attr_accessor :expiration_time
 
-    # Unique identifier for an exception
+    # Unique identifier for an exception. If omitted, a new exception will be created.
     attr_accessor :id
 
+    # Hexadecimal ProductID used to apply the exception. Must be a valid hex value representing a decimal value less than 65535. Only one of product_id or product_id_decimal is required.
     attr_accessor :product_id
 
+    # Decimal ProductID used to apply the exception. Must be a valid decimal value less than 65535. Only one of product_id or product_id_decimal is required.
     attr_accessor :product_id_decimal
 
+    # Product Name, optional.
     attr_accessor :product_name
 
+    # Serial number of the USB device. Maximum length: 126 characters. Required when use_wildcard is true.
     attr_accessor :serial_number
 
-    # true indicates using blob syntax USB serial numbers
+    # true indicates using blob syntax for USB serial numbers. When true, requires serial_number and either vendor_id(_decimal) and product_id(_decimal). Cannot be used with combined_id. Double asterisks (**) are not supported.
     attr_accessor :use_wildcard
 
-    # Hexadecimal VendorID used to apply the exception
+    # Hexadecimal VendorID used to apply the exception. Must be a valid hex value representing a decimal value less than 65535. Only one of vendor_id or vendor_id_decimal is required.
     attr_accessor :vendor_id
 
-    # Hexadecimal VendorID used to apply the exception
+    # Decimal VendorID used to apply the exception. Must be a valid decimal value less than 65535. Only one of vendor_id or vendor_id_decimal is required.
     attr_accessor :vendor_id_decimal
 
     # Vendor Name, optional
     attr_accessor :vendor_name
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -190,7 +219,19 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      action_validator = EnumAttributeValidator.new('String', ["FULL_ACCESS", "BLOCK_ALL", "BLOCK_EXECUTE", "BLOCK_WRITE_EXECUTE"])
+      return false unless action_validator.valid?(@action)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] action Object to be assigned
+    def action=(action)
+      validator = EnumAttributeValidator.new('String', ["FULL_ACCESS", "BLOCK_ALL", "BLOCK_EXECUTE", "BLOCK_WRITE_EXECUTE"])
+      unless validator.valid?(action)
+        fail ArgumentError, "invalid value for \"action\", must be one of #{validator.allowable_values}."
+      end
+      @action = action
     end
 
     # Checks equality by comparing each attribute.

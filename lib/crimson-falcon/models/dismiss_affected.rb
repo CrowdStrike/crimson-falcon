@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -55,9 +54,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'errors' => :'Array<Error35d6bd13358246f9ae9ffbe791550e06>',
-        :'meta' => :'Meta27c23ca116c1477bb85e765b5e09af69',
-        :'resources' => :'Array<ReasonResult53b5512288cb4a35afeb08fb3232bc9a>'
+        :'errors' => :'Array<ErrorDismissAffected>',
+        :'meta' => :'MetaDismissAffected',
+        :'resources' => :'Array<ReasonResultDismissAffected>'
       }
     end
 

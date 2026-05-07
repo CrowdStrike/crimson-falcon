@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -44,16 +43,26 @@ module Falcon
     # The customer ID of this application.
     attr_accessor :cid
 
+    attr_accessor :dev_package
+
+    # The unique identifier for the extension.
+    attr_accessor :extension_id
+
     # Timestamp when this application was first seen by the cloud.
     attr_accessor :first_seen_timestamp
 
     # The user defined groups this application is part of.
     attr_accessor :groups
 
+    # The homepage URL of the application.
+    attr_accessor :homepage
+
     attr_accessor :host
 
     # The unique ID for the application.
     attr_accessor :id
+
+    attr_accessor :ide_extension
 
     # The file paths where the application is installed on the host. Or the locations of the executables.
     attr_accessor :installation_paths
@@ -64,8 +73,11 @@ module Falcon
     # Whether or not the application is normalized
     attr_accessor :is_normalized
 
-    # Whether or not the application is suspicious
+    # Whether or not the application is suspicious (detection-based for malware)
     attr_accessor :is_suspicious
+
+    # Timestamp when this application was last published.
+    attr_accessor :last_published
 
     # Timestamp when this application was last updated (something changed in the application or in the host data).
     attr_accessor :last_updated_timestamp
@@ -94,8 +106,17 @@ module Falcon
     # The combined field on which we will be able to group by app + version.
     attr_accessor :name_vendor_version
 
-    # The type of software of the application.
+    # The type of software of the application. Types are application, browser_extension, dev_package, ide_extension
     attr_accessor :software_type
+
+    # The store listing information for the application.
+    attr_accessor :store_listing
+
+    # The status of the application in the store listing.
+    attr_accessor :store_listing_status
+
+    # List of security risk indicators for this application
+    attr_accessor :suspicious_indicators
 
     # The name the application's vendor.
     attr_accessor :vendor
@@ -113,14 +134,19 @@ module Falcon
         :'browser_extension' => :'browser_extension',
         :'category' => :'category',
         :'cid' => :'cid',
+        :'dev_package' => :'dev_package',
+        :'extension_id' => :'extension_id',
         :'first_seen_timestamp' => :'first_seen_timestamp',
         :'groups' => :'groups',
+        :'homepage' => :'homepage',
         :'host' => :'host',
         :'id' => :'id',
+        :'ide_extension' => :'ide_extension',
         :'installation_paths' => :'installation_paths',
         :'installation_timestamp' => :'installation_timestamp',
         :'is_normalized' => :'is_normalized',
         :'is_suspicious' => :'is_suspicious',
+        :'last_published' => :'last_published',
         :'last_updated_timestamp' => :'last_updated_timestamp',
         :'last_used_file_hash' => :'last_used_file_hash',
         :'last_used_file_name' => :'last_used_file_name',
@@ -131,6 +157,9 @@ module Falcon
         :'name_vendor' => :'name_vendor',
         :'name_vendor_version' => :'name_vendor_version',
         :'software_type' => :'software_type',
+        :'store_listing' => :'store_listing',
+        :'store_listing_status' => :'store_listing_status',
+        :'suspicious_indicators' => :'suspicious_indicators',
         :'vendor' => :'vendor',
         :'version' => :'version',
         :'versioning_scheme' => :'versioning_scheme'
@@ -149,14 +178,19 @@ module Falcon
         :'browser_extension' => :'DomainDiscoverAPIApplicationBrowserExtension',
         :'category' => :'String',
         :'cid' => :'String',
+        :'dev_package' => :'DomainDiscoverAPIApplicationPackage',
+        :'extension_id' => :'String',
         :'first_seen_timestamp' => :'String',
         :'groups' => :'Array<String>',
+        :'homepage' => :'String',
         :'host' => :'DomainDiscoverAPIApplicationHost',
         :'id' => :'String',
+        :'ide_extension' => :'DomainDiscoverAPIApplicationIDEExtension',
         :'installation_paths' => :'Array<String>',
         :'installation_timestamp' => :'String',
         :'is_normalized' => :'Boolean',
         :'is_suspicious' => :'Boolean',
+        :'last_published' => :'String',
         :'last_updated_timestamp' => :'String',
         :'last_used_file_hash' => :'String',
         :'last_used_file_name' => :'String',
@@ -167,6 +201,9 @@ module Falcon
         :'name_vendor' => :'String',
         :'name_vendor_version' => :'String',
         :'software_type' => :'String',
+        :'store_listing' => :'String',
+        :'store_listing_status' => :'String',
+        :'suspicious_indicators' => :'Array<DomainDiscoverAPISuspiciousIndicator>',
         :'vendor' => :'String',
         :'version' => :'String',
         :'versioning_scheme' => :'String'
@@ -212,6 +249,14 @@ module Falcon
         self.cid = attributes[:'cid']
       end
 
+      if attributes.key?(:'dev_package')
+        self.dev_package = attributes[:'dev_package']
+      end
+
+      if attributes.key?(:'extension_id')
+        self.extension_id = attributes[:'extension_id']
+      end
+
       if attributes.key?(:'first_seen_timestamp')
         self.first_seen_timestamp = attributes[:'first_seen_timestamp']
       end
@@ -222,12 +267,20 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'homepage')
+        self.homepage = attributes[:'homepage']
+      end
+
       if attributes.key?(:'host')
         self.host = attributes[:'host']
       end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'ide_extension')
+        self.ide_extension = attributes[:'ide_extension']
       end
 
       if attributes.key?(:'installation_paths')
@@ -246,6 +299,10 @@ module Falcon
 
       if attributes.key?(:'is_suspicious')
         self.is_suspicious = attributes[:'is_suspicious']
+      end
+
+      if attributes.key?(:'last_published')
+        self.last_published = attributes[:'last_published']
       end
 
       if attributes.key?(:'last_updated_timestamp')
@@ -286,6 +343,20 @@ module Falcon
 
       if attributes.key?(:'software_type')
         self.software_type = attributes[:'software_type']
+      end
+
+      if attributes.key?(:'store_listing')
+        self.store_listing = attributes[:'store_listing']
+      end
+
+      if attributes.key?(:'store_listing_status')
+        self.store_listing_status = attributes[:'store_listing_status']
+      end
+
+      if attributes.key?(:'suspicious_indicators')
+        if (value = attributes[:'suspicious_indicators']).is_a?(Array)
+          self.suspicious_indicators = value
+        end
       end
 
       if attributes.key?(:'vendor')
@@ -333,14 +404,19 @@ module Falcon
           browser_extension == o.browser_extension &&
           category == o.category &&
           cid == o.cid &&
+          dev_package == o.dev_package &&
+          extension_id == o.extension_id &&
           first_seen_timestamp == o.first_seen_timestamp &&
           groups == o.groups &&
+          homepage == o.homepage &&
           host == o.host &&
           id == o.id &&
+          ide_extension == o.ide_extension &&
           installation_paths == o.installation_paths &&
           installation_timestamp == o.installation_timestamp &&
           is_normalized == o.is_normalized &&
           is_suspicious == o.is_suspicious &&
+          last_published == o.last_published &&
           last_updated_timestamp == o.last_updated_timestamp &&
           last_used_file_hash == o.last_used_file_hash &&
           last_used_file_name == o.last_used_file_name &&
@@ -351,6 +427,9 @@ module Falcon
           name_vendor == o.name_vendor &&
           name_vendor_version == o.name_vendor_version &&
           software_type == o.software_type &&
+          store_listing == o.store_listing &&
+          store_listing_status == o.store_listing_status &&
+          suspicious_indicators == o.suspicious_indicators &&
           vendor == o.vendor &&
           version == o.version &&
           versioning_scheme == o.versioning_scheme
@@ -365,7 +444,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [architectures, browser_extension, category, cid, first_seen_timestamp, groups, host, id, installation_paths, installation_timestamp, is_normalized, is_suspicious, last_updated_timestamp, last_used_file_hash, last_used_file_name, last_used_timestamp, last_used_user_name, last_used_user_sid, name, name_vendor, name_vendor_version, software_type, vendor, version, versioning_scheme].hash
+      [architectures, browser_extension, category, cid, dev_package, extension_id, first_seen_timestamp, groups, homepage, host, id, ide_extension, installation_paths, installation_timestamp, is_normalized, is_suspicious, last_published, last_updated_timestamp, last_used_file_hash, last_used_file_name, last_used_timestamp, last_used_user_name, last_used_user_sid, name, name_vendor, name_vendor_version, software_type, store_listing, store_listing_status, suspicious_indicators, vendor, version, versioning_scheme].hash
     end
 
     # Builds the object from hash

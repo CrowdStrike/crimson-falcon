@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -38,6 +37,12 @@ module Falcon
     # Common linkage between multiple Alerts that belong to the same detection bouquet
     attr_accessor :aggregate_id
 
+    # An opaque internal identifier that can uniquely identify the aggregation rule
+    attr_accessor :aggregation_rule_id
+
+    # Aggregation rule name
+    attr_accessor :aggregation_rule_name
+
     # Name of the person this Alert is assigned to
     attr_accessor :assigned_to_name
 
@@ -49,6 +54,9 @@ module Falcon
 
     # Unique ID of CrowdStrike customers
     attr_accessor :cid
+
+    # An opaque internal identifier that can uniquely identify the CMS rule which triggered this detection
+    attr_accessor :cms_rule_id
 
     # An opaque internal identifier that can uniquely identify an Alert
     attr_accessor :composite_id
@@ -80,6 +88,12 @@ module Falcon
     # Vertex key which triggers the formation of the Alert
     attr_accessor :id
 
+    # Boolean indicating if this Alert is an aggregated alert
+    attr_accessor :is_aggregated
+
+    # Linked Behavioral Detections are behavioral detections that are associated with this alert
+    attr_accessor :linked_behavioral_detections
+
     # Linked Case Ids are cases that are associated with this alert
     attr_accessor :linked_case_ids
 
@@ -91,6 +105,9 @@ module Falcon
 
     # End goal that an attack adversary intends to achieve according to MITRE
     attr_accessor :objective
+
+    # Original CID value when the alert was first created, mirrors the cid field during alert creation
+    attr_accessor :origin_cid
 
     # Taxonomy patternID for this Alert
     attr_accessor :pattern_id
@@ -160,10 +177,13 @@ module Falcon
       {
         :'agent_id' => :'agent_id',
         :'aggregate_id' => :'aggregate_id',
+        :'aggregation_rule_id' => :'aggregation_rule_id',
+        :'aggregation_rule_name' => :'aggregation_rule_name',
         :'assigned_to_name' => :'assigned_to_name',
         :'assigned_to_uid' => :'assigned_to_uid',
         :'assigned_to_uuid' => :'assigned_to_uuid',
         :'cid' => :'cid',
+        :'cms_rule_id' => :'cms_rule_id',
         :'composite_id' => :'composite_id',
         :'confidence' => :'confidence',
         :'crawled_timestamp' => :'crawled_timestamp',
@@ -174,10 +194,13 @@ module Falcon
         :'email_sent' => :'email_sent',
         :'external' => :'external',
         :'id' => :'id',
+        :'is_aggregated' => :'is_aggregated',
+        :'linked_behavioral_detections' => :'linked_behavioral_detections',
         :'linked_case_ids' => :'linked_case_ids',
         :'mitre_attack' => :'mitre_attack',
         :'name' => :'name',
         :'objective' => :'objective',
+        :'origin_cid' => :'origin_cid',
         :'pattern_id' => :'pattern_id',
         :'platform' => :'platform',
         :'product' => :'product',
@@ -212,10 +235,13 @@ module Falcon
       {
         :'agent_id' => :'String',
         :'aggregate_id' => :'String',
+        :'aggregation_rule_id' => :'String',
+        :'aggregation_rule_name' => :'String',
         :'assigned_to_name' => :'String',
         :'assigned_to_uid' => :'String',
         :'assigned_to_uuid' => :'String',
         :'cid' => :'String',
+        :'cms_rule_id' => :'String',
         :'composite_id' => :'String',
         :'confidence' => :'Integer',
         :'crawled_timestamp' => :'Time',
@@ -226,10 +252,13 @@ module Falcon
         :'email_sent' => :'Boolean',
         :'external' => :'Boolean',
         :'id' => :'String',
+        :'is_aggregated' => :'Boolean',
+        :'linked_behavioral_detections' => :'Array<String>',
         :'linked_case_ids' => :'Array<String>',
         :'mitre_attack' => :'Array<DetectsMitreAttackMapping>',
         :'name' => :'String',
         :'objective' => :'String',
+        :'origin_cid' => :'String',
         :'pattern_id' => :'Integer',
         :'platform' => :'String',
         :'product' => :'String',
@@ -283,6 +312,14 @@ module Falcon
         self.aggregate_id = attributes[:'aggregate_id']
       end
 
+      if attributes.key?(:'aggregation_rule_id')
+        self.aggregation_rule_id = attributes[:'aggregation_rule_id']
+      end
+
+      if attributes.key?(:'aggregation_rule_name')
+        self.aggregation_rule_name = attributes[:'aggregation_rule_name']
+      end
+
       if attributes.key?(:'assigned_to_name')
         self.assigned_to_name = attributes[:'assigned_to_name']
       end
@@ -297,6 +334,10 @@ module Falcon
 
       if attributes.key?(:'cid')
         self.cid = attributes[:'cid']
+      end
+
+      if attributes.key?(:'cms_rule_id')
+        self.cms_rule_id = attributes[:'cms_rule_id']
       end
 
       if attributes.key?(:'composite_id')
@@ -341,6 +382,16 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'is_aggregated')
+        self.is_aggregated = attributes[:'is_aggregated']
+      end
+
+      if attributes.key?(:'linked_behavioral_detections')
+        if (value = attributes[:'linked_behavioral_detections']).is_a?(Array)
+          self.linked_behavioral_detections = value
+        end
+      end
+
       if attributes.key?(:'linked_case_ids')
         if (value = attributes[:'linked_case_ids']).is_a?(Array)
           self.linked_case_ids = value
@@ -359,6 +410,10 @@ module Falcon
 
       if attributes.key?(:'objective')
         self.objective = attributes[:'objective']
+      end
+
+      if attributes.key?(:'origin_cid')
+        self.origin_cid = attributes[:'origin_cid']
       end
 
       if attributes.key?(:'pattern_id')
@@ -464,6 +519,14 @@ module Falcon
         invalid_properties.push('invalid value for "aggregate_id", aggregate_id cannot be nil.')
       end
 
+      if @aggregation_rule_id.nil?
+        invalid_properties.push('invalid value for "aggregation_rule_id", aggregation_rule_id cannot be nil.')
+      end
+
+      if @aggregation_rule_name.nil?
+        invalid_properties.push('invalid value for "aggregation_rule_name", aggregation_rule_name cannot be nil.')
+      end
+
       if @assigned_to_name.nil?
         invalid_properties.push('invalid value for "assigned_to_name", assigned_to_name cannot be nil.')
       end
@@ -478,6 +541,10 @@ module Falcon
 
       if @cid.nil?
         invalid_properties.push('invalid value for "cid", cid cannot be nil.')
+      end
+
+      if @cms_rule_id.nil?
+        invalid_properties.push('invalid value for "cms_rule_id", cms_rule_id cannot be nil.')
       end
 
       if @composite_id.nil?
@@ -520,6 +587,14 @@ module Falcon
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
+      if @is_aggregated.nil?
+        invalid_properties.push('invalid value for "is_aggregated", is_aggregated cannot be nil.')
+      end
+
+      if @linked_behavioral_detections.nil?
+        invalid_properties.push('invalid value for "linked_behavioral_detections", linked_behavioral_detections cannot be nil.')
+      end
+
       if @linked_case_ids.nil?
         invalid_properties.push('invalid value for "linked_case_ids", linked_case_ids cannot be nil.')
       end
@@ -534,6 +609,10 @@ module Falcon
 
       if @objective.nil?
         invalid_properties.push('invalid value for "objective", objective cannot be nil.')
+      end
+
+      if @origin_cid.nil?
+        invalid_properties.push('invalid value for "origin_cid", origin_cid cannot be nil.')
       end
 
       if @pattern_id.nil?
@@ -628,10 +707,13 @@ module Falcon
     def valid?
       return false if @agent_id.nil?
       return false if @aggregate_id.nil?
+      return false if @aggregation_rule_id.nil?
+      return false if @aggregation_rule_name.nil?
       return false if @assigned_to_name.nil?
       return false if @assigned_to_uid.nil?
       return false if @assigned_to_uuid.nil?
       return false if @cid.nil?
+      return false if @cms_rule_id.nil?
       return false if @composite_id.nil?
       return false if @confidence.nil?
       return false if @crawled_timestamp.nil?
@@ -642,10 +724,13 @@ module Falcon
       return false if @email_sent.nil?
       return false if @external.nil?
       return false if @id.nil?
+      return false if @is_aggregated.nil?
+      return false if @linked_behavioral_detections.nil?
       return false if @linked_case_ids.nil?
       return false if @mitre_attack.nil?
       return false if @name.nil?
       return false if @objective.nil?
+      return false if @origin_cid.nil?
       return false if @pattern_id.nil?
       return false if @platform.nil?
       return false if @product.nil?
@@ -677,10 +762,13 @@ module Falcon
       self.class == o.class &&
           agent_id == o.agent_id &&
           aggregate_id == o.aggregate_id &&
+          aggregation_rule_id == o.aggregation_rule_id &&
+          aggregation_rule_name == o.aggregation_rule_name &&
           assigned_to_name == o.assigned_to_name &&
           assigned_to_uid == o.assigned_to_uid &&
           assigned_to_uuid == o.assigned_to_uuid &&
           cid == o.cid &&
+          cms_rule_id == o.cms_rule_id &&
           composite_id == o.composite_id &&
           confidence == o.confidence &&
           crawled_timestamp == o.crawled_timestamp &&
@@ -691,10 +779,13 @@ module Falcon
           email_sent == o.email_sent &&
           external == o.external &&
           id == o.id &&
+          is_aggregated == o.is_aggregated &&
+          linked_behavioral_detections == o.linked_behavioral_detections &&
           linked_case_ids == o.linked_case_ids &&
           mitre_attack == o.mitre_attack &&
           name == o.name &&
           objective == o.objective &&
+          origin_cid == o.origin_cid &&
           pattern_id == o.pattern_id &&
           platform == o.platform &&
           product == o.product &&
@@ -727,7 +818,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_id, aggregate_id, assigned_to_name, assigned_to_uid, assigned_to_uuid, cid, composite_id, confidence, crawled_timestamp, created_timestamp, data_domains, description, display_name, email_sent, external, id, linked_case_ids, mitre_attack, name, objective, pattern_id, platform, product, resolution, scenario, seconds_to_resolved, seconds_to_triaged, severity, severity_name, show_in_ui, source_products, source_vendors, status, tactic, tactic_id, tags, technique, technique_id, timestamp, type, updated_timestamp].hash
+      [agent_id, aggregate_id, aggregation_rule_id, aggregation_rule_name, assigned_to_name, assigned_to_uid, assigned_to_uuid, cid, cms_rule_id, composite_id, confidence, crawled_timestamp, created_timestamp, data_domains, description, display_name, email_sent, external, id, is_aggregated, linked_behavioral_detections, linked_case_ids, mitre_attack, name, objective, origin_cid, pattern_id, platform, product, resolution, scenario, seconds_to_resolved, seconds_to_triaged, severity, severity_name, show_in_ui, source_products, source_vendors, status, tactic, tactic_id, tags, technique, technique_id, timestamp, type, updated_timestamp].hash
     end
 
     # Builds the object from hash

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -73,9 +72,10 @@ describe 'CloudAwsRegistration' do
   end
 
   # unit tests for cloud_registration_aws_get_accounts
-  # Retrieve existing AWS accounts by account IDs
+  # Retrieve existing AWS accounts by account IDs or organization IDs
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :ids AWS account IDs to filter
+  # @option opts [Array<String>] :organization_ids AWS organization IDs to filter
   # @return [RestAWSAccountCreateResponseExtV1]
   describe 'cloud_registration_aws_get_accounts test' do
     it 'should work' do
@@ -93,8 +93,20 @@ describe 'CloudAwsRegistration' do
   # @option opts [Integer] :limit The maximum number of items to return. When not specified or 0, 100 is used. When larger than 500, 500 is used.
   # @option opts [Integer] :offset The offset to start retrieving records from.
   # @option opts [String] :group_by Field to group by.
-  # @return [RestAWSAccountCreateResponseExtV1]
+  # @return [RestAWSAccountQueryResponseExtV1]
   describe 'cloud_registration_aws_query_accounts test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_aws_trigger_health_check
+  # Trigger health check scan for AWS accounts
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :account_ids AWS Account IDs.
+  # @option opts [Array<String>] :organization_ids Organization IDs
+  # @return [RestAWSHealthCheckTriggerResponseExtV1]
+  describe 'cloud_registration_aws_trigger_health_check test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -106,6 +118,19 @@ describe 'CloudAwsRegistration' do
   # @param [Hash] opts the optional parameters
   # @return [RestAWSAccountCreateResponseExtV1]
   describe 'cloud_registration_aws_update_account test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_aws_validate_accounts
+  # Validates the AWS account registration status, and discover organization child accounts if organization is specified
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :account_id AWS Account ID. organization-id shouldn&#39;t be specified if this is specified
+  # @option opts [String] :iam_role_arn IAM Role ARN
+  # @option opts [String] :organization_id AWS organization ID to validate master account. account-id shouldn&#39;t be specified if this is specified
+  # @return [RestAWSAccountValidationResponse]
+  describe 'cloud_registration_aws_validate_accounts test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

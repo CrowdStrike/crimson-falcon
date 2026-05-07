@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,20 +31,17 @@ require 'time'
 
 module Falcon
   class DomainSearchAfterPaging
+    attr_accessor :after
+
     attr_accessor :limit
-
-    attr_accessor :_next
-
-    attr_accessor :offset
 
     attr_accessor :total
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'after' => :'after',
         :'limit' => :'limit',
-        :'_next' => :'next',
-        :'offset' => :'offset',
         :'total' => :'total'
       }
     end
@@ -58,9 +54,8 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'after' => :'String',
         :'limit' => :'Integer',
-        :'_next' => :'String',
-        :'offset' => :'String',
         :'total' => :'Integer'
       }
     end
@@ -86,16 +81,12 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'after')
+        self.after = attributes[:'after']
+      end
+
       if attributes.key?(:'limit')
         self.limit = attributes[:'limit']
-      end
-
-      if attributes.key?(:'_next')
-        self._next = attributes[:'_next']
-      end
-
-      if attributes.key?(:'offset')
-        self.offset = attributes[:'offset']
       end
 
       if attributes.key?(:'total')
@@ -107,16 +98,12 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @after.nil?
+        invalid_properties.push('invalid value for "after", after cannot be nil.')
+      end
+
       if @limit.nil?
         invalid_properties.push('invalid value for "limit", limit cannot be nil.')
-      end
-
-      if @_next.nil?
-        invalid_properties.push('invalid value for "_next", _next cannot be nil.')
-      end
-
-      if @offset.nil?
-        invalid_properties.push('invalid value for "offset", offset cannot be nil.')
       end
 
       if @total.nil?
@@ -129,9 +116,8 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @after.nil?
       return false if @limit.nil?
-      return false if @_next.nil?
-      return false if @offset.nil?
       return false if @total.nil?
       true
     end
@@ -141,9 +127,8 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          after == o.after &&
           limit == o.limit &&
-          _next == o._next &&
-          offset == o.offset &&
           total == o.total
     end
 
@@ -156,7 +141,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [limit, _next, offset, total].hash
+      [after, limit, total].hash
     end
 
     # Builds the object from hash

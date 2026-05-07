@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -37,10 +36,20 @@ module Falcon
     # Determines if a notification will be shown to the end user (omit to keep current)
     attr_accessor :end_user_notification
 
-    # Enforcement for the USB policy (omit to keep current)
+    # Enforcement for the USB policy (omit to keep current). Note: OFF only supported for Mac platform
     attr_accessor :enforcement_mode
 
+    # Boolean value to enable enhanced file metadata collection
     attr_accessor :enhanced_file_metadata
+
+    # Enforcement for PCIe/SD devices (omit to keep current). Note: OFF only supported for Mac platform
+    attr_accessor :pcie_enforcement_mode
+
+    # Enforcement for Windows Storage Spaces (omit to keep current).
+    attr_accessor :storage_space_enforcement_mode
+
+    # Enforcement mode for User Based exceptions
+    attr_accessor :user_based_enforcement_mode
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -70,7 +79,10 @@ module Falcon
         :'custom_notifications' => :'custom_notifications',
         :'end_user_notification' => :'end_user_notification',
         :'enforcement_mode' => :'enforcement_mode',
-        :'enhanced_file_metadata' => :'enhanced_file_metadata'
+        :'enhanced_file_metadata' => :'enhanced_file_metadata',
+        :'pcie_enforcement_mode' => :'pcie_enforcement_mode',
+        :'storage_space_enforcement_mode' => :'storage_space_enforcement_mode',
+        :'user_based_enforcement_mode' => :'user_based_enforcement_mode'
       }
     end
 
@@ -85,7 +97,10 @@ module Falcon
         :'custom_notifications' => :'DevicecontrolapiUSBCustomNotifications',
         :'end_user_notification' => :'String',
         :'enforcement_mode' => :'String',
-        :'enhanced_file_metadata' => :'Boolean'
+        :'enhanced_file_metadata' => :'Boolean',
+        :'pcie_enforcement_mode' => :'String',
+        :'storage_space_enforcement_mode' => :'String',
+        :'user_based_enforcement_mode' => :'String'
       }
     end
 
@@ -125,6 +140,18 @@ module Falcon
       if attributes.key?(:'enhanced_file_metadata')
         self.enhanced_file_metadata = attributes[:'enhanced_file_metadata']
       end
+
+      if attributes.key?(:'pcie_enforcement_mode')
+        self.pcie_enforcement_mode = attributes[:'pcie_enforcement_mode']
+      end
+
+      if attributes.key?(:'storage_space_enforcement_mode')
+        self.storage_space_enforcement_mode = attributes[:'storage_space_enforcement_mode']
+      end
+
+      if attributes.key?(:'user_based_enforcement_mode')
+        self.user_based_enforcement_mode = attributes[:'user_based_enforcement_mode']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -137,17 +164,23 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      end_user_notification_validator = EnumAttributeValidator.new('String', ["NOTIFY_USER,SILENT"])
+      end_user_notification_validator = EnumAttributeValidator.new('String', ["NOTIFY_USER", "SILENT"])
       return false unless end_user_notification_validator.valid?(@end_user_notification)
-      enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY,MONITOR_ENFORCE,OFF"])
+      enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE", "OFF"])
       return false unless enforcement_mode_validator.valid?(@enforcement_mode)
+      pcie_enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      return false unless pcie_enforcement_mode_validator.valid?(@pcie_enforcement_mode)
+      storage_space_enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      return false unless storage_space_enforcement_mode_validator.valid?(@storage_space_enforcement_mode)
+      user_based_enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      return false unless user_based_enforcement_mode_validator.valid?(@user_based_enforcement_mode)
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] end_user_notification Object to be assigned
     def end_user_notification=(end_user_notification)
-      validator = EnumAttributeValidator.new('String', ["NOTIFY_USER,SILENT"])
+      validator = EnumAttributeValidator.new('String', ["NOTIFY_USER", "SILENT"])
       unless validator.valid?(end_user_notification)
         fail ArgumentError, "invalid value for \"end_user_notification\", must be one of #{validator.allowable_values}."
       end
@@ -157,11 +190,41 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] enforcement_mode Object to be assigned
     def enforcement_mode=(enforcement_mode)
-      validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY,MONITOR_ENFORCE,OFF"])
+      validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE", "OFF"])
       unless validator.valid?(enforcement_mode)
         fail ArgumentError, "invalid value for \"enforcement_mode\", must be one of #{validator.allowable_values}."
       end
       @enforcement_mode = enforcement_mode
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] pcie_enforcement_mode Object to be assigned
+    def pcie_enforcement_mode=(pcie_enforcement_mode)
+      validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      unless validator.valid?(pcie_enforcement_mode)
+        fail ArgumentError, "invalid value for \"pcie_enforcement_mode\", must be one of #{validator.allowable_values}."
+      end
+      @pcie_enforcement_mode = pcie_enforcement_mode
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] storage_space_enforcement_mode Object to be assigned
+    def storage_space_enforcement_mode=(storage_space_enforcement_mode)
+      validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      unless validator.valid?(storage_space_enforcement_mode)
+        fail ArgumentError, "invalid value for \"storage_space_enforcement_mode\", must be one of #{validator.allowable_values}."
+      end
+      @storage_space_enforcement_mode = storage_space_enforcement_mode
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] user_based_enforcement_mode Object to be assigned
+    def user_based_enforcement_mode=(user_based_enforcement_mode)
+      validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      unless validator.valid?(user_based_enforcement_mode)
+        fail ArgumentError, "invalid value for \"user_based_enforcement_mode\", must be one of #{validator.allowable_values}."
+      end
+      @user_based_enforcement_mode = user_based_enforcement_mode
     end
 
     # Checks equality by comparing each attribute.
@@ -172,7 +235,10 @@ module Falcon
           custom_notifications == o.custom_notifications &&
           end_user_notification == o.end_user_notification &&
           enforcement_mode == o.enforcement_mode &&
-          enhanced_file_metadata == o.enhanced_file_metadata
+          enhanced_file_metadata == o.enhanced_file_metadata &&
+          pcie_enforcement_mode == o.pcie_enforcement_mode &&
+          storage_space_enforcement_mode == o.storage_space_enforcement_mode &&
+          user_based_enforcement_mode == o.user_based_enforcement_mode
     end
 
     # @see the `==` method
@@ -184,7 +250,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_notifications, end_user_notification, enforcement_mode, enhanced_file_metadata].hash
+      [custom_notifications, end_user_notification, enforcement_mode, enhanced_file_metadata, pcie_enforcement_mode, storage_space_enforcement_mode, user_based_enforcement_mode].hash
     end
 
     # Builds the object from hash

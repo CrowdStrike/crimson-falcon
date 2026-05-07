@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -37,27 +36,21 @@ module Falcon
       @api_client = api_client
     end
     # Delete policy rules
-    # @param authorization [String] Authorization Header
     # @param ids [Array<String>] Rule IDs
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def api_preempt_proxy_delete_policy_rules(authorization, ids, opts = {})
-      api_preempt_proxy_delete_policy_rules_with_http_info(authorization, ids, opts)
+    def api_preempt_proxy_delete_policy_rules(ids, opts = {})
+      api_preempt_proxy_delete_policy_rules_with_http_info(ids, opts)
       nil
     end
 
     # Delete policy rules
-    # @param authorization [String] Authorization Header
     # @param ids [Array<String>] Rule IDs
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def api_preempt_proxy_delete_policy_rules_with_http_info(authorization, ids, opts = {})
+    def api_preempt_proxy_delete_policy_rules_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IdentityProtection.api_preempt_proxy_delete_policy_rules ...'
-      end
-      # verify the required parameter 'authorization' is set
-      if @api_client.config.client_side_validation && authorization.nil?
-        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtection.api_preempt_proxy_delete_policy_rules"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
@@ -82,7 +75,6 @@ module Falcon
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/json; charset=utf-8'])
-      header_params[:'Authorization'] = authorization
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -114,27 +106,21 @@ module Falcon
     end
 
     # Get policy rules
-    # @param authorization [String] Authorization Header
     # @param ids [Array<String>] Rule IDs
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def api_preempt_proxy_get_policy_rules(authorization, ids, opts = {})
-      api_preempt_proxy_get_policy_rules_with_http_info(authorization, ids, opts)
+    def api_preempt_proxy_get_policy_rules(ids, opts = {})
+      api_preempt_proxy_get_policy_rules_with_http_info(ids, opts)
       nil
     end
 
     # Get policy rules
-    # @param authorization [String] Authorization Header
     # @param ids [Array<String>] Rule IDs
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def api_preempt_proxy_get_policy_rules_with_http_info(authorization, ids, opts = {})
+    def api_preempt_proxy_get_policy_rules_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IdentityProtection.api_preempt_proxy_get_policy_rules ...'
-      end
-      # verify the required parameter 'authorization' is set
-      if @api_client.config.client_side_validation && authorization.nil?
-        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtection.api_preempt_proxy_get_policy_rules"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
@@ -159,7 +145,6 @@ module Falcon
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/json; charset=utf-8'])
-      header_params[:'Authorization'] = authorization
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -191,31 +176,25 @@ module Falcon
     end
 
     # Query policy rule IDs
-    # @param authorization [String] Authorization Header
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :enabled Whether the rule is enabled
     # @option opts [Boolean] :simulation_mode Whether the rule is in simulation mode
     # @option opts [String] :name Rule name
     # @return [nil]
-    def api_preempt_proxy_get_policy_rules_query(authorization, opts = {})
-      api_preempt_proxy_get_policy_rules_query_with_http_info(authorization, opts)
+    def api_preempt_proxy_get_policy_rules_query(opts = {})
+      api_preempt_proxy_get_policy_rules_query_with_http_info(opts)
       nil
     end
 
     # Query policy rule IDs
-    # @param authorization [String] Authorization Header
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :enabled Whether the rule is enabled
     # @option opts [Boolean] :simulation_mode Whether the rule is in simulation mode
     # @option opts [String] :name Rule name
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def api_preempt_proxy_get_policy_rules_query_with_http_info(authorization, opts = {})
+    def api_preempt_proxy_get_policy_rules_query_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IdentityProtection.api_preempt_proxy_get_policy_rules_query ...'
-      end
-      # verify the required parameter 'authorization' is set
-      if @api_client.config.client_side_validation && authorization.nil?
-        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtection.api_preempt_proxy_get_policy_rules_query"
       end
       # resource path
       local_var_path = '/identity-protection/queries/policy-rules/v1'
@@ -230,7 +209,6 @@ module Falcon
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/json; charset=utf-8'])
-      header_params[:'Authorization'] = authorization
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -262,25 +240,25 @@ module Falcon
     end
 
     # Identity Protection GraphQL API. Allows to retrieve entities, timeline activities, identity-based incidents and security assessment. Allows to perform actions on entities and identity-based incidents.
-    # @param authorization [String] Authorization Header
+    # @param body [SwaggerGraphQLQuery]
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def api_preempt_proxy_post_graphql(authorization, opts = {})
-      api_preempt_proxy_post_graphql_with_http_info(authorization, opts)
+    def api_preempt_proxy_post_graphql(body, opts = {})
+      api_preempt_proxy_post_graphql_with_http_info(body, opts)
       nil
     end
 
     # Identity Protection GraphQL API. Allows to retrieve entities, timeline activities, identity-based incidents and security assessment. Allows to perform actions on entities and identity-based incidents.
-    # @param authorization [String] Authorization Header
+    # @param body [SwaggerGraphQLQuery]
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def api_preempt_proxy_post_graphql_with_http_info(authorization, opts = {})
+    def api_preempt_proxy_post_graphql_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IdentityProtection.api_preempt_proxy_post_graphql ...'
       end
-      # verify the required parameter 'authorization' is set
-      if @api_client.config.client_side_validation && authorization.nil?
-        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtection.api_preempt_proxy_post_graphql"
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IdentityProtection.api_preempt_proxy_post_graphql"
       end
       # resource path
       local_var_path = '/identity-protection/combined/graphql/v1'
@@ -292,13 +270,17 @@ module Falcon
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/json; charset=utf-8'])
-      header_params[:'Authorization'] = authorization
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body]
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
       return_type = opts[:debug_return_type]
@@ -324,27 +306,21 @@ module Falcon
     end
 
     # Create policy rule
-    # @param authorization [String] Authorization Header
     # @param body [TypesPolicyRulesCreateBody]
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def api_preempt_proxy_post_policy_rules(authorization, body, opts = {})
-      api_preempt_proxy_post_policy_rules_with_http_info(authorization, body, opts)
+    def api_preempt_proxy_post_policy_rules(body, opts = {})
+      api_preempt_proxy_post_policy_rules_with_http_info(body, opts)
       nil
     end
 
     # Create policy rule
-    # @param authorization [String] Authorization Header
     # @param body [TypesPolicyRulesCreateBody]
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def api_preempt_proxy_post_policy_rules_with_http_info(authorization, body, opts = {})
+    def api_preempt_proxy_post_policy_rules_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IdentityProtection.api_preempt_proxy_post_policy_rules ...'
-      end
-      # verify the required parameter 'authorization' is set
-      if @api_client.config.client_side_validation && authorization.nil?
-        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtection.api_preempt_proxy_post_policy_rules"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
@@ -365,7 +341,6 @@ module Falcon
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
-      header_params[:'Authorization'] = authorization
 
       # form parameters
       form_params = opts[:form_params] || {}

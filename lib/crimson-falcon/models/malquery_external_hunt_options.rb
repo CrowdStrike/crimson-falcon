@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,6 +31,8 @@ require 'time'
 
 module Falcon
   class MalqueryExternalHuntOptions
+    attr_accessor :app
+
     # Limit results to files of certain types such as EMAIL, PCAP, PDF, PE32. Full list can be found in the documentation
     attr_accessor :filter_filetypes
 
@@ -53,16 +54,21 @@ module Falcon
     # Minimum file size. The value can be specified either in bytes or in multiples of KB/MB/GB. Examples: 128000, 1.3 KB, 8mb
     attr_accessor :min_size
 
+    # Limit results to files submitted by customer
+    attr_accessor :submitted_by_customer
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'app' => :'app',
         :'filter_filetypes' => :'filter_filetypes',
         :'filter_meta' => :'filter_meta',
         :'limit' => :'limit',
         :'max_date' => :'max_date',
         :'max_size' => :'max_size',
         :'min_date' => :'min_date',
-        :'min_size' => :'min_size'
+        :'min_size' => :'min_size',
+        :'submitted_by_customer' => :'submitted_by_customer'
       }
     end
 
@@ -74,13 +80,15 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'app' => :'String',
         :'filter_filetypes' => :'Array<String>',
         :'filter_meta' => :'Array<String>',
         :'limit' => :'Integer',
         :'max_date' => :'String',
         :'max_size' => :'String',
         :'min_date' => :'String',
-        :'min_size' => :'String'
+        :'min_size' => :'String',
+        :'submitted_by_customer' => :'Boolean'
       }
     end
 
@@ -104,6 +112,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'app')
+        self.app = attributes[:'app']
+      end
 
       if attributes.key?(:'filter_filetypes')
         if (value = attributes[:'filter_filetypes']).is_a?(Array)
@@ -136,6 +148,10 @@ module Falcon
       if attributes.key?(:'min_size')
         self.min_size = attributes[:'min_size']
       end
+
+      if attributes.key?(:'submitted_by_customer')
+        self.submitted_by_customer = attributes[:'submitted_by_customer']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -156,13 +172,15 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          app == o.app &&
           filter_filetypes == o.filter_filetypes &&
           filter_meta == o.filter_meta &&
           limit == o.limit &&
           max_date == o.max_date &&
           max_size == o.max_size &&
           min_date == o.min_date &&
-          min_size == o.min_size
+          min_size == o.min_size &&
+          submitted_by_customer == o.submitted_by_customer
     end
 
     # @see the `==` method
@@ -174,7 +192,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [filter_filetypes, filter_meta, limit, max_date, max_size, min_date, min_size].hash
+      [app, filter_filetypes, filter_meta, limit, max_date, max_size, min_date, min_size, submitted_by_customer].hash
     end
 
     # Builds the object from hash

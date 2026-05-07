@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -34,12 +33,15 @@ module Falcon
   class DomainRulePreviewRequest
     attr_accessor :filter
 
+    attr_accessor :lookback_days
+
     attr_accessor :topic
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'filter' => :'filter',
+        :'lookback_days' => :'lookback_days',
         :'topic' => :'topic'
       }
     end
@@ -53,6 +55,7 @@ module Falcon
     def self.openapi_types
       {
         :'filter' => :'String',
+        :'lookback_days' => :'Integer',
         :'topic' => :'String'
       }
     end
@@ -80,6 +83,10 @@ module Falcon
 
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
+      end
+
+      if attributes.key?(:'lookback_days')
+        self.lookback_days = attributes[:'lookback_days']
       end
 
       if attributes.key?(:'topic')
@@ -116,6 +123,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           filter == o.filter &&
+          lookback_days == o.lookback_days &&
           topic == o.topic
     end
 
@@ -128,7 +136,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [filter, topic].hash
+      [filter, lookback_days, topic].hash
     end
 
     # Builds the object from hash

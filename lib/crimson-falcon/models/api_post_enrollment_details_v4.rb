@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -38,12 +37,15 @@ module Falcon
 
     attr_accessor :expires_at
 
+    attr_accessor :use_network_extension
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'email_addresses' => :'email_addresses',
         :'enrollment_type' => :'enrollment_type',
-        :'expires_at' => :'expires_at'
+        :'expires_at' => :'expires_at',
+        :'use_network_extension' => :'use_network_extension'
       }
     end
 
@@ -57,7 +59,8 @@ module Falcon
       {
         :'email_addresses' => :'Array<String>',
         :'enrollment_type' => :'String',
-        :'expires_at' => :'Time'
+        :'expires_at' => :'Time',
+        :'use_network_extension' => :'Boolean'
       }
     end
 
@@ -95,6 +98,10 @@ module Falcon
       if attributes.key?(:'expires_at')
         self.expires_at = attributes[:'expires_at']
       end
+
+      if attributes.key?(:'use_network_extension')
+        self.use_network_extension = attributes[:'use_network_extension']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -113,6 +120,10 @@ module Falcon
         invalid_properties.push('invalid value for "expires_at", expires_at cannot be nil.')
       end
 
+      if @use_network_extension.nil?
+        invalid_properties.push('invalid value for "use_network_extension", use_network_extension cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -122,6 +133,7 @@ module Falcon
       return false if @email_addresses.nil?
       return false if @enrollment_type.nil?
       return false if @expires_at.nil?
+      return false if @use_network_extension.nil?
       true
     end
 
@@ -132,7 +144,8 @@ module Falcon
       self.class == o.class &&
           email_addresses == o.email_addresses &&
           enrollment_type == o.enrollment_type &&
-          expires_at == o.expires_at
+          expires_at == o.expires_at &&
+          use_network_extension == o.use_network_extension
     end
 
     # @see the `==` method
@@ -144,7 +157,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [email_addresses, enrollment_type, expires_at].hash
+      [email_addresses, enrollment_type, expires_at, use_network_extension].hash
     end
 
     # Builds the object from hash

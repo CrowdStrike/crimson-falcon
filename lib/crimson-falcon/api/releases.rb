@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -44,7 +43,7 @@ module Falcon
     # @option opts [Integer] :limit Maximum number of records to return.
     # @option opts [String] :offset Starting pagination offset of records to return.
     # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
-    # @return [ReleasesReleaseWrapper]
+    # @return [ReleasesReleaseResponseWrapperV1]
     def combined_releases_v1_mixin0(authorization, opts = {})
       data, _status_code, _headers = combined_releases_v1_mixin0_with_http_info(authorization, opts)
       data
@@ -58,7 +57,7 @@ module Falcon
     # @option opts [Integer] :limit Maximum number of records to return.
     # @option opts [String] :offset Starting pagination offset of records to return.
     # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
-    # @return [Array<(ReleasesReleaseWrapper, Integer, Hash)>] ReleasesReleaseWrapper data, response status code and response headers
+    # @return [Array<(ReleasesReleaseResponseWrapperV1, Integer, Hash)>] ReleasesReleaseResponseWrapperV1 data, response status code and response headers
     def combined_releases_v1_mixin0_with_http_info(authorization, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Releases.combined_releases_v1_mixin0 ...'
@@ -100,7 +99,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ReleasesReleaseWrapper'
+      return_type = opts[:debug_return_type] || 'ReleasesReleaseResponseWrapperV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

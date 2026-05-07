@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -36,6 +35,8 @@ module Falcon
 
     attr_accessor :node_id
 
+    attr_accessor :position
+
     # The type of gateway being specified, allowed values are; exclusive, inclusive and parallel.
     attr_accessor :type
 
@@ -44,6 +45,7 @@ module Falcon
       {
         :'flows' => :'flows',
         :'node_id' => :'nodeID',
+        :'position' => :'position',
         :'type' => :'type'
       }
     end
@@ -58,6 +60,7 @@ module Falcon
       {
         :'flows' => :'Flows',
         :'node_id' => :'String',
+        :'position' => :'GraphNodePosition',
         :'type' => :'String'
       }
     end
@@ -89,6 +92,10 @@ module Falcon
 
       if attributes.key?(:'node_id')
         self.node_id = attributes[:'node_id']
+      end
+
+      if attributes.key?(:'position')
+        self.position = attributes[:'position']
       end
 
       if attributes.key?(:'type')
@@ -131,6 +138,7 @@ module Falcon
       self.class == o.class &&
           flows == o.flows &&
           node_id == o.node_id &&
+          position == o.position &&
           type == o.type
     end
 
@@ -143,7 +151,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [flows, node_id, type].hash
+      [flows, node_id, position, type].hash
     end
 
     # Builds the object from hash

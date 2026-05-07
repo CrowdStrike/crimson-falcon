@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -44,13 +43,27 @@ module Falcon
 
     attr_accessor :deployment_method
 
+    attr_accessor :dspm_custom_vpc_configuration
+
+    attr_accessor :dspm_host_account_id
+
+    attr_accessor :dspm_network_configuration_type
+
+    attr_accessor :dspm_regions
+
     attr_accessor :dspm_role
+
+    attr_accessor :dspm_service_permissions_override
 
     attr_accessor :falcon_client_id
 
     attr_accessor :iam_role_arn
 
+    attr_accessor :ioa_regions
+
     attr_accessor :is_master
+
+    attr_accessor :log_ingestion_method
 
     attr_accessor :organization_id
 
@@ -62,9 +75,27 @@ module Falcon
 
     attr_accessor :root_stack_id
 
+    attr_accessor :s3_log_ingestion_bucket_name
+
+    attr_accessor :s3_log_ingestion_bucket_prefix
+
+    attr_accessor :s3_log_ingestion_kms_key_arn
+
+    attr_accessor :s3_log_ingestion_sns_topic_arn
+
     attr_accessor :target_ous
 
     attr_accessor :use_existing_cloudtrail
+
+    attr_accessor :vulnerability_scanning_custom_vpc_configuration
+
+    attr_accessor :vulnerability_scanning_host_account_id
+
+    attr_accessor :vulnerability_scanning_network_configuration_type
+
+    attr_accessor :vulnerability_scanning_regions
+
+    attr_accessor :vulnerability_scanning_role
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -75,17 +106,33 @@ module Falcon
         :'cloudtrail_region' => :'cloudtrail_region',
         :'csp_events' => :'csp_events',
         :'deployment_method' => :'deployment_method',
+        :'dspm_custom_vpc_configuration' => :'dspm_custom_vpc_configuration',
+        :'dspm_host_account_id' => :'dspm_host_account_id',
+        :'dspm_network_configuration_type' => :'dspm_network_configuration_type',
+        :'dspm_regions' => :'dspm_regions',
         :'dspm_role' => :'dspm_role',
+        :'dspm_service_permissions_override' => :'dspm_service_permissions_override',
         :'falcon_client_id' => :'falcon_client_id',
         :'iam_role_arn' => :'iam_role_arn',
+        :'ioa_regions' => :'ioa_regions',
         :'is_master' => :'is_master',
+        :'log_ingestion_method' => :'log_ingestion_method',
         :'organization_id' => :'organization_id',
         :'products' => :'products',
         :'resource_name_prefix' => :'resource_name_prefix',
         :'resource_name_suffix' => :'resource_name_suffix',
         :'root_stack_id' => :'root_stack_id',
+        :'s3_log_ingestion_bucket_name' => :'s3_log_ingestion_bucket_name',
+        :'s3_log_ingestion_bucket_prefix' => :'s3_log_ingestion_bucket_prefix',
+        :'s3_log_ingestion_kms_key_arn' => :'s3_log_ingestion_kms_key_arn',
+        :'s3_log_ingestion_sns_topic_arn' => :'s3_log_ingestion_sns_topic_arn',
         :'target_ous' => :'target_ous',
-        :'use_existing_cloudtrail' => :'use_existing_cloudtrail'
+        :'use_existing_cloudtrail' => :'use_existing_cloudtrail',
+        :'vulnerability_scanning_custom_vpc_configuration' => :'vulnerability_scanning_custom_vpc_configuration',
+        :'vulnerability_scanning_host_account_id' => :'vulnerability_scanning_host_account_id',
+        :'vulnerability_scanning_network_configuration_type' => :'vulnerability_scanning_network_configuration_type',
+        :'vulnerability_scanning_regions' => :'vulnerability_scanning_regions',
+        :'vulnerability_scanning_role' => :'vulnerability_scanning_role'
       }
     end
 
@@ -103,17 +150,33 @@ module Falcon
         :'cloudtrail_region' => :'String',
         :'csp_events' => :'Boolean',
         :'deployment_method' => :'String',
+        :'dspm_custom_vpc_configuration' => :'Hash<String, DomainAWSRegionalVPCConfiguration>',
+        :'dspm_host_account_id' => :'String',
+        :'dspm_network_configuration_type' => :'String',
+        :'dspm_regions' => :'Array<String>',
         :'dspm_role' => :'String',
+        :'dspm_service_permissions_override' => :'Array<String>',
         :'falcon_client_id' => :'String',
         :'iam_role_arn' => :'String',
+        :'ioa_regions' => :'Array<String>',
         :'is_master' => :'Boolean',
+        :'log_ingestion_method' => :'String',
         :'organization_id' => :'String',
-        :'products' => :'Array<RestAccountProductUpsertRequestExtV1>',
+        :'products' => :'Array<RestAccountProductRequestExtV1>',
         :'resource_name_prefix' => :'String',
         :'resource_name_suffix' => :'String',
         :'root_stack_id' => :'String',
+        :'s3_log_ingestion_bucket_name' => :'String',
+        :'s3_log_ingestion_bucket_prefix' => :'String',
+        :'s3_log_ingestion_kms_key_arn' => :'String',
+        :'s3_log_ingestion_sns_topic_arn' => :'String',
         :'target_ous' => :'Array<String>',
-        :'use_existing_cloudtrail' => :'Boolean'
+        :'use_existing_cloudtrail' => :'Boolean',
+        :'vulnerability_scanning_custom_vpc_configuration' => :'Hash<String, DomainAWSRegionalVPCConfiguration>',
+        :'vulnerability_scanning_host_account_id' => :'String',
+        :'vulnerability_scanning_network_configuration_type' => :'String',
+        :'vulnerability_scanning_regions' => :'Array<String>',
+        :'vulnerability_scanning_role' => :'String'
       }
     end
 
@@ -162,8 +225,34 @@ module Falcon
         self.deployment_method = attributes[:'deployment_method']
       end
 
+      if attributes.key?(:'dspm_custom_vpc_configuration')
+        if (value = attributes[:'dspm_custom_vpc_configuration']).is_a?(Hash)
+          self.dspm_custom_vpc_configuration = value
+        end
+      end
+
+      if attributes.key?(:'dspm_host_account_id')
+        self.dspm_host_account_id = attributes[:'dspm_host_account_id']
+      end
+
+      if attributes.key?(:'dspm_network_configuration_type')
+        self.dspm_network_configuration_type = attributes[:'dspm_network_configuration_type']
+      end
+
+      if attributes.key?(:'dspm_regions')
+        if (value = attributes[:'dspm_regions']).is_a?(Array)
+          self.dspm_regions = value
+        end
+      end
+
       if attributes.key?(:'dspm_role')
         self.dspm_role = attributes[:'dspm_role']
+      end
+
+      if attributes.key?(:'dspm_service_permissions_override')
+        if (value = attributes[:'dspm_service_permissions_override']).is_a?(Array)
+          self.dspm_service_permissions_override = value
+        end
       end
 
       if attributes.key?(:'falcon_client_id')
@@ -174,8 +263,18 @@ module Falcon
         self.iam_role_arn = attributes[:'iam_role_arn']
       end
 
+      if attributes.key?(:'ioa_regions')
+        if (value = attributes[:'ioa_regions']).is_a?(Array)
+          self.ioa_regions = value
+        end
+      end
+
       if attributes.key?(:'is_master')
         self.is_master = attributes[:'is_master']
+      end
+
+      if attributes.key?(:'log_ingestion_method')
+        self.log_ingestion_method = attributes[:'log_ingestion_method']
       end
 
       if attributes.key?(:'organization_id')
@@ -200,6 +299,22 @@ module Falcon
         self.root_stack_id = attributes[:'root_stack_id']
       end
 
+      if attributes.key?(:'s3_log_ingestion_bucket_name')
+        self.s3_log_ingestion_bucket_name = attributes[:'s3_log_ingestion_bucket_name']
+      end
+
+      if attributes.key?(:'s3_log_ingestion_bucket_prefix')
+        self.s3_log_ingestion_bucket_prefix = attributes[:'s3_log_ingestion_bucket_prefix']
+      end
+
+      if attributes.key?(:'s3_log_ingestion_kms_key_arn')
+        self.s3_log_ingestion_kms_key_arn = attributes[:'s3_log_ingestion_kms_key_arn']
+      end
+
+      if attributes.key?(:'s3_log_ingestion_sns_topic_arn')
+        self.s3_log_ingestion_sns_topic_arn = attributes[:'s3_log_ingestion_sns_topic_arn']
+      end
+
       if attributes.key?(:'target_ous')
         if (value = attributes[:'target_ous']).is_a?(Array)
           self.target_ous = value
@@ -208,6 +323,30 @@ module Falcon
 
       if attributes.key?(:'use_existing_cloudtrail')
         self.use_existing_cloudtrail = attributes[:'use_existing_cloudtrail']
+      end
+
+      if attributes.key?(:'vulnerability_scanning_custom_vpc_configuration')
+        if (value = attributes[:'vulnerability_scanning_custom_vpc_configuration']).is_a?(Hash)
+          self.vulnerability_scanning_custom_vpc_configuration = value
+        end
+      end
+
+      if attributes.key?(:'vulnerability_scanning_host_account_id')
+        self.vulnerability_scanning_host_account_id = attributes[:'vulnerability_scanning_host_account_id']
+      end
+
+      if attributes.key?(:'vulnerability_scanning_network_configuration_type')
+        self.vulnerability_scanning_network_configuration_type = attributes[:'vulnerability_scanning_network_configuration_type']
+      end
+
+      if attributes.key?(:'vulnerability_scanning_regions')
+        if (value = attributes[:'vulnerability_scanning_regions']).is_a?(Array)
+          self.vulnerability_scanning_regions = value
+        end
+      end
+
+      if attributes.key?(:'vulnerability_scanning_role')
+        self.vulnerability_scanning_role = attributes[:'vulnerability_scanning_role']
       end
     end
 
@@ -240,17 +379,33 @@ module Falcon
           cloudtrail_region == o.cloudtrail_region &&
           csp_events == o.csp_events &&
           deployment_method == o.deployment_method &&
+          dspm_custom_vpc_configuration == o.dspm_custom_vpc_configuration &&
+          dspm_host_account_id == o.dspm_host_account_id &&
+          dspm_network_configuration_type == o.dspm_network_configuration_type &&
+          dspm_regions == o.dspm_regions &&
           dspm_role == o.dspm_role &&
+          dspm_service_permissions_override == o.dspm_service_permissions_override &&
           falcon_client_id == o.falcon_client_id &&
           iam_role_arn == o.iam_role_arn &&
+          ioa_regions == o.ioa_regions &&
           is_master == o.is_master &&
+          log_ingestion_method == o.log_ingestion_method &&
           organization_id == o.organization_id &&
           products == o.products &&
           resource_name_prefix == o.resource_name_prefix &&
           resource_name_suffix == o.resource_name_suffix &&
           root_stack_id == o.root_stack_id &&
+          s3_log_ingestion_bucket_name == o.s3_log_ingestion_bucket_name &&
+          s3_log_ingestion_bucket_prefix == o.s3_log_ingestion_bucket_prefix &&
+          s3_log_ingestion_kms_key_arn == o.s3_log_ingestion_kms_key_arn &&
+          s3_log_ingestion_sns_topic_arn == o.s3_log_ingestion_sns_topic_arn &&
           target_ous == o.target_ous &&
-          use_existing_cloudtrail == o.use_existing_cloudtrail
+          use_existing_cloudtrail == o.use_existing_cloudtrail &&
+          vulnerability_scanning_custom_vpc_configuration == o.vulnerability_scanning_custom_vpc_configuration &&
+          vulnerability_scanning_host_account_id == o.vulnerability_scanning_host_account_id &&
+          vulnerability_scanning_network_configuration_type == o.vulnerability_scanning_network_configuration_type &&
+          vulnerability_scanning_regions == o.vulnerability_scanning_regions &&
+          vulnerability_scanning_role == o.vulnerability_scanning_role
     end
 
     # @see the `==` method
@@ -262,7 +417,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_type, cloudformation_stack_arn, cloudtrail_region, csp_events, deployment_method, dspm_role, falcon_client_id, iam_role_arn, is_master, organization_id, products, resource_name_prefix, resource_name_suffix, root_stack_id, target_ous, use_existing_cloudtrail].hash
+      [account_id, account_type, cloudformation_stack_arn, cloudtrail_region, csp_events, deployment_method, dspm_custom_vpc_configuration, dspm_host_account_id, dspm_network_configuration_type, dspm_regions, dspm_role, dspm_service_permissions_override, falcon_client_id, iam_role_arn, ioa_regions, is_master, log_ingestion_method, organization_id, products, resource_name_prefix, resource_name_suffix, root_stack_id, s3_log_ingestion_bucket_name, s3_log_ingestion_bucket_prefix, s3_log_ingestion_kms_key_arn, s3_log_ingestion_sns_topic_arn, target_ous, use_existing_cloudtrail, vulnerability_scanning_custom_vpc_configuration, vulnerability_scanning_host_account_id, vulnerability_scanning_network_configuration_type, vulnerability_scanning_regions, vulnerability_scanning_role].hash
     end
 
     # Builds the object from hash

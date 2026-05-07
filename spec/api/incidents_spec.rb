@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -50,7 +49,7 @@ describe 'Incidents' do
   end
 
   # unit tests for crowd_score
-  # Query environment wide CrowdScore and return the entity data
+  # DEPRECATED: the incidentapi will be removed in March 2026. Query environment wide CrowdScore and return the entity data
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
@@ -64,7 +63,7 @@ describe 'Incidents' do
   end
 
   # unit tests for get_behaviors
-  # Get details on behaviors by providing behavior IDs
+  # DEPRECATED: the incidentapi will be removed in March 2026. Get details on behaviors by providing behavior IDs
   # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainMsaExternalBehaviorResponse]
@@ -75,7 +74,7 @@ describe 'Incidents' do
   end
 
   # unit tests for get_incidents
-  # Get details on incidents by providing incident IDs
+  # DEPRECATED: the incidentapi will be removed in March 2026. Get details on incidents by providing incident IDs
   # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainMsaExternalIncidentResponse]
@@ -86,7 +85,7 @@ describe 'Incidents' do
   end
 
   # unit tests for perform_incident_action
-  # Perform a set of actions on one or more incidents, such as adding tags or comments or updating the incident name or description
+  # DEPRECATED: the incidentapi will be removed in March 2026. Perform a set of actions on one or more incidents, such as adding tags or comments or updating the incident name or description
   # @param body Incident Update request body containing minimum 1 and maximum 5000 Incident ID(s) and action param(s) to be performed action against.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :update_detects If true, update assigned-to-uuid and or status of detections associated with the incident(s). Defaults to false
@@ -99,7 +98,7 @@ describe 'Incidents' do
   end
 
   # unit tests for query_behaviors
-  # Search for behaviors by providing an FQL filter, sorting, and paging details
+  # DEPRECATED: the incidentapi will be removed in March 2026. Search for behaviors by providing an FQL filter, sorting, and paging details
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
@@ -113,7 +112,7 @@ describe 'Incidents' do
   end
 
   # unit tests for query_incidents
-  # Search for incidents by providing an FQL filter, sorting, and paging details
+  # DEPRECATED: the incidentapi will be removed in March 2026. Search for incidents by providing an FQL filter, sorting, and paging details
   # @param [Hash] opts the optional parameters
   # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
   # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).

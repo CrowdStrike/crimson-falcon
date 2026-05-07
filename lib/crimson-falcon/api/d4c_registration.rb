@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -739,7 +738,16 @@ module Falcon
     # @option opts [String] :sensor_management_enabled
     # @option opts [String] :dspm_enabled
     # @option opts [Array<String>] :dspm_regions
+    # @option opts [String] :dspm_host_account_id
+    # @option opts [String] :dspm_host_integration_role_name
+    # @option opts [String] :dspm_host_scanner_role_name
     # @option opts [String] :dspm_role
+    # @option opts [String] :vulnerability_scanning_enabled
+    # @option opts [Array<String>] :vulnerability_scanning_regions
+    # @option opts [String] :vulnerability_scanning_host_account_id
+    # @option opts [String] :vulnerability_scanning_host_integration_role_name
+    # @option opts [String] :vulnerability_scanning_host_scanner_role_name
+    # @option opts [String] :vulnerability_scanning_role
     # @option opts [String] :use_existing_cloudtrail
     # @option opts [String] :organization_id The AWS organization ID to be registered
     # @option opts [Array<String>] :organizational_unit_ids The AWS Organizational Unit IDs to be registered
@@ -764,7 +772,16 @@ module Falcon
     # @option opts [String] :sensor_management_enabled
     # @option opts [String] :dspm_enabled
     # @option opts [Array<String>] :dspm_regions
+    # @option opts [String] :dspm_host_account_id
+    # @option opts [String] :dspm_host_integration_role_name
+    # @option opts [String] :dspm_host_scanner_role_name
     # @option opts [String] :dspm_role
+    # @option opts [String] :vulnerability_scanning_enabled
+    # @option opts [Array<String>] :vulnerability_scanning_regions
+    # @option opts [String] :vulnerability_scanning_host_account_id
+    # @option opts [String] :vulnerability_scanning_host_integration_role_name
+    # @option opts [String] :vulnerability_scanning_host_scanner_role_name
+    # @option opts [String] :vulnerability_scanning_role
     # @option opts [String] :use_existing_cloudtrail
     # @option opts [String] :organization_id The AWS organization ID to be registered
     # @option opts [Array<String>] :organizational_unit_ids The AWS Organizational Unit IDs to be registered
@@ -795,6 +812,40 @@ module Falcon
       if @api_client.config.client_side_validation && opts[:'dspm_enabled'] && !allowable_values.include?(opts[:'dspm_enabled'])
         fail ArgumentError, "invalid value for \"dspm_enabled\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/\d{12}/)
+      if @api_client.config.client_side_validation && !opts[:'dspm_host_account_id'].nil? && opts[:'dspm_host_account_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"dspm_host_account_id\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/^[a-zA-Z0-9+=,.@_-]{1,64}$/)
+      if @api_client.config.client_side_validation && !opts[:'dspm_host_integration_role_name'].nil? && opts[:'dspm_host_integration_role_name'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"dspm_host_integration_role_name\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/^[a-zA-Z0-9+=,.@_-]{1,64}$/)
+      if @api_client.config.client_side_validation && !opts[:'dspm_host_scanner_role_name'].nil? && opts[:'dspm_host_scanner_role_name'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"dspm_host_scanner_role_name\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+      end
+
+      allowable_values = ["true", "false"]
+      if @api_client.config.client_side_validation && opts[:'vulnerability_scanning_enabled'] && !allowable_values.include?(opts[:'vulnerability_scanning_enabled'])
+        fail ArgumentError, "invalid value for \"vulnerability_scanning_enabled\", must be one of #{allowable_values}"
+      end
+      pattern = Regexp.new(/\d{12}/)
+      if @api_client.config.client_side_validation && !opts[:'vulnerability_scanning_host_account_id'].nil? && opts[:'vulnerability_scanning_host_account_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"vulnerability_scanning_host_account_id\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/^[a-zA-Z0-9+=,.@_-]{1,64}$/)
+      if @api_client.config.client_side_validation && !opts[:'vulnerability_scanning_host_integration_role_name'].nil? && opts[:'vulnerability_scanning_host_integration_role_name'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"vulnerability_scanning_host_integration_role_name\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/^[a-zA-Z0-9+=,.@_-]{1,64}$/)
+      if @api_client.config.client_side_validation && !opts[:'vulnerability_scanning_host_scanner_role_name'].nil? && opts[:'vulnerability_scanning_host_scanner_role_name'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"vulnerability_scanning_host_scanner_role_name\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["true", "false"]
       if @api_client.config.client_side_validation && opts[:'use_existing_cloudtrail'] && !allowable_values.include?(opts[:'use_existing_cloudtrail'])
         fail ArgumentError, "invalid value for \"use_existing_cloudtrail\", must be one of #{allowable_values}"
@@ -846,7 +897,16 @@ module Falcon
       query_params[:'sensor_management_enabled'] = opts[:'sensor_management_enabled'] if !opts[:'sensor_management_enabled'].nil?
       query_params[:'dspm_enabled'] = opts[:'dspm_enabled'] if !opts[:'dspm_enabled'].nil?
       query_params[:'dspm_regions'] = @api_client.build_collection_param(opts[:'dspm_regions'], :csv) if !opts[:'dspm_regions'].nil?
+      query_params[:'dspm_host_account_id'] = opts[:'dspm_host_account_id'] if !opts[:'dspm_host_account_id'].nil?
+      query_params[:'dspm_host_integration_role_name'] = opts[:'dspm_host_integration_role_name'] if !opts[:'dspm_host_integration_role_name'].nil?
+      query_params[:'dspm_host_scanner_role_name'] = opts[:'dspm_host_scanner_role_name'] if !opts[:'dspm_host_scanner_role_name'].nil?
       query_params[:'dspm_role'] = opts[:'dspm_role'] if !opts[:'dspm_role'].nil?
+      query_params[:'vulnerability_scanning_enabled'] = opts[:'vulnerability_scanning_enabled'] if !opts[:'vulnerability_scanning_enabled'].nil?
+      query_params[:'vulnerability_scanning_regions'] = @api_client.build_collection_param(opts[:'vulnerability_scanning_regions'], :csv) if !opts[:'vulnerability_scanning_regions'].nil?
+      query_params[:'vulnerability_scanning_host_account_id'] = opts[:'vulnerability_scanning_host_account_id'] if !opts[:'vulnerability_scanning_host_account_id'].nil?
+      query_params[:'vulnerability_scanning_host_integration_role_name'] = opts[:'vulnerability_scanning_host_integration_role_name'] if !opts[:'vulnerability_scanning_host_integration_role_name'].nil?
+      query_params[:'vulnerability_scanning_host_scanner_role_name'] = opts[:'vulnerability_scanning_host_scanner_role_name'] if !opts[:'vulnerability_scanning_host_scanner_role_name'].nil?
+      query_params[:'vulnerability_scanning_role'] = opts[:'vulnerability_scanning_role'] if !opts[:'vulnerability_scanning_role'].nil?
       query_params[:'use_existing_cloudtrail'] = opts[:'use_existing_cloudtrail'] if !opts[:'use_existing_cloudtrail'].nil?
       query_params[:'organization_id'] = opts[:'organization_id'] if !opts[:'organization_id'].nil?
       query_params[:'organizational_unit_ids'] = @api_client.build_collection_param(opts[:'organizational_unit_ids'], :csv) if !opts[:'organizational_unit_ids'].nil?

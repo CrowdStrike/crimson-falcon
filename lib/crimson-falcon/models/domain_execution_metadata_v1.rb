@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,9 +31,13 @@ require 'time'
 
 module Falcon
   class DomainExecutionMetadataV1
+    attr_accessor :auto_retry_count
+
     attr_accessor :report_params
 
     attr_accessor :retry_allowed
+
+    attr_accessor :retry_ids
 
     attr_accessor :retry_performed
 
@@ -51,8 +54,10 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'auto_retry_count' => :'auto_retry_count',
         :'report_params' => :'report_params',
         :'retry_allowed' => :'retry_allowed',
+        :'retry_ids' => :'retry_ids',
         :'retry_performed' => :'retry_performed',
         :'retry_report_execution_id' => :'retry_report_execution_id',
         :'subtype' => :'subtype',
@@ -70,8 +75,10 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'auto_retry_count' => :'Integer',
         :'report_params' => :'DomainReportParams',
         :'retry_allowed' => :'Boolean',
+        :'retry_ids' => :'Array<String>',
         :'retry_performed' => :'Boolean',
         :'retry_report_execution_id' => :'String',
         :'subtype' => :'String',
@@ -102,12 +109,22 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'auto_retry_count')
+        self.auto_retry_count = attributes[:'auto_retry_count']
+      end
+
       if attributes.key?(:'report_params')
         self.report_params = attributes[:'report_params']
       end
 
       if attributes.key?(:'retry_allowed')
         self.retry_allowed = attributes[:'retry_allowed']
+      end
+
+      if attributes.key?(:'retry_ids')
+        if (value = attributes[:'retry_ids']).is_a?(Array)
+          self.retry_ids = value
+        end
       end
 
       if attributes.key?(:'retry_performed')
@@ -139,6 +156,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @auto_retry_count.nil?
+        invalid_properties.push('invalid value for "auto_retry_count", auto_retry_count cannot be nil.')
+      end
+
       if @report_params.nil?
         invalid_properties.push('invalid value for "report_params", report_params cannot be nil.')
       end
@@ -177,6 +198,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @auto_retry_count.nil?
       return false if @report_params.nil?
       return false if @retry_allowed.nil?
       return false if @retry_performed.nil?
@@ -193,8 +215,10 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          auto_retry_count == o.auto_retry_count &&
           report_params == o.report_params &&
           retry_allowed == o.retry_allowed &&
+          retry_ids == o.retry_ids &&
           retry_performed == o.retry_performed &&
           retry_report_execution_id == o.retry_report_execution_id &&
           subtype == o.subtype &&
@@ -212,7 +236,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [report_params, retry_allowed, retry_performed, retry_report_execution_id, subtype, unscheduled_execution_type, xdr_data, xdr_params].hash
+      [auto_retry_count, report_params, retry_allowed, retry_ids, retry_performed, retry_report_execution_id, subtype, unscheduled_execution_type, xdr_data, xdr_params].hash
     end
 
     # Builds the object from hash

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -39,8 +38,6 @@ module Falcon
     attr_accessor :assigned_date
 
     attr_accessor :exempt
-
-    attr_accessor :last_evaluation_date
 
     attr_accessor :policy_id
 
@@ -61,7 +58,6 @@ module Falcon
         :'applied_date' => :'applied_date',
         :'assigned_date' => :'assigned_date',
         :'exempt' => :'exempt',
-        :'last_evaluation_date' => :'last_evaluation_date',
         :'policy_id' => :'policy_id',
         :'policy_type' => :'policy_type',
         :'rule_groups' => :'rule_groups',
@@ -83,7 +79,6 @@ module Falcon
         :'applied_date' => :'Time',
         :'assigned_date' => :'Time',
         :'exempt' => :'Boolean',
-        :'last_evaluation_date' => :'Time',
         :'policy_id' => :'String',
         :'policy_type' => :'String',
         :'rule_groups' => :'Array<String>',
@@ -128,10 +123,6 @@ module Falcon
 
       if attributes.key?(:'exempt')
         self.exempt = attributes[:'exempt']
-      end
-
-      if attributes.key?(:'last_evaluation_date')
-        self.last_evaluation_date = attributes[:'last_evaluation_date']
       end
 
       if attributes.key?(:'policy_id')
@@ -193,7 +184,6 @@ module Falcon
           applied_date == o.applied_date &&
           assigned_date == o.assigned_date &&
           exempt == o.exempt &&
-          last_evaluation_date == o.last_evaluation_date &&
           policy_id == o.policy_id &&
           policy_type == o.policy_type &&
           rule_groups == o.rule_groups &&
@@ -211,7 +201,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [applied, applied_date, assigned_date, exempt, last_evaluation_date, policy_id, policy_type, rule_groups, rule_set_id, settings_hash, uninstall_protection].hash
+      [applied, applied_date, assigned_date, exempt, policy_id, policy_type, rule_groups, rule_set_id, settings_hash, uninstall_protection].hash
     end
 
     # Builds the object from hash

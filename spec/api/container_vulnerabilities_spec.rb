@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -50,11 +49,11 @@ describe 'ContainerVulnerabilities' do
   end
 
   # unit tests for read_combined_vulnerabilities
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieves a paginated list of vulnerabilities filtered by the provided FQL. Maximum page size: 100. Maximum available vulnerabilities: 10,000
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60;
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;index_digest&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60;
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;cps_current_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;images_impacted&#x60; - &#x60;packages_impacted&#x60; - &#x60;severity&#x60;
   # @return [VulnerabilitiesApiCombinedVulnerability]
   describe 'read_combined_vulnerabilities test' do
@@ -64,12 +63,12 @@ describe 'ContainerVulnerabilities' do
   end
 
   # unit tests for read_combined_vulnerabilities_details
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieve vulnerability details related to an image
   # @param id Image UUID
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filter fields: - &#x60;cid&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;is_zero_day&#x60; - &#x60;remediation_available&#x60; - &#x60;severity&#x60;
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 5000.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [VulnerabilitiesApiCombinedVulnerabilityDetails]
   describe 'read_combined_vulnerabilities_details test' do
     it 'should work' do
@@ -78,11 +77,11 @@ describe 'ContainerVulnerabilities' do
   end
 
   # unit tests for read_combined_vulnerabilities_info
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieve vulnerability and package related info for this customer
   # @param cve_id Vulnerability CVE ID
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [VulnerabilitiesApiCombinedVulnerabilityInfo]
   describe 'read_combined_vulnerabilities_info test' do
     it 'should work' do
@@ -91,11 +90,11 @@ describe 'ContainerVulnerabilities' do
   end
 
   # unit tests for read_vulnerabilities_by_image_count
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieve top x vulnerabilities with the most impacted images
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cve_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60;
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [VulnerabilitiesApiVulnByImageCount]
   describe 'read_vulnerabilities_by_image_count test' do
     it 'should work' do
@@ -104,11 +103,11 @@ describe 'ContainerVulnerabilities' do
   end
 
   # unit tests for read_vulnerabilities_publication_date
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieve top x vulnerabilities with the most recent publication date
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cve_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60;
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [VulnerabilitiesApiVulnByPublication]
   describe 'read_vulnerabilities_publication_date test' do
     it 'should work' do
@@ -117,11 +116,11 @@ describe 'ContainerVulnerabilities' do
   end
 
   # unit tests for read_vulnerability_count
-  # Maximum offset &#x3D; 10000 - limit
+  # Aggregate count of vulnerabilities
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60;
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;index_digest&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60;
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [VulnerabilitiesApiVulnCount]
   describe 'read_vulnerability_count test' do
     it 'should work' do
@@ -130,11 +129,11 @@ describe 'ContainerVulnerabilities' do
   end
 
   # unit tests for read_vulnerability_count_by_actively_exploited
-  # Maximum offset &#x3D; 10000 - limit
+  # Aggregate count of vulnerabilities grouped by actively exploited
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60;
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;index_digest&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60;
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [VulnerabilitiesApiVulnCountByActivelyExploited]
   describe 'read_vulnerability_count_by_actively_exploited test' do
     it 'should work' do
@@ -143,11 +142,11 @@ describe 'ContainerVulnerabilities' do
   end
 
   # unit tests for read_vulnerability_count_by_cps_rating
-  # Maximum offset &#x3D; 10000 - limit
+  # Aggregate count of vulnerabilities grouped by csp_rating
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60;
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;index_digest&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60;
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [VulnerabilitiesApiVulnCountByCSPRating]
   describe 'read_vulnerability_count_by_cps_rating test' do
     it 'should work' do
@@ -156,11 +155,11 @@ describe 'ContainerVulnerabilities' do
   end
 
   # unit tests for read_vulnerability_count_by_cvss_score
-  # Maximum offset &#x3D; 10000 - limit
+  # Aggregate count of vulnerabilities grouped by CVSS score
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60;
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;index_digest&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60;
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [VulnerabilitiesApiVulnCountByCVSSScore]
   describe 'read_vulnerability_count_by_cvss_score test' do
     it 'should work' do
@@ -169,11 +168,11 @@ describe 'ContainerVulnerabilities' do
   end
 
   # unit tests for read_vulnerability_count_by_severity
-  # Maximum offset &#x3D; 10000 - limit
+  # Aggregate count of vulnerabilities grouped by severity
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60;
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;index_digest&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60;
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [VulnerabilitiesApiVulnCountBySeverity]
   describe 'read_vulnerability_count_by_severity test' do
     it 'should work' do

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -36,7 +35,11 @@ module Falcon
 
     attr_accessor :details
 
+    # The ID of the notification
     attr_accessor :id
+
+    # Reason for missing details information. This field is populated when the details field is empty. Possible values: RESOURCE_NOT_FOUND, RESOURCE_DELETED_FOR_COMPLIANCE_REASON
+    attr_accessor :missing_details_reason
 
     attr_accessor :notification
 
@@ -46,6 +49,7 @@ module Falcon
         :'breach_details' => :'breach_details',
         :'details' => :'details',
         :'id' => :'id',
+        :'missing_details_reason' => :'missing_details_reason',
         :'notification' => :'notification'
       }
     end
@@ -61,6 +65,7 @@ module Falcon
         :'breach_details' => :'DomainBreachDetailsV1',
         :'details' => :'DomainItemDetailsV1',
         :'id' => :'String',
+        :'missing_details_reason' => :'String',
         :'notification' => :'DomainNotificationV1'
       }
     end
@@ -96,6 +101,10 @@ module Falcon
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'missing_details_reason')
+        self.missing_details_reason = attributes[:'missing_details_reason']
       end
 
       if attributes.key?(:'notification')
@@ -134,6 +143,7 @@ module Falcon
           breach_details == o.breach_details &&
           details == o.details &&
           id == o.id &&
+          missing_details_reason == o.missing_details_reason &&
           notification == o.notification
     end
 
@@ -146,7 +156,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [breach_details, details, id, notification].hash
+      [breach_details, details, id, missing_details_reason, notification].hash
     end
 
     # Builds the object from hash

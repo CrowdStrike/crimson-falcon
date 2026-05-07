@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -50,8 +49,14 @@ module Falcon
     # The Slot Number of the Rack Slot of IoT Asset
     attr_accessor :slot_number
 
+    # The PLC mode of the slot
+    attr_accessor :slot_plc_mode
+
     # The Serial Number of the Rack Slot of IoT Asset
     attr_accessor :slot_serial_number
+
+    # The ICS ID of the child device discovered through this slot
+    attr_accessor :slot_target_ics_id
 
     # The IoT asset's slot type
     attr_accessor :slot_type
@@ -68,7 +73,9 @@ module Falcon
         :'slot_model' => :'slot_model',
         :'slot_name' => :'slot_name',
         :'slot_number' => :'slot_number',
+        :'slot_plc_mode' => :'slot_plc_mode',
         :'slot_serial_number' => :'slot_serial_number',
+        :'slot_target_ics_id' => :'slot_target_ics_id',
         :'slot_type' => :'slot_type',
         :'slot_vendor' => :'slot_vendor'
       }
@@ -88,7 +95,9 @@ module Falcon
         :'slot_model' => :'String',
         :'slot_name' => :'String',
         :'slot_number' => :'Integer',
+        :'slot_plc_mode' => :'String',
         :'slot_serial_number' => :'String',
+        :'slot_target_ics_id' => :'String',
         :'slot_type' => :'String',
         :'slot_vendor' => :'String'
       }
@@ -139,8 +148,16 @@ module Falcon
         self.slot_number = attributes[:'slot_number']
       end
 
+      if attributes.key?(:'slot_plc_mode')
+        self.slot_plc_mode = attributes[:'slot_plc_mode']
+      end
+
       if attributes.key?(:'slot_serial_number')
         self.slot_serial_number = attributes[:'slot_serial_number']
+      end
+
+      if attributes.key?(:'slot_target_ics_id')
+        self.slot_target_ics_id = attributes[:'slot_target_ics_id']
       end
 
       if attributes.key?(:'slot_type')
@@ -176,7 +193,9 @@ module Falcon
           slot_model == o.slot_model &&
           slot_name == o.slot_name &&
           slot_number == o.slot_number &&
+          slot_plc_mode == o.slot_plc_mode &&
           slot_serial_number == o.slot_serial_number &&
+          slot_target_ics_id == o.slot_target_ics_id &&
           slot_type == o.slot_type &&
           slot_vendor == o.slot_vendor
     end
@@ -190,7 +209,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [slot_firmware, slot_ip_address, slot_mac_address, slot_model, slot_name, slot_number, slot_serial_number, slot_type, slot_vendor].hash
+      [slot_firmware, slot_ip_address, slot_mac_address, slot_model, slot_name, slot_number, slot_plc_mode, slot_serial_number, slot_target_ics_id, slot_type, slot_vendor].hash
     end
 
     # Builds the object from hash

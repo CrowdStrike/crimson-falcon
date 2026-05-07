@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -82,6 +81,35 @@ describe 'FalconContainerImage' do
     end
   end
 
+  # unit tests for get_report_by_reference
+  # Get image assessment scan report by image reference (v2)
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :registry Registry
+  # @option opts [String] :repository Repository
+  # @option opts [String] :tag Tag
+  # @option opts [String] :image_id Image ID
+  # @option opts [String] :digest Digest
+  # @option opts [String] :architecture Platform architecture to filter multi-arch images (e.g. amd64, arm64)
+  # @option opts [String] :report_format Specify image-assessment scan report format. Supported formats:  - &#x60;cyclonedx-json&#x60; - &#x60;json&#x60; - &#x60;sarif&#x60;
+  # @return [CoreEntitiesResponse]
+  describe 'get_report_by_reference test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_report_by_scan_id
+  # Get image assessment scan report by scan UUID (v2)
+  # @param uuid Scan UUID
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :report_format Specify image-assessment scan report format. Supported formats:  - &#x60;cyclonedx-json&#x60; - &#x60;json&#x60; - &#x60;sarif&#x60;
+  # @return [CoreEntitiesResponse]
+  describe 'get_report_by_scan_id test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for head_image_scan_inventory
   # Get headers for POST request for image scan inventory
   # @param [Hash] opts the optional parameters
@@ -94,10 +122,24 @@ describe 'FalconContainerImage' do
 
   # unit tests for launch_export_job
   # Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource
-  # @param body Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-detections-expanded&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment-vulnerabilities-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;network.events&#x60; - &#x60;policies.exclusions&#x60;
+  # @param body Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-detections-expanded&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment-vulnerabilities-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;policies.exclusions&#x60;
   # @param [Hash] opts the optional parameters
   # @return [ExportsLaunchExportResponse]
   describe 'launch_export_job test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for policy_checks
+  # Check image prevention policies
+  # @param repository Repository
+  # @param tag Tag
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :registry Registry
+  # @option opts [String] :architecture Architecture e.g. &#39;amd64&#39;, &#39;arm64&#39;...
+  # @return [ApiPolicyEntitiesResponse]
+  describe 'policy_checks test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

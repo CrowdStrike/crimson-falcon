@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -39,6 +38,8 @@ module Falcon
     attr_accessor :attachments
 
     attr_accessor :body
+
+    attr_accessor :case_type
 
     attr_accessor :cid
 
@@ -64,6 +65,8 @@ module Falcon
 
     attr_accessor :recon_rule_type
 
+    attr_accessor :rfi_id
+
     attr_accessor :status
 
     attr_accessor :title
@@ -77,6 +80,7 @@ module Falcon
         :'assigner' => :'assigner',
         :'attachments' => :'attachments',
         :'body' => :'body',
+        :'case_type' => :'case_type',
         :'cid' => :'cid',
         :'created_time' => :'created_time',
         :'detections' => :'detections',
@@ -89,6 +93,7 @@ module Falcon
         :'malware_submission_id' => :'malware_submission_id',
         :'malware_submission_url' => :'malware_submission_url',
         :'recon_rule_type' => :'recon_rule_type',
+        :'rfi_id' => :'rfi_id',
         :'status' => :'status',
         :'title' => :'title',
         :'type' => :'type'
@@ -107,6 +112,7 @@ module Falcon
         :'assigner' => :'MessagesAuthor',
         :'attachments' => :'Array<MessagesAttachment>',
         :'body' => :'String',
+        :'case_type' => :'String',
         :'cid' => :'String',
         :'created_time' => :'String',
         :'detections' => :'Array<MessagesDetection>',
@@ -119,6 +125,7 @@ module Falcon
         :'malware_submission_id' => :'String',
         :'malware_submission_url' => :'String',
         :'recon_rule_type' => :'String',
+        :'rfi_id' => :'String',
         :'status' => :'String',
         :'title' => :'String',
         :'type' => :'String'
@@ -164,6 +171,10 @@ module Falcon
 
       if attributes.key?(:'body')
         self.body = attributes[:'body']
+      end
+
+      if attributes.key?(:'case_type')
+        self.case_type = attributes[:'case_type']
       end
 
       if attributes.key?(:'cid')
@@ -220,6 +231,10 @@ module Falcon
 
       if attributes.key?(:'recon_rule_type')
         self.recon_rule_type = attributes[:'recon_rule_type']
+      end
+
+      if attributes.key?(:'rfi_id')
+        self.rfi_id = attributes[:'rfi_id']
       end
 
       if attributes.key?(:'status')
@@ -303,6 +318,10 @@ module Falcon
         invalid_properties.push('invalid value for "recon_rule_type", recon_rule_type cannot be nil.')
       end
 
+      if @rfi_id.nil?
+        invalid_properties.push('invalid value for "rfi_id", rfi_id cannot be nil.')
+      end
+
       if @status.nil?
         invalid_properties.push('invalid value for "status", status cannot be nil.')
       end
@@ -337,6 +356,7 @@ module Falcon
       return false if @malware_submission_id.nil?
       return false if @malware_submission_url.nil?
       return false if @recon_rule_type.nil?
+      return false if @rfi_id.nil?
       return false if @status.nil?
       return false if @title.nil?
       return false if @type.nil?
@@ -352,6 +372,7 @@ module Falcon
           assigner == o.assigner &&
           attachments == o.attachments &&
           body == o.body &&
+          case_type == o.case_type &&
           cid == o.cid &&
           created_time == o.created_time &&
           detections == o.detections &&
@@ -364,6 +385,7 @@ module Falcon
           malware_submission_id == o.malware_submission_id &&
           malware_submission_url == o.malware_submission_url &&
           recon_rule_type == o.recon_rule_type &&
+          rfi_id == o.rfi_id &&
           status == o.status &&
           title == o.title &&
           type == o.type
@@ -378,7 +400,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aids, assigner, attachments, body, cid, created_time, detections, hosts, id, incidents, ip_addresses, key, last_modified_time, malware_submission_id, malware_submission_url, recon_rule_type, status, title, type].hash
+      [aids, assigner, attachments, body, case_type, cid, created_time, detections, hosts, id, incidents, ip_addresses, key, last_modified_time, malware_submission_id, malware_submission_url, recon_rule_type, rfi_id, status, title, type].hash
     end
 
     # Builds the object from hash

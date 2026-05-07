@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -36,11 +35,19 @@ module Falcon
 
     attr_accessor :benchmarks
 
+    attr_accessor :code
+
     attr_accessor :description
 
     attr_accessor :framework
 
     attr_accessor :name
+
+    attr_accessor :origin
+
+    attr_accessor :requirement
+
+    attr_accessor :section_name
 
     attr_accessor :type
 
@@ -53,9 +60,13 @@ module Falcon
       {
         :'applicable_profiles' => :'applicableProfiles',
         :'benchmarks' => :'benchmarks',
+        :'code' => :'code',
         :'description' => :'description',
         :'framework' => :'framework',
         :'name' => :'name',
+        :'origin' => :'origin',
+        :'requirement' => :'requirement',
+        :'section_name' => :'section_name',
         :'type' => :'type',
         :'uuid' => :'uuid',
         :'version' => :'version'
@@ -72,9 +83,13 @@ module Falcon
       {
         :'applicable_profiles' => :'Array<String>',
         :'benchmarks' => :'Array<PolicyframeworkBenchmark>',
+        :'code' => :'String',
         :'description' => :'String',
         :'framework' => :'String',
         :'name' => :'String',
+        :'origin' => :'String',
+        :'requirement' => :'String',
+        :'section_name' => :'String',
         :'type' => :'String',
         :'uuid' => :'String',
         :'version' => :'String'
@@ -114,6 +129,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'code')
+        self.code = attributes[:'code']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -124,6 +143,18 @@ module Falcon
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'origin')
+        self.origin = attributes[:'origin']
+      end
+
+      if attributes.key?(:'requirement')
+        self.requirement = attributes[:'requirement']
+      end
+
+      if attributes.key?(:'section_name')
+        self.section_name = attributes[:'section_name']
       end
 
       if attributes.key?(:'type')
@@ -159,9 +190,13 @@ module Falcon
       self.class == o.class &&
           applicable_profiles == o.applicable_profiles &&
           benchmarks == o.benchmarks &&
+          code == o.code &&
           description == o.description &&
           framework == o.framework &&
           name == o.name &&
+          origin == o.origin &&
+          requirement == o.requirement &&
+          section_name == o.section_name &&
           type == o.type &&
           uuid == o.uuid &&
           version == o.version
@@ -176,7 +211,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [applicable_profiles, benchmarks, description, framework, name, type, uuid, version].hash
+      [applicable_profiles, benchmarks, code, description, framework, name, origin, requirement, section_name, type, uuid, version].hash
     end
 
     # Builds the object from hash

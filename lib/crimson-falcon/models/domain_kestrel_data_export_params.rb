@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,7 +31,7 @@ require 'time'
 
 module Falcon
   class DomainKestrelDataExportParams
-    attr_accessor :export_mapping
+    attr_accessor :export_mapping_v2
 
     attr_accessor :gqe_query
 
@@ -43,7 +42,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'export_mapping' => :'export_mapping',
+        :'export_mapping_v2' => :'export_mapping_v2',
         :'gqe_query' => :'gqe_query',
         :'limit' => :'limit',
         :'view_id' => :'view_id'
@@ -58,7 +57,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'export_mapping' => :'Array<DomainKestrelDataExportHeaderMapping>',
+        :'export_mapping_v2' => :'Array<DomainKestrelDataExportHeaderMappingV2>',
         :'gqe_query' => :'String',
         :'limit' => :'Integer',
         :'view_id' => :'String'
@@ -86,9 +85,9 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'export_mapping')
-        if (value = attributes[:'export_mapping']).is_a?(Array)
-          self.export_mapping = value
+      if attributes.key?(:'export_mapping_v2')
+        if (value = attributes[:'export_mapping_v2']).is_a?(Array)
+          self.export_mapping_v2 = value
         end
       end
 
@@ -109,8 +108,8 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @export_mapping.nil?
-        invalid_properties.push('invalid value for "export_mapping", export_mapping cannot be nil.')
+      if @export_mapping_v2.nil?
+        invalid_properties.push('invalid value for "export_mapping_v2", export_mapping_v2 cannot be nil.')
       end
 
       if @gqe_query.nil?
@@ -127,7 +126,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @export_mapping.nil?
+      return false if @export_mapping_v2.nil?
       return false if @gqe_query.nil?
       return false if @view_id.nil?
       true
@@ -138,7 +137,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          export_mapping == o.export_mapping &&
+          export_mapping_v2 == o.export_mapping_v2 &&
           gqe_query == o.gqe_query &&
           limit == o.limit &&
           view_id == o.view_id
@@ -153,7 +152,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [export_mapping, gqe_query, limit, view_id].hash
+      [export_mapping_v2, gqe_query, limit, view_id].hash
     end
 
     # Builds the object from hash

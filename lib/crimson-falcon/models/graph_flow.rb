@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -34,11 +33,13 @@ module Falcon
   class GraphFlow
     attr_accessor :condition
 
+    # Optional user provided name for the flow, only used for flows with a condition.
+    attr_accessor :name
+
+    attr_accessor :position
+
     # Reference to the ID of the node that is the source of the flow.
     attr_accessor :source
-
-    # Alias for the source of the flow.
-    attr_accessor :source_alias
 
     # Reference to the ID of the node that is the target of the flow.
     attr_accessor :target
@@ -47,8 +48,9 @@ module Falcon
     def self.attribute_map
       {
         :'condition' => :'condition',
+        :'name' => :'name',
+        :'position' => :'position',
         :'source' => :'source',
-        :'source_alias' => :'source_alias',
         :'target' => :'target'
       }
     end
@@ -62,8 +64,9 @@ module Falcon
     def self.openapi_types
       {
         :'condition' => :'GraphCondition',
+        :'name' => :'String',
+        :'position' => :'GraphNodePosition',
         :'source' => :'String',
-        :'source_alias' => :'String',
         :'target' => :'String'
       }
     end
@@ -93,12 +96,16 @@ module Falcon
         self.condition = attributes[:'condition']
       end
 
-      if attributes.key?(:'source')
-        self.source = attributes[:'source']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'source_alias')
-        self.source_alias = attributes[:'source_alias']
+      if attributes.key?(:'position')
+        self.position = attributes[:'position']
+      end
+
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
       end
 
       if attributes.key?(:'target')
@@ -135,8 +142,9 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           condition == o.condition &&
+          name == o.name &&
+          position == o.position &&
           source == o.source &&
-          source_alias == o.source_alias &&
           target == o.target
     end
 
@@ -149,7 +157,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [condition, source, source_alias, target].hash
+      [condition, name, position, source, target].hash
     end
 
     # Builds the object from hash

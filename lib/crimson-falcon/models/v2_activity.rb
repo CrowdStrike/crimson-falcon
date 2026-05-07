@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -33,6 +32,12 @@ require 'time'
 module Falcon
   class V2Activity
     attr_accessor :_class
+
+    # If set to true, an error on the action will not send an error token to children
+    attr_accessor :continue_on_error
+
+    # The name of the activity type which is not user editable.
+    attr_accessor :default_name
 
     attr_accessor :id
 
@@ -45,15 +50,20 @@ module Falcon
 
     attr_accessor :properties
 
+    attr_accessor :version_constraint
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'_class' => :'class',
+        :'continue_on_error' => :'continue_on_error',
+        :'default_name' => :'default_name',
         :'id' => :'id',
         :'inline_configuration' => :'inline_configuration',
         :'name' => :'name',
         :'_next' => :'next',
-        :'properties' => :'properties'
+        :'properties' => :'properties',
+        :'version_constraint' => :'version_constraint'
       }
     end
 
@@ -66,11 +76,14 @@ module Falcon
     def self.openapi_types
       {
         :'_class' => :'String',
+        :'continue_on_error' => :'Boolean',
+        :'default_name' => :'String',
         :'id' => :'String',
         :'inline_configuration' => :'V2InlineConfig',
         :'name' => :'String',
         :'_next' => :'Array<String>',
-        :'properties' => :'Object'
+        :'properties' => :'Object',
+        :'version_constraint' => :'String'
       }
     end
 
@@ -99,6 +112,14 @@ module Falcon
         self._class = attributes[:'_class']
       end
 
+      if attributes.key?(:'continue_on_error')
+        self.continue_on_error = attributes[:'continue_on_error']
+      end
+
+      if attributes.key?(:'default_name')
+        self.default_name = attributes[:'default_name']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -119,6 +140,10 @@ module Falcon
 
       if attributes.key?(:'properties')
         self.properties = attributes[:'properties']
+      end
+
+      if attributes.key?(:'version_constraint')
+        self.version_constraint = attributes[:'version_constraint']
       end
     end
 
@@ -151,11 +176,14 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           _class == o._class &&
+          continue_on_error == o.continue_on_error &&
+          default_name == o.default_name &&
           id == o.id &&
           inline_configuration == o.inline_configuration &&
           name == o.name &&
           _next == o._next &&
-          properties == o.properties
+          properties == o.properties &&
+          version_constraint == o.version_constraint
     end
 
     # @see the `==` method
@@ -167,7 +195,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_class, id, inline_configuration, name, _next, properties].hash
+      [_class, continue_on_error, default_name, id, inline_configuration, name, _next, properties, version_constraint].hash
     end
 
     # Builds the object from hash

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -36,6 +35,8 @@ module Falcon
 
     attr_accessor :doc_count_error_upper_bound
 
+    attr_accessor :hits
+
     attr_accessor :name
 
     attr_accessor :sum_other_doc_count
@@ -45,6 +46,7 @@ module Falcon
       {
         :'buckets' => :'buckets',
         :'doc_count_error_upper_bound' => :'doc_count_error_upper_bound',
+        :'hits' => :'hits',
         :'name' => :'name',
         :'sum_other_doc_count' => :'sum_other_doc_count'
       }
@@ -60,6 +62,7 @@ module Falcon
       {
         :'buckets' => :'Array<FwmgrMsaAggregationResultItem>',
         :'doc_count_error_upper_bound' => :'Integer',
+        :'hits' => :'FwmgrMsaHits',
         :'name' => :'String',
         :'sum_other_doc_count' => :'Integer'
       }
@@ -94,6 +97,10 @@ module Falcon
 
       if attributes.key?(:'doc_count_error_upper_bound')
         self.doc_count_error_upper_bound = attributes[:'doc_count_error_upper_bound']
+      end
+
+      if attributes.key?(:'hits')
+        self.hits = attributes[:'hits']
       end
 
       if attributes.key?(:'name')
@@ -135,6 +142,7 @@ module Falcon
       self.class == o.class &&
           buckets == o.buckets &&
           doc_count_error_upper_bound == o.doc_count_error_upper_bound &&
+          hits == o.hits &&
           name == o.name &&
           sum_other_doc_count == o.sum_other_doc_count
     end
@@ -148,7 +156,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [buckets, doc_count_error_upper_bound, name, sum_other_doc_count].hash
+      [buckets, doc_count_error_upper_bound, hits, name, sum_other_doc_count].hash
     end
 
     # Builds the object from hash

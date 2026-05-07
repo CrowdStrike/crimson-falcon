@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -55,6 +54,17 @@ describe 'CloudAzureRegistration' do
   # @param [Hash] opts the optional parameters
   # @return [AzureAzureRegistrationResponseExtV1]
   describe 'cloud_registration_azure_create_registration test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_azure_delete_legacy_subscription
+  # Delete existing legacy Azure subscriptions.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [AzureLegacySubscriptionDeleteResponseExtV1]
+  describe 'cloud_registration_azure_delete_legacy_subscription test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -93,6 +103,28 @@ describe 'CloudAzureRegistration' do
     end
   end
 
+  # unit tests for cloud_registration_azure_get_script
+  # Download Azure deployment script (Terraform or Bicep)
+  # @param tenant_id Azure tenant ID
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'cloud_registration_azure_get_script test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_azure_trigger_health_check
+  # Trigger health check scan for Azure registrations
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :tenant_ids Azure tenant IDs
+  # @return [AzureHealthCheckTriggerResponseExtV1]
+  describe 'cloud_registration_azure_trigger_health_check test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for cloud_registration_azure_update_registration
   # Update an existing Azure registration for a tenant.
   # @param body
@@ -104,12 +136,13 @@ describe 'CloudAzureRegistration' do
     end
   end
 
-  # unit tests for download_azure_script
-  # Download Azure deployment script (Terraform or Bicep)
-  # @param tenant_id Azure tenant ID
+  # unit tests for cloud_registration_azure_validate_registration
+  # Validate an Azure registration by checking service principal, role assignments and deployment stack (if the deployment method is Bicep)
+  # @param tenant_id Azure tenant ID to be validated
   # @param [Hash] opts the optional parameters
-  # @return [nil]
-  describe 'download_azure_script test' do
+  # @option opts [String] :stack_name Azure deployment stack name to be validated
+  # @return [AzureRegistrationValidateResponseV1]
+  describe 'cloud_registration_azure_validate_registration test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

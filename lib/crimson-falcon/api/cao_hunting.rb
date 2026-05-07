@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -36,10 +35,76 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Aggregate Hunting Guides
+    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param [Hash] opts the optional parameters
+    # @return [CaohuntingapiHuntingGuideAggregatesResponse]
+    def aggregate_hunting_guides(body, opts = {})
+      data, _status_code, _headers = aggregate_hunting_guides_with_http_info(body, opts)
+      data
+    end
+
+    # Aggregate Hunting Guides
+    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CaohuntingapiHuntingGuideAggregatesResponse, Integer, Hash)>] CaohuntingapiHuntingGuideAggregatesResponse data, response status code and response headers
+    def aggregate_hunting_guides_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaoHunting.aggregate_hunting_guides ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CaoHunting.aggregate_hunting_guides"
+      end
+      # resource path
+      local_var_path = '/hunting/aggregates/hunting-guides/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaohuntingapiHuntingGuideAggregatesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CaoHunting.aggregate_hunting_guides",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaoHunting#aggregate_hunting_guides\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Aggregate intelligence queries
     # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
-    # @return [ApiIntelligenceQueryAggregatesResponse]
+    # @return [CaohuntingapiIntelligenceQueryAggregatesResponse]
     def aggregate_intelligence_queries(body, opts = {})
       data, _status_code, _headers = aggregate_intelligence_queries_with_http_info(body, opts)
       data
@@ -48,7 +113,7 @@ module Falcon
     # Aggregate intelligence queries
     # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ApiIntelligenceQueryAggregatesResponse, Integer, Hash)>] ApiIntelligenceQueryAggregatesResponse data, response status code and response headers
+    # @return [Array<(CaohuntingapiIntelligenceQueryAggregatesResponse, Integer, Hash)>] CaohuntingapiIntelligenceQueryAggregatesResponse data, response status code and response headers
     def aggregate_intelligence_queries_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaoHunting.aggregate_intelligence_queries ...'
@@ -80,7 +145,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiIntelligenceQueryAggregatesResponse'
+      return_type = opts[:debug_return_type] || 'CaohuntingapiIntelligenceQueryAggregatesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -103,10 +168,10 @@ module Falcon
     end
 
     # Creates an Archive Export
-    # @param language [String] The Query Language. Accepted Values:  &lt;li&gt;cql&lt;/li&gt;&lt;li&gt;snort&lt;/li&gt;&lt;li&gt;suricata&lt;/li&gt;&lt;li&gt;yara&lt;/li&gt;
+    # @param language [String] The Query Language. Accepted Values:  &lt;li&gt;cql&lt;/li&gt;&lt;li&gt;snort&lt;/li&gt;&lt;li&gt;suricata&lt;/li&gt;&lt;li&gt;yara&lt;/li&gt;&lt;li&gt;SPL &lt;i&gt;AI translated (Beta)&lt;/i&gt;&lt;/li&gt;&lt;li&gt;__all__ &lt;i&gt;returns a single archive with queries in all the languages&lt;/i&gt;&lt;/li&gt;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter The FQL Filter
-    # @option opts [String] :archive_type The Archive Type can be one of &#39;zip&#39; and &#39;gzip&#39;. Defaults to &#39;zip&#39;.
+    # @option opts [String] :archive_type The Archive Type can be one of &#39;zip&#39; and &#39;gzip&#39; (default to 'zip')
     # @return [Array<Integer>]
     def get_archive_export(language, opts = {})
       data, _status_code, _headers = get_archive_export_with_http_info(language, opts)
@@ -114,10 +179,10 @@ module Falcon
     end
 
     # Creates an Archive Export
-    # @param language [String] The Query Language. Accepted Values:  &lt;li&gt;cql&lt;/li&gt;&lt;li&gt;snort&lt;/li&gt;&lt;li&gt;suricata&lt;/li&gt;&lt;li&gt;yara&lt;/li&gt;
+    # @param language [String] The Query Language. Accepted Values:  &lt;li&gt;cql&lt;/li&gt;&lt;li&gt;snort&lt;/li&gt;&lt;li&gt;suricata&lt;/li&gt;&lt;li&gt;yara&lt;/li&gt;&lt;li&gt;SPL &lt;i&gt;AI translated (Beta)&lt;/i&gt;&lt;/li&gt;&lt;li&gt;__all__ &lt;i&gt;returns a single archive with queries in all the languages&lt;/i&gt;&lt;/li&gt;
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter The FQL Filter
-    # @option opts [String] :archive_type The Archive Type can be one of &#39;zip&#39; and &#39;gzip&#39;. Defaults to &#39;zip&#39;.
+    # @option opts [String] :archive_type The Archive Type can be one of &#39;zip&#39; and &#39;gzip&#39; (default to 'zip')
     # @return [Array<(Array<Integer>, Integer, Hash)>] Array<Integer> data, response status code and response headers
     def get_archive_export_with_http_info(language, opts = {})
       if @api_client.config.debugging
@@ -170,29 +235,29 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieves a list of Intelligence queries
-    # @param ids [Array<String>] Intelligence queries IDs
+    # Retrieves a list of Hunting Guides
+    # @param ids [Array<String>] Hunting Guides IDs
     # @param [Hash] opts the optional parameters
-    # @return [ApiIntelligenceQueryEntityResponse]
-    def get_intelligence_queries(ids, opts = {})
-      data, _status_code, _headers = get_intelligence_queries_with_http_info(ids, opts)
+    # @return [CaohuntingapiHuntingGuideEntityResponse]
+    def get_hunting_guides(ids, opts = {})
+      data, _status_code, _headers = get_hunting_guides_with_http_info(ids, opts)
       data
     end
 
-    # Retrieves a list of Intelligence queries
-    # @param ids [Array<String>] Intelligence queries IDs
+    # Retrieves a list of Hunting Guides
+    # @param ids [Array<String>] Hunting Guides IDs
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ApiIntelligenceQueryEntityResponse, Integer, Hash)>] ApiIntelligenceQueryEntityResponse data, response status code and response headers
-    def get_intelligence_queries_with_http_info(ids, opts = {})
+    # @return [Array<(CaohuntingapiHuntingGuideEntityResponse, Integer, Hash)>] CaohuntingapiHuntingGuideEntityResponse data, response status code and response headers
+    def get_hunting_guides_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CaoHunting.get_intelligence_queries ...'
+        @api_client.config.logger.debug 'Calling API: CaoHunting.get_hunting_guides ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CaoHunting.get_intelligence_queries"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CaoHunting.get_hunting_guides"
       end
       # resource path
-      local_var_path = '/hunting/entities/intelligence-queries/v1'
+      local_var_path = '/hunting/entities/hunting-guides/v1'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -210,7 +275,72 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiIntelligenceQueryEntityResponse'
+      return_type = opts[:debug_return_type] || 'CaohuntingapiHuntingGuideEntityResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CaoHunting.get_hunting_guides",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaoHunting#get_hunting_guides\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieves the details of a list of Intelligence queries IDs
+    # @param ids [Array<String>] Intelligence queries IDs
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :include_translated_content The AI translated language that should be returned if it exists&lt;br&gt;Accepted values are: &lt;li&gt;SPL&lt;/li&gt;&lt;li&gt;\\_\\_all\\_\\_&lt;/li&gt;
+    # @return [CaohuntingapiIntelligenceQueryEntityResponse]
+    def get_intelligence_queries(ids, opts = {})
+      data, _status_code, _headers = get_intelligence_queries_with_http_info(ids, opts)
+      data
+    end
+
+    # Retrieves the details of a list of Intelligence queries IDs
+    # @param ids [Array<String>] Intelligence queries IDs
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :include_translated_content The AI translated language that should be returned if it exists&lt;br&gt;Accepted values are: &lt;li&gt;SPL&lt;/li&gt;&lt;li&gt;\\_\\_all\\_\\_&lt;/li&gt;
+    # @return [Array<(CaohuntingapiIntelligenceQueryEntityResponse, Integer, Hash)>] CaohuntingapiIntelligenceQueryEntityResponse data, response status code and response headers
+    def get_intelligence_queries_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaoHunting.get_intelligence_queries ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CaoHunting.get_intelligence_queries"
+      end
+      # resource path
+      local_var_path = '/hunting/entities/intelligence-queries/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+      query_params[:'include_translated_content'] = @api_client.build_collection_param(opts[:'include_translated_content'], :multi) if !opts[:'include_translated_content'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CaohuntingapiIntelligenceQueryEntityResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -232,7 +362,77 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Search intelligence queries that match the provided conditions
+    # Search for Hunting Guides that match the provided conditions
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :offset Starting index of result set from which to return IDs.
+    # @option opts [Integer] :limit Number of IDs to return.
+    # @option opts [String] :sort Order by fields.
+    # @option opts [String] :filter FQL query specifying the filter parameters.
+    # @option opts [String] :q Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed).
+    # @return [MsaspecQueryResponse]
+    def search_hunting_guides(opts = {})
+      data, _status_code, _headers = search_hunting_guides_with_http_info(opts)
+      data
+    end
+
+    # Search for Hunting Guides that match the provided conditions
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :offset Starting index of result set from which to return IDs.
+    # @option opts [Integer] :limit Number of IDs to return.
+    # @option opts [String] :sort Order by fields.
+    # @option opts [String] :filter FQL query specifying the filter parameters.
+    # @option opts [String] :q Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed).
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def search_hunting_guides_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CaoHunting.search_hunting_guides ...'
+      end
+      # resource path
+      local_var_path = '/hunting/queries/hunting-guides/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'q'] = opts[:'q'] if !opts[:'q'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CaoHunting.search_hunting_guides",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CaoHunting#search_hunting_guides\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search for a list of intelligence queries IDs that match the provided conditions
     # @param [Hash] opts the optional parameters
     # @option opts [String] :offset Starting index of result set from which to return IDs.
     # @option opts [Integer] :limit Number of IDs to return.
@@ -245,7 +445,7 @@ module Falcon
       data
     end
 
-    # Search intelligence queries that match the provided conditions
+    # Search for a list of intelligence queries IDs that match the provided conditions
     # @param [Hash] opts the optional parameters
     # @option opts [String] :offset Starting index of result set from which to return IDs.
     # @option opts [Integer] :limit Number of IDs to return.

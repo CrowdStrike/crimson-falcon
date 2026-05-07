@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -52,7 +51,7 @@ describe 'UnidentifiedContainers' do
   # unit tests for read_unidentified_containers_by_date_range_count
   # Returns the count of Unidentified Containers over the last 7 days
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60;
+  # @option opts [String] :filter Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60;
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_unidentified_containers_by_date_range_count test' do
     it 'should work' do
@@ -63,7 +62,7 @@ describe 'UnidentifiedContainers' do
   # unit tests for read_unidentified_containers_count
   # Returns the total count of Unidentified Containers over a time period
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60;
+  # @option opts [String] :filter Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60;
   # @return [UnidentifiedcontainersUnidentifiedContainersCountValue]
   describe 'read_unidentified_containers_count test' do
     it 'should work' do
@@ -72,12 +71,12 @@ describe 'UnidentifiedContainers' do
   end
 
   # unit tests for search_and_read_unidentified_containers
-  # Maximum offset &#x3D; 10000 - limit
+  # Search Unidentified Containers by the provided search criteria
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60;
+  # @option opts [String] :filter Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60;
   # @option opts [String] :sort The fields to sort the records on.
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [UnidentifiedcontainersUnidentifiedContainerAPIResponse]
   describe 'search_and_read_unidentified_containers test' do
     it 'should work' do

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -106,7 +105,7 @@ module Falcon
     # @param ids [Array<String>] The ids of the exclusions to delete
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Explains why this exclusions was deleted
-    # @return [ExclusionsRespV1]
+    # @return [MsaspecQueryResponse]
     def delete_ml_exclusions_v1(ids, opts = {})
       data, _status_code, _headers = delete_ml_exclusions_v1_with_http_info(ids, opts)
       data
@@ -116,7 +115,7 @@ module Falcon
     # @param ids [Array<String>] The ids of the exclusions to delete
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Explains why this exclusions was deleted
-    # @return [Array<(ExclusionsRespV1, Integer, Hash)>] ExclusionsRespV1 data, response status code and response headers
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def delete_ml_exclusions_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MlExclusions.delete_ml_exclusions_v1 ...'
@@ -145,7 +144,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ExclusionsRespV1'
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -163,6 +162,601 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MlExclusions#delete_ml_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get exclusion aggregates as specified via json in request body.
+    # @param body [MsaAggregateQueryRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def exclusions_aggregates_v2(body, opts = {})
+      exclusions_aggregates_v2_with_http_info(body, opts)
+      nil
+    end
+
+    # Get exclusion aggregates as specified via json in request body.
+    # @param body [MsaAggregateQueryRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def exclusions_aggregates_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MlExclusions.exclusions_aggregates_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MlExclusions.exclusions_aggregates_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/aggregates/exclusions/GET/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"MlExclusions.exclusions_aggregates_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MlExclusions#exclusions_aggregates_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create the exclusions, with ancestor fields.
+    # @param body [DomainExclusionsCreateReqV2]
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def exclusions_create_v2(body, opts = {})
+      exclusions_create_v2_with_http_info(body, opts)
+      nil
+    end
+
+    # Create the exclusions, with ancestor fields.
+    # @param body [DomainExclusionsCreateReqV2]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def exclusions_create_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MlExclusions.exclusions_create_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MlExclusions.exclusions_create_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/entities/exclusions/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"MlExclusions.exclusions_create_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MlExclusions#exclusions_create_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete the exclusions by id, with ancestor fields.
+    # @param ids [Array<String>] The ids of the exclusions to delete
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :comment The comment why these exclusions were deleted
+    # @return [nil]
+    def exclusions_delete_v2(ids, opts = {})
+      exclusions_delete_v2_with_http_info(ids, opts)
+      nil
+    end
+
+    # Delete the exclusions by id, with ancestor fields.
+    # @param ids [Array<String>] The ids of the exclusions to delete
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :comment The comment why these exclusions were deleted
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def exclusions_delete_v2_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MlExclusions.exclusions_delete_v2 ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling MlExclusions.exclusions_delete_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/entities/exclusions/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+      query_params[:'comment'] = opts[:'comment'] if !opts[:'comment'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"MlExclusions.exclusions_delete_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MlExclusions#exclusions_delete_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all exclusions.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def exclusions_get_all_v2(opts = {})
+      exclusions_get_all_v2_with_http_info(opts)
+      nil
+    end
+
+    # Get all exclusions.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def exclusions_get_all_v2_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MlExclusions.exclusions_get_all_v2 ...'
+      end
+      # resource path
+      local_var_path = '/exclusions/entities/all-exclusions/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"MlExclusions.exclusions_get_all_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MlExclusions#exclusions_get_all_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a report of ML exclusions scoped by the given filters
+    # @param body [DomainExclusionsReportRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def exclusions_get_reports_v2(body, opts = {})
+      exclusions_get_reports_v2_with_http_info(body, opts)
+      nil
+    end
+
+    # Create a report of ML exclusions scoped by the given filters
+    # @param body [DomainExclusionsReportRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def exclusions_get_reports_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MlExclusions.exclusions_get_reports_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MlExclusions.exclusions_get_reports_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/entities/exclusions/reports/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"MlExclusions.exclusions_get_reports_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MlExclusions#exclusions_get_reports_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the exclusions by id, with ancestor fields.
+    # @param ids [Array<String>] The ids of the exclusions to retrieve
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def exclusions_get_v2(ids, opts = {})
+      exclusions_get_v2_with_http_info(ids, opts)
+      nil
+    end
+
+    # Get the exclusions by id, with ancestor fields.
+    # @param ids [Array<String>] The ids of the exclusions to retrieve
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def exclusions_get_v2_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MlExclusions.exclusions_get_v2 ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling MlExclusions.exclusions_get_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/entities/exclusions/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"MlExclusions.exclusions_get_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MlExclusions#exclusions_get_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Actions used to manipulate the content of exclusions, with ancestor fields.
+    # @param action_name [String] The action to perform.
+    # @param body [MsaspecAction]
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def exclusions_perform_action_v2(action_name, body, opts = {})
+      exclusions_perform_action_v2_with_http_info(action_name, body, opts)
+      nil
+    end
+
+    # Actions used to manipulate the content of exclusions, with ancestor fields.
+    # @param action_name [String] The action to perform.
+    # @param body [MsaspecAction]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def exclusions_perform_action_v2_with_http_info(action_name, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MlExclusions.exclusions_perform_action_v2 ...'
+      end
+      # verify the required parameter 'action_name' is set
+      if @api_client.config.client_side_validation && action_name.nil?
+        fail ArgumentError, "Missing the required parameter 'action_name' when calling MlExclusions.exclusions_perform_action_v2"
+      end
+      # verify enum value
+      allowable_values = ["add_item", "remove_item", "validate_filepath"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(action_name)
+        fail ArgumentError, "invalid value for \"action_name\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MlExclusions.exclusions_perform_action_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/entities/exclusion-actions/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'action_name'] = action_name
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"MlExclusions.exclusions_perform_action_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MlExclusions#exclusions_perform_action_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search for exclusions, with ancestor fields.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter The filter expression that should be used to limit the results.
+    # @option opts [Integer] :offset The offset to start retrieving records from
+    # @option opts [Integer] :limit The maximum records to return. [1-500]
+    # @option opts [String] :sort The sort expression that should be used to sort the results.
+    # @return [nil]
+    def exclusions_search_v2(opts = {})
+      exclusions_search_v2_with_http_info(opts)
+      nil
+    end
+
+    # Search for exclusions, with ancestor fields.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter The filter expression that should be used to limit the results.
+    # @option opts [Integer] :offset The offset to start retrieving records from
+    # @option opts [Integer] :limit The maximum records to return. [1-500]
+    # @option opts [String] :sort The sort expression that should be used to sort the results.
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def exclusions_search_v2_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MlExclusions.exclusions_search_v2 ...'
+      end
+      allowable_values = ["parent_value", "value", "grandparent_value", "applied_globally", "created_on", "created_by", "last_modified", "modified_by", "is_descendant_process"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/exclusions/queries/exclusions/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"MlExclusions.exclusions_search_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MlExclusions#exclusions_search_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update the exclusions by id, with ancestor fields.
+    # @param body [DomainExclusionUpdateReqV2]
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def exclusions_update_v2(body, opts = {})
+      exclusions_update_v2_with_http_info(body, opts)
+      nil
+    end
+
+    # Update the exclusions by id, with ancestor fields.
+    # @param body [DomainExclusionUpdateReqV2]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def exclusions_update_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MlExclusions.exclusions_update_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MlExclusions.exclusions_update_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/entities/exclusions/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"MlExclusions.exclusions_update_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MlExclusions#exclusions_update_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -235,7 +829,7 @@ module Falcon
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return. [1-500]
     # @option opts [String] :sort The sort expression that should be used to sort the results.
-    # @return [MsaQueryResponse]
+    # @return [MsaspecQueryResponse]
     def query_ml_exclusions_v1(opts = {})
       data, _status_code, _headers = query_ml_exclusions_v1_with_http_info(opts)
       data
@@ -247,7 +841,7 @@ module Falcon
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return. [1-500]
     # @option opts [String] :sort The sort expression that should be used to sort the results.
-    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_ml_exclusions_v1_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MlExclusions.query_ml_exclusions_v1 ...'
@@ -278,7 +872,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

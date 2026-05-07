@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -60,7 +59,11 @@ module Falcon
 
     attr_accessor :image_size
 
+    attr_accessor :index_digest
+
     attr_accessor :is_base_image
+
+    attr_accessor :multi_arch
 
     attr_accessor :registry
 
@@ -95,7 +98,9 @@ module Falcon
         :'image_id' => :'image_id',
         :'image_scanning_active' => :'image_scanning_active',
         :'image_size' => :'image_size',
+        :'index_digest' => :'index_digest',
         :'is_base_image' => :'is_base_image',
+        :'multi_arch' => :'multi_arch',
         :'registry' => :'registry',
         :'repository' => :'repository',
         :'source' => :'source',
@@ -129,7 +134,9 @@ module Falcon
         :'image_id' => :'String',
         :'image_scanning_active' => :'Boolean',
         :'image_size' => :'Integer',
+        :'index_digest' => :'String',
         :'is_base_image' => :'Boolean',
+        :'multi_arch' => :'Boolean',
         :'registry' => :'String',
         :'repository' => :'String',
         :'source' => :'String',
@@ -218,8 +225,16 @@ module Falcon
         self.image_size = attributes[:'image_size']
       end
 
+      if attributes.key?(:'index_digest')
+        self.index_digest = attributes[:'index_digest']
+      end
+
       if attributes.key?(:'is_base_image')
         self.is_base_image = attributes[:'is_base_image']
+      end
+
+      if attributes.key?(:'multi_arch')
+        self.multi_arch = attributes[:'multi_arch']
       end
 
       if attributes.key?(:'registry')
@@ -311,6 +326,10 @@ module Falcon
         invalid_properties.push('invalid value for "is_base_image", is_base_image cannot be nil.')
       end
 
+      if @multi_arch.nil?
+        invalid_properties.push('invalid value for "multi_arch", multi_arch cannot be nil.')
+      end
+
       if @registry.nil?
         invalid_properties.push('invalid value for "registry", registry cannot be nil.')
       end
@@ -362,6 +381,7 @@ module Falcon
       return false if @image_scanning_active.nil?
       return false if @image_size.nil?
       return false if @is_base_image.nil?
+      return false if @multi_arch.nil?
       return false if @registry.nil?
       return false if @repository.nil?
       return false if @source.nil?
@@ -392,7 +412,9 @@ module Falcon
           image_id == o.image_id &&
           image_scanning_active == o.image_scanning_active &&
           image_size == o.image_size &&
+          index_digest == o.index_digest &&
           is_base_image == o.is_base_image &&
+          multi_arch == o.multi_arch &&
           registry == o.registry &&
           repository == o.repository &&
           source == o.source &&
@@ -412,7 +434,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ai_related, base_image_id, base_os, base_os_version, cid, config, created_at, crowdstrike_user, digest, eol_date, first_scanned, image_id, image_scanning_active, image_size, is_base_image, registry, repository, source, source_base_image, tag, updated_at, uuid, warning].hash
+      [ai_related, base_image_id, base_os, base_os_version, cid, config, created_at, crowdstrike_user, digest, eol_date, first_scanned, image_id, image_scanning_active, image_size, index_digest, is_base_image, multi_arch, registry, repository, source, source_base_image, tag, updated_at, uuid, warning].hash
     end
 
     # Builds the object from hash

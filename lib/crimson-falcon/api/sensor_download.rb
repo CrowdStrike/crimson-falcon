@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -156,6 +155,68 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SensorDownload#download_sensor_installer_by_id_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Download sensor installer by SHA256 ID
+    # @param id [String] SHA256 of the installer to download
+    # @param [Hash] opts the optional parameters
+    # @return [File]
+    def download_sensor_installer_by_id_v3(id, opts = {})
+      data, _status_code, _headers = download_sensor_installer_by_id_v3_with_http_info(id, opts)
+      data
+    end
+
+    # Download sensor installer by SHA256 ID
+    # @param id [String] SHA256 of the installer to download
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
+    def download_sensor_installer_by_id_v3_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SensorDownload.download_sensor_installer_by_id_v3 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SensorDownload.download_sensor_installer_by_id_v3"
+      end
+      # resource path
+      local_var_path = '/sensors/entities/download-installer/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/octet-stream'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'File'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SensorDownload.download_sensor_installer_by_id_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SensorDownload#download_sensor_installer_by_id_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -294,6 +355,73 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get sensor installer details by provided query
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+    # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+    # @option opts [String] :sort Sort items using their properties. Common sort options include:\\n\\n&lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt;
+    # @option opts [String] :filter Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.\\n\\nCommon filter options include:\\n&lt;ul&gt;&lt;li&gt;platform:\\\&quot;windows\\\&quot;&lt;/li&gt;&lt;li&gt;version:&gt;\\\&quot;5.2\\\&quot;&lt;/li&gt;&lt;/ul&gt;
+    # @return [DomainSensorInstallersV3]
+    def get_combined_sensor_installers_by_query_v3(opts = {})
+      data, _status_code, _headers = get_combined_sensor_installers_by_query_v3_with_http_info(opts)
+      data
+    end
+
+    # Get sensor installer details by provided query
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+    # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+    # @option opts [String] :sort Sort items using their properties. Common sort options include:\\n\\n&lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt;
+    # @option opts [String] :filter Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.\\n\\nCommon filter options include:\\n&lt;ul&gt;&lt;li&gt;platform:\\\&quot;windows\\\&quot;&lt;/li&gt;&lt;li&gt;version:&gt;\\\&quot;5.2\\\&quot;&lt;/li&gt;&lt;/ul&gt;
+    # @return [Array<(DomainSensorInstallersV3, Integer, Hash)>] DomainSensorInstallersV3 data, response status code and response headers
+    def get_combined_sensor_installers_by_query_v3_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SensorDownload.get_combined_sensor_installers_by_query_v3 ...'
+      end
+      # resource path
+      local_var_path = '/sensors/combined/installers/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainSensorInstallersV3'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SensorDownload.get_combined_sensor_installers_by_query_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SensorDownload#get_combined_sensor_installers_by_query_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get sensor installer IDs by provided query
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
@@ -424,6 +552,73 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SensorDownload#get_sensor_installers_by_query_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get sensor installer IDs by provided query
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+    # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+    # @option opts [String] :sort Sort items using their properties. Common sort options include:\\n\\n&lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt;
+    # @option opts [String] :filter Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.\\n\\nCommon filter options include:\\n&lt;ul&gt;&lt;li&gt;platform:\\\&quot;windows\\\&quot;&lt;/li&gt;&lt;li&gt;version:&gt;\\\&quot;5.2\\\&quot;&lt;/li&gt;&lt;/ul&gt;
+    # @return [MsaspecQueryResponse]
+    def get_sensor_installers_by_query_v3(opts = {})
+      data, _status_code, _headers = get_sensor_installers_by_query_v3_with_http_info(opts)
+      data
+    end
+
+    # Get sensor installer IDs by provided query
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+    # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+    # @option opts [String] :sort Sort items using their properties. Common sort options include:\\n\\n&lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt;
+    # @option opts [String] :filter Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.\\n\\nCommon filter options include:\\n&lt;ul&gt;&lt;li&gt;platform:\\\&quot;windows\\\&quot;&lt;/li&gt;&lt;li&gt;version:&gt;\\\&quot;5.2\\\&quot;&lt;/li&gt;&lt;/ul&gt;
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def get_sensor_installers_by_query_v3_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SensorDownload.get_sensor_installers_by_query_v3 ...'
+      end
+      # resource path
+      local_var_path = '/sensors/queries/installers/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SensorDownload.get_sensor_installers_by_query_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SensorDownload#get_sensor_installers_by_query_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -603,6 +798,68 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SensorDownload#get_sensor_installers_entities_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get sensor installer details by provided SHA256 IDs
+    # @param ids [Array<String>] The IDs of the installers
+    # @param [Hash] opts the optional parameters
+    # @return [DomainSensorInstallersV3]
+    def get_sensor_installers_entities_v3(ids, opts = {})
+      data, _status_code, _headers = get_sensor_installers_entities_v3_with_http_info(ids, opts)
+      data
+    end
+
+    # Get sensor installer details by provided SHA256 IDs
+    # @param ids [Array<String>] The IDs of the installers
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainSensorInstallersV3, Integer, Hash)>] DomainSensorInstallersV3 data, response status code and response headers
+    def get_sensor_installers_entities_v3_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SensorDownload.get_sensor_installers_entities_v3 ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling SensorDownload.get_sensor_installers_entities_v3"
+      end
+      # resource path
+      local_var_path = '/sensors/entities/installers/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainSensorInstallersV3'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SensorDownload.get_sensor_installers_entities_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SensorDownload#get_sensor_installers_entities_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

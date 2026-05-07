@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,6 +31,15 @@ require 'time'
 
 module Falcon
   class ExecutionsTriggerResult
+    # Timestamp of when the execution completed. Only present when status is an end state.
+    attr_accessor :end_timestamp
+
+    # When a node execution is in an error status this field is present and provides an error code that can be used to determine details why the failure occurred.
+    attr_accessor :error_code
+
+    # When a node execution is in an error status this field is present and provides a user friendly error message.
+    attr_accessor :error_message
+
     # Unique identifier for the selected trigger as provided by the triggers API
     attr_accessor :id
 
@@ -41,16 +49,61 @@ module Falcon
     # Display name of the trigger
     attr_accessor :name
 
+    # Unique id of the node as specified in the definition.
+    attr_accessor :node_id
+
     # Opaque blob for result of trigger. Structured according to the trigger's JSON schema'.
     attr_accessor :result
+
+    # Timestamp of when the execution first started.
+    attr_accessor :start_timestamp
+
+    # Current status of execution for the activity.
+    attr_accessor :status
+
+    # Type of the trigger
+    attr_accessor :type
+
+    # Current status of execution for the activity rendered in the UI.
+    attr_accessor :ui_status
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'end_timestamp' => :'end_timestamp',
+        :'error_code' => :'error_code',
+        :'error_message' => :'error_message',
         :'id' => :'id',
         :'mocked' => :'mocked',
         :'name' => :'name',
-        :'result' => :'result'
+        :'node_id' => :'node_id',
+        :'result' => :'result',
+        :'start_timestamp' => :'start_timestamp',
+        :'status' => :'status',
+        :'type' => :'type',
+        :'ui_status' => :'ui_status'
       }
     end
 
@@ -62,10 +115,18 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'end_timestamp' => :'Time',
+        :'error_code' => :'Integer',
+        :'error_message' => :'String',
         :'id' => :'String',
         :'mocked' => :'Boolean',
         :'name' => :'String',
-        :'result' => :'Object'
+        :'node_id' => :'String',
+        :'result' => :'Object',
+        :'start_timestamp' => :'Time',
+        :'status' => :'String',
+        :'type' => :'String',
+        :'ui_status' => :'String'
       }
     end
 
@@ -90,6 +151,18 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'end_timestamp')
+        self.end_timestamp = attributes[:'end_timestamp']
+      end
+
+      if attributes.key?(:'error_code')
+        self.error_code = attributes[:'error_code']
+      end
+
+      if attributes.key?(:'error_message')
+        self.error_message = attributes[:'error_message']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -102,8 +175,28 @@ module Falcon
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'node_id')
+        self.node_id = attributes[:'node_id']
+      end
+
       if attributes.key?(:'result')
         self.result = attributes[:'result']
+      end
+
+      if attributes.key?(:'start_timestamp')
+        self.start_timestamp = attributes[:'start_timestamp']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'ui_status')
+        self.ui_status = attributes[:'ui_status']
       end
     end
 
@@ -115,6 +208,18 @@ module Falcon
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
+      if @node_id.nil?
+        invalid_properties.push('invalid value for "node_id", node_id cannot be nil.')
+      end
+
+      if @status.nil?
+        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      end
+
+      if @ui_status.nil?
+        invalid_properties.push('invalid value for "ui_status", ui_status cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -122,7 +227,34 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @name.nil?
+      return false if @node_id.nil?
+      return false if @status.nil?
+      status_validator = EnumAttributeValidator.new('String', ["Pending", "Succeeded", "Failed", "Skipped"])
+      return false unless status_validator.valid?(@status)
+      return false if @ui_status.nil?
+      ui_status_validator = EnumAttributeValidator.new('String', ["Pending", "Action Performed", "Executing", "Error", "Skipped", "Retrying"])
+      return false unless ui_status_validator.valid?(@ui_status)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] status Object to be assigned
+    def status=(status)
+      validator = EnumAttributeValidator.new('String', ["Pending", "Succeeded", "Failed", "Skipped"])
+      unless validator.valid?(status)
+        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
+      end
+      @status = status
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] ui_status Object to be assigned
+    def ui_status=(ui_status)
+      validator = EnumAttributeValidator.new('String', ["Pending", "Action Performed", "Executing", "Error", "Skipped", "Retrying"])
+      unless validator.valid?(ui_status)
+        fail ArgumentError, "invalid value for \"ui_status\", must be one of #{validator.allowable_values}."
+      end
+      @ui_status = ui_status
     end
 
     # Checks equality by comparing each attribute.
@@ -130,10 +262,18 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          end_timestamp == o.end_timestamp &&
+          error_code == o.error_code &&
+          error_message == o.error_message &&
           id == o.id &&
           mocked == o.mocked &&
           name == o.name &&
-          result == o.result
+          node_id == o.node_id &&
+          result == o.result &&
+          start_timestamp == o.start_timestamp &&
+          status == o.status &&
+          type == o.type &&
+          ui_status == o.ui_status
     end
 
     # @see the `==` method
@@ -145,7 +285,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, mocked, name, result].hash
+      [end_timestamp, error_code, error_message, id, mocked, name, node_id, result, start_timestamp, status, type, ui_status].hash
     end
 
     # Builds the object from hash

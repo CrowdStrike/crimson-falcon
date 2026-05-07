@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,7 +31,13 @@ require 'time'
 
 module Falcon
   class DefinitionsDefinitionImportResponseEntity
+    # Map of activity ID to activity metadata (including dependencies with app info and logo URLs) for displaying activity information in the UI
+    attr_accessor :activity_metadata
+
     attr_accessor :description
+
+    # Nodes that are not part of the model but still shown to users. The UI owns all details of these, the backend simply stores/retrieves this in the DB.
+    attr_accessor :disconnected_nodes
 
     attr_accessor :id
 
@@ -47,7 +52,9 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'activity_metadata' => :'activity_metadata',
         :'description' => :'description',
+        :'disconnected_nodes' => :'disconnected_nodes',
         :'id' => :'id',
         :'model' => :'model',
         :'name' => :'name',
@@ -64,7 +71,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'activity_metadata' => :'Hash<String, ContentActivityMetadata>',
         :'description' => :'String',
+        :'disconnected_nodes' => :'Array<Array>',
         :'id' => :'String',
         :'model' => :'GraphDefinitionModel',
         :'name' => :'String',
@@ -94,8 +103,20 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'activity_metadata')
+        if (value = attributes[:'activity_metadata']).is_a?(Hash)
+          self.activity_metadata = value
+        end
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'disconnected_nodes')
+        if (value = attributes[:'disconnected_nodes']).is_a?(Array)
+          self.disconnected_nodes = value
+        end
       end
 
       if attributes.key?(:'id')
@@ -146,7 +167,9 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          activity_metadata == o.activity_metadata &&
           description == o.description &&
+          disconnected_nodes == o.disconnected_nodes &&
           id == o.id &&
           model == o.model &&
           name == o.name &&
@@ -163,7 +186,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, id, model, name, parameters, validation_errors].hash
+      [activity_metadata, description, disconnected_nodes, id, model, name, parameters, validation_errors].hash
     end
 
     # Builds the object from hash

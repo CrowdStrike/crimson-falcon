@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -43,6 +42,8 @@ module Falcon
 
     attr_accessor :node_id
 
+    attr_accessor :position
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -50,7 +51,8 @@ module Falcon
         :'model' => :'model',
         :'multi' => :'multi',
         :'name' => :'name',
-        :'node_id' => :'nodeID'
+        :'node_id' => :'nodeID',
+        :'position' => :'position'
       }
     end
 
@@ -66,7 +68,8 @@ module Falcon
         :'model' => :'GraphDefinitionModel',
         :'multi' => :'GraphMulti',
         :'name' => :'String',
-        :'node_id' => :'String'
+        :'node_id' => :'String',
+        :'position' => :'GraphNodePosition'
       }
     end
 
@@ -109,6 +112,10 @@ module Falcon
 
       if attributes.key?(:'node_id')
         self.node_id = attributes[:'node_id']
+      end
+
+      if attributes.key?(:'position')
+        self.position = attributes[:'position']
       end
     end
 
@@ -154,7 +161,8 @@ module Falcon
           model == o.model &&
           multi == o.multi &&
           name == o.name &&
-          node_id == o.node_id
+          node_id == o.node_id &&
+          position == o.position
     end
 
     # @see the `==` method
@@ -166,7 +174,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [flows, model, multi, name, node_id].hash
+      [flows, model, multi, name, node_id, position].hash
     end
 
     # Builds the object from hash

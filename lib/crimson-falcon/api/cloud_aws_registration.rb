@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -163,18 +162,20 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve existing AWS accounts by account IDs
+    # Retrieve existing AWS accounts by account IDs or organization IDs
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids AWS account IDs to filter
+    # @option opts [Array<String>] :organization_ids AWS organization IDs to filter
     # @return [RestAWSAccountCreateResponseExtV1]
     def cloud_registration_aws_get_accounts(opts = {})
       data, _status_code, _headers = cloud_registration_aws_get_accounts_with_http_info(opts)
       data
     end
 
-    # Retrieve existing AWS accounts by account IDs
+    # Retrieve existing AWS accounts by account IDs or organization IDs
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids AWS account IDs to filter
+    # @option opts [Array<String>] :organization_ids AWS organization IDs to filter
     # @return [Array<(RestAWSAccountCreateResponseExtV1, Integer, Hash)>] RestAWSAccountCreateResponseExtV1 data, response status code and response headers
     def cloud_registration_aws_get_accounts_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -186,6 +187,7 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :multi) if !opts[:'ids'].nil?
+      query_params[:'organization-ids'] = @api_client.build_collection_param(opts[:'organization_ids'], :multi) if !opts[:'organization_ids'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -230,7 +232,7 @@ module Falcon
     # @option opts [Integer] :limit The maximum number of items to return. When not specified or 0, 100 is used. When larger than 500, 500 is used. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from.
     # @option opts [String] :group_by Field to group by.
-    # @return [RestAWSAccountCreateResponseExtV1]
+    # @return [RestAWSAccountQueryResponseExtV1]
     def cloud_registration_aws_query_accounts(products, features, opts = {})
       data, _status_code, _headers = cloud_registration_aws_query_accounts_with_http_info(products, features, opts)
       data
@@ -245,7 +247,7 @@ module Falcon
     # @option opts [Integer] :limit The maximum number of items to return. When not specified or 0, 100 is used. When larger than 500, 500 is used. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from.
     # @option opts [String] :group_by Field to group by.
-    # @return [Array<(RestAWSAccountCreateResponseExtV1, Integer, Hash)>] RestAWSAccountCreateResponseExtV1 data, response status code and response headers
+    # @return [Array<(RestAWSAccountQueryResponseExtV1, Integer, Hash)>] RestAWSAccountQueryResponseExtV1 data, response status code and response headers
     def cloud_registration_aws_query_accounts_with_http_info(products, features, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudAwsRegistration.cloud_registration_aws_query_accounts ...'
@@ -299,7 +301,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RestAWSAccountCreateResponseExtV1'
+      return_type = opts[:debug_return_type] || 'RestAWSAccountQueryResponseExtV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -321,8 +323,77 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Trigger health check scan for AWS accounts
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :account_ids AWS Account IDs.
+    # @option opts [Array<String>] :organization_ids Organization IDs
+    # @return [RestAWSHealthCheckTriggerResponseExtV1]
+    def cloud_registration_aws_trigger_health_check(opts = {})
+      data, _status_code, _headers = cloud_registration_aws_trigger_health_check_with_http_info(opts)
+      data
+    end
+
+    # Trigger health check scan for AWS accounts
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :account_ids AWS Account IDs.
+    # @option opts [Array<String>] :organization_ids Organization IDs
+    # @return [Array<(RestAWSHealthCheckTriggerResponseExtV1, Integer, Hash)>] RestAWSHealthCheckTriggerResponseExtV1 data, response status code and response headers
+    def cloud_registration_aws_trigger_health_check_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAwsRegistration.cloud_registration_aws_trigger_health_check ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'account_ids'].nil? && opts[:'account_ids'].length > 50
+        fail ArgumentError, 'invalid value for "opts[:"account_ids"]" when calling CloudAwsRegistration.cloud_registration_aws_trigger_health_check, number of items must be less than or equal to 50.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'organization_ids'].nil? && opts[:'organization_ids'].length > 10
+        fail ArgumentError, 'invalid value for "opts[:"organization_ids"]" when calling CloudAwsRegistration.cloud_registration_aws_trigger_health_check, number of items must be less than or equal to 10.'
+      end
+
+      # resource path
+      local_var_path = '/cloud-security-registration-aws/entities/account-scans/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'account-ids'] = @api_client.build_collection_param(opts[:'account_ids'], :multi) if !opts[:'account_ids'].nil?
+      query_params[:'organization-ids'] = @api_client.build_collection_param(opts[:'organization_ids'], :multi) if !opts[:'organization_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RestAWSHealthCheckTriggerResponseExtV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudAwsRegistration.cloud_registration_aws_trigger_health_check",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAwsRegistration#cloud_registration_aws_trigger_health_check\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Patches a existing account in our system for a customer.
-    # @param body [RestAWSAccountCreateRequestExtv1]
+    # @param body [RestAWSAccountPatchRequestExtV1]
     # @param [Hash] opts the optional parameters
     # @return [RestAWSAccountCreateResponseExtV1]
     def cloud_registration_aws_update_account(body, opts = {})
@@ -331,7 +402,7 @@ module Falcon
     end
 
     # Patches a existing account in our system for a customer.
-    # @param body [RestAWSAccountCreateRequestExtv1]
+    # @param body [RestAWSAccountPatchRequestExtV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RestAWSAccountCreateResponseExtV1, Integer, Hash)>] RestAWSAccountCreateResponseExtV1 data, response status code and response headers
     def cloud_registration_aws_update_account_with_http_info(body, opts = {})
@@ -383,6 +454,85 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudAwsRegistration#cloud_registration_aws_update_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validates the AWS account registration status, and discover organization child accounts if organization is specified
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id AWS Account ID. organization-id shouldn&#39;t be specified if this is specified
+    # @option opts [String] :iam_role_arn IAM Role ARN
+    # @option opts [String] :organization_id AWS organization ID to validate master account. account-id shouldn&#39;t be specified if this is specified
+    # @return [RestAWSAccountValidationResponse]
+    def cloud_registration_aws_validate_accounts(opts = {})
+      data, _status_code, _headers = cloud_registration_aws_validate_accounts_with_http_info(opts)
+      data
+    end
+
+    # Validates the AWS account registration status, and discover organization child accounts if organization is specified
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id AWS Account ID. organization-id shouldn&#39;t be specified if this is specified
+    # @option opts [String] :iam_role_arn IAM Role ARN
+    # @option opts [String] :organization_id AWS organization ID to validate master account. account-id shouldn&#39;t be specified if this is specified
+    # @return [Array<(RestAWSAccountValidationResponse, Integer, Hash)>] RestAWSAccountValidationResponse data, response status code and response headers
+    def cloud_registration_aws_validate_accounts_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAwsRegistration.cloud_registration_aws_validate_accounts ...'
+      end
+      pattern = Regexp.new(/^\d{12}$/)
+      if @api_client.config.client_side_validation && !opts[:'account_id'].nil? && opts[:'account_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"account_id\"]' when calling CloudAwsRegistration.cloud_registration_aws_validate_accounts, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/^arn:aws:iam::\d{12}:role\/.+/)
+      if @api_client.config.client_side_validation && !opts[:'iam_role_arn'].nil? && opts[:'iam_role_arn'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"iam_role_arn\"]' when calling CloudAwsRegistration.cloud_registration_aws_validate_accounts, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/^o-[0-9a-z]{10,32}$/)
+      if @api_client.config.client_side_validation && !opts[:'organization_id'].nil? && opts[:'organization_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"organization_id\"]' when calling CloudAwsRegistration.cloud_registration_aws_validate_accounts, must conform to the pattern #{pattern}."
+      end
+
+      # resource path
+      local_var_path = '/cloud-security-registration-aws/entities/account/validate/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'account-id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
+      query_params[:'iam-role-arn'] = opts[:'iam_role_arn'] if !opts[:'iam_role_arn'].nil?
+      query_params[:'organization-id'] = opts[:'organization_id'] if !opts[:'organization_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RestAWSAccountValidationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudAwsRegistration.cloud_registration_aws_validate_accounts",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAwsRegistration#cloud_registration_aws_validate_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

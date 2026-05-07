@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,6 +31,8 @@ require 'time'
 
 module Falcon
   class FalconxReportV1
+    attr_accessor :ai_summary
+
     attr_accessor :aid
 
     attr_accessor :cid
@@ -84,9 +85,12 @@ module Falcon
 
     attr_accessor :verdict
 
+    attr_accessor :verdict_source
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ai_summary' => :'ai_summary',
         :'aid' => :'aid',
         :'cid' => :'cid',
         :'created_timestamp' => :'created_timestamp',
@@ -112,7 +116,8 @@ module Falcon
         :'user_name' => :'user_name',
         :'user_tags' => :'user_tags',
         :'user_uuid' => :'user_uuid',
-        :'verdict' => :'verdict'
+        :'verdict' => :'verdict',
+        :'verdict_source' => :'verdict_source'
       }
     end
 
@@ -124,6 +129,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ai_summary' => :'FalconxAISummary',
         :'aid' => :'String',
         :'cid' => :'String',
         :'created_timestamp' => :'String',
@@ -149,7 +155,8 @@ module Falcon
         :'user_name' => :'String',
         :'user_tags' => :'Array<String>',
         :'user_uuid' => :'String',
-        :'verdict' => :'String'
+        :'verdict' => :'String',
+        :'verdict_source' => :'String'
       }
     end
 
@@ -173,6 +180,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ai_summary')
+        self.ai_summary = attributes[:'ai_summary']
+      end
 
       if attributes.key?(:'aid')
         self.aid = attributes[:'aid']
@@ -287,6 +298,10 @@ module Falcon
       if attributes.key?(:'verdict')
         self.verdict = attributes[:'verdict']
       end
+
+      if attributes.key?(:'verdict_source')
+        self.verdict_source = attributes[:'verdict_source']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -307,6 +322,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ai_summary == o.ai_summary &&
           aid == o.aid &&
           cid == o.cid &&
           created_timestamp == o.created_timestamp &&
@@ -332,7 +348,8 @@ module Falcon
           user_name == o.user_name &&
           user_tags == o.user_tags &&
           user_uuid == o.user_uuid &&
-          verdict == o.verdict
+          verdict == o.verdict &&
+          verdict_source == o.verdict_source
     end
 
     # @see the `==` method
@@ -344,7 +361,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aid, cid, created_timestamp, has_recording, id, index_timestamp, intel, intelx, ioc_report_broad_csv_artifact_id, ioc_report_broad_json_artifact_id, ioc_report_broad_maec_artifact_id, ioc_report_broad_stix_artifact_id, ioc_report_strict_csv_artifact_id, ioc_report_strict_json_artifact_id, ioc_report_strict_maec_artifact_id, ioc_report_strict_stix_artifact_id, malquery, origin, sandbox, tags, threat_graph, user_id, user_name, user_tags, user_uuid, verdict].hash
+      [ai_summary, aid, cid, created_timestamp, has_recording, id, index_timestamp, intel, intelx, ioc_report_broad_csv_artifact_id, ioc_report_broad_json_artifact_id, ioc_report_broad_maec_artifact_id, ioc_report_broad_stix_artifact_id, ioc_report_strict_csv_artifact_id, ioc_report_strict_json_artifact_id, ioc_report_strict_maec_artifact_id, ioc_report_strict_stix_artifact_id, malquery, origin, sandbox, tags, threat_graph, user_id, user_name, user_tags, user_uuid, verdict, verdict_source].hash
     end
 
     # Builds the object from hash

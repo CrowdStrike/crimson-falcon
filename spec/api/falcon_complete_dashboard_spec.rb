@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -82,18 +81,6 @@ describe 'FalconCompleteDashboard' do
     end
   end
 
-  # unit tests for aggregate_detections
-  # Retrieve aggregate detection values based on the matched filter
-  # Fields allowed to aggregate on:  - indexed_time   - created_time   - detect_time   - ldt   - cid   - aid   - platform_name   - os_version   - device_tags   - host_name   - status   - severity   - adversary_ids   - behavior_ids   - behavior_names   - num_blocked_processes   - num_quarantined_files   - pattern_ids   - first_behavior_time   - last_behavior_time   - show_in_ui   - seconds_to_triaged   - seconds_to_resolved   - assigned_to_uid   - public_tags   - vertical_tags
-  # @param body
-  # @param [Hash] opts the optional parameters
-  # @return [MsaAggregatesResponse]
-  describe 'aggregate_detections test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for aggregate_device_count_collection
   # Retrieve aggregate host/devices count based on the matched filter
   # @param body
@@ -111,17 +98,6 @@ describe 'FalconCompleteDashboard' do
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'aggregate_escalations test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for aggregate_fc_incidents
-  # Retrieve aggregate incident values based on the matched filter
-  # @param body
-  # @param [Hash] opts the optional parameters
-  # @return [MsaAggregatesResponse]
-  describe 'aggregate_fc_incidents test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -252,20 +228,6 @@ describe 'FalconCompleteDashboard' do
     end
   end
 
-  # unit tests for query_detection_ids_by_filter
-  # Retrieve DetectionsIds that match the provided FQL filter, criteria with scrolling enabled
-  # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The maximum records to return. [1-500]
-  # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
-  # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
-  # @option opts [String] :offset Starting index of overall result set from which to return ids.
-  # @return [MsaQueryResponse]
-  describe 'query_detection_ids_by_filter test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for query_escalations_filter
   # Retrieve escalation tickets that match the provided filter criteria with scrolling enabled
   # @param [Hash] opts the optional parameters
@@ -275,20 +237,6 @@ describe 'FalconCompleteDashboard' do
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
   # @return [MsaQueryResponse]
   describe 'query_escalations_filter test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for query_incident_ids_by_filter
-  # Retrieve incidents that match the provided filter criteria with scrolling enabled
-  # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The maximum records to return. [1-500]
-  # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
-  # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
-  # @option opts [String] :offset Starting index of overall result set from which to return ids.
-  # @return [MsaQueryResponse]
-  describe 'query_incident_ids_by_filter test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

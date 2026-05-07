@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -139,6 +138,18 @@ describe 'UserManagement' do
     end
   end
 
+  # unit tests for entities_roles_getv2
+  # Get info about a role
+  # @param body Maximum of 5000 Role IDs can be specified per request.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :cid Customer ID to get available roles for. Empty CID would result in Role IDs for current CID in view.
+  # @return [FlightcontrolapiGetRolesResponse]
+  describe 'entities_roles_getv2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for entities_roles_v1
   # Get info about a role
   # @param ids ID of a role. Find a role ID from &#x60;/user-management/queries/roles/v1&#x60;.
@@ -211,7 +222,7 @@ describe 'UserManagement' do
   # unit tests for query_user_v1
   # List user IDs for all users in your customer account. For more information on each user, provide the user ID to &#x60;/user-management/entities/users/GET/v1&#x60;.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, status, temporarily_assigned_cids, uid
+  # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, status, temporarily_assigned_cids, uid, uuid
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @option opts [Integer] :limit The maximum records to return. [1-500]
   # @option opts [String] :sort The property to sort by

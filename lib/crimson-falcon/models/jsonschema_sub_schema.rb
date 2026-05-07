@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -122,6 +121,8 @@ module Falcon
 
     attr_accessor :x_cs_condition_group_fields
 
+    attr_accessor :x_cs_default_table_column
+
     attr_accessor :x_cs_do_not_hide
 
     attr_accessor :x_cs_immutable
@@ -136,9 +137,15 @@ module Falcon
 
     attr_accessor :x_cs_not_parameterizable
 
+    attr_accessor :x_cs_openapi
+
     attr_accessor :x_cs_order
 
     attr_accessor :x_cs_pivot
+
+    attr_accessor :x_cs_queryable
+
+    attr_accessor :x_cs_semantic_data
 
     attr_accessor :x_cs_signals
 
@@ -202,6 +209,7 @@ module Falcon
         :'x_cs_authorization' => :'x-cs-authorization',
         :'x_cs_can_create' => :'x-cs-can-create',
         :'x_cs_condition_group_fields' => :'x-cs-condition-group-fields',
+        :'x_cs_default_table_column' => :'x-cs-default-table-column',
         :'x_cs_do_not_hide' => :'x-cs-do-not-hide',
         :'x_cs_immutable' => :'x-cs-immutable',
         :'x_cs_indexable' => :'x-cs-indexable',
@@ -209,8 +217,11 @@ module Falcon
         :'x_cs_max_duration' => :'x-cs-max-duration',
         :'x_cs_min_duration' => :'x-cs-min-duration',
         :'x_cs_not_parameterizable' => :'x-cs-not-parameterizable',
+        :'x_cs_openapi' => :'x-cs-openapi',
         :'x_cs_order' => :'x-cs-order',
         :'x_cs_pivot' => :'x-cs-pivot',
+        :'x_cs_queryable' => :'x-cs-queryable',
+        :'x_cs_semantic_data' => :'x-cs-semantic-data',
         :'x_cs_signals' => :'x-cs-signals',
         :'x_cs_signals_category' => :'x-cs-signals-category',
         :'x_cs_signals_operators' => :'x-cs-signals-operators',
@@ -274,6 +285,7 @@ module Falcon
         :'x_cs_authorization' => :'JsonschemaAuthorization',
         :'x_cs_can_create' => :'Boolean',
         :'x_cs_condition_group_fields' => :'JsonschemaConditionGroupFields',
+        :'x_cs_default_table_column' => :'Boolean',
         :'x_cs_do_not_hide' => :'Boolean',
         :'x_cs_immutable' => :'Boolean',
         :'x_cs_indexable' => :'Boolean',
@@ -281,8 +293,11 @@ module Falcon
         :'x_cs_max_duration' => :'Integer',
         :'x_cs_min_duration' => :'Integer',
         :'x_cs_not_parameterizable' => :'Boolean',
+        :'x_cs_openapi' => :'JsonschemaOpenAPIExtensions',
         :'x_cs_order' => :'Array<String>',
         :'x_cs_pivot' => :'JsonschemaPivot',
+        :'x_cs_queryable' => :'JsonschemaQueryConfig',
+        :'x_cs_semantic_data' => :'JsonschemaSemanticData',
         :'x_cs_signals' => :'JsonschemaSignalsExtensions',
         :'x_cs_signals_category' => :'String',
         :'x_cs_signals_operators' => :'Array<String>',
@@ -512,6 +527,10 @@ module Falcon
         self.x_cs_condition_group_fields = attributes[:'x_cs_condition_group_fields']
       end
 
+      if attributes.key?(:'x_cs_default_table_column')
+        self.x_cs_default_table_column = attributes[:'x_cs_default_table_column']
+      end
+
       if attributes.key?(:'x_cs_do_not_hide')
         self.x_cs_do_not_hide = attributes[:'x_cs_do_not_hide']
       end
@@ -542,6 +561,10 @@ module Falcon
         self.x_cs_not_parameterizable = attributes[:'x_cs_not_parameterizable']
       end
 
+      if attributes.key?(:'x_cs_openapi')
+        self.x_cs_openapi = attributes[:'x_cs_openapi']
+      end
+
       if attributes.key?(:'x_cs_order')
         if (value = attributes[:'x_cs_order']).is_a?(Array)
           self.x_cs_order = value
@@ -550,6 +573,14 @@ module Falcon
 
       if attributes.key?(:'x_cs_pivot')
         self.x_cs_pivot = attributes[:'x_cs_pivot']
+      end
+
+      if attributes.key?(:'x_cs_queryable')
+        self.x_cs_queryable = attributes[:'x_cs_queryable']
+      end
+
+      if attributes.key?(:'x_cs_semantic_data')
+        self.x_cs_semantic_data = attributes[:'x_cs_semantic_data']
       end
 
       if attributes.key?(:'x_cs_signals')
@@ -648,6 +679,7 @@ module Falcon
           x_cs_authorization == o.x_cs_authorization &&
           x_cs_can_create == o.x_cs_can_create &&
           x_cs_condition_group_fields == o.x_cs_condition_group_fields &&
+          x_cs_default_table_column == o.x_cs_default_table_column &&
           x_cs_do_not_hide == o.x_cs_do_not_hide &&
           x_cs_immutable == o.x_cs_immutable &&
           x_cs_indexable == o.x_cs_indexable &&
@@ -655,8 +687,11 @@ module Falcon
           x_cs_max_duration == o.x_cs_max_duration &&
           x_cs_min_duration == o.x_cs_min_duration &&
           x_cs_not_parameterizable == o.x_cs_not_parameterizable &&
+          x_cs_openapi == o.x_cs_openapi &&
           x_cs_order == o.x_cs_order &&
           x_cs_pivot == o.x_cs_pivot &&
+          x_cs_queryable == o.x_cs_queryable &&
+          x_cs_semantic_data == o.x_cs_semantic_data &&
           x_cs_signals == o.x_cs_signals &&
           x_cs_signals_category == o.x_cs_signals_category &&
           x_cs_signals_operators == o.x_cs_signals_operators &&
@@ -675,7 +710,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ref, schema, additional_items, additional_properties, all_of, any_of, binary_encoding, const, default, dependencies, deprecated, description, _else, enum, error_message, examples, exclusive_maximum, exclusive_minimum, format, _if, items, max_items, max_length, max_properties, maximum, media, min_items, min_length, min_properties, minimum, multiple_of, _not, one_of, pattern, pattern_properties, properties, required, _then, title, type, ui_component, unique_items, x_cs_authorization, x_cs_can_create, x_cs_condition_group_fields, x_cs_do_not_hide, x_cs_immutable, x_cs_indexable, x_cs_indexable_fields, x_cs_max_duration, x_cs_min_duration, x_cs_not_parameterizable, x_cs_order, x_cs_pivot, x_cs_signals, x_cs_signals_category, x_cs_signals_operators, x_cs_signals_sub_category, x_cs_tags, x_cs_ui, x_cs_workflow].hash
+      [ref, schema, additional_items, additional_properties, all_of, any_of, binary_encoding, const, default, dependencies, deprecated, description, _else, enum, error_message, examples, exclusive_maximum, exclusive_minimum, format, _if, items, max_items, max_length, max_properties, maximum, media, min_items, min_length, min_properties, minimum, multiple_of, _not, one_of, pattern, pattern_properties, properties, required, _then, title, type, ui_component, unique_items, x_cs_authorization, x_cs_can_create, x_cs_condition_group_fields, x_cs_default_table_column, x_cs_do_not_hide, x_cs_immutable, x_cs_indexable, x_cs_indexable_fields, x_cs_max_duration, x_cs_min_duration, x_cs_not_parameterizable, x_cs_openapi, x_cs_order, x_cs_pivot, x_cs_queryable, x_cs_semantic_data, x_cs_signals, x_cs_signals_category, x_cs_signals_operators, x_cs_signals_sub_category, x_cs_tags, x_cs_ui, x_cs_workflow].hash
     end
 
     # Builds the object from hash

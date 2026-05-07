@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -54,17 +53,28 @@ module Falcon
 
     attr_accessor :cs_infra_subscription_id
 
+    attr_accessor :cs_infra_subscription_name
+
     attr_accessor :deleted
 
     attr_accessor :deployment_method
 
     attr_accessor :deployment_stack_host_id
 
+    attr_accessor :deployment_stack_host_region
+
     attr_accessor :deployment_stack_host_type
 
     attr_accessor :deployment_stack_host_url
 
     attr_accessor :deployment_stack_name
+
+    attr_accessor :dspm_custom_vnet_configuration
+
+    attr_accessor :dspm_host_subscription_id
+
+    # Network configuration type for DSPM
+    attr_accessor :dspm_network_configuration_type
 
     attr_accessor :dspm_regions
 
@@ -74,13 +84,23 @@ module Falcon
 
     attr_accessor :event_hub_settings
 
+    attr_accessor :key_info
+
     attr_accessor :management_group_ids
 
     attr_accessor :microsoft_graph_permission_ids
 
     attr_accessor :microsoft_graph_permission_ids_readonly
 
+    attr_accessor :primary_domain
+
     attr_accessor :products
+
+    attr_accessor :registration_description
+
+    attr_accessor :registration_id
+
+    attr_accessor :registration_name
 
     attr_accessor :resource_name_prefix
 
@@ -96,7 +116,31 @@ module Falcon
 
     attr_accessor :tenant_id
 
+    attr_accessor :tenant_name
+
     attr_accessor :updated
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -112,20 +156,30 @@ module Falcon
         :'created' => :'created',
         :'cs_infra_region' => :'cs_infra_region',
         :'cs_infra_subscription_id' => :'cs_infra_subscription_id',
+        :'cs_infra_subscription_name' => :'cs_infra_subscription_name',
         :'deleted' => :'deleted',
         :'deployment_method' => :'deployment_method',
         :'deployment_stack_host_id' => :'deployment_stack_host_id',
+        :'deployment_stack_host_region' => :'deployment_stack_host_region',
         :'deployment_stack_host_type' => :'deployment_stack_host_type',
         :'deployment_stack_host_url' => :'deployment_stack_host_url',
         :'deployment_stack_name' => :'deployment_stack_name',
+        :'dspm_custom_vnet_configuration' => :'dspm_custom_vnet_configuration',
+        :'dspm_host_subscription_id' => :'dspm_host_subscription_id',
+        :'dspm_network_configuration_type' => :'dspm_network_configuration_type',
         :'dspm_regions' => :'dspm_regions',
         :'enterprise_app_url' => :'enterprise_app_url',
         :'environment' => :'environment',
         :'event_hub_settings' => :'event_hub_settings',
+        :'key_info' => :'key_info',
         :'management_group_ids' => :'management_group_ids',
         :'microsoft_graph_permission_ids' => :'microsoft_graph_permission_ids',
         :'microsoft_graph_permission_ids_readonly' => :'microsoft_graph_permission_ids_readonly',
+        :'primary_domain' => :'primary_domain',
         :'products' => :'products',
+        :'registration_description' => :'registration_description',
+        :'registration_id' => :'registration_id',
+        :'registration_name' => :'registration_name',
         :'resource_name_prefix' => :'resource_name_prefix',
         :'resource_name_suffix' => :'resource_name_suffix',
         :'status' => :'status',
@@ -133,6 +187,7 @@ module Falcon
         :'tags' => :'tags',
         :'template_version' => :'template_version',
         :'tenant_id' => :'tenant_id',
+        :'tenant_name' => :'tenant_name',
         :'updated' => :'updated'
       }
     end
@@ -156,20 +211,30 @@ module Falcon
         :'created' => :'Time',
         :'cs_infra_region' => :'String',
         :'cs_infra_subscription_id' => :'String',
+        :'cs_infra_subscription_name' => :'String',
         :'deleted' => :'Time',
         :'deployment_method' => :'String',
         :'deployment_stack_host_id' => :'String',
+        :'deployment_stack_host_region' => :'String',
         :'deployment_stack_host_type' => :'String',
         :'deployment_stack_host_url' => :'String',
         :'deployment_stack_name' => :'String',
+        :'dspm_custom_vnet_configuration' => :'Hash<String, AzureDSPMRegionCustomNetworkConfiguration>',
+        :'dspm_host_subscription_id' => :'String',
+        :'dspm_network_configuration_type' => :'String',
         :'dspm_regions' => :'Array<String>',
         :'enterprise_app_url' => :'String',
         :'environment' => :'String',
         :'event_hub_settings' => :'Array<AzureEventHubSettings>',
+        :'key_info' => :'AzureClientKeyInfo',
         :'management_group_ids' => :'Array<String>',
         :'microsoft_graph_permission_ids' => :'Array<String>',
         :'microsoft_graph_permission_ids_readonly' => :'Boolean',
+        :'primary_domain' => :'String',
         :'products' => :'Array<DomainProductFeatures>',
+        :'registration_description' => :'String',
+        :'registration_id' => :'String',
+        :'registration_name' => :'String',
         :'resource_name_prefix' => :'String',
         :'resource_name_suffix' => :'String',
         :'status' => :'String',
@@ -177,6 +242,7 @@ module Falcon
         :'tags' => :'Hash<String, String>',
         :'template_version' => :'String',
         :'tenant_id' => :'String',
+        :'tenant_name' => :'String',
         :'updated' => :'Time'
       }
     end
@@ -248,6 +314,10 @@ module Falcon
         self.cs_infra_subscription_id = attributes[:'cs_infra_subscription_id']
       end
 
+      if attributes.key?(:'cs_infra_subscription_name')
+        self.cs_infra_subscription_name = attributes[:'cs_infra_subscription_name']
+      end
+
       if attributes.key?(:'deleted')
         self.deleted = attributes[:'deleted']
       end
@@ -260,6 +330,10 @@ module Falcon
         self.deployment_stack_host_id = attributes[:'deployment_stack_host_id']
       end
 
+      if attributes.key?(:'deployment_stack_host_region')
+        self.deployment_stack_host_region = attributes[:'deployment_stack_host_region']
+      end
+
       if attributes.key?(:'deployment_stack_host_type')
         self.deployment_stack_host_type = attributes[:'deployment_stack_host_type']
       end
@@ -270,6 +344,20 @@ module Falcon
 
       if attributes.key?(:'deployment_stack_name')
         self.deployment_stack_name = attributes[:'deployment_stack_name']
+      end
+
+      if attributes.key?(:'dspm_custom_vnet_configuration')
+        if (value = attributes[:'dspm_custom_vnet_configuration']).is_a?(Hash)
+          self.dspm_custom_vnet_configuration = value
+        end
+      end
+
+      if attributes.key?(:'dspm_host_subscription_id')
+        self.dspm_host_subscription_id = attributes[:'dspm_host_subscription_id']
+      end
+
+      if attributes.key?(:'dspm_network_configuration_type')
+        self.dspm_network_configuration_type = attributes[:'dspm_network_configuration_type']
       end
 
       if attributes.key?(:'dspm_regions')
@@ -292,6 +380,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'key_info')
+        self.key_info = attributes[:'key_info']
+      end
+
       if attributes.key?(:'management_group_ids')
         if (value = attributes[:'management_group_ids']).is_a?(Array)
           self.management_group_ids = value
@@ -308,10 +400,26 @@ module Falcon
         self.microsoft_graph_permission_ids_readonly = attributes[:'microsoft_graph_permission_ids_readonly']
       end
 
+      if attributes.key?(:'primary_domain')
+        self.primary_domain = attributes[:'primary_domain']
+      end
+
       if attributes.key?(:'products')
         if (value = attributes[:'products']).is_a?(Array)
           self.products = value
         end
+      end
+
+      if attributes.key?(:'registration_description')
+        self.registration_description = attributes[:'registration_description']
+      end
+
+      if attributes.key?(:'registration_id')
+        self.registration_id = attributes[:'registration_id']
+      end
+
+      if attributes.key?(:'registration_name')
+        self.registration_name = attributes[:'registration_name']
       end
 
       if attributes.key?(:'resource_name_prefix')
@@ -346,6 +454,10 @@ module Falcon
         self.tenant_id = attributes[:'tenant_id']
       end
 
+      if attributes.key?(:'tenant_name')
+        self.tenant_name = attributes[:'tenant_name']
+      end
+
       if attributes.key?(:'updated')
         self.updated = attributes[:'updated']
       end
@@ -363,8 +475,16 @@ module Falcon
         invalid_properties.push('invalid value for "deployment_method", deployment_method cannot be nil.')
       end
 
+      if @dspm_regions.nil?
+        invalid_properties.push('invalid value for "dspm_regions", dspm_regions cannot be nil.')
+      end
+
       if @event_hub_settings.nil?
         invalid_properties.push('invalid value for "event_hub_settings", event_hub_settings cannot be nil.')
+      end
+
+      if @key_info.nil?
+        invalid_properties.push('invalid value for "key_info", key_info cannot be nil.')
       end
 
       if @management_group_ids.nil?
@@ -373,6 +493,10 @@ module Falcon
 
       if @microsoft_graph_permission_ids.nil?
         invalid_properties.push('invalid value for "microsoft_graph_permission_ids", microsoft_graph_permission_ids cannot be nil.')
+      end
+
+      if @primary_domain.nil?
+        invalid_properties.push('invalid value for "primary_domain", primary_domain cannot be nil.')
       end
 
       if @subscription_ids.nil?
@@ -387,6 +511,10 @@ module Falcon
         invalid_properties.push('invalid value for "tenant_id", tenant_id cannot be nil.')
       end
 
+      if @tenant_name.nil?
+        invalid_properties.push('invalid value for "tenant_name", tenant_name cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -395,13 +523,29 @@ module Falcon
     def valid?
       return false if @additional_features.nil?
       return false if @deployment_method.nil?
+      dspm_network_configuration_type_validator = EnumAttributeValidator.new('String', ["managed", "managed_no_nat", "custom"])
+      return false unless dspm_network_configuration_type_validator.valid?(@dspm_network_configuration_type)
+      return false if @dspm_regions.nil?
       return false if @event_hub_settings.nil?
+      return false if @key_info.nil?
       return false if @management_group_ids.nil?
       return false if @microsoft_graph_permission_ids.nil?
+      return false if @primary_domain.nil?
       return false if @subscription_ids.nil?
       return false if @tags.nil?
       return false if @tenant_id.nil?
+      return false if @tenant_name.nil?
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] dspm_network_configuration_type Object to be assigned
+    def dspm_network_configuration_type=(dspm_network_configuration_type)
+      validator = EnumAttributeValidator.new('String', ["managed", "managed_no_nat", "custom"])
+      unless validator.valid?(dspm_network_configuration_type)
+        fail ArgumentError, "invalid value for \"dspm_network_configuration_type\", must be one of #{validator.allowable_values}."
+      end
+      @dspm_network_configuration_type = dspm_network_configuration_type
     end
 
     # Checks equality by comparing each attribute.
@@ -420,20 +564,30 @@ module Falcon
           created == o.created &&
           cs_infra_region == o.cs_infra_region &&
           cs_infra_subscription_id == o.cs_infra_subscription_id &&
+          cs_infra_subscription_name == o.cs_infra_subscription_name &&
           deleted == o.deleted &&
           deployment_method == o.deployment_method &&
           deployment_stack_host_id == o.deployment_stack_host_id &&
+          deployment_stack_host_region == o.deployment_stack_host_region &&
           deployment_stack_host_type == o.deployment_stack_host_type &&
           deployment_stack_host_url == o.deployment_stack_host_url &&
           deployment_stack_name == o.deployment_stack_name &&
+          dspm_custom_vnet_configuration == o.dspm_custom_vnet_configuration &&
+          dspm_host_subscription_id == o.dspm_host_subscription_id &&
+          dspm_network_configuration_type == o.dspm_network_configuration_type &&
           dspm_regions == o.dspm_regions &&
           enterprise_app_url == o.enterprise_app_url &&
           environment == o.environment &&
           event_hub_settings == o.event_hub_settings &&
+          key_info == o.key_info &&
           management_group_ids == o.management_group_ids &&
           microsoft_graph_permission_ids == o.microsoft_graph_permission_ids &&
           microsoft_graph_permission_ids_readonly == o.microsoft_graph_permission_ids_readonly &&
+          primary_domain == o.primary_domain &&
           products == o.products &&
+          registration_description == o.registration_description &&
+          registration_id == o.registration_id &&
+          registration_name == o.registration_name &&
           resource_name_prefix == o.resource_name_prefix &&
           resource_name_suffix == o.resource_name_suffix &&
           status == o.status &&
@@ -441,6 +595,7 @@ module Falcon
           tags == o.tags &&
           template_version == o.template_version &&
           tenant_id == o.tenant_id &&
+          tenant_name == o.tenant_name &&
           updated == o.updated
     end
 
@@ -453,7 +608,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_type, additional_features, additional_properties, admin_consent_url, api_client_key_id, api_client_key_type, app_registration_id, cid, created, cs_infra_region, cs_infra_subscription_id, deleted, deployment_method, deployment_stack_host_id, deployment_stack_host_type, deployment_stack_host_url, deployment_stack_name, dspm_regions, enterprise_app_url, environment, event_hub_settings, management_group_ids, microsoft_graph_permission_ids, microsoft_graph_permission_ids_readonly, products, resource_name_prefix, resource_name_suffix, status, subscription_ids, tags, template_version, tenant_id, updated].hash
+      [account_type, additional_features, additional_properties, admin_consent_url, api_client_key_id, api_client_key_type, app_registration_id, cid, created, cs_infra_region, cs_infra_subscription_id, cs_infra_subscription_name, deleted, deployment_method, deployment_stack_host_id, deployment_stack_host_region, deployment_stack_host_type, deployment_stack_host_url, deployment_stack_name, dspm_custom_vnet_configuration, dspm_host_subscription_id, dspm_network_configuration_type, dspm_regions, enterprise_app_url, environment, event_hub_settings, key_info, management_group_ids, microsoft_graph_permission_ids, microsoft_graph_permission_ids_readonly, primary_domain, products, registration_description, registration_id, registration_name, resource_name_prefix, resource_name_suffix, status, subscription_ids, tags, template_version, tenant_id, tenant_name, updated].hash
     end
 
     # Builds the object from hash

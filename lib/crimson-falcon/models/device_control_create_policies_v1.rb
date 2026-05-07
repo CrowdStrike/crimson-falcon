@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -33,7 +32,7 @@ require 'time'
 module Falcon
   # A req to create DeviceControl policies
   class DeviceControlCreatePoliciesV1
-    # A collection of policies to create
+    # List of policies to create. Maximum batch size: 1000.
     attr_accessor :resources
 
     # Attribute mapping from ruby-style variable name to JSON key.

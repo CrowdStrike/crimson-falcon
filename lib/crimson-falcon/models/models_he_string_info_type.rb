@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,7 +31,11 @@ require 'time'
 
 module Falcon
   class ModelsHEStringInfoType
+    attr_accessor :hash
+
     attr_accessor :line
+
+    attr_accessor :name
 
     attr_accessor :regex_name
 
@@ -41,7 +44,9 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'hash' => :'Hash',
         :'line' => :'Line',
+        :'name' => :'Name',
         :'regex_name' => :'RegexName',
         :'string' => :'String'
       }
@@ -55,7 +60,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'hash' => :'String',
         :'line' => :'Integer',
+        :'name' => :'String',
         :'regex_name' => :'String',
         :'string' => :'String'
       }
@@ -82,8 +89,16 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'hash')
+        self.hash = attributes[:'hash']
+      end
+
       if attributes.key?(:'line')
         self.line = attributes[:'line']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.key?(:'regex_name')
@@ -123,7 +138,9 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          hash == o.hash &&
           line == o.line &&
+          name == o.name &&
           regex_name == o.regex_name &&
           string == o.string
     end
@@ -137,7 +154,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [line, regex_name, string].hash
+      [hash, line, name, regex_name, string].hash
     end
 
     # Builds the object from hash

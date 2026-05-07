@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -46,7 +45,13 @@ module Falcon
 
     attr_accessor :cloud_groups_v2
 
+    attr_accessor :cve_exploited_status
+
+    attr_accessor :cve_first_seen
+
     attr_accessor :cve_id
+
+    attr_accessor :cve_publication_date
 
     attr_accessor :cvss_score
 
@@ -62,13 +67,19 @@ module Falcon
 
     attr_accessor :groups
 
+    attr_accessor :image_build_date
+
     attr_accessor :image_digest
 
     attr_accessor :image_id
 
+    attr_accessor :index_digest
+
     attr_accessor :is_base_image
 
     attr_accessor :last_seen
+
+    attr_accessor :package_name_version
 
     attr_accessor :packages_impacted
 
@@ -100,7 +111,10 @@ module Falcon
         :'business_unit' => :'business_unit',
         :'cid' => :'cid',
         :'cloud_groups_v2' => :'cloud_groups_v2',
+        :'cve_exploited_status' => :'cve_exploited_status',
+        :'cve_first_seen' => :'cve_first_seen',
         :'cve_id' => :'cve_id',
+        :'cve_publication_date' => :'cve_publication_date',
         :'cvss_score' => :'cvss_score',
         :'detection_name' => :'detection_name',
         :'detection_severity' => :'detection_severity',
@@ -108,10 +122,13 @@ module Falcon
         :'environment' => :'environment',
         :'first_seen' => :'first_seen',
         :'groups' => :'groups',
+        :'image_build_date' => :'image_build_date',
         :'image_digest' => :'image_digest',
         :'image_id' => :'image_id',
+        :'index_digest' => :'index_digest',
         :'is_base_image' => :'is_base_image',
         :'last_seen' => :'last_seen',
+        :'package_name_version' => :'package_name_version',
         :'packages_impacted' => :'packages_impacted',
         :'registry' => :'registry',
         :'repository' => :'repository',
@@ -140,7 +157,10 @@ module Falcon
         :'business_unit' => :'Array<String>',
         :'cid' => :'String',
         :'cloud_groups_v2' => :'Array<RbacCloudGroup>',
+        :'cve_exploited_status' => :'Integer',
+        :'cve_first_seen' => :'String',
         :'cve_id' => :'String',
+        :'cve_publication_date' => :'String',
         :'cvss_score' => :'String',
         :'detection_name' => :'String',
         :'detection_severity' => :'String',
@@ -148,10 +168,13 @@ module Falcon
         :'environment' => :'Array<String>',
         :'first_seen' => :'String',
         :'groups' => :'Array<String>',
+        :'image_build_date' => :'String',
         :'image_digest' => :'String',
         :'image_id' => :'String',
+        :'index_digest' => :'String',
         :'is_base_image' => :'Boolean',
         :'last_seen' => :'String',
+        :'package_name_version' => :'String',
         :'packages_impacted' => :'Integer',
         :'registry' => :'String',
         :'repository' => :'String',
@@ -220,8 +243,20 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'cve_exploited_status')
+        self.cve_exploited_status = attributes[:'cve_exploited_status']
+      end
+
+      if attributes.key?(:'cve_first_seen')
+        self.cve_first_seen = attributes[:'cve_first_seen']
+      end
+
       if attributes.key?(:'cve_id')
         self.cve_id = attributes[:'cve_id']
+      end
+
+      if attributes.key?(:'cve_publication_date')
+        self.cve_publication_date = attributes[:'cve_publication_date']
       end
 
       if attributes.key?(:'cvss_score')
@@ -256,6 +291,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'image_build_date')
+        self.image_build_date = attributes[:'image_build_date']
+      end
+
       if attributes.key?(:'image_digest')
         self.image_digest = attributes[:'image_digest']
       end
@@ -264,12 +303,20 @@ module Falcon
         self.image_id = attributes[:'image_id']
       end
 
+      if attributes.key?(:'index_digest')
+        self.index_digest = attributes[:'index_digest']
+      end
+
       if attributes.key?(:'is_base_image')
         self.is_base_image = attributes[:'is_base_image']
       end
 
       if attributes.key?(:'last_seen')
         self.last_seen = attributes[:'last_seen']
+      end
+
+      if attributes.key?(:'package_name_version')
+        self.package_name_version = attributes[:'package_name_version']
       end
 
       if attributes.key?(:'packages_impacted')
@@ -365,6 +412,10 @@ module Falcon
         invalid_properties.push('invalid value for "image_id", image_id cannot be nil.')
       end
 
+      if @index_digest.nil?
+        invalid_properties.push('invalid value for "index_digest", index_digest cannot be nil.')
+      end
+
       if @is_base_image.nil?
         invalid_properties.push('invalid value for "is_base_image", is_base_image cannot be nil.')
       end
@@ -431,6 +482,7 @@ module Falcon
       return false if @first_seen.nil?
       return false if @image_digest.nil?
       return false if @image_id.nil?
+      return false if @index_digest.nil?
       return false if @is_base_image.nil?
       return false if @last_seen.nil?
       return false if @packages_impacted.nil?
@@ -458,7 +510,10 @@ module Falcon
           business_unit == o.business_unit &&
           cid == o.cid &&
           cloud_groups_v2 == o.cloud_groups_v2 &&
+          cve_exploited_status == o.cve_exploited_status &&
+          cve_first_seen == o.cve_first_seen &&
           cve_id == o.cve_id &&
+          cve_publication_date == o.cve_publication_date &&
           cvss_score == o.cvss_score &&
           detection_name == o.detection_name &&
           detection_severity == o.detection_severity &&
@@ -466,10 +521,13 @@ module Falcon
           environment == o.environment &&
           first_seen == o.first_seen &&
           groups == o.groups &&
+          image_build_date == o.image_build_date &&
           image_digest == o.image_digest &&
           image_id == o.image_id &&
+          index_digest == o.index_digest &&
           is_base_image == o.is_base_image &&
           last_seen == o.last_seen &&
+          package_name_version == o.package_name_version &&
           packages_impacted == o.packages_impacted &&
           registry == o.registry &&
           repository == o.repository &&
@@ -491,7 +549,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ai_related, architecture, base_os, business_impact, business_unit, cid, cloud_groups_v2, cve_id, cvss_score, detection_name, detection_severity, detection_type, environment, first_seen, groups, image_digest, image_id, is_base_image, last_seen, packages_impacted, registry, repository, source, started_containers, stopped_containers, tag, vulnerability_cps_rating, vulnerability_description, vulnerability_severity].hash
+      [ai_related, architecture, base_os, business_impact, business_unit, cid, cloud_groups_v2, cve_exploited_status, cve_first_seen, cve_id, cve_publication_date, cvss_score, detection_name, detection_severity, detection_type, environment, first_seen, groups, image_build_date, image_digest, image_id, index_digest, is_base_image, last_seen, package_name_version, packages_impacted, registry, repository, source, started_containers, stopped_containers, tag, vulnerability_cps_rating, vulnerability_description, vulnerability_severity].hash
     end
 
     # Builds the object from hash

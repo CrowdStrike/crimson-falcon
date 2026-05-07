@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -40,7 +39,7 @@ module Falcon
     # @param file_name [String] Name of the file to be downloaded
     # @param file_version [String] Version of the file to be downloaded
     # @param [Hash] opts the optional parameters
-    # @return [CommonEntitiesResponse]
+    # @return [ModelsEntitiesResponse]
     def download_file(file_name, file_version, opts = {})
       data, _status_code, _headers = download_file_with_http_info(file_name, file_version, opts)
       data
@@ -50,7 +49,7 @@ module Falcon
     # @param file_name [String] Name of the file to be downloaded
     # @param file_version [String] Version of the file to be downloaded
     # @param [Hash] opts the optional parameters
-    # @return [Array<(CommonEntitiesResponse, Integer, Hash)>] CommonEntitiesResponse data, response status code and response headers
+    # @return [Array<(ModelsEntitiesResponse, Integer, Hash)>] ModelsEntitiesResponse data, response status code and response headers
     def download_file_with_http_info(file_name, file_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Downloads.download_file ...'
@@ -83,7 +82,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'CommonEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'ModelsEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

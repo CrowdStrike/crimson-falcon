@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -38,7 +37,7 @@ module Falcon
     end
     # Retrieve all lambda vulnerabilities that match the given query and return in the SARIF format
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter lambda vulnerabilities using a query in Falcon Query Language (FQL).Supported filters:  application_name,application_name_version,cid,cloud_account_id,cloud_account_name,cloud_provider,cve_id,cvss_base_score,exprt_rating,first_seen_timestamp,function_name,function_resource_id,is_supported,is_valid_asset_id,layer,region,runtime,severity,timestamp,type
+    # @option opts [String] :filter Filter lambda vulnerabilities using a query in Falcon Query Language (FQL).Supported filters:  application_name,application_name_version,cid,cloud_account_id,cloud_account_name,cloud_provider,cve_id,cve_reachable,cvss_base_score,exprt_rating,first_seen_timestamp,function_name,function_resource_id,is_supported,is_valid_asset_id,layer,region,runtime,severity,timestamp,type
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @option opts [String] :sort The fields to sort the records on. Supported columns:  [application_name application_name_version cid cloud_account_id cloud_account_name cloud_provider cve_id cvss_base_score exprt_rating first_seen_timestamp function_resource_id is_supported layer region runtime severity timestamp type]
@@ -50,7 +49,7 @@ module Falcon
 
     # Retrieve all lambda vulnerabilities that match the given query and return in the SARIF format
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter lambda vulnerabilities using a query in Falcon Query Language (FQL).Supported filters:  application_name,application_name_version,cid,cloud_account_id,cloud_account_name,cloud_provider,cve_id,cvss_base_score,exprt_rating,first_seen_timestamp,function_name,function_resource_id,is_supported,is_valid_asset_id,layer,region,runtime,severity,timestamp,type
+    # @option opts [String] :filter Filter lambda vulnerabilities using a query in Falcon Query Language (FQL).Supported filters:  application_name,application_name_version,cid,cloud_account_id,cloud_account_name,cloud_provider,cve_id,cve_reachable,cvss_base_score,exprt_rating,first_seen_timestamp,function_name,function_resource_id,is_supported,is_valid_asset_id,layer,region,runtime,severity,timestamp,type
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @option opts [String] :sort The fields to sort the records on. Supported columns:  [application_name application_name_version cid cloud_account_id cloud_account_name cloud_provider cve_id cvss_base_score exprt_rating first_seen_timestamp function_resource_id is_supported layer region runtime severity timestamp type]

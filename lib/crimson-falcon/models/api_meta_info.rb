@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -34,10 +33,13 @@ module Falcon
   class ApiMetaInfo
     attr_accessor :pagination
 
+    # The alias of the service which handled the request
     attr_accessor :powered_by
 
+    # The duration (in seconds) that the service took to handle the request
     attr_accessor :query_time
 
+    # Identifier used to debug the request
     attr_accessor :trace_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -58,7 +60,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'pagination' => :'ApiPaging',
+        :'pagination' => :'ApiResponsePagination',
         :'powered_by' => :'String',
         :'query_time' => :'Float',
         :'trace_id' => :'String'

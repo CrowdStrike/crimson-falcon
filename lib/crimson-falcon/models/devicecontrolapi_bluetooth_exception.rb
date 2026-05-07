@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -38,8 +37,6 @@ module Falcon
 
     attr_accessor :combined_id
 
-    attr_accessor :created_timestamp
-
     attr_accessor :description
 
     attr_accessor :expiration_time
@@ -49,8 +46,6 @@ module Falcon
     attr_accessor :match_method
 
     attr_accessor :minor_classes
-
-    attr_accessor :modified_timestamp
 
     attr_accessor :product_id
 
@@ -70,13 +65,11 @@ module Falcon
         :'action' => :'action',
         :'_class' => :'class',
         :'combined_id' => :'combined_id',
-        :'created_timestamp' => :'created_timestamp',
         :'description' => :'description',
         :'expiration_time' => :'expiration_time',
         :'id' => :'id',
         :'match_method' => :'match_method',
         :'minor_classes' => :'minor_classes',
-        :'modified_timestamp' => :'modified_timestamp',
         :'product_id' => :'product_id',
         :'product_name' => :'product_name',
         :'trigger_id' => :'trigger_id',
@@ -97,13 +90,11 @@ module Falcon
         :'action' => :'String',
         :'_class' => :'String',
         :'combined_id' => :'String',
-        :'created_timestamp' => :'Time',
         :'description' => :'String',
         :'expiration_time' => :'Time',
         :'id' => :'String',
         :'match_method' => :'String',
         :'minor_classes' => :'Array<String>',
-        :'modified_timestamp' => :'Time',
         :'product_id' => :'String',
         :'product_name' => :'String',
         :'trigger_id' => :'String',
@@ -146,10 +137,6 @@ module Falcon
         self.combined_id = attributes[:'combined_id']
       end
 
-      if attributes.key?(:'created_timestamp')
-        self.created_timestamp = attributes[:'created_timestamp']
-      end
-
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -170,10 +157,6 @@ module Falcon
         if (value = attributes[:'minor_classes']).is_a?(Array)
           self.minor_classes = value
         end
-      end
-
-      if attributes.key?(:'modified_timestamp')
-        self.modified_timestamp = attributes[:'modified_timestamp']
       end
 
       if attributes.key?(:'product_id')
@@ -227,13 +210,11 @@ module Falcon
           action == o.action &&
           _class == o._class &&
           combined_id == o.combined_id &&
-          created_timestamp == o.created_timestamp &&
           description == o.description &&
           expiration_time == o.expiration_time &&
           id == o.id &&
           match_method == o.match_method &&
           minor_classes == o.minor_classes &&
-          modified_timestamp == o.modified_timestamp &&
           product_id == o.product_id &&
           product_name == o.product_name &&
           trigger_id == o.trigger_id &&
@@ -251,7 +232,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [action, _class, combined_id, created_timestamp, description, expiration_time, id, match_method, minor_classes, modified_timestamp, product_id, product_name, trigger_id, vendor_id, vendor_id_source, vendor_name].hash
+      [action, _class, combined_id, description, expiration_time, id, match_method, minor_classes, product_id, product_name, trigger_id, vendor_id, vendor_id_source, vendor_name].hash
     end
 
     # Builds the object from hash

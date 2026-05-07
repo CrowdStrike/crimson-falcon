@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,7 +31,7 @@ require 'time'
 
 module Falcon
   class DeviceControlUSBCustomNotification
-    # The notification to be displayed to the end-user
+    # The notification to be displayed to the end-user. Maximum length: 256 characters.
     attr_accessor :custom_message
 
     # If the custom notification or the default notification is in-use

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -234,74 +233,6 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve aggregate detection values based on the matched filter
-    # Fields allowed to aggregate on:  - indexed_time   - created_time   - detect_time   - ldt   - cid   - aid   - platform_name   - os_version   - device_tags   - host_name   - status   - severity   - adversary_ids   - behavior_ids   - behavior_names   - num_blocked_processes   - num_quarantined_files   - pattern_ids   - first_behavior_time   - last_behavior_time   - show_in_ui   - seconds_to_triaged   - seconds_to_resolved   - assigned_to_uid   - public_tags   - vertical_tags
-    # @param body [Array<MsaAggregateQueryRequest>]
-    # @param [Hash] opts the optional parameters
-    # @return [MsaAggregatesResponse]
-    def aggregate_detections(body, opts = {})
-      data, _status_code, _headers = aggregate_detections_with_http_info(body, opts)
-      data
-    end
-
-    # Retrieve aggregate detection values based on the matched filter
-    # Fields allowed to aggregate on:  - indexed_time   - created_time   - detect_time   - ldt   - cid   - aid   - platform_name   - os_version   - device_tags   - host_name   - status   - severity   - adversary_ids   - behavior_ids   - behavior_names   - num_blocked_processes   - num_quarantined_files   - pattern_ids   - first_behavior_time   - last_behavior_time   - show_in_ui   - seconds_to_triaged   - seconds_to_resolved   - assigned_to_uid   - public_tags   - vertical_tags
-    # @param body [Array<MsaAggregateQueryRequest>]
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
-    def aggregate_detections_with_http_info(body, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.aggregate_detections ...'
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboard.aggregate_detections"
-      end
-      # resource path
-      local_var_path = '/falcon-complete-dashboards/aggregates/detects/GET/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-        header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'MsaAggregatesResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"FalconCompleteDashboard.aggregate_detections",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_detections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Retrieve aggregate host/devices count based on the matched filter
     # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
@@ -430,72 +361,6 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_escalations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Retrieve aggregate incident values based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>]
-    # @param [Hash] opts the optional parameters
-    # @return [MsaAggregatesResponse]
-    def aggregate_fc_incidents(body, opts = {})
-      data, _status_code, _headers = aggregate_fc_incidents_with_http_info(body, opts)
-      data
-    end
-
-    # Retrieve aggregate incident values based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>]
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
-    def aggregate_fc_incidents_with_http_info(body, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.aggregate_fc_incidents ...'
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboard.aggregate_fc_incidents"
-      end
-      # resource path
-      local_var_path = '/falcon-complete-dashboards/aggregates/incidents/GET/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-        header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'MsaAggregatesResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"FalconCompleteDashboard.aggregate_fc_incidents",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_fc_incidents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1165,73 +1030,6 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve DetectionsIds that match the provided FQL filter, criteria with scrolling enabled
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The maximum records to return. [1-500]
-    # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
-    # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
-    # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [MsaQueryResponse]
-    def query_detection_ids_by_filter(opts = {})
-      data, _status_code, _headers = query_detection_ids_by_filter_with_http_info(opts)
-      data
-    end
-
-    # Retrieve DetectionsIds that match the provided FQL filter, criteria with scrolling enabled
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The maximum records to return. [1-500]
-    # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
-    # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
-    # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
-    def query_detection_ids_by_filter_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.query_detection_ids_by_filter ...'
-      end
-      # resource path
-      local_var_path = '/falcon-complete-dashboards/queries/detects/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
-      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
-      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"FalconCompleteDashboard.query_detection_ids_by_filter",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboard#query_detection_ids_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Retrieve escalation tickets that match the provided filter criteria with scrolling enabled
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The maximum records to return. [1-500]
@@ -1295,73 +1093,6 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FalconCompleteDashboard#query_escalations_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Retrieve incidents that match the provided filter criteria with scrolling enabled
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The maximum records to return. [1-500]
-    # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
-    # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
-    # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [MsaQueryResponse]
-    def query_incident_ids_by_filter(opts = {})
-      data, _status_code, _headers = query_incident_ids_by_filter_with_http_info(opts)
-      data
-    end
-
-    # Retrieve incidents that match the provided filter criteria with scrolling enabled
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The maximum records to return. [1-500]
-    # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
-    # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
-    # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
-    def query_incident_ids_by_filter_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.query_incident_ids_by_filter ...'
-      end
-      # resource path
-      local_var_path = '/falcon-complete-dashboards/queries/incidents/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
-      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
-      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"FalconCompleteDashboard.query_incident_ids_by_filter",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboard#query_incident_ids_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

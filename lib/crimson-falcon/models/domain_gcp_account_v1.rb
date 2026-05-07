@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -41,6 +40,8 @@ module Falcon
     attr_accessor :updated_at
 
     attr_accessor :cid
+
+    attr_accessor :cloud_registration_enabled
 
     attr_accessor :cloud_scopes
 
@@ -101,6 +102,7 @@ module Falcon
         :'id' => :'ID',
         :'updated_at' => :'UpdatedAt',
         :'cid' => :'cid',
+        :'cloud_registration_enabled' => :'cloud_registration_enabled',
         :'cloud_scopes' => :'cloud_scopes',
         :'conditions' => :'conditions',
         :'cspm_enabled' => :'cspm_enabled',
@@ -137,6 +139,7 @@ module Falcon
         :'id' => :'Integer',
         :'updated_at' => :'Time',
         :'cid' => :'String',
+        :'cloud_registration_enabled' => :'Boolean',
         :'cloud_scopes' => :'Array<DomainCloudScope>',
         :'conditions' => :'Array<StatemgmtCondition>',
         :'cspm_enabled' => :'Boolean',
@@ -199,6 +202,10 @@ module Falcon
 
       if attributes.key?(:'cid')
         self.cid = attributes[:'cid']
+      end
+
+      if attributes.key?(:'cloud_registration_enabled')
+        self.cloud_registration_enabled = attributes[:'cloud_registration_enabled']
       end
 
       if attributes.key?(:'cloud_scopes')
@@ -314,6 +321,10 @@ module Falcon
         invalid_properties.push('invalid value for "cid", cid cannot be nil.')
       end
 
+      if @cloud_registration_enabled.nil?
+        invalid_properties.push('invalid value for "cloud_registration_enabled", cloud_registration_enabled cannot be nil.')
+      end
+
       if @cspm_enabled.nil?
         invalid_properties.push('invalid value for "cspm_enabled", cspm_enabled cannot be nil.')
       end
@@ -341,6 +352,7 @@ module Falcon
       return false if @id.nil?
       return false if @updated_at.nil?
       return false if @cid.nil?
+      return false if @cloud_registration_enabled.nil?
       return false if @cspm_enabled.nil?
       return false if @gcp_permissions_status.nil?
       return false if @parent_id.nil?
@@ -358,6 +370,7 @@ module Falcon
           id == o.id &&
           updated_at == o.updated_at &&
           cid == o.cid &&
+          cloud_registration_enabled == o.cloud_registration_enabled &&
           cloud_scopes == o.cloud_scopes &&
           conditions == o.conditions &&
           cspm_enabled == o.cspm_enabled &&
@@ -389,7 +402,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, cid, cloud_scopes, conditions, cspm_enabled, display_name, environment, folder_id, folder_name, gcp_permissions_status, organization_id, organization_name, parent_id, parent_type, project_id, service_account_client_email, service_account_client_id, service_account_conditions, service_account_id, service_account_private_key_id, service_account_project_id, status].hash
+      [created_at, deleted_at, id, updated_at, cid, cloud_registration_enabled, cloud_scopes, conditions, cspm_enabled, display_name, environment, folder_id, folder_name, gcp_permissions_status, organization_id, organization_name, parent_id, parent_type, project_id, service_account_client_email, service_account_client_id, service_account_conditions, service_account_id, service_account_private_key_id, service_account_project_id, status].hash
     end
 
     # Builds the object from hash

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -36,22 +35,22 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Maximum offset = 10000 - limit
+    # Retrieve top x app packages with the most fixable vulnerabilities
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
     # @return [PackagesApiPackagesByVulnCount]
     def read_packages_by_fixable_vuln_count(opts = {})
       data, _status_code, _headers = read_packages_by_fixable_vuln_count_with_http_info(opts)
       data
     end
 
-    # Maximum offset &#x3D; 10000 - limit
+    # Retrieve top x app packages with the most fixable vulnerabilities
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
     # @return [Array<(PackagesApiPackagesByVulnCount, Integer, Hash)>] PackagesApiPackagesByVulnCount data, response status code and response headers
     def read_packages_by_fixable_vuln_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -169,22 +168,22 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Maximum offset = 10000 - limit
+    # Retrieve top x packages with the most vulnerabilities
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
     # @return [PackagesApiPackagesByVulnCount]
     def read_packages_by_vuln_count(opts = {})
       data, _status_code, _headers = read_packages_by_vuln_count_with_http_info(opts)
       data
     end
 
-    # Maximum offset &#x3D; 10000 - limit
+    # Retrieve top x packages with the most vulnerabilities
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
     # @return [Array<(PackagesApiPackagesByVulnCount, Integer, Hash)>] PackagesApiPackagesByVulnCount data, response status code and response headers
     def read_packages_by_vuln_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -233,26 +232,26 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Maximum offset = 10000 - limit
+    # Retrieve packages identified by the provided filter criteria
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages (default to false)
     # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
     # @return [PackagesApiCombinedPackage]
     def read_packages_combined(opts = {})
       data, _status_code, _headers = read_packages_combined_with_http_info(opts)
       data
     end
 
-    # Maximum offset &#x3D; 10000 - limit
+    # Retrieve packages identified by the provided filter criteria
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages (default to false)
     # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
     # @return [Array<(PackagesApiCombinedPackage, Integer, Hash)>] PackagesApiCombinedPackage data, response status code and response headers
     def read_packages_combined_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -303,26 +302,26 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Maximum offset = 10000 - limit
+    # Retrieves a paginated list of packages identified by the provided filter criteria,used for export.Maximum page size: 100. Maximum available packages: 10,000
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages (default to false)
     # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
     # @return [PackagesApiCombinedPackageExport]
     def read_packages_combined_export(opts = {})
       data, _status_code, _headers = read_packages_combined_export_with_http_info(opts)
       data
     end
 
-    # Maximum offset &#x3D; 10000 - limit
+    # Retrieves a paginated list of packages identified by the provided filter criteria,used for export.Maximum page size: 100. Maximum available packages: 10,000
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages (default to false)
     # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
     # @return [Array<(PackagesApiCombinedPackageExport, Integer, Hash)>] PackagesApiCombinedPackageExport data, response status code and response headers
     def read_packages_combined_export_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -373,26 +372,26 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Maximum offset = 10000 - limit
+    # Retrieve packages identified by the provided filter criteria
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages (default to false)
     # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
     # @return [PackagesApiCombinedPackageV2]
     def read_packages_combined_v2(opts = {})
       data, _status_code, _headers = read_packages_combined_v2_with_http_info(opts)
       data
     end
 
-    # Maximum offset &#x3D; 10000 - limit
+    # Retrieve packages identified by the provided filter criteria
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages (default to false)
     # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
     # @return [Array<(PackagesApiCombinedPackageV2, Integer, Hash)>] PackagesApiCombinedPackageV2 data, response status code and response headers
     def read_packages_combined_v2_with_http_info(opts = {})
       if @api_client.config.debugging

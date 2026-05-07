@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -39,6 +38,9 @@ module Falcon
     attr_accessor :cid
 
     attr_accessor :client_id
+
+    # If the account has CloudRegistration enabled.
+    attr_accessor :cloud_registration_enabled
 
     attr_accessor :conditions
 
@@ -68,6 +70,7 @@ module Falcon
         :'behavior_assessment_override' => :'behavior_assessment_override',
         :'cid' => :'cid',
         :'client_id' => :'client_id',
+        :'cloud_registration_enabled' => :'cloud_registration_enabled',
         :'conditions' => :'conditions',
         :'cspm_enabled' => :'cspm_enabled',
         :'default_subscription_id' => :'default_subscription_id',
@@ -93,6 +96,7 @@ module Falcon
         :'behavior_assessment_override' => :'Boolean',
         :'cid' => :'String',
         :'client_id' => :'String',
+        :'cloud_registration_enabled' => :'Boolean',
         :'conditions' => :'Array<StatemgmtCondition>',
         :'cspm_enabled' => :'Boolean',
         :'default_subscription_id' => :'String',
@@ -141,6 +145,10 @@ module Falcon
 
       if attributes.key?(:'client_id')
         self.client_id = attributes[:'client_id']
+      end
+
+      if attributes.key?(:'cloud_registration_enabled')
+        self.cloud_registration_enabled = attributes[:'cloud_registration_enabled']
       end
 
       if attributes.key?(:'conditions')
@@ -196,6 +204,10 @@ module Falcon
         invalid_properties.push('invalid value for "cid", cid cannot be nil.')
       end
 
+      if @cloud_registration_enabled.nil?
+        invalid_properties.push('invalid value for "cloud_registration_enabled", cloud_registration_enabled cannot be nil.')
+      end
+
       if @cspm_enabled.nil?
         invalid_properties.push('invalid value for "cspm_enabled", cspm_enabled cannot be nil.')
       end
@@ -215,6 +227,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @cid.nil?
+      return false if @cloud_registration_enabled.nil?
       return false if @cspm_enabled.nil?
       return false if @is_shared_client.nil?
       return false if @tenant_id.nil?
@@ -230,6 +243,7 @@ module Falcon
           behavior_assessment_override == o.behavior_assessment_override &&
           cid == o.cid &&
           client_id == o.client_id &&
+          cloud_registration_enabled == o.cloud_registration_enabled &&
           conditions == o.conditions &&
           cspm_enabled == o.cspm_enabled &&
           default_subscription_id == o.default_subscription_id &&
@@ -251,7 +265,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_type, behavior_assessment_override, cid, client_id, conditions, cspm_enabled, default_subscription_id, encrypted_private_key, is_shared_client, public_certificate, resource_permissions, tenant_id, x5t, obj_id].hash
+      [account_type, behavior_assessment_override, cid, client_id, cloud_registration_enabled, conditions, cspm_enabled, default_subscription_id, encrypted_private_key, is_shared_client, public_certificate, resource_permissions, tenant_id, x5t, obj_id].hash
     end
 
     # Builds the object from hash

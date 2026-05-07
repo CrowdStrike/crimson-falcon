@@ -75,7 +75,7 @@ endif
 
 rubocop:
 	@echo "Running rubocop..."
-	@rubocop -a
+	@bundle exec rubocop -a
 
 remove-suffix:
 	@echo "Removing generated API suffix..."

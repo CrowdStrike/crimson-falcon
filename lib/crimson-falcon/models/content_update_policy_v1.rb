@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -62,7 +61,7 @@ module Falcon
     # The human readable name of the policy
     attr_accessor :name
 
-    # The name of the platform
+    # The name of the platform ('all' is the only option for Content Update Policy)
     attr_accessor :platform_name
 
     attr_accessor :settings
@@ -271,7 +270,7 @@ module Falcon
       return false if @modified_timestamp.nil?
       return false if @name.nil?
       return false if @platform_name.nil?
-      platform_name_validator = EnumAttributeValidator.new('String', ["Windows", "Mac", "Linux"])
+      platform_name_validator = EnumAttributeValidator.new('String', ["all"])
       return false unless platform_name_validator.valid?(@platform_name)
       return false if @settings.nil?
       true
@@ -280,7 +279,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] platform_name Object to be assigned
     def platform_name=(platform_name)
-      validator = EnumAttributeValidator.new('String', ["Windows", "Mac", "Linux"])
+      validator = EnumAttributeValidator.new('String', ["all"])
       unless validator.valid?(platform_name)
         fail ArgumentError, "invalid value for \"platform_name\", must be one of #{validator.allowable_values}."
       end

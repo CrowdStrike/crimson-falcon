@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,17 +31,41 @@ require 'time'
 
 module Falcon
   class QuickscanproScanResult
+    attr_accessor :adversary
+
+    attr_accessor :artifacts_tree
+
     attr_accessor :beta_intelligence_context
 
     attr_accessor :file_artifacts
 
+    attr_accessor :file_size
+
+    attr_accessor :file_type
+
+    attr_accessor :file_type_short
+
+    attr_accessor :first_content_bytes_ascii
+
+    attr_accessor :first_content_bytes_hex
+
+    attr_accessor :malicious_confidence
+
+    attr_accessor :malware_config
+
+    attr_accessor :mime_type
+
     attr_accessor :mitre_attacks
+
+    attr_accessor :static_indicators
 
     attr_accessor :url_artifacts
 
     attr_accessor :verdict
 
     attr_accessor :verdict_reason
+
+    attr_accessor :verdict_reasons
 
     attr_accessor :verdict_source
 
@@ -71,12 +94,24 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'adversary' => :'adversary',
+        :'artifacts_tree' => :'artifacts_tree',
         :'beta_intelligence_context' => :'beta_intelligence_context',
         :'file_artifacts' => :'file_artifacts',
+        :'file_size' => :'file_size',
+        :'file_type' => :'file_type',
+        :'file_type_short' => :'file_type_short',
+        :'first_content_bytes_ascii' => :'first_content_bytes_ascii',
+        :'first_content_bytes_hex' => :'first_content_bytes_hex',
+        :'malicious_confidence' => :'malicious_confidence',
+        :'malware_config' => :'malware_config',
+        :'mime_type' => :'mime_type',
         :'mitre_attacks' => :'mitre_attacks',
+        :'static_indicators' => :'static_indicators',
         :'url_artifacts' => :'url_artifacts',
         :'verdict' => :'verdict',
         :'verdict_reason' => :'verdict_reason',
+        :'verdict_reasons' => :'verdict_reasons',
         :'verdict_source' => :'verdict_source'
       }
     end
@@ -89,12 +124,24 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'adversary' => :'String',
+        :'artifacts_tree' => :'QuickscanproArtifactsTree',
         :'beta_intelligence_context' => :'Object',
         :'file_artifacts' => :'Array<QuickscanproFileResult>',
+        :'file_size' => :'Integer',
+        :'file_type' => :'String',
+        :'file_type_short' => :'String',
+        :'first_content_bytes_ascii' => :'String',
+        :'first_content_bytes_hex' => :'String',
+        :'malicious_confidence' => :'Integer',
+        :'malware_config' => :'Hash<String, Array<String>>',
+        :'mime_type' => :'String',
         :'mitre_attacks' => :'Array<DomainMITREAttack>',
+        :'static_indicators' => :'Array<String>',
         :'url_artifacts' => :'Array<QuickscanproURLResult>',
         :'verdict' => :'String',
         :'verdict_reason' => :'String',
+        :'verdict_reasons' => :'Array<String>',
         :'verdict_source' => :'Array<String>'
       }
     end
@@ -120,6 +167,14 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'adversary')
+        self.adversary = attributes[:'adversary']
+      end
+
+      if attributes.key?(:'artifacts_tree')
+        self.artifacts_tree = attributes[:'artifacts_tree']
+      end
+
       if attributes.key?(:'beta_intelligence_context')
         self.beta_intelligence_context = attributes[:'beta_intelligence_context']
       end
@@ -130,9 +185,49 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'file_size')
+        self.file_size = attributes[:'file_size']
+      end
+
+      if attributes.key?(:'file_type')
+        self.file_type = attributes[:'file_type']
+      end
+
+      if attributes.key?(:'file_type_short')
+        self.file_type_short = attributes[:'file_type_short']
+      end
+
+      if attributes.key?(:'first_content_bytes_ascii')
+        self.first_content_bytes_ascii = attributes[:'first_content_bytes_ascii']
+      end
+
+      if attributes.key?(:'first_content_bytes_hex')
+        self.first_content_bytes_hex = attributes[:'first_content_bytes_hex']
+      end
+
+      if attributes.key?(:'malicious_confidence')
+        self.malicious_confidence = attributes[:'malicious_confidence']
+      end
+
+      if attributes.key?(:'malware_config')
+        if (value = attributes[:'malware_config']).is_a?(Hash)
+          self.malware_config = value
+        end
+      end
+
+      if attributes.key?(:'mime_type')
+        self.mime_type = attributes[:'mime_type']
+      end
+
       if attributes.key?(:'mitre_attacks')
         if (value = attributes[:'mitre_attacks']).is_a?(Array)
           self.mitre_attacks = value
+        end
+      end
+
+      if attributes.key?(:'static_indicators')
+        if (value = attributes[:'static_indicators']).is_a?(Array)
+          self.static_indicators = value
         end
       end
 
@@ -150,6 +245,12 @@ module Falcon
         self.verdict_reason = attributes[:'verdict_reason']
       end
 
+      if attributes.key?(:'verdict_reasons')
+        if (value = attributes[:'verdict_reasons']).is_a?(Array)
+          self.verdict_reasons = value
+        end
+      end
+
       if attributes.key?(:'verdict_source')
         if (value = attributes[:'verdict_source']).is_a?(Array)
           self.verdict_source = value
@@ -163,6 +264,10 @@ module Falcon
       invalid_properties = Array.new
       if @file_artifacts.nil?
         invalid_properties.push('invalid value for "file_artifacts", file_artifacts cannot be nil.')
+      end
+
+      if @malicious_confidence.nil?
+        invalid_properties.push('invalid value for "malicious_confidence", malicious_confidence cannot be nil.')
       end
 
       if @verdict.nil?
@@ -180,6 +285,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @file_artifacts.nil?
+      return false if @malicious_confidence.nil?
       return false if @verdict.nil?
       verdict_validator = EnumAttributeValidator.new('String', ["clean", "likely_benign", "suspicious", "malicious", "unknown"])
       return false unless verdict_validator.valid?(@verdict)
@@ -202,12 +308,24 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          adversary == o.adversary &&
+          artifacts_tree == o.artifacts_tree &&
           beta_intelligence_context == o.beta_intelligence_context &&
           file_artifacts == o.file_artifacts &&
+          file_size == o.file_size &&
+          file_type == o.file_type &&
+          file_type_short == o.file_type_short &&
+          first_content_bytes_ascii == o.first_content_bytes_ascii &&
+          first_content_bytes_hex == o.first_content_bytes_hex &&
+          malicious_confidence == o.malicious_confidence &&
+          malware_config == o.malware_config &&
+          mime_type == o.mime_type &&
           mitre_attacks == o.mitre_attacks &&
+          static_indicators == o.static_indicators &&
           url_artifacts == o.url_artifacts &&
           verdict == o.verdict &&
           verdict_reason == o.verdict_reason &&
+          verdict_reasons == o.verdict_reasons &&
           verdict_source == o.verdict_source
     end
 
@@ -220,7 +338,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [beta_intelligence_context, file_artifacts, mitre_attacks, url_artifacts, verdict, verdict_reason, verdict_source].hash
+      [adversary, artifacts_tree, beta_intelligence_context, file_artifacts, file_size, file_type, file_type_short, first_content_bytes_ascii, first_content_bytes_hex, malicious_confidence, malware_config, mime_type, mitre_attacks, static_indicators, url_artifacts, verdict, verdict_reason, verdict_reasons, verdict_source].hash
     end
 
     # Builds the object from hash

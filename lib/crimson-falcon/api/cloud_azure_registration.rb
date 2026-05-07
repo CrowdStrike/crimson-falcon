@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -98,6 +97,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_create_registration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete existing legacy Azure subscriptions.
+    # @param body [AzureLegacySubscriptionDeleteRequestExtV1]
+    # @param [Hash] opts the optional parameters
+    # @return [AzureLegacySubscriptionDeleteResponseExtV1]
+    def cloud_registration_azure_delete_legacy_subscription(body, opts = {})
+      data, _status_code, _headers = cloud_registration_azure_delete_legacy_subscription_with_http_info(body, opts)
+      data
+    end
+
+    # Delete existing legacy Azure subscriptions.
+    # @param body [AzureLegacySubscriptionDeleteRequestExtV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AzureLegacySubscriptionDeleteResponseExtV1, Integer, Hash)>] AzureLegacySubscriptionDeleteResponseExtV1 data, response status code and response headers
+    def cloud_registration_azure_delete_legacy_subscription_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.cloud_registration_azure_delete_legacy_subscription ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudAzureRegistration.cloud_registration_azure_delete_legacy_subscription"
+      end
+      # resource path
+      local_var_path = '/cloud-security-registration-azure/entities/accounts/legacy/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AzureLegacySubscriptionDeleteResponseExtV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudAzureRegistration.cloud_registration_azure_delete_legacy_subscription",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_delete_legacy_subscription\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -292,6 +357,126 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Download Azure deployment script (Terraform or Bicep)
+    # @param tenant_id [String] Azure tenant ID
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def cloud_registration_azure_get_script(tenant_id, opts = {})
+      cloud_registration_azure_get_script_with_http_info(tenant_id, opts)
+      nil
+    end
+
+    # Download Azure deployment script (Terraform or Bicep)
+    # @param tenant_id [String] Azure tenant ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def cloud_registration_azure_get_script_with_http_info(tenant_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.cloud_registration_azure_get_script ...'
+      end
+      # verify the required parameter 'tenant_id' is set
+      if @api_client.config.client_side_validation && tenant_id.nil?
+        fail ArgumentError, "Missing the required parameter 'tenant_id' when calling CloudAzureRegistration.cloud_registration_azure_get_script"
+      end
+      # resource path
+      local_var_path = '/cloud-security-registration-azure/entities/scripts/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'tenant_id'] = tenant_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudAzureRegistration.cloud_registration_azure_get_script",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_get_script\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Trigger health check scan for Azure registrations
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :tenant_ids Azure tenant IDs
+    # @return [AzureHealthCheckTriggerResponseExtV1]
+    def cloud_registration_azure_trigger_health_check(opts = {})
+      data, _status_code, _headers = cloud_registration_azure_trigger_health_check_with_http_info(opts)
+      data
+    end
+
+    # Trigger health check scan for Azure registrations
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :tenant_ids Azure tenant IDs
+    # @return [Array<(AzureHealthCheckTriggerResponseExtV1, Integer, Hash)>] AzureHealthCheckTriggerResponseExtV1 data, response status code and response headers
+    def cloud_registration_azure_trigger_health_check_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.cloud_registration_azure_trigger_health_check ...'
+      end
+      # resource path
+      local_var_path = '/cloud-security-registration-azure/entities/registrations/healthcheck/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'tenant_ids'] = @api_client.build_collection_param(opts[:'tenant_ids'], :multi) if !opts[:'tenant_ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AzureHealthCheckTriggerResponseExtV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudAzureRegistration.cloud_registration_azure_trigger_health_check",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_trigger_health_check\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update an existing Azure registration for a tenant.
     # @param body [AzureAzureRegistrationUpdateRequestExtV1]
     # @param [Hash] opts the optional parameters
@@ -358,33 +543,49 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Download Azure deployment script (Terraform or Bicep)
-    # @param tenant_id [String] Azure tenant ID
+    # Validate an Azure registration by checking service principal, role assignments and deployment stack (if the deployment method is Bicep)
+    # @param tenant_id [String] Azure tenant ID to be validated
     # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def download_azure_script(tenant_id, opts = {})
-      download_azure_script_with_http_info(tenant_id, opts)
-      nil
+    # @option opts [String] :stack_name Azure deployment stack name to be validated
+    # @return [AzureRegistrationValidateResponseV1]
+    def cloud_registration_azure_validate_registration(tenant_id, opts = {})
+      data, _status_code, _headers = cloud_registration_azure_validate_registration_with_http_info(tenant_id, opts)
+      data
     end
 
-    # Download Azure deployment script (Terraform or Bicep)
-    # @param tenant_id [String] Azure tenant ID
+    # Validate an Azure registration by checking service principal, role assignments and deployment stack (if the deployment method is Bicep)
+    # @param tenant_id [String] Azure tenant ID to be validated
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def download_azure_script_with_http_info(tenant_id, opts = {})
+    # @option opts [String] :stack_name Azure deployment stack name to be validated
+    # @return [Array<(AzureRegistrationValidateResponseV1, Integer, Hash)>] AzureRegistrationValidateResponseV1 data, response status code and response headers
+    def cloud_registration_azure_validate_registration_with_http_info(tenant_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.download_azure_script ...'
+        @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.cloud_registration_azure_validate_registration ...'
       end
       # verify the required parameter 'tenant_id' is set
       if @api_client.config.client_side_validation && tenant_id.nil?
-        fail ArgumentError, "Missing the required parameter 'tenant_id' when calling CloudAzureRegistration.download_azure_script"
+        fail ArgumentError, "Missing the required parameter 'tenant_id' when calling CloudAzureRegistration.cloud_registration_azure_validate_registration"
       end
+      if @api_client.config.client_side_validation && tenant_id.to_s.length > 36
+        fail ArgumentError, 'invalid value for "tenant_id" when calling CloudAzureRegistration.cloud_registration_azure_validate_registration, the character length must be smaller than or equal to 36.'
+      end
+
+      if @api_client.config.client_side_validation && tenant_id.to_s.length < 36
+        fail ArgumentError, 'invalid value for "tenant_id" when calling CloudAzureRegistration.cloud_registration_azure_validate_registration, the character length must be great than or equal to 36.'
+      end
+
+      pattern = Regexp.new(/^[0-9a-z-]{36}$/)
+      if @api_client.config.client_side_validation && tenant_id !~ pattern
+        fail ArgumentError, "invalid value for 'tenant_id' when calling CloudAzureRegistration.cloud_registration_azure_validate_registration, must conform to the pattern #{pattern}."
+      end
+
       # resource path
-      local_var_path = '/cloud-security-registration-azure/entities/scripts/v1'
+      local_var_path = '/cloud-security-registration-azure/entities/registrations/validate/v1'
 
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'tenant_id'] = tenant_id
+      query_params[:'stack_name'] = opts[:'stack_name'] if !opts[:'stack_name'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -398,13 +599,13 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'AzureRegistrationValidateResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudAzureRegistration.download_azure_script",
+        :operation => :"CloudAzureRegistration.cloud_registration_azure_validate_registration",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -413,9 +614,9 @@ module Falcon
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudAzureRegistration#download_azure_script\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_validate_registration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

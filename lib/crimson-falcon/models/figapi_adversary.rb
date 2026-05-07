@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -35,10 +34,14 @@ module Falcon
     # Name of the adversary
     attr_accessor :name
 
+    # Slug name of the adversary
+    attr_accessor :slug
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'Name'
+        :'name' => :'Name',
+        :'slug' => :'Slug'
       }
     end
 
@@ -50,7 +53,8 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String'
+        :'name' => :'String',
+        :'slug' => :'String'
       }
     end
 
@@ -78,6 +82,10 @@ module Falcon
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
+
+      if attributes.key?(:'slug')
+        self.slug = attributes[:'slug']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -98,7 +106,8 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name
+          name == o.name &&
+          slug == o.slug
     end
 
     # @see the `==` method
@@ -110,7 +119,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name].hash
+      [name, slug].hash
     end
 
     # Builds the object from hash

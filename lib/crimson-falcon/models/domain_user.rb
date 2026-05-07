@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -50,6 +49,8 @@ module Falcon
 
     attr_accessor :updated_at
 
+    attr_accessor :user_type
+
     attr_accessor :uuid
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -64,6 +65,7 @@ module Falcon
         :'status' => :'status',
         :'uid' => :'uid',
         :'updated_at' => :'updated_at',
+        :'user_type' => :'user_type',
         :'uuid' => :'uuid'
       }
     end
@@ -85,6 +87,7 @@ module Falcon
         :'status' => :'String',
         :'uid' => :'String',
         :'updated_at' => :'Time',
+        :'user_type' => :'String',
         :'uuid' => :'String'
       }
     end
@@ -148,6 +151,10 @@ module Falcon
         self.updated_at = attributes[:'updated_at']
       end
 
+      if attributes.key?(:'user_type')
+        self.user_type = attributes[:'user_type']
+      end
+
       if attributes.key?(:'uuid')
         self.uuid = attributes[:'uuid']
       end
@@ -180,6 +187,7 @@ module Falcon
           status == o.status &&
           uid == o.uid &&
           updated_at == o.updated_at &&
+          user_type == o.user_type &&
           uuid == o.uuid
     end
 
@@ -192,7 +200,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, created_at, factors, first_name, last_login_at, last_name, status, uid, updated_at, uuid].hash
+      [cid, created_at, factors, first_name, last_login_at, last_name, status, uid, updated_at, user_type, uuid].hash
     end
 
     # Builds the object from hash

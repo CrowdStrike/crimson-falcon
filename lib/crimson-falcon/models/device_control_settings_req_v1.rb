@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,12 +31,12 @@ require 'time'
 
 module Falcon
   class DeviceControlSettingsReqV1
-    # Settings that apply to a USB Class
+    # List of settings that apply to USB Classes. Maximum batch size: 1000.
     attr_accessor :classes
 
     attr_accessor :custom_notifications
 
-    # An array of exception IDs to delete from the policy
+    # List of exception IDs to delete from the policy.
     attr_accessor :delete_exceptions
 
     # Does the end user receives a notification when the policy is violated

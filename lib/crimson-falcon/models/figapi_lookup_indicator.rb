@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -39,9 +38,15 @@ module Falcon
 
     attr_accessor :certificates
 
+    attr_accessor :coin_address_details
+
     attr_accessor :countries
 
+    attr_accessor :credentials_details
+
     attr_accessor :domain_details
+
+    attr_accessor :email_address_details
 
     attr_accessor :file_details
 
@@ -76,6 +81,8 @@ module Falcon
 
     attr_accessor :reports
 
+    attr_accessor :root_domain_details
+
     attr_accessor :sectors
 
     attr_accessor :threat_types
@@ -87,6 +94,8 @@ module Falcon
 
     attr_accessor :url_details
 
+    attr_accessor :unique_identifier_details
+
     attr_accessor :vulnerabilities
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -95,8 +104,11 @@ module Falcon
         :'adversaries' => :'Adversaries',
         :'affected_customers' => :'AffectedCustomers',
         :'certificates' => :'Certificates',
+        :'coin_address_details' => :'CoinAddressDetails',
         :'countries' => :'Countries',
+        :'credentials_details' => :'CredentialsDetails',
         :'domain_details' => :'DomainDetails',
+        :'email_address_details' => :'EmailAddressDetails',
         :'file_details' => :'FileDetails',
         :'first_seen' => :'FirstSeen',
         :'id' => :'ID',
@@ -110,11 +122,13 @@ module Falcon
         :'malicious_confidence_validated_time' => :'MaliciousConfidenceValidatedTime',
         :'publish_date' => :'PublishDate',
         :'reports' => :'Reports',
+        :'root_domain_details' => :'RootDomainDetails',
         :'sectors' => :'Sectors',
         :'threat_types' => :'ThreatTypes',
         :'threats' => :'Threats',
         :'type' => :'Type',
         :'url_details' => :'URLDetails',
+        :'unique_identifier_details' => :'UniqueIdentifierDetails',
         :'vulnerabilities' => :'Vulnerabilities'
       }
     end
@@ -130,8 +144,11 @@ module Falcon
         :'adversaries' => :'Array<FigapiAdversary>',
         :'affected_customers' => :'String',
         :'certificates' => :'Array<FigapiX509Certificate>',
+        :'coin_address_details' => :'FigapiCoinAddress',
         :'countries' => :'Array<FigapiCountry>',
+        :'credentials_details' => :'FigapiCredentials',
         :'domain_details' => :'FigapiDomain',
+        :'email_address_details' => :'FigapiEmailAddressDetails',
         :'file_details' => :'FigapiFile',
         :'first_seen' => :'String',
         :'id' => :'String',
@@ -145,11 +162,13 @@ module Falcon
         :'malicious_confidence_validated_time' => :'String',
         :'publish_date' => :'String',
         :'reports' => :'Array<FigapiReport>',
+        :'root_domain_details' => :'FigapiDomain',
         :'sectors' => :'Array<FigapiSector>',
         :'threat_types' => :'Array<String>',
         :'threats' => :'Array<FigapiThreat>',
         :'type' => :'String',
         :'url_details' => :'FigapiURL',
+        :'unique_identifier_details' => :'FigapiUniqueIdentifier',
         :'vulnerabilities' => :'Array<FigapiVulnerability>'
       }
     end
@@ -191,14 +210,26 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'coin_address_details')
+        self.coin_address_details = attributes[:'coin_address_details']
+      end
+
       if attributes.key?(:'countries')
         if (value = attributes[:'countries']).is_a?(Array)
           self.countries = value
         end
       end
 
+      if attributes.key?(:'credentials_details')
+        self.credentials_details = attributes[:'credentials_details']
+      end
+
       if attributes.key?(:'domain_details')
         self.domain_details = attributes[:'domain_details']
+      end
+
+      if attributes.key?(:'email_address_details')
+        self.email_address_details = attributes[:'email_address_details']
       end
 
       if attributes.key?(:'file_details')
@@ -257,6 +288,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'root_domain_details')
+        self.root_domain_details = attributes[:'root_domain_details']
+      end
+
       if attributes.key?(:'sectors')
         if (value = attributes[:'sectors']).is_a?(Array)
           self.sectors = value
@@ -281,6 +316,10 @@ module Falcon
 
       if attributes.key?(:'url_details')
         self.url_details = attributes[:'url_details']
+      end
+
+      if attributes.key?(:'unique_identifier_details')
+        self.unique_identifier_details = attributes[:'unique_identifier_details']
       end
 
       if attributes.key?(:'vulnerabilities')
@@ -311,8 +350,11 @@ module Falcon
           adversaries == o.adversaries &&
           affected_customers == o.affected_customers &&
           certificates == o.certificates &&
+          coin_address_details == o.coin_address_details &&
           countries == o.countries &&
+          credentials_details == o.credentials_details &&
           domain_details == o.domain_details &&
+          email_address_details == o.email_address_details &&
           file_details == o.file_details &&
           first_seen == o.first_seen &&
           id == o.id &&
@@ -326,11 +368,13 @@ module Falcon
           malicious_confidence_validated_time == o.malicious_confidence_validated_time &&
           publish_date == o.publish_date &&
           reports == o.reports &&
+          root_domain_details == o.root_domain_details &&
           sectors == o.sectors &&
           threat_types == o.threat_types &&
           threats == o.threats &&
           type == o.type &&
           url_details == o.url_details &&
+          unique_identifier_details == o.unique_identifier_details &&
           vulnerabilities == o.vulnerabilities
     end
 
@@ -343,7 +387,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [adversaries, affected_customers, certificates, countries, domain_details, file_details, first_seen, id, ipv4_details, ipv6_details, kill_chain, last_seen, last_updated, lookup_value, malicious_confidence, malicious_confidence_validated_time, publish_date, reports, sectors, threat_types, threats, type, url_details, vulnerabilities].hash
+      [adversaries, affected_customers, certificates, coin_address_details, countries, credentials_details, domain_details, email_address_details, file_details, first_seen, id, ipv4_details, ipv6_details, kill_chain, last_seen, last_updated, lookup_value, malicious_confidence, malicious_confidence_validated_time, publish_date, reports, root_domain_details, sectors, threat_types, threats, type, url_details, unique_identifier_details, vulnerabilities].hash
     end
 
     # Builds the object from hash

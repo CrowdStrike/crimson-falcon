@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,15 +31,15 @@ require 'time'
 
 module Falcon
   class SadomainRule
-    # Weather to monitor exclusively for breach data. breach_monitoring_enabled also needs to be sent as true for this to be enabled.
+    # Monitor only for exposed data. Must be accompanied by breach_monitoring_enabled:true.
     attr_accessor :breach_monitor_only
 
-    # Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required
+    # Whether to monitor for exposed data. Available only for `Company Domains` and `Email addresses` rule topics.
     attr_accessor :breach_monitoring_enabled
 
     attr_accessor :cid
 
-    # The UUID of the user that created a given rule or Crowdstrike if the rule was system generated
+    # The UUID of the user that created a given rule or or \"Crowdstrike\" if the rule was system generated
     attr_accessor :created_by
 
     # The creation time for a given rule
@@ -51,6 +50,9 @@ module Falcon
 
     # The ID of a given rule
     attr_accessor :id
+
+    # The duration for which the rule will look back in the past at the first run. Time unit: nanoseconds. Possible values: [`604800000000000 (7 days)`, `2592000000000000 (1 month)`, `15552000000000000 (6 months)`, `31536000000000000 (1 year)`]
+    attr_accessor :lookback_period
 
     # Which result types to monitor for. Can be set to only monitor domains or subdomains, as well as both. Only available for the `Typosquatting` rule topic.
     attr_accessor :match_on_tsq_result_types
@@ -63,7 +65,7 @@ module Falcon
 
     attr_accessor :ownership_assets
 
-    # The permissions of a given rule
+    # The permissions for a given rule which specifies the rule's access by other users. Possible values: [`public (All Recon users)`, `private (Recon admins)`]
     attr_accessor :permissions
 
     # The priority of a given rule
@@ -80,7 +82,7 @@ module Falcon
 
     attr_accessor :template_priority
 
-    # The topic of a given rule
+    # The topic of a given rule. Possible values: [`SA_BRAND_PRODUCT (Brands and products)`, `SA_VIP (High-profile-employees)`, `SA_THIRD_PARTY (Supply chain vendors)`, `SA_IP (IP addresses)`, `SA_CVE (Vulnerabilities (CVEs))`, `SA_BIN (Bank identification numbers (BINs))`, `SA_DOMAIN (Company domains)`, `SA_EMAIL (Email addresses)`, `SA_ALIAS (Company names)`, `SA_AUTHOR (Authors)`, `SA_CUSTOM (Custom)`, `SA_TYPOSQUATTING (Typosquatting)`]
     attr_accessor :topic
 
     # The last updated time for a given rule
@@ -105,6 +107,7 @@ module Falcon
         :'created_timestamp' => :'created_timestamp',
         :'filter' => :'filter',
         :'id' => :'id',
+        :'lookback_period' => :'lookback_period',
         :'match_on_tsq_result_types' => :'match_on_tsq_result_types',
         :'name' => :'name',
         :'originating_template_id' => :'originating_template_id',
@@ -138,6 +141,7 @@ module Falcon
         :'created_timestamp' => :'Time',
         :'filter' => :'String',
         :'id' => :'String',
+        :'lookback_period' => :'Integer',
         :'match_on_tsq_result_types' => :'Array<String>',
         :'name' => :'String',
         :'originating_template_id' => :'String',
@@ -203,6 +207,10 @@ module Falcon
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'lookback_period')
+        self.lookback_period = attributes[:'lookback_period']
       end
 
       if attributes.key?(:'match_on_tsq_result_types')
@@ -368,6 +376,7 @@ module Falcon
           created_timestamp == o.created_timestamp &&
           filter == o.filter &&
           id == o.id &&
+          lookback_period == o.lookback_period &&
           match_on_tsq_result_types == o.match_on_tsq_result_types &&
           name == o.name &&
           originating_template_id == o.originating_template_id &&
@@ -394,7 +403,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [breach_monitor_only, breach_monitoring_enabled, cid, created_by, created_timestamp, filter, id, match_on_tsq_result_types, name, originating_template_id, ownership_assets, permissions, priority, status, status_message, substring_matching_enabled, template_priority, topic, updated_timestamp, user_id, user_name, user_uuid].hash
+      [breach_monitor_only, breach_monitoring_enabled, cid, created_by, created_timestamp, filter, id, lookback_period, match_on_tsq_result_types, name, originating_template_id, ownership_assets, permissions, priority, status, status_message, substring_matching_enabled, template_priority, topic, updated_timestamp, user_id, user_name, user_uuid].hash
     end
 
     # Builds the object from hash

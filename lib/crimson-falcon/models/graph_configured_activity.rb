@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -34,6 +33,12 @@ module Falcon
   class GraphConfiguredActivity
     # The class of activity. If undefined it is an ActivityClassDefault
     attr_accessor :_class
+
+    # If set to true, an error on the action will not send an error token to children
+    attr_accessor :continue_on_error
+
+    # The name of the activity type which is not user editable.
+    attr_accessor :default_name
 
     attr_accessor :flows
 
@@ -45,10 +50,14 @@ module Falcon
     # Maximum seconds to wait for an async process to finish. Overrides default async_max_seconds on Activity seed.
     attr_accessor :max_seconds
 
+    attr_accessor :mock_output
+
     # Optional user provided name for the activity, if not specified a default of the name for that Activity will be used.
     attr_accessor :name
 
     attr_accessor :node_id
+
+    attr_accessor :position
 
     # Dynamic payload providing values needed to configure the activity for execution. The structure of this data is dictated by the JSON Schema defined for the selected Activity.
     attr_accessor :properties
@@ -60,12 +69,16 @@ module Falcon
     def self.attribute_map
       {
         :'_class' => :'class',
+        :'continue_on_error' => :'continue_on_error',
+        :'default_name' => :'default_name',
         :'flows' => :'flows',
         :'id' => :'id',
         :'inline_configuration' => :'inline_configuration',
         :'max_seconds' => :'max_seconds',
+        :'mock_output' => :'mock_output',
         :'name' => :'name',
         :'node_id' => :'nodeID',
+        :'position' => :'position',
         :'properties' => :'properties',
         :'version_constraint' => :'version_constraint'
       }
@@ -80,12 +93,16 @@ module Falcon
     def self.openapi_types
       {
         :'_class' => :'String',
+        :'continue_on_error' => :'Boolean',
+        :'default_name' => :'String',
         :'flows' => :'Flows',
         :'id' => :'String',
         :'inline_configuration' => :'GraphInlineActivityConfig',
         :'max_seconds' => :'String',
+        :'mock_output' => :'NodemocksReference',
         :'name' => :'String',
         :'node_id' => :'String',
+        :'position' => :'GraphNodePosition',
         :'properties' => :'Object',
         :'version_constraint' => :'String'
       }
@@ -116,6 +133,14 @@ module Falcon
         self._class = attributes[:'_class']
       end
 
+      if attributes.key?(:'continue_on_error')
+        self.continue_on_error = attributes[:'continue_on_error']
+      end
+
+      if attributes.key?(:'default_name')
+        self.default_name = attributes[:'default_name']
+      end
+
       if attributes.key?(:'flows')
         self.flows = attributes[:'flows']
       end
@@ -132,12 +157,20 @@ module Falcon
         self.max_seconds = attributes[:'max_seconds']
       end
 
+      if attributes.key?(:'mock_output')
+        self.mock_output = attributes[:'mock_output']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
       if attributes.key?(:'node_id')
         self.node_id = attributes[:'node_id']
+      end
+
+      if attributes.key?(:'position')
+        self.position = attributes[:'position']
       end
 
       if attributes.key?(:'properties')
@@ -193,12 +226,16 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           _class == o._class &&
+          continue_on_error == o.continue_on_error &&
+          default_name == o.default_name &&
           flows == o.flows &&
           id == o.id &&
           inline_configuration == o.inline_configuration &&
           max_seconds == o.max_seconds &&
+          mock_output == o.mock_output &&
           name == o.name &&
           node_id == o.node_id &&
+          position == o.position &&
           properties == o.properties &&
           version_constraint == o.version_constraint
     end
@@ -212,7 +249,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_class, flows, id, inline_configuration, max_seconds, name, node_id, properties, version_constraint].hash
+      [_class, continue_on_error, default_name, flows, id, inline_configuration, max_seconds, mock_output, name, node_id, position, properties, version_constraint].hash
     end
 
     # Builds the object from hash

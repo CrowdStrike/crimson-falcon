@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,14 +31,17 @@ require 'time'
 
 module Falcon
   class SadomainCreateRuleRequestV1
-    # Monitor only for breach data. Must be accompanied by breach_monitoring_enabled:true.
+    # Monitor only for exposed data. Must be accompanied by breach_monitoring_enabled:true.
     attr_accessor :breach_monitor_only
 
-    # Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required
+    # Whether to monitor for exposed data. Available only for `Company Domains` and `Email addresses` rule topics.
     attr_accessor :breach_monitoring_enabled
 
     # The FQL filter to be used for searching
     attr_accessor :filter
+
+    # The duration for which the rule will look back in the past at the first run. Time unit: nanoseconds. Possible values: [`604800000000000 (7 days)`, `2592000000000000 (1 month)`, `15552000000000000 (6 months)`, `31536000000000000 (1 year)`]
+    attr_accessor :lookback_period
 
     # Which result types to monitor for. Can be set to only monitor domains or subdomains, as well as both. Only available for the `Typosquatting` rule topic. Possible values: [`basedomains`, `subdomains`]
     attr_accessor :match_on_tsq_result_types
@@ -47,19 +49,19 @@ module Falcon
     # The name of a given rule
     attr_accessor :name
 
-    # If the rule was generated based on a template, the id of the template
+    # This is for internal use only. It tells the id of the template if the rule was generated based on one.
     attr_accessor :originating_template_id
 
-    # The permissions for a given rule which specifies the rule's access by other users. Possible values: [`public`, `private`]
+    # The permissions for a given rule which specifies the rule's access by other users. Possible values: [`public (All Recon users)`, `private (Recon admins)`]
     attr_accessor :permissions
 
-    # The priority for a given rule. Possible values: [`low`, `medium`, `high`]
+    # The priority for a given rule. Possible values: [`none`, `low`, `medium`, `high`, `critical`]
     attr_accessor :priority
 
     # Whether to monitor for substring matches. Only available for the `Typosquatting` rule topic.
     attr_accessor :substring_matching_enabled
 
-    # The topic of a given rule. Possible values: [`SA_BRAND_PRODUCT`, `SA_VIP`, `SA_THIRD_PARTY`, `SA_IP`, `SA_CVE`, `SA_BIN`, `SA_DOMAIN`, `SA_EMAIL`, `SA_ALIAS`, `SA_AUTHOR`, `SA_CUSTOM`, `SA_TYPOSQUATTING`]
+    # The topic of a given rule. Possible values: [`SA_BRAND_PRODUCT (Brands and products)`, `SA_VIP (High-profile-employees)`, `SA_THIRD_PARTY (Supply chain vendors)`, `SA_IP (IP addresses)`, `SA_CVE (Vulnerabilities (CVEs))`, `SA_BIN (Bank identification numbers (BINs))`, `SA_DOMAIN (Company domains)`, `SA_EMAIL (Email addresses)`, `SA_ALIAS (Company names)`, `SA_AUTHOR (Authors)`, `SA_CUSTOM (Custom)`, `SA_TYPOSQUATTING (Typosquatting)`]
     attr_accessor :topic
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -68,6 +70,7 @@ module Falcon
         :'breach_monitor_only' => :'breach_monitor_only',
         :'breach_monitoring_enabled' => :'breach_monitoring_enabled',
         :'filter' => :'filter',
+        :'lookback_period' => :'lookback_period',
         :'match_on_tsq_result_types' => :'match_on_tsq_result_types',
         :'name' => :'name',
         :'originating_template_id' => :'originating_template_id',
@@ -89,6 +92,7 @@ module Falcon
         :'breach_monitor_only' => :'Boolean',
         :'breach_monitoring_enabled' => :'Boolean',
         :'filter' => :'String',
+        :'lookback_period' => :'Integer',
         :'match_on_tsq_result_types' => :'Array<String>',
         :'name' => :'String',
         :'originating_template_id' => :'String',
@@ -130,6 +134,10 @@ module Falcon
 
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
+      end
+
+      if attributes.key?(:'lookback_period')
+        self.lookback_period = attributes[:'lookback_period']
       end
 
       if attributes.key?(:'match_on_tsq_result_types')
@@ -234,6 +242,7 @@ module Falcon
           breach_monitor_only == o.breach_monitor_only &&
           breach_monitoring_enabled == o.breach_monitoring_enabled &&
           filter == o.filter &&
+          lookback_period == o.lookback_period &&
           match_on_tsq_result_types == o.match_on_tsq_result_types &&
           name == o.name &&
           originating_template_id == o.originating_template_id &&
@@ -252,7 +261,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [breach_monitor_only, breach_monitoring_enabled, filter, match_on_tsq_result_types, name, originating_template_id, permissions, priority, substring_matching_enabled, topic].hash
+      [breach_monitor_only, breach_monitoring_enabled, filter, lookback_period, match_on_tsq_result_types, name, originating_template_id, permissions, priority, substring_matching_enabled, topic].hash
     end
 
     # Builds the object from hash
