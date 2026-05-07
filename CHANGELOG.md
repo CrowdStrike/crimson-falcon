@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.3.0](https://github.com/CrowdStrike/crimson-falcon/compare/v1.2.0...v1.3.0) (2026-05-07)
+
+
+### Features
+
+* add make sync-wiki to publish docs to wiki repo ([#60](https://github.com/CrowdStrike/crimson-falcon/issues/60)) ([f93fbae](https://github.com/CrowdStrike/crimson-falcon/commit/f93fbaeb417620aecdbb2a3609ad37196fa2e475))
+* regenerate SDK from latest swagger spec ([#61](https://github.com/CrowdStrike/crimson-falcon/issues/61)) ([bad2891](https://github.com/CrowdStrike/crimson-falcon/commit/bad2891bbbd860b4f41eeb5357a1dee9d782e71f))
+
+
+### Bug Fixes
+
+* harden GitHub Actions workflows for security ([#56](https://github.com/CrowdStrike/crimson-falcon/issues/56)) ([e4a3cc6](https://github.com/CrowdStrike/crimson-falcon/commit/e4a3cc6976a06cc7f32f3111624a54943ef3b4ac))
+
+
+### Miscellaneous
+
+* move generated docs to wiki repo ([#57](https://github.com/CrowdStrike/crimson-falcon/issues/57)) ([4413bee](https://github.com/CrowdStrike/crimson-falcon/commit/4413beefbd47c9afbe8cf573ba7c165299791921))
+
 ## [1.2.0](https://github.com/CrowdStrike/crimson-falcon/compare/v1.1.0...v1.2.0) (2025-07-08)
 
 
