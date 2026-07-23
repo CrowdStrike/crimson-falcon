@@ -266,16 +266,6 @@ describe 'Default' do
     end
   end
 
-  # unit tests for post_graphql_query_mixin0
-  # - request graphql query
-  # @param [Hash] opts the optional parameters
-  # @return [Hash<String, Object>]
-  describe 'post_graphql_query_mixin0 test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for put_collections_v1
   # Update Collections
   # @param body

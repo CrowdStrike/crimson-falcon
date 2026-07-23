@@ -45,7 +45,13 @@ module Falcon
 
     attr_accessor :created_timestamp
 
+    attr_accessor :creation_actor
+
     attr_accessor :description
+
+    attr_accessor :description_format
+
+    attr_accessor :description_tagged_users
 
     attr_accessor :end_timestamp
 
@@ -58,6 +64,8 @@ module Falcon
     attr_accessor :last_updated_by
 
     attr_accessor :name
+
+    attr_accessor :read_only
 
     attr_accessor :reference_id
 
@@ -75,6 +83,8 @@ module Falcon
 
     attr_accessor :template
 
+    attr_accessor :update_actor
+
     attr_accessor :updated_timestamp
 
     attr_accessor :version
@@ -91,13 +101,17 @@ module Falcon
         :'consistency' => :'consistency',
         :'created_by' => :'created_by',
         :'created_timestamp' => :'created_timestamp',
+        :'creation_actor' => :'creation_actor',
         :'description' => :'description',
+        :'description_format' => :'description_format',
+        :'description_tagged_users' => :'description_tagged_users',
         :'end_timestamp' => :'end_timestamp',
         :'evidence' => :'evidence',
         :'fields' => :'fields',
         :'id' => :'id',
         :'last_updated_by' => :'last_updated_by',
         :'name' => :'name',
+        :'read_only' => :'read_only',
         :'reference_id' => :'reference_id',
         :'severity' => :'severity',
         :'severity_info' => :'severity_info',
@@ -106,6 +120,7 @@ module Falcon
         :'status' => :'status',
         :'tags' => :'tags',
         :'template' => :'template',
+        :'update_actor' => :'update_actor',
         :'updated_timestamp' => :'updated_timestamp',
         :'version' => :'version',
         :'workflows' => :'workflows'
@@ -127,13 +142,17 @@ module Falcon
         :'consistency' => :'SdkConsistencyVM',
         :'created_by' => :'SdkFalconUserVM',
         :'created_timestamp' => :'Time',
+        :'creation_actor' => :'SdkActorVM',
         :'description' => :'String',
+        :'description_format' => :'String',
+        :'description_tagged_users' => :'Array<String>',
         :'end_timestamp' => :'Time',
         :'evidence' => :'SdkEvidenceVM',
         :'fields' => :'Array<SdkCustomFieldVM>',
         :'id' => :'String',
         :'last_updated_by' => :'SdkFalconUserVM',
         :'name' => :'String',
+        :'read_only' => :'SdkReadOnlyVM',
         :'reference_id' => :'String',
         :'severity' => :'Integer',
         :'severity_info' => :'SdkCaseSeverityInfoVM',
@@ -142,6 +161,7 @@ module Falcon
         :'status' => :'String',
         :'tags' => :'Array<String>',
         :'template' => :'SdkTemplateVM',
+        :'update_actor' => :'SdkActorVM',
         :'updated_timestamp' => :'Time',
         :'version' => :'Integer',
         :'workflows' => :'Array<SdkWorkflowVM>'
@@ -199,8 +219,22 @@ module Falcon
         self.created_timestamp = attributes[:'created_timestamp']
       end
 
+      if attributes.key?(:'creation_actor')
+        self.creation_actor = attributes[:'creation_actor']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'description_format')
+        self.description_format = attributes[:'description_format']
+      end
+
+      if attributes.key?(:'description_tagged_users')
+        if (value = attributes[:'description_tagged_users']).is_a?(Array)
+          self.description_tagged_users = value
+        end
       end
 
       if attributes.key?(:'end_timestamp')
@@ -227,6 +261,10 @@ module Falcon
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'read_only')
+        self.read_only = attributes[:'read_only']
       end
 
       if attributes.key?(:'reference_id')
@@ -261,6 +299,10 @@ module Falcon
 
       if attributes.key?(:'template')
         self.template = attributes[:'template']
+      end
+
+      if attributes.key?(:'update_actor')
+        self.update_actor = attributes[:'update_actor']
       end
 
       if attributes.key?(:'updated_timestamp')
@@ -306,6 +348,10 @@ module Falcon
         invalid_properties.push('invalid value for "created_timestamp", created_timestamp cannot be nil.')
       end
 
+      if @creation_actor.nil?
+        invalid_properties.push('invalid value for "creation_actor", creation_actor cannot be nil.')
+      end
+
       if @description.nil?
         invalid_properties.push('invalid value for "description", description cannot be nil.')
       end
@@ -330,6 +376,10 @@ module Falcon
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
+      if @read_only.nil?
+        invalid_properties.push('invalid value for "read_only", read_only cannot be nil.')
+      end
+
       if @reference_id.nil?
         invalid_properties.push('invalid value for "reference_id", reference_id cannot be nil.')
       end
@@ -348,6 +398,10 @@ module Falcon
 
       if @status.nil?
         invalid_properties.push('invalid value for "status", status cannot be nil.')
+      end
+
+      if @update_actor.nil?
+        invalid_properties.push('invalid value for "update_actor", update_actor cannot be nil.')
       end
 
       if @updated_timestamp.nil?
@@ -370,17 +424,20 @@ module Falcon
       return false if @consistency.nil?
       return false if @created_by.nil?
       return false if @created_timestamp.nil?
+      return false if @creation_actor.nil?
       return false if @description.nil?
       return false if @end_timestamp.nil?
       return false if @evidence.nil?
       return false if @id.nil?
       return false if @last_updated_by.nil?
       return false if @name.nil?
+      return false if @read_only.nil?
       return false if @reference_id.nil?
       return false if @severity.nil?
       return false if @severity_info.nil?
       return false if @start_timestamp.nil?
       return false if @status.nil?
+      return false if @update_actor.nil?
       return false if @updated_timestamp.nil?
       return false if @version.nil?
       true
@@ -398,13 +455,17 @@ module Falcon
           consistency == o.consistency &&
           created_by == o.created_by &&
           created_timestamp == o.created_timestamp &&
+          creation_actor == o.creation_actor &&
           description == o.description &&
+          description_format == o.description_format &&
+          description_tagged_users == o.description_tagged_users &&
           end_timestamp == o.end_timestamp &&
           evidence == o.evidence &&
           fields == o.fields &&
           id == o.id &&
           last_updated_by == o.last_updated_by &&
           name == o.name &&
+          read_only == o.read_only &&
           reference_id == o.reference_id &&
           severity == o.severity &&
           severity_info == o.severity_info &&
@@ -413,6 +474,7 @@ module Falcon
           status == o.status &&
           tags == o.tags &&
           template == o.template &&
+          update_actor == o.update_actor &&
           updated_timestamp == o.updated_timestamp &&
           version == o.version &&
           workflows == o.workflows
@@ -427,7 +489,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_tags, analysis_results, assigned_to, cid, consistency, created_by, created_timestamp, description, end_timestamp, evidence, fields, id, last_updated_by, name, reference_id, severity, severity_info, sla, start_timestamp, status, tags, template, updated_timestamp, version, workflows].hash
+      [access_tags, analysis_results, assigned_to, cid, consistency, created_by, created_timestamp, creation_actor, description, description_format, description_tagged_users, end_timestamp, evidence, fields, id, last_updated_by, name, read_only, reference_id, severity, severity_info, sla, start_timestamp, status, tags, template, update_actor, updated_timestamp, version, workflows].hash
     end
 
     # Builds the object from hash

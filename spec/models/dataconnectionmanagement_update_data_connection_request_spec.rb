@@ -53,6 +53,12 @@ describe Falcon::DataconnectionmanagementUpdateDataConnectionRequest do
     end
   end
 
+  describe 'test attribute "custom"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "description"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -66,6 +72,12 @@ describe Falcon::DataconnectionmanagementUpdateDataConnectionRequest do
   end
 
   describe 'test attribute "enable_user_enrichment"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "log_sources"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

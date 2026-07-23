@@ -68,7 +68,7 @@ describe Falcon::DevicecontrolapiReqCreatePolicyV1 do
   describe 'test attribute "platform_name"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Windows,Mac"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Windows", "Mac"])
       # validator.allowable_values.each do |value|
       #   expect { instance.platform_name = value }.not_to raise_error
       # end

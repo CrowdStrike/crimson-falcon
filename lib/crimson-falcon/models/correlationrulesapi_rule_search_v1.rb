@@ -150,10 +150,6 @@ module Falcon
         invalid_properties.push('invalid value for "trigger_mode", trigger_mode cannot be nil.')
       end
 
-      if @use_ingest_time.nil?
-        invalid_properties.push('invalid value for "use_ingest_time", use_ingest_time cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -165,7 +161,6 @@ module Falcon
       return false if @lookback.nil?
       return false if @outcome.nil?
       return false if @trigger_mode.nil?
-      return false if @use_ingest_time.nil?
       true
     end
 

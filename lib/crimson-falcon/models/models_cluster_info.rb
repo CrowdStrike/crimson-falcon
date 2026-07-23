@@ -43,6 +43,8 @@ module Falcon
 
     attr_accessor :cluster_name
 
+    attr_accessor :k8s_distro
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -51,7 +53,8 @@ module Falcon
         :'cloud_region' => :'cloud_region',
         :'cloud_service' => :'cloud_service',
         :'cluster_id' => :'cluster_id',
-        :'cluster_name' => :'cluster_name'
+        :'cluster_name' => :'cluster_name',
+        :'k8s_distro' => :'k8s_distro'
       }
     end
 
@@ -68,7 +71,8 @@ module Falcon
         :'cloud_region' => :'String',
         :'cloud_service' => :'String',
         :'cluster_id' => :'String',
-        :'cluster_name' => :'String'
+        :'cluster_name' => :'String',
+        :'k8s_distro' => :'String'
       }
     end
 
@@ -116,6 +120,10 @@ module Falcon
       if attributes.key?(:'cluster_name')
         self.cluster_name = attributes[:'cluster_name']
       end
+
+      if attributes.key?(:'k8s_distro')
+        self.k8s_distro = attributes[:'k8s_distro']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -141,7 +149,8 @@ module Falcon
           cloud_region == o.cloud_region &&
           cloud_service == o.cloud_service &&
           cluster_id == o.cluster_id &&
-          cluster_name == o.cluster_name
+          cluster_name == o.cluster_name &&
+          k8s_distro == o.k8s_distro
     end
 
     # @see the `==` method
@@ -153,7 +162,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cloud, cloud_account_id, cloud_region, cloud_service, cluster_id, cluster_name].hash
+      [cloud, cloud_account_id, cloud_region, cloud_service, cluster_id, cluster_name, k8s_distro].hash
     end
 
     # Builds the object from hash

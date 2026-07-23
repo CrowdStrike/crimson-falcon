@@ -75,7 +75,7 @@ describe 'CloudGoogleCloudRegistration' do
   # Returns entities grouped by type. Sorting and pagination are applied across all entity types before grouping. Use filter&#x3D;entity_type:&#39;project&#39; to retrieve only specific entity types.
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :ids Google Cloud Registration IDs to filter by
-  # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are entity_type, entity_id, entity_name, registration_id, registration_name, registration_scope, parent_id, project_number, ioa_status, iom_status, created, updated
+  # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are entity_type, entity_id, entity_name, registration_id, registration_name, registration_scope, parent_id, project_number, ioa_status, iom_status, dspm_status, vulnerability_scanning_status, created, updated
   # @option opts [String] :sort Field and direction for sorting results (e.g., &#39;created|desc&#39;). Sorting applies across all entity types before grouping.
   # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 500). Limit applies across all entity types.
   # @option opts [Integer] :offset Starting index of result
@@ -92,6 +92,18 @@ describe 'CloudGoogleCloudRegistration' do
   # @param [Hash] opts the optional parameters
   # @return [DtoGCPRegistrationResponseExtV1]
   describe 'cloud_registration_gcp_get_registration test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_gcp_post_terraform_script
+  # Generate Google Cloud Terraform deployment scripts (zip files)
+  # Only supports terraform-native deployment method. Returns zip files containing Terraform scripts.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'cloud_registration_gcp_post_terraform_script test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

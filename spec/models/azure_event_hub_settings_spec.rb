@@ -59,6 +59,12 @@ describe Falcon::AzureEventHubSettings do
     end
   end
 
+  describe 'test attribute "management_type"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "purpose"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

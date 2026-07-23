@@ -41,6 +41,16 @@ describe Falcon::DomainScanRunConfig do
       expect(instance).to be_instance_of(Falcon::DomainScanRunConfig)
     end
   end
+  describe 'test attribute "active_check_level"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["active_check_safe_only,active_check_all"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.active_check_level = value }.not_to raise_error
+      # end
+    end
+  end
+
   describe 'test attribute "additional_tcp_ports"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -60,6 +70,18 @@ describe Falcon::DomainScanRunConfig do
   end
 
   describe 'test attribute "detections"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "excluded_tcp_ports"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "excluded_udp_ports"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -88,6 +110,12 @@ describe Falcon::DomainScanRunConfig do
   end
 
   describe 'test attribute "scan_exclusion"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "scan_flags"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

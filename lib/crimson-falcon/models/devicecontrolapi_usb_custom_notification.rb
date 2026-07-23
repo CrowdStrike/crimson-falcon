@@ -31,6 +31,7 @@ require 'time'
 
 module Falcon
   class DevicecontrolapiUSBCustomNotification
+    # Custom notification message text. Maximum length: 256 characters
     attr_accessor :custom_message
 
     attr_accessor :use_custom

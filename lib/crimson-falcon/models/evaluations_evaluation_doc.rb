@@ -47,6 +47,8 @@ module Falcon
 
     attr_accessor :last_detected
 
+    attr_accessor :last_status_change
+
     attr_accessor :rule
 
     attr_accessor :severity
@@ -66,6 +68,7 @@ module Falcon
         :'findings' => :'findings',
         :'first_detected' => :'first_detected',
         :'last_detected' => :'last_detected',
+        :'last_status_change' => :'last_status_change',
         :'rule' => :'rule',
         :'severity' => :'severity',
         :'status' => :'status',
@@ -89,6 +92,7 @@ module Falcon
         :'findings' => :'Array<EvaluationFinding>',
         :'first_detected' => :'Time',
         :'last_detected' => :'Time',
+        :'last_status_change' => :'Time',
         :'rule' => :'EvaluationsRule',
         :'severity' => :'String',
         :'status' => :'String',
@@ -153,6 +157,10 @@ module Falcon
         self.last_detected = attributes[:'last_detected']
       end
 
+      if attributes.key?(:'last_status_change')
+        self.last_status_change = attributes[:'last_status_change']
+      end
+
       if attributes.key?(:'rule')
         self.rule = attributes[:'rule']
       end
@@ -196,6 +204,7 @@ module Falcon
           findings == o.findings &&
           first_detected == o.first_detected &&
           last_detected == o.last_detected &&
+          last_status_change == o.last_status_change &&
           rule == o.rule &&
           severity == o.severity &&
           status == o.status &&
@@ -211,7 +220,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [attack_types, created, crn, error, extension, findings, first_detected, last_detected, rule, severity, status, url].hash
+      [attack_types, created, crn, error, extension, findings, first_detected, last_detected, last_status_change, rule, severity, status, url].hash
     end
 
     # Builds the object from hash

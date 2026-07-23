@@ -41,6 +41,12 @@ describe Falcon::ModelsPackageInfoType do
       expect(instance).to be_instance_of(Falcon::ModelsPackageInfoType)
     end
   end
+  describe 'test attribute "install_date"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "layer_hash"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

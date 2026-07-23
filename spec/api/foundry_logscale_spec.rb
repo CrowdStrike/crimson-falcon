@@ -240,7 +240,7 @@ describe 'FoundryLogscale' do
   end
 
   # unit tests for list_repos_v1
-  # Lists available repositories and views
+  # Lists available repositories
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :check_test_data Include whether test data is present in the application repository
   # @return [ApidomainRepoViewListItemWrapperV1]
@@ -251,7 +251,7 @@ describe 'FoundryLogscale' do
   end
 
   # unit tests for list_view_v1
-  # List views
+  # List available views
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :check_test_data Include whether test data is present in the application repository
   # @return [ApidomainRepoViewListItemWrapperV1]

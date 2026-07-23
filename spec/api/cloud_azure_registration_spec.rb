@@ -59,6 +59,17 @@ describe 'CloudAzureRegistration' do
     end
   end
 
+  # unit tests for cloud_registration_azure_create_suppressions
+  # Create new issue suppression rules
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [AzureSuppressionResponseExtV1]
+  describe 'cloud_registration_azure_create_suppressions test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for cloud_registration_azure_delete_legacy_subscription
   # Delete existing legacy Azure subscriptions.
   # @param body
@@ -81,6 +92,17 @@ describe 'CloudAzureRegistration' do
     end
   end
 
+  # unit tests for cloud_registration_azure_delete_suppressions
+  # Remove/revoke suppression rules
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'cloud_registration_azure_delete_suppressions test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for cloud_registration_azure_download_script
   # Retrieve script to create resources
   # @param body
@@ -92,10 +114,52 @@ describe 'CloudAzureRegistration' do
     end
   end
 
+  # unit tests for cloud_registration_azure_get_issue_suppression_values_by_field
+  # Retrieve distinct filterable values for issue suppression fields
+  # @param registration_id Registration ID to filter values by
+  # @param field Field to get values for
+  # @param [Hash] opts the optional parameters
+  # @return [AzureIssueSuppressionValuesByFieldResponse]
+  describe 'cloud_registration_azure_get_issue_suppression_values_by_field test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_azure_get_issue_values_by_field
+  # Retrieve distinct filterable values for issue fields
+  # @param registration_id Registration ID to filter values by
+  # @param field Field to get values for
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are name,issue,severity,category,impact,entity_type,entity_id,entity_name,status
+  # @return [AzureIssueValuesByFieldResponse]
+  describe 'cloud_registration_azure_get_issue_values_by_field test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_azure_get_issues
+  # Retrieve issues for Azure registrations
+  # @param registration_id Registration ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are name,issue,severity,category,impact,entity_type,entity_id,entity_name,status
+  # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are issue,name,severity,category,impact,entity_type,entity_id,entity_name,impacted_entities
+  # @option opts [String] :group_by Grouping method: &#39;name&#39; (optional, default: ungrouped)
+  # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 1000)
+  # @option opts [Integer] :offset Starting index of result
+  # @return [AzureIssueResponseExtV1]
+  describe 'cloud_registration_azure_get_issues test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for cloud_registration_azure_get_registration
   # Retrieve existing Azure registration for a tenant.
-  # @param tenant_id Tenant ID
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :tenant_id Tenant ID
+  # @option opts [String] :registration_id Registration ID
   # @return [AzureAzureRegistrationResponseExtV1]
   describe 'cloud_registration_azure_get_registration test' do
     it 'should work' do
@@ -109,6 +173,35 @@ describe 'CloudAzureRegistration' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'cloud_registration_azure_get_script test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_azure_get_script_versions
+  # Retrieve all available script versions with filtering and sorting
+  # @param deployment_method Filter by deployment method (e.g., &#39;bicep-legacy&#39;, &#39;bicep-deployment-stack&#39;)
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are version,deployment_method,published_date
+  # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 1000)
+  # @option opts [Integer] :offset Starting index of result
+  # @return [AzureScriptVersionResponseExtV1]
+  describe 'cloud_registration_azure_get_script_versions test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_azure_get_suppressions
+  # Retrieve existing suppression rules with filtering
+  # @param registration_id Registration ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are issue_name,entity_id,suppressed_by,created_at,reason
+  # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are issue_name,entity_id,suppressed_by,created_at,reason
+  # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 1000)
+  # @option opts [Integer] :offset Starting index of result
+  # @return [AzureSuppressionResponseExtV1]
+  describe 'cloud_registration_azure_get_suppressions test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -131,6 +224,17 @@ describe 'CloudAzureRegistration' do
   # @param [Hash] opts the optional parameters
   # @return [AzureAzureRegistrationResponseExtV1]
   describe 'cloud_registration_azure_update_registration test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_azure_update_suppressions
+  # Update existing suppression rules
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [AzureSuppressionResponseExtV1]
+  describe 'cloud_registration_azure_update_suppressions test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

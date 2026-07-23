@@ -43,8 +43,6 @@ module Falcon
 
     attr_accessor :platform
 
-    attr_accessor :self_destruct
-
     attr_accessor :tag
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -56,7 +54,6 @@ module Falcon
         :'is_default' => :'is_default',
         :'name' => :'name',
         :'platform' => :'platform',
-        :'self_destruct' => :'self_destruct',
         :'tag' => :'tag'
       }
     end
@@ -75,7 +72,6 @@ module Falcon
         :'is_default' => :'Boolean',
         :'name' => :'String',
         :'platform' => :'String',
-        :'self_destruct' => :'Boolean',
         :'tag' => :'String'
       }
     end
@@ -127,10 +123,6 @@ module Falcon
         self.platform = attributes[:'platform']
       end
 
-      if attributes.key?(:'self_destruct')
-        self.self_destruct = attributes[:'self_destruct']
-      end
-
       if attributes.key?(:'tag')
         self.tag = attributes[:'tag']
       end
@@ -164,10 +156,6 @@ module Falcon
         invalid_properties.push('invalid value for "platform", platform cannot be nil.')
       end
 
-      if @self_destruct.nil?
-        invalid_properties.push('invalid value for "self_destruct", self_destruct cannot be nil.')
-      end
-
       if @tag.nil?
         invalid_properties.push('invalid value for "tag", tag cannot be nil.')
       end
@@ -184,7 +172,6 @@ module Falcon
       return false if @is_default.nil?
       return false if @name.nil?
       return false if @platform.nil?
-      return false if @self_destruct.nil?
       return false if @tag.nil?
       true
     end
@@ -200,7 +187,6 @@ module Falcon
           is_default == o.is_default &&
           name == o.name &&
           platform == o.platform &&
-          self_destruct == o.self_destruct &&
           tag == o.tag
     end
 
@@ -213,7 +199,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [collections, description, id, is_default, name, platform, self_destruct, tag].hash
+      [collections, description, id, is_default, name, platform, tag].hash
     end
 
     # Builds the object from hash

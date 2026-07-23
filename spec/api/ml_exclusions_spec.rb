@@ -149,6 +149,17 @@ describe 'MlExclusions' do
     end
   end
 
+  # unit tests for exclusions_sdmf_query_v1
+  # Executes an SDMF data frame query against exclusion entities
+  # @param body SDMF DataFrame query
+  # @param [Hash] opts the optional parameters
+  # @return [ApiSdmfResponse]
+  describe 'exclusions_sdmf_query_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for exclusions_search_v2
   # Search for exclusions, with ancestor fields.
   # @param [Hash] opts the optional parameters

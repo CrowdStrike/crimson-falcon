@@ -40,14 +40,26 @@ module Falcon
     # Composite ID of the vendor ID, product ID, and serial number. Format: <vendor ID>_<product ID>_<serial number>
     attr_accessor :combined_id
 
-    # Description for the exception
+    # Description for the exception. Maximum length: 512 characters
     attr_accessor :description
 
-    # yyyy-mm-ddThh:mm:ssZ (UTC) format of the time to remove the exception if temporary. Only provide this value for temporary exceptions
+    # List of groups excluded from the exception scope
+    attr_accessor :excluded_groups
+
+    # List of users excluded from the exception scope
+    attr_accessor :excluded_users
+
+    # yyyy-mm-ddThh:mm:ssZ (UTC) format of the time to remove the exception if temporary. Must be in the future. Only provide this value for temporary exceptions
     attr_accessor :expiration_time
 
     # ID of the exception. Leave empty to create a new exception
     attr_accessor :id
+
+    # List of groups included in the exception scope
+    attr_accessor :included_groups
+
+    # List of users included in the exception scope
+    attr_accessor :included_users
 
     # Decimal value of the product ID. Required if a serial number is provided
     attr_accessor :product_id
@@ -96,8 +108,12 @@ module Falcon
         :'_class' => :'class',
         :'combined_id' => :'combined_id',
         :'description' => :'description',
+        :'excluded_groups' => :'excluded_groups',
+        :'excluded_users' => :'excluded_users',
         :'expiration_time' => :'expiration_time',
         :'id' => :'id',
+        :'included_groups' => :'included_groups',
+        :'included_users' => :'included_users',
         :'product_id' => :'product_id',
         :'product_name' => :'product_name',
         :'serial_number' => :'serial_number',
@@ -119,8 +135,12 @@ module Falcon
         :'_class' => :'String',
         :'combined_id' => :'String',
         :'description' => :'String',
+        :'excluded_groups' => :'Array<DevicecontrolapiIdentityV1>',
+        :'excluded_users' => :'Array<DevicecontrolapiIdentityV1>',
         :'expiration_time' => :'Time',
         :'id' => :'String',
+        :'included_groups' => :'Array<DevicecontrolapiIdentityV1>',
+        :'included_users' => :'Array<DevicecontrolapiIdentityV1>',
         :'product_id' => :'String',
         :'product_name' => :'String',
         :'serial_number' => :'String',
@@ -167,12 +187,36 @@ module Falcon
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'excluded_groups')
+        if (value = attributes[:'excluded_groups']).is_a?(Array)
+          self.excluded_groups = value
+        end
+      end
+
+      if attributes.key?(:'excluded_users')
+        if (value = attributes[:'excluded_users']).is_a?(Array)
+          self.excluded_users = value
+        end
+      end
+
       if attributes.key?(:'expiration_time')
         self.expiration_time = attributes[:'expiration_time']
       end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'included_groups')
+        if (value = attributes[:'included_groups']).is_a?(Array)
+          self.included_groups = value
+        end
+      end
+
+      if attributes.key?(:'included_users')
+        if (value = attributes[:'included_users']).is_a?(Array)
+          self.included_users = value
+        end
       end
 
       if attributes.key?(:'product_id')
@@ -251,8 +295,12 @@ module Falcon
           _class == o._class &&
           combined_id == o.combined_id &&
           description == o.description &&
+          excluded_groups == o.excluded_groups &&
+          excluded_users == o.excluded_users &&
           expiration_time == o.expiration_time &&
           id == o.id &&
+          included_groups == o.included_groups &&
+          included_users == o.included_users &&
           product_id == o.product_id &&
           product_name == o.product_name &&
           serial_number == o.serial_number &&
@@ -270,7 +318,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [action, _class, combined_id, description, expiration_time, id, product_id, product_name, serial_number, use_wildcard, vendor_id, vendor_name].hash
+      [action, _class, combined_id, description, excluded_groups, excluded_users, expiration_time, id, included_groups, included_users, product_id, product_name, serial_number, use_wildcard, vendor_id, vendor_name].hash
     end
 
     # Builds the object from hash

@@ -31,11 +31,14 @@ require 'time'
 
 module Falcon
   class SdkAlertEvidenceRecordVM
+    attr_accessor :id
+
     attr_accessor :selector
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'selector' => :'selector'
       }
     end
@@ -48,6 +51,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'id' => :'String',
         :'selector' => :'SdkAlertEvidenceSelector'
       }
     end
@@ -73,6 +77,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
       if attributes.key?(:'selector')
         self.selector = attributes[:'selector']
       end
@@ -82,6 +90,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      end
+
       if @selector.nil?
         invalid_properties.push('invalid value for "selector", selector cannot be nil.')
       end
@@ -92,6 +104,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @id.nil?
       return false if @selector.nil?
       true
     end
@@ -101,6 +114,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           selector == o.selector
     end
 
@@ -113,7 +127,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [selector].hash
+      [id, selector].hash
     end
 
     # Builds the object from hash

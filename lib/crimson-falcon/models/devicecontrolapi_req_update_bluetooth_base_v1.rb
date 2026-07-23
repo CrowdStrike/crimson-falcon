@@ -142,10 +142,10 @@ module Falcon
     def valid?
       return false if @custom_end_user_notifications.nil?
       return false if @end_user_notification.nil?
-      end_user_notification_validator = EnumAttributeValidator.new('String', ["NOTIFY_USER,SILENT"])
+      end_user_notification_validator = EnumAttributeValidator.new('String', ["NOTIFY_USER", "SILENT"])
       return false unless end_user_notification_validator.valid?(@end_user_notification)
       return false if @enforcement_mode.nil?
-      enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY,MONITOR_ENFORCE,OFF"])
+      enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE", "OFF"])
       return false unless enforcement_mode_validator.valid?(@enforcement_mode)
       true
     end
@@ -153,7 +153,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] end_user_notification Object to be assigned
     def end_user_notification=(end_user_notification)
-      validator = EnumAttributeValidator.new('String', ["NOTIFY_USER,SILENT"])
+      validator = EnumAttributeValidator.new('String', ["NOTIFY_USER", "SILENT"])
       unless validator.valid?(end_user_notification)
         fail ArgumentError, "invalid value for \"end_user_notification\", must be one of #{validator.allowable_values}."
       end
@@ -163,7 +163,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] enforcement_mode Object to be assigned
     def enforcement_mode=(enforcement_mode)
-      validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY,MONITOR_ENFORCE,OFF"])
+      validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE", "OFF"])
       unless validator.valid?(enforcement_mode)
         fail ArgumentError, "invalid value for \"enforcement_mode\", must be one of #{validator.allowable_values}."
       end

@@ -73,6 +73,17 @@ describe 'CloudSecurityDetections' do
     end
   end
 
+  # unit tests for cspm_evaluations_iom_entities_post
+  # Gets IOMs based on IDs in the request body. Maximum of 500 resources can be requested.
+  # @param body Body with array of &#39;ids&#39; (maximum 500 IDs).
+  # @param [Hash] opts the optional parameters
+  # @return [EvaluationsGetIOMsResponse]
+  describe 'cspm_evaluations_iom_entities_post test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for cspm_evaluations_iom_queries
   # Gets a list of IOM IDs for the given parameters, filters and sort criteria.
   # @param [Hash] opts the optional parameters

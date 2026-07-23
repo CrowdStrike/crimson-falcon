@@ -31,15 +31,33 @@ require 'time'
 
 module Falcon
   class ClientDataIngestResponseV1
+    attr_accessor :error_message
+
+    attr_accessor :failed_events
+
+    attr_accessor :failed_item_indices
+
+    attr_accessor :partial_success
+
     attr_accessor :repo
 
     attr_accessor :rows_written
 
+    attr_accessor :successful_events
+
+    attr_accessor :total_events
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'error_message' => :'error_message',
+        :'failed_events' => :'failed_events',
+        :'failed_item_indices' => :'failed_item_indices',
+        :'partial_success' => :'partial_success',
         :'repo' => :'repo',
-        :'rows_written' => :'rows_written'
+        :'rows_written' => :'rows_written',
+        :'successful_events' => :'successful_events',
+        :'total_events' => :'total_events'
       }
     end
 
@@ -51,8 +69,14 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'error_message' => :'String',
+        :'failed_events' => :'Integer',
+        :'failed_item_indices' => :'Array<Integer>',
+        :'partial_success' => :'Boolean',
         :'repo' => :'ClientRepository',
-        :'rows_written' => :'Integer'
+        :'rows_written' => :'Integer',
+        :'successful_events' => :'Integer',
+        :'total_events' => :'Integer'
       }
     end
 
@@ -77,12 +101,38 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'error_message')
+        self.error_message = attributes[:'error_message']
+      end
+
+      if attributes.key?(:'failed_events')
+        self.failed_events = attributes[:'failed_events']
+      end
+
+      if attributes.key?(:'failed_item_indices')
+        if (value = attributes[:'failed_item_indices']).is_a?(Array)
+          self.failed_item_indices = value
+        end
+      end
+
+      if attributes.key?(:'partial_success')
+        self.partial_success = attributes[:'partial_success']
+      end
+
       if attributes.key?(:'repo')
         self.repo = attributes[:'repo']
       end
 
       if attributes.key?(:'rows_written')
         self.rows_written = attributes[:'rows_written']
+      end
+
+      if attributes.key?(:'successful_events')
+        self.successful_events = attributes[:'successful_events']
+      end
+
+      if attributes.key?(:'total_events')
+        self.total_events = attributes[:'total_events']
       end
     end
 
@@ -114,8 +164,14 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          error_message == o.error_message &&
+          failed_events == o.failed_events &&
+          failed_item_indices == o.failed_item_indices &&
+          partial_success == o.partial_success &&
           repo == o.repo &&
-          rows_written == o.rows_written
+          rows_written == o.rows_written &&
+          successful_events == o.successful_events &&
+          total_events == o.total_events
     end
 
     # @see the `==` method
@@ -127,7 +183,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [repo, rows_written].hash
+      [error_message, failed_events, failed_item_indices, partial_success, repo, rows_written, successful_events, total_events].hash
     end
 
     # Builds the object from hash

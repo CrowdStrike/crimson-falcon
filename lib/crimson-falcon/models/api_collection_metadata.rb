@@ -31,6 +31,8 @@ require 'time'
 
 module Falcon
   class ApiCollectionMetadata
+    attr_accessor :agent_tools_meta
+
     attr_accessor :created_by
 
     attr_accessor :created_timestamp
@@ -64,6 +66,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'agent_tools_meta' => :'agent_tools_meta',
         :'created_by' => :'created_by',
         :'created_timestamp' => :'created_timestamp',
         :'description' => :'description',
@@ -90,6 +93,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'agent_tools_meta' => :'ApiAgentToolsMetadata',
         :'created_by' => :'ApiUserMetadata',
         :'created_timestamp' => :'Time',
         :'description' => :'String',
@@ -128,6 +132,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'agent_tools_meta')
+        self.agent_tools_meta = attributes[:'agent_tools_meta']
+      end
 
       if attributes.key?(:'created_by')
         self.created_by = attributes[:'created_by']
@@ -245,6 +253,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          agent_tools_meta == o.agent_tools_meta &&
           created_by == o.created_by &&
           created_timestamp == o.created_timestamp &&
           description == o.description &&
@@ -271,7 +280,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_by, created_timestamp, description, draft_schema_version, is_global, last_modified_by, last_modified_timestamp, name, namespace, permissions, published_version, schema_version, status, version, workflow_meta].hash
+      [agent_tools_meta, created_by, created_timestamp, description, draft_schema_version, is_global, last_modified_by, last_modified_timestamp, name, namespace, permissions, published_version, schema_version, status, version, workflow_meta].hash
     end
 
     # Builds the object from hash

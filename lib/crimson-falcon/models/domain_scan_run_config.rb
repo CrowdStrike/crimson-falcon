@@ -32,6 +32,9 @@ require 'time'
 module Falcon
   # Represents configurations to use for one time scan run
   class DomainScanRunConfig
+    # The active check level associated with the template
+    attr_accessor :active_check_level
+
     # The set of additional TCP ports
     attr_accessor :additional_tcp_ports
 
@@ -44,6 +47,12 @@ module Falcon
     # The detections to use for the scan
     attr_accessor :detections
 
+    # The set of excluded TCP ports
+    attr_accessor :excluded_tcp_ports
+
+    # The set of excluded UDP ports
+    attr_accessor :excluded_udp_ports
+
     # Indicates whether fragile device detection is enabled or not
     attr_accessor :fragile_device_detection
 
@@ -54,6 +63,8 @@ module Falcon
     attr_accessor :ports_scan_level
 
     attr_accessor :scan_exclusion
+
+    attr_accessor :scan_flags
 
     # The scan intensity
     attr_accessor :scan_intensity
@@ -99,14 +110,18 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'active_check_level' => :'active_check_level',
         :'additional_tcp_ports' => :'additional_tcp_ports',
         :'additional_udp_ports' => :'additional_udp_ports',
         :'auto_include_new_detections' => :'auto_include_new_detections',
         :'detections' => :'detections',
+        :'excluded_tcp_ports' => :'excluded_tcp_ports',
+        :'excluded_udp_ports' => :'excluded_udp_ports',
         :'fragile_device_detection' => :'fragile_device_detection',
         :'ignore_tcp_resets' => :'ignore_tcp_resets',
         :'ports_scan_level' => :'ports_scan_level',
         :'scan_exclusion' => :'scan_exclusion',
+        :'scan_flags' => :'scan_flags',
         :'scan_intensity' => :'scan_intensity',
         :'target_asset' => :'target_asset',
         :'target_asset_filter' => :'target_asset_filter',
@@ -126,14 +141,18 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'active_check_level' => :'String',
         :'additional_tcp_ports' => :'Array<String>',
         :'additional_udp_ports' => :'Array<String>',
         :'auto_include_new_detections' => :'Boolean',
         :'detections' => :'Array<String>',
+        :'excluded_tcp_ports' => :'Array<String>',
+        :'excluded_udp_ports' => :'Array<String>',
         :'fragile_device_detection' => :'Boolean',
         :'ignore_tcp_resets' => :'Boolean',
         :'ports_scan_level' => :'String',
         :'scan_exclusion' => :'DomainScanExclusion',
+        :'scan_flags' => :'NswipScanFlags',
         :'scan_intensity' => :'String',
         :'target_asset' => :'DomainTargetAsset',
         :'target_asset_filter' => :'DomainTargetAssetFilter',
@@ -166,6 +185,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'active_check_level')
+        self.active_check_level = attributes[:'active_check_level']
+      end
+
       if attributes.key?(:'additional_tcp_ports')
         if (value = attributes[:'additional_tcp_ports']).is_a?(Array)
           self.additional_tcp_ports = value
@@ -188,6 +211,18 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'excluded_tcp_ports')
+        if (value = attributes[:'excluded_tcp_ports']).is_a?(Array)
+          self.excluded_tcp_ports = value
+        end
+      end
+
+      if attributes.key?(:'excluded_udp_ports')
+        if (value = attributes[:'excluded_udp_ports']).is_a?(Array)
+          self.excluded_udp_ports = value
+        end
+      end
+
       if attributes.key?(:'fragile_device_detection')
         self.fragile_device_detection = attributes[:'fragile_device_detection']
       end
@@ -202,6 +237,10 @@ module Falcon
 
       if attributes.key?(:'scan_exclusion')
         self.scan_exclusion = attributes[:'scan_exclusion']
+      end
+
+      if attributes.key?(:'scan_flags')
+        self.scan_flags = attributes[:'scan_flags']
       end
 
       if attributes.key?(:'scan_intensity')
@@ -263,6 +302,8 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      active_check_level_validator = EnumAttributeValidator.new('String', ["active_check_safe_only,active_check_all"])
+      return false unless active_check_level_validator.valid?(@active_check_level)
       return false if @ports_scan_level.nil?
       ports_scan_level_validator = EnumAttributeValidator.new('String', ["default,all_ports,custom"])
       return false unless ports_scan_level_validator.valid?(@ports_scan_level)
@@ -276,6 +317,16 @@ module Falcon
       type_validator = EnumAttributeValidator.new('String', ["discovery,assessment"])
       return false unless type_validator.valid?(@type)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] active_check_level Object to be assigned
+    def active_check_level=(active_check_level)
+      validator = EnumAttributeValidator.new('String', ["active_check_safe_only,active_check_all"])
+      unless validator.valid?(active_check_level)
+        fail ArgumentError, "invalid value for \"active_check_level\", must be one of #{validator.allowable_values}."
+      end
+      @active_check_level = active_check_level
     end
 
     # Custom attribute writer method checking allowed values (enum).
@@ -323,14 +374,18 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          active_check_level == o.active_check_level &&
           additional_tcp_ports == o.additional_tcp_ports &&
           additional_udp_ports == o.additional_udp_ports &&
           auto_include_new_detections == o.auto_include_new_detections &&
           detections == o.detections &&
+          excluded_tcp_ports == o.excluded_tcp_ports &&
+          excluded_udp_ports == o.excluded_udp_ports &&
           fragile_device_detection == o.fragile_device_detection &&
           ignore_tcp_resets == o.ignore_tcp_resets &&
           ports_scan_level == o.ports_scan_level &&
           scan_exclusion == o.scan_exclusion &&
+          scan_flags == o.scan_flags &&
           scan_intensity == o.scan_intensity &&
           target_asset == o.target_asset &&
           target_asset_filter == o.target_asset_filter &&
@@ -350,7 +405,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [additional_tcp_ports, additional_udp_ports, auto_include_new_detections, detections, fragile_device_detection, ignore_tcp_resets, ports_scan_level, scan_exclusion, scan_intensity, target_asset, target_asset_filter, target_asset_vuln, target_external_ip, target_ip, target_type, type].hash
+      [active_check_level, additional_tcp_ports, additional_udp_ports, auto_include_new_detections, detections, excluded_tcp_ports, excluded_udp_ports, fragile_device_detection, ignore_tcp_resets, ports_scan_level, scan_exclusion, scan_flags, scan_intensity, target_asset, target_asset_filter, target_asset_vuln, target_external_ip, target_ip, target_type, type].hash
     end
 
     # Builds the object from hash

@@ -107,6 +107,12 @@ describe Falcon::QuickscanproScanResult do
     end
   end
 
+  describe 'test attribute "malware_families"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "mime_type"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -154,6 +160,12 @@ describe Falcon::QuickscanproScanResult do
   end
 
   describe 'test attribute "verdict_source"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "yara_rules"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

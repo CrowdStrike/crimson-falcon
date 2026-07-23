@@ -37,6 +37,10 @@ module Falcon
 
     attr_accessor :description
 
+    attr_accessor :description_format
+
+    attr_accessor :description_tagged_users
+
     attr_accessor :evidence
 
     attr_accessor :name
@@ -57,6 +61,8 @@ module Falcon
         :'access_tags' => :'access_tags',
         :'assigned_to_user_uuid' => :'assigned_to_user_uuid',
         :'description' => :'description',
+        :'description_format' => :'description_format',
+        :'description_tagged_users' => :'description_tagged_users',
         :'evidence' => :'evidence',
         :'name' => :'name',
         :'severity' => :'severity',
@@ -78,6 +84,8 @@ module Falcon
         :'access_tags' => :'Array<SdkCaseAccessTag>',
         :'assigned_to_user_uuid' => :'String',
         :'description' => :'String',
+        :'description_format' => :'String',
+        :'description_tagged_users' => :'Array<String>',
         :'evidence' => :'OperationsCreateCaseRequestEvidence',
         :'name' => :'String',
         :'severity' => :'Integer',
@@ -121,6 +129,16 @@ module Falcon
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'description_format')
+        self.description_format = attributes[:'description_format']
+      end
+
+      if attributes.key?(:'description_tagged_users')
+        if (value = attributes[:'description_tagged_users']).is_a?(Array)
+          self.description_tagged_users = value
+        end
       end
 
       if attributes.key?(:'evidence')
@@ -210,6 +228,8 @@ module Falcon
           access_tags == o.access_tags &&
           assigned_to_user_uuid == o.assigned_to_user_uuid &&
           description == o.description &&
+          description_format == o.description_format &&
+          description_tagged_users == o.description_tagged_users &&
           evidence == o.evidence &&
           name == o.name &&
           severity == o.severity &&
@@ -228,7 +248,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_tags, assigned_to_user_uuid, description, evidence, name, severity, severity_info, status, tags, template].hash
+      [access_tags, assigned_to_user_uuid, description, description_format, description_tagged_users, evidence, name, severity, severity_info, status, tags, template].hash
     end
 
     # Builds the object from hash

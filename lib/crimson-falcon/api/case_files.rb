@@ -384,7 +384,7 @@ module Falcon
     # Delete file details by id
     # @param ids [Array<String>] Resource IDs
     # @param [Hash] opts the optional parameters
-    # @return [CasefilesapiMSAResponseString]
+    # @return [CasefilesapiFileIDsResponseV1]
     def entities_files_delete_v1(ids, opts = {})
       data, _status_code, _headers = entities_files_delete_v1_with_http_info(ids, opts)
       data
@@ -393,7 +393,7 @@ module Falcon
     # Delete file details by id
     # @param ids [Array<String>] Resource IDs
     # @param [Hash] opts the optional parameters
-    # @return [Array<(CasefilesapiMSAResponseString, Integer, Hash)>] CasefilesapiMSAResponseString data, response status code and response headers
+    # @return [Array<(CasefilesapiFileIDsResponseV1, Integer, Hash)>] CasefilesapiFileIDsResponseV1 data, response status code and response headers
     def entities_files_delete_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseFiles.entities_files_delete_v1 ...'
@@ -421,7 +421,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'CasefilesapiMSAResponseString'
+      return_type = opts[:debug_return_type] || 'CasefilesapiFileIDsResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -851,7 +851,7 @@ module Falcon
     # @option opts [String] :filter FQL filter expression
     # @option opts [Integer] :limit Page size
     # @option opts [Integer] :offset Page offset
-    # @return [CasefilesapiMSAResponseString]
+    # @return [CasefilesapiFileIDsResponseV1]
     def queries_file_details_get_v1(opts = {})
       data, _status_code, _headers = queries_file_details_get_v1_with_http_info(opts)
       data
@@ -862,7 +862,7 @@ module Falcon
     # @option opts [String] :filter FQL filter expression
     # @option opts [Integer] :limit Page size
     # @option opts [Integer] :offset Page offset
-    # @return [Array<(CasefilesapiMSAResponseString, Integer, Hash)>] CasefilesapiMSAResponseString data, response status code and response headers
+    # @return [Array<(CasefilesapiFileIDsResponseV1, Integer, Hash)>] CasefilesapiFileIDsResponseV1 data, response status code and response headers
     def queries_file_details_get_v1_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CaseFiles.queries_file_details_get_v1 ...'
@@ -900,7 +900,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'CasefilesapiMSAResponseString'
+      return_type = opts[:debug_return_type] || 'CasefilesapiFileIDsResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

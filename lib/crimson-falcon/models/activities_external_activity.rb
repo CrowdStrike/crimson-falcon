@@ -82,6 +82,9 @@ module Falcon
 
     attr_accessor :output_schema
 
+    # Activity semantic version
+    attr_accessor :semantic_version
+
     # Timestamp of when the activity was last updated
     attr_accessor :updated
 
@@ -115,6 +118,7 @@ module Falcon
         :'namespace' => :'namespace',
         :'output_fields' => :'output_fields',
         :'output_schema' => :'output_schema',
+        :'semantic_version' => :'semantic_version',
         :'updated' => :'updated',
         :'use_cases' => :'use_cases',
         :'vendor' => :'vendor',
@@ -148,6 +152,7 @@ module Falcon
         :'namespace' => :'String',
         :'output_fields' => :'Array<ActivitiesActivityExtField>',
         :'output_schema' => :'JsonschemaSchema',
+        :'semantic_version' => :'String',
         :'updated' => :'Time',
         :'use_cases' => :'Array<String>',
         :'vendor' => :'String',
@@ -254,6 +259,10 @@ module Falcon
         self.output_schema = attributes[:'output_schema']
       end
 
+      if attributes.key?(:'semantic_version')
+        self.semantic_version = attributes[:'semantic_version']
+      end
+
       if attributes.key?(:'updated')
         self.updated = attributes[:'updated']
       end
@@ -339,6 +348,7 @@ module Falcon
           namespace == o.namespace &&
           output_fields == o.output_fields &&
           output_schema == o.output_schema &&
+          semantic_version == o.semantic_version &&
           updated == o.updated &&
           use_cases == o.use_cases &&
           vendor == o.vendor &&
@@ -354,7 +364,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_scope, app_id, cid, _class, dependencies, description, disruptive, execution_route, has_permission, id, input_fields, input_schema, legacy_namespace, mock_output, name, namespace, output_fields, output_schema, updated, use_cases, vendor, version].hash
+      [api_scope, app_id, cid, _class, dependencies, description, disruptive, execution_route, has_permission, id, input_fields, input_schema, legacy_namespace, mock_output, name, namespace, output_fields, output_schema, semantic_version, updated, use_cases, vendor, version].hash
     end
 
     # Builds the object from hash

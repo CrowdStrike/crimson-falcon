@@ -33,6 +33,7 @@ module Falcon
   class DevicecontrolapiReqUpdatePolicyClassesV1
     attr_accessor :bluetooth_classes
 
+    # ID of the policy to update
     attr_accessor :id
 
     attr_accessor :usb_classes

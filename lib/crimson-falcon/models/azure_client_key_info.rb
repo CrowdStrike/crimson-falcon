@@ -33,6 +33,8 @@ module Falcon
   class AzureClientKeyInfo
     attr_accessor :app_registration_id
 
+    attr_accessor :app_registration_name
+
     attr_accessor :created
 
     attr_accessor :expires
@@ -53,6 +55,7 @@ module Falcon
     def self.attribute_map
       {
         :'app_registration_id' => :'app_registration_id',
+        :'app_registration_name' => :'app_registration_name',
         :'created' => :'created',
         :'expires' => :'expires',
         :'fingerprint_sha1' => :'fingerprint_sha1',
@@ -73,6 +76,7 @@ module Falcon
     def self.openapi_types
       {
         :'app_registration_id' => :'String',
+        :'app_registration_name' => :'String',
         :'created' => :'Time',
         :'expires' => :'Time',
         :'fingerprint_sha1' => :'String',
@@ -107,6 +111,10 @@ module Falcon
 
       if attributes.key?(:'app_registration_id')
         self.app_registration_id = attributes[:'app_registration_id']
+      end
+
+      if attributes.key?(:'app_registration_name')
+        self.app_registration_name = attributes[:'app_registration_name']
       end
 
       if attributes.key?(:'created')
@@ -161,6 +169,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           app_registration_id == o.app_registration_id &&
+          app_registration_name == o.app_registration_name &&
           created == o.created &&
           expires == o.expires &&
           fingerprint_sha1 == o.fingerprint_sha1 &&
@@ -180,7 +189,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [app_registration_id, created, expires, fingerprint_sha1, key_length, signature_algo, valid, valid_days, version].hash
+      [app_registration_id, app_registration_name, created, expires, fingerprint_sha1, key_length, signature_algo, valid, valid_days, version].hash
     end
 
     # Builds the object from hash

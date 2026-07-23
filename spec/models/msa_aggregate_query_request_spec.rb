@@ -71,6 +71,12 @@ describe Falcon::MsaAggregateQueryRequest do
     end
   end
 
+  describe 'test attribute "filters_spec"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "from"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -108,6 +114,12 @@ describe Falcon::MsaAggregateQueryRequest do
   end
 
   describe 'test attribute "name"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "percents"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

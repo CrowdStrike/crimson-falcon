@@ -179,6 +179,12 @@ describe Falcon::FigapiLookupIndicator do
     end
   end
 
+  describe 'test attribute "software_packages"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "threat_types"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

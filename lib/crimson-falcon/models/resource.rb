@@ -33,15 +33,12 @@ module Falcon
   class Resource
     attr_accessor :id
 
-    attr_accessor :tags
-
     attr_accessor :uuid
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'tags' => :'tags',
         :'uuid' => :'uuid'
       }
     end
@@ -55,7 +52,6 @@ module Falcon
     def self.openapi_types
       {
         :'id' => :'Array<String>',
-        :'tags' => :'Hash<String, String>',
         :'uuid' => :'Array<String>'
       }
     end
@@ -87,12 +83,6 @@ module Falcon
         end
       end
 
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Hash)
-          self.tags = value
-        end
-      end
-
       if attributes.key?(:'uuid')
         if (value = attributes[:'uuid']).is_a?(Array)
           self.uuid = value
@@ -119,7 +109,6 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          tags == o.tags &&
           uuid == o.uuid
     end
 
@@ -132,7 +121,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, tags, uuid].hash
+      [id, uuid].hash
     end
 
     # Builds the object from hash

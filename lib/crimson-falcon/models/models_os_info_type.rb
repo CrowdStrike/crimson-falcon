@@ -31,6 +31,16 @@ require 'time'
 
 module Falcon
   class ModelsOSInfoType
+    attr_accessor :display_version
+
+    attr_accessor :edition_id
+
+    attr_accessor :install_type
+
+    attr_accessor :layer_hash
+
+    attr_accessor :layer_index
+
     attr_accessor :name
 
     attr_accessor :version
@@ -38,6 +48,11 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'display_version' => :'DisplayVersion',
+        :'edition_id' => :'EditionID',
+        :'install_type' => :'InstallType',
+        :'layer_hash' => :'LayerHash',
+        :'layer_index' => :'LayerIndex',
         :'name' => :'Name',
         :'version' => :'Version'
       }
@@ -51,6 +66,11 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'display_version' => :'String',
+        :'edition_id' => :'String',
+        :'install_type' => :'String',
+        :'layer_hash' => :'String',
+        :'layer_index' => :'Integer',
         :'name' => :'String',
         :'version' => :'String'
       }
@@ -76,6 +96,26 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'display_version')
+        self.display_version = attributes[:'display_version']
+      end
+
+      if attributes.key?(:'edition_id')
+        self.edition_id = attributes[:'edition_id']
+      end
+
+      if attributes.key?(:'install_type')
+        self.install_type = attributes[:'install_type']
+      end
+
+      if attributes.key?(:'layer_hash')
+        self.layer_hash = attributes[:'layer_hash']
+      end
+
+      if attributes.key?(:'layer_index')
+        self.layer_index = attributes[:'layer_index']
+      end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
@@ -114,6 +154,11 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          display_version == o.display_version &&
+          edition_id == o.edition_id &&
+          install_type == o.install_type &&
+          layer_hash == o.layer_hash &&
+          layer_index == o.layer_index &&
           name == o.name &&
           version == o.version
     end
@@ -127,7 +172,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, version].hash
+      [display_version, edition_id, install_type, layer_hash, layer_index, name, version].hash
     end
 
     # Builds the object from hash

@@ -45,6 +45,8 @@ module Falcon
 
     attr_accessor :app_registration_id
 
+    attr_accessor :app_registration_name
+
     attr_accessor :cid
 
     attr_accessor :created
@@ -86,6 +88,8 @@ module Falcon
 
     attr_accessor :key_info
 
+    attr_accessor :last_healthcheck_completed_at
+
     attr_accessor :management_group_ids
 
     attr_accessor :microsoft_graph_permission_ids
@@ -120,6 +124,15 @@ module Falcon
 
     attr_accessor :updated
 
+    attr_accessor :vulnerability_scanning_custom_vnet_configuration
+
+    attr_accessor :vulnerability_scanning_host_subscription_id
+
+    # Network configuration type for Vulnerability Scanning
+    attr_accessor :vulnerability_scanning_network_configuration_type
+
+    attr_accessor :vulnerability_scanning_regions
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -152,6 +165,7 @@ module Falcon
         :'api_client_key_id' => :'api_client_key_id',
         :'api_client_key_type' => :'api_client_key_type',
         :'app_registration_id' => :'app_registration_id',
+        :'app_registration_name' => :'app_registration_name',
         :'cid' => :'cid',
         :'created' => :'created',
         :'cs_infra_region' => :'cs_infra_region',
@@ -172,6 +186,7 @@ module Falcon
         :'environment' => :'environment',
         :'event_hub_settings' => :'event_hub_settings',
         :'key_info' => :'key_info',
+        :'last_healthcheck_completed_at' => :'last_healthcheck_completed_at',
         :'management_group_ids' => :'management_group_ids',
         :'microsoft_graph_permission_ids' => :'microsoft_graph_permission_ids',
         :'microsoft_graph_permission_ids_readonly' => :'microsoft_graph_permission_ids_readonly',
@@ -188,7 +203,11 @@ module Falcon
         :'template_version' => :'template_version',
         :'tenant_id' => :'tenant_id',
         :'tenant_name' => :'tenant_name',
-        :'updated' => :'updated'
+        :'updated' => :'updated',
+        :'vulnerability_scanning_custom_vnet_configuration' => :'vulnerability_scanning_custom_vnet_configuration',
+        :'vulnerability_scanning_host_subscription_id' => :'vulnerability_scanning_host_subscription_id',
+        :'vulnerability_scanning_network_configuration_type' => :'vulnerability_scanning_network_configuration_type',
+        :'vulnerability_scanning_regions' => :'vulnerability_scanning_regions'
       }
     end
 
@@ -207,6 +226,7 @@ module Falcon
         :'api_client_key_id' => :'String',
         :'api_client_key_type' => :'String',
         :'app_registration_id' => :'String',
+        :'app_registration_name' => :'String',
         :'cid' => :'String',
         :'created' => :'Time',
         :'cs_infra_region' => :'String',
@@ -219,7 +239,7 @@ module Falcon
         :'deployment_stack_host_type' => :'String',
         :'deployment_stack_host_url' => :'String',
         :'deployment_stack_name' => :'String',
-        :'dspm_custom_vnet_configuration' => :'Hash<String, AzureDSPMRegionCustomNetworkConfiguration>',
+        :'dspm_custom_vnet_configuration' => :'Hash<String, AzureAgentlessScanningRegionCustomNetworkConfiguration>',
         :'dspm_host_subscription_id' => :'String',
         :'dspm_network_configuration_type' => :'String',
         :'dspm_regions' => :'Array<String>',
@@ -227,6 +247,7 @@ module Falcon
         :'environment' => :'String',
         :'event_hub_settings' => :'Array<AzureEventHubSettings>',
         :'key_info' => :'AzureClientKeyInfo',
+        :'last_healthcheck_completed_at' => :'Time',
         :'management_group_ids' => :'Array<String>',
         :'microsoft_graph_permission_ids' => :'Array<String>',
         :'microsoft_graph_permission_ids_readonly' => :'Boolean',
@@ -243,7 +264,11 @@ module Falcon
         :'template_version' => :'String',
         :'tenant_id' => :'String',
         :'tenant_name' => :'String',
-        :'updated' => :'Time'
+        :'updated' => :'Time',
+        :'vulnerability_scanning_custom_vnet_configuration' => :'Hash<String, AzureAgentlessScanningRegionCustomNetworkConfiguration>',
+        :'vulnerability_scanning_host_subscription_id' => :'String',
+        :'vulnerability_scanning_network_configuration_type' => :'String',
+        :'vulnerability_scanning_regions' => :'Array<String>'
       }
     end
 
@@ -296,6 +321,10 @@ module Falcon
 
       if attributes.key?(:'app_registration_id')
         self.app_registration_id = attributes[:'app_registration_id']
+      end
+
+      if attributes.key?(:'app_registration_name')
+        self.app_registration_name = attributes[:'app_registration_name']
       end
 
       if attributes.key?(:'cid')
@@ -384,6 +413,10 @@ module Falcon
         self.key_info = attributes[:'key_info']
       end
 
+      if attributes.key?(:'last_healthcheck_completed_at')
+        self.last_healthcheck_completed_at = attributes[:'last_healthcheck_completed_at']
+      end
+
       if attributes.key?(:'management_group_ids')
         if (value = attributes[:'management_group_ids']).is_a?(Array)
           self.management_group_ids = value
@@ -461,6 +494,26 @@ module Falcon
       if attributes.key?(:'updated')
         self.updated = attributes[:'updated']
       end
+
+      if attributes.key?(:'vulnerability_scanning_custom_vnet_configuration')
+        if (value = attributes[:'vulnerability_scanning_custom_vnet_configuration']).is_a?(Hash)
+          self.vulnerability_scanning_custom_vnet_configuration = value
+        end
+      end
+
+      if attributes.key?(:'vulnerability_scanning_host_subscription_id')
+        self.vulnerability_scanning_host_subscription_id = attributes[:'vulnerability_scanning_host_subscription_id']
+      end
+
+      if attributes.key?(:'vulnerability_scanning_network_configuration_type')
+        self.vulnerability_scanning_network_configuration_type = attributes[:'vulnerability_scanning_network_configuration_type']
+      end
+
+      if attributes.key?(:'vulnerability_scanning_regions')
+        if (value = attributes[:'vulnerability_scanning_regions']).is_a?(Array)
+          self.vulnerability_scanning_regions = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -515,6 +568,10 @@ module Falcon
         invalid_properties.push('invalid value for "tenant_name", tenant_name cannot be nil.')
       end
 
+      if @vulnerability_scanning_regions.nil?
+        invalid_properties.push('invalid value for "vulnerability_scanning_regions", vulnerability_scanning_regions cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -535,6 +592,9 @@ module Falcon
       return false if @tags.nil?
       return false if @tenant_id.nil?
       return false if @tenant_name.nil?
+      vulnerability_scanning_network_configuration_type_validator = EnumAttributeValidator.new('String', ["managed", "managed_no_nat", "custom"])
+      return false unless vulnerability_scanning_network_configuration_type_validator.valid?(@vulnerability_scanning_network_configuration_type)
+      return false if @vulnerability_scanning_regions.nil?
       true
     end
 
@@ -546,6 +606,16 @@ module Falcon
         fail ArgumentError, "invalid value for \"dspm_network_configuration_type\", must be one of #{validator.allowable_values}."
       end
       @dspm_network_configuration_type = dspm_network_configuration_type
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] vulnerability_scanning_network_configuration_type Object to be assigned
+    def vulnerability_scanning_network_configuration_type=(vulnerability_scanning_network_configuration_type)
+      validator = EnumAttributeValidator.new('String', ["managed", "managed_no_nat", "custom"])
+      unless validator.valid?(vulnerability_scanning_network_configuration_type)
+        fail ArgumentError, "invalid value for \"vulnerability_scanning_network_configuration_type\", must be one of #{validator.allowable_values}."
+      end
+      @vulnerability_scanning_network_configuration_type = vulnerability_scanning_network_configuration_type
     end
 
     # Checks equality by comparing each attribute.
@@ -560,6 +630,7 @@ module Falcon
           api_client_key_id == o.api_client_key_id &&
           api_client_key_type == o.api_client_key_type &&
           app_registration_id == o.app_registration_id &&
+          app_registration_name == o.app_registration_name &&
           cid == o.cid &&
           created == o.created &&
           cs_infra_region == o.cs_infra_region &&
@@ -580,6 +651,7 @@ module Falcon
           environment == o.environment &&
           event_hub_settings == o.event_hub_settings &&
           key_info == o.key_info &&
+          last_healthcheck_completed_at == o.last_healthcheck_completed_at &&
           management_group_ids == o.management_group_ids &&
           microsoft_graph_permission_ids == o.microsoft_graph_permission_ids &&
           microsoft_graph_permission_ids_readonly == o.microsoft_graph_permission_ids_readonly &&
@@ -596,7 +668,11 @@ module Falcon
           template_version == o.template_version &&
           tenant_id == o.tenant_id &&
           tenant_name == o.tenant_name &&
-          updated == o.updated
+          updated == o.updated &&
+          vulnerability_scanning_custom_vnet_configuration == o.vulnerability_scanning_custom_vnet_configuration &&
+          vulnerability_scanning_host_subscription_id == o.vulnerability_scanning_host_subscription_id &&
+          vulnerability_scanning_network_configuration_type == o.vulnerability_scanning_network_configuration_type &&
+          vulnerability_scanning_regions == o.vulnerability_scanning_regions
     end
 
     # @see the `==` method
@@ -608,7 +684,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_type, additional_features, additional_properties, admin_consent_url, api_client_key_id, api_client_key_type, app_registration_id, cid, created, cs_infra_region, cs_infra_subscription_id, cs_infra_subscription_name, deleted, deployment_method, deployment_stack_host_id, deployment_stack_host_region, deployment_stack_host_type, deployment_stack_host_url, deployment_stack_name, dspm_custom_vnet_configuration, dspm_host_subscription_id, dspm_network_configuration_type, dspm_regions, enterprise_app_url, environment, event_hub_settings, key_info, management_group_ids, microsoft_graph_permission_ids, microsoft_graph_permission_ids_readonly, primary_domain, products, registration_description, registration_id, registration_name, resource_name_prefix, resource_name_suffix, status, subscription_ids, tags, template_version, tenant_id, tenant_name, updated].hash
+      [account_type, additional_features, additional_properties, admin_consent_url, api_client_key_id, api_client_key_type, app_registration_id, app_registration_name, cid, created, cs_infra_region, cs_infra_subscription_id, cs_infra_subscription_name, deleted, deployment_method, deployment_stack_host_id, deployment_stack_host_region, deployment_stack_host_type, deployment_stack_host_url, deployment_stack_name, dspm_custom_vnet_configuration, dspm_host_subscription_id, dspm_network_configuration_type, dspm_regions, enterprise_app_url, environment, event_hub_settings, key_info, last_healthcheck_completed_at, management_group_ids, microsoft_graph_permission_ids, microsoft_graph_permission_ids_readonly, primary_domain, products, registration_description, registration_id, registration_name, resource_name_prefix, resource_name_suffix, status, subscription_ids, tags, template_version, tenant_id, tenant_name, updated, vulnerability_scanning_custom_vnet_configuration, vulnerability_scanning_host_subscription_id, vulnerability_scanning_network_configuration_type, vulnerability_scanning_regions].hash
     end
 
     # Builds the object from hash

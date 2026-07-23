@@ -171,8 +171,8 @@ module Falcon
     # @param ids [Array<String>] AWS Account IDs
     # @param [Hash] opts the optional parameters
     # @return [MsaMetaInfo]
-    def delete_aws_accounts(ids, opts = {})
-      data, _status_code, _headers = delete_aws_accounts_with_http_info(ids, opts)
+    def delete_aws_accounts_mixin0(ids, opts = {})
+      data, _status_code, _headers = delete_aws_accounts_mixin0_with_http_info(ids, opts)
       data
     end
 
@@ -180,13 +180,13 @@ module Falcon
     # @param ids [Array<String>] AWS Account IDs
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaMetaInfo, Integer, Hash)>] MsaMetaInfo data, response status code and response headers
-    def delete_aws_accounts_with_http_info(ids, opts = {})
+    def delete_aws_accounts_mixin0_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtection.delete_aws_accounts ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.delete_aws_accounts_mixin0 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling KubernetesProtection.delete_aws_accounts"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling KubernetesProtection.delete_aws_accounts_mixin0"
       end
       # resource path
       local_var_path = '/kubernetes-protection/entities/accounts/aws/v1'
@@ -213,7 +213,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtection.delete_aws_accounts",
+        :operation => :"KubernetesProtection.delete_aws_accounts_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -224,7 +224,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtection#delete_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#delete_aws_accounts_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -417,8 +417,8 @@ module Falcon
     # @option opts [Integer] :limit Limit returned accounts
     # @option opts [Integer] :offset Offset returned accounts
     # @return [K8sregGetAWSAccountsResp]
-    def get_aws_accounts(opts = {})
-      data, _status_code, _headers = get_aws_accounts_with_http_info(opts)
+    def get_aws_accounts_mixin0(opts = {})
+      data, _status_code, _headers = get_aws_accounts_mixin0_with_http_info(opts)
       data
     end
 
@@ -430,9 +430,9 @@ module Falcon
     # @option opts [Integer] :limit Limit returned accounts
     # @option opts [Integer] :offset Offset returned accounts
     # @return [Array<(K8sregGetAWSAccountsResp, Integer, Hash)>] K8sregGetAWSAccountsResp data, response status code and response headers
-    def get_aws_accounts_with_http_info(opts = {})
+    def get_aws_accounts_mixin0_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtection.get_aws_accounts ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.get_aws_accounts_mixin0 ...'
       end
       allowable_values = ["false", "true"]
       if @api_client.config.client_side_validation && opts[:'is_horizon_acct'] && !allowable_values.include?(opts[:'is_horizon_acct'])
@@ -440,7 +440,7 @@ module Falcon
       end
       pattern = Regexp.new(/^(true|false)$/)
       if @api_client.config.client_side_validation && !opts[:'is_horizon_acct'].nil? && opts[:'is_horizon_acct'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"is_horizon_acct\"]' when calling KubernetesProtection.get_aws_accounts, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"is_horizon_acct\"]' when calling KubernetesProtection.get_aws_accounts_mixin0, must conform to the pattern #{pattern}."
       end
 
       allowable_values = ["operational", "provisioned"]
@@ -449,19 +449,19 @@ module Falcon
       end
       pattern = Regexp.new(/^(provisioned|operational)$/)
       if @api_client.config.client_side_validation && !opts[:'status'].nil? && opts[:'status'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"status\"]' when calling KubernetesProtection.get_aws_accounts, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"status\"]' when calling KubernetesProtection.get_aws_accounts_mixin0, must conform to the pattern #{pattern}."
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.get_aws_accounts, must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.get_aws_accounts_mixin0, must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.get_aws_accounts, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.get_aws_accounts_mixin0, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling KubernetesProtection.get_aws_accounts, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling KubernetesProtection.get_aws_accounts_mixin0, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -493,7 +493,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtection.get_aws_accounts",
+        :operation => :"KubernetesProtection.get_aws_accounts_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -504,7 +504,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtection#get_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#get_aws_accounts_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1369,10 +1369,76 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get aggregate query result for pods
+    # @param body [Array<Object>]
+    # @param [Hash] opts the optional parameters
+    # @return [MsaAggregatesResponse]
+    def post_aggregates_pods(body, opts = {})
+      data, _status_code, _headers = post_aggregates_pods_with_http_info(body, opts)
+      data
+    end
+
+    # Get aggregate query result for pods
+    # @param body [Array<Object>]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
+    def post_aggregates_pods_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.post_aggregates_pods ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling KubernetesProtection.post_aggregates_pods"
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/pods/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaAggregatesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtection.post_aggregates_pods",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtection#post_aggregates_pods\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Search for Kubernetes IOMs with filtering options.Pagination is supported via Elasticsearch's search_after search param and point in time. Assets are sorted by unique ID in ascending direction.
     # @param body [K8siomsSearchRequest]
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
+    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
     # @option opts [String] :sort The fields to sort the records on.
     # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 500) (default to 100)
     # @return [K8siomsSearchResponse]
@@ -1384,7 +1450,7 @@ module Falcon
     # Search for Kubernetes IOMs with filtering options.Pagination is supported via Elasticsearch&#39;s search_after search param and point in time. Assets are sorted by unique ID in ascending direction.
     # @param body [K8siomsSearchRequest]
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
+    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
     # @option opts [String] :sort The fields to sort the records on.
     # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 500) (default to 100)
     # @return [Array<(K8siomsSearchResponse, Integer, Hash)>] K8siomsSearchResponse data, response status code and response headers
@@ -3858,7 +3924,7 @@ module Falcon
 
     # Retrieves a list of Kubernetes IOMs identified by the provided search criteria. Maximum page size: 100. Maximum available Kubernetes IOMs: 10,000
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
+    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
     # @option opts [String] :sort The fields to sort the records on.
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
@@ -3870,7 +3936,7 @@ module Falcon
 
     # Retrieves a list of Kubernetes IOMs identified by the provided search criteria. Maximum page size: 100. Maximum available Kubernetes IOMs: 10,000
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
+    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
     # @option opts [String] :sort The fields to sort the records on.
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
@@ -3925,7 +3991,7 @@ module Falcon
 
     # Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
+    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
     # @option opts [String] :sort The fields to sort the records on.
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
@@ -3937,7 +4003,7 @@ module Falcon
 
     # Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
+    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
     # @option opts [String] :sort The fields to sort the records on.
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.

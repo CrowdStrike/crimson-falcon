@@ -36,10 +36,10 @@ module Falcon
     # ID of an existing policy to clone
     attr_accessor :clone_id
 
-    # A description of the policy
+    # A description of the policy. Maximum length: 512 characters
     attr_accessor :description
 
-    # Name of the policy
+    # Name of the policy. Cannot be blank and must only contain: letters, numbers, and the special characters: _, -, :, ;, ., !, and space
     attr_accessor :name
 
     # Name of the platform. *Required if clone_id is empty
@@ -154,7 +154,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      platform_name_validator = EnumAttributeValidator.new('String', ["Windows,Mac"])
+      platform_name_validator = EnumAttributeValidator.new('String', ["Windows", "Mac"])
       return false unless platform_name_validator.valid?(@platform_name)
       true
     end
@@ -162,7 +162,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] platform_name Object to be assigned
     def platform_name=(platform_name)
-      validator = EnumAttributeValidator.new('String', ["Windows,Mac"])
+      validator = EnumAttributeValidator.new('String', ["Windows", "Mac"])
       unless validator.valid?(platform_name)
         fail ArgumentError, "invalid value for \"platform_name\", must be one of #{validator.allowable_values}."
       end

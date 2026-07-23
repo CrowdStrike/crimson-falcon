@@ -53,6 +53,8 @@ module Falcon
 
     attr_accessor :malware_config
 
+    attr_accessor :malware_families
+
     attr_accessor :mime_type
 
     attr_accessor :mitre_attacks
@@ -68,6 +70,8 @@ module Falcon
     attr_accessor :verdict_reasons
 
     attr_accessor :verdict_source
+
+    attr_accessor :yara_rules
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -105,6 +109,7 @@ module Falcon
         :'first_content_bytes_hex' => :'first_content_bytes_hex',
         :'malicious_confidence' => :'malicious_confidence',
         :'malware_config' => :'malware_config',
+        :'malware_families' => :'malware_families',
         :'mime_type' => :'mime_type',
         :'mitre_attacks' => :'mitre_attacks',
         :'static_indicators' => :'static_indicators',
@@ -112,7 +117,8 @@ module Falcon
         :'verdict' => :'verdict',
         :'verdict_reason' => :'verdict_reason',
         :'verdict_reasons' => :'verdict_reasons',
-        :'verdict_source' => :'verdict_source'
+        :'verdict_source' => :'verdict_source',
+        :'yara_rules' => :'yara_rules'
       }
     end
 
@@ -135,6 +141,7 @@ module Falcon
         :'first_content_bytes_hex' => :'String',
         :'malicious_confidence' => :'Integer',
         :'malware_config' => :'Hash<String, Array<String>>',
+        :'malware_families' => :'Array<QuickscanproMalwareFamily>',
         :'mime_type' => :'String',
         :'mitre_attacks' => :'Array<DomainMITREAttack>',
         :'static_indicators' => :'Array<String>',
@@ -142,7 +149,8 @@ module Falcon
         :'verdict' => :'String',
         :'verdict_reason' => :'String',
         :'verdict_reasons' => :'Array<String>',
-        :'verdict_source' => :'Array<String>'
+        :'verdict_source' => :'Array<String>',
+        :'yara_rules' => :'Array<QuickscanproYaraRule>'
       }
     end
 
@@ -215,6 +223,12 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'malware_families')
+        if (value = attributes[:'malware_families']).is_a?(Array)
+          self.malware_families = value
+        end
+      end
+
       if attributes.key?(:'mime_type')
         self.mime_type = attributes[:'mime_type']
       end
@@ -254,6 +268,12 @@ module Falcon
       if attributes.key?(:'verdict_source')
         if (value = attributes[:'verdict_source']).is_a?(Array)
           self.verdict_source = value
+        end
+      end
+
+      if attributes.key?(:'yara_rules')
+        if (value = attributes[:'yara_rules']).is_a?(Array)
+          self.yara_rules = value
         end
       end
     end
@@ -319,6 +339,7 @@ module Falcon
           first_content_bytes_hex == o.first_content_bytes_hex &&
           malicious_confidence == o.malicious_confidence &&
           malware_config == o.malware_config &&
+          malware_families == o.malware_families &&
           mime_type == o.mime_type &&
           mitre_attacks == o.mitre_attacks &&
           static_indicators == o.static_indicators &&
@@ -326,7 +347,8 @@ module Falcon
           verdict == o.verdict &&
           verdict_reason == o.verdict_reason &&
           verdict_reasons == o.verdict_reasons &&
-          verdict_source == o.verdict_source
+          verdict_source == o.verdict_source &&
+          yara_rules == o.yara_rules
     end
 
     # @see the `==` method
@@ -338,7 +360,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [adversary, artifacts_tree, beta_intelligence_context, file_artifacts, file_size, file_type, file_type_short, first_content_bytes_ascii, first_content_bytes_hex, malicious_confidence, malware_config, mime_type, mitre_attacks, static_indicators, url_artifacts, verdict, verdict_reason, verdict_reasons, verdict_source].hash
+      [adversary, artifacts_tree, beta_intelligence_context, file_artifacts, file_size, file_type, file_type_short, first_content_bytes_ascii, first_content_bytes_hex, malicious_confidence, malware_config, malware_families, mime_type, mitre_attacks, static_indicators, url_artifacts, verdict, verdict_reason, verdict_reasons, verdict_source, yara_rules].hash
     end
 
     # Builds the object from hash

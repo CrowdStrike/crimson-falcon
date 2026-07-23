@@ -39,6 +39,8 @@ module Falcon
 
     attr_accessor :elf_binaries
 
+    attr_accessor :hashed_files
+
     attr_accessor :image_info
 
     attr_accessor :inventory_engine_info
@@ -68,6 +70,7 @@ module Falcon
         :'config' => :'Config',
         :'config_info' => :'ConfigInfo',
         :'elf_binaries' => :'ELFBinaries',
+        :'hashed_files' => :'HashedFiles',
         :'image_info' => :'ImageInfo',
         :'inventory_engine_info' => :'InventoryEngineInfo',
         :'layers' => :'Layers',
@@ -94,6 +97,7 @@ module Falcon
         :'config' => :'V1Image',
         :'config_info' => :'ModelsConfigInfoType',
         :'elf_binaries' => :'Array<ModelsELFBinaryInfoType>',
+        :'hashed_files' => :'Array<ModelsHashedFileInfoType>',
         :'image_info' => :'ModelsImageInfoType',
         :'inventory_engine_info' => :'ModelsInventoryEngineInfoType',
         :'layers' => :'Array<ModelsLayerInfoType>',
@@ -146,6 +150,12 @@ module Falcon
       if attributes.key?(:'elf_binaries')
         if (value = attributes[:'elf_binaries']).is_a?(Array)
           self.elf_binaries = value
+        end
+      end
+
+      if attributes.key?(:'hashed_files')
+        if (value = attributes[:'hashed_files']).is_a?(Array)
+          self.hashed_files = value
         end
       end
 
@@ -271,6 +281,7 @@ module Falcon
           config == o.config &&
           config_info == o.config_info &&
           elf_binaries == o.elf_binaries &&
+          hashed_files == o.hashed_files &&
           image_info == o.image_info &&
           inventory_engine_info == o.inventory_engine_info &&
           layers == o.layers &&
@@ -293,7 +304,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [application_packages, config, config_info, elf_binaries, image_info, inventory_engine_info, layers, ml_models, manifest, os_info, packages, ai_related, high_entropy_s3_file_exists, interesting_strings, whiteout_files].hash
+      [application_packages, config, config_info, elf_binaries, hashed_files, image_info, inventory_engine_info, layers, ml_models, manifest, os_info, packages, ai_related, high_entropy_s3_file_exists, interesting_strings, whiteout_files].hash
     end
 
     # Builds the object from hash

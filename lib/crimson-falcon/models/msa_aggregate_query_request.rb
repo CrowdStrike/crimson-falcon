@@ -41,6 +41,8 @@ module Falcon
 
     attr_accessor :filter
 
+    attr_accessor :filters_spec
+
     attr_accessor :from
 
     attr_accessor :include
@@ -54,6 +56,8 @@ module Falcon
     attr_accessor :missing
 
     attr_accessor :name
+
+    attr_accessor :percents
 
     attr_accessor :q
 
@@ -77,6 +81,7 @@ module Falcon
         :'extended_bounds' => :'extended_bounds',
         :'field' => :'field',
         :'filter' => :'filter',
+        :'filters_spec' => :'filters_spec',
         :'from' => :'from',
         :'include' => :'include',
         :'interval' => :'interval',
@@ -84,6 +89,7 @@ module Falcon
         :'min_doc_count' => :'min_doc_count',
         :'missing' => :'missing',
         :'name' => :'name',
+        :'percents' => :'percents',
         :'q' => :'q',
         :'ranges' => :'ranges',
         :'size' => :'size',
@@ -107,6 +113,7 @@ module Falcon
         :'extended_bounds' => :'MsaExtendedBoundsSpec',
         :'field' => :'String',
         :'filter' => :'String',
+        :'filters_spec' => :'MsaAPIFiltersSpec',
         :'from' => :'Integer',
         :'include' => :'String',
         :'interval' => :'String',
@@ -114,6 +121,7 @@ module Falcon
         :'min_doc_count' => :'Integer',
         :'missing' => :'String',
         :'name' => :'String',
+        :'percents' => :'Array<Float>',
         :'q' => :'String',
         :'ranges' => :'Array<MsaRangeSpec>',
         :'size' => :'Integer',
@@ -167,6 +175,10 @@ module Falcon
         self.filter = attributes[:'filter']
       end
 
+      if attributes.key?(:'filters_spec')
+        self.filters_spec = attributes[:'filters_spec']
+      end
+
       if attributes.key?(:'from')
         self.from = attributes[:'from']
       end
@@ -193,6 +205,12 @@ module Falcon
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'percents')
+        if (value = attributes[:'percents']).is_a?(Array)
+          self.percents = value
+        end
       end
 
       if attributes.key?(:'q')
@@ -248,6 +266,10 @@ module Falcon
         invalid_properties.push('invalid value for "filter", filter cannot be nil.')
       end
 
+      if @filters_spec.nil?
+        invalid_properties.push('invalid value for "filters_spec", filters_spec cannot be nil.')
+      end
+
       if @from.nil?
         invalid_properties.push('invalid value for "from", from cannot be nil.')
       end
@@ -266,6 +288,10 @@ module Falcon
 
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @percents.nil?
+        invalid_properties.push('invalid value for "percents", percents cannot be nil.')
       end
 
       if @q.nil?
@@ -306,11 +332,13 @@ module Falcon
       return false if @exclude.nil?
       return false if @field.nil?
       return false if @filter.nil?
+      return false if @filters_spec.nil?
       return false if @from.nil?
       return false if @include.nil?
       return false if @interval.nil?
       return false if @missing.nil?
       return false if @name.nil?
+      return false if @percents.nil?
       return false if @q.nil?
       return false if @ranges.nil?
       return false if @size.nil?
@@ -331,6 +359,7 @@ module Falcon
           extended_bounds == o.extended_bounds &&
           field == o.field &&
           filter == o.filter &&
+          filters_spec == o.filters_spec &&
           from == o.from &&
           include == o.include &&
           interval == o.interval &&
@@ -338,6 +367,7 @@ module Falcon
           min_doc_count == o.min_doc_count &&
           missing == o.missing &&
           name == o.name &&
+          percents == o.percents &&
           q == o.q &&
           ranges == o.ranges &&
           size == o.size &&
@@ -356,7 +386,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [date_ranges, exclude, extended_bounds, field, filter, from, include, interval, max_doc_count, min_doc_count, missing, name, q, ranges, size, sort, sub_aggregates, time_zone, type].hash
+      [date_ranges, exclude, extended_bounds, field, filter, filters_spec, from, include, interval, max_doc_count, min_doc_count, missing, name, percents, q, ranges, size, sort, sub_aggregates, time_zone, type].hash
     end
 
     # Builds the object from hash

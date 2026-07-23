@@ -41,7 +41,19 @@ describe Falcon::DomainMitreAttackMapping do
       expect(instance).to be_instance_of(Falcon::DomainMitreAttackMapping)
     end
   end
+  describe 'test attribute "tactic"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "tactic_id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "technique"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -56,7 +56,7 @@ module Falcon
       {
         :'errors' => :'Array<MsaAPIError>',
         :'meta' => :'MsaMetaInfo',
-        :'resources' => :'Array<ApiPatternMatchV1>'
+        :'resources' => :'Array<DomainFieldValidation>'
       }
     end
 

@@ -60,6 +60,9 @@ module Falcon
     # Malware mentioned, related or referenced in the news/report
     attr_accessor :malware
 
+    # MITRE attacks referenced in the news/report
+    attr_accessor :mitre_attacks
+
     # News mentioned motivation or motivation of related actors and malware families
     attr_accessor :motivations
 
@@ -120,6 +123,7 @@ module Falcon
         :'image' => :'image',
         :'last_modified_date' => :'last_modified_date',
         :'malware' => :'malware',
+        :'mitre_attacks' => :'mitre_attacks',
         :'motivations' => :'motivations',
         :'name' => :'name',
         :'notify_users' => :'notify_users',
@@ -158,6 +162,7 @@ module Falcon
         :'image' => :'DomainImage',
         :'last_modified_date' => :'Integer',
         :'malware' => :'Array<DomainReportMalware>',
+        :'mitre_attacks' => :'Array<DomainMitreAttack>',
         :'motivations' => :'Array<DomainEntity>',
         :'name' => :'String',
         :'notify_users' => :'Boolean',
@@ -244,6 +249,12 @@ module Falcon
       if attributes.key?(:'malware')
         if (value = attributes[:'malware']).is_a?(Array)
           self.malware = value
+        end
+      end
+
+      if attributes.key?(:'mitre_attacks')
+        if (value = attributes[:'mitre_attacks']).is_a?(Array)
+          self.mitre_attacks = value
         end
       end
 
@@ -407,6 +418,7 @@ module Falcon
           image == o.image &&
           last_modified_date == o.last_modified_date &&
           malware == o.malware &&
+          mitre_attacks == o.mitre_attacks &&
           motivations == o.motivations &&
           name == o.name &&
           notify_users == o.notify_users &&
@@ -435,7 +447,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active, actors, attachments, created_date, description, entitlements, id, image, last_modified_date, malware, motivations, name, notify_users, read_time_in_minutes, rich_text_description, rich_text_short_description, short_description, slug, sub_type, summary, tags, target_countries, target_industries, thumbnail, topic, type, url].hash
+      [active, actors, attachments, created_date, description, entitlements, id, image, last_modified_date, malware, mitre_attacks, motivations, name, notify_users, read_time_in_minutes, rich_text_description, rich_text_short_description, short_description, slug, sub_type, summary, tags, target_countries, target_industries, thumbnail, topic, type, url].hash
     end
 
     # Builds the object from hash

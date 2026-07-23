@@ -34,6 +34,9 @@ module Falcon
     # Expanded description of the remediation
     attr_accessor :action
 
+    # The timestamp when this remediation was created
+    attr_accessor :created_timestamp
+
     # Refers to an unique identifier for a given remediation
     attr_accessor :id
 
@@ -42,6 +45,9 @@ module Falcon
 
     # The timestamp that this remediation was published
     attr_accessor :patch_publication_date
+
+    # The provider of the remediation
+    attr_accessor :provider
 
     # The type of recommendation for this remediation, usually either 'recommended' or 'minimum'
     attr_accessor :recommendation_type
@@ -52,6 +58,12 @@ module Falcon
     # Short description of the remediation
     attr_accessor :title
 
+    # The type of remediation (e.g., patch, workaround)
+    attr_accessor :type
+
+    # The timestamp when this remediation was last updated
+    attr_accessor :updated_timestamp
+
     # Link to the vendor advisory - Note: This field is populated if there are extra steps that are required to complete the remediation
     attr_accessor :vendor_url
 
@@ -59,12 +71,16 @@ module Falcon
     def self.attribute_map
       {
         :'action' => :'action',
+        :'created_timestamp' => :'created_timestamp',
         :'id' => :'id',
         :'link' => :'link',
         :'patch_publication_date' => :'patch_publication_date',
+        :'provider' => :'provider',
         :'recommendation_type' => :'recommendation_type',
         :'reference' => :'reference',
         :'title' => :'title',
+        :'type' => :'type',
+        :'updated_timestamp' => :'updated_timestamp',
         :'vendor_url' => :'vendor_url'
       }
     end
@@ -78,12 +94,16 @@ module Falcon
     def self.openapi_types
       {
         :'action' => :'String',
+        :'created_timestamp' => :'String',
         :'id' => :'String',
         :'link' => :'String',
         :'patch_publication_date' => :'String',
+        :'provider' => :'String',
         :'recommendation_type' => :'String',
         :'reference' => :'String',
         :'title' => :'String',
+        :'type' => :'String',
+        :'updated_timestamp' => :'String',
         :'vendor_url' => :'String'
       }
     end
@@ -113,6 +133,10 @@ module Falcon
         self.action = attributes[:'action']
       end
 
+      if attributes.key?(:'created_timestamp')
+        self.created_timestamp = attributes[:'created_timestamp']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -125,6 +149,10 @@ module Falcon
         self.patch_publication_date = attributes[:'patch_publication_date']
       end
 
+      if attributes.key?(:'provider')
+        self.provider = attributes[:'provider']
+      end
+
       if attributes.key?(:'recommendation_type')
         self.recommendation_type = attributes[:'recommendation_type']
       end
@@ -135,6 +163,14 @@ module Falcon
 
       if attributes.key?(:'title')
         self.title = attributes[:'title']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'updated_timestamp')
+        self.updated_timestamp = attributes[:'updated_timestamp']
       end
 
       if attributes.key?(:'vendor_url')
@@ -158,12 +194,20 @@ module Falcon
         invalid_properties.push('invalid value for "link", link cannot be nil.')
       end
 
+      if @provider.nil?
+        invalid_properties.push('invalid value for "provider", provider cannot be nil.')
+      end
+
       if @reference.nil?
         invalid_properties.push('invalid value for "reference", reference cannot be nil.')
       end
 
       if @title.nil?
         invalid_properties.push('invalid value for "title", title cannot be nil.')
+      end
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
       if @vendor_url.nil?
@@ -179,8 +223,10 @@ module Falcon
       return false if @action.nil?
       return false if @id.nil?
       return false if @link.nil?
+      return false if @provider.nil?
       return false if @reference.nil?
       return false if @title.nil?
+      return false if @type.nil?
       return false if @vendor_url.nil?
       true
     end
@@ -191,12 +237,16 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           action == o.action &&
+          created_timestamp == o.created_timestamp &&
           id == o.id &&
           link == o.link &&
           patch_publication_date == o.patch_publication_date &&
+          provider == o.provider &&
           recommendation_type == o.recommendation_type &&
           reference == o.reference &&
           title == o.title &&
+          type == o.type &&
+          updated_timestamp == o.updated_timestamp &&
           vendor_url == o.vendor_url
     end
 
@@ -209,7 +259,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [action, id, link, patch_publication_date, recommendation_type, reference, title, vendor_url].hash
+      [action, created_timestamp, id, link, patch_publication_date, provider, recommendation_type, reference, title, type, updated_timestamp, vendor_url].hash
     end
 
     # Builds the object from hash

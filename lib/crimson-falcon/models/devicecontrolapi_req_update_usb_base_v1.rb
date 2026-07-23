@@ -41,6 +41,15 @@ module Falcon
 
     attr_accessor :enhanced_file_metadata
 
+    # Enforcement for PCIe/SD devices (omit to keep current). Note: OFF only supported for Mac platform
+    attr_accessor :pcie_enforcement_mode
+
+    # Enforcement for Windows Storage Spaces (omit to keep current).
+    attr_accessor :storage_space_enforcement_mode
+
+    # Enforcement mode for User Based exceptions
+    attr_accessor :user_based_enforcement_mode
+
     # Determines if the policy will include whitelist exceptions
     attr_accessor :whitelist_mode
 
@@ -73,6 +82,9 @@ module Falcon
         :'end_user_notification' => :'end_user_notification',
         :'enforcement_mode' => :'enforcement_mode',
         :'enhanced_file_metadata' => :'enhanced_file_metadata',
+        :'pcie_enforcement_mode' => :'pcie_enforcement_mode',
+        :'storage_space_enforcement_mode' => :'storage_space_enforcement_mode',
+        :'user_based_enforcement_mode' => :'user_based_enforcement_mode',
         :'whitelist_mode' => :'whitelist_mode'
       }
     end
@@ -89,6 +101,9 @@ module Falcon
         :'end_user_notification' => :'String',
         :'enforcement_mode' => :'String',
         :'enhanced_file_metadata' => :'Boolean',
+        :'pcie_enforcement_mode' => :'String',
+        :'storage_space_enforcement_mode' => :'String',
+        :'user_based_enforcement_mode' => :'String',
         :'whitelist_mode' => :'String'
       }
     end
@@ -130,6 +145,18 @@ module Falcon
         self.enhanced_file_metadata = attributes[:'enhanced_file_metadata']
       end
 
+      if attributes.key?(:'pcie_enforcement_mode')
+        self.pcie_enforcement_mode = attributes[:'pcie_enforcement_mode']
+      end
+
+      if attributes.key?(:'storage_space_enforcement_mode')
+        self.storage_space_enforcement_mode = attributes[:'storage_space_enforcement_mode']
+      end
+
+      if attributes.key?(:'user_based_enforcement_mode')
+        self.user_based_enforcement_mode = attributes[:'user_based_enforcement_mode']
+      end
+
       if attributes.key?(:'whitelist_mode')
         self.whitelist_mode = attributes[:'whitelist_mode']
       end
@@ -145,11 +172,17 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      end_user_notification_validator = EnumAttributeValidator.new('String', ["NOTIFY_USER,SILENT"])
+      end_user_notification_validator = EnumAttributeValidator.new('String', ["NOTIFY_USER", "SILENT"])
       return false unless end_user_notification_validator.valid?(@end_user_notification)
-      enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY,MONITOR_ENFORCE,OFF"])
+      enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE", "OFF"])
       return false unless enforcement_mode_validator.valid?(@enforcement_mode)
-      whitelist_mode_validator = EnumAttributeValidator.new('String', ["ENABLE_ALWAYS,DISABLE_VIRTUAL"])
+      pcie_enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      return false unless pcie_enforcement_mode_validator.valid?(@pcie_enforcement_mode)
+      storage_space_enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      return false unless storage_space_enforcement_mode_validator.valid?(@storage_space_enforcement_mode)
+      user_based_enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      return false unless user_based_enforcement_mode_validator.valid?(@user_based_enforcement_mode)
+      whitelist_mode_validator = EnumAttributeValidator.new('String', ["ENABLE_ALWAYS", "DISABLE_VIRTUAL"])
       return false unless whitelist_mode_validator.valid?(@whitelist_mode)
       true
     end
@@ -157,7 +190,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] end_user_notification Object to be assigned
     def end_user_notification=(end_user_notification)
-      validator = EnumAttributeValidator.new('String', ["NOTIFY_USER,SILENT"])
+      validator = EnumAttributeValidator.new('String', ["NOTIFY_USER", "SILENT"])
       unless validator.valid?(end_user_notification)
         fail ArgumentError, "invalid value for \"end_user_notification\", must be one of #{validator.allowable_values}."
       end
@@ -167,7 +200,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] enforcement_mode Object to be assigned
     def enforcement_mode=(enforcement_mode)
-      validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY,MONITOR_ENFORCE,OFF"])
+      validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE", "OFF"])
       unless validator.valid?(enforcement_mode)
         fail ArgumentError, "invalid value for \"enforcement_mode\", must be one of #{validator.allowable_values}."
       end
@@ -175,9 +208,39 @@ module Falcon
     end
 
     # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] pcie_enforcement_mode Object to be assigned
+    def pcie_enforcement_mode=(pcie_enforcement_mode)
+      validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      unless validator.valid?(pcie_enforcement_mode)
+        fail ArgumentError, "invalid value for \"pcie_enforcement_mode\", must be one of #{validator.allowable_values}."
+      end
+      @pcie_enforcement_mode = pcie_enforcement_mode
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] storage_space_enforcement_mode Object to be assigned
+    def storage_space_enforcement_mode=(storage_space_enforcement_mode)
+      validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      unless validator.valid?(storage_space_enforcement_mode)
+        fail ArgumentError, "invalid value for \"storage_space_enforcement_mode\", must be one of #{validator.allowable_values}."
+      end
+      @storage_space_enforcement_mode = storage_space_enforcement_mode
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] user_based_enforcement_mode Object to be assigned
+    def user_based_enforcement_mode=(user_based_enforcement_mode)
+      validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      unless validator.valid?(user_based_enforcement_mode)
+        fail ArgumentError, "invalid value for \"user_based_enforcement_mode\", must be one of #{validator.allowable_values}."
+      end
+      @user_based_enforcement_mode = user_based_enforcement_mode
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
     # @param [Object] whitelist_mode Object to be assigned
     def whitelist_mode=(whitelist_mode)
-      validator = EnumAttributeValidator.new('String', ["ENABLE_ALWAYS,DISABLE_VIRTUAL"])
+      validator = EnumAttributeValidator.new('String', ["ENABLE_ALWAYS", "DISABLE_VIRTUAL"])
       unless validator.valid?(whitelist_mode)
         fail ArgumentError, "invalid value for \"whitelist_mode\", must be one of #{validator.allowable_values}."
       end
@@ -193,6 +256,9 @@ module Falcon
           end_user_notification == o.end_user_notification &&
           enforcement_mode == o.enforcement_mode &&
           enhanced_file_metadata == o.enhanced_file_metadata &&
+          pcie_enforcement_mode == o.pcie_enforcement_mode &&
+          storage_space_enforcement_mode == o.storage_space_enforcement_mode &&
+          user_based_enforcement_mode == o.user_based_enforcement_mode &&
           whitelist_mode == o.whitelist_mode
     end
 
@@ -205,7 +271,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_notifications, end_user_notification, enforcement_mode, enhanced_file_metadata, whitelist_mode].hash
+      [custom_notifications, end_user_notification, enforcement_mode, enhanced_file_metadata, pcie_enforcement_mode, storage_space_enforcement_mode, user_based_enforcement_mode, whitelist_mode].hash
     end
 
     # Builds the object from hash

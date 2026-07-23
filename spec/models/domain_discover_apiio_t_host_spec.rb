@@ -71,6 +71,12 @@ describe Falcon::DomainDiscoverAPIIoTHost do
     end
   end
 
+  describe 'test attribute "all_subnets"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "asset_roles"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -282,6 +288,12 @@ describe Falcon::DomainDiscoverAPIIoTHost do
   end
 
   describe 'test attribute "department"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "deployment_type"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -551,6 +563,12 @@ describe Falcon::DomainDiscoverAPIIoTHost do
     end
   end
 
+  describe 'test attribute "linux_sensor_mode"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "local_ip_addresses"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -623,6 +641,12 @@ describe Falcon::DomainDiscoverAPIIoTHost do
     end
   end
 
+  describe 'test attribute "multi_nic_ip_addresses"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "network_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -630,6 +654,12 @@ describe Falcon::DomainDiscoverAPIIoTHost do
   end
 
   describe 'test attribute "network_interfaces"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "nozomi_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -798,6 +828,12 @@ describe Falcon::DomainDiscoverAPIIoTHost do
   end
 
   describe 'test attribute "subnet"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "subnet_history"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -134,7 +134,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @cloud_provider.nil?
-      cloud_provider_validator = EnumAttributeValidator.new('String', ["aws", "azure", "gcp"])
+      cloud_provider_validator = EnumAttributeValidator.new('String', ["aws", "azure", "gcp", "oci"])
       return false unless cloud_provider_validator.valid?(@cloud_provider)
       true
     end
@@ -142,7 +142,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] cloud_provider Object to be assigned
     def cloud_provider=(cloud_provider)
-      validator = EnumAttributeValidator.new('String', ["aws", "azure", "gcp"])
+      validator = EnumAttributeValidator.new('String', ["aws", "azure", "gcp", "oci"])
       unless validator.valid?(cloud_provider)
         fail ArgumentError, "invalid value for \"cloud_provider\", must be one of #{validator.allowable_values}."
       end

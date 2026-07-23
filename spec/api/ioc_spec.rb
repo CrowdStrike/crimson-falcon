@@ -190,6 +190,17 @@ describe 'Ioc' do
     end
   end
 
+  # unit tests for indicator_sdmf_query_v1
+  # Executes an SDMF data frame query against IOC indicators
+  # @param body SDMF DataFrame query
+  # @param [Hash] opts the optional parameters
+  # @return [ApiSdmfResponse]
+  describe 'indicator_sdmf_query_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for indicator_search_v1
   # Search for Indicators.
   # @param [Hash] opts the optional parameters

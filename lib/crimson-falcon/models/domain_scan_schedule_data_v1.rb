@@ -33,6 +33,8 @@ module Falcon
   class DomainScanScheduleDataV1
     attr_accessor :cloud_platform
 
+    attr_accessor :last_scan_completed_at
+
     attr_accessor :next_scan_timestamp
 
     attr_accessor :scan_interval
@@ -43,6 +45,7 @@ module Falcon
     def self.attribute_map
       {
         :'cloud_platform' => :'cloud_platform',
+        :'last_scan_completed_at' => :'last_scan_completed_at',
         :'next_scan_timestamp' => :'next_scan_timestamp',
         :'scan_interval' => :'scan_interval',
         :'scan_schedule' => :'scan_schedule'
@@ -58,6 +61,7 @@ module Falcon
     def self.openapi_types
       {
         :'cloud_platform' => :'String',
+        :'last_scan_completed_at' => :'Time',
         :'next_scan_timestamp' => :'Time',
         :'scan_interval' => :'String',
         :'scan_schedule' => :'String'
@@ -87,6 +91,10 @@ module Falcon
 
       if attributes.key?(:'cloud_platform')
         self.cloud_platform = attributes[:'cloud_platform']
+      end
+
+      if attributes.key?(:'last_scan_completed_at')
+        self.last_scan_completed_at = attributes[:'last_scan_completed_at']
       end
 
       if attributes.key?(:'next_scan_timestamp')
@@ -126,6 +134,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           cloud_platform == o.cloud_platform &&
+          last_scan_completed_at == o.last_scan_completed_at &&
           next_scan_timestamp == o.next_scan_timestamp &&
           scan_interval == o.scan_interval &&
           scan_schedule == o.scan_schedule
@@ -140,7 +149,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cloud_platform, next_scan_timestamp, scan_interval, scan_schedule].hash
+      [cloud_platform, last_scan_completed_at, next_scan_timestamp, scan_interval, scan_schedule].hash
     end
 
     # Builds the object from hash

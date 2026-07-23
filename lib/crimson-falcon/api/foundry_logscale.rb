@@ -1030,7 +1030,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Lists available repositories and views
+    # Lists available repositories
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :check_test_data Include whether test data is present in the application repository (default to false)
     # @return [ApidomainRepoViewListItemWrapperV1]
@@ -1039,7 +1039,7 @@ module Falcon
       data
     end
 
-    # Lists available repositories and views
+    # Lists available repositories
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :check_test_data Include whether test data is present in the application repository (default to false)
     # @return [Array<(ApidomainRepoViewListItemWrapperV1, Integer, Hash)>] ApidomainRepoViewListItemWrapperV1 data, response status code and response headers
@@ -1088,7 +1088,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # List views
+    # List available views
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :check_test_data Include whether test data is present in the application repository (default to false)
     # @return [ApidomainRepoViewListItemWrapperV1]
@@ -1097,7 +1097,7 @@ module Falcon
       data
     end
 
-    # List views
+    # List available views
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :check_test_data Include whether test data is present in the application repository (default to false)
     # @return [Array<(ApidomainRepoViewListItemWrapperV1, Integer, Hash)>] ApidomainRepoViewListItemWrapperV1 data, response status code and response headers

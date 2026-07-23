@@ -120,10 +120,6 @@ module Falcon
         invalid_properties.push('invalid value for "expires_at", expires_at cannot be nil.')
       end
 
-      if @use_network_extension.nil?
-        invalid_properties.push('invalid value for "use_network_extension", use_network_extension cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -133,7 +129,6 @@ module Falcon
       return false if @email_addresses.nil?
       return false if @enrollment_type.nil?
       return false if @expires_at.nil?
-      return false if @use_network_extension.nil?
       true
     end
 

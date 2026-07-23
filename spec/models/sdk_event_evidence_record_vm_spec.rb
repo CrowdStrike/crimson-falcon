@@ -41,6 +41,12 @@ describe Falcon::SdkEventEvidenceRecordVM do
       expect(instance).to be_instance_of(Falcon::SdkEventEvidenceRecordVM)
     end
   end
+  describe 'test attribute "id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "selector"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -47,6 +47,12 @@ module Falcon
     # Detections associated with the template
     attr_accessor :detections
 
+    # Excluded TCP ports associated with the template
+    attr_accessor :excluded_tcp_ports
+
+    # Excluded UDP ports associated with the template
+    attr_accessor :excluded_udp_ports
+
     # The unique identifier of the template
     attr_accessor :id
 
@@ -58,6 +64,8 @@ module Falcon
 
     # The port scan level associated with the template
     attr_accessor :ports_scan_level
+
+    attr_accessor :scan_flags
 
     # The scan intensity at which scans will run from this template
     attr_accessor :scan_intensity
@@ -92,10 +100,13 @@ module Falcon
         :'additional_udp_ports' => :'additional_udp_ports',
         :'auto_include_new_detections' => :'auto_include_new_detections',
         :'detections' => :'detections',
+        :'excluded_tcp_ports' => :'excluded_tcp_ports',
+        :'excluded_udp_ports' => :'excluded_udp_ports',
         :'id' => :'id',
         :'ignore_tcp_resets' => :'ignore_tcp_resets',
         :'name' => :'name',
         :'ports_scan_level' => :'ports_scan_level',
+        :'scan_flags' => :'scan_flags',
         :'scan_intensity' => :'scan_intensity'
       }
     end
@@ -113,10 +124,13 @@ module Falcon
         :'additional_udp_ports' => :'Array<String>',
         :'auto_include_new_detections' => :'Boolean',
         :'detections' => :'Array<String>',
+        :'excluded_tcp_ports' => :'Array<String>',
+        :'excluded_udp_ports' => :'Array<String>',
         :'id' => :'String',
         :'ignore_tcp_resets' => :'Boolean',
         :'name' => :'String',
         :'ports_scan_level' => :'String',
+        :'scan_flags' => :'NswipScanFlags',
         :'scan_intensity' => :'String'
       }
     end
@@ -168,6 +182,18 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'excluded_tcp_ports')
+        if (value = attributes[:'excluded_tcp_ports']).is_a?(Array)
+          self.excluded_tcp_ports = value
+        end
+      end
+
+      if attributes.key?(:'excluded_udp_ports')
+        if (value = attributes[:'excluded_udp_ports']).is_a?(Array)
+          self.excluded_udp_ports = value
+        end
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -182,6 +208,10 @@ module Falcon
 
       if attributes.key?(:'ports_scan_level')
         self.ports_scan_level = attributes[:'ports_scan_level']
+      end
+
+      if attributes.key?(:'scan_flags')
+        self.scan_flags = attributes[:'scan_flags']
       end
 
       if attributes.key?(:'scan_intensity')
@@ -208,7 +238,7 @@ module Falcon
       return false if @id.nil?
       ports_scan_level_validator = EnumAttributeValidator.new('String', ["default,all_ports,custom"])
       return false unless ports_scan_level_validator.valid?(@ports_scan_level)
-      scan_intensity_validator = EnumAttributeValidator.new('String', ["basic,standard,cautious,maximum"])
+      scan_intensity_validator = EnumAttributeValidator.new('String', ["basic,standard,cautious,maximum,custom"])
       return false unless scan_intensity_validator.valid?(@scan_intensity)
       true
     end
@@ -236,7 +266,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] scan_intensity Object to be assigned
     def scan_intensity=(scan_intensity)
-      validator = EnumAttributeValidator.new('String', ["basic,standard,cautious,maximum"])
+      validator = EnumAttributeValidator.new('String', ["basic,standard,cautious,maximum,custom"])
       unless validator.valid?(scan_intensity)
         fail ArgumentError, "invalid value for \"scan_intensity\", must be one of #{validator.allowable_values}."
       end
@@ -253,10 +283,13 @@ module Falcon
           additional_udp_ports == o.additional_udp_ports &&
           auto_include_new_detections == o.auto_include_new_detections &&
           detections == o.detections &&
+          excluded_tcp_ports == o.excluded_tcp_ports &&
+          excluded_udp_ports == o.excluded_udp_ports &&
           id == o.id &&
           ignore_tcp_resets == o.ignore_tcp_resets &&
           name == o.name &&
           ports_scan_level == o.ports_scan_level &&
+          scan_flags == o.scan_flags &&
           scan_intensity == o.scan_intensity
     end
 
@@ -269,7 +302,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active_check_level, additional_tcp_ports, additional_udp_ports, auto_include_new_detections, detections, id, ignore_tcp_resets, name, ports_scan_level, scan_intensity].hash
+      [active_check_level, additional_tcp_ports, additional_udp_ports, auto_include_new_detections, detections, excluded_tcp_ports, excluded_udp_ports, id, ignore_tcp_resets, name, ports_scan_level, scan_flags, scan_intensity].hash
     end
 
     # Builds the object from hash

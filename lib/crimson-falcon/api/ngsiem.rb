@@ -35,6 +35,273 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Create Multiple Dashboards from YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+    # @param body [ApiBulkCreateDashboardsFromTemplateRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkCreateDashboardsFromTemplateResponseV1]
+    def bulk_create_dashboards_from_template(body, opts = {})
+      data, _status_code, _headers = bulk_create_dashboards_from_template_with_http_info(body, opts)
+      data
+    end
+
+    # Create Multiple Dashboards from YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+    # @param body [ApiBulkCreateDashboardsFromTemplateRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkCreateDashboardsFromTemplateResponseV1, Integer, Hash)>] ApiBulkCreateDashboardsFromTemplateResponseV1 data, response status code and response headers
+    def bulk_create_dashboards_from_template_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_create_dashboards_from_template ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_create_dashboards_from_template"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-dashboards-template/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkCreateDashboardsFromTemplateResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_create_dashboards_from_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_create_dashboards_from_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create Multiple Lookup Files. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+    # @param body [ApiBulkCreateLookupFilesRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkCreateLookupFilesResponseV1]
+    def bulk_create_lookup_files(body, opts = {})
+      data, _status_code, _headers = bulk_create_lookup_files_with_http_info(body, opts)
+      data
+    end
+
+    # Create Multiple Lookup Files. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+    # @param body [ApiBulkCreateLookupFilesRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkCreateLookupFilesResponseV1, Integer, Hash)>] ApiBulkCreateLookupFilesResponseV1 data, response status code and response headers
+    def bulk_create_lookup_files_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_create_lookup_files ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_create_lookup_files"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-lookupfiles/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkCreateLookupFilesResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_create_lookup_files",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_create_lookup_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create Multiple Saved Queries from LogScale YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+    # @param body [ApiBulkCreateSavedQueriesFromTemplateRequestV1] bulk create saved queries request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkCreateSavedQueriesFromTemplateResponseV1]
+    def bulk_create_saved_queries_from_template(body, opts = {})
+      data, _status_code, _headers = bulk_create_saved_queries_from_template_with_http_info(body, opts)
+      data
+    end
+
+    # Create Multiple Saved Queries from LogScale YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+    # @param body [ApiBulkCreateSavedQueriesFromTemplateRequestV1] bulk create saved queries request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkCreateSavedQueriesFromTemplateResponseV1, Integer, Hash)>] ApiBulkCreateSavedQueriesFromTemplateResponseV1 data, response status code and response headers
+    def bulk_create_saved_queries_from_template_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_create_saved_queries_from_template ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_create_saved_queries_from_template"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-savedqueries-template/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkCreateSavedQueriesFromTemplateResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_create_saved_queries_from_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_create_saved_queries_from_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve Multiple Lookup Files by Filenames in NGSIEM.
+    # @param filename [Array<String>] Lookup file filename(s) (required, multiple allowed)
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [ApiBulkGetLookupFilesResponseV1]
+    def bulk_get_lookup_files(filename, opts = {})
+      data, _status_code, _headers = bulk_get_lookup_files_with_http_info(filename, opts)
+      data
+    end
+
+    # Retrieve Multiple Lookup Files by Filenames in NGSIEM.
+    # @param filename [Array<String>] Lookup file filename(s) (required, multiple allowed)
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [Array<(ApiBulkGetLookupFilesResponseV1, Integer, Hash)>] ApiBulkGetLookupFilesResponseV1 data, response status code and response headers
+    def bulk_get_lookup_files_with_http_info(filename, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_get_lookup_files ...'
+      end
+      # verify the required parameter 'filename' is set
+      if @api_client.config.client_side_validation && filename.nil?
+        fail ArgumentError, "Missing the required parameter 'filename' when calling Ngsiem.bulk_get_lookup_files"
+      end
+      allowable_values = ["all", "falcon", "third-party", "dashboards", "parsers-repository"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-lookupfiles/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filename'] = @api_client.build_collection_param(filename, :csv)
+      query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkGetLookupFilesResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_get_lookup_files",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_get_lookup_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Installs multiple CrowdStrike-managed out-of-the-box (OOTB) parsers into the customer's repository in a single operation. This endpoint provisions multiple pre-built parsers with their specific versions for the requesting customer ID (CID). The parsers are installed as-is and cannot be modified by the customer. Requires an array of parsers with parser_id and version in the request body. Maximum 100 parsers per request.
     # @param body [ApiParserBulkInstallRequestV1] bulk install parsers request
     # @param [Hash] opts the optional parameters
@@ -97,6 +364,204 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Ngsiem#bulk_install_parsers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Multiple Dashboards from YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+    # @param body [ApiBulkUpdateDashboardsFromTemplateRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkUpdateDashboardsFromTemplateResponseV1]
+    def bulk_update_dashboards_from_template(body, opts = {})
+      data, _status_code, _headers = bulk_update_dashboards_from_template_with_http_info(body, opts)
+      data
+    end
+
+    # Update Multiple Dashboards from YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+    # @param body [ApiBulkUpdateDashboardsFromTemplateRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkUpdateDashboardsFromTemplateResponseV1, Integer, Hash)>] ApiBulkUpdateDashboardsFromTemplateResponseV1 data, response status code and response headers
+    def bulk_update_dashboards_from_template_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_update_dashboards_from_template ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_update_dashboards_from_template"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-dashboards-template/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkUpdateDashboardsFromTemplateResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_update_dashboards_from_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_update_dashboards_from_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Multiple Lookup Files. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+    # @param body [ApiBulkUpdateLookupFilesRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkUpdateLookupFilesResponseV1]
+    def bulk_update_lookup_files(body, opts = {})
+      data, _status_code, _headers = bulk_update_lookup_files_with_http_info(body, opts)
+      data
+    end
+
+    # Update Multiple Lookup Files. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+    # @param body [ApiBulkUpdateLookupFilesRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkUpdateLookupFilesResponseV1, Integer, Hash)>] ApiBulkUpdateLookupFilesResponseV1 data, response status code and response headers
+    def bulk_update_lookup_files_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_update_lookup_files ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_update_lookup_files"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-lookupfiles/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkUpdateLookupFilesResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_update_lookup_files",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_update_lookup_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Multiple Saved Queries from LogScale YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+    # @param body [ApiBulkUpdateSavedQueriesFromTemplateRequestV1] bulk update saved queries request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkUpdateSavedQueriesFromTemplateResponseV1]
+    def bulk_update_saved_queries_from_template(body, opts = {})
+      data, _status_code, _headers = bulk_update_saved_queries_from_template_with_http_info(body, opts)
+      data
+    end
+
+    # Update Multiple Saved Queries from LogScale YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+    # @param body [ApiBulkUpdateSavedQueriesFromTemplateRequestV1] bulk update saved queries request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkUpdateSavedQueriesFromTemplateResponseV1, Integer, Hash)>] ApiBulkUpdateSavedQueriesFromTemplateResponseV1 data, response status code and response headers
+    def bulk_update_saved_queries_from_template_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_update_saved_queries_from_template ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_update_saved_queries_from_template"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-savedqueries-template/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkUpdateSavedQueriesFromTemplateResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_update_saved_queries_from_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_update_saved_queries_from_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -261,7 +726,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ngsiem.create_lookup_file ...'
       end
-      allowable_values = ["all", "falcon", "third-party", "parsers-repository"]
+      allowable_values = ["all", "falcon", "falcon-for-it", "third-party", "parsers-repository"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -375,6 +840,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Ngsiem#create_parser\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a Parser extension in NGSIEM for the provided base parser.
+    # @param body [ApiCreateParserExtensionRequestV1] create parser extension request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiCreateParserResponseV1]
+    def create_parser_extension(body, opts = {})
+      data, _status_code, _headers = create_parser_extension_with_http_info(body, opts)
+      data
+    end
+
+    # Create a Parser extension in NGSIEM for the provided base parser.
+    # @param body [ApiCreateParserExtensionRequestV1] create parser extension request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiCreateParserResponseV1, Integer, Hash)>] ApiCreateParserResponseV1 data, response status code and response headers
+    def create_parser_extension_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.create_parser_extension ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.create_parser_extension"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers-extensions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiCreateParserResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.create_parser_extension",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#create_parser_extension\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -521,7 +1052,7 @@ module Falcon
 
     # Delete Dashboard in NGSIEM
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :ids dashboard ID value
+    # @option opts [Array<String>] :ids dashboard ID value(s). Supports single or multiple IDs for bulk delete.
     # @option opts [String] :search_domain name of search domain (view or repo)
     # @return [ApiDeleteDashboardResponseV1]
     def delete_dashboard(opts = {})
@@ -531,7 +1062,7 @@ module Falcon
 
     # Delete Dashboard in NGSIEM
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :ids dashboard ID value
+    # @option opts [Array<String>] :ids dashboard ID value(s). Supports single or multiple IDs for bulk delete.
     # @option opts [String] :search_domain name of search domain (view or repo)
     # @return [Array<(ApiDeleteDashboardResponseV1, Integer, Hash)>] ApiDeleteDashboardResponseV1 data, response status code and response headers
     def delete_dashboard_with_http_info(opts = {})
@@ -547,7 +1078,7 @@ module Falcon
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
       query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
 
       # header parameters
@@ -586,7 +1117,7 @@ module Falcon
 
     # Delete Lookup File in NGSIEM
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filename lookup file filename
+    # @option opts [Array<String>] :filename lookup file filename(s). Supports single or multiple filenames for bulk delete.
     # @option opts [String] :search_domain name of search domain (view or repo)
     # @return [ApiDeleteLookupFileResponseV1]
     def delete_lookup_file(opts = {})
@@ -596,7 +1127,7 @@ module Falcon
 
     # Delete Lookup File in NGSIEM
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filename lookup file filename
+    # @option opts [Array<String>] :filename lookup file filename(s). Supports single or multiple filenames for bulk delete.
     # @option opts [String] :search_domain name of search domain (view or repo)
     # @return [Array<(ApiDeleteLookupFileResponseV1, Integer, Hash)>] ApiDeleteLookupFileResponseV1 data, response status code and response headers
     def delete_lookup_file_with_http_info(opts = {})
@@ -612,7 +1143,7 @@ module Falcon
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'filename'] = opts[:'filename'] if !opts[:'filename'].nil?
+      query_params[:'filename'] = @api_client.build_collection_param(opts[:'filename'], :csv) if !opts[:'filename'].nil?
       query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
 
       # header parameters
@@ -716,7 +1247,7 @@ module Falcon
 
     # Delete Saved Query in NGSIEM
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :ids saved query ID value
+    # @option opts [Array<String>] :ids saved query ID value(s). Supports single or multiple IDs for bulk delete.
     # @option opts [String] :search_domain name of search domain (view or repo)
     # @return [ApiDeleteSavedQueryResponseV1]
     def delete_saved_query(opts = {})
@@ -726,7 +1257,7 @@ module Falcon
 
     # Delete Saved Query in NGSIEM
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :ids saved query ID value
+    # @option opts [Array<String>] :ids saved query ID value(s). Supports single or multiple IDs for bulk delete.
     # @option opts [String] :search_domain name of search domain (view or repo)
     # @return [Array<(ApiDeleteSavedQueryResponseV1, Integer, Hash)>] ApiDeleteSavedQueryResponseV1 data, response status code and response headers
     def delete_saved_query_with_http_info(opts = {})
@@ -742,7 +1273,7 @@ module Falcon
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
       query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
 
       # header parameters
@@ -1709,9 +2240,9 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve Dashboard in NGSIEM as LogScale YAML Template
+    # Retrieve Dashboard(s) in NGSIEM as LogScale YAML Template. Supports single or multiple IDs.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :ids dashboard ID value
+    # @option opts [Array<String>] :ids dashboard ID value(s)
     # @option opts [String] :search_domain name of search domain (view or repo)
     # @return [ApiGetDashboardTemplateResponseV1]
     def get_dashboard_template(opts = {})
@@ -1719,9 +2250,9 @@ module Falcon
       data
     end
 
-    # Retrieve Dashboard in NGSIEM as LogScale YAML Template
+    # Retrieve Dashboard(s) in NGSIEM as LogScale YAML Template. Supports single or multiple IDs.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :ids dashboard ID value
+    # @option opts [Array<String>] :ids dashboard ID value(s)
     # @option opts [String] :search_domain name of search domain (view or repo)
     # @return [Array<(ApiGetDashboardTemplateResponseV1, Integer, Hash)>] ApiGetDashboardTemplateResponseV1 data, response status code and response headers
     def get_dashboard_template_with_http_info(opts = {})
@@ -1737,7 +2268,7 @@ module Falcon
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
       query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
 
       # header parameters
@@ -2188,9 +2719,9 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve Saved Query in NGSIEM as LogScale YAML Template
+    # Retrieve Saved Quer(ies) in NGSIEM as LogScale YAML Template. Supports single or multiple IDs.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :ids saved query ID value
+    # @option opts [Array<String>] :ids saved query ID value(s)
     # @option opts [String] :search_domain name of search domain (view or repo)
     # @return [ApiGetSavedQueryResponseV1]
     def get_saved_query_template(opts = {})
@@ -2198,9 +2729,9 @@ module Falcon
       data
     end
 
-    # Retrieve Saved Query in NGSIEM as LogScale YAML Template
+    # Retrieve Saved Quer(ies) in NGSIEM as LogScale YAML Template. Supports single or multiple IDs.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :ids saved query ID value
+    # @option opts [Array<String>] :ids saved query ID value(s)
     # @option opts [String] :search_domain name of search domain (view or repo)
     # @return [Array<(ApiGetSavedQueryResponseV1, Integer, Hash)>] ApiGetSavedQueryResponseV1 data, response status code and response headers
     def get_saved_query_template_with_http_info(opts = {})
@@ -2216,7 +2747,7 @@ module Falcon
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
       query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
 
       # header parameters
@@ -2386,7 +2917,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # List Dashboards in NGSIEM
+    # List Dashboards in NGSIEM with Pagination and Filtering. Returns dashboard ID and name. Supports pagination (default limit: 50) and optional name filtering.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :limit maximum number of results to return (default to '50')
     # @option opts [String] :offset number of results to offset the returned results by (default to '0')
@@ -2398,7 +2929,7 @@ module Falcon
       data
     end
 
-    # List Dashboards in NGSIEM
+    # List Dashboards in NGSIEM with Pagination and Filtering. Returns dashboard ID and name. Supports pagination (default limit: 50) and optional name filtering.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :limit maximum number of results to return (default to '50')
     # @option opts [String] :offset number of results to offset the returned results by (default to '0')
@@ -2467,7 +2998,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # List Lookup Files in NGSIEM
+    # List Lookup Files in NGSIEM with Pagination and Filtering. Supports bulk listing with pagination (default limit: 50) and optional name filtering.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :limit maximum number of results to return (default to '50')
     # @option opts [String] :offset number of results to offset the returned results by (default to '0')
@@ -2479,7 +3010,7 @@ module Falcon
       data
     end
 
-    # List Lookup Files in NGSIEM
+    # List Lookup Files in NGSIEM with Pagination and Filtering. Supports bulk listing with pagination (default limit: 50) and optional name filtering.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :limit maximum number of results to return (default to '50')
     # @option opts [String] :offset number of results to offset the returned results by (default to '0')
@@ -2593,7 +3124,7 @@ module Falcon
       if @api_client.config.client_side_validation && opts[:'update_available'] && !allowable_values.include?(opts[:'update_available'])
         fail ArgumentError, "invalid value for \"update_available\", must be one of #{allowable_values}"
       end
-      allowable_values = ["ootb", "custom"]
+      allowable_values = ["ootb", "custom", "extension"]
       if @api_client.config.client_side_validation && opts[:'parser_type'] && !allowable_values.include?(opts[:'parser_type'])
         fail ArgumentError, "invalid value for \"parser_type\", must be one of #{allowable_values}"
       end
@@ -2643,7 +3174,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Get Saved Queries in NGSIEM
+    # List Saved Queries in NGSIEM with Pagination and Filtering. Supports bulk listing with pagination (default limit: 50) and optional name filtering.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :limit maximum number of results to return (default to '50')
     # @option opts [String] :offset number of results to offset the returned results by (default to '0')
@@ -2655,7 +3186,7 @@ module Falcon
       data
     end
 
-    # Get Saved Queries in NGSIEM
+    # List Saved Queries in NGSIEM with Pagination and Filtering. Supports bulk listing with pagination (default limit: 50) and optional name filtering.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :limit maximum number of results to return (default to '50')
     # @option opts [String] :offset number of results to offset the returned results by (default to '0')
@@ -3023,7 +3554,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ngsiem.update_lookup_file ...'
       end
-      allowable_values = ["all", "falcon", "third-party", "parsers-repository"]
+      allowable_values = ["all", "falcon", "falcon-for-it", "third-party", "parsers-repository"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -3293,6 +3824,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Ngsiem#update_parser_auto_update_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update an existing Parser extension in NGSIEM. At least one field must be provided for update.
+    # @param body [ApiUpdateParserExtensionRequestV1] update parser extension request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiCreateParserResponseV1]
+    def update_parser_extension(body, opts = {})
+      data, _status_code, _headers = update_parser_extension_with_http_info(body, opts)
+      data
+    end
+
+    # Update an existing Parser extension in NGSIEM. At least one field must be provided for update.
+    # @param body [ApiUpdateParserExtensionRequestV1] update parser extension request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiCreateParserResponseV1, Integer, Hash)>] ApiCreateParserResponseV1 data, response status code and response headers
+    def update_parser_extension_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.update_parser_extension ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.update_parser_extension"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers-extensions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiCreateParserResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.update_parser_extension",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#update_parser_extension\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

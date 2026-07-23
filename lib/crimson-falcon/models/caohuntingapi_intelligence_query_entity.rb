@@ -53,6 +53,8 @@ module Falcon
 
     attr_accessor :has_elite_query_explainer
 
+    attr_accessor :hunting_guides
+
     attr_accessor :id
 
     attr_accessor :kill_chain
@@ -102,6 +104,7 @@ module Falcon
         :'environment' => :'environment',
         :'has_elite_analyst_notes' => :'has_elite_analyst_notes',
         :'has_elite_query_explainer' => :'has_elite_query_explainer',
+        :'hunting_guides' => :'hunting_guides',
         :'id' => :'id',
         :'kill_chain' => :'kill_chain',
         :'language' => :'language',
@@ -140,6 +143,7 @@ module Falcon
         :'environment' => :'Array<String>',
         :'has_elite_analyst_notes' => :'Boolean',
         :'has_elite_query_explainer' => :'Boolean',
+        :'hunting_guides' => :'Array<DomainEntityInfo>',
         :'id' => :'String',
         :'kill_chain' => :'Array<String>',
         :'language' => :'String',
@@ -225,6 +229,12 @@ module Falcon
 
       if attributes.key?(:'has_elite_query_explainer')
         self.has_elite_query_explainer = attributes[:'has_elite_query_explainer']
+      end
+
+      if attributes.key?(:'hunting_guides')
+        if (value = attributes[:'hunting_guides']).is_a?(Array)
+          self.hunting_guides = value
+        end
       end
 
       if attributes.key?(:'id')
@@ -397,6 +407,7 @@ module Falcon
           environment == o.environment &&
           has_elite_analyst_notes == o.has_elite_analyst_notes &&
           has_elite_query_explainer == o.has_elite_query_explainer &&
+          hunting_guides == o.hunting_guides &&
           id == o.id &&
           kill_chain == o.kill_chain &&
           language == o.language &&
@@ -425,7 +436,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [adversaries, content, created_at, depends_on, description, elite_analyst_notes, elite_query_explainer, environment, has_elite_analyst_notes, has_elite_query_explainer, id, kill_chain, language, last_updated_at, malware_families, mitre, mitre_technique_ids, name, provider, relates_to_community_alias, reports, reports_count, subscriptions, translated_languages, translations, type, version].hash
+      [adversaries, content, created_at, depends_on, description, elite_analyst_notes, elite_query_explainer, environment, has_elite_analyst_notes, has_elite_query_explainer, hunting_guides, id, kill_chain, language, last_updated_at, malware_families, mitre, mitre_technique_ids, name, provider, relates_to_community_alias, reports, reports_count, subscriptions, translated_languages, translations, type, version].hash
     end
 
     # Builds the object from hash

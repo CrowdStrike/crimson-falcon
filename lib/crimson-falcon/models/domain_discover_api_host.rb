@@ -48,6 +48,9 @@ module Falcon
     # The agent ID of the Falcon sensor installed on the asset.
     attr_accessor :aid
 
+    # All subnets (current and historical) to which the device is or was connected.
+    attr_accessor :all_subnets
+
     # The asset role or roles currently assigned to the asset either automatically or by a user (Jump host, Highly connected, Highly active, Server by behavior, DHCP server, DNS server, FTP server, SSH server, or Web server).
     attr_accessor :asset_roles
 
@@ -173,6 +176,9 @@ module Falcon
 
     # The department where the asset is used.
     attr_accessor :department
+
+    # The deployment type of the asset.
+    attr_accessor :deployment_type
 
     # The descriptions of the asset in Active Directory (Cannot be used for filtering, sorting, or querying).
     attr_accessor :descriptions
@@ -309,6 +315,9 @@ module Falcon
     # The date of the most recent unauthenticated scan.
     attr_accessor :last_unauthenticated_scan_date
 
+    # The sensor mode of the Linux asset.
+    attr_accessor :linux_sensor_mode
+
     # Historical local IPv4 addresses associated with the asset.
     attr_accessor :local_ip_addresses
 
@@ -345,6 +354,9 @@ module Falcon
     # The path, used and available space on mounted disks
     attr_accessor :mount_storage_info
 
+    # The IP addresses across multiple network interfaces of the device.
+    attr_accessor :multi_nic_ip_addresses
+
     # The network ID to which device is connected.
     attr_accessor :network_id
 
@@ -353,6 +365,9 @@ module Falcon
 
     # The set of unique identifiers for the asset scanned by the Falcon sensor.
     attr_accessor :network_scanned_ids
+
+    # The external ID of the IoT Device in 3rd Party System (Nozomi Vantage)
+    attr_accessor :nozomi_id
 
     # The number of active physical drives available on the system.
     attr_accessor :number_of_disk_drives
@@ -446,6 +461,9 @@ module Falcon
     # The subnet to which device is connected.
     attr_accessor :subnet
 
+    # The historical subnets to which the device was connected.
+    attr_accessor :subnet_history
+
     # The asset's system manufacturer.
     attr_accessor :system_manufacturer
 
@@ -523,6 +541,7 @@ module Falcon
         :'ad_virtual_server' => :'ad_virtual_server',
         :'agent_version' => :'agent_version',
         :'aid' => :'aid',
+        :'all_subnets' => :'all_subnets',
         :'asset_roles' => :'asset_roles',
         :'assigned_to' => :'assigned_to',
         :'available_disk_space' => :'available_disk_space',
@@ -565,6 +584,7 @@ module Falcon
         :'data_providers' => :'data_providers',
         :'data_providers_count' => :'data_providers_count',
         :'department' => :'department',
+        :'deployment_type' => :'deployment_type',
         :'descriptions' => :'descriptions',
         :'device_class' => :'device_class',
         :'device_family' => :'device_family',
@@ -611,6 +631,7 @@ module Falcon
         :'last_discoverer_ics_collector_id' => :'last_discoverer_ics_collector_id',
         :'last_seen_timestamp' => :'last_seen_timestamp',
         :'last_unauthenticated_scan_date' => :'last_unauthenticated_scan_date',
+        :'linux_sensor_mode' => :'linux_sensor_mode',
         :'local_ip_addresses' => :'local_ip_addresses',
         :'local_ips_count' => :'local_ips_count',
         :'location' => :'location',
@@ -623,9 +644,11 @@ module Falcon
         :'max_processor_usage' => :'max_processor_usage',
         :'memory_total' => :'memory_total',
         :'mount_storage_info' => :'mount_storage_info',
+        :'multi_nic_ip_addresses' => :'multi_nic_ip_addresses',
         :'network_id' => :'network_id',
         :'network_interfaces' => :'network_interfaces',
         :'network_scanned_ids' => :'network_scanned_ids',
+        :'nozomi_id' => :'nozomi_id',
         :'number_of_disk_drives' => :'number_of_disk_drives',
         :'object_guid' => :'object_guid',
         :'object_sid' => :'object_sid',
@@ -657,6 +680,7 @@ module Falcon
         :'site_name' => :'site_name',
         :'state' => :'state',
         :'subnet' => :'subnet',
+        :'subnet_history' => :'subnet_history',
         :'system_manufacturer' => :'system_manufacturer',
         :'system_product_name' => :'system_product_name',
         :'system_serial_number' => :'system_serial_number',
@@ -697,6 +721,7 @@ module Falcon
         :'ad_virtual_server' => :'String',
         :'agent_version' => :'String',
         :'aid' => :'String',
+        :'all_subnets' => :'Array<String>',
         :'asset_roles' => :'Array<String>',
         :'assigned_to' => :'String',
         :'available_disk_space' => :'Integer',
@@ -739,6 +764,7 @@ module Falcon
         :'data_providers' => :'Array<String>',
         :'data_providers_count' => :'Integer',
         :'department' => :'String',
+        :'deployment_type' => :'String',
         :'descriptions' => :'Array<String>',
         :'device_class' => :'String',
         :'device_family' => :'String',
@@ -785,6 +811,7 @@ module Falcon
         :'last_discoverer_ics_collector_id' => :'String',
         :'last_seen_timestamp' => :'String',
         :'last_unauthenticated_scan_date' => :'String',
+        :'linux_sensor_mode' => :'String',
         :'local_ip_addresses' => :'Array<String>',
         :'local_ips_count' => :'Integer',
         :'location' => :'String',
@@ -797,9 +824,11 @@ module Falcon
         :'max_processor_usage' => :'Integer',
         :'memory_total' => :'Integer',
         :'mount_storage_info' => :'Array<DomainDiscoverAPIMountStorageInfo>',
+        :'multi_nic_ip_addresses' => :'Array<String>',
         :'network_id' => :'String',
         :'network_interfaces' => :'Array<DomainDiscoverAPINetworkInterface>',
         :'network_scanned_ids' => :'Array<String>',
+        :'nozomi_id' => :'String',
         :'number_of_disk_drives' => :'Integer',
         :'object_guid' => :'String',
         :'object_sid' => :'String',
@@ -831,6 +860,7 @@ module Falcon
         :'site_name' => :'String',
         :'state' => :'String',
         :'subnet' => :'String',
+        :'subnet_history' => :'Array<String>',
         :'system_manufacturer' => :'String',
         :'system_product_name' => :'String',
         :'system_serial_number' => :'String',
@@ -900,6 +930,12 @@ module Falcon
 
       if attributes.key?(:'aid')
         self.aid = attributes[:'aid']
+      end
+
+      if attributes.key?(:'all_subnets')
+        if (value = attributes[:'all_subnets']).is_a?(Array)
+          self.all_subnets = value
+        end
       end
 
       if attributes.key?(:'asset_roles')
@@ -1076,6 +1112,10 @@ module Falcon
 
       if attributes.key?(:'department')
         self.department = attributes[:'department']
+      end
+
+      if attributes.key?(:'deployment_type')
+        self.deployment_type = attributes[:'deployment_type']
       end
 
       if attributes.key?(:'descriptions')
@@ -1292,6 +1332,10 @@ module Falcon
         self.last_unauthenticated_scan_date = attributes[:'last_unauthenticated_scan_date']
       end
 
+      if attributes.key?(:'linux_sensor_mode')
+        self.linux_sensor_mode = attributes[:'linux_sensor_mode']
+      end
+
       if attributes.key?(:'local_ip_addresses')
         if (value = attributes[:'local_ip_addresses']).is_a?(Array)
           self.local_ip_addresses = value
@@ -1346,6 +1390,12 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'multi_nic_ip_addresses')
+        if (value = attributes[:'multi_nic_ip_addresses']).is_a?(Array)
+          self.multi_nic_ip_addresses = value
+        end
+      end
+
       if attributes.key?(:'network_id')
         self.network_id = attributes[:'network_id']
       end
@@ -1360,6 +1410,10 @@ module Falcon
         if (value = attributes[:'network_scanned_ids']).is_a?(Array)
           self.network_scanned_ids = value
         end
+      end
+
+      if attributes.key?(:'nozomi_id')
+        self.nozomi_id = attributes[:'nozomi_id']
       end
 
       if attributes.key?(:'number_of_disk_drives')
@@ -1496,6 +1550,12 @@ module Falcon
 
       if attributes.key?(:'subnet')
         self.subnet = attributes[:'subnet']
+      end
+
+      if attributes.key?(:'subnet_history')
+        if (value = attributes[:'subnet_history']).is_a?(Array)
+          self.subnet_history = value
+        end
       end
 
       if attributes.key?(:'system_manufacturer')
@@ -1637,6 +1697,7 @@ module Falcon
           ad_virtual_server == o.ad_virtual_server &&
           agent_version == o.agent_version &&
           aid == o.aid &&
+          all_subnets == o.all_subnets &&
           asset_roles == o.asset_roles &&
           assigned_to == o.assigned_to &&
           available_disk_space == o.available_disk_space &&
@@ -1679,6 +1740,7 @@ module Falcon
           data_providers == o.data_providers &&
           data_providers_count == o.data_providers_count &&
           department == o.department &&
+          deployment_type == o.deployment_type &&
           descriptions == o.descriptions &&
           device_class == o.device_class &&
           device_family == o.device_family &&
@@ -1725,6 +1787,7 @@ module Falcon
           last_discoverer_ics_collector_id == o.last_discoverer_ics_collector_id &&
           last_seen_timestamp == o.last_seen_timestamp &&
           last_unauthenticated_scan_date == o.last_unauthenticated_scan_date &&
+          linux_sensor_mode == o.linux_sensor_mode &&
           local_ip_addresses == o.local_ip_addresses &&
           local_ips_count == o.local_ips_count &&
           location == o.location &&
@@ -1737,9 +1800,11 @@ module Falcon
           max_processor_usage == o.max_processor_usage &&
           memory_total == o.memory_total &&
           mount_storage_info == o.mount_storage_info &&
+          multi_nic_ip_addresses == o.multi_nic_ip_addresses &&
           network_id == o.network_id &&
           network_interfaces == o.network_interfaces &&
           network_scanned_ids == o.network_scanned_ids &&
+          nozomi_id == o.nozomi_id &&
           number_of_disk_drives == o.number_of_disk_drives &&
           object_guid == o.object_guid &&
           object_sid == o.object_sid &&
@@ -1771,6 +1836,7 @@ module Falcon
           site_name == o.site_name &&
           state == o.state &&
           subnet == o.subnet &&
+          subnet_history == o.subnet_history &&
           system_manufacturer == o.system_manufacturer &&
           system_product_name == o.system_product_name &&
           system_serial_number == o.system_serial_number &&
@@ -1805,7 +1871,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_enabled, active_discovery, ad_user_account_control, ad_virtual_server, agent_version, aid, asset_roles, assigned_to, available_disk_space, available_disk_space_pct, average_memory_usage, average_memory_usage_pct, average_processor_usage, bios_hashes_data, bios_id, bios_manufacturer, bios_version, business_criticality, cid, city, claroty_id, classification, cloud_account_id, cloud_instance_id, cloud_provider, cloud_region, cloud_registered, cloud_resource_id, composite_internet_exposure, computed_asset_roles, computed_internet_exposure, computed_internet_exposure_external_ip, computed_internet_exposure_last_seen, confidence, country, cpu_manufacturer, cpu_processor_name, creation_timestamp, criticality, criticality_description, criticality_rule_id, criticality_timestamp, criticality_username, current_local_ip, current_network_prefix, data_providers, data_providers_count, department, descriptions, device_class, device_family, device_mode, device_slots, device_type, discoverer_aids, discoverer_count, discoverer_criticalities, discoverer_hostnames, discoverer_ics_collector_ids, discoverer_platform_names, discoverer_product_type_descs, discoverer_tags, discovering_by, disk_sizes, dragos_id, email, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_discoverer_aid, first_seen_timestamp, form_factor, fqdn, groups, hostname, ics_id, id, imported_host_id, internet_exposure, internet_exposure_description, internet_exposure_timestamp, internet_exposure_username, iot_imported, iot_tags, kernel_version, last_authenticated_scan_date, last_discoverer_aid, last_discoverer_hostname, last_discoverer_ics_collector_id, last_seen_timestamp, last_unauthenticated_scan_date, local_ip_addresses, local_ips_count, location, logical_core_count, mac_addresses, machine_domain, managed_by, max_memory_usage, max_memory_usage_pct, max_processor_usage, memory_total, mount_storage_info, network_id, network_interfaces, network_scanned_ids, number_of_disk_drives, object_guid, object_sid, os_is_eol, os_security, os_service_pack, os_version, ot_information_sources, ot_network_ids, ot_serial_numbers, ou, ous, override_asset_roles, override_criticality_rules, override_internet_exposure, owned_by, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, protocols, purdue_level, qualys_id, qualys_network_id, reduced_functionality_mode, scan_details, servicenow_id, site_name, state, subnet, system_manufacturer, system_product_name, system_serial_number, tags, tenableio_id, total_bios_files, total_disk_space, total_memory, triage, unencrypted_drives, unencrypted_drives_count, used_disk_space, used_disk_space_pct, used_for, user_asset_roles, user_internet_exposure, virtual_zone, vlan, vulnerability_assessment_date, xdome_id, xiot_discoverer_hostnames, xiot_discoverer_tags, xiot_last_discoverer_hostname].hash
+      [account_enabled, active_discovery, ad_user_account_control, ad_virtual_server, agent_version, aid, all_subnets, asset_roles, assigned_to, available_disk_space, available_disk_space_pct, average_memory_usage, average_memory_usage_pct, average_processor_usage, bios_hashes_data, bios_id, bios_manufacturer, bios_version, business_criticality, cid, city, claroty_id, classification, cloud_account_id, cloud_instance_id, cloud_provider, cloud_region, cloud_registered, cloud_resource_id, composite_internet_exposure, computed_asset_roles, computed_internet_exposure, computed_internet_exposure_external_ip, computed_internet_exposure_last_seen, confidence, country, cpu_manufacturer, cpu_processor_name, creation_timestamp, criticality, criticality_description, criticality_rule_id, criticality_timestamp, criticality_username, current_local_ip, current_network_prefix, data_providers, data_providers_count, department, deployment_type, descriptions, device_class, device_family, device_mode, device_slots, device_type, discoverer_aids, discoverer_count, discoverer_criticalities, discoverer_hostnames, discoverer_ics_collector_ids, discoverer_platform_names, discoverer_product_type_descs, discoverer_tags, discovering_by, disk_sizes, dragos_id, email, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_discoverer_aid, first_seen_timestamp, form_factor, fqdn, groups, hostname, ics_id, id, imported_host_id, internet_exposure, internet_exposure_description, internet_exposure_timestamp, internet_exposure_username, iot_imported, iot_tags, kernel_version, last_authenticated_scan_date, last_discoverer_aid, last_discoverer_hostname, last_discoverer_ics_collector_id, last_seen_timestamp, last_unauthenticated_scan_date, linux_sensor_mode, local_ip_addresses, local_ips_count, location, logical_core_count, mac_addresses, machine_domain, managed_by, max_memory_usage, max_memory_usage_pct, max_processor_usage, memory_total, mount_storage_info, multi_nic_ip_addresses, network_id, network_interfaces, network_scanned_ids, nozomi_id, number_of_disk_drives, object_guid, object_sid, os_is_eol, os_security, os_service_pack, os_version, ot_information_sources, ot_network_ids, ot_serial_numbers, ou, ous, override_asset_roles, override_criticality_rules, override_internet_exposure, owned_by, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, protocols, purdue_level, qualys_id, qualys_network_id, reduced_functionality_mode, scan_details, servicenow_id, site_name, state, subnet, subnet_history, system_manufacturer, system_product_name, system_serial_number, tags, tenableio_id, total_bios_files, total_disk_space, total_memory, triage, unencrypted_drives, unencrypted_drives_count, used_disk_space, used_disk_space_pct, used_for, user_asset_roles, user_internet_exposure, virtual_zone, vlan, vulnerability_assessment_date, xdome_id, xiot_discoverer_hostnames, xiot_discoverer_tags, xiot_last_discoverer_hostname].hash
     end
 
     # Builds the object from hash

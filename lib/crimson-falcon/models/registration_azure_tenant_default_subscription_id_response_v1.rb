@@ -56,7 +56,7 @@ module Falcon
       {
         :'errors' => :'Array<MsaAPIError>',
         :'meta' => :'MsaMetaInfo',
-        :'resources' => :'Object'
+        :'resources' => :'Resources'
       }
     end
 

@@ -31,18 +31,18 @@ require 'time'
 
 module Falcon
   class ExportsExportsResponse
-    attr_accessor :resources
-
     attr_accessor :errors
 
     attr_accessor :meta
 
+    attr_accessor :resources
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'resources' => :'Resources',
         :'errors' => :'errors',
-        :'meta' => :'meta'
+        :'meta' => :'meta',
+        :'resources' => :'resources'
       }
     end
 
@@ -54,9 +54,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'resources' => :'Array<DomainExternalExportJob>',
         :'errors' => :'Array<MsaAPIError>',
-        :'meta' => :'MsaMetaInfo'
+        :'meta' => :'MsaMetaInfo',
+        :'resources' => :'Array<ExportsExportJob>'
       }
     end
 
@@ -81,12 +81,6 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'resources')
-        if (value = attributes[:'resources']).is_a?(Array)
-          self.resources = value
-        end
-      end
-
       if attributes.key?(:'errors')
         if (value = attributes[:'errors']).is_a?(Array)
           self.errors = value
@@ -96,18 +90,24 @@ module Falcon
       if attributes.key?(:'meta')
         self.meta = attributes[:'meta']
       end
+
+      if attributes.key?(:'resources')
+        if (value = attributes[:'resources']).is_a?(Array)
+          self.resources = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @resources.nil?
-        invalid_properties.push('invalid value for "resources", resources cannot be nil.')
-      end
-
       if @meta.nil?
         invalid_properties.push('invalid value for "meta", meta cannot be nil.')
+      end
+
+      if @resources.nil?
+        invalid_properties.push('invalid value for "resources", resources cannot be nil.')
       end
 
       invalid_properties
@@ -116,8 +116,8 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @resources.nil?
       return false if @meta.nil?
+      return false if @resources.nil?
       true
     end
 
@@ -126,9 +126,9 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          resources == o.resources &&
           errors == o.errors &&
-          meta == o.meta
+          meta == o.meta &&
+          resources == o.resources
     end
 
     # @see the `==` method
@@ -140,7 +140,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [resources, errors, meta].hash
+      [errors, meta, resources].hash
     end
 
     # Builds the object from hash

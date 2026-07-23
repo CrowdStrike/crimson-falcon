@@ -35,6 +35,8 @@ module Falcon
 
     attr_accessor :deployment_method
 
+    attr_accessor :dspm_settings
+
     attr_accessor :entity_id
 
     attr_accessor :excluded_project_patterns
@@ -51,6 +53,8 @@ module Falcon
 
     attr_accessor :products
 
+    attr_accessor :registration_description
+
     attr_accessor :registration_name
 
     attr_accessor :registration_scope
@@ -61,6 +65,8 @@ module Falcon
 
     attr_accessor :tags
 
+    attr_accessor :vulnerability_scanning_settings
+
     attr_accessor :wif_project_id
 
     attr_accessor :wif_project_number
@@ -70,6 +76,7 @@ module Falcon
       {
         :'additional_properties' => :'additional_properties',
         :'deployment_method' => :'deployment_method',
+        :'dspm_settings' => :'dspm_settings',
         :'entity_id' => :'entity_id',
         :'excluded_project_patterns' => :'excluded_project_patterns',
         :'falcon_client_key_id' => :'falcon_client_key_id',
@@ -78,11 +85,13 @@ module Falcon
         :'infra_project_id' => :'infra_project_id',
         :'labels' => :'labels',
         :'products' => :'products',
+        :'registration_description' => :'registration_description',
         :'registration_name' => :'registration_name',
         :'registration_scope' => :'registration_scope',
         :'resource_name_prefix' => :'resource_name_prefix',
         :'resource_name_suffix' => :'resource_name_suffix',
         :'tags' => :'tags',
+        :'vulnerability_scanning_settings' => :'vulnerability_scanning_settings',
         :'wif_project_id' => :'wif_project_id',
         :'wif_project_number' => :'wif_project_number'
       }
@@ -98,6 +107,7 @@ module Falcon
       {
         :'additional_properties' => :'Object',
         :'deployment_method' => :'String',
+        :'dspm_settings' => :'GcpAgentlessScanningSettings',
         :'entity_id' => :'Array<String>',
         :'excluded_project_patterns' => :'Array<String>',
         :'falcon_client_key_id' => :'String',
@@ -106,11 +116,13 @@ module Falcon
         :'infra_project_id' => :'String',
         :'labels' => :'Hash<String, String>',
         :'products' => :'Array<DomainProductFeatures>',
+        :'registration_description' => :'String',
         :'registration_name' => :'String',
         :'registration_scope' => :'String',
         :'resource_name_prefix' => :'String',
         :'resource_name_suffix' => :'String',
         :'tags' => :'Hash<String, String>',
+        :'vulnerability_scanning_settings' => :'GcpAgentlessScanningSettings',
         :'wif_project_id' => :'String',
         :'wif_project_number' => :'String'
       }
@@ -143,6 +155,10 @@ module Falcon
 
       if attributes.key?(:'deployment_method')
         self.deployment_method = attributes[:'deployment_method']
+      end
+
+      if attributes.key?(:'dspm_settings')
+        self.dspm_settings = attributes[:'dspm_settings']
       end
 
       if attributes.key?(:'entity_id')
@@ -185,6 +201,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'registration_description')
+        self.registration_description = attributes[:'registration_description']
+      end
+
       if attributes.key?(:'registration_name')
         self.registration_name = attributes[:'registration_name']
       end
@@ -205,6 +225,10 @@ module Falcon
         if (value = attributes[:'tags']).is_a?(Hash)
           self.tags = value
         end
+      end
+
+      if attributes.key?(:'vulnerability_scanning_settings')
+        self.vulnerability_scanning_settings = attributes[:'vulnerability_scanning_settings']
       end
 
       if attributes.key?(:'wif_project_id')
@@ -266,6 +290,7 @@ module Falcon
       self.class == o.class &&
           additional_properties == o.additional_properties &&
           deployment_method == o.deployment_method &&
+          dspm_settings == o.dspm_settings &&
           entity_id == o.entity_id &&
           excluded_project_patterns == o.excluded_project_patterns &&
           falcon_client_key_id == o.falcon_client_key_id &&
@@ -274,11 +299,13 @@ module Falcon
           infra_project_id == o.infra_project_id &&
           labels == o.labels &&
           products == o.products &&
+          registration_description == o.registration_description &&
           registration_name == o.registration_name &&
           registration_scope == o.registration_scope &&
           resource_name_prefix == o.resource_name_prefix &&
           resource_name_suffix == o.resource_name_suffix &&
           tags == o.tags &&
+          vulnerability_scanning_settings == o.vulnerability_scanning_settings &&
           wif_project_id == o.wif_project_id &&
           wif_project_number == o.wif_project_number
     end
@@ -292,7 +319,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [additional_properties, deployment_method, entity_id, excluded_project_patterns, falcon_client_key_id, falcon_client_key_type, infra_manager_region, infra_project_id, labels, products, registration_name, registration_scope, resource_name_prefix, resource_name_suffix, tags, wif_project_id, wif_project_number].hash
+      [additional_properties, deployment_method, dspm_settings, entity_id, excluded_project_patterns, falcon_client_key_id, falcon_client_key_type, infra_manager_region, infra_project_id, labels, products, registration_description, registration_name, registration_scope, resource_name_prefix, resource_name_suffix, tags, vulnerability_scanning_settings, wif_project_id, wif_project_number].hash
     end
 
     # Builds the object from hash

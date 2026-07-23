@@ -109,16 +109,16 @@ module Falcon
         invalid_properties.push('invalid value for "concurrent_host_file_transfer_limit", must be greater than or equal to 1.')
       end
 
-      if !@concurrent_host_limit.nil? && @concurrent_host_limit > 100000
-        invalid_properties.push('invalid value for "concurrent_host_limit", must be smaller than or equal to 100000.')
+      if !@concurrent_host_limit.nil? && @concurrent_host_limit > 1000000
+        invalid_properties.push('invalid value for "concurrent_host_limit", must be smaller than or equal to 1000000.')
       end
 
       if !@concurrent_host_limit.nil? && @concurrent_host_limit < 1
         invalid_properties.push('invalid value for "concurrent_host_limit", must be greater than or equal to 1.')
       end
 
-      if !@concurrent_task_limit.nil? && @concurrent_task_limit > 5
-        invalid_properties.push('invalid value for "concurrent_task_limit", must be smaller than or equal to 5.')
+      if !@concurrent_task_limit.nil? && @concurrent_task_limit > 20
+        invalid_properties.push('invalid value for "concurrent_task_limit", must be smaller than or equal to 20.')
       end
 
       if !@concurrent_task_limit.nil? && @concurrent_task_limit < 1
@@ -133,9 +133,9 @@ module Falcon
     def valid?
       return false if !@concurrent_host_file_transfer_limit.nil? && @concurrent_host_file_transfer_limit > 5000
       return false if !@concurrent_host_file_transfer_limit.nil? && @concurrent_host_file_transfer_limit < 1
-      return false if !@concurrent_host_limit.nil? && @concurrent_host_limit > 100000
+      return false if !@concurrent_host_limit.nil? && @concurrent_host_limit > 1000000
       return false if !@concurrent_host_limit.nil? && @concurrent_host_limit < 1
-      return false if !@concurrent_task_limit.nil? && @concurrent_task_limit > 5
+      return false if !@concurrent_task_limit.nil? && @concurrent_task_limit > 20
       return false if !@concurrent_task_limit.nil? && @concurrent_task_limit < 1
       true
     end
@@ -157,8 +157,8 @@ module Falcon
     # Custom attribute writer method with validation
     # @param [Object] concurrent_host_limit Value to be assigned
     def concurrent_host_limit=(concurrent_host_limit)
-      if !concurrent_host_limit.nil? && concurrent_host_limit > 100000
-        fail ArgumentError, 'invalid value for "concurrent_host_limit", must be smaller than or equal to 100000.'
+      if !concurrent_host_limit.nil? && concurrent_host_limit > 1000000
+        fail ArgumentError, 'invalid value for "concurrent_host_limit", must be smaller than or equal to 1000000.'
       end
 
       if !concurrent_host_limit.nil? && concurrent_host_limit < 1
@@ -171,8 +171,8 @@ module Falcon
     # Custom attribute writer method with validation
     # @param [Object] concurrent_task_limit Value to be assigned
     def concurrent_task_limit=(concurrent_task_limit)
-      if !concurrent_task_limit.nil? && concurrent_task_limit > 5
-        fail ArgumentError, 'invalid value for "concurrent_task_limit", must be smaller than or equal to 5.'
+      if !concurrent_task_limit.nil? && concurrent_task_limit > 20
+        fail ArgumentError, 'invalid value for "concurrent_task_limit", must be smaller than or equal to 20.'
       end
 
       if !concurrent_task_limit.nil? && concurrent_task_limit < 1

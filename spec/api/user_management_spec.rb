@@ -222,7 +222,7 @@ describe 'UserManagement' do
   # unit tests for query_user_v1
   # List user IDs for all users in your customer account. For more information on each user, provide the user ID to &#x60;/user-management/entities/users/GET/v1&#x60;.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, status, temporarily_assigned_cids, uid, uuid
+  # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, non_ancestor_assigned_cids, status, temporarily_assigned_cids, uid, uuid
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @option opts [Integer] :limit The maximum records to return. [1-500]
   # @option opts [String] :sort The property to sort by

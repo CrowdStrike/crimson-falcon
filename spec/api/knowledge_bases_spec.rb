@@ -60,6 +60,21 @@ describe 'KnowledgeBases' do
     end
   end
 
+  # unit tests for combined_knowledge_bases_v1
+  # Search for knowledge bases with filtering and return full entity details in a single response.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
+  # @option opts [Integer] :limit Number of ids to return. Offset + limit should NOT be above 10K.
+  # @option opts [String] :sort Possible order by fields: name, created_at. Ex: &#39;created_at|desc&#39; or &#39;name|asc&#39;.
+  # @option opts [String] :filter FQL query specifying the filter parameters.
+  # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false.
+  # @return [DomainReplyEntitiesKnowledgeBasesResponse]
+  describe 'combined_knowledge_bases_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for entities_knowledge_bases_create_v1
   # Create or update a knowledge base. For deletion, provide knowledge base with IsDeleted&#x3D;true.
   # @param body Knowledge base definition to create or update

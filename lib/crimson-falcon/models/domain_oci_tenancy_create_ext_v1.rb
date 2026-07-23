@@ -39,6 +39,10 @@ module Falcon
 
     attr_accessor :products
 
+    attr_accessor :registration_description
+
+    attr_accessor :registration_name
+
     attr_accessor :tenancy_ocid
 
     attr_accessor :user_email
@@ -52,6 +56,8 @@ module Falcon
         :'home_region' => :'home_region',
         :'policy_name' => :'policy_name',
         :'products' => :'products',
+        :'registration_description' => :'registration_description',
+        :'registration_name' => :'registration_name',
         :'tenancy_ocid' => :'tenancy_ocid',
         :'user_email' => :'user_email',
         :'user_name' => :'user_name'
@@ -70,6 +76,8 @@ module Falcon
         :'home_region' => :'String',
         :'policy_name' => :'String',
         :'products' => :'Array<DomainCloudOCIProductFeature>',
+        :'registration_description' => :'String',
+        :'registration_name' => :'String',
         :'tenancy_ocid' => :'String',
         :'user_email' => :'String',
         :'user_name' => :'String'
@@ -113,6 +121,14 @@ module Falcon
         if (value = attributes[:'products']).is_a?(Array)
           self.products = value
         end
+      end
+
+      if attributes.key?(:'registration_description')
+        self.registration_description = attributes[:'registration_description']
+      end
+
+      if attributes.key?(:'registration_name')
+        self.registration_name = attributes[:'registration_name']
       end
 
       if attributes.key?(:'tenancy_ocid')
@@ -170,6 +186,8 @@ module Falcon
           home_region == o.home_region &&
           policy_name == o.policy_name &&
           products == o.products &&
+          registration_description == o.registration_description &&
+          registration_name == o.registration_name &&
           tenancy_ocid == o.tenancy_ocid &&
           user_email == o.user_email &&
           user_name == o.user_name
@@ -184,7 +202,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [group_name, home_region, policy_name, products, tenancy_ocid, user_email, user_name].hash
+      [group_name, home_region, policy_name, products, registration_description, registration_name, tenancy_ocid, user_email, user_name].hash
     end
 
     # Builds the object from hash

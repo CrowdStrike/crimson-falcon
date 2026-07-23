@@ -83,7 +83,7 @@ describe 'CloudPolicies' do
 
   # unit tests for create_rule_mixin0
   # Create a new rule
-  # @param body Rule severity integer to provide maps to the following: 0&#x3D;Critical, 1&#x3D;High, 2&#x3D;Medium and 3&#x3D;Low. For CSPM IOM Custom Rules, logic is mandatory and parent_rule_id should not be specified. For Runtime IOM Custom Rules (KAC), logic is mandatory. Fields &#x60;controls&#x60;, &#x60;resource_type&#x60;, and &#x60;parent_rule_id&#x60; should not be specified. For Managed Rule duplication, parent_rule_id is mandatory and logic should be not specified.
+  # @param body Rule severity integer to provide maps to the following: 0&#x3D;Critical, 1&#x3D;High, 2&#x3D;Medium and 3&#x3D;Low. For CSPM IOM Custom Rules, logic is mandatory and parent_rule_id should not be specified. For CSPM IAC Custom Rules, logic is mandatory and description is optional. For Runtime IOM Custom Rules (KAC), logic is mandatory. Fields &#x60;controls&#x60;, &#x60;resource_type&#x60;, and &#x60;parent_rule_id&#x60; should not be specified. For Managed Rule duplication, parent_rule_id is mandatory and logic should be not specified.
   # @param [Hash] opts the optional parameters
   # @return [CommonCreateRuleResponse]
   describe 'create_rule_mixin0 test' do
@@ -237,6 +237,7 @@ describe 'CloudPolicies' do
   # @param resource_type Selects the resource type for which to retrieve the rule input schema
   # @param [Hash] opts the optional parameters
   # @option opts [String] :cloud_provider Cloud service provider for the resource type
+  # @option opts [Boolean] :enriched When true, returns the enriched schema with inlined related resource types. Defaults to true.
   # @return [CommonRuleInputSchemaResponse]
   describe 'get_rule_input_schema test' do
     it 'should work' do

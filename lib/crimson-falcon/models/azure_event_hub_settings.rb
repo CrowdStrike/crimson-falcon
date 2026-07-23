@@ -37,6 +37,8 @@ module Falcon
 
     attr_accessor :event_hub_id
 
+    attr_accessor :management_type
+
     attr_accessor :purpose
 
     attr_accessor :tenant_id
@@ -47,6 +49,7 @@ module Falcon
         :'cid' => :'cid',
         :'consumer_group' => :'consumer_group',
         :'event_hub_id' => :'event_hub_id',
+        :'management_type' => :'management_type',
         :'purpose' => :'purpose',
         :'tenant_id' => :'tenant_id'
       }
@@ -63,6 +66,7 @@ module Falcon
         :'cid' => :'String',
         :'consumer_group' => :'String',
         :'event_hub_id' => :'String',
+        :'management_type' => :'String',
         :'purpose' => :'String',
         :'tenant_id' => :'String'
       }
@@ -99,6 +103,10 @@ module Falcon
 
       if attributes.key?(:'event_hub_id')
         self.event_hub_id = attributes[:'event_hub_id']
+      end
+
+      if attributes.key?(:'management_type')
+        self.management_type = attributes[:'management_type']
       end
 
       if attributes.key?(:'purpose')
@@ -156,6 +164,7 @@ module Falcon
           cid == o.cid &&
           consumer_group == o.consumer_group &&
           event_hub_id == o.event_hub_id &&
+          management_type == o.management_type &&
           purpose == o.purpose &&
           tenant_id == o.tenant_id
     end
@@ -169,7 +178,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, consumer_group, event_hub_id, purpose, tenant_id].hash
+      [cid, consumer_group, event_hub_id, management_type, purpose, tenant_id].hash
     end
 
     # Builds the object from hash

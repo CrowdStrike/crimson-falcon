@@ -143,6 +143,12 @@ describe Falcon::DomainConfigData do
     end
   end
 
+  describe 'test attribute "token_response_metadata"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "x_www_form_urlencoded"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

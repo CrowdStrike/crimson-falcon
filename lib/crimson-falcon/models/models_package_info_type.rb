@@ -31,6 +31,8 @@ require 'time'
 
 module Falcon
   class ModelsPackageInfoType
+    attr_accessor :install_date
+
     attr_accessor :layer_hash
 
     attr_accessor :layer_index
@@ -54,6 +56,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'install_date' => :'InstallDate',
         :'layer_hash' => :'LayerHash',
         :'layer_index' => :'LayerIndex',
         :'major_version' => :'MajorVersion',
@@ -75,6 +78,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'install_date' => :'String',
         :'layer_hash' => :'String',
         :'layer_index' => :'Integer',
         :'major_version' => :'String',
@@ -108,6 +112,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'install_date')
+        self.install_date = attributes[:'install_date']
+      end
 
       if attributes.key?(:'layer_hash')
         self.layer_hash = attributes[:'layer_hash']
@@ -173,6 +181,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          install_date == o.install_date &&
           layer_hash == o.layer_hash &&
           layer_index == o.layer_index &&
           major_version == o.major_version &&
@@ -194,7 +203,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [layer_hash, layer_index, major_version, package_hash, package_provider, package_source, product, software_architecture, status, vendor].hash
+      [install_date, layer_hash, layer_index, major_version, package_hash, package_provider, package_source, product, software_architecture, status, vendor].hash
     end
 
     # Builds the object from hash

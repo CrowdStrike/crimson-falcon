@@ -53,6 +53,12 @@ describe Falcon::GcpProjectDetails do
     end
   end
 
+  describe 'test attribute "dspm_status"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "ioa_failed_permissions"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -119,6 +125,12 @@ describe Falcon::GcpProjectDetails do
     end
   end
 
+  describe 'test attribute "registration_description"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "registration_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -150,6 +162,12 @@ describe Falcon::GcpProjectDetails do
   end
 
   describe 'test attribute "updated"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "vulnerability_scanning_status"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

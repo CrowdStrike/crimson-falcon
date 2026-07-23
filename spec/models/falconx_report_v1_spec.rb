@@ -89,12 +89,6 @@ describe Falcon::FalconxReportV1 do
     end
   end
 
-  describe 'test attribute "intelx"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   describe 'test attribute "ioc_report_broad_csv_artifact_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -138,12 +132,6 @@ describe Falcon::FalconxReportV1 do
   end
 
   describe 'test attribute "ioc_report_strict_stix_artifact_id"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  describe 'test attribute "malquery"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

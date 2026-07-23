@@ -87,7 +87,7 @@ describe 'CloudSecurity' do
   # unit tests for list_cloud_group_ids_external
   # Query Cloud Groups and returns IDs
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter A valid FQL filter. Supports filtering groups by: Group properties: - &#x60;name&#x60; - &#x60;description&#x60; - &#x60;created_at&#x60; - &#x60;updated_at&#x60;  Selector properties: - &#x60;cloud_provider&#x60; - &#x60;account_id&#x60; - &#x60;region&#x60; - &#x60;cloud_provider_tag&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;selector.kubernetes_resource.cluster&#x60; - &#x60;selector.kubernetes_resource.namespace&#x60;  Group tags: - &#x60;business_unit&#x60; - &#x60;business_impact&#x60; - &#x60;environment&#x60;
+  # @option opts [String] :filter A valid FQL filter. Supports filtering groups by: Group properties: - &#x60;name&#x60; - &#x60;description&#x60; - &#x60;created_at&#x60; - &#x60;updated_at&#x60;  Selector properties: - &#x60;cloud_provider&#x60; - &#x60;account_id&#x60; - &#x60;region&#x60; - &#x60;gcrn&#x60; - &#x60;cloud_provider_tag&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;selector.kubernetes_resource.cluster&#x60; - &#x60;selector.kubernetes_resource.namespace&#x60;  Group tags: - &#x60;business_unit&#x60; - &#x60;business_impact&#x60; - &#x60;environment&#x60;
   # @option opts [String] :sort A valid sort string.
   # @option opts [String] :offset The starting position of the list operation.
   # @option opts [String] :limit The maximum number of cloud groups to retrieve.
@@ -112,7 +112,7 @@ describe 'CloudSecurity' do
   # unit tests for list_cloud_groups_external
   # Query Cloud Groups and returns entities
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter A valid FQL filter. Supports filtering groups by: Group properties: - &#x60;name&#x60; - &#x60;description&#x60; - &#x60;created_at&#x60; - &#x60;updated_at&#x60;  Selector properties: - &#x60;cloud_provider&#x60; - &#x60;account_id&#x60; - &#x60;region&#x60; - &#x60;cloud_provider_tag&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;selector.kubernetes_resource.cluster&#x60; - &#x60;selector.kubernetes_resource.namespace&#x60;  Group tags: - &#x60;business_unit&#x60; - &#x60;business_impact&#x60; - &#x60;environment&#x60;
+  # @option opts [String] :filter A valid FQL filter. Supports filtering groups by: Group properties: - &#x60;name&#x60; - &#x60;description&#x60; - &#x60;created_at&#x60; - &#x60;updated_at&#x60;  Selector properties: - &#x60;cloud_provider&#x60; - &#x60;account_id&#x60; - &#x60;region&#x60; - &#x60;gcrn&#x60; - &#x60;cloud_provider_tag&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;selector.kubernetes_resource.cluster&#x60; - &#x60;selector.kubernetes_resource.namespace&#x60;  Group tags: - &#x60;business_unit&#x60; - &#x60;business_impact&#x60; - &#x60;environment&#x60;
   # @option opts [String] :sort A valid sort string.
   # @option opts [String] :offset The starting position of the list operation.
   # @option opts [String] :limit The maximum number of cloud groups to retrieve.

@@ -31,6 +31,8 @@ require 'time'
 
 module Falcon
   class AssetgroupmanagerV1CloudResourceFilters
+    attr_accessor :gcrn
+
     attr_accessor :region
 
     attr_accessor :tags
@@ -38,6 +40,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'gcrn' => :'gcrn',
         :'region' => :'region',
         :'tags' => :'tags'
       }
@@ -51,6 +54,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'gcrn' => :'Array<String>',
         :'region' => :'Array<String>',
         :'tags' => :'Array<String>'
       }
@@ -76,6 +80,12 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'gcrn')
+        if (value = attributes[:'gcrn']).is_a?(Array)
+          self.gcrn = value
+        end
+      end
 
       if attributes.key?(:'region')
         if (value = attributes[:'region']).is_a?(Array)
@@ -108,6 +118,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          gcrn == o.gcrn &&
           region == o.region &&
           tags == o.tags
     end
@@ -121,7 +132,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [region, tags].hash
+      [gcrn, region, tags].hash
     end
 
     # Builds the object from hash

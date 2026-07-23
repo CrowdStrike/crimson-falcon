@@ -43,6 +43,8 @@ module Falcon
     # The time at which the scan run was created
     attr_accessor :created_timestamp
 
+    attr_accessor :credentialed_asset_summary
+
     # The end time of the scan run
     attr_accessor :end_timestamp
 
@@ -129,6 +131,7 @@ module Falcon
         :'config' => :'config',
         :'created_by' => :'created_by',
         :'created_timestamp' => :'created_timestamp',
+        :'credentialed_asset_summary' => :'credentialed_asset_summary',
         :'end_timestamp' => :'end_timestamp',
         :'error_code' => :'error_code',
         :'error_reason' => :'error_reason',
@@ -163,6 +166,7 @@ module Falcon
         :'config' => :'DomainScanRunConfig',
         :'created_by' => :'String',
         :'created_timestamp' => :'String',
+        :'credentialed_asset_summary' => :'DomainCredentialedAssetSummary',
         :'end_timestamp' => :'String',
         :'error_code' => :'Integer',
         :'error_reason' => :'String',
@@ -220,6 +224,10 @@ module Falcon
 
       if attributes.key?(:'created_timestamp')
         self.created_timestamp = attributes[:'created_timestamp']
+      end
+
+      if attributes.key?(:'credentialed_asset_summary')
+        self.credentialed_asset_summary = attributes[:'credentialed_asset_summary']
       end
 
       if attributes.key?(:'end_timestamp')
@@ -456,6 +464,7 @@ module Falcon
           config == o.config &&
           created_by == o.created_by &&
           created_timestamp == o.created_timestamp &&
+          credentialed_asset_summary == o.credentialed_asset_summary &&
           end_timestamp == o.end_timestamp &&
           error_code == o.error_code &&
           error_reason == o.error_reason &&
@@ -486,7 +495,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, config, created_by, created_timestamp, end_timestamp, error_code, error_reason, id, progress_pct, scan_id, scanners, start_timestamp, status, target_type, targets_configured, targets_found, targets_scanned, template_id, template_name, trigger_type, type, updated_by, updated_timestamp].hash
+      [cid, config, created_by, created_timestamp, credentialed_asset_summary, end_timestamp, error_code, error_reason, id, progress_pct, scan_id, scanners, start_timestamp, status, target_type, targets_configured, targets_found, targets_scanned, template_id, template_name, trigger_type, type, updated_by, updated_timestamp].hash
     end
 
     # Builds the object from hash

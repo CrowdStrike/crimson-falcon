@@ -31,6 +31,9 @@ require 'time'
 
 module Falcon
   class ExportsLaunchExportRequest
+    # When set to true for function vulnerabilities export, includes detailed vulnerability information. Currently returns same data as without expansion - full expansion to be implemented in next step
+    attr_accessor :expand_vulnerabilities
+
     # Format of the export file. One of: csv, json
     attr_accessor :format
 
@@ -46,6 +49,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'expand_vulnerabilities' => :'expand_vulnerabilities',
         :'format' => :'format',
         :'fql' => :'fql',
         :'resource' => :'resource',
@@ -61,6 +65,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'expand_vulnerabilities' => :'Boolean',
         :'format' => :'String',
         :'fql' => :'String',
         :'resource' => :'String',
@@ -88,6 +93,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'expand_vulnerabilities')
+        self.expand_vulnerabilities = attributes[:'expand_vulnerabilities']
+      end
 
       if attributes.key?(:'format')
         self.format = attributes[:'format']
@@ -139,6 +148,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          expand_vulnerabilities == o.expand_vulnerabilities &&
           format == o.format &&
           fql == o.fql &&
           resource == o.resource &&
@@ -154,7 +164,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [format, fql, resource, sort].hash
+      [expand_vulnerabilities, format, fql, resource, sort].hash
     end
 
     # Builds the object from hash

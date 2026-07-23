@@ -43,6 +43,8 @@ module Falcon
 
     attr_accessor :cis_id
 
+    attr_accessor :cloud_service
+
     attr_accessor :cluster_id
 
     attr_accessor :cluster_name
@@ -142,6 +144,7 @@ module Falcon
         :'admission_review_operation' => :'admission_review_operation',
         :'cid' => :'cid',
         :'cis_id' => :'cis_id',
+        :'cloud_service' => :'cloud_service',
         :'cluster_id' => :'cluster_id',
         :'cluster_name' => :'cluster_name',
         :'containers_impacted_ai_related' => :'containers_impacted_ai_related',
@@ -204,6 +207,7 @@ module Falcon
         :'admission_review_operation' => :'String',
         :'cid' => :'String',
         :'cis_id' => :'Array<String>',
+        :'cloud_service' => :'String',
         :'cluster_id' => :'String',
         :'cluster_name' => :'String',
         :'containers_impacted_ai_related' => :'Boolean',
@@ -297,6 +301,10 @@ module Falcon
         if (value = attributes[:'cis_id']).is_a?(Array)
           self.cis_id = value
         end
+      end
+
+      if attributes.key?(:'cloud_service')
+        self.cloud_service = attributes[:'cloud_service']
       end
 
       if attributes.key?(:'cluster_id')
@@ -632,6 +640,7 @@ module Falcon
           admission_review_operation == o.admission_review_operation &&
           cid == o.cid &&
           cis_id == o.cis_id &&
+          cloud_service == o.cloud_service &&
           cluster_id == o.cluster_id &&
           cluster_name == o.cluster_name &&
           containers_impacted_ai_related == o.containers_impacted_ai_related &&
@@ -688,7 +697,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admission_review_action, admission_review_id, admission_review_msg, admission_review_operation, cid, cis_id, cluster_id, cluster_name, containers_impacted_ai_related, containers_impacted_count, containers_impacted_ids, custom_rego_uuid, description, detect_timestamp, detection_id, detection_name, detection_type, image_assessment_matched_cves, image_assessment_policy_description, image_assessment_policy_id, image_assessment_policy_name, image_digest, image_has_been_assessed, image_id, image_registry, image_repository, image_tag, last_seen_timestamp, mitigation_id, mitigation_name, namespace, nist_id, pod_label, pods_impacted_count, policy_id, policy_name, ports, prevented, remediation, resource_creation_timestamp, resource_group_name, resource_id, resource_name, resource_type, sensitive_env_vars, service_type, severity, tactic_id, tactic_name, technique_id, technique_name].hash
+      [admission_review_action, admission_review_id, admission_review_msg, admission_review_operation, cid, cis_id, cloud_service, cluster_id, cluster_name, containers_impacted_ai_related, containers_impacted_count, containers_impacted_ids, custom_rego_uuid, description, detect_timestamp, detection_id, detection_name, detection_type, image_assessment_matched_cves, image_assessment_policy_description, image_assessment_policy_id, image_assessment_policy_name, image_digest, image_has_been_assessed, image_id, image_registry, image_repository, image_tag, last_seen_timestamp, mitigation_id, mitigation_name, namespace, nist_id, pod_label, pods_impacted_count, policy_id, policy_name, ports, prevented, remediation, resource_creation_timestamp, resource_group_name, resource_id, resource_name, resource_type, sensitive_env_vars, service_type, severity, tactic_id, tactic_name, technique_id, technique_name].hash
     end
 
     # Builds the object from hash

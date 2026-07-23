@@ -44,7 +44,7 @@ describe Falcon::DevicecontrolapiReqUpdateBluetoothClassV1 do
   describe 'test attribute "action"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["BLOCK_ALL,FULL_ACCESS"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["BLOCK_ALL", "FULL_ACCESS"])
       # validator.allowable_values.each do |value|
       #   expect { instance.action = value }.not_to raise_error
       # end

@@ -47,8 +47,6 @@ module Falcon
 
     attr_accessor :intel
 
-    attr_accessor :intelx
-
     attr_accessor :ioc_report_broad_csv_artifact_id
 
     attr_accessor :ioc_report_broad_json_artifact_id
@@ -64,8 +62,6 @@ module Falcon
     attr_accessor :ioc_report_strict_maec_artifact_id
 
     attr_accessor :ioc_report_strict_stix_artifact_id
-
-    attr_accessor :malquery
 
     attr_accessor :origin
 
@@ -98,7 +94,6 @@ module Falcon
         :'id' => :'id',
         :'index_timestamp' => :'index_timestamp',
         :'intel' => :'intel',
-        :'intelx' => :'intelx',
         :'ioc_report_broad_csv_artifact_id' => :'ioc_report_broad_csv_artifact_id',
         :'ioc_report_broad_json_artifact_id' => :'ioc_report_broad_json_artifact_id',
         :'ioc_report_broad_maec_artifact_id' => :'ioc_report_broad_maec_artifact_id',
@@ -107,7 +102,6 @@ module Falcon
         :'ioc_report_strict_json_artifact_id' => :'ioc_report_strict_json_artifact_id',
         :'ioc_report_strict_maec_artifact_id' => :'ioc_report_strict_maec_artifact_id',
         :'ioc_report_strict_stix_artifact_id' => :'ioc_report_strict_stix_artifact_id',
-        :'malquery' => :'malquery',
         :'origin' => :'origin',
         :'sandbox' => :'sandbox',
         :'tags' => :'tags',
@@ -137,7 +131,6 @@ module Falcon
         :'id' => :'String',
         :'index_timestamp' => :'String',
         :'intel' => :'Array<FalconxIntelReportV1>',
-        :'intelx' => :'FalconxIntelXReportV1',
         :'ioc_report_broad_csv_artifact_id' => :'String',
         :'ioc_report_broad_json_artifact_id' => :'String',
         :'ioc_report_broad_maec_artifact_id' => :'String',
@@ -146,7 +139,6 @@ module Falcon
         :'ioc_report_strict_json_artifact_id' => :'String',
         :'ioc_report_strict_maec_artifact_id' => :'String',
         :'ioc_report_strict_stix_artifact_id' => :'String',
-        :'malquery' => :'Array<FalconxMalqueryReportV1>',
         :'origin' => :'String',
         :'sandbox' => :'Array<FalconxSandboxReportV1>',
         :'tags' => :'Array<String>',
@@ -215,10 +207,6 @@ module Falcon
         end
       end
 
-      if attributes.key?(:'intelx')
-        self.intelx = attributes[:'intelx']
-      end
-
       if attributes.key?(:'ioc_report_broad_csv_artifact_id')
         self.ioc_report_broad_csv_artifact_id = attributes[:'ioc_report_broad_csv_artifact_id']
       end
@@ -249,12 +237,6 @@ module Falcon
 
       if attributes.key?(:'ioc_report_strict_stix_artifact_id')
         self.ioc_report_strict_stix_artifact_id = attributes[:'ioc_report_strict_stix_artifact_id']
-      end
-
-      if attributes.key?(:'malquery')
-        if (value = attributes[:'malquery']).is_a?(Array)
-          self.malquery = value
-        end
       end
 
       if attributes.key?(:'origin')
@@ -330,7 +312,6 @@ module Falcon
           id == o.id &&
           index_timestamp == o.index_timestamp &&
           intel == o.intel &&
-          intelx == o.intelx &&
           ioc_report_broad_csv_artifact_id == o.ioc_report_broad_csv_artifact_id &&
           ioc_report_broad_json_artifact_id == o.ioc_report_broad_json_artifact_id &&
           ioc_report_broad_maec_artifact_id == o.ioc_report_broad_maec_artifact_id &&
@@ -339,7 +320,6 @@ module Falcon
           ioc_report_strict_json_artifact_id == o.ioc_report_strict_json_artifact_id &&
           ioc_report_strict_maec_artifact_id == o.ioc_report_strict_maec_artifact_id &&
           ioc_report_strict_stix_artifact_id == o.ioc_report_strict_stix_artifact_id &&
-          malquery == o.malquery &&
           origin == o.origin &&
           sandbox == o.sandbox &&
           tags == o.tags &&
@@ -361,7 +341,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ai_summary, aid, cid, created_timestamp, has_recording, id, index_timestamp, intel, intelx, ioc_report_broad_csv_artifact_id, ioc_report_broad_json_artifact_id, ioc_report_broad_maec_artifact_id, ioc_report_broad_stix_artifact_id, ioc_report_strict_csv_artifact_id, ioc_report_strict_json_artifact_id, ioc_report_strict_maec_artifact_id, ioc_report_strict_stix_artifact_id, malquery, origin, sandbox, tags, threat_graph, user_id, user_name, user_tags, user_uuid, verdict, verdict_source].hash
+      [ai_summary, aid, cid, created_timestamp, has_recording, id, index_timestamp, intel, ioc_report_broad_csv_artifact_id, ioc_report_broad_json_artifact_id, ioc_report_broad_maec_artifact_id, ioc_report_broad_stix_artifact_id, ioc_report_strict_csv_artifact_id, ioc_report_strict_json_artifact_id, ioc_report_strict_maec_artifact_id, ioc_report_strict_stix_artifact_id, origin, sandbox, tags, threat_graph, user_id, user_name, user_tags, user_uuid, verdict, verdict_source].hash
     end
 
     # Builds the object from hash

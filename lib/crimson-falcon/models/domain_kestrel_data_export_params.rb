@@ -31,20 +31,26 @@ require 'time'
 
 module Falcon
   class DomainKestrelDataExportParams
+    attr_accessor :execution_context
+
     attr_accessor :export_mapping_v2
 
     attr_accessor :gqe_query
 
     attr_accessor :limit
 
+    attr_accessor :store_headers
+
     attr_accessor :view_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'execution_context' => :'execution_context',
         :'export_mapping_v2' => :'export_mapping_v2',
         :'gqe_query' => :'gqe_query',
         :'limit' => :'limit',
+        :'store_headers' => :'store_headers',
         :'view_id' => :'view_id'
       }
     end
@@ -57,9 +63,11 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'execution_context' => :'DomainKestrelDataExportExecutionContext',
         :'export_mapping_v2' => :'Array<DomainKestrelDataExportHeaderMappingV2>',
         :'gqe_query' => :'String',
         :'limit' => :'Integer',
+        :'store_headers' => :'Hash<String, Object>',
         :'view_id' => :'String'
       }
     end
@@ -85,6 +93,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'execution_context')
+        self.execution_context = attributes[:'execution_context']
+      end
+
       if attributes.key?(:'export_mapping_v2')
         if (value = attributes[:'export_mapping_v2']).is_a?(Array)
           self.export_mapping_v2 = value
@@ -97,6 +109,12 @@ module Falcon
 
       if attributes.key?(:'limit')
         self.limit = attributes[:'limit']
+      end
+
+      if attributes.key?(:'store_headers')
+        if (value = attributes[:'store_headers']).is_a?(Hash)
+          self.store_headers = value
+        end
       end
 
       if attributes.key?(:'view_id')
@@ -137,9 +155,11 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          execution_context == o.execution_context &&
           export_mapping_v2 == o.export_mapping_v2 &&
           gqe_query == o.gqe_query &&
           limit == o.limit &&
+          store_headers == o.store_headers &&
           view_id == o.view_id
     end
 
@@ -152,7 +172,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [export_mapping_v2, gqe_query, limit, view_id].hash
+      [execution_context, export_mapping_v2, gqe_query, limit, store_headers, view_id].hash
     end
 
     # Builds the object from hash

@@ -31,8 +31,11 @@ require 'time'
 
 module Falcon
   class ItautomationRerunTaskExecutionRequest
-    # Type of rerun. When set to hosts, re-run on same hosts again. When set to failed, re-run only on failed hosts. When set to offline, re-run only on offline hosts. When set to target, re-run on all the hosts resolved to set criteria.
+    # [Deprecated: use run_types] Type of rerun. When set to hosts, re-run on same hosts again. When set to failed, re-run only on failed hosts. When set to offline, re-run only on offline hosts. When set to target, re-run on all the hosts resolved to set criteria.
     attr_accessor :run_type
+
+    # Types of reruns to combine with OR logic. Cannot be used with run_type. Example: ['failed', 'offline']
+    attr_accessor :run_types
 
     # ID of the task execution to rerun. Example: f64b95555ef54ea682619ce880d267cc
     attr_accessor :task_execution_id
@@ -63,6 +66,7 @@ module Falcon
     def self.attribute_map
       {
         :'run_type' => :'run_type',
+        :'run_types' => :'run_types',
         :'task_execution_id' => :'task_execution_id'
       }
     end
@@ -76,6 +80,7 @@ module Falcon
     def self.openapi_types
       {
         :'run_type' => :'String',
+        :'run_types' => :'Array<String>',
         :'task_execution_id' => :'String'
       }
     end
@@ -105,6 +110,12 @@ module Falcon
         self.run_type = attributes[:'run_type']
       end
 
+      if attributes.key?(:'run_types')
+        if (value = attributes[:'run_types']).is_a?(Array)
+          self.run_types = value
+        end
+      end
+
       if attributes.key?(:'task_execution_id')
         self.task_execution_id = attributes[:'task_execution_id']
       end
@@ -114,10 +125,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @run_type.nil?
-        invalid_properties.push('invalid value for "run_type", run_type cannot be nil.')
-      end
-
       if @task_execution_id.nil?
         invalid_properties.push('invalid value for "task_execution_id", task_execution_id cannot be nil.')
       end
@@ -128,7 +135,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @run_type.nil?
       run_type_validator = EnumAttributeValidator.new('String', ["hosts", "failed", "offline", "target"])
       return false unless run_type_validator.valid?(@run_type)
       return false if @task_execution_id.nil?
@@ -151,6 +157,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           run_type == o.run_type &&
+          run_types == o.run_types &&
           task_execution_id == o.task_execution_id
     end
 
@@ -163,7 +170,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [run_type, task_execution_id].hash
+      [run_type, run_types, task_execution_id].hash
     end
 
     # Builds the object from hash

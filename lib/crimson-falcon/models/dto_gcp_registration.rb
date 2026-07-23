@@ -33,9 +33,15 @@ module Falcon
   class DtoGCPRegistration
     attr_accessor :additional_properties
 
+    attr_accessor :cloud_registration_enabled
+
     attr_accessor :created
 
+    attr_accessor :cspm_enabled
+
     attr_accessor :deployment_method
+
+    attr_accessor :dspm_settings
 
     attr_accessor :excluded_project_patterns
 
@@ -51,6 +57,8 @@ module Falcon
 
     attr_accessor :labels
 
+    attr_accessor :last_healthcheck_completed_at
+
     attr_accessor :log_ingestion_properties
 
     attr_accessor :organization
@@ -58,6 +66,8 @@ module Falcon
     attr_accessor :products
 
     attr_accessor :projects
+
+    attr_accessor :registration_description
 
     attr_accessor :registration_id
 
@@ -69,11 +79,15 @@ module Falcon
 
     attr_accessor :resource_name_suffix
 
+    attr_accessor :service_account_properties
+
     attr_accessor :status
 
     attr_accessor :tags
 
     attr_accessor :updated
+
+    attr_accessor :vulnerability_scanning_settings
 
     attr_accessor :wif_properties
 
@@ -81,8 +95,11 @@ module Falcon
     def self.attribute_map
       {
         :'additional_properties' => :'additional_properties',
+        :'cloud_registration_enabled' => :'cloud_registration_enabled',
         :'created' => :'created',
+        :'cspm_enabled' => :'cspm_enabled',
         :'deployment_method' => :'deployment_method',
+        :'dspm_settings' => :'dspm_settings',
         :'excluded_project_patterns' => :'excluded_project_patterns',
         :'falcon_client_key_id' => :'falcon_client_key_id',
         :'falcon_client_key_type' => :'falcon_client_key_type',
@@ -90,18 +107,22 @@ module Falcon
         :'infra_manager_properties' => :'infra_manager_properties',
         :'infra_project_id' => :'infra_project_id',
         :'labels' => :'labels',
+        :'last_healthcheck_completed_at' => :'last_healthcheck_completed_at',
         :'log_ingestion_properties' => :'log_ingestion_properties',
         :'organization' => :'organization',
         :'products' => :'products',
         :'projects' => :'projects',
+        :'registration_description' => :'registration_description',
         :'registration_id' => :'registration_id',
         :'registration_name' => :'registration_name',
         :'registration_scope' => :'registration_scope',
         :'resource_name_prefix' => :'resource_name_prefix',
         :'resource_name_suffix' => :'resource_name_suffix',
+        :'service_account_properties' => :'service_account_properties',
         :'status' => :'status',
         :'tags' => :'tags',
         :'updated' => :'updated',
+        :'vulnerability_scanning_settings' => :'vulnerability_scanning_settings',
         :'wif_properties' => :'wif_properties'
       }
     end
@@ -115,8 +136,11 @@ module Falcon
     def self.openapi_types
       {
         :'additional_properties' => :'Object',
+        :'cloud_registration_enabled' => :'Boolean',
         :'created' => :'Time',
+        :'cspm_enabled' => :'Boolean',
         :'deployment_method' => :'String',
+        :'dspm_settings' => :'GcpAgentlessScanningSettings',
         :'excluded_project_patterns' => :'Array<String>',
         :'falcon_client_key_id' => :'String',
         :'falcon_client_key_type' => :'String',
@@ -124,18 +148,22 @@ module Falcon
         :'infra_manager_properties' => :'DtoInfraManagerProperties',
         :'infra_project_id' => :'String',
         :'labels' => :'Hash<String, String>',
+        :'last_healthcheck_completed_at' => :'Time',
         :'log_ingestion_properties' => :'DtoLogIngestionProperties',
         :'organization' => :'DtoOrganization',
         :'products' => :'Array<DomainProductFeatures>',
         :'projects' => :'Array<DtoProject>',
+        :'registration_description' => :'String',
         :'registration_id' => :'String',
         :'registration_name' => :'String',
         :'registration_scope' => :'String',
         :'resource_name_prefix' => :'String',
         :'resource_name_suffix' => :'String',
+        :'service_account_properties' => :'DtoServiceAccountProperties',
         :'status' => :'String',
         :'tags' => :'Hash<String, String>',
         :'updated' => :'Time',
+        :'vulnerability_scanning_settings' => :'GcpAgentlessScanningSettings',
         :'wif_properties' => :'DtoWIFProperties'
       }
     end
@@ -165,12 +193,24 @@ module Falcon
         self.additional_properties = attributes[:'additional_properties']
       end
 
+      if attributes.key?(:'cloud_registration_enabled')
+        self.cloud_registration_enabled = attributes[:'cloud_registration_enabled']
+      end
+
       if attributes.key?(:'created')
         self.created = attributes[:'created']
       end
 
+      if attributes.key?(:'cspm_enabled')
+        self.cspm_enabled = attributes[:'cspm_enabled']
+      end
+
       if attributes.key?(:'deployment_method')
         self.deployment_method = attributes[:'deployment_method']
+      end
+
+      if attributes.key?(:'dspm_settings')
+        self.dspm_settings = attributes[:'dspm_settings']
       end
 
       if attributes.key?(:'excluded_project_patterns')
@@ -207,6 +247,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'last_healthcheck_completed_at')
+        self.last_healthcheck_completed_at = attributes[:'last_healthcheck_completed_at']
+      end
+
       if attributes.key?(:'log_ingestion_properties')
         self.log_ingestion_properties = attributes[:'log_ingestion_properties']
       end
@@ -225,6 +269,10 @@ module Falcon
         if (value = attributes[:'projects']).is_a?(Array)
           self.projects = value
         end
+      end
+
+      if attributes.key?(:'registration_description')
+        self.registration_description = attributes[:'registration_description']
       end
 
       if attributes.key?(:'registration_id')
@@ -247,6 +295,10 @@ module Falcon
         self.resource_name_suffix = attributes[:'resource_name_suffix']
       end
 
+      if attributes.key?(:'service_account_properties')
+        self.service_account_properties = attributes[:'service_account_properties']
+      end
+
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
@@ -261,6 +313,10 @@ module Falcon
         self.updated = attributes[:'updated']
       end
 
+      if attributes.key?(:'vulnerability_scanning_settings')
+        self.vulnerability_scanning_settings = attributes[:'vulnerability_scanning_settings']
+      end
+
       if attributes.key?(:'wif_properties')
         self.wif_properties = attributes[:'wif_properties']
       end
@@ -270,12 +326,22 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @cloud_registration_enabled.nil?
+        invalid_properties.push('invalid value for "cloud_registration_enabled", cloud_registration_enabled cannot be nil.')
+      end
+
+      if @cspm_enabled.nil?
+        invalid_properties.push('invalid value for "cspm_enabled", cspm_enabled cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @cloud_registration_enabled.nil?
+      return false if @cspm_enabled.nil?
       true
     end
 
@@ -285,8 +351,11 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           additional_properties == o.additional_properties &&
+          cloud_registration_enabled == o.cloud_registration_enabled &&
           created == o.created &&
+          cspm_enabled == o.cspm_enabled &&
           deployment_method == o.deployment_method &&
+          dspm_settings == o.dspm_settings &&
           excluded_project_patterns == o.excluded_project_patterns &&
           falcon_client_key_id == o.falcon_client_key_id &&
           falcon_client_key_type == o.falcon_client_key_type &&
@@ -294,18 +363,22 @@ module Falcon
           infra_manager_properties == o.infra_manager_properties &&
           infra_project_id == o.infra_project_id &&
           labels == o.labels &&
+          last_healthcheck_completed_at == o.last_healthcheck_completed_at &&
           log_ingestion_properties == o.log_ingestion_properties &&
           organization == o.organization &&
           products == o.products &&
           projects == o.projects &&
+          registration_description == o.registration_description &&
           registration_id == o.registration_id &&
           registration_name == o.registration_name &&
           registration_scope == o.registration_scope &&
           resource_name_prefix == o.resource_name_prefix &&
           resource_name_suffix == o.resource_name_suffix &&
+          service_account_properties == o.service_account_properties &&
           status == o.status &&
           tags == o.tags &&
           updated == o.updated &&
+          vulnerability_scanning_settings == o.vulnerability_scanning_settings &&
           wif_properties == o.wif_properties
     end
 
@@ -318,7 +391,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [additional_properties, created, deployment_method, excluded_project_patterns, falcon_client_key_id, falcon_client_key_type, folders, infra_manager_properties, infra_project_id, labels, log_ingestion_properties, organization, products, projects, registration_id, registration_name, registration_scope, resource_name_prefix, resource_name_suffix, status, tags, updated, wif_properties].hash
+      [additional_properties, cloud_registration_enabled, created, cspm_enabled, deployment_method, dspm_settings, excluded_project_patterns, falcon_client_key_id, falcon_client_key_type, folders, infra_manager_properties, infra_project_id, labels, last_healthcheck_completed_at, log_ingestion_properties, organization, products, projects, registration_description, registration_id, registration_name, registration_scope, resource_name_prefix, resource_name_suffix, service_account_properties, status, tags, updated, vulnerability_scanning_settings, wif_properties].hash
     end
 
     # Builds the object from hash

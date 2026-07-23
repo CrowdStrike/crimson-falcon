@@ -35,6 +35,8 @@ module Falcon
 
     attr_accessor :deployment_method
 
+    attr_accessor :dspm_status
+
     attr_accessor :ioa_failed_permissions
 
     attr_accessor :ioa_passed_permissions
@@ -57,6 +59,8 @@ module Falcon
 
     attr_accessor :project_number
 
+    attr_accessor :registration_description
+
     attr_accessor :registration_id
 
     attr_accessor :registration_name
@@ -69,11 +73,14 @@ module Falcon
 
     attr_accessor :updated
 
+    attr_accessor :vulnerability_scanning_status
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'created' => :'created',
         :'deployment_method' => :'deployment_method',
+        :'dspm_status' => :'dspm_status',
         :'ioa_failed_permissions' => :'ioa_failed_permissions',
         :'ioa_passed_permissions' => :'ioa_passed_permissions',
         :'ioa_status' => :'ioa_status',
@@ -85,12 +92,14 @@ module Falcon
         :'project_id' => :'project_id',
         :'project_name' => :'project_name',
         :'project_number' => :'project_number',
+        :'registration_description' => :'registration_description',
         :'registration_id' => :'registration_id',
         :'registration_name' => :'registration_name',
         :'registration_scope' => :'registration_scope',
         :'service_account' => :'service_account',
         :'status' => :'status',
-        :'updated' => :'updated'
+        :'updated' => :'updated',
+        :'vulnerability_scanning_status' => :'vulnerability_scanning_status'
       }
     end
 
@@ -104,6 +113,7 @@ module Falcon
       {
         :'created' => :'Time',
         :'deployment_method' => :'String',
+        :'dspm_status' => :'String',
         :'ioa_failed_permissions' => :'Array<String>',
         :'ioa_passed_permissions' => :'Array<String>',
         :'ioa_status' => :'String',
@@ -115,12 +125,14 @@ module Falcon
         :'project_id' => :'String',
         :'project_name' => :'String',
         :'project_number' => :'String',
+        :'registration_description' => :'String',
         :'registration_id' => :'String',
         :'registration_name' => :'String',
         :'registration_scope' => :'String',
         :'service_account' => :'String',
         :'status' => :'String',
-        :'updated' => :'Time'
+        :'updated' => :'Time',
+        :'vulnerability_scanning_status' => :'String'
       }
     end
 
@@ -151,6 +163,10 @@ module Falcon
 
       if attributes.key?(:'deployment_method')
         self.deployment_method = attributes[:'deployment_method']
+      end
+
+      if attributes.key?(:'dspm_status')
+        self.dspm_status = attributes[:'dspm_status']
       end
 
       if attributes.key?(:'ioa_failed_permissions')
@@ -205,6 +221,10 @@ module Falcon
         self.project_number = attributes[:'project_number']
       end
 
+      if attributes.key?(:'registration_description')
+        self.registration_description = attributes[:'registration_description']
+      end
+
       if attributes.key?(:'registration_id')
         self.registration_id = attributes[:'registration_id']
       end
@@ -228,6 +248,10 @@ module Falcon
       if attributes.key?(:'updated')
         self.updated = attributes[:'updated']
       end
+
+      if attributes.key?(:'vulnerability_scanning_status')
+        self.vulnerability_scanning_status = attributes[:'vulnerability_scanning_status']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -250,6 +274,7 @@ module Falcon
       self.class == o.class &&
           created == o.created &&
           deployment_method == o.deployment_method &&
+          dspm_status == o.dspm_status &&
           ioa_failed_permissions == o.ioa_failed_permissions &&
           ioa_passed_permissions == o.ioa_passed_permissions &&
           ioa_status == o.ioa_status &&
@@ -261,12 +286,14 @@ module Falcon
           project_id == o.project_id &&
           project_name == o.project_name &&
           project_number == o.project_number &&
+          registration_description == o.registration_description &&
           registration_id == o.registration_id &&
           registration_name == o.registration_name &&
           registration_scope == o.registration_scope &&
           service_account == o.service_account &&
           status == o.status &&
-          updated == o.updated
+          updated == o.updated &&
+          vulnerability_scanning_status == o.vulnerability_scanning_status
     end
 
     # @see the `==` method
@@ -278,7 +305,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created, deployment_method, ioa_failed_permissions, ioa_passed_permissions, ioa_status, iom_failed_permissions, iom_passed_permissions, iom_status, is_initial_registration, organization_id, project_id, project_name, project_number, registration_id, registration_name, registration_scope, service_account, status, updated].hash
+      [created, deployment_method, dspm_status, ioa_failed_permissions, ioa_passed_permissions, ioa_status, iom_failed_permissions, iom_passed_permissions, iom_status, is_initial_registration, organization_id, project_id, project_name, project_number, registration_description, registration_id, registration_name, registration_scope, service_account, status, updated, vulnerability_scanning_status].hash
     end
 
     # Builds the object from hash

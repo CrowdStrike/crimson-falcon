@@ -113,6 +113,7 @@ module Falcon
     # @option opts [String] :offset Starting pagination offset of records to return.
     # @option opts [Integer] :limit Maximum number of records to return.
     # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+    # @option opts [Boolean] :skip_artifact_resolution When true, skip Foundry artifact resolution and return the latest version of the activity, regardless of whether the associated Foundry app is installed (default to false)
     # @return [ActivitiesActivityExternalResponse]
     def workflow_activities_combined(opts = {})
       data, _status_code, _headers = workflow_activities_combined_with_http_info(opts)
@@ -125,6 +126,7 @@ module Falcon
     # @option opts [String] :offset Starting pagination offset of records to return.
     # @option opts [Integer] :limit Maximum number of records to return.
     # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+    # @option opts [Boolean] :skip_artifact_resolution When true, skip Foundry artifact resolution and return the latest version of the activity, regardless of whether the associated Foundry app is installed (default to false)
     # @return [Array<(ActivitiesActivityExternalResponse, Integer, Hash)>] ActivitiesActivityExternalResponse data, response status code and response headers
     def workflow_activities_combined_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -144,6 +146,7 @@ module Falcon
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'skip_artifact_resolution'] = opts[:'skip_artifact_resolution'] if !opts[:'skip_artifact_resolution'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -470,6 +473,8 @@ module Falcon
     # @param id [String] ID of workflow definitions to return details for
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :sanitize whether or not to sanitize PII from workflow before it&#39;s exported (default to true)
+    # @option opts [Boolean] :include_mocks when enabled, includes referenced node-mocks inline in the exported YAML. Each mock&#39;s output_data field is a JSON-encoded string rather than native YAML. (default to false)
+    # @option opts [Integer] :version version of the definition to export (e.g. 0 for draft); omit for active/published
     # @return [Array<Integer>]
     def workflow_definitions_export(id, opts = {})
       data, _status_code, _headers = workflow_definitions_export_with_http_info(id, opts)
@@ -480,6 +485,8 @@ module Falcon
     # @param id [String] ID of workflow definitions to return details for
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :sanitize whether or not to sanitize PII from workflow before it&#39;s exported (default to true)
+    # @option opts [Boolean] :include_mocks when enabled, includes referenced node-mocks inline in the exported YAML. Each mock&#39;s output_data field is a JSON-encoded string rather than native YAML. (default to false)
+    # @option opts [Integer] :version version of the definition to export (e.g. 0 for draft); omit for active/published
     # @return [Array<(Array<Integer>, Integer, Hash)>] Array<Integer> data, response status code and response headers
     def workflow_definitions_export_with_http_info(id, opts = {})
       if @api_client.config.debugging
@@ -504,6 +511,8 @@ module Falcon
       query_params = opts[:query_params] || {}
       query_params[:'id'] = id
       query_params[:'sanitize'] = opts[:'sanitize'] if !opts[:'sanitize'].nil?
+      query_params[:'include_mocks'] = opts[:'include_mocks'] if !opts[:'include_mocks'].nil?
+      query_params[:'version'] = opts[:'version'] if !opts[:'version'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1166,7 +1175,7 @@ module Falcon
     # Gets one or more specific human inputs by their IDs.
     # @param ids [Array<String>] IDs of human inputs to read
     # @param [Hash] opts the optional parameters
-    # @return [ModelUserInputReadResponse]
+    # @return [UserinputReadResponse]
     def workflow_get_human_input_v1(ids, opts = {})
       data, _status_code, _headers = workflow_get_human_input_v1_with_http_info(ids, opts)
       data
@@ -1175,7 +1184,7 @@ module Falcon
     # Gets one or more specific human inputs by their IDs.
     # @param ids [Array<String>] IDs of human inputs to read
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ModelUserInputReadResponse, Integer, Hash)>] ModelUserInputReadResponse data, response status code and response headers
+    # @return [Array<(UserinputReadResponse, Integer, Hash)>] UserinputReadResponse data, response status code and response headers
     def workflow_get_human_input_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Workflows.workflow_get_human_input_v1 ...'
@@ -1203,7 +1212,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ModelUserInputReadResponse'
+      return_type = opts[:debug_return_type] || 'UserinputReadResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -1582,7 +1591,7 @@ module Falcon
 
     # Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted.
     # @param id [String] ID of human input to provide an input to
-    # @param body [ModelUserInputUpdateRequest]
+    # @param body [UserinputUpdateRequest]
     # @param [Hash] opts the optional parameters
     # @return [ApiResourceIDsResponse]
     def workflow_update_human_input_v1(id, body, opts = {})
@@ -1592,7 +1601,7 @@ module Falcon
 
     # Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted.
     # @param id [String] ID of human input to provide an input to
-    # @param body [ModelUserInputUpdateRequest]
+    # @param body [UserinputUpdateRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiResourceIDsResponse, Integer, Hash)>] ApiResourceIDsResponse data, response status code and response headers
     def workflow_update_human_input_v1_with_http_info(id, body, opts = {})

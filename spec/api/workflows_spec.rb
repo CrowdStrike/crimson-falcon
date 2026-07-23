@@ -69,6 +69,7 @@ describe 'Workflows' do
   # @option opts [String] :offset Starting pagination offset of records to return.
   # @option opts [Integer] :limit Maximum number of records to return.
   # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+  # @option opts [Boolean] :skip_artifact_resolution When true, skip Foundry artifact resolution and return the latest version of the activity, regardless of whether the associated Foundry app is installed
   # @return [ActivitiesActivityExternalResponse]
   describe 'workflow_activities_combined test' do
     it 'should work' do
@@ -132,6 +133,8 @@ describe 'Workflows' do
   # @param id ID of workflow definitions to return details for
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :sanitize whether or not to sanitize PII from workflow before it&#39;s exported
+  # @option opts [Boolean] :include_mocks when enabled, includes referenced node-mocks inline in the exported YAML. Each mock&#39;s output_data field is a JSON-encoded string rather than native YAML.
+  # @option opts [Integer] :version version of the definition to export (e.g. 0 for draft); omit for active/published
   # @return [Array<Integer>]
   describe 'workflow_definitions_export test' do
     it 'should work' do
@@ -258,7 +261,7 @@ describe 'Workflows' do
   # Gets one or more specific human inputs by their IDs.
   # @param ids IDs of human inputs to read
   # @param [Hash] opts the optional parameters
-  # @return [ModelUserInputReadResponse]
+  # @return [UserinputReadResponse]
   describe 'workflow_get_human_input_v1 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -31,15 +31,18 @@ require 'time'
 
 module Falcon
   class DomainPermission
-    attr_accessor :name
+    attr_accessor :action
 
-    attr_accessor :status
+    attr_accessor :resource
+
+    attr_accessor :resource_regex
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'status' => :'status'
+        :'action' => :'action',
+        :'resource' => :'resource',
+        :'resource_regex' => :'resourceRegex'
       }
     end
 
@@ -51,8 +54,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'status' => :'String'
+        :'action' => :'String',
+        :'resource' => :'String',
+        :'resource_regex' => :'RegexpRegexp'
       }
     end
 
@@ -77,12 +81,16 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'action')
+        self.action = attributes[:'action']
       end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'resource')
+        self.resource = attributes[:'resource']
+      end
+
+      if attributes.key?(:'resource_regex')
+        self.resource_regex = attributes[:'resource_regex']
       end
     end
 
@@ -90,12 +98,16 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if @action.nil?
+        invalid_properties.push('invalid value for "action", action cannot be nil.')
       end
 
-      if @status.nil?
-        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      if @resource.nil?
+        invalid_properties.push('invalid value for "resource", resource cannot be nil.')
+      end
+
+      if @resource_regex.nil?
+        invalid_properties.push('invalid value for "resource_regex", resource_regex cannot be nil.')
       end
 
       invalid_properties
@@ -104,8 +116,9 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
-      return false if @status.nil?
+      return false if @action.nil?
+      return false if @resource.nil?
+      return false if @resource_regex.nil?
       true
     end
 
@@ -114,8 +127,9 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          status == o.status
+          action == o.action &&
+          resource == o.resource &&
+          resource_regex == o.resource_regex
     end
 
     # @see the `==` method
@@ -127,7 +141,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, status].hash
+      [action, resource, resource_regex].hash
     end
 
     # Builds the object from hash

@@ -45,6 +45,15 @@ module Falcon
     # Boolean value to enable file metadata
     attr_accessor :enhanced_file_metadata
 
+    # Enforcement mode for the Removable Storage devices (PCIe/SD)
+    attr_accessor :pcie_enforcement_mode
+
+    # Enforcement mode for Windows Storage Spaces
+    attr_accessor :storage_space_enforcement_mode
+
+    # Enforcement mode for User Based exceptions
+    attr_accessor :user_based_enforcement_mode
+
     # Indicates whether the policy will include whitelist exceptions (ENABLE_ALWAYS, DISABLE_VIRTUAL)
     attr_accessor :whitelist_mode
 
@@ -56,6 +65,9 @@ module Falcon
         :'end_user_notification' => :'end_user_notification',
         :'enforcement_mode' => :'enforcement_mode',
         :'enhanced_file_metadata' => :'enhanced_file_metadata',
+        :'pcie_enforcement_mode' => :'pcie_enforcement_mode',
+        :'storage_space_enforcement_mode' => :'storage_space_enforcement_mode',
+        :'user_based_enforcement_mode' => :'user_based_enforcement_mode',
         :'whitelist_mode' => :'whitelist_mode'
       }
     end
@@ -73,6 +85,9 @@ module Falcon
         :'end_user_notification' => :'String',
         :'enforcement_mode' => :'String',
         :'enhanced_file_metadata' => :'Boolean',
+        :'pcie_enforcement_mode' => :'String',
+        :'storage_space_enforcement_mode' => :'String',
+        :'user_based_enforcement_mode' => :'String',
         :'whitelist_mode' => :'String'
       }
     end
@@ -120,6 +135,18 @@ module Falcon
         self.enhanced_file_metadata = attributes[:'enhanced_file_metadata']
       end
 
+      if attributes.key?(:'pcie_enforcement_mode')
+        self.pcie_enforcement_mode = attributes[:'pcie_enforcement_mode']
+      end
+
+      if attributes.key?(:'storage_space_enforcement_mode')
+        self.storage_space_enforcement_mode = attributes[:'storage_space_enforcement_mode']
+      end
+
+      if attributes.key?(:'user_based_enforcement_mode')
+        self.user_based_enforcement_mode = attributes[:'user_based_enforcement_mode']
+      end
+
       if attributes.key?(:'whitelist_mode')
         self.whitelist_mode = attributes[:'whitelist_mode']
       end
@@ -145,6 +172,10 @@ module Falcon
         invalid_properties.push('invalid value for "enhanced_file_metadata", enhanced_file_metadata cannot be nil.')
       end
 
+      if @pcie_enforcement_mode.nil?
+        invalid_properties.push('invalid value for "pcie_enforcement_mode", pcie_enforcement_mode cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -155,6 +186,7 @@ module Falcon
       return false if @end_user_notification.nil?
       return false if @enforcement_mode.nil?
       return false if @enhanced_file_metadata.nil?
+      return false if @pcie_enforcement_mode.nil?
       true
     end
 
@@ -168,6 +200,9 @@ module Falcon
           end_user_notification == o.end_user_notification &&
           enforcement_mode == o.enforcement_mode &&
           enhanced_file_metadata == o.enhanced_file_metadata &&
+          pcie_enforcement_mode == o.pcie_enforcement_mode &&
+          storage_space_enforcement_mode == o.storage_space_enforcement_mode &&
+          user_based_enforcement_mode == o.user_based_enforcement_mode &&
           whitelist_mode == o.whitelist_mode
     end
 
@@ -180,7 +215,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [classes, custom_notifications, end_user_notification, enforcement_mode, enhanced_file_metadata, whitelist_mode].hash
+      [classes, custom_notifications, end_user_notification, enforcement_mode, enhanced_file_metadata, pcie_enforcement_mode, storage_space_enforcement_mode, user_based_enforcement_mode, whitelist_mode].hash
     end
 
     # Builds the object from hash

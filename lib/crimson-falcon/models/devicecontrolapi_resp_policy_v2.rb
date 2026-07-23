@@ -78,6 +78,9 @@ module Falcon
     # Order in which a policy is applied (lower values is higher precedence)
     attr_accessor :precedence
 
+    # For Flight Control enabled CIDs, indicates whether to propagate to child CIDs
+    attr_accessor :propagated
+
     # The hash of hostgroups assigned to the policy
     attr_accessor :settings_hash
 
@@ -105,6 +108,7 @@ module Falcon
         :'platform_id' => :'platform_id',
         :'platform_name' => :'platform_name',
         :'precedence' => :'precedence',
+        :'propagated' => :'propagated',
         :'settings_hash' => :'settings_hash',
         :'usb_channel_version' => :'usb_channel_version',
         :'usb_settings' => :'usb_settings'
@@ -135,6 +139,7 @@ module Falcon
         :'platform_id' => :'String',
         :'platform_name' => :'String',
         :'precedence' => :'Integer',
+        :'propagated' => :'Boolean',
         :'settings_hash' => :'String',
         :'usb_channel_version' => :'Integer',
         :'usb_settings' => :'DevicecontrolapiRespUSBSettingsV2'
@@ -226,6 +231,10 @@ module Falcon
 
       if attributes.key?(:'precedence')
         self.precedence = attributes[:'precedence']
+      end
+
+      if attributes.key?(:'propagated')
+        self.propagated = attributes[:'propagated']
       end
 
       if attributes.key?(:'settings_hash')
@@ -350,6 +359,7 @@ module Falcon
           platform_id == o.platform_id &&
           platform_name == o.platform_name &&
           precedence == o.precedence &&
+          propagated == o.propagated &&
           settings_hash == o.settings_hash &&
           usb_channel_version == o.usb_channel_version &&
           usb_settings == o.usb_settings
@@ -364,7 +374,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assignment_type, bluetooth_channel_version, bluetooth_settings, cid, created_by, created_timestamp, description, enabled, groups, id, modified_by, modified_timestamp, name, platform_id, platform_name, precedence, settings_hash, usb_channel_version, usb_settings].hash
+      [assignment_type, bluetooth_channel_version, bluetooth_settings, cid, created_by, created_timestamp, description, enabled, groups, id, modified_by, modified_timestamp, name, platform_id, platform_name, precedence, propagated, settings_hash, usb_channel_version, usb_settings].hash
     end
 
     # Builds the object from hash

@@ -35,7 +35,7 @@ module Falcon
 
     attr_accessor :comparisons
 
-    attr_accessor :details
+    attr_accessor :description
 
     attr_accessor :determined_by_comparison
 
@@ -47,10 +47,6 @@ module Falcon
 
     attr_accessor :negate
 
-    attr_accessor :script
-
-    attr_accessor :status
-
     attr_accessor :title
 
     attr_accessor :type
@@ -60,14 +56,12 @@ module Falcon
       {
         :'comparison_check' => :'comparison_check',
         :'comparisons' => :'comparisons',
-        :'details' => :'details',
+        :'description' => :'description',
         :'determined_by_comparison' => :'determined_by_comparison',
         :'existence_check' => :'existence_check',
         :'id' => :'id',
         :'items' => :'items',
         :'negate' => :'negate',
-        :'script' => :'script',
-        :'status' => :'status',
         :'title' => :'title',
         :'type' => :'type'
       }
@@ -83,14 +77,12 @@ module Falcon
       {
         :'comparison_check' => :'String',
         :'comparisons' => :'DomainAPIEvaluationLogicComparisonsV1',
-        :'details' => :'String',
+        :'description' => :'String',
         :'determined_by_comparison' => :'Boolean',
         :'existence_check' => :'String',
         :'id' => :'Integer',
         :'items' => :'Array<Object>',
         :'negate' => :'Boolean',
-        :'script' => :'DomainAPIScriptInfoV1',
-        :'status' => :'String',
         :'title' => :'String',
         :'type' => :'String'
       }
@@ -125,8 +117,8 @@ module Falcon
         self.comparisons = attributes[:'comparisons']
       end
 
-      if attributes.key?(:'details')
-        self.details = attributes[:'details']
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'determined_by_comparison')
@@ -151,14 +143,6 @@ module Falcon
         self.negate = attributes[:'negate']
       end
 
-      if attributes.key?(:'script')
-        self.script = attributes[:'script']
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
-
       if attributes.key?(:'title')
         self.title = attributes[:'title']
       end
@@ -172,10 +156,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @status.nil?
-        invalid_properties.push('invalid value for "status", status cannot be nil.')
-      end
-
       if @title.nil?
         invalid_properties.push('invalid value for "title", title cannot be nil.')
       end
@@ -190,7 +170,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @status.nil?
       return false if @title.nil?
       return false if @type.nil?
       true
@@ -203,14 +182,12 @@ module Falcon
       self.class == o.class &&
           comparison_check == o.comparison_check &&
           comparisons == o.comparisons &&
-          details == o.details &&
+          description == o.description &&
           determined_by_comparison == o.determined_by_comparison &&
           existence_check == o.existence_check &&
           id == o.id &&
           items == o.items &&
           negate == o.negate &&
-          script == o.script &&
-          status == o.status &&
           title == o.title &&
           type == o.type
     end
@@ -224,7 +201,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [comparison_check, comparisons, details, determined_by_comparison, existence_check, id, items, negate, script, status, title, type].hash
+      [comparison_check, comparisons, description, determined_by_comparison, existence_check, id, items, negate, title, type].hash
     end
 
     # Builds the object from hash

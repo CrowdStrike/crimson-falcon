@@ -1476,7 +1476,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Get particular local application groups
+    # Get specific local application groups
     # @param ids [Array<String>] The local application group id(s) to get.
     # @param [Hash] opts the optional parameters
     # @return [ApiLocalApplicationGroupMSAResponseV1]
@@ -1485,7 +1485,7 @@ module Falcon
       data
     end
 
-    # Get particular local application groups
+    # Get specific local application groups
     # @param ids [Array<String>] The local application group id(s) to get.
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiLocalApplicationGroupMSAResponseV1, Integer, Hash)>] ApiLocalApplicationGroupMSAResponseV1 data, response status code and response headers
@@ -2325,7 +2325,7 @@ module Falcon
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'ids'] = @api_client.build_collection_param(ids, :csv)
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -2498,10 +2498,10 @@ module Falcon
 
     # Search for classifications that match the provided criteria
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.protection_mode properties.sensitivity_labels properties.web_sources created_at created_by modified_by modified_at properties.content_patterns_operator properties.evidence_duplication_enabled name properties.content_patterns properties.file_types]
+    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.content_patterns properties.evidence_duplication_enabled properties.protection_mode properties.sensitivity_labels created_at properties.content_patterns_operator properties.file_types properties.web_sources name created_by modified_by modified_at]
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return (default to 100)
-    # @option opts [String] :sort The property to sort by, allowed fields are :[name created_at modified_at]
+    # @option opts [String] :sort The property to sort by, allowed fields are :[modified_at name created_at]
     # @return [ResponsesPolicySearchV1]
     def queries_classification_get_v2(opts = {})
       data, _status_code, _headers = queries_classification_get_v2_with_http_info(opts)
@@ -2510,10 +2510,10 @@ module Falcon
 
     # Search for classifications that match the provided criteria
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.protection_mode properties.sensitivity_labels properties.web_sources created_at created_by modified_by modified_at properties.content_patterns_operator properties.evidence_duplication_enabled name properties.content_patterns properties.file_types]
+    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.content_patterns properties.evidence_duplication_enabled properties.protection_mode properties.sensitivity_labels created_at properties.content_patterns_operator properties.file_types properties.web_sources name created_by modified_by modified_at]
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return (default to 100)
-    # @option opts [String] :sort The property to sort by, allowed fields are :[name created_at modified_at]
+    # @option opts [String] :sort The property to sort by, allowed fields are :[modified_at name created_at]
     # @return [Array<(ResponsesPolicySearchV1, Integer, Hash)>] ResponsesPolicySearchV1 data, response status code and response headers
     def queries_classification_get_v2_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2992,7 +2992,7 @@ module Falcon
     # Search for policies that match the provided criteria
     # @param platform_name [String] platform name of the policies to search, either &#39;win&#39; or &#39;mac&#39;
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.screen_capture_duration_post_event properties.enable_screen_capture precedence is_enabled modified_by properties.similarity_detection properties.similarity_threshold properties.enable_end_user_notifications_unsupported_browser properties.evidence_duplication_enabled_default properties.screen_capture_duration_pre_event modified_at properties.max_file_size_to_inspect_unit properties.evidence_encrypted_enabled properties.be_exclude_domains properties.be_paste_timeout_duration_milliseconds properties.be_paste_timeout_response created_at properties.enable_content_inspection properties.custom_block_notification properties.be_upload_timeout_duration_seconds description created_by properties.browsers_without_active_extension properties.network_inspection_files_exceeding_size_limit properties.be_paste_clipboard_over_size_behaviour_block name is_default properties.enable_context_inspection properties.enable_clipboard_inspection properties.allow_notifications properties.enable_network_inspection properties.evidence_storage_free_disk_perc properties.evidence_storage_max_size properties.evidence_download_enabled properties.classifications properties.besplash_enabled properties.be_paste_clipboard_min_size_unit properties.max_file_size_to_inspect properties.euj_dialog_timeout properties.min_confidence_level properties.inspection_depth properties.block_all_data_access properties.block_notifications properties.custom_allow_notification properties.besplash_message_source properties.besplash_custom_message properties.be_paste_clipboard_min_size properties.be_upload_timeout_response properties.be_paste_clipboard_max_size properties.be_paste_clipboard_max_size_unit]
+    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [created_by properties.block_all_data_access properties.be_upload_timeout_response properties.be_paste_clipboard_max_size_unit properties.evidence_storage_max_size properties.enable_screen_capture name properties.custom_allow_notification properties.evidence_encrypted_enabled properties.be_paste_timeout_response properties.euj_dialog_timeout properties.screen_capture_duration_pre_event created_at properties.max_file_size_to_inspect_unit properties.allow_notifications properties.network_inspection_files_exceeding_size_limit properties.besplash_custom_message properties.screen_capture_duration_post_event description is_default modified_at properties.enable_content_inspection properties.be_paste_timeout_duration_milliseconds properties.be_paste_clipboard_max_size modified_by properties.enable_context_inspection properties.enable_end_user_notifications_unsupported_browser properties.be_exclude_domains properties.custom_block_notification properties.enable_network_inspection properties.besplash_enabled properties.be_paste_clipboard_over_size_behaviour_block properties.max_file_size_to_inspect is_enabled properties.similarity_detection properties.enable_clipboard_inspection properties.evidence_duplication_enabled_default properties.classifications properties.be_upload_timeout_duration_seconds properties.be_paste_clipboard_min_size properties.be_paste_clipboard_min_size_unit properties.min_confidence_level properties.inspection_depth properties.browsers_without_active_extension properties.similarity_threshold properties.block_notifications properties.evidence_download_enabled properties.besplash_message_source properties.evidence_storage_free_disk_perc precedence]
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return (default to 100)
     # @option opts [String] :sort The property to sort by, allowed fields are :[name precedence created_at modified_at]
@@ -3005,7 +3005,7 @@ module Falcon
     # Search for policies that match the provided criteria
     # @param platform_name [String] platform name of the policies to search, either &#39;win&#39; or &#39;mac&#39;
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.screen_capture_duration_post_event properties.enable_screen_capture precedence is_enabled modified_by properties.similarity_detection properties.similarity_threshold properties.enable_end_user_notifications_unsupported_browser properties.evidence_duplication_enabled_default properties.screen_capture_duration_pre_event modified_at properties.max_file_size_to_inspect_unit properties.evidence_encrypted_enabled properties.be_exclude_domains properties.be_paste_timeout_duration_milliseconds properties.be_paste_timeout_response created_at properties.enable_content_inspection properties.custom_block_notification properties.be_upload_timeout_duration_seconds description created_by properties.browsers_without_active_extension properties.network_inspection_files_exceeding_size_limit properties.be_paste_clipboard_over_size_behaviour_block name is_default properties.enable_context_inspection properties.enable_clipboard_inspection properties.allow_notifications properties.enable_network_inspection properties.evidence_storage_free_disk_perc properties.evidence_storage_max_size properties.evidence_download_enabled properties.classifications properties.besplash_enabled properties.be_paste_clipboard_min_size_unit properties.max_file_size_to_inspect properties.euj_dialog_timeout properties.min_confidence_level properties.inspection_depth properties.block_all_data_access properties.block_notifications properties.custom_allow_notification properties.besplash_message_source properties.besplash_custom_message properties.be_paste_clipboard_min_size properties.be_upload_timeout_response properties.be_paste_clipboard_max_size properties.be_paste_clipboard_max_size_unit]
+    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [created_by properties.block_all_data_access properties.be_upload_timeout_response properties.be_paste_clipboard_max_size_unit properties.evidence_storage_max_size properties.enable_screen_capture name properties.custom_allow_notification properties.evidence_encrypted_enabled properties.be_paste_timeout_response properties.euj_dialog_timeout properties.screen_capture_duration_pre_event created_at properties.max_file_size_to_inspect_unit properties.allow_notifications properties.network_inspection_files_exceeding_size_limit properties.besplash_custom_message properties.screen_capture_duration_post_event description is_default modified_at properties.enable_content_inspection properties.be_paste_timeout_duration_milliseconds properties.be_paste_clipboard_max_size modified_by properties.enable_context_inspection properties.enable_end_user_notifications_unsupported_browser properties.be_exclude_domains properties.custom_block_notification properties.enable_network_inspection properties.besplash_enabled properties.be_paste_clipboard_over_size_behaviour_block properties.max_file_size_to_inspect is_enabled properties.similarity_detection properties.enable_clipboard_inspection properties.evidence_duplication_enabled_default properties.classifications properties.be_upload_timeout_duration_seconds properties.be_paste_clipboard_min_size properties.be_paste_clipboard_min_size_unit properties.min_confidence_level properties.inspection_depth properties.browsers_without_active_extension properties.similarity_threshold properties.block_notifications properties.evidence_download_enabled properties.besplash_message_source properties.evidence_storage_free_disk_perc precedence]
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return (default to 100)
     # @option opts [String] :sort The property to sort by, allowed fields are :[name precedence created_at modified_at]

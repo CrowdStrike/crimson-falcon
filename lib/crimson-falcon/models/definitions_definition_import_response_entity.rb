@@ -71,7 +71,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'activity_metadata' => :'Hash<String, ContentActivityMetadata>',
+        :'activity_metadata' => :'Hash<String, DefinitionsActivityMetadata>',
         :'description' => :'String',
         :'disconnected_nodes' => :'Array<Array>',
         :'id' => :'String',

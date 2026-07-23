@@ -41,6 +41,12 @@ describe Falcon::DomainKestrelDataExportParams do
       expect(instance).to be_instance_of(Falcon::DomainKestrelDataExportParams)
     end
   end
+  describe 'test attribute "execution_context"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "export_mapping_v2"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -54,6 +60,12 @@ describe Falcon::DomainKestrelDataExportParams do
   end
 
   describe 'test attribute "limit"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "store_headers"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

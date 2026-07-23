@@ -36,7 +36,7 @@ module Falcon
       @api_client = api_client
     end
     # Deprecated: This endpoint will be decommissioned on September 30, 2025. Please check the Notes section below for migration guidance.
-    # Please use this guide to migrate to [Alerts API](https://falcon.us-2.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+    # Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
     # @param body [Array<MsaAggregateQueryRequest>] Query criteria and settings
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
@@ -46,7 +46,7 @@ module Falcon
     end
 
     # Deprecated: This endpoint will be decommissioned on September 30, 2025. Please check the Notes section below for migration guidance.
-    # Please use this guide to migrate to [Alerts API](https://falcon.us-2.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+    # Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
     # @param body [Array<MsaAggregateQueryRequest>] Query criteria and settings
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
@@ -104,7 +104,7 @@ module Falcon
     end
 
     # Deprecated: This endpoint will be decommissioned on September 30, 2025. Please check the Notes section below for migration guidance.
-    # Please use this guide to migrate to [Alerts API](https://falcon.us-2.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+    # Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
     # @param body [MsaIdsRequest] View key attributes of detections, including the associated host, [disposition](https://falcon.crowdstrike.com/documentation/86/detections-monitoring-apis#pattern-disposition-value-descriptions), objective/tactic/technique, adversary, and more. Specify one or more detection IDs (max 1000 per request). Find detection IDs with the &#x60;/detects/queries/detects/v1&#x60; endpoint, the Falcon console, or the Streaming API.
     # @param [Hash] opts the optional parameters
     # @return [DomainMsaDetectSummariesResponse]
@@ -114,7 +114,7 @@ module Falcon
     end
 
     # Deprecated: This endpoint will be decommissioned on September 30, 2025. Please check the Notes section below for migration guidance.
-    # Please use this guide to migrate to [Alerts API](https://falcon.us-2.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+    # Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
     # @param body [MsaIdsRequest] View key attributes of detections, including the associated host, [disposition](https://falcon.crowdstrike.com/documentation/86/detections-monitoring-apis#pattern-disposition-value-descriptions), objective/tactic/technique, adversary, and more. Specify one or more detection IDs (max 1000 per request). Find detection IDs with the &#x60;/detects/queries/detects/v1&#x60; endpoint, the Falcon console, or the Streaming API.
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainMsaDetectSummariesResponse, Integer, Hash)>] DomainMsaDetectSummariesResponse data, response status code and response headers
@@ -172,7 +172,7 @@ module Falcon
     end
 
     # Deprecated: This endpoint will be decommissioned on September 30, 2025. Please check the Notes section below for migration guidance.
-    # Please use this guide to migrate to [Alerts API](https://falcon.us-2.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+    # Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;limit&#x60; parameter to manage pagination of results.
     # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 9999; max: 9999). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
@@ -186,7 +186,7 @@ module Falcon
     end
 
     # Deprecated: This endpoint will be decommissioned on September 30, 2025. Please check the Notes section below for migration guidance.
-    # Please use this guide to migrate to [Alerts API](https://falcon.us-2.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+    # Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;limit&#x60; parameter to manage pagination of results.
     # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 9999; max: 9999). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
@@ -252,7 +252,7 @@ module Falcon
     end
 
     # Deprecated: This endpoint will be decommissioned on September 30, 2025. Please check the Notes section below for migration guidance.
-    # Please use this guide to migrate to [Alerts API](https://falcon.us-2.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+    # Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
     # @param body [DomainDetectsEntitiesPatchRequest] This endpoint modifies attributes (state and assignee) of detections.   This endpoint accepts a query formatted as a JSON array of key-value pairs. You can update one or more attributes one or more detections with a single request.  **&#x60;assigned_to_uuid&#x60; values**  A user ID, such as &#x60;1234567891234567891&#x60;  **&#x60;ids&#x60; values**  One or more detection IDs, which you can find with the &#x60;/detects/queries/detects/v1&#x60; endpoint, the Falcon console, or the Streaming API.  **&#x60;show_in_ui&#x60; values**  - &#x60;true&#x60;: This detection is displayed in Falcon - &#x60;false&#x60;: This detection is not displayed in Falcon. Most commonly used together with the &#x60;status&#x60; key&#39;s &#x60;false_positive&#x60; value.  **&#x60;status&#x60; values**  - &#x60;new&#x60; - &#x60;in_progress&#x60; - &#x60;true_positive&#x60; - &#x60;false_positive&#x60; - &#x60;closed&#x60; - &#x60;ignored&#x60;  **&#x60;comment&#x60; values** Optional comment to add to the detection. Comments are displayed with the detection in Falcon and usually used to provide context or notes for other Falcon users. A detection can have multiple comments over time.
     # @param [Hash] opts the optional parameters
     # @return [MsaReplyMetaOnly]
@@ -262,7 +262,7 @@ module Falcon
     end
 
     # Deprecated: This endpoint will be decommissioned on September 30, 2025. Please check the Notes section below for migration guidance.
-    # Please use this guide to migrate to [Alerts API](https://falcon.us-2.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
+    # Please use this guide to migrate to [Alerts API](https://falcon.crowdstrike.com/documentation/page/d02475a5/converting-from-detects-api-to-alerts-api)
     # @param body [DomainDetectsEntitiesPatchRequest] This endpoint modifies attributes (state and assignee) of detections.   This endpoint accepts a query formatted as a JSON array of key-value pairs. You can update one or more attributes one or more detections with a single request.  **&#x60;assigned_to_uuid&#x60; values**  A user ID, such as &#x60;1234567891234567891&#x60;  **&#x60;ids&#x60; values**  One or more detection IDs, which you can find with the &#x60;/detects/queries/detects/v1&#x60; endpoint, the Falcon console, or the Streaming API.  **&#x60;show_in_ui&#x60; values**  - &#x60;true&#x60;: This detection is displayed in Falcon - &#x60;false&#x60;: This detection is not displayed in Falcon. Most commonly used together with the &#x60;status&#x60; key&#39;s &#x60;false_positive&#x60; value.  **&#x60;status&#x60; values**  - &#x60;new&#x60; - &#x60;in_progress&#x60; - &#x60;true_positive&#x60; - &#x60;false_positive&#x60; - &#x60;closed&#x60; - &#x60;ignored&#x60;  **&#x60;comment&#x60; values** Optional comment to add to the detection. Comments are displayed with the detection in Falcon and usually used to provide context or notes for other Falcon users. A detection can have multiple comments over time.
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers

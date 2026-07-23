@@ -47,6 +47,12 @@ describe Falcon::DomainScanScheduleDataV1 do
     end
   end
 
+  describe 'test attribute "last_scan_completed_at"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "next_scan_timestamp"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

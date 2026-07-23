@@ -50,6 +50,8 @@ module Falcon
 
     attr_accessor :type
 
+    attr_accessor :web_location_group_ids
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -61,7 +63,8 @@ module Falcon
         :'name' => :'name',
         :'provider_location_id' => :'provider_location_id',
         :'provider_location_name' => :'provider_location_name',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'web_location_group_ids' => :'web_location_group_ids'
       }
     end
 
@@ -81,7 +84,8 @@ module Falcon
         :'name' => :'String',
         :'provider_location_id' => :'String',
         :'provider_location_name' => :'String',
-        :'type' => :'String'
+        :'type' => :'String',
+        :'web_location_group_ids' => :'Array<String>'
       }
     end
 
@@ -141,6 +145,12 @@ module Falcon
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+
+      if attributes.key?(:'web_location_group_ids')
+        if (value = attributes[:'web_location_group_ids']).is_a?(Array)
+          self.web_location_group_ids = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -189,7 +199,8 @@ module Falcon
           name == o.name &&
           provider_location_id == o.provider_location_id &&
           provider_location_name == o.provider_location_name &&
-          type == o.type
+          type == o.type &&
+          web_location_group_ids == o.web_location_group_ids
     end
 
     # @see the `==` method
@@ -201,7 +212,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [application_id, deleted, enterprise_account_id, id, location_type, name, provider_location_id, provider_location_name, type].hash
+      [application_id, deleted, enterprise_account_id, id, location_type, name, provider_location_id, provider_location_name, type, web_location_group_ids].hash
     end
 
     # Builds the object from hash

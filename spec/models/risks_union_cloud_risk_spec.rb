@@ -131,12 +131,6 @@ describe Falcon::RisksUnionCloudRisk do
     end
   end
 
-  describe 'test attribute "edges"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   describe 'test attribute "first_seen"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -228,12 +222,6 @@ describe Falcon::RisksUnionCloudRisk do
   end
 
   describe 'test attribute "suppression"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  describe 'test attribute "vertices"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

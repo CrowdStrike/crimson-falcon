@@ -31,7 +31,7 @@ require 'time'
 
 module Falcon
   class DevicecontrolapiReqCreatePoliciesV1
-    # Array of policies
+    # List of policies to create. Maximum batch size: 1000
     attr_accessor :policies
 
     # Attribute mapping from ruby-style variable name to JSON key.

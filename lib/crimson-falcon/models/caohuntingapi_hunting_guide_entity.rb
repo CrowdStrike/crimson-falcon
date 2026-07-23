@@ -61,6 +61,8 @@ module Falcon
 
     attr_accessor :name
 
+    attr_accessor :queries
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -78,7 +80,8 @@ module Falcon
         :'last_updated_at' => :'last_updated_at',
         :'malware_families' => :'malware_families',
         :'mitre' => :'mitre',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'queries' => :'queries'
       }
     end
 
@@ -104,7 +107,8 @@ module Falcon
         :'last_updated_at' => :'Time',
         :'malware_families' => :'Array<String>',
         :'mitre' => :'Array<CaohuntingapiMitreData>',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'queries' => :'Array<DomainEntityInfo>'
       }
     end
 
@@ -198,6 +202,12 @@ module Falcon
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
+
+      if attributes.key?(:'queries')
+        if (value = attributes[:'queries']).is_a?(Array)
+          self.queries = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -262,7 +272,8 @@ module Falcon
           last_updated_at == o.last_updated_at &&
           malware_families == o.malware_families &&
           mitre == o.mitre &&
-          name == o.name
+          name == o.name &&
+          queries == o.queries
     end
 
     # @see the `==` method
@@ -274,7 +285,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [adversaries, ai_description, ai_short_description, category, cql_query_count, description, environments, hunt_count, hunt_filter, id, languages, last_updated_at, malware_families, mitre, name].hash
+      [adversaries, ai_description, ai_short_description, category, cql_query_count, description, environments, hunt_count, hunt_filter, id, languages, last_updated_at, malware_families, mitre, name, queries].hash
     end
 
     # Builds the object from hash

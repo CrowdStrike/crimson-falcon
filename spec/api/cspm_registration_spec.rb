@@ -198,7 +198,7 @@ describe 'CspmRegistration' do
   end
 
   # unit tests for get_cloud_event_ids
-  # Get list of related cloud event LogScale IDs for a given IOA
+  # Deprecated: use cdrapi entities/event-details/v1 &#39;logscale_related_events_query&#39; instead. Get list of related cloud event LogScale IDs for a given IOA.
   # @param x_cs_useruuid Requester User UUID
   # @param id IOA Aggregate Event ID
   # @param [Hash] opts the optional parameters

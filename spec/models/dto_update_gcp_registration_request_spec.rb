@@ -53,6 +53,12 @@ describe Falcon::DtoUpdateGCPRegistrationRequest do
     end
   end
 
+  describe 'test attribute "dspm_settings"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "entity_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -119,6 +125,12 @@ describe Falcon::DtoUpdateGCPRegistrationRequest do
     end
   end
 
+  describe 'test attribute "registration_description"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "registration_name"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -144,6 +156,12 @@ describe Falcon::DtoUpdateGCPRegistrationRequest do
   end
 
   describe 'test attribute "tags"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "vulnerability_scanning_settings"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

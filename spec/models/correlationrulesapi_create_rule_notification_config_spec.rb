@@ -41,6 +41,12 @@ describe Falcon::CorrelationrulesapiCreateRuleNotificationConfig do
       expect(instance).to be_instance_of(Falcon::CorrelationrulesapiCreateRuleNotificationConfig)
     end
   end
+  describe 'test attribute "channel_id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "cid"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -66,6 +72,12 @@ describe Falcon::CorrelationrulesapiCreateRuleNotificationConfig do
   end
 
   describe 'test attribute "severity"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "team_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

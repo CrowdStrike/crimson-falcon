@@ -48,12 +48,90 @@ describe 'Ngsiem' do
     end
   end
 
+  # unit tests for bulk_create_dashboards_from_template
+  # Create Multiple Dashboards from YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkCreateDashboardsFromTemplateResponseV1]
+  describe 'bulk_create_dashboards_from_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_create_lookup_files
+  # Create Multiple Lookup Files. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkCreateLookupFilesResponseV1]
+  describe 'bulk_create_lookup_files test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_create_saved_queries_from_template
+  # Create Multiple Saved Queries from LogScale YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+  # @param body bulk create saved queries request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkCreateSavedQueriesFromTemplateResponseV1]
+  describe 'bulk_create_saved_queries_from_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_get_lookup_files
+  # Retrieve Multiple Lookup Files by Filenames in NGSIEM.
+  # @param filename Lookup file filename(s) (required, multiple allowed)
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @return [ApiBulkGetLookupFilesResponseV1]
+  describe 'bulk_get_lookup_files test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for bulk_install_parsers
   # Installs multiple CrowdStrike-managed out-of-the-box (OOTB) parsers into the customer&#39;s repository in a single operation. This endpoint provisions multiple pre-built parsers with their specific versions for the requesting customer ID (CID). The parsers are installed as-is and cannot be modified by the customer. Requires an array of parsers with parser_id and version in the request body. Maximum 100 parsers per request.
   # @param body bulk install parsers request
   # @param [Hash] opts the optional parameters
   # @return [ApiParserBulkInstallResponseV1]
   describe 'bulk_install_parsers test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_update_dashboards_from_template
+  # Update Multiple Dashboards from YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkUpdateDashboardsFromTemplateResponseV1]
+  describe 'bulk_update_dashboards_from_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_update_lookup_files
+  # Update Multiple Lookup Files. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkUpdateLookupFilesResponseV1]
+  describe 'bulk_update_lookup_files test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_update_saved_queries_from_template
+  # Update Multiple Saved Queries from LogScale YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
+  # @param body bulk update saved queries request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkUpdateSavedQueriesFromTemplateResponseV1]
+  describe 'bulk_update_saved_queries_from_template test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -107,6 +185,17 @@ describe 'Ngsiem' do
     end
   end
 
+  # unit tests for create_parser_extension
+  # Create a Parser extension in NGSIEM for the provided base parser.
+  # @param body create parser extension request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiCreateParserResponseV1]
+  describe 'create_parser_extension test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for create_parser_from_template
   # Create Parser from LogScale YAML Template in NGSIEM
   # @param [Hash] opts the optional parameters
@@ -134,7 +223,7 @@ describe 'Ngsiem' do
   # unit tests for delete_dashboard
   # Delete Dashboard in NGSIEM
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :ids dashboard ID value
+  # @option opts [Array<String>] :ids dashboard ID value(s). Supports single or multiple IDs for bulk delete.
   # @option opts [String] :search_domain name of search domain (view or repo)
   # @return [ApiDeleteDashboardResponseV1]
   describe 'delete_dashboard test' do
@@ -146,7 +235,7 @@ describe 'Ngsiem' do
   # unit tests for delete_lookup_file
   # Delete Lookup File in NGSIEM
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filename lookup file filename
+  # @option opts [Array<String>] :filename lookup file filename(s). Supports single or multiple filenames for bulk delete.
   # @option opts [String] :search_domain name of search domain (view or repo)
   # @return [ApiDeleteLookupFileResponseV1]
   describe 'delete_lookup_file test' do
@@ -170,7 +259,7 @@ describe 'Ngsiem' do
   # unit tests for delete_saved_query
   # Delete Saved Query in NGSIEM
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :ids saved query ID value
+  # @option opts [Array<String>] :ids saved query ID value(s). Supports single or multiple IDs for bulk delete.
   # @option opts [String] :search_domain name of search domain (view or repo)
   # @return [ApiDeleteSavedQueryResponseV1]
   describe 'delete_saved_query test' do
@@ -344,9 +433,9 @@ describe 'Ngsiem' do
   end
 
   # unit tests for get_dashboard_template
-  # Retrieve Dashboard in NGSIEM as LogScale YAML Template
+  # Retrieve Dashboard(s) in NGSIEM as LogScale YAML Template. Supports single or multiple IDs.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :ids dashboard ID value
+  # @option opts [Array<String>] :ids dashboard ID value(s)
   # @option opts [String] :search_domain name of search domain (view or repo)
   # @return [ApiGetDashboardTemplateResponseV1]
   describe 'get_dashboard_template test' do
@@ -431,9 +520,9 @@ describe 'Ngsiem' do
   end
 
   # unit tests for get_saved_query_template
-  # Retrieve Saved Query in NGSIEM as LogScale YAML Template
+  # Retrieve Saved Quer(ies) in NGSIEM as LogScale YAML Template. Supports single or multiple IDs.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :ids saved query ID value
+  # @option opts [Array<String>] :ids saved query ID value(s)
   # @option opts [String] :search_domain name of search domain (view or repo)
   # @return [ApiGetSavedQueryResponseV1]
   describe 'get_saved_query_template test' do
@@ -466,7 +555,7 @@ describe 'Ngsiem' do
   end
 
   # unit tests for list_dashboards
-  # List Dashboards in NGSIEM
+  # List Dashboards in NGSIEM with Pagination and Filtering. Returns dashboard ID and name. Supports pagination (default limit: 50) and optional name filtering.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :limit maximum number of results to return
   # @option opts [String] :offset number of results to offset the returned results by
@@ -480,7 +569,7 @@ describe 'Ngsiem' do
   end
 
   # unit tests for list_lookup_files
-  # List Lookup Files in NGSIEM
+  # List Lookup Files in NGSIEM with Pagination and Filtering. Supports bulk listing with pagination (default limit: 50) and optional name filtering.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :limit maximum number of results to return
   # @option opts [String] :offset number of results to offset the returned results by
@@ -510,7 +599,7 @@ describe 'Ngsiem' do
   end
 
   # unit tests for list_saved_queries
-  # Get Saved Queries in NGSIEM
+  # List Saved Queries in NGSIEM with Pagination and Filtering. Supports bulk listing with pagination (default limit: 50) and optional name filtering.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :limit maximum number of results to return
   # @option opts [String] :offset number of results to offset the returned results by
@@ -618,6 +707,17 @@ describe 'Ngsiem' do
   # @param [Hash] opts the optional parameters
   # @return [ApiUpdateAutoUpdatePolicyResponseV1]
   describe 'update_parser_auto_update_policy test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_parser_extension
+  # Update an existing Parser extension in NGSIEM. At least one field must be provided for update.
+  # @param body update parser extension request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiCreateParserResponseV1]
+  describe 'update_parser_extension test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -84,8 +84,8 @@ describe 'CloudOciRegistration' do
   # unit tests for cloud_security_registration_oci_get_account
   # Retrieve a list of OCI tenancies with support for FQL filtering, sorting, and pagination
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region, key_age}
-  # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are Set{overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region, key_age}
+  # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{tenancy_name, home_region, key_age, overall_status, created_at, updated_at, registration_name, tenancy_ocid}
+  # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are Set{home_region, key_age, overall_status, created_at, updated_at, registration_name, tenancy_ocid, tenancy_name}
   # @option opts [String] :next_token Token for cursor-based pagination. Currently unsupported.
   # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 10000)
   # @option opts [Integer] :offset Starting index of result

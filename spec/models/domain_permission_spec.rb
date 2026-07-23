@@ -41,13 +41,19 @@ describe Falcon::DomainPermission do
       expect(instance).to be_instance_of(Falcon::DomainPermission)
     end
   end
-  describe 'test attribute "name"' do
+  describe 'test attribute "action"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  describe 'test attribute "status"' do
+  describe 'test attribute "resource"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "resource_regex"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -61,8 +61,6 @@ module Falcon
 
     attr_accessor :disabled
 
-    attr_accessor :edges
-
     attr_accessor :first_seen
 
     attr_accessor :graph
@@ -95,8 +93,6 @@ module Falcon
 
     attr_accessor :suppression
 
-    attr_accessor :vertices
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -115,7 +111,6 @@ module Falcon
         :'comments' => :'comments',
         :'crn' => :'crn',
         :'disabled' => :'disabled',
-        :'edges' => :'edges',
         :'first_seen' => :'first_seen',
         :'graph' => :'graph',
         :'id' => :'id',
@@ -131,8 +126,7 @@ module Falcon
         :'service_category' => :'service_category',
         :'severity' => :'severity',
         :'status' => :'status',
-        :'suppression' => :'suppression',
-        :'vertices' => :'vertices'
+        :'suppression' => :'suppression'
       }
     end
 
@@ -159,7 +153,6 @@ module Falcon
         :'comments' => :'Array<RiskComments>',
         :'crn' => :'String',
         :'disabled' => :'Boolean',
-        :'edges' => :'Array<RisksEdge>',
         :'first_seen' => :'Time',
         :'graph' => :'RisksGraph',
         :'id' => :'String',
@@ -175,8 +168,7 @@ module Falcon
         :'service_category' => :'String',
         :'severity' => :'String',
         :'status' => :'String',
-        :'suppression' => :'RiskSuppression',
-        :'vertices' => :'Array<RisksVertex>'
+        :'suppression' => :'RiskSuppression'
       }
     end
 
@@ -269,12 +261,6 @@ module Falcon
         self.disabled = attributes[:'disabled']
       end
 
-      if attributes.key?(:'edges')
-        if (value = attributes[:'edges']).is_a?(Array)
-          self.edges = value
-        end
-      end
-
       if attributes.key?(:'first_seen')
         self.first_seen = attributes[:'first_seen']
       end
@@ -341,12 +327,6 @@ module Falcon
 
       if attributes.key?(:'suppression')
         self.suppression = attributes[:'suppression']
-      end
-
-      if attributes.key?(:'vertices')
-        if (value = attributes[:'vertices']).is_a?(Array)
-          self.vertices = value
-        end
       end
     end
 
@@ -488,7 +468,6 @@ module Falcon
           comments == o.comments &&
           crn == o.crn &&
           disabled == o.disabled &&
-          edges == o.edges &&
           first_seen == o.first_seen &&
           graph == o.graph &&
           id == o.id &&
@@ -504,8 +483,7 @@ module Falcon
           service_category == o.service_category &&
           severity == o.severity &&
           status == o.status &&
-          suppression == o.suppression &&
-          vertices == o.vertices
+          suppression == o.suppression
     end
 
     # @see the `==` method
@@ -517,7 +495,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_name, adversaries, agv2_id, asset_gcrn, asset_id, asset_name, asset_region, asset_tags, asset_type, cid, cloud_groups, comments, crn, disabled, edges, first_seen, graph, id, insight_categories, last_seen, provider, resolved_at, risk_factors, rule_description, rule_id, rule_name, score, service_category, severity, status, suppression, vertices].hash
+      [account_id, account_name, adversaries, agv2_id, asset_gcrn, asset_id, asset_name, asset_region, asset_tags, asset_type, cid, cloud_groups, comments, crn, disabled, first_seen, graph, id, insight_categories, last_seen, provider, resolved_at, risk_factors, rule_description, rule_id, rule_name, score, service_category, severity, status, suppression].hash
     end
 
     # Builds the object from hash

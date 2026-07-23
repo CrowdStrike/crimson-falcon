@@ -85,6 +85,8 @@ module Falcon
 
     attr_accessor :sectors
 
+    attr_accessor :software_packages
+
     attr_accessor :threat_types
 
     attr_accessor :threats
@@ -124,6 +126,7 @@ module Falcon
         :'reports' => :'Reports',
         :'root_domain_details' => :'RootDomainDetails',
         :'sectors' => :'Sectors',
+        :'software_packages' => :'SoftwarePackages',
         :'threat_types' => :'ThreatTypes',
         :'threats' => :'Threats',
         :'type' => :'Type',
@@ -164,6 +167,7 @@ module Falcon
         :'reports' => :'Array<FigapiReport>',
         :'root_domain_details' => :'FigapiDomain',
         :'sectors' => :'Array<FigapiSector>',
+        :'software_packages' => :'Array<FigapiSoftwarePackage>',
         :'threat_types' => :'Array<String>',
         :'threats' => :'Array<FigapiThreat>',
         :'type' => :'String',
@@ -298,6 +302,12 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'software_packages')
+        if (value = attributes[:'software_packages']).is_a?(Array)
+          self.software_packages = value
+        end
+      end
+
       if attributes.key?(:'threat_types')
         if (value = attributes[:'threat_types']).is_a?(Array)
           self.threat_types = value
@@ -370,6 +380,7 @@ module Falcon
           reports == o.reports &&
           root_domain_details == o.root_domain_details &&
           sectors == o.sectors &&
+          software_packages == o.software_packages &&
           threat_types == o.threat_types &&
           threats == o.threats &&
           type == o.type &&
@@ -387,7 +398,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [adversaries, affected_customers, certificates, coin_address_details, countries, credentials_details, domain_details, email_address_details, file_details, first_seen, id, ipv4_details, ipv6_details, kill_chain, last_seen, last_updated, lookup_value, malicious_confidence, malicious_confidence_validated_time, publish_date, reports, root_domain_details, sectors, threat_types, threats, type, url_details, unique_identifier_details, vulnerabilities].hash
+      [adversaries, affected_customers, certificates, coin_address_details, countries, credentials_details, domain_details, email_address_details, file_details, first_seen, id, ipv4_details, ipv6_details, kill_chain, last_seen, last_updated, lookup_value, malicious_confidence, malicious_confidence_validated_time, publish_date, reports, root_domain_details, sectors, software_packages, threat_types, threats, type, url_details, unique_identifier_details, vulnerabilities].hash
     end
 
     # Builds the object from hash

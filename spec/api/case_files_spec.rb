@@ -111,7 +111,7 @@ describe 'CaseFiles' do
   # Delete file details by id
   # @param ids Resource IDs
   # @param [Hash] opts the optional parameters
-  # @return [CasefilesapiMSAResponseString]
+  # @return [CasefilesapiFileIDsResponseV1]
   describe 'entities_files_delete_v1 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -192,7 +192,7 @@ describe 'CaseFiles' do
   # @option opts [String] :filter FQL filter expression
   # @option opts [Integer] :limit Page size
   # @option opts [Integer] :offset Page offset
-  # @return [CasefilesapiMSAResponseString]
+  # @return [CasefilesapiFileIDsResponseV1]
   describe 'queries_file_details_get_v1 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

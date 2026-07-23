@@ -35,6 +35,8 @@ module Falcon
 
     attr_accessor :computation_functions
 
+    attr_accessor :formatter_override
+
     attr_accessor :header_name
 
     attr_accessor :use_data_as_value
@@ -44,6 +46,7 @@ module Falcon
       {
         :'column' => :'column',
         :'computation_functions' => :'computation_functions',
+        :'formatter_override' => :'formatter_override',
         :'header_name' => :'header_name',
         :'use_data_as_value' => :'use_data_as_value'
       }
@@ -59,6 +62,7 @@ module Falcon
       {
         :'column' => :'String',
         :'computation_functions' => :'Array<DomainKestrelDataExportHeaderComputationFunctionV2>',
+        :'formatter_override' => :'String',
         :'header_name' => :'String',
         :'use_data_as_value' => :'Boolean'
       }
@@ -95,6 +99,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'formatter_override')
+        self.formatter_override = attributes[:'formatter_override']
+      end
+
       if attributes.key?(:'header_name')
         self.header_name = attributes[:'header_name']
       end
@@ -116,6 +124,10 @@ module Falcon
         invalid_properties.push('invalid value for "computation_functions", computation_functions cannot be nil.')
       end
 
+      if @formatter_override.nil?
+        invalid_properties.push('invalid value for "formatter_override", formatter_override cannot be nil.')
+      end
+
       if @header_name.nil?
         invalid_properties.push('invalid value for "header_name", header_name cannot be nil.')
       end
@@ -132,6 +144,7 @@ module Falcon
     def valid?
       return false if @column.nil?
       return false if @computation_functions.nil?
+      return false if @formatter_override.nil?
       return false if @header_name.nil?
       return false if @use_data_as_value.nil?
       true
@@ -144,6 +157,7 @@ module Falcon
       self.class == o.class &&
           column == o.column &&
           computation_functions == o.computation_functions &&
+          formatter_override == o.formatter_override &&
           header_name == o.header_name &&
           use_data_as_value == o.use_data_as_value
     end
@@ -157,7 +171,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [column, computation_functions, header_name, use_data_as_value].hash
+      [column, computation_functions, formatter_override, header_name, use_data_as_value].hash
     end
 
     # Builds the object from hash

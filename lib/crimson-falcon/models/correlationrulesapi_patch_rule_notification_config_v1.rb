@@ -31,6 +31,8 @@ require 'time'
 
 module Falcon
   class CorrelationrulesapiPatchRuleNotificationConfigV1
+    attr_accessor :channel_id
+
     attr_accessor :cid
 
     attr_accessor :config_id
@@ -41,14 +43,18 @@ module Falcon
 
     attr_accessor :severity
 
+    attr_accessor :team_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'channel_id' => :'channel_id',
         :'cid' => :'cid',
         :'config_id' => :'config_id',
         :'plugin_id' => :'plugin_id',
         :'recipients' => :'recipients',
-        :'severity' => :'severity'
+        :'severity' => :'severity',
+        :'team_id' => :'team_id'
       }
     end
 
@@ -60,11 +66,13 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'channel_id' => :'String',
         :'cid' => :'String',
         :'config_id' => :'String',
         :'plugin_id' => :'String',
         :'recipients' => :'Array<String>',
-        :'severity' => :'String'
+        :'severity' => :'String',
+        :'team_id' => :'String'
       }
     end
 
@@ -89,6 +97,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'channel_id')
+        self.channel_id = attributes[:'channel_id']
+      end
+
       if attributes.key?(:'cid')
         self.cid = attributes[:'cid']
       end
@@ -110,6 +122,10 @@ module Falcon
       if attributes.key?(:'severity')
         self.severity = attributes[:'severity']
       end
+
+      if attributes.key?(:'team_id')
+        self.team_id = attributes[:'team_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -130,11 +146,13 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          channel_id == o.channel_id &&
           cid == o.cid &&
           config_id == o.config_id &&
           plugin_id == o.plugin_id &&
           recipients == o.recipients &&
-          severity == o.severity
+          severity == o.severity &&
+          team_id == o.team_id
     end
 
     # @see the `==` method
@@ -146,7 +164,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, config_id, plugin_id, recipients, severity].hash
+      [channel_id, cid, config_id, plugin_id, recipients, severity, team_id].hash
     end
 
     # Builds the object from hash

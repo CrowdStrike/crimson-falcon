@@ -1004,7 +1004,7 @@ module Falcon
 
     # List user IDs for all users in your customer account. For more information on each user, provide the user ID to `/user-management/entities/users/GET/v1`.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, status, temporarily_assigned_cids, uid, uuid
+    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, non_ancestor_assigned_cids, status, temporarily_assigned_cids, uid, uuid
     # @option opts [Integer] :offset The offset to start retrieving records from (default to 0)
     # @option opts [Integer] :limit The maximum records to return. [1-500] (default to 100)
     # @option opts [String] :sort The property to sort by (default to 'uid|asc')
@@ -1016,7 +1016,7 @@ module Falcon
 
     # List user IDs for all users in your customer account. For more information on each user, provide the user ID to &#x60;/user-management/entities/users/GET/v1&#x60;.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, status, temporarily_assigned_cids, uid, uuid
+    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, non_ancestor_assigned_cids, status, temporarily_assigned_cids, uid, uuid
     # @option opts [Integer] :offset The offset to start retrieving records from (default to 0)
     # @option opts [Integer] :limit The maximum records to return. [1-500] (default to 100)
     # @option opts [String] :sort The property to sort by (default to 'uid|asc')

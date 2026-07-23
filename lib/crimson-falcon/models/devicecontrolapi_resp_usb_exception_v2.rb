@@ -38,14 +38,30 @@ module Falcon
 
     attr_accessor :combined_id
 
+    attr_accessor :created_timestamp
+
     attr_accessor :description
+
+    # List of groups excluded from the exception scope
+    attr_accessor :excluded_groups
+
+    # List of users excluded from the exception scope
+    attr_accessor :excluded_users
 
     attr_accessor :expiration_time
 
     # ID of the exception
     attr_accessor :id
 
+    # List of groups included in the exception scope
+    attr_accessor :included_groups
+
+    # List of users included in the exception scope
+    attr_accessor :included_users
+
     attr_accessor :match_method
+
+    attr_accessor :modified_timestamp
 
     attr_accessor :product_id
 
@@ -64,23 +80,32 @@ module Falcon
     # Name of the vendor
     attr_accessor :vendor_name
 
+    attr_accessor :warning_trigger_ids
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'action' => :'action',
         :'_class' => :'class',
         :'combined_id' => :'combined_id',
+        :'created_timestamp' => :'created_timestamp',
         :'description' => :'description',
+        :'excluded_groups' => :'excluded_groups',
+        :'excluded_users' => :'excluded_users',
         :'expiration_time' => :'expiration_time',
         :'id' => :'id',
+        :'included_groups' => :'included_groups',
+        :'included_users' => :'included_users',
         :'match_method' => :'match_method',
+        :'modified_timestamp' => :'modified_timestamp',
         :'product_id' => :'product_id',
         :'product_name' => :'product_name',
         :'serial_number' => :'serial_number',
         :'trigger_id' => :'trigger_id',
         :'use_wildcard' => :'use_wildcard',
         :'vendor_id' => :'vendor_id',
-        :'vendor_name' => :'vendor_name'
+        :'vendor_name' => :'vendor_name',
+        :'warning_trigger_ids' => :'warning_trigger_ids'
       }
     end
 
@@ -95,17 +120,24 @@ module Falcon
         :'action' => :'String',
         :'_class' => :'String',
         :'combined_id' => :'String',
+        :'created_timestamp' => :'Time',
         :'description' => :'String',
+        :'excluded_groups' => :'Array<DevicecontrolapiIdentityV1>',
+        :'excluded_users' => :'Array<DevicecontrolapiIdentityV1>',
         :'expiration_time' => :'Time',
         :'id' => :'String',
+        :'included_groups' => :'Array<DevicecontrolapiIdentityV1>',
+        :'included_users' => :'Array<DevicecontrolapiIdentityV1>',
         :'match_method' => :'String',
+        :'modified_timestamp' => :'Time',
         :'product_id' => :'String',
         :'product_name' => :'String',
         :'serial_number' => :'String',
         :'trigger_id' => :'String',
         :'use_wildcard' => :'Boolean',
         :'vendor_id' => :'String',
-        :'vendor_name' => :'String'
+        :'vendor_name' => :'String',
+        :'warning_trigger_ids' => :'Array<String>'
       }
     end
 
@@ -142,8 +174,24 @@ module Falcon
         self.combined_id = attributes[:'combined_id']
       end
 
+      if attributes.key?(:'created_timestamp')
+        self.created_timestamp = attributes[:'created_timestamp']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'excluded_groups')
+        if (value = attributes[:'excluded_groups']).is_a?(Array)
+          self.excluded_groups = value
+        end
+      end
+
+      if attributes.key?(:'excluded_users')
+        if (value = attributes[:'excluded_users']).is_a?(Array)
+          self.excluded_users = value
+        end
       end
 
       if attributes.key?(:'expiration_time')
@@ -154,8 +202,24 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'included_groups')
+        if (value = attributes[:'included_groups']).is_a?(Array)
+          self.included_groups = value
+        end
+      end
+
+      if attributes.key?(:'included_users')
+        if (value = attributes[:'included_users']).is_a?(Array)
+          self.included_users = value
+        end
+      end
+
       if attributes.key?(:'match_method')
         self.match_method = attributes[:'match_method']
+      end
+
+      if attributes.key?(:'modified_timestamp')
+        self.modified_timestamp = attributes[:'modified_timestamp']
       end
 
       if attributes.key?(:'product_id')
@@ -184,6 +248,12 @@ module Falcon
 
       if attributes.key?(:'vendor_name')
         self.vendor_name = attributes[:'vendor_name']
+      end
+
+      if attributes.key?(:'warning_trigger_ids')
+        if (value = attributes[:'warning_trigger_ids']).is_a?(Array)
+          self.warning_trigger_ids = value
+        end
       end
     end
 
@@ -238,17 +308,24 @@ module Falcon
           action == o.action &&
           _class == o._class &&
           combined_id == o.combined_id &&
+          created_timestamp == o.created_timestamp &&
           description == o.description &&
+          excluded_groups == o.excluded_groups &&
+          excluded_users == o.excluded_users &&
           expiration_time == o.expiration_time &&
           id == o.id &&
+          included_groups == o.included_groups &&
+          included_users == o.included_users &&
           match_method == o.match_method &&
+          modified_timestamp == o.modified_timestamp &&
           product_id == o.product_id &&
           product_name == o.product_name &&
           serial_number == o.serial_number &&
           trigger_id == o.trigger_id &&
           use_wildcard == o.use_wildcard &&
           vendor_id == o.vendor_id &&
-          vendor_name == o.vendor_name
+          vendor_name == o.vendor_name &&
+          warning_trigger_ids == o.warning_trigger_ids
     end
 
     # @see the `==` method
@@ -260,7 +337,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [action, _class, combined_id, description, expiration_time, id, match_method, product_id, product_name, serial_number, trigger_id, use_wildcard, vendor_id, vendor_name].hash
+      [action, _class, combined_id, created_timestamp, description, excluded_groups, excluded_users, expiration_time, id, included_groups, included_users, match_method, modified_timestamp, product_id, product_name, serial_number, trigger_id, use_wildcard, vendor_id, vendor_name, warning_trigger_ids].hash
     end
 
     # Builds the object from hash

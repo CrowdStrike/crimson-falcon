@@ -31,10 +31,12 @@ require 'time'
 
 module Falcon
   class DomainQueryResponse
+    # Array of API Errors
     attr_accessor :errors
 
     attr_accessor :meta
 
+    # Array of string IDs that matches the query request
     attr_accessor :resources
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -55,7 +57,7 @@ module Falcon
     def self.openapi_types
       {
         :'errors' => :'Array<MsaAPIError>',
-        :'meta' => :'DomainMsaMetaInfo',
+        :'meta' => :'MsaMetaInfo',
         :'resources' => :'Array<String>'
       }
     end
@@ -102,6 +104,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @errors.nil?
+        invalid_properties.push('invalid value for "errors", errors cannot be nil.')
+      end
+
       if @meta.nil?
         invalid_properties.push('invalid value for "meta", meta cannot be nil.')
       end
@@ -116,6 +122,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @errors.nil?
       return false if @meta.nil?
       return false if @resources.nil?
       true

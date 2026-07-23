@@ -186,14 +186,6 @@ module Falcon
         invalid_properties.push('invalid value for "connector_id", connector_id cannot be nil.')
       end
 
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @parser.nil?
-        invalid_properties.push('invalid value for "parser", parser cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -201,8 +193,6 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @connector_id.nil?
-      return false if @name.nil?
-      return false if @parser.nil?
       true
     end
 

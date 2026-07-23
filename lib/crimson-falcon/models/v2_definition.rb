@@ -33,6 +33,8 @@ module Falcon
   class V2Definition
     attr_accessor :actions
 
+    attr_accessor :budget
+
     attr_accessor :conditions
 
     attr_accessor :description
@@ -73,6 +75,7 @@ module Falcon
     def self.attribute_map
       {
         :'actions' => :'actions',
+        :'budget' => :'budget',
         :'conditions' => :'conditions',
         :'description' => :'description',
         :'disconnected_nodes' => :'disconnected_nodes',
@@ -103,6 +106,7 @@ module Falcon
     def self.openapi_types
       {
         :'actions' => :'Hash<String, V2Activity>',
+        :'budget' => :'V2Budget',
         :'conditions' => :'Hash<String, V2Condition>',
         :'description' => :'String',
         :'disconnected_nodes' => :'Array<String>',
@@ -149,6 +153,10 @@ module Falcon
         if (value = attributes[:'actions']).is_a?(Hash)
           self.actions = value
         end
+      end
+
+      if attributes.key?(:'budget')
+        self.budget = attributes[:'budget']
       end
 
       if attributes.key?(:'conditions')
@@ -286,6 +294,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           actions == o.actions &&
+          budget == o.budget &&
           conditions == o.conditions &&
           description == o.description &&
           disconnected_nodes == o.disconnected_nodes &&
@@ -315,7 +324,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [actions, conditions, description, disconnected_nodes, labels, loops, multi_instance, name, node_registry, output_fields, parameters, parent, provision_on_install, summary, trigger, type, uniq_node_seen, use_cases, vendors].hash
+      [actions, budget, conditions, description, disconnected_nodes, labels, loops, multi_instance, name, node_registry, output_fields, parameters, parent, provision_on_install, summary, trigger, type, uniq_node_seen, use_cases, vendors].hash
     end
 
     # Builds the object from hash

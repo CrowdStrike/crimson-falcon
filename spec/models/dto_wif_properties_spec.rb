@@ -41,6 +41,12 @@ describe Falcon::DtoWIFProperties do
       expect(instance).to be_instance_of(Falcon::DtoWIFProperties)
     end
   end
+  describe 'test attribute "identity_source"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "pool_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

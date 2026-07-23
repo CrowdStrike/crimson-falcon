@@ -83,6 +83,10 @@ module Falcon
     # ID of the raw intel item that matched the rule
     attr_accessor :raw_intel_id
 
+    attr_accessor :risk_score_label
+
+    attr_accessor :risk_score_matching_criteria
+
     # The name of the user who created the rule
     attr_accessor :rule_creator_name
 
@@ -109,6 +113,9 @@ module Falcon
 
     # The notification status. This can be one of: `new`, `in-progress`, `closed-false-positive`, `closed-true-positive`.
     attr_accessor :status
+
+    # Term matches with their highlighted text and source field information
+    attr_accessor :term_matches
 
     attr_accessor :typosquatting
 
@@ -137,6 +144,8 @@ module Falcon
         :'logs' => :'logs',
         :'notification_group_id' => :'notification_group_id',
         :'raw_intel_id' => :'raw_intel_id',
+        :'risk_score_label' => :'risk_score_label',
+        :'risk_score_matching_criteria' => :'risk_score_matching_criteria',
         :'rule_creator_name' => :'rule_creator_name',
         :'rule_creator_uid' => :'rule_creator_uid',
         :'rule_creator_uuid' => :'rule_creator_uuid',
@@ -146,6 +155,7 @@ module Falcon
         :'rule_topic' => :'rule_topic',
         :'source_category' => :'source_category',
         :'status' => :'status',
+        :'term_matches' => :'term_matches',
         :'typosquatting' => :'typosquatting',
         :'updated_date' => :'updated_date'
       }
@@ -178,6 +188,8 @@ module Falcon
         :'logs' => :'Array<SadomainNotificationLog>',
         :'notification_group_id' => :'String',
         :'raw_intel_id' => :'String',
+        :'risk_score_label' => :'String',
+        :'risk_score_matching_criteria' => :'Array<DomainRiskScoreMatchingCriteriaResponse>',
         :'rule_creator_name' => :'String',
         :'rule_creator_uid' => :'String',
         :'rule_creator_uuid' => :'String',
@@ -187,6 +199,7 @@ module Falcon
         :'rule_topic' => :'String',
         :'source_category' => :'String',
         :'status' => :'String',
+        :'term_matches' => :'Array<SadomainTermMatch>',
         :'typosquatting' => :'SadomainTyposquattingComponent',
         :'updated_date' => :'Time'
       }
@@ -293,6 +306,16 @@ module Falcon
         self.raw_intel_id = attributes[:'raw_intel_id']
       end
 
+      if attributes.key?(:'risk_score_label')
+        self.risk_score_label = attributes[:'risk_score_label']
+      end
+
+      if attributes.key?(:'risk_score_matching_criteria')
+        if (value = attributes[:'risk_score_matching_criteria']).is_a?(Array)
+          self.risk_score_matching_criteria = value
+        end
+      end
+
       if attributes.key?(:'rule_creator_name')
         self.rule_creator_name = attributes[:'rule_creator_name']
       end
@@ -327,6 +350,12 @@ module Falcon
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'term_matches')
+        if (value = attributes[:'term_matches']).is_a?(Array)
+          self.term_matches = value
+        end
       end
 
       if attributes.key?(:'typosquatting')
@@ -374,6 +403,10 @@ module Falcon
         invalid_properties.push('invalid value for "raw_intel_id", raw_intel_id cannot be nil.')
       end
 
+      if @risk_score_label.nil?
+        invalid_properties.push('invalid value for "risk_score_label", risk_score_label cannot be nil.')
+      end
+
       if @rule_id.nil?
         invalid_properties.push('invalid value for "rule_id", rule_id cannot be nil.')
       end
@@ -412,6 +445,7 @@ module Falcon
       return false if @item_id.nil?
       return false if @item_type.nil?
       return false if @raw_intel_id.nil?
+      return false if @risk_score_label.nil?
       return false if @rule_id.nil?
       return false if @rule_name.nil?
       return false if @rule_priority.nil?
@@ -445,6 +479,8 @@ module Falcon
           logs == o.logs &&
           notification_group_id == o.notification_group_id &&
           raw_intel_id == o.raw_intel_id &&
+          risk_score_label == o.risk_score_label &&
+          risk_score_matching_criteria == o.risk_score_matching_criteria &&
           rule_creator_name == o.rule_creator_name &&
           rule_creator_uid == o.rule_creator_uid &&
           rule_creator_uuid == o.rule_creator_uuid &&
@@ -454,6 +490,7 @@ module Falcon
           rule_topic == o.rule_topic &&
           source_category == o.source_category &&
           status == o.status &&
+          term_matches == o.term_matches &&
           typosquatting == o.typosquatting &&
           updated_date == o.updated_date
     end
@@ -467,7 +504,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [actor_slug, assigned_to_uid, assigned_to_username, assigned_to_uuid, breach_summary, cid, created_date, highlights, id, item_author, item_author_id, item_date, item_id, item_site, item_site_id, item_type, logs, notification_group_id, raw_intel_id, rule_creator_name, rule_creator_uid, rule_creator_uuid, rule_id, rule_name, rule_priority, rule_topic, source_category, status, typosquatting, updated_date].hash
+      [actor_slug, assigned_to_uid, assigned_to_username, assigned_to_uuid, breach_summary, cid, created_date, highlights, id, item_author, item_author_id, item_date, item_id, item_site, item_site_id, item_type, logs, notification_group_id, raw_intel_id, risk_score_label, risk_score_matching_criteria, rule_creator_name, rule_creator_uid, rule_creator_uuid, rule_id, rule_name, rule_priority, rule_topic, source_category, status, term_matches, typosquatting, updated_date].hash
     end
 
     # Builds the object from hash

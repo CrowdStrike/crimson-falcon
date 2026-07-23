@@ -33,23 +33,11 @@ module Falcon
   class DomainUser
     attr_accessor :cid
 
-    attr_accessor :created_at
-
-    attr_accessor :factors
+    attr_accessor :email
 
     attr_accessor :first_name
 
-    attr_accessor :last_login_at
-
     attr_accessor :last_name
-
-    attr_accessor :status
-
-    attr_accessor :uid
-
-    attr_accessor :updated_at
-
-    attr_accessor :user_type
 
     attr_accessor :uuid
 
@@ -57,15 +45,9 @@ module Falcon
     def self.attribute_map
       {
         :'cid' => :'cid',
-        :'created_at' => :'created_at',
-        :'factors' => :'factors',
-        :'first_name' => :'first_name',
-        :'last_login_at' => :'last_login_at',
-        :'last_name' => :'last_name',
-        :'status' => :'status',
-        :'uid' => :'uid',
-        :'updated_at' => :'updated_at',
-        :'user_type' => :'user_type',
+        :'email' => :'email',
+        :'first_name' => :'firstName',
+        :'last_name' => :'lastName',
         :'uuid' => :'uuid'
       }
     end
@@ -79,15 +61,9 @@ module Falcon
     def self.openapi_types
       {
         :'cid' => :'String',
-        :'created_at' => :'Time',
-        :'factors' => :'Array<String>',
+        :'email' => :'String',
         :'first_name' => :'String',
-        :'last_login_at' => :'Time',
         :'last_name' => :'String',
-        :'status' => :'String',
-        :'uid' => :'String',
-        :'updated_at' => :'Time',
-        :'user_type' => :'String',
         :'uuid' => :'String'
       }
     end
@@ -117,42 +93,16 @@ module Falcon
         self.cid = attributes[:'cid']
       end
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'factors')
-        if (value = attributes[:'factors']).is_a?(Array)
-          self.factors = value
-        end
+      if attributes.key?(:'email')
+        self.email = attributes[:'email']
       end
 
       if attributes.key?(:'first_name')
         self.first_name = attributes[:'first_name']
       end
 
-      if attributes.key?(:'last_login_at')
-        self.last_login_at = attributes[:'last_login_at']
-      end
-
       if attributes.key?(:'last_name')
         self.last_name = attributes[:'last_name']
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'uid')
-        self.uid = attributes[:'uid']
-      end
-
-      if attributes.key?(:'updated_at')
-        self.updated_at = attributes[:'updated_at']
-      end
-
-      if attributes.key?(:'user_type')
-        self.user_type = attributes[:'user_type']
       end
 
       if attributes.key?(:'uuid')
@@ -179,15 +129,9 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           cid == o.cid &&
-          created_at == o.created_at &&
-          factors == o.factors &&
+          email == o.email &&
           first_name == o.first_name &&
-          last_login_at == o.last_login_at &&
           last_name == o.last_name &&
-          status == o.status &&
-          uid == o.uid &&
-          updated_at == o.updated_at &&
-          user_type == o.user_type &&
           uuid == o.uuid
     end
 
@@ -200,7 +144,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, created_at, factors, first_name, last_login_at, last_name, status, uid, updated_at, user_type, uuid].hash
+      [cid, email, first_name, last_name, uuid].hash
     end
 
     # Builds the object from hash

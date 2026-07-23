@@ -47,6 +47,8 @@ module Falcon
 
     attr_accessor :platform
 
+    attr_accessor :seen_timestamp
+
     attr_accessor :sessionid
 
     attr_accessor :state
@@ -64,6 +66,7 @@ module Falcon
         :'modified_timestamp' => :'modified_timestamp',
         :'notes' => :'notes',
         :'platform' => :'platform',
+        :'seen_timestamp' => :'seen_timestamp',
         :'sessionid' => :'sessionid',
         :'state' => :'state',
         :'updated_by' => :'updated_by'
@@ -86,6 +89,7 @@ module Falcon
         :'modified_timestamp' => :'Time',
         :'notes' => :'String',
         :'platform' => :'Integer',
+        :'seen_timestamp' => :'Time',
         :'sessionid' => :'String',
         :'state' => :'String',
         :'updated_by' => :'String'
@@ -145,6 +149,10 @@ module Falcon
         self.platform = attributes[:'platform']
       end
 
+      if attributes.key?(:'seen_timestamp')
+        self.seen_timestamp = attributes[:'seen_timestamp']
+      end
+
       if attributes.key?(:'sessionid')
         self.sessionid = attributes[:'sessionid']
       end
@@ -194,6 +202,10 @@ module Falcon
         invalid_properties.push('invalid value for "platform", platform cannot be nil.')
       end
 
+      if @seen_timestamp.nil?
+        invalid_properties.push('invalid value for "seen_timestamp", seen_timestamp cannot be nil.')
+      end
+
       if @sessionid.nil?
         invalid_properties.push('invalid value for "sessionid", sessionid cannot be nil.')
       end
@@ -225,6 +237,7 @@ module Falcon
       return false if @modified_timestamp.nil?
       return false if @notes.nil?
       return false if @platform.nil?
+      return false if @seen_timestamp.nil?
       return false if @sessionid.nil?
       return false if @state.nil?
       return false if @state !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
@@ -260,6 +273,7 @@ module Falcon
           modified_timestamp == o.modified_timestamp &&
           notes == o.notes &&
           platform == o.platform &&
+          seen_timestamp == o.seen_timestamp &&
           sessionid == o.sessionid &&
           state == o.state &&
           updated_by == o.updated_by
@@ -274,7 +288,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aid, cid, created_timestamp, deployed_timestamp, ffcid, modified_timestamp, notes, platform, sessionid, state, updated_by].hash
+      [aid, cid, created_timestamp, deployed_timestamp, ffcid, modified_timestamp, notes, platform, seen_timestamp, sessionid, state, updated_by].hash
     end
 
     # Builds the object from hash

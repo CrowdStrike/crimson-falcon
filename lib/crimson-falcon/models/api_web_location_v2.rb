@@ -57,6 +57,8 @@ module Falcon
 
     attr_accessor :type
 
+    attr_accessor :web_location_group_ids
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -72,7 +74,8 @@ module Falcon
         :'provider_location_id' => :'provider_location_id',
         :'provider_location_name' => :'provider_location_name',
         :'supports_network_inspection' => :'supports_network_inspection',
-        :'type' => :'type'
+        :'type' => :'type',
+        :'web_location_group_ids' => :'web_location_group_ids'
       }
     end
 
@@ -96,7 +99,8 @@ module Falcon
         :'provider_location_id' => :'String',
         :'provider_location_name' => :'String',
         :'supports_network_inspection' => :'Boolean',
-        :'type' => :'String'
+        :'type' => :'String',
+        :'web_location_group_ids' => :'Array<String>'
       }
     end
 
@@ -172,6 +176,12 @@ module Falcon
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
+
+      if attributes.key?(:'web_location_group_ids')
+        if (value = attributes[:'web_location_group_ids']).is_a?(Array)
+          self.web_location_group_ids = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -194,6 +204,10 @@ module Falcon
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
+      if @web_location_group_ids.nil?
+        invalid_properties.push('invalid value for "web_location_group_ids", web_location_group_ids cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -204,6 +218,7 @@ module Falcon
       return false if @id.nil?
       return false if @location_type.nil?
       return false if @type.nil?
+      return false if @web_location_group_ids.nil?
       true
     end
 
@@ -224,7 +239,8 @@ module Falcon
           provider_location_id == o.provider_location_id &&
           provider_location_name == o.provider_location_name &&
           supports_network_inspection == o.supports_network_inspection &&
-          type == o.type
+          type == o.type &&
+          web_location_group_ids == o.web_location_group_ids
     end
 
     # @see the `==` method
@@ -236,7 +252,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [application_id, cid, created, deleted, enterprise_account_id, id, last_updated, location_type, name, provider_location_id, provider_location_name, supports_network_inspection, type].hash
+      [application_id, cid, created, deleted, enterprise_account_id, id, last_updated, location_type, name, provider_location_id, provider_location_name, supports_network_inspection, type, web_location_group_ids].hash
     end
 
     # Builds the object from hash

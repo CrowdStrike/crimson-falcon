@@ -59,4 +59,15 @@ describe 'CorrelationRulesAdmin' do
     end
   end
 
+  # unit tests for entities_rules_ownership_put_v2
+  # Bulk change the owner of existing Correlation Rules
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [MsaspecQueryResponse]
+  describe 'entities_rules_ownership_put_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end

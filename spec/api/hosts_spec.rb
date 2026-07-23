@@ -78,6 +78,17 @@ describe 'Hosts' do
     end
   end
 
+  # unit tests for devices_actions_delete_v1
+  # Permanently delete hosts from the system.
+  # @param body The host agent IDs (AIDs) of the hosts to permanently delete.  Provide the IDs in JSON format with the key &#x60;ids&#x60; and the value in square brackets, such as:  &#x60;\&quot;ids\&quot;: [\&quot;123456789\&quot;]&#x60;
+  # @param [Hash] opts the optional parameters
+  # @return [MsaReplyAffectedEntities]
+  describe 'devices_actions_delete_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for entities_perform_action
   # Performs the specified action on the provided group IDs.
   # @param ids The group ids to act on
@@ -115,7 +126,7 @@ describe 'Hosts' do
   end
 
   # unit tests for perform_action_v2
-  # Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.
+  # Take various actions on the hosts in your environment. Contain or lift containment on a host. Hide or unhide a host.
   # @param action_name Specify one of these actions:  - &#x60;contain&#x60; - This action contains the host, which stops any network communications to locations other than the CrowdStrike cloud and IPs specified in your [containment policy](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#containmentpolicy) - &#x60;lift_containment&#x60;: This action lifts containment on the host, which returns its network communications to normal - &#x60;hide_host&#x60;: This action will delete a host. After the host is deleted, no new detections for that host will be reported via UI or APIs - &#x60;unhide_host&#x60;: This action will restore a host. Detection reporting will resume after the host is restored
   # @param body The host agent ID (AID) of the host you want to contain. Get an agent ID from a detection, the Falcon console, or the Streaming API.  Provide the ID in JSON format with the key &#x60;ids&#x60; and the value in square brackets, such as:   &#x60;\&quot;ids\&quot;: [\&quot;123456789\&quot;]&#x60;
   # @param [Hash] opts the optional parameters

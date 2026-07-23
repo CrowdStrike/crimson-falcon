@@ -31,10 +31,12 @@ require 'time'
 
 module Falcon
   class DomainAggregatesResponse
+    # Array of API Errors
     attr_accessor :errors
 
     attr_accessor :meta
 
+    # Array of aggregation results, 1 per AggregateQueryRequest
     attr_accessor :resources
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -54,9 +56,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'errors' => :'Array<DomainReconAPIError>',
+        :'errors' => :'Array<MsaAPIError>',
         :'meta' => :'MsaMetaInfo',
-        :'resources' => :'Array<MsaAggregationResult>'
+        :'resources' => :'Array<DomainAggregationResult>'
       }
     end
 

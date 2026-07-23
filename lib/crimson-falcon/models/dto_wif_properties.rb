@@ -31,6 +31,8 @@ require 'time'
 
 module Falcon
   class DtoWIFProperties
+    attr_accessor :identity_source
+
     attr_accessor :pool_id
 
     attr_accessor :pool_name
@@ -46,6 +48,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'identity_source' => :'identity_source',
         :'pool_id' => :'pool_id',
         :'pool_name' => :'pool_name',
         :'project_id' => :'project_id',
@@ -63,6 +66,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'identity_source' => :'String',
         :'pool_id' => :'String',
         :'pool_name' => :'String',
         :'project_id' => :'String',
@@ -92,6 +96,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'identity_source')
+        self.identity_source = attributes[:'identity_source']
+      end
 
       if attributes.key?(:'pool_id')
         self.pool_id = attributes[:'pool_id']
@@ -136,6 +144,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          identity_source == o.identity_source &&
           pool_id == o.pool_id &&
           pool_name == o.pool_name &&
           project_id == o.project_id &&
@@ -153,7 +162,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [pool_id, pool_name, project_id, project_number, provider_id, provider_name].hash
+      [identity_source, pool_id, pool_name, project_id, project_number, provider_id, provider_name].hash
     end
 
     # Builds the object from hash

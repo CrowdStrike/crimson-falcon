@@ -41,7 +41,13 @@ describe Falcon::DomainCredentials do
       expect(instance).to be_instance_of(Falcon::DomainCredentials)
     end
   end
-  describe 'test attribute "token"' do
+  describe 'test attribute "auto_authorize_scanners"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "ids"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

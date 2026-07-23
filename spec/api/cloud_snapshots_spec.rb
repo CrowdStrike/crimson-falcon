@@ -59,11 +59,11 @@ describe 'CloudSnapshots' do
     end
   end
 
-  # unit tests for get_credentials_mixin0_mixin54
+  # unit tests for get_credentials_mixin0_mixin60
   # Gets the registry credentials
   # @param [Hash] opts the optional parameters
   # @return [ModelsRegistryCredentialsResponse]
-  describe 'get_credentials_mixin0_mixin54 test' do
+  describe 'get_credentials_mixin0_mixin60 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -47,6 +47,12 @@ describe Falcon::RestAWSAccountPatchExtV1 do
     end
   end
 
+  describe 'test attribute "cloudformation_stack_arn"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "cloudtrail_region"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -180,6 +186,12 @@ describe Falcon::RestAWSAccountPatchExtV1 do
   end
 
   describe 'test attribute "s3_log_ingestion_sns_topic_arn"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "target_ous"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

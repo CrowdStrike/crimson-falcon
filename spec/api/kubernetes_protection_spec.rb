@@ -70,12 +70,12 @@ describe 'KubernetesProtection' do
     end
   end
 
-  # unit tests for delete_aws_accounts
+  # unit tests for delete_aws_accounts_mixin0
   # Delete AWS accounts.
   # @param ids AWS Account IDs
   # @param [Hash] opts the optional parameters
   # @return [MsaMetaInfo]
-  describe 'delete_aws_accounts test' do
+  describe 'delete_aws_accounts_mixin0 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -116,7 +116,7 @@ describe 'KubernetesProtection' do
     end
   end
 
-  # unit tests for get_aws_accounts
+  # unit tests for get_aws_accounts_mixin0
   # Provides a list of AWS accounts.
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :ids AWS Account IDs
@@ -125,7 +125,7 @@ describe 'KubernetesProtection' do
   # @option opts [Integer] :limit Limit returned accounts
   # @option opts [Integer] :offset Offset returned accounts
   # @return [K8sregGetAWSAccountsResp]
-  describe 'get_aws_accounts test' do
+  describe 'get_aws_accounts_mixin0 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -275,11 +275,22 @@ describe 'KubernetesProtection' do
     end
   end
 
+  # unit tests for post_aggregates_pods
+  # Get aggregate query result for pods
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [MsaAggregatesResponse]
+  describe 'post_aggregates_pods test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for post_search_kubernetes_iom_entities
   # Search for Kubernetes IOMs with filtering options.Pagination is supported via Elasticsearch&#39;s search_after search param and point in time. Assets are sorted by unique ID in ascending direction.
   # @param body
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
+  # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
   # @option opts [String] :sort The fields to sort the records on.
   # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 500)
   # @return [K8siomsSearchResponse]
@@ -756,7 +767,7 @@ describe 'KubernetesProtection' do
   # unit tests for search_and_read_kubernetes_iom_entities
   # Retrieves a list of Kubernetes IOMs identified by the provided search criteria. Maximum page size: 100. Maximum available Kubernetes IOMs: 10,000
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
+  # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
   # @option opts [String] :sort The fields to sort the records on.
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
   # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
@@ -770,7 +781,7 @@ describe 'KubernetesProtection' do
   # unit tests for search_kubernetes_ioms
   # Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
+  # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
   # @option opts [String] :sort The fields to sort the records on.
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
   # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.

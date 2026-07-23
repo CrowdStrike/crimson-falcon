@@ -39,6 +39,10 @@ module Falcon
 
     attr_accessor :description
 
+    attr_accessor :description_format
+
+    attr_accessor :description_tagged_users
+
     attr_accessor :name
 
     attr_accessor :remove_user_assignment
@@ -62,6 +66,8 @@ module Falcon
         :'assigned_to_user_uuid' => :'assigned_to_user_uuid',
         :'custom_fields' => :'custom_fields',
         :'description' => :'description',
+        :'description_format' => :'description_format',
+        :'description_tagged_users' => :'description_tagged_users',
         :'name' => :'name',
         :'remove_user_assignment' => :'remove_user_assignment',
         :'severity' => :'severity',
@@ -85,6 +91,8 @@ module Falcon
         :'assigned_to_user_uuid' => :'String',
         :'custom_fields' => :'Array<SdkCustomField>',
         :'description' => :'String',
+        :'description_format' => :'String',
+        :'description_tagged_users' => :'Array<String>',
         :'name' => :'String',
         :'remove_user_assignment' => :'Boolean',
         :'severity' => :'Integer',
@@ -135,6 +143,16 @@ module Falcon
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'description_format')
+        self.description_format = attributes[:'description_format']
+      end
+
+      if attributes.key?(:'description_tagged_users')
+        if (value = attributes[:'description_tagged_users']).is_a?(Array)
+          self.description_tagged_users = value
+        end
       end
 
       if attributes.key?(:'name')
@@ -239,6 +257,8 @@ module Falcon
           assigned_to_user_uuid == o.assigned_to_user_uuid &&
           custom_fields == o.custom_fields &&
           description == o.description &&
+          description_format == o.description_format &&
+          description_tagged_users == o.description_tagged_users &&
           name == o.name &&
           remove_user_assignment == o.remove_user_assignment &&
           severity == o.severity &&
@@ -258,7 +278,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_tags, assigned_to_user_uuid, custom_fields, description, name, remove_user_assignment, severity, severity_info, slas_active, status, template, workflows].hash
+      [access_tags, assigned_to_user_uuid, custom_fields, description, description_format, description_tagged_users, name, remove_user_assignment, severity, severity_info, slas_active, status, template, workflows].hash
     end
 
     # Builds the object from hash

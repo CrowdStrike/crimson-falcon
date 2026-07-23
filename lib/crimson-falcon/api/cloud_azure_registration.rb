@@ -101,6 +101,72 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Create new issue suppression rules
+    # @param body [AzureSuppressionCreateRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [AzureSuppressionResponseExtV1]
+    def cloud_registration_azure_create_suppressions(body, opts = {})
+      data, _status_code, _headers = cloud_registration_azure_create_suppressions_with_http_info(body, opts)
+      data
+    end
+
+    # Create new issue suppression rules
+    # @param body [AzureSuppressionCreateRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AzureSuppressionResponseExtV1, Integer, Hash)>] AzureSuppressionResponseExtV1 data, response status code and response headers
+    def cloud_registration_azure_create_suppressions_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.cloud_registration_azure_create_suppressions ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudAzureRegistration.cloud_registration_azure_create_suppressions"
+      end
+      # resource path
+      local_var_path = '/cloud-security-registration-azure/entities/issue-suppressions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AzureSuppressionResponseExtV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudAzureRegistration.cloud_registration_azure_create_suppressions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_create_suppressions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete existing legacy Azure subscriptions.
     # @param body [AzureLegacySubscriptionDeleteRequestExtV1]
     # @param [Hash] opts the optional parameters
@@ -229,6 +295,72 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Remove/revoke suppression rules
+    # @param body [AzureSuppressionDeleteRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def cloud_registration_azure_delete_suppressions(body, opts = {})
+      cloud_registration_azure_delete_suppressions_with_http_info(body, opts)
+      nil
+    end
+
+    # Remove/revoke suppression rules
+    # @param body [AzureSuppressionDeleteRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def cloud_registration_azure_delete_suppressions_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.cloud_registration_azure_delete_suppressions ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudAzureRegistration.cloud_registration_azure_delete_suppressions"
+      end
+      # resource path
+      local_var_path = '/cloud-security-registration-azure/entities/issue-suppressions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudAzureRegistration.cloud_registration_azure_delete_suppressions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_delete_suppressions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retrieve script to create resources
     # @param body [AzureAzureDownloadScriptRequestV1]
     # @param [Hash] opts the optional parameters
@@ -295,33 +427,276 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve existing Azure registration for a tenant.
-    # @param tenant_id [String] Tenant ID
+    # Retrieve distinct filterable values for issue suppression fields
+    # @param registration_id [String] Registration ID to filter values by
+    # @param field [String] Field to get values for
     # @param [Hash] opts the optional parameters
+    # @return [AzureIssueSuppressionValuesByFieldResponse]
+    def cloud_registration_azure_get_issue_suppression_values_by_field(registration_id, field, opts = {})
+      data, _status_code, _headers = cloud_registration_azure_get_issue_suppression_values_by_field_with_http_info(registration_id, field, opts)
+      data
+    end
+
+    # Retrieve distinct filterable values for issue suppression fields
+    # @param registration_id [String] Registration ID to filter values by
+    # @param field [String] Field to get values for
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AzureIssueSuppressionValuesByFieldResponse, Integer, Hash)>] AzureIssueSuppressionValuesByFieldResponse data, response status code and response headers
+    def cloud_registration_azure_get_issue_suppression_values_by_field_with_http_info(registration_id, field, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.cloud_registration_azure_get_issue_suppression_values_by_field ...'
+      end
+      # verify the required parameter 'registration_id' is set
+      if @api_client.config.client_side_validation && registration_id.nil?
+        fail ArgumentError, "Missing the required parameter 'registration_id' when calling CloudAzureRegistration.cloud_registration_azure_get_issue_suppression_values_by_field"
+      end
+      # verify the required parameter 'field' is set
+      if @api_client.config.client_side_validation && field.nil?
+        fail ArgumentError, "Missing the required parameter 'field' when calling CloudAzureRegistration.cloud_registration_azure_get_issue_suppression_values_by_field"
+      end
+      # verify enum value
+      allowable_values = ["issue_name", "entity_id", "suppressed_by", "created_at", "reason"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(field)
+        fail ArgumentError, "invalid value for \"field\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/cloud-security-registration-azure/aggregates/issue-suppressions-values-by-fields/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'registration_id'] = registration_id
+      query_params[:'field'] = field
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AzureIssueSuppressionValuesByFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudAzureRegistration.cloud_registration_azure_get_issue_suppression_values_by_field",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_get_issue_suppression_values_by_field\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve distinct filterable values for issue fields
+    # @param registration_id [String] Registration ID to filter values by
+    # @param field [String] Field to get values for
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are name,issue,severity,category,impact,entity_type,entity_id,entity_name,status
+    # @return [AzureIssueValuesByFieldResponse]
+    def cloud_registration_azure_get_issue_values_by_field(registration_id, field, opts = {})
+      data, _status_code, _headers = cloud_registration_azure_get_issue_values_by_field_with_http_info(registration_id, field, opts)
+      data
+    end
+
+    # Retrieve distinct filterable values for issue fields
+    # @param registration_id [String] Registration ID to filter values by
+    # @param field [String] Field to get values for
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are name,issue,severity,category,impact,entity_type,entity_id,entity_name,status
+    # @return [Array<(AzureIssueValuesByFieldResponse, Integer, Hash)>] AzureIssueValuesByFieldResponse data, response status code and response headers
+    def cloud_registration_azure_get_issue_values_by_field_with_http_info(registration_id, field, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.cloud_registration_azure_get_issue_values_by_field ...'
+      end
+      # verify the required parameter 'registration_id' is set
+      if @api_client.config.client_side_validation && registration_id.nil?
+        fail ArgumentError, "Missing the required parameter 'registration_id' when calling CloudAzureRegistration.cloud_registration_azure_get_issue_values_by_field"
+      end
+      # verify the required parameter 'field' is set
+      if @api_client.config.client_side_validation && field.nil?
+        fail ArgumentError, "Missing the required parameter 'field' when calling CloudAzureRegistration.cloud_registration_azure_get_issue_values_by_field"
+      end
+      # verify enum value
+      allowable_values = ["issue", "name", "severity", "category", "impact", "entity_type", "entity_id", "entity_name", "status", "feature"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(field)
+        fail ArgumentError, "invalid value for \"field\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/cloud-security-registration-azure/aggregates/issues-values-by-fields/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'registration_id'] = registration_id
+      query_params[:'field'] = field
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AzureIssueValuesByFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudAzureRegistration.cloud_registration_azure_get_issue_values_by_field",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_get_issue_values_by_field\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve issues for Azure registrations
+    # @param registration_id [String] Registration ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are name,issue,severity,category,impact,entity_type,entity_id,entity_name,status
+    # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are issue,name,severity,category,impact,entity_type,entity_id,entity_name,impacted_entities
+    # @option opts [String] :group_by Grouping method: &#39;name&#39; (optional, default: ungrouped)
+    # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 1000) (default to 100)
+    # @option opts [Integer] :offset Starting index of result (default to 0)
+    # @return [AzureIssueResponseExtV1]
+    def cloud_registration_azure_get_issues(registration_id, opts = {})
+      data, _status_code, _headers = cloud_registration_azure_get_issues_with_http_info(registration_id, opts)
+      data
+    end
+
+    # Retrieve issues for Azure registrations
+    # @param registration_id [String] Registration ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are name,issue,severity,category,impact,entity_type,entity_id,entity_name,status
+    # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are issue,name,severity,category,impact,entity_type,entity_id,entity_name,impacted_entities
+    # @option opts [String] :group_by Grouping method: &#39;name&#39; (optional, default: ungrouped)
+    # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 1000) (default to 100)
+    # @option opts [Integer] :offset Starting index of result (default to 0)
+    # @return [Array<(AzureIssueResponseExtV1, Integer, Hash)>] AzureIssueResponseExtV1 data, response status code and response headers
+    def cloud_registration_azure_get_issues_with_http_info(registration_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.cloud_registration_azure_get_issues ...'
+      end
+      # verify the required parameter 'registration_id' is set
+      if @api_client.config.client_side_validation && registration_id.nil?
+        fail ArgumentError, "Missing the required parameter 'registration_id' when calling CloudAzureRegistration.cloud_registration_azure_get_issues"
+      end
+      allowable_values = ["name"]
+      if @api_client.config.client_side_validation && opts[:'group_by'] && !allowable_values.include?(opts[:'group_by'])
+        fail ArgumentError, "invalid value for \"group_by\", must be one of #{allowable_values}"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CloudAzureRegistration.cloud_registration_azure_get_issues, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CloudAzureRegistration.cloud_registration_azure_get_issues, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling CloudAzureRegistration.cloud_registration_azure_get_issues, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/cloud-security-registration-azure/entities/issues/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'registration_id'] = registration_id
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'group_by'] = opts[:'group_by'] if !opts[:'group_by'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AzureIssueResponseExtV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudAzureRegistration.cloud_registration_azure_get_issues",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_get_issues\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve existing Azure registration for a tenant.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :tenant_id Tenant ID
+    # @option opts [String] :registration_id Registration ID
     # @return [AzureAzureRegistrationResponseExtV1]
-    def cloud_registration_azure_get_registration(tenant_id, opts = {})
-      data, _status_code, _headers = cloud_registration_azure_get_registration_with_http_info(tenant_id, opts)
+    def cloud_registration_azure_get_registration(opts = {})
+      data, _status_code, _headers = cloud_registration_azure_get_registration_with_http_info(opts)
       data
     end
 
     # Retrieve existing Azure registration for a tenant.
-    # @param tenant_id [String] Tenant ID
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :tenant_id Tenant ID
+    # @option opts [String] :registration_id Registration ID
     # @return [Array<(AzureAzureRegistrationResponseExtV1, Integer, Hash)>] AzureAzureRegistrationResponseExtV1 data, response status code and response headers
-    def cloud_registration_azure_get_registration_with_http_info(tenant_id, opts = {})
+    def cloud_registration_azure_get_registration_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.cloud_registration_azure_get_registration ...'
-      end
-      # verify the required parameter 'tenant_id' is set
-      if @api_client.config.client_side_validation && tenant_id.nil?
-        fail ArgumentError, "Missing the required parameter 'tenant_id' when calling CloudAzureRegistration.cloud_registration_azure_get_registration"
       end
       # resource path
       local_var_path = '/cloud-security-registration-azure/entities/registrations/v1'
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'tenant_id'] = tenant_id
+      query_params[:'tenant_id'] = opts[:'tenant_id'] if !opts[:'tenant_id'].nil?
+      query_params[:'registration_id'] = opts[:'registration_id'] if !opts[:'registration_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -415,6 +790,175 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_get_script\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve all available script versions with filtering and sorting
+    # @param deployment_method [String] Filter by deployment method (e.g., &#39;bicep-legacy&#39;, &#39;bicep-deployment-stack&#39;)
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are version,deployment_method,published_date
+    # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 1000) (default to 100)
+    # @option opts [Integer] :offset Starting index of result (default to 0)
+    # @return [AzureScriptVersionResponseExtV1]
+    def cloud_registration_azure_get_script_versions(deployment_method, opts = {})
+      data, _status_code, _headers = cloud_registration_azure_get_script_versions_with_http_info(deployment_method, opts)
+      data
+    end
+
+    # Retrieve all available script versions with filtering and sorting
+    # @param deployment_method [String] Filter by deployment method (e.g., &#39;bicep-legacy&#39;, &#39;bicep-deployment-stack&#39;)
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are version,deployment_method,published_date
+    # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 1000) (default to 100)
+    # @option opts [Integer] :offset Starting index of result (default to 0)
+    # @return [Array<(AzureScriptVersionResponseExtV1, Integer, Hash)>] AzureScriptVersionResponseExtV1 data, response status code and response headers
+    def cloud_registration_azure_get_script_versions_with_http_info(deployment_method, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.cloud_registration_azure_get_script_versions ...'
+      end
+      # verify the required parameter 'deployment_method' is set
+      if @api_client.config.client_side_validation && deployment_method.nil?
+        fail ArgumentError, "Missing the required parameter 'deployment_method' when calling CloudAzureRegistration.cloud_registration_azure_get_script_versions"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CloudAzureRegistration.cloud_registration_azure_get_script_versions, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CloudAzureRegistration.cloud_registration_azure_get_script_versions, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling CloudAzureRegistration.cloud_registration_azure_get_script_versions, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/cloud-security-registration-azure/entities/script-versions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'deployment_method'] = deployment_method
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AzureScriptVersionResponseExtV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudAzureRegistration.cloud_registration_azure_get_script_versions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_get_script_versions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve existing suppression rules with filtering
+    # @param registration_id [String] Registration ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are issue_name,entity_id,suppressed_by,created_at,reason
+    # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are issue_name,entity_id,suppressed_by,created_at,reason
+    # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 1000) (default to 100)
+    # @option opts [Integer] :offset Starting index of result (default to 0)
+    # @return [AzureSuppressionResponseExtV1]
+    def cloud_registration_azure_get_suppressions(registration_id, opts = {})
+      data, _status_code, _headers = cloud_registration_azure_get_suppressions_with_http_info(registration_id, opts)
+      data
+    end
+
+    # Retrieve existing suppression rules with filtering
+    # @param registration_id [String] Registration ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are issue_name,entity_id,suppressed_by,created_at,reason
+    # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are issue_name,entity_id,suppressed_by,created_at,reason
+    # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 1000) (default to 100)
+    # @option opts [Integer] :offset Starting index of result (default to 0)
+    # @return [Array<(AzureSuppressionResponseExtV1, Integer, Hash)>] AzureSuppressionResponseExtV1 data, response status code and response headers
+    def cloud_registration_azure_get_suppressions_with_http_info(registration_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.cloud_registration_azure_get_suppressions ...'
+      end
+      # verify the required parameter 'registration_id' is set
+      if @api_client.config.client_side_validation && registration_id.nil?
+        fail ArgumentError, "Missing the required parameter 'registration_id' when calling CloudAzureRegistration.cloud_registration_azure_get_suppressions"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CloudAzureRegistration.cloud_registration_azure_get_suppressions, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CloudAzureRegistration.cloud_registration_azure_get_suppressions, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling CloudAzureRegistration.cloud_registration_azure_get_suppressions, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/cloud-security-registration-azure/entities/issue-suppressions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'registration_id'] = registration_id
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AzureSuppressionResponseExtV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudAzureRegistration.cloud_registration_azure_get_suppressions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_get_suppressions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -539,6 +1083,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_update_registration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update existing suppression rules
+    # @param body [AzureSuppressionUpdateRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [AzureSuppressionResponseExtV1]
+    def cloud_registration_azure_update_suppressions(body, opts = {})
+      data, _status_code, _headers = cloud_registration_azure_update_suppressions_with_http_info(body, opts)
+      data
+    end
+
+    # Update existing suppression rules
+    # @param body [AzureSuppressionUpdateRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AzureSuppressionResponseExtV1, Integer, Hash)>] AzureSuppressionResponseExtV1 data, response status code and response headers
+    def cloud_registration_azure_update_suppressions_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.cloud_registration_azure_update_suppressions ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudAzureRegistration.cloud_registration_azure_update_suppressions"
+      end
+      # resource path
+      local_var_path = '/cloud-security-registration-azure/entities/issue-suppressions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AzureSuppressionResponseExtV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudAzureRegistration.cloud_registration_azure_update_suppressions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudAzureRegistration#cloud_registration_azure_update_suppressions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

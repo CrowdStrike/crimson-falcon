@@ -75,6 +75,18 @@ describe Falcon::DomainTemplateUpdateRequest do
     end
   end
 
+  describe 'test attribute "excluded_tcp_ports"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "excluded_udp_ports"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -103,10 +115,16 @@ describe Falcon::DomainTemplateUpdateRequest do
     end
   end
 
+  describe 'test attribute "scan_flags"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "scan_intensity"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["basic,standard,cautious,maximum"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["basic,standard,cautious,maximum,custom"])
       # validator.allowable_values.each do |value|
       #   expect { instance.scan_intensity = value }.not_to raise_error
       # end

@@ -125,6 +125,8 @@ module Falcon
 
     attr_accessor :x_cs_do_not_hide
 
+    attr_accessor :x_cs_error_message
+
     attr_accessor :x_cs_immutable
 
     attr_accessor :x_cs_indexable
@@ -156,6 +158,8 @@ module Falcon
     attr_accessor :x_cs_signals_sub_category
 
     attr_accessor :x_cs_tags
+
+    attr_accessor :x_cs_ucl_cid_specific
 
     attr_accessor :x_cs_ui
 
@@ -211,6 +215,7 @@ module Falcon
         :'x_cs_condition_group_fields' => :'x-cs-condition-group-fields',
         :'x_cs_default_table_column' => :'x-cs-default-table-column',
         :'x_cs_do_not_hide' => :'x-cs-do-not-hide',
+        :'x_cs_error_message' => :'x-cs-errorMessage',
         :'x_cs_immutable' => :'x-cs-immutable',
         :'x_cs_indexable' => :'x-cs-indexable',
         :'x_cs_indexable_fields' => :'x-cs-indexable-fields',
@@ -227,6 +232,7 @@ module Falcon
         :'x_cs_signals_operators' => :'x-cs-signals-operators',
         :'x_cs_signals_sub_category' => :'x-cs-signals-subCategory',
         :'x_cs_tags' => :'x-cs-tags',
+        :'x_cs_ucl_cid_specific' => :'x-cs-ucl-cid-specific',
         :'x_cs_ui' => :'x-cs-ui',
         :'x_cs_workflow' => :'x-cs-workflow'
       }
@@ -287,6 +293,7 @@ module Falcon
         :'x_cs_condition_group_fields' => :'JsonschemaConditionGroupFields',
         :'x_cs_default_table_column' => :'Boolean',
         :'x_cs_do_not_hide' => :'Boolean',
+        :'x_cs_error_message' => :'Hash<String, String>',
         :'x_cs_immutable' => :'Boolean',
         :'x_cs_indexable' => :'Boolean',
         :'x_cs_indexable_fields' => :'Array<JsonschemaCollectionIndexField>',
@@ -303,6 +310,7 @@ module Falcon
         :'x_cs_signals_operators' => :'Array<String>',
         :'x_cs_signals_sub_category' => :'String',
         :'x_cs_tags' => :'Array<String>',
+        :'x_cs_ucl_cid_specific' => :'Boolean',
         :'x_cs_ui' => :'JsonschemaUIExtensions',
         :'x_cs_workflow' => :'JsonschemaWorkflowExtensions'
       }
@@ -535,6 +543,12 @@ module Falcon
         self.x_cs_do_not_hide = attributes[:'x_cs_do_not_hide']
       end
 
+      if attributes.key?(:'x_cs_error_message')
+        if (value = attributes[:'x_cs_error_message']).is_a?(Hash)
+          self.x_cs_error_message = value
+        end
+      end
+
       if attributes.key?(:'x_cs_immutable')
         self.x_cs_immutable = attributes[:'x_cs_immutable']
       end
@@ -605,6 +619,10 @@ module Falcon
         if (value = attributes[:'x_cs_tags']).is_a?(Array)
           self.x_cs_tags = value
         end
+      end
+
+      if attributes.key?(:'x_cs_ucl_cid_specific')
+        self.x_cs_ucl_cid_specific = attributes[:'x_cs_ucl_cid_specific']
       end
 
       if attributes.key?(:'x_cs_ui')
@@ -681,6 +699,7 @@ module Falcon
           x_cs_condition_group_fields == o.x_cs_condition_group_fields &&
           x_cs_default_table_column == o.x_cs_default_table_column &&
           x_cs_do_not_hide == o.x_cs_do_not_hide &&
+          x_cs_error_message == o.x_cs_error_message &&
           x_cs_immutable == o.x_cs_immutable &&
           x_cs_indexable == o.x_cs_indexable &&
           x_cs_indexable_fields == o.x_cs_indexable_fields &&
@@ -697,6 +716,7 @@ module Falcon
           x_cs_signals_operators == o.x_cs_signals_operators &&
           x_cs_signals_sub_category == o.x_cs_signals_sub_category &&
           x_cs_tags == o.x_cs_tags &&
+          x_cs_ucl_cid_specific == o.x_cs_ucl_cid_specific &&
           x_cs_ui == o.x_cs_ui &&
           x_cs_workflow == o.x_cs_workflow
     end
@@ -710,7 +730,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ref, schema, additional_items, additional_properties, all_of, any_of, binary_encoding, const, default, dependencies, deprecated, description, _else, enum, error_message, examples, exclusive_maximum, exclusive_minimum, format, _if, items, max_items, max_length, max_properties, maximum, media, min_items, min_length, min_properties, minimum, multiple_of, _not, one_of, pattern, pattern_properties, properties, required, _then, title, type, ui_component, unique_items, x_cs_authorization, x_cs_can_create, x_cs_condition_group_fields, x_cs_default_table_column, x_cs_do_not_hide, x_cs_immutable, x_cs_indexable, x_cs_indexable_fields, x_cs_max_duration, x_cs_min_duration, x_cs_not_parameterizable, x_cs_openapi, x_cs_order, x_cs_pivot, x_cs_queryable, x_cs_semantic_data, x_cs_signals, x_cs_signals_category, x_cs_signals_operators, x_cs_signals_sub_category, x_cs_tags, x_cs_ui, x_cs_workflow].hash
+      [ref, schema, additional_items, additional_properties, all_of, any_of, binary_encoding, const, default, dependencies, deprecated, description, _else, enum, error_message, examples, exclusive_maximum, exclusive_minimum, format, _if, items, max_items, max_length, max_properties, maximum, media, min_items, min_length, min_properties, minimum, multiple_of, _not, one_of, pattern, pattern_properties, properties, required, _then, title, type, ui_component, unique_items, x_cs_authorization, x_cs_can_create, x_cs_condition_group_fields, x_cs_default_table_column, x_cs_do_not_hide, x_cs_error_message, x_cs_immutable, x_cs_indexable, x_cs_indexable_fields, x_cs_max_duration, x_cs_min_duration, x_cs_not_parameterizable, x_cs_openapi, x_cs_order, x_cs_pivot, x_cs_queryable, x_cs_semantic_data, x_cs_signals, x_cs_signals_category, x_cs_signals_operators, x_cs_signals_sub_category, x_cs_tags, x_cs_ucl_cid_specific, x_cs_ui, x_cs_workflow].hash
     end
 
     # Builds the object from hash

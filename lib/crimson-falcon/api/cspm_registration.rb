@@ -882,7 +882,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Get list of related cloud event LogScale IDs for a given IOA
+    # Deprecated: use cdrapi entities/event-details/v1 'logscale_related_events_query' instead. Get list of related cloud event LogScale IDs for a given IOA.
     # @param x_cs_useruuid [String] Requester User UUID
     # @param id [String] IOA Aggregate Event ID
     # @param [Hash] opts the optional parameters
@@ -892,7 +892,7 @@ module Falcon
       data
     end
 
-    # Get list of related cloud event LogScale IDs for a given IOA
+    # Deprecated: use cdrapi entities/event-details/v1 &#39;logscale_related_events_query&#39; instead. Get list of related cloud event LogScale IDs for a given IOA.
     # @param x_cs_useruuid [String] Requester User UUID
     # @param id [String] IOA Aggregate Event ID
     # @param [Hash] opts the optional parameters

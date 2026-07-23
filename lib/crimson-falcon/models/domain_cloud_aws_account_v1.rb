@@ -91,6 +91,8 @@ module Falcon
 
     attr_accessor :products
 
+    attr_accessor :registration_id
+
     attr_accessor :registration_status
 
     attr_accessor :remediation_cloudformation_url
@@ -149,6 +151,7 @@ module Falcon
         :'ngsiem_enabled' => :'ngsiem_enabled',
         :'organization_id' => :'organization_id',
         :'products' => :'products',
+        :'registration_id' => :'registration_id',
         :'registration_status' => :'registration_status',
         :'remediation_cloudformation_url' => :'remediation_cloudformation_url',
         :'resource_metadata' => :'resource_metadata',
@@ -200,6 +203,7 @@ module Falcon
         :'ngsiem_enabled' => :'Boolean',
         :'organization_id' => :'String',
         :'products' => :'Array<DomainProductFeatures>',
+        :'registration_id' => :'String',
         :'registration_status' => :'String',
         :'remediation_cloudformation_url' => :'String',
         :'resource_metadata' => :'DomainAWSAccountResourceMetadata',
@@ -355,6 +359,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'registration_id')
+        self.registration_id = attributes[:'registration_id']
+      end
+
       if attributes.key?(:'registration_status')
         self.registration_status = attributes[:'registration_status']
       end
@@ -502,6 +510,7 @@ module Falcon
           ngsiem_enabled == o.ngsiem_enabled &&
           organization_id == o.organization_id &&
           products == o.products &&
+          registration_id == o.registration_id &&
           registration_status == o.registration_status &&
           remediation_cloudformation_url == o.remediation_cloudformation_url &&
           resource_metadata == o.resource_metadata &&
@@ -526,7 +535,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, cid, cloud_registration_enabled, cloudformation_stack_arn, cloudformation_update_url, cloudformation_url, conditions, csp_events, cspm_enabled, environment, falcon_client_id, iam_service_permissions_status, inventory_filter, is_cspm_lite, is_custom_rolename, is_delegated_admin, is_master, ngsiem_enabled, organization_id, products, registration_status, remediation_cloudformation_url, resource_metadata, resource_name_prefix, resource_name_suffix, root_account_id, root_iam_role, s3_url, settings, status, target_ous, template_source_region, use_existing_cloudtrail].hash
+      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, cid, cloud_registration_enabled, cloudformation_stack_arn, cloudformation_update_url, cloudformation_url, conditions, csp_events, cspm_enabled, environment, falcon_client_id, iam_service_permissions_status, inventory_filter, is_cspm_lite, is_custom_rolename, is_delegated_admin, is_master, ngsiem_enabled, organization_id, products, registration_id, registration_status, remediation_cloudformation_url, resource_metadata, resource_name_prefix, resource_name_suffix, root_account_id, root_iam_role, s3_url, settings, status, target_ous, template_source_region, use_existing_cloudtrail].hash
     end
 
     # Builds the object from hash

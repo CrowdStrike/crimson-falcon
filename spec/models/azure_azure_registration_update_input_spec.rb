@@ -249,4 +249,32 @@ describe Falcon::AzureAzureRegistrationUpdateInput do
     end
   end
 
+  describe 'test attribute "vulnerability_scanning_custom_vnet_configuration"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "vulnerability_scanning_host_subscription_id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "vulnerability_scanning_network_configuration_type"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["managed", "managed_no_nat", "custom"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.vulnerability_scanning_network_configuration_type = value }.not_to raise_error
+      # end
+    end
+  end
+
+  describe 'test attribute "vulnerability_scanning_regions"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end

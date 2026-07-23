@@ -50,7 +50,7 @@ describe Falcon::DevicecontrolapiReqUpdateBluetoothBaseV1 do
   describe 'test attribute "end_user_notification"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["NOTIFY_USER,SILENT"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["NOTIFY_USER", "SILENT"])
       # validator.allowable_values.each do |value|
       #   expect { instance.end_user_notification = value }.not_to raise_error
       # end
@@ -60,7 +60,7 @@ describe Falcon::DevicecontrolapiReqUpdateBluetoothBaseV1 do
   describe 'test attribute "enforcement_mode"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["MONITOR_ONLY,MONITOR_ENFORCE,OFF"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE", "OFF"])
       # validator.allowable_values.each do |value|
       #   expect { instance.enforcement_mode = value }.not_to raise_error
       # end

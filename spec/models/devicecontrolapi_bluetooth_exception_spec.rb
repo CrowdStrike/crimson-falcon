@@ -59,6 +59,12 @@ describe Falcon::DevicecontrolapiBluetoothException do
     end
   end
 
+  describe 'test attribute "created_timestamp"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "description"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -84,6 +90,12 @@ describe Falcon::DevicecontrolapiBluetoothException do
   end
 
   describe 'test attribute "minor_classes"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "modified_timestamp"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -120,6 +132,12 @@ describe Falcon::DevicecontrolapiBluetoothException do
   end
 
   describe 'test attribute "vendor_name"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "warning_trigger_ids"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

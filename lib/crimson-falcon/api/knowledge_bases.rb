@@ -104,6 +104,84 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Search for knowledge bases with filtering and return full entity details in a single response.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
+    # @option opts [Integer] :limit Number of ids to return. Offset + limit should NOT be above 10K. (default to 10)
+    # @option opts [String] :sort Possible order by fields: name, created_at. Ex: &#39;created_at|desc&#39; or &#39;name|asc&#39;.
+    # @option opts [String] :filter FQL query specifying the filter parameters.
+    # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false. (default to false)
+    # @return [DomainReplyEntitiesKnowledgeBasesResponse]
+    def combined_knowledge_bases_v1(opts = {})
+      data, _status_code, _headers = combined_knowledge_bases_v1_with_http_info(opts)
+      data
+    end
+
+    # Search for knowledge bases with filtering and return full entity details in a single response.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
+    # @option opts [Integer] :limit Number of ids to return. Offset + limit should NOT be above 10K. (default to 10)
+    # @option opts [String] :sort Possible order by fields: name, created_at. Ex: &#39;created_at|desc&#39; or &#39;name|asc&#39;.
+    # @option opts [String] :filter FQL query specifying the filter parameters.
+    # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false. (default to false)
+    # @return [Array<(DomainReplyEntitiesKnowledgeBasesResponse, Integer, Hash)>] DomainReplyEntitiesKnowledgeBasesResponse data, response status code and response headers
+    def combined_knowledge_bases_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KnowledgeBases.combined_knowledge_bases_v1 ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KnowledgeBases.combined_knowledge_bases_v1, must be smaller than or equal to 500.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KnowledgeBases.combined_knowledge_bases_v1, must be greater than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/agentic-studio/combined/knowledge_bases/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'include_deleted'] = opts[:'include_deleted'] if !opts[:'include_deleted'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainReplyEntitiesKnowledgeBasesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KnowledgeBases.combined_knowledge_bases_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KnowledgeBases#combined_knowledge_bases_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create or update a knowledge base. For deletion, provide knowledge base with IsDeleted=true.
     # @param body [DomainKnowledgeBase] Knowledge base definition to create or update
     # @param [Hash] opts the optional parameters

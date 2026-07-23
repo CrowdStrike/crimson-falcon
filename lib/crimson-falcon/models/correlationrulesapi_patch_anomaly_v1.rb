@@ -37,6 +37,8 @@ module Falcon
 
     attr_accessor :scope
 
+    attr_accessor :scopes
+
     attr_accessor :type
 
     attr_accessor :use_established_entity_only
@@ -47,6 +49,7 @@ module Falcon
         :'event_field_names' => :'event_field_names',
         :'lookback_timeframe' => :'lookback_timeframe',
         :'scope' => :'scope',
+        :'scopes' => :'scopes',
         :'type' => :'type',
         :'use_established_entity_only' => :'use_established_entity_only'
       }
@@ -63,6 +66,7 @@ module Falcon
         :'event_field_names' => :'Array<String>',
         :'lookback_timeframe' => :'String',
         :'scope' => :'String',
+        :'scopes' => :'Array<CorrelationrulesapiAnomalyScopes>',
         :'type' => :'String',
         :'use_established_entity_only' => :'Boolean'
       }
@@ -103,6 +107,12 @@ module Falcon
         self.scope = attributes[:'scope']
       end
 
+      if attributes.key?(:'scopes')
+        if (value = attributes[:'scopes']).is_a?(Array)
+          self.scopes = value
+        end
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -133,6 +143,7 @@ module Falcon
           event_field_names == o.event_field_names &&
           lookback_timeframe == o.lookback_timeframe &&
           scope == o.scope &&
+          scopes == o.scopes &&
           type == o.type &&
           use_established_entity_only == o.use_established_entity_only
     end
@@ -146,7 +157,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event_field_names, lookback_timeframe, scope, type, use_established_entity_only].hash
+      [event_field_names, lookback_timeframe, scope, scopes, type, use_established_entity_only].hash
     end
 
     # Builds the object from hash

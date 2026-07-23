@@ -98,6 +98,15 @@ module Falcon
 
     attr_accessor :tenant_name
 
+    attr_accessor :vulnerability_scanning_custom_vnet_configuration
+
+    attr_accessor :vulnerability_scanning_host_subscription_id
+
+    # Network configuration type for Vulnerability Scanning
+    attr_accessor :vulnerability_scanning_network_configuration_type
+
+    attr_accessor :vulnerability_scanning_regions
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -155,7 +164,11 @@ module Falcon
         :'tags' => :'tags',
         :'template_version' => :'template_version',
         :'tenant_id' => :'tenant_id',
-        :'tenant_name' => :'tenant_name'
+        :'tenant_name' => :'tenant_name',
+        :'vulnerability_scanning_custom_vnet_configuration' => :'vulnerability_scanning_custom_vnet_configuration',
+        :'vulnerability_scanning_host_subscription_id' => :'vulnerability_scanning_host_subscription_id',
+        :'vulnerability_scanning_network_configuration_type' => :'vulnerability_scanning_network_configuration_type',
+        :'vulnerability_scanning_regions' => :'vulnerability_scanning_regions'
       }
     end
 
@@ -179,7 +192,7 @@ module Falcon
         :'deployment_stack_host_id' => :'String',
         :'deployment_stack_host_region' => :'String',
         :'deployment_stack_name' => :'String',
-        :'dspm_custom_vnet_configuration' => :'Hash<String, AzureDSPMRegionCustomNetworkConfiguration>',
+        :'dspm_custom_vnet_configuration' => :'Hash<String, AzureAgentlessScanningRegionCustomNetworkConfiguration>',
         :'dspm_host_subscription_id' => :'String',
         :'dspm_network_configuration_type' => :'String',
         :'dspm_regions' => :'Array<String>',
@@ -199,7 +212,11 @@ module Falcon
         :'tags' => :'Hash<String, String>',
         :'template_version' => :'String',
         :'tenant_id' => :'String',
-        :'tenant_name' => :'String'
+        :'tenant_name' => :'String',
+        :'vulnerability_scanning_custom_vnet_configuration' => :'Hash<String, AzureAgentlessScanningRegionCustomNetworkConfiguration>',
+        :'vulnerability_scanning_host_subscription_id' => :'String',
+        :'vulnerability_scanning_network_configuration_type' => :'String',
+        :'vulnerability_scanning_regions' => :'Array<String>'
       }
     end
 
@@ -373,6 +390,26 @@ module Falcon
       if attributes.key?(:'tenant_name')
         self.tenant_name = attributes[:'tenant_name']
       end
+
+      if attributes.key?(:'vulnerability_scanning_custom_vnet_configuration')
+        if (value = attributes[:'vulnerability_scanning_custom_vnet_configuration']).is_a?(Hash)
+          self.vulnerability_scanning_custom_vnet_configuration = value
+        end
+      end
+
+      if attributes.key?(:'vulnerability_scanning_host_subscription_id')
+        self.vulnerability_scanning_host_subscription_id = attributes[:'vulnerability_scanning_host_subscription_id']
+      end
+
+      if attributes.key?(:'vulnerability_scanning_network_configuration_type')
+        self.vulnerability_scanning_network_configuration_type = attributes[:'vulnerability_scanning_network_configuration_type']
+      end
+
+      if attributes.key?(:'vulnerability_scanning_regions')
+        if (value = attributes[:'vulnerability_scanning_regions']).is_a?(Array)
+          self.vulnerability_scanning_regions = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -423,6 +460,10 @@ module Falcon
         invalid_properties.push('invalid value for "tenant_name", tenant_name cannot be nil.')
       end
 
+      if @vulnerability_scanning_regions.nil?
+        invalid_properties.push('invalid value for "vulnerability_scanning_regions", vulnerability_scanning_regions cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -442,6 +483,9 @@ module Falcon
       return false if @tags.nil?
       return false if @tenant_id.nil?
       return false if @tenant_name.nil?
+      vulnerability_scanning_network_configuration_type_validator = EnumAttributeValidator.new('String', ["managed", "managed_no_nat", "custom"])
+      return false unless vulnerability_scanning_network_configuration_type_validator.valid?(@vulnerability_scanning_network_configuration_type)
+      return false if @vulnerability_scanning_regions.nil?
       true
     end
 
@@ -453,6 +497,16 @@ module Falcon
         fail ArgumentError, "invalid value for \"dspm_network_configuration_type\", must be one of #{validator.allowable_values}."
       end
       @dspm_network_configuration_type = dspm_network_configuration_type
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] vulnerability_scanning_network_configuration_type Object to be assigned
+    def vulnerability_scanning_network_configuration_type=(vulnerability_scanning_network_configuration_type)
+      validator = EnumAttributeValidator.new('String', ["managed", "managed_no_nat", "custom"])
+      unless validator.valid?(vulnerability_scanning_network_configuration_type)
+        fail ArgumentError, "invalid value for \"vulnerability_scanning_network_configuration_type\", must be one of #{validator.allowable_values}."
+      end
+      @vulnerability_scanning_network_configuration_type = vulnerability_scanning_network_configuration_type
     end
 
     # Checks equality by comparing each attribute.
@@ -492,7 +546,11 @@ module Falcon
           tags == o.tags &&
           template_version == o.template_version &&
           tenant_id == o.tenant_id &&
-          tenant_name == o.tenant_name
+          tenant_name == o.tenant_name &&
+          vulnerability_scanning_custom_vnet_configuration == o.vulnerability_scanning_custom_vnet_configuration &&
+          vulnerability_scanning_host_subscription_id == o.vulnerability_scanning_host_subscription_id &&
+          vulnerability_scanning_network_configuration_type == o.vulnerability_scanning_network_configuration_type &&
+          vulnerability_scanning_regions == o.vulnerability_scanning_regions
     end
 
     # @see the `==` method
@@ -504,7 +562,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_type, additional_features, additional_properties, api_client_key_id, api_client_key_type, cs_infra_region, cs_infra_subscription_id, cs_infra_subscription_name, deployment_method, deployment_stack_host_id, deployment_stack_host_region, deployment_stack_name, dspm_custom_vnet_configuration, dspm_host_subscription_id, dspm_network_configuration_type, dspm_regions, environment, event_hub_settings, management_group_ids, microsoft_graph_permission_ids, microsoft_graph_permission_ids_readonly, primary_domain, products, registration_description, registration_name, resource_name_prefix, resource_name_suffix, status, subscription_ids, tags, template_version, tenant_id, tenant_name].hash
+      [account_type, additional_features, additional_properties, api_client_key_id, api_client_key_type, cs_infra_region, cs_infra_subscription_id, cs_infra_subscription_name, deployment_method, deployment_stack_host_id, deployment_stack_host_region, deployment_stack_name, dspm_custom_vnet_configuration, dspm_host_subscription_id, dspm_network_configuration_type, dspm_regions, environment, event_hub_settings, management_group_ids, microsoft_graph_permission_ids, microsoft_graph_permission_ids_readonly, primary_domain, products, registration_description, registration_name, resource_name_prefix, resource_name_suffix, status, subscription_ids, tags, template_version, tenant_id, tenant_name, vulnerability_scanning_custom_vnet_configuration, vulnerability_scanning_host_subscription_id, vulnerability_scanning_network_configuration_type, vulnerability_scanning_regions].hash
     end
 
     # Builds the object from hash

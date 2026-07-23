@@ -31,14 +31,20 @@ require 'time'
 
 module Falcon
   class DomainMitreAttackMapping
+    attr_accessor :tactic
+
     attr_accessor :tactic_id
+
+    attr_accessor :technique
 
     attr_accessor :technique_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'tactic' => :'tactic',
         :'tactic_id' => :'tactic_id',
+        :'technique' => :'technique',
         :'technique_id' => :'technique_id'
       }
     end
@@ -51,7 +57,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'tactic' => :'String',
         :'tactic_id' => :'String',
+        :'technique' => :'String',
         :'technique_id' => :'String'
       }
     end
@@ -77,8 +85,16 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'tactic')
+        self.tactic = attributes[:'tactic']
+      end
+
       if attributes.key?(:'tactic_id')
         self.tactic_id = attributes[:'tactic_id']
+      end
+
+      if attributes.key?(:'technique')
+        self.technique = attributes[:'technique']
       end
 
       if attributes.key?(:'technique_id')
@@ -109,7 +125,9 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          tactic == o.tactic &&
           tactic_id == o.tactic_id &&
+          technique == o.technique &&
           technique_id == o.technique_id
     end
 
@@ -122,7 +140,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [tactic_id, technique_id].hash
+      [tactic, tactic_id, technique, technique_id].hash
     end
 
     # Builds the object from hash

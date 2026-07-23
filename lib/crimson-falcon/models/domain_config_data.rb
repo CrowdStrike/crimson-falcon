@@ -65,6 +65,8 @@ module Falcon
 
     attr_accessor :token_parameters
 
+    attr_accessor :token_response_metadata
+
     attr_accessor :x_www_form_urlencoded
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -87,6 +89,7 @@ module Falcon
         :'tags' => :'tags',
         :'tags_map' => :'tags_map',
         :'token_parameters' => :'token_parameters',
+        :'token_response_metadata' => :'token_response_metadata',
         :'x_www_form_urlencoded' => :'x-www-form-urlencoded'
       }
     end
@@ -116,6 +119,7 @@ module Falcon
         :'tags' => :'Array<String>',
         :'tags_map' => :'Hash<String, String>',
         :'token_parameters' => :'Hash<String, Array<String>>',
+        :'token_response_metadata' => :'String',
         :'x_www_form_urlencoded' => :'Object'
       }
     end
@@ -217,6 +221,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'token_response_metadata')
+        self.token_response_metadata = attributes[:'token_response_metadata']
+      end
+
       if attributes.key?(:'x_www_form_urlencoded')
         self.x_www_form_urlencoded = attributes[:'x_www_form_urlencoded']
       end
@@ -262,6 +270,7 @@ module Falcon
           tags == o.tags &&
           tags_map == o.tags_map &&
           token_parameters == o.token_parameters &&
+          token_response_metadata == o.token_response_metadata &&
           x_www_form_urlencoded == o.x_www_form_urlencoded
     end
 
@@ -274,7 +283,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [auth, data, definition_id, enable_system_workflow, graphical_password_algorithm, id, immutable_params, json, name, on_prem, params, permissions, resource_id, resource_response, tags, tags_map, token_parameters, x_www_form_urlencoded].hash
+      [auth, data, definition_id, enable_system_workflow, graphical_password_algorithm, id, immutable_params, json, name, on_prem, params, permissions, resource_id, resource_response, tags, tags_map, token_parameters, token_response_metadata, x_www_form_urlencoded].hash
     end
 
     # Builds the object from hash

@@ -58,6 +58,12 @@ module Falcon
     # An opaque internal identifier that can uniquely identify the CMS rule which triggered this detection
     attr_accessor :cms_rule_id
 
+    # An opaque internal identifier that can uniquely identify the CMS rule instance which triggered this detection
+    attr_accessor :cms_rule_instance_id
+
+    # An opaque internal identifier that can uniquely identify the CMS rule instance version which triggered this detection
+    attr_accessor :cms_rule_instance_version
+
     # An opaque internal identifier that can uniquely identify an Alert
     attr_accessor :composite_id
 
@@ -90,6 +96,9 @@ module Falcon
 
     # Boolean indicating if this Alert is an aggregated alert
     attr_accessor :is_aggregated
+
+    # Boolean indicating if this Alert is coming from a Falcon Platform IOA rule
+    attr_accessor :is_falcon_platform_ioa
 
     # Linked Behavioral Detections are behavioral detections that are associated with this alert
     attr_accessor :linked_behavioral_detections
@@ -184,6 +193,8 @@ module Falcon
         :'assigned_to_uuid' => :'assigned_to_uuid',
         :'cid' => :'cid',
         :'cms_rule_id' => :'cms_rule_id',
+        :'cms_rule_instance_id' => :'cms_rule_instance_id',
+        :'cms_rule_instance_version' => :'cms_rule_instance_version',
         :'composite_id' => :'composite_id',
         :'confidence' => :'confidence',
         :'crawled_timestamp' => :'crawled_timestamp',
@@ -195,6 +206,7 @@ module Falcon
         :'external' => :'external',
         :'id' => :'id',
         :'is_aggregated' => :'is_aggregated',
+        :'is_falcon_platform_ioa' => :'is_falcon_platform_ioa',
         :'linked_behavioral_detections' => :'linked_behavioral_detections',
         :'linked_case_ids' => :'linked_case_ids',
         :'mitre_attack' => :'mitre_attack',
@@ -242,6 +254,8 @@ module Falcon
         :'assigned_to_uuid' => :'String',
         :'cid' => :'String',
         :'cms_rule_id' => :'String',
+        :'cms_rule_instance_id' => :'String',
+        :'cms_rule_instance_version' => :'String',
         :'composite_id' => :'String',
         :'confidence' => :'Integer',
         :'crawled_timestamp' => :'Time',
@@ -253,6 +267,7 @@ module Falcon
         :'external' => :'Boolean',
         :'id' => :'String',
         :'is_aggregated' => :'Boolean',
+        :'is_falcon_platform_ioa' => :'Boolean',
         :'linked_behavioral_detections' => :'Array<String>',
         :'linked_case_ids' => :'Array<String>',
         :'mitre_attack' => :'Array<DetectsMitreAttackMapping>',
@@ -340,6 +355,14 @@ module Falcon
         self.cms_rule_id = attributes[:'cms_rule_id']
       end
 
+      if attributes.key?(:'cms_rule_instance_id')
+        self.cms_rule_instance_id = attributes[:'cms_rule_instance_id']
+      end
+
+      if attributes.key?(:'cms_rule_instance_version')
+        self.cms_rule_instance_version = attributes[:'cms_rule_instance_version']
+      end
+
       if attributes.key?(:'composite_id')
         self.composite_id = attributes[:'composite_id']
       end
@@ -384,6 +407,10 @@ module Falcon
 
       if attributes.key?(:'is_aggregated')
         self.is_aggregated = attributes[:'is_aggregated']
+      end
+
+      if attributes.key?(:'is_falcon_platform_ioa')
+        self.is_falcon_platform_ioa = attributes[:'is_falcon_platform_ioa']
       end
 
       if attributes.key?(:'linked_behavioral_detections')
@@ -547,6 +574,14 @@ module Falcon
         invalid_properties.push('invalid value for "cms_rule_id", cms_rule_id cannot be nil.')
       end
 
+      if @cms_rule_instance_id.nil?
+        invalid_properties.push('invalid value for "cms_rule_instance_id", cms_rule_instance_id cannot be nil.')
+      end
+
+      if @cms_rule_instance_version.nil?
+        invalid_properties.push('invalid value for "cms_rule_instance_version", cms_rule_instance_version cannot be nil.')
+      end
+
       if @composite_id.nil?
         invalid_properties.push('invalid value for "composite_id", composite_id cannot be nil.')
       end
@@ -589,6 +624,10 @@ module Falcon
 
       if @is_aggregated.nil?
         invalid_properties.push('invalid value for "is_aggregated", is_aggregated cannot be nil.')
+      end
+
+      if @is_falcon_platform_ioa.nil?
+        invalid_properties.push('invalid value for "is_falcon_platform_ioa", is_falcon_platform_ioa cannot be nil.')
       end
 
       if @linked_behavioral_detections.nil?
@@ -714,6 +753,8 @@ module Falcon
       return false if @assigned_to_uuid.nil?
       return false if @cid.nil?
       return false if @cms_rule_id.nil?
+      return false if @cms_rule_instance_id.nil?
+      return false if @cms_rule_instance_version.nil?
       return false if @composite_id.nil?
       return false if @confidence.nil?
       return false if @crawled_timestamp.nil?
@@ -725,6 +766,7 @@ module Falcon
       return false if @external.nil?
       return false if @id.nil?
       return false if @is_aggregated.nil?
+      return false if @is_falcon_platform_ioa.nil?
       return false if @linked_behavioral_detections.nil?
       return false if @linked_case_ids.nil?
       return false if @mitre_attack.nil?
@@ -769,6 +811,8 @@ module Falcon
           assigned_to_uuid == o.assigned_to_uuid &&
           cid == o.cid &&
           cms_rule_id == o.cms_rule_id &&
+          cms_rule_instance_id == o.cms_rule_instance_id &&
+          cms_rule_instance_version == o.cms_rule_instance_version &&
           composite_id == o.composite_id &&
           confidence == o.confidence &&
           crawled_timestamp == o.crawled_timestamp &&
@@ -780,6 +824,7 @@ module Falcon
           external == o.external &&
           id == o.id &&
           is_aggregated == o.is_aggregated &&
+          is_falcon_platform_ioa == o.is_falcon_platform_ioa &&
           linked_behavioral_detections == o.linked_behavioral_detections &&
           linked_case_ids == o.linked_case_ids &&
           mitre_attack == o.mitre_attack &&
@@ -818,7 +863,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_id, aggregate_id, aggregation_rule_id, aggregation_rule_name, assigned_to_name, assigned_to_uid, assigned_to_uuid, cid, cms_rule_id, composite_id, confidence, crawled_timestamp, created_timestamp, data_domains, description, display_name, email_sent, external, id, is_aggregated, linked_behavioral_detections, linked_case_ids, mitre_attack, name, objective, origin_cid, pattern_id, platform, product, resolution, scenario, seconds_to_resolved, seconds_to_triaged, severity, severity_name, show_in_ui, source_products, source_vendors, status, tactic, tactic_id, tags, technique, technique_id, timestamp, type, updated_timestamp].hash
+      [agent_id, aggregate_id, aggregation_rule_id, aggregation_rule_name, assigned_to_name, assigned_to_uid, assigned_to_uuid, cid, cms_rule_id, cms_rule_instance_id, cms_rule_instance_version, composite_id, confidence, crawled_timestamp, created_timestamp, data_domains, description, display_name, email_sent, external, id, is_aggregated, is_falcon_platform_ioa, linked_behavioral_detections, linked_case_ids, mitre_attack, name, objective, origin_cid, pattern_id, platform, product, resolution, scenario, seconds_to_resolved, seconds_to_triaged, severity, severity_name, show_in_ui, source_products, source_vendors, status, tactic, tactic_id, tags, technique, technique_id, timestamp, type, updated_timestamp].hash
     end
 
     # Builds the object from hash

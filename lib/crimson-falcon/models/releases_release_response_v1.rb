@@ -51,6 +51,8 @@ module Falcon
 
     attr_accessor :release_notes_ticket
 
+    attr_accessor :replication_role
+
     attr_accessor :status
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -66,6 +68,7 @@ module Falcon
         :'last_modified_timestamp' => :'last_modified_timestamp',
         :'release_contents' => :'release_contents',
         :'release_notes_ticket' => :'release_notes_ticket',
+        :'replication_role' => :'replication_role',
         :'status' => :'status'
       }
     end
@@ -88,6 +91,7 @@ module Falcon
         :'last_modified_timestamp' => :'Time',
         :'release_contents' => :'Array<ReleasecontentsReleaseContentResponseV1>',
         :'release_notes_ticket' => :'String',
+        :'replication_role' => :'String',
         :'status' => :'String'
       }
     end
@@ -155,6 +159,10 @@ module Falcon
         self.release_notes_ticket = attributes[:'release_notes_ticket']
       end
 
+      if attributes.key?(:'replication_role')
+        self.replication_role = attributes[:'replication_role']
+      end
+
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
@@ -213,6 +221,7 @@ module Falcon
           last_modified_timestamp == o.last_modified_timestamp &&
           release_contents == o.release_contents &&
           release_notes_ticket == o.release_notes_ticket &&
+          replication_role == o.replication_role &&
           status == o.status
     end
 
@@ -225,7 +234,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [annotation, created_by, created_timestamp, deployed_timestamp, deployment_start_timestamp, id, last_modified_by, last_modified_timestamp, release_contents, release_notes_ticket, status].hash
+      [annotation, created_by, created_timestamp, deployed_timestamp, deployment_start_timestamp, id, last_modified_by, last_modified_timestamp, release_contents, release_notes_ticket, replication_role, status].hash
     end
 
     # Builds the object from hash

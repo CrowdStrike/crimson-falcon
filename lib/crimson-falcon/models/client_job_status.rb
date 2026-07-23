@@ -37,6 +37,16 @@ module Falcon
 
     attr_accessor :digest_hex
 
+    attr_accessor :error_category
+
+    attr_accessor :error_http_code
+
+    attr_accessor :error_message
+
+    attr_accessor :error_retryable
+
+    attr_accessor :error_type
+
     attr_accessor :event_count
 
     attr_accessor :file_link
@@ -63,6 +73,11 @@ module Falcon
         :'content_length' => :'content_length',
         :'digest_algo' => :'digest_algo',
         :'digest_hex' => :'digest_hex',
+        :'error_category' => :'error_category',
+        :'error_http_code' => :'error_http_code',
+        :'error_message' => :'error_message',
+        :'error_retryable' => :'error_retryable',
+        :'error_type' => :'error_type',
         :'event_count' => :'event_count',
         :'file_link' => :'file_link',
         :'filtered_event_count' => :'filtered_event_count',
@@ -87,6 +102,11 @@ module Falcon
         :'content_length' => :'Integer',
         :'digest_algo' => :'String',
         :'digest_hex' => :'String',
+        :'error_category' => :'String',
+        :'error_http_code' => :'Integer',
+        :'error_message' => :'String',
+        :'error_retryable' => :'Boolean',
+        :'error_type' => :'String',
         :'event_count' => :'Integer',
         :'file_link' => :'String',
         :'filtered_event_count' => :'Integer',
@@ -131,6 +151,26 @@ module Falcon
 
       if attributes.key?(:'digest_hex')
         self.digest_hex = attributes[:'digest_hex']
+      end
+
+      if attributes.key?(:'error_category')
+        self.error_category = attributes[:'error_category']
+      end
+
+      if attributes.key?(:'error_http_code')
+        self.error_http_code = attributes[:'error_http_code']
+      end
+
+      if attributes.key?(:'error_message')
+        self.error_message = attributes[:'error_message']
+      end
+
+      if attributes.key?(:'error_retryable')
+        self.error_retryable = attributes[:'error_retryable']
+      end
+
+      if attributes.key?(:'error_type')
+        self.error_type = attributes[:'error_type']
       end
 
       if attributes.key?(:'event_count')
@@ -200,6 +240,11 @@ module Falcon
           content_length == o.content_length &&
           digest_algo == o.digest_algo &&
           digest_hex == o.digest_hex &&
+          error_category == o.error_category &&
+          error_http_code == o.error_http_code &&
+          error_message == o.error_message &&
+          error_retryable == o.error_retryable &&
+          error_type == o.error_type &&
           event_count == o.event_count &&
           file_link == o.file_link &&
           filtered_event_count == o.filtered_event_count &&
@@ -221,7 +266,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [content_length, digest_algo, digest_hex, event_count, file_link, filtered_event_count, job_id, job_url, message, percent_complete, result_count, run_duration, status].hash
+      [content_length, digest_algo, digest_hex, error_category, error_http_code, error_message, error_retryable, error_type, event_count, file_link, filtered_event_count, job_id, job_url, message, percent_complete, result_count, run_duration, status].hash
     end
 
     # Builds the object from hash

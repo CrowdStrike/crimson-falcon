@@ -35,11 +35,15 @@ module Falcon
 
     attr_accessor :config_id
 
+    attr_accessor :custom
+
     attr_accessor :description
 
     attr_accessor :enable_host_enrichment
 
     attr_accessor :enable_user_enrichment
+
+    attr_accessor :log_sources
 
     attr_accessor :name
 
@@ -50,9 +54,11 @@ module Falcon
       {
         :'config' => :'config',
         :'config_id' => :'config_id',
+        :'custom' => :'custom',
         :'description' => :'description',
         :'enable_host_enrichment' => :'enable_host_enrichment',
         :'enable_user_enrichment' => :'enable_user_enrichment',
+        :'log_sources' => :'log_sources',
         :'name' => :'name',
         :'parser' => :'parser'
       }
@@ -68,9 +74,11 @@ module Falcon
       {
         :'config' => :'DataconnectionmanagementConnectorConfigRequest',
         :'config_id' => :'String',
+        :'custom' => :'Hash<String, String>',
         :'description' => :'String',
         :'enable_host_enrichment' => :'Boolean',
         :'enable_user_enrichment' => :'Boolean',
+        :'log_sources' => :'Array<String>',
         :'name' => :'String',
         :'parser' => :'String'
       }
@@ -105,6 +113,12 @@ module Falcon
         self.config_id = attributes[:'config_id']
       end
 
+      if attributes.key?(:'custom')
+        if (value = attributes[:'custom']).is_a?(Hash)
+          self.custom = value
+        end
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -115,6 +129,12 @@ module Falcon
 
       if attributes.key?(:'enable_user_enrichment')
         self.enable_user_enrichment = attributes[:'enable_user_enrichment']
+      end
+
+      if attributes.key?(:'log_sources')
+        if (value = attributes[:'log_sources']).is_a?(Array)
+          self.log_sources = value
+        end
       end
 
       if attributes.key?(:'name')
@@ -146,9 +166,11 @@ module Falcon
       self.class == o.class &&
           config == o.config &&
           config_id == o.config_id &&
+          custom == o.custom &&
           description == o.description &&
           enable_host_enrichment == o.enable_host_enrichment &&
           enable_user_enrichment == o.enable_user_enrichment &&
+          log_sources == o.log_sources &&
           name == o.name &&
           parser == o.parser
     end
@@ -162,7 +184,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [config, config_id, description, enable_host_enrichment, enable_user_enrichment, name, parser].hash
+      [config, config_id, custom, description, enable_host_enrichment, enable_user_enrichment, log_sources, name, parser].hash
     end
 
     # Builds the object from hash

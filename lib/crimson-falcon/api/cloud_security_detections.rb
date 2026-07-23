@@ -172,6 +172,72 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Gets IOMs based on IDs in the request body. Maximum of 500 resources can be requested.
+    # @param body [EvaluationsGetIOMsRequest] Body with array of &#39;ids&#39; (maximum 500 IDs).
+    # @param [Hash] opts the optional parameters
+    # @return [EvaluationsGetIOMsResponse]
+    def cspm_evaluations_iom_entities_post(body, opts = {})
+      data, _status_code, _headers = cspm_evaluations_iom_entities_post_with_http_info(body, opts)
+      data
+    end
+
+    # Gets IOMs based on IDs in the request body. Maximum of 500 resources can be requested.
+    # @param body [EvaluationsGetIOMsRequest] Body with array of &#39;ids&#39; (maximum 500 IDs).
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EvaluationsGetIOMsResponse, Integer, Hash)>] EvaluationsGetIOMsResponse data, response status code and response headers
+    def cspm_evaluations_iom_entities_post_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudSecurityDetections.cspm_evaluations_iom_entities_post ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudSecurityDetections.cspm_evaluations_iom_entities_post"
+      end
+      # resource path
+      local_var_path = '/cloud-security-evaluations/entities/ioms/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EvaluationsGetIOMsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudSecurityDetections.cspm_evaluations_iom_entities_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudSecurityDetections#cspm_evaluations_iom_entities_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Gets a list of IOM IDs for the given parameters, filters and sort criteria.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter FQL string to filter results in Falcon Query Language (FQL). Supported fields:  - &#x60;account_id&#x60; - &#x60;account_name&#x60; - &#x60;applicable_profile&#x60; - &#x60;attack_type&#x60; - &#x60;benchmark_name&#x60; - &#x60;benchmark_version&#x60; - &#x60;business_impact&#x60; - &#x60;cid&#x60; - &#x60;cloud_group&#x60; - &#x60;cloud_label&#x60; - &#x60;cloud_label_id&#x60; - &#x60;cloud_provider&#x60; - &#x60;cloud_scope&#x60; - &#x60;created_at&#x60; - &#x60;environment&#x60; - &#x60;extension_status&#x60; - &#x60;first_detected&#x60; - &#x60;framework&#x60; - &#x60;last_detected&#x60; - &#x60;policy_id&#x60; - &#x60;policy_name&#x60; - &#x60;policy_uuid&#x60; - &#x60;region&#x60; - &#x60;requirement&#x60; - &#x60;requirement_name&#x60; - &#x60;resource_gcrn&#x60; - &#x60;resource_id&#x60; - &#x60;resource_parent&#x60; - &#x60;resource_status&#x60; - &#x60;resource_type&#x60; - &#x60;resource_type_name&#x60; - &#x60;rule_group&#x60; - &#x60;rule_id&#x60; - &#x60;rule_name&#x60; - &#x60;rule_origin&#x60; - &#x60;rule_remediation&#x60; - &#x60;section&#x60; - &#x60;service&#x60; - &#x60;service_category&#x60; - &#x60;severity&#x60; - &#x60;status&#x60; - &#x60;suppressed_by&#x60; - &#x60;suppression_reason&#x60; - &#x60;tactic_id&#x60; - &#x60;tactic_name&#x60; - &#x60;tag_key&#x60; - &#x60;tag_value&#x60; - &#x60;tags&#x60; - &#x60;tags_string&#x60; - &#x60;technique_id&#x60; - &#x60;technique_name&#x60; - &#x60;tenant_id&#x60;

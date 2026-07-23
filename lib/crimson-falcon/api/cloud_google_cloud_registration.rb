@@ -167,7 +167,7 @@ module Falcon
     # Returns entities grouped by type. Sorting and pagination are applied across all entity types before grouping. Use filter=entity_type:'project' to retrieve only specific entity types.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids Google Cloud Registration IDs to filter by
-    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are entity_type, entity_id, entity_name, registration_id, registration_name, registration_scope, parent_id, project_number, ioa_status, iom_status, created, updated
+    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are entity_type, entity_id, entity_name, registration_id, registration_name, registration_scope, parent_id, project_number, ioa_status, iom_status, dspm_status, vulnerability_scanning_status, created, updated
     # @option opts [String] :sort Field and direction for sorting results (e.g., &#39;created|desc&#39;). Sorting applies across all entity types before grouping.
     # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 500). Limit applies across all entity types. (default to 100)
     # @option opts [Integer] :offset Starting index of result (default to 0)
@@ -181,7 +181,7 @@ module Falcon
     # Returns entities grouped by type. Sorting and pagination are applied across all entity types before grouping. Use filter&#x3D;entity_type:&#39;project&#39; to retrieve only specific entity types.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids Google Cloud Registration IDs to filter by
-    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are entity_type, entity_id, entity_name, registration_id, registration_name, registration_scope, parent_id, project_number, ioa_status, iom_status, created, updated
+    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are entity_type, entity_id, entity_name, registration_id, registration_name, registration_scope, parent_id, project_number, ioa_status, iom_status, dspm_status, vulnerability_scanning_status, created, updated
     # @option opts [String] :sort Field and direction for sorting results (e.g., &#39;created|desc&#39;). Sorting applies across all entity types before grouping.
     # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 500). Limit applies across all entity types. (default to 100)
     # @option opts [Integer] :offset Starting index of result (default to 0)
@@ -305,6 +305,74 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudGoogleCloudRegistration#cloud_registration_gcp_get_registration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Generate Google Cloud Terraform deployment scripts (zip files)
+    # Only supports terraform-native deployment method. Returns zip files containing Terraform scripts.
+    # @param body [DtoGCPTerraformScriptRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def cloud_registration_gcp_post_terraform_script(body, opts = {})
+      cloud_registration_gcp_post_terraform_script_with_http_info(body, opts)
+      nil
+    end
+
+    # Generate Google Cloud Terraform deployment scripts (zip files)
+    # Only supports terraform-native deployment method. Returns zip files containing Terraform scripts.
+    # @param body [DtoGCPTerraformScriptRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def cloud_registration_gcp_post_terraform_script_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudGoogleCloudRegistration.cloud_registration_gcp_post_terraform_script ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudGoogleCloudRegistration.cloud_registration_gcp_post_terraform_script"
+      end
+      # resource path
+      local_var_path = '/cloud-security-registration-google-cloud/entities/scripts-terraform/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudGoogleCloudRegistration.cloud_registration_gcp_post_terraform_script",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudGoogleCloudRegistration#cloud_registration_gcp_post_terraform_script\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

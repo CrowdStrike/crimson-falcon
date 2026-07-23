@@ -230,7 +230,7 @@ module Falcon
     end
 
     # Create a new rule
-    # @param body [CommonCreateRuleRequest] Rule severity integer to provide maps to the following: 0&#x3D;Critical, 1&#x3D;High, 2&#x3D;Medium and 3&#x3D;Low. For CSPM IOM Custom Rules, logic is mandatory and parent_rule_id should not be specified. For Runtime IOM Custom Rules (KAC), logic is mandatory. Fields &#x60;controls&#x60;, &#x60;resource_type&#x60;, and &#x60;parent_rule_id&#x60; should not be specified. For Managed Rule duplication, parent_rule_id is mandatory and logic should be not specified.
+    # @param body [CommonCreateRuleRequest] Rule severity integer to provide maps to the following: 0&#x3D;Critical, 1&#x3D;High, 2&#x3D;Medium and 3&#x3D;Low. For CSPM IOM Custom Rules, logic is mandatory and parent_rule_id should not be specified. For CSPM IAC Custom Rules, logic is mandatory and description is optional. For Runtime IOM Custom Rules (KAC), logic is mandatory. Fields &#x60;controls&#x60;, &#x60;resource_type&#x60;, and &#x60;parent_rule_id&#x60; should not be specified. For Managed Rule duplication, parent_rule_id is mandatory and logic should be not specified.
     # @param [Hash] opts the optional parameters
     # @return [CommonCreateRuleResponse]
     def create_rule_mixin0(body, opts = {})
@@ -239,7 +239,7 @@ module Falcon
     end
 
     # Create a new rule
-    # @param body [CommonCreateRuleRequest] Rule severity integer to provide maps to the following: 0&#x3D;Critical, 1&#x3D;High, 2&#x3D;Medium and 3&#x3D;Low. For CSPM IOM Custom Rules, logic is mandatory and parent_rule_id should not be specified. For Runtime IOM Custom Rules (KAC), logic is mandatory. Fields &#x60;controls&#x60;, &#x60;resource_type&#x60;, and &#x60;parent_rule_id&#x60; should not be specified. For Managed Rule duplication, parent_rule_id is mandatory and logic should be not specified.
+    # @param body [CommonCreateRuleRequest] Rule severity integer to provide maps to the following: 0&#x3D;Critical, 1&#x3D;High, 2&#x3D;Medium and 3&#x3D;Low. For CSPM IOM Custom Rules, logic is mandatory and parent_rule_id should not be specified. For CSPM IAC Custom Rules, logic is mandatory and description is optional. For Runtime IOM Custom Rules (KAC), logic is mandatory. Fields &#x60;controls&#x60;, &#x60;resource_type&#x60;, and &#x60;parent_rule_id&#x60; should not be specified. For Managed Rule duplication, parent_rule_id is mandatory and logic should be not specified.
     # @param [Hash] opts the optional parameters
     # @return [Array<(CommonCreateRuleResponse, Integer, Hash)>] CommonCreateRuleResponse data, response status code and response headers
     def create_rule_mixin0_with_http_info(body, opts = {})
@@ -1079,6 +1079,7 @@ module Falcon
     # @param resource_type [String] Selects the resource type for which to retrieve the rule input schema
     # @param [Hash] opts the optional parameters
     # @option opts [String] :cloud_provider Cloud service provider for the resource type
+    # @option opts [Boolean] :enriched When true, returns the enriched schema with inlined related resource types. Defaults to true. (default to true)
     # @return [CommonRuleInputSchemaResponse]
     def get_rule_input_schema(domain, subdomain, resource_type, opts = {})
       data, _status_code, _headers = get_rule_input_schema_with_http_info(domain, subdomain, resource_type, opts)
@@ -1091,6 +1092,7 @@ module Falcon
     # @param resource_type [String] Selects the resource type for which to retrieve the rule input schema
     # @param [Hash] opts the optional parameters
     # @option opts [String] :cloud_provider Cloud service provider for the resource type
+    # @option opts [Boolean] :enriched When true, returns the enriched schema with inlined related resource types. Defaults to true. (default to true)
     # @return [Array<(CommonRuleInputSchemaResponse, Integer, Hash)>] CommonRuleInputSchemaResponse data, response status code and response headers
     def get_rule_input_schema_with_http_info(domain, subdomain, resource_type, opts = {})
       if @api_client.config.debugging
@@ -1121,6 +1123,7 @@ module Falcon
       query_params[:'subdomain'] = subdomain
       query_params[:'resource_type'] = resource_type
       query_params[:'cloud_provider'] = opts[:'cloud_provider'] if !opts[:'cloud_provider'].nil?
+      query_params[:'enriched'] = opts[:'enriched'] if !opts[:'enriched'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

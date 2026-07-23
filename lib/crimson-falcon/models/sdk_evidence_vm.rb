@@ -39,13 +39,16 @@ module Falcon
 
     attr_accessor :leads
 
+    attr_accessor :users
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'alerts' => :'alerts',
         :'custom_evidence' => :'custom_evidence',
         :'events' => :'events',
-        :'leads' => :'leads'
+        :'leads' => :'leads',
+        :'users' => :'users'
       }
     end
 
@@ -60,7 +63,8 @@ module Falcon
         :'alerts' => :'SdkAlertEvidenceVM',
         :'custom_evidence' => :'SdkCustomEvidenceVM',
         :'events' => :'SdkEventEvidenceVM',
-        :'leads' => :'SdkLeadEvidenceVM'
+        :'leads' => :'SdkLeadEvidenceVM',
+        :'users' => :'SdkUserEvidenceVM'
       }
     end
 
@@ -100,6 +104,10 @@ module Falcon
       if attributes.key?(:'leads')
         self.leads = attributes[:'leads']
       end
+
+      if attributes.key?(:'users')
+        self.users = attributes[:'users']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -122,6 +130,10 @@ module Falcon
         invalid_properties.push('invalid value for "leads", leads cannot be nil.')
       end
 
+      if @users.nil?
+        invalid_properties.push('invalid value for "users", users cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -132,6 +144,7 @@ module Falcon
       return false if @custom_evidence.nil?
       return false if @events.nil?
       return false if @leads.nil?
+      return false if @users.nil?
       true
     end
 
@@ -143,7 +156,8 @@ module Falcon
           alerts == o.alerts &&
           custom_evidence == o.custom_evidence &&
           events == o.events &&
-          leads == o.leads
+          leads == o.leads &&
+          users == o.users
     end
 
     # @see the `==` method
@@ -155,7 +169,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alerts, custom_evidence, events, leads].hash
+      [alerts, custom_evidence, events, leads, users].hash
     end
 
     # Builds the object from hash

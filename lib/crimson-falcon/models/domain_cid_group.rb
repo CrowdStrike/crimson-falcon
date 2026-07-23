@@ -37,8 +37,6 @@ module Falcon
 
     attr_accessor :description
 
-    attr_accessor :is_default
-
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -47,7 +45,6 @@ module Falcon
         :'cid' => :'cid',
         :'cid_group_id' => :'cid_group_id',
         :'description' => :'description',
-        :'is_default' => :'is_default',
         :'name' => :'name'
       }
     end
@@ -63,7 +60,6 @@ module Falcon
         :'cid' => :'String',
         :'cid_group_id' => :'String',
         :'description' => :'String',
-        :'is_default' => :'Boolean',
         :'name' => :'String'
       }
     end
@@ -101,10 +97,6 @@ module Falcon
         self.description = attributes[:'description']
       end
 
-      if attributes.key?(:'is_default')
-        self.is_default = attributes[:'is_default']
-      end
-
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -114,8 +106,8 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @cid_group_id.nil?
-        invalid_properties.push('invalid value for "cid_group_id", cid_group_id cannot be nil.')
+      if @description.nil?
+        invalid_properties.push('invalid value for "description", description cannot be nil.')
       end
 
       if @name.nil?
@@ -128,7 +120,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @cid_group_id.nil?
+      return false if @description.nil?
       return false if @name.nil?
       true
     end
@@ -141,7 +133,6 @@ module Falcon
           cid == o.cid &&
           cid_group_id == o.cid_group_id &&
           description == o.description &&
-          is_default == o.is_default &&
           name == o.name
     end
 
@@ -154,7 +145,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, cid_group_id, description, is_default, name].hash
+      [cid, cid_group_id, description, name].hash
     end
 
     # Builds the object from hash

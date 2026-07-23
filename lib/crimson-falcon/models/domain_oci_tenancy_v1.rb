@@ -78,6 +78,12 @@ module Falcon
     # OCI Tenancy Registration public key
     attr_accessor :public_key
 
+    attr_accessor :registration_description
+
+    attr_accessor :registration_id
+
+    attr_accessor :registration_name
+
     # OCI Tenancy stack name
     attr_accessor :stack_name
 
@@ -121,6 +127,9 @@ module Falcon
         :'private_key' => :'private_key',
         :'products' => :'products',
         :'public_key' => :'public_key',
+        :'registration_description' => :'registration_description',
+        :'registration_id' => :'registration_id',
+        :'registration_name' => :'registration_name',
         :'stack_name' => :'stack_name',
         :'stack_ocid' => :'stack_ocid',
         :'tenancy_name' => :'tenancy_name',
@@ -157,6 +166,9 @@ module Falcon
         :'private_key' => :'String',
         :'products' => :'Hash<String, Hash>',
         :'public_key' => :'String',
+        :'registration_description' => :'String',
+        :'registration_id' => :'String',
+        :'registration_name' => :'String',
         :'stack_name' => :'String',
         :'stack_ocid' => :'String',
         :'tenancy_name' => :'String',
@@ -261,6 +273,18 @@ module Falcon
         self.public_key = attributes[:'public_key']
       end
 
+      if attributes.key?(:'registration_description')
+        self.registration_description = attributes[:'registration_description']
+      end
+
+      if attributes.key?(:'registration_id')
+        self.registration_id = attributes[:'registration_id']
+      end
+
+      if attributes.key?(:'registration_name')
+        self.registration_name = attributes[:'registration_name']
+      end
+
       if attributes.key?(:'stack_name')
         self.stack_name = attributes[:'stack_name']
       end
@@ -358,6 +382,18 @@ module Falcon
         invalid_properties.push('invalid value for "public_key", public_key cannot be nil.')
       end
 
+      if @registration_description.nil?
+        invalid_properties.push('invalid value for "registration_description", registration_description cannot be nil.')
+      end
+
+      if @registration_id.nil?
+        invalid_properties.push('invalid value for "registration_id", registration_id cannot be nil.')
+      end
+
+      if @registration_name.nil?
+        invalid_properties.push('invalid value for "registration_name", registration_name cannot be nil.')
+      end
+
       if @stack_name.nil?
         invalid_properties.push('invalid value for "stack_name", stack_name cannot be nil.')
       end
@@ -411,6 +447,9 @@ module Falcon
       return false if @policy_ocid.nil?
       return false if @products.nil?
       return false if @public_key.nil?
+      return false if @registration_description.nil?
+      return false if @registration_id.nil?
+      return false if @registration_name.nil?
       return false if @stack_name.nil?
       return false if @stack_ocid.nil?
       return false if @tenancy_name.nil?
@@ -444,6 +483,9 @@ module Falcon
           private_key == o.private_key &&
           products == o.products &&
           public_key == o.public_key &&
+          registration_description == o.registration_description &&
+          registration_id == o.registration_id &&
+          registration_name == o.registration_name &&
           stack_name == o.stack_name &&
           stack_ocid == o.stack_ocid &&
           tenancy_name == o.tenancy_name &&
@@ -463,7 +505,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, cloud_registration_enabled, conditions, created_at, cspm_enabled, finger_print, group_name, group_ocid, home_region, is_connected, key_age, overall_status, policy_name, policy_ocid, private_key, products, public_key, stack_name, stack_ocid, tenancy_name, tenancy_ocid, updated_at, user_email, user_name, user_ocid].hash
+      [cid, cloud_registration_enabled, conditions, created_at, cspm_enabled, finger_print, group_name, group_ocid, home_region, is_connected, key_age, overall_status, policy_name, policy_ocid, private_key, products, public_key, registration_description, registration_id, registration_name, stack_name, stack_ocid, tenancy_name, tenancy_ocid, updated_at, user_email, user_name, user_ocid].hash
     end
 
     # Builds the object from hash
