@@ -39,9 +39,19 @@ module Falcon
 
     attr_accessor :entity_value
 
+    attr_accessor :ids
+
+    attr_accessor :limit
+
+    attr_accessor :q
+
     attr_accessor :query_string
 
     attr_accessor :query_string_on_load
+
+    attr_accessor :search
+
+    attr_accessor :search_q
 
     attr_accessor :searchable
 
@@ -60,8 +70,13 @@ module Falcon
         :'entity' => :'entity',
         :'entity_on_load' => :'entityOnLoad',
         :'entity_value' => :'entityValue',
+        :'ids' => :'ids',
+        :'limit' => :'limit',
+        :'q' => :'q',
         :'query_string' => :'queryString',
         :'query_string_on_load' => :'queryStringOnLoad',
+        :'search' => :'search',
+        :'search_q' => :'search_q',
         :'searchable' => :'searchable',
         :'sort_by_display' => :'sortByDisplay',
         :'sort_by_value' => :'sortByValue',
@@ -82,8 +97,13 @@ module Falcon
         :'entity' => :'String',
         :'entity_on_load' => :'String',
         :'entity_value' => :'String',
+        :'ids' => :'String',
+        :'limit' => :'Integer',
+        :'q' => :'String',
         :'query_string' => :'String',
         :'query_string_on_load' => :'String',
+        :'search' => :'String',
+        :'search_q' => :'String',
         :'searchable' => :'Boolean',
         :'sort_by_display' => :'Boolean',
         :'sort_by_value' => :'Boolean',
@@ -129,12 +149,32 @@ module Falcon
         self.entity_value = attributes[:'entity_value']
       end
 
+      if attributes.key?(:'ids')
+        self.ids = attributes[:'ids']
+      end
+
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
+      end
+
+      if attributes.key?(:'q')
+        self.q = attributes[:'q']
+      end
+
       if attributes.key?(:'query_string')
         self.query_string = attributes[:'query_string']
       end
 
       if attributes.key?(:'query_string_on_load')
         self.query_string_on_load = attributes[:'query_string_on_load']
+      end
+
+      if attributes.key?(:'search')
+        self.search = attributes[:'search']
+      end
+
+      if attributes.key?(:'search_q')
+        self.search_q = attributes[:'search_q']
       end
 
       if attributes.key?(:'searchable')
@@ -180,8 +220,13 @@ module Falcon
           entity == o.entity &&
           entity_on_load == o.entity_on_load &&
           entity_value == o.entity_value &&
+          ids == o.ids &&
+          limit == o.limit &&
+          q == o.q &&
           query_string == o.query_string &&
           query_string_on_load == o.query_string_on_load &&
+          search == o.search &&
+          search_q == o.search_q &&
           searchable == o.searchable &&
           sort_by_display == o.sort_by_display &&
           sort_by_value == o.sort_by_value &&
@@ -198,7 +243,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [case_sensitive, entity, entity_on_load, entity_value, query_string, query_string_on_load, searchable, sort_by_display, sort_by_value, sort_desc, strict].hash
+      [case_sensitive, entity, entity_on_load, entity_value, ids, limit, q, query_string, query_string_on_load, search, search_q, searchable, sort_by_display, sort_by_value, sort_desc, strict].hash
     end
 
     # Builds the object from hash

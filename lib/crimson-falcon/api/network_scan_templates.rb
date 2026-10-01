@@ -36,20 +36,20 @@ module Falcon
       @api_client = api_client
     end
     # Create \"templates\" using provided specifications
-    # @param body [Array<DomainTemplateCreateRequest>] \&quot;templates\&quot; specifications
+    # @param body [Array<NvaapiTemplateCreateRequest>] \&quot;templates\&quot; specifications
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainTemplateEntitiesResponse]
+    # @return [NvaapiTemplateEntitiesResponse]
     def create_templates(body, opts = {})
       data, _status_code, _headers = create_templates_with_http_info(body, opts)
       data
     end
 
     # Create \&quot;templates\&quot; using provided specifications
-    # @param body [Array<DomainTemplateCreateRequest>] \&quot;templates\&quot; specifications
+    # @param body [Array<NvaapiTemplateCreateRequest>] \&quot;templates\&quot; specifications
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainTemplateEntitiesResponse, Integer, Hash)>] DomainTemplateEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiTemplateEntitiesResponse, Integer, Hash)>] NvaapiTemplateEntitiesResponse data, response status code and response headers
     def create_templates_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanTemplates.create_templates ...'
@@ -82,7 +82,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainTemplateEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiTemplateEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -231,7 +231,7 @@ module Falcon
     # @param ids [Array<String>] IDs of \&quot;templates\&quot; to be retrieved (Min: 1, Max: 100)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainTemplateEntitiesResponse]
+    # @return [NvaapiTemplateEntitiesResponse]
     def get_templates(ids, opts = {})
       data, _status_code, _headers = get_templates_with_http_info(ids, opts)
       data
@@ -241,7 +241,7 @@ module Falcon
     # @param ids [Array<String>] IDs of \&quot;templates\&quot; to be retrieved (Min: 1, Max: 100)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainTemplateEntitiesResponse, Integer, Hash)>] DomainTemplateEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiTemplateEntitiesResponse, Integer, Hash)>] NvaapiTemplateEntitiesResponse data, response status code and response headers
     def get_templates_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanTemplates.get_templates ...'
@@ -270,7 +270,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainTemplateEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiTemplateEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -375,20 +375,20 @@ module Falcon
     end
 
     # Update \"templates\" using provided specifications
-    # @param body [Array<DomainTemplateUpdateRequest>] \&quot;templates\&quot; specifications for updating
+    # @param body [Array<NvaapiTemplateUpdateRequest>] \&quot;templates\&quot; specifications for updating
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainTemplateEntitiesResponse]
+    # @return [NvaapiTemplateEntitiesResponse]
     def update_templates(body, opts = {})
       data, _status_code, _headers = update_templates_with_http_info(body, opts)
       data
     end
 
     # Update \&quot;templates\&quot; using provided specifications
-    # @param body [Array<DomainTemplateUpdateRequest>] \&quot;templates\&quot; specifications for updating
+    # @param body [Array<NvaapiTemplateUpdateRequest>] \&quot;templates\&quot; specifications for updating
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainTemplateEntitiesResponse, Integer, Hash)>] DomainTemplateEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiTemplateEntitiesResponse, Integer, Hash)>] NvaapiTemplateEntitiesResponse data, response status code and response headers
     def update_templates_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanTemplates.update_templates ...'
@@ -421,7 +421,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainTemplateEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiTemplateEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

@@ -33,6 +33,8 @@ module Falcon
   class MessagesAlert
     attr_accessor :id
 
+    attr_accessor :kestrel_url
+
     attr_accessor :product
 
     attr_accessor :url
@@ -41,6 +43,7 @@ module Falcon
     def self.attribute_map
       {
         :'id' => :'id',
+        :'kestrel_url' => :'kestrel_url',
         :'product' => :'product',
         :'url' => :'url'
       }
@@ -55,6 +58,7 @@ module Falcon
     def self.openapi_types
       {
         :'id' => :'String',
+        :'kestrel_url' => :'String',
         :'product' => :'String',
         :'url' => :'String'
       }
@@ -83,6 +87,10 @@ module Falcon
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'kestrel_url')
+        self.kestrel_url = attributes[:'kestrel_url']
       end
 
       if attributes.key?(:'product')
@@ -128,6 +136,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
+          kestrel_url == o.kestrel_url &&
           product == o.product &&
           url == o.url
     end
@@ -141,7 +150,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, product, url].hash
+      [id, kestrel_url, product, url].hash
     end
 
     # Builds the object from hash

@@ -64,6 +64,7 @@ module Falcon
     # Input fields required for configuring activity
     attr_accessor :input_fields
 
+    # JSON Schema describing the structured input of the activity for execution
     attr_accessor :input_schema
 
     # Legacy namespace for the activity.
@@ -80,6 +81,7 @@ module Falcon
     # Output fields of the activity once executed
     attr_accessor :output_fields
 
+    # JSON Schema describing the structured output of the activity once executed
     attr_accessor :output_schema
 
     # Activity semantic version
@@ -145,13 +147,13 @@ module Falcon
         :'has_permission' => :'Boolean',
         :'id' => :'String',
         :'input_fields' => :'Array<ActivitiesActivityExtField>',
-        :'input_schema' => :'JsonschemaSchema',
+        :'input_schema' => :'String',
         :'legacy_namespace' => :'String',
         :'mock_output' => :'Object',
         :'name' => :'String',
         :'namespace' => :'String',
         :'output_fields' => :'Array<ActivitiesActivityExtField>',
-        :'output_schema' => :'JsonschemaSchema',
+        :'output_schema' => :'String',
         :'semantic_version' => :'String',
         :'updated' => :'Time',
         :'use_cases' => :'Array<String>',

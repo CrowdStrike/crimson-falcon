@@ -133,6 +133,8 @@ module Falcon
 
     attr_accessor :vulnerability_scanning_regions
 
+    attr_accessor :obj_id
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -207,7 +209,8 @@ module Falcon
         :'vulnerability_scanning_custom_vnet_configuration' => :'vulnerability_scanning_custom_vnet_configuration',
         :'vulnerability_scanning_host_subscription_id' => :'vulnerability_scanning_host_subscription_id',
         :'vulnerability_scanning_network_configuration_type' => :'vulnerability_scanning_network_configuration_type',
-        :'vulnerability_scanning_regions' => :'vulnerability_scanning_regions'
+        :'vulnerability_scanning_regions' => :'vulnerability_scanning_regions',
+        :'obj_id' => :'obj_id'
       }
     end
 
@@ -268,7 +271,8 @@ module Falcon
         :'vulnerability_scanning_custom_vnet_configuration' => :'Hash<String, AzureAgentlessScanningRegionCustomNetworkConfiguration>',
         :'vulnerability_scanning_host_subscription_id' => :'String',
         :'vulnerability_scanning_network_configuration_type' => :'String',
-        :'vulnerability_scanning_regions' => :'Array<String>'
+        :'vulnerability_scanning_regions' => :'Array<String>',
+        :'obj_id' => :'String'
       }
     end
 
@@ -514,6 +518,10 @@ module Falcon
           self.vulnerability_scanning_regions = value
         end
       end
+
+      if attributes.key?(:'obj_id')
+        self.obj_id = attributes[:'obj_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -672,7 +680,8 @@ module Falcon
           vulnerability_scanning_custom_vnet_configuration == o.vulnerability_scanning_custom_vnet_configuration &&
           vulnerability_scanning_host_subscription_id == o.vulnerability_scanning_host_subscription_id &&
           vulnerability_scanning_network_configuration_type == o.vulnerability_scanning_network_configuration_type &&
-          vulnerability_scanning_regions == o.vulnerability_scanning_regions
+          vulnerability_scanning_regions == o.vulnerability_scanning_regions &&
+          obj_id == o.obj_id
     end
 
     # @see the `==` method
@@ -684,7 +693,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_type, additional_features, additional_properties, admin_consent_url, api_client_key_id, api_client_key_type, app_registration_id, app_registration_name, cid, created, cs_infra_region, cs_infra_subscription_id, cs_infra_subscription_name, deleted, deployment_method, deployment_stack_host_id, deployment_stack_host_region, deployment_stack_host_type, deployment_stack_host_url, deployment_stack_name, dspm_custom_vnet_configuration, dspm_host_subscription_id, dspm_network_configuration_type, dspm_regions, enterprise_app_url, environment, event_hub_settings, key_info, last_healthcheck_completed_at, management_group_ids, microsoft_graph_permission_ids, microsoft_graph_permission_ids_readonly, primary_domain, products, registration_description, registration_id, registration_name, resource_name_prefix, resource_name_suffix, status, subscription_ids, tags, template_version, tenant_id, tenant_name, updated, vulnerability_scanning_custom_vnet_configuration, vulnerability_scanning_host_subscription_id, vulnerability_scanning_network_configuration_type, vulnerability_scanning_regions].hash
+      [account_type, additional_features, additional_properties, admin_consent_url, api_client_key_id, api_client_key_type, app_registration_id, app_registration_name, cid, created, cs_infra_region, cs_infra_subscription_id, cs_infra_subscription_name, deleted, deployment_method, deployment_stack_host_id, deployment_stack_host_region, deployment_stack_host_type, deployment_stack_host_url, deployment_stack_name, dspm_custom_vnet_configuration, dspm_host_subscription_id, dspm_network_configuration_type, dspm_regions, enterprise_app_url, environment, event_hub_settings, key_info, last_healthcheck_completed_at, management_group_ids, microsoft_graph_permission_ids, microsoft_graph_permission_ids_readonly, primary_domain, products, registration_description, registration_id, registration_name, resource_name_prefix, resource_name_suffix, status, subscription_ids, tags, template_version, tenant_id, tenant_name, updated, vulnerability_scanning_custom_vnet_configuration, vulnerability_scanning_host_subscription_id, vulnerability_scanning_network_configuration_type, vulnerability_scanning_regions, obj_id].hash
     end
 
     # Builds the object from hash

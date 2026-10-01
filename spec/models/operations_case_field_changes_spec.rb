@@ -47,6 +47,12 @@ describe Falcon::OperationsCaseFieldChanges do
     end
   end
 
+  describe 'test attribute "assigned_to_group_ids"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "assigned_to_user_uuid"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -83,6 +89,12 @@ describe Falcon::OperationsCaseFieldChanges do
     end
   end
 
+  describe 'test attribute "remove_group_assignment"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "remove_user_assignment"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -114,6 +126,12 @@ describe Falcon::OperationsCaseFieldChanges do
   end
 
   describe 'test attribute "template"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "templates"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

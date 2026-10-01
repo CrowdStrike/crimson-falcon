@@ -35,6 +35,352 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # POST Connect a Check Tag to a Security Check
+    # Connect an existing check tag to a security check. Idempotent
+    # @param id [String] Security Check ID
+    # @param tag_id [String] Check Tag ID
+    # @param [Hash] opts the optional parameters
+    # @return [CheckTag]
+    def connect_check_tag_v3(id, tag_id, opts = {})
+      data, _status_code, _headers = connect_check_tag_v3_with_http_info(id, tag_id, opts)
+      data
+    end
+
+    # POST Connect a Check Tag to a Security Check
+    # Connect an existing check tag to a security check. Idempotent
+    # @param id [String] Security Check ID
+    # @param tag_id [String] Check Tag ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CheckTag, Integer, Hash)>] CheckTag data, response status code and response headers
+    def connect_check_tag_v3_with_http_info(id, tag_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.connect_check_tag_v3 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SaasSecurity.connect_check_tag_v3"
+      end
+      # verify the required parameter 'tag_id' is set
+      if @api_client.config.client_side_validation && tag_id.nil?
+        fail ArgumentError, "Missing the required parameter 'tag_id' when calling SaasSecurity.connect_check_tag_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/check-tags/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+      query_params[:'tag_id'] = tag_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CheckTag'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.connect_check_tag_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#connect_check_tag_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # POST App Journal Comment
+    # Append a comment to one or more app inventory items
+    # @param body [CreateAppJournalCommentV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [CreateJournal]
+    def create_app_journal_comment_v3(body, opts = {})
+      data, _status_code, _headers = create_app_journal_comment_v3_with_http_info(body, opts)
+      data
+    end
+
+    # POST App Journal Comment
+    # Append a comment to one or more app inventory items
+    # @param body [CreateAppJournalCommentV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CreateJournal, Integer, Hash)>] CreateJournal data, response status code and response headers
+    def create_app_journal_comment_v3_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.create_app_journal_comment_v3 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SaasSecurity.create_app_journal_comment_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/app-journal/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CreateJournal'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.create_app_journal_comment_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#create_app_journal_comment_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # POST Security Check Journal Comment
+    # Append a comment to one or more security checks
+    # @param body [CreateAppJournalCommentV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [CreateJournal]
+    def create_check_journal_comment_v3(body, opts = {})
+      data, _status_code, _headers = create_check_journal_comment_v3_with_http_info(body, opts)
+      data
+    end
+
+    # POST Security Check Journal Comment
+    # Append a comment to one or more security checks
+    # @param body [CreateAppJournalCommentV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CreateJournal, Integer, Hash)>] CreateJournal data, response status code and response headers
+    def create_check_journal_comment_v3_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.create_check_journal_comment_v3 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SaasSecurity.create_check_journal_comment_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/check-journal/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CreateJournal'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.create_check_journal_comment_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#create_check_journal_comment_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # POST User Journal Comment
+    # Append a comment to one or more user inventory items
+    # @param body [CreateAppJournalCommentV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [CreateJournal]
+    def create_user_journal_comment_v3(body, opts = {})
+      data, _status_code, _headers = create_user_journal_comment_v3_with_http_info(body, opts)
+      data
+    end
+
+    # POST User Journal Comment
+    # Append a comment to one or more user inventory items
+    # @param body [CreateAppJournalCommentV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CreateJournal, Integer, Hash)>] CreateJournal data, response status code and response headers
+    def create_user_journal_comment_v3_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.create_user_journal_comment_v3 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SaasSecurity.create_user_journal_comment_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/user-journal/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CreateJournal'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.create_user_journal_comment_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#create_user_journal_comment_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # DELETE Disconnect a Check Tag from a Security Check
+    # Disconnect a check tag from a security check. Idempotent
+    # @param id [String] Security Check ID
+    # @param tag_id [String] Check Tag ID
+    # @param [Hash] opts the optional parameters
+    # @return [CheckTag]
+    def disconnect_check_tag_v3(id, tag_id, opts = {})
+      data, _status_code, _headers = disconnect_check_tag_v3_with_http_info(id, tag_id, opts)
+      data
+    end
+
+    # DELETE Disconnect a Check Tag from a Security Check
+    # Disconnect a check tag from a security check. Idempotent
+    # @param id [String] Security Check ID
+    # @param tag_id [String] Check Tag ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CheckTag, Integer, Hash)>] CheckTag data, response status code and response headers
+    def disconnect_check_tag_v3_with_http_info(id, tag_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.disconnect_check_tag_v3 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SaasSecurity.disconnect_check_tag_v3"
+      end
+      # verify the required parameter 'tag_id' is set
+      if @api_client.config.client_side_validation && tag_id.nil?
+        fail ArgumentError, "Missing the required parameter 'tag_id' when calling SaasSecurity.disconnect_check_tag_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/check-tags/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+      query_params[:'tag_id'] = tag_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CheckTag'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.disconnect_check_tag_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#disconnect_check_tag_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # POST Dismiss Affected Entity
     # Preform dismiss to an affected entity in a security check
     # @param id [String] Security Check ID
@@ -266,6 +612,151 @@ module Falcon
       return data, status_code, headers
     end
 
+    # GET AI Agent Details
+    # Get full details for a single AI agent, including tools and knowledge
+    # @param id [String] Agent item ID in format: &#39;agent_id|||integration_id&#39; (id)
+    # @param [Hash] opts the optional parameters
+    # @return [AiAgentDetails]
+    def get_ai_agent_details(id, opts = {})
+      data, _status_code, _headers = get_ai_agent_details_with_http_info(id, opts)
+      data
+    end
+
+    # GET AI Agent Details
+    # Get full details for a single AI agent, including tools and knowledge
+    # @param id [String] Agent item ID in format: &#39;agent_id|||integration_id&#39; (id)
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AiAgentDetails, Integer, Hash)>] AiAgentDetails data, response status code and response headers
+    def get_ai_agent_details_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.get_ai_agent_details ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SaasSecurity.get_ai_agent_details"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/ai-agent-details/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AiAgentDetails'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.get_ai_agent_details",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#get_ai_agent_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # GET AI Agents Inventory
+    # Get a list of all AI agents in the Applications inventory
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :name Agent name (partial match)
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :integration_id Comma separated list of integration IDs
+    # @option opts [String] :access Filter by access value (exact match)
+    # @option opts [String] :agent_owner Filter by agent owner email (partial match)
+    # @option opts [String] :tool_type Filter by a single tool type contained in the agent&#39;s tool types
+    # @option opts [String] :knowledge_source Filter by a single knowledge source contained in the agent&#39;s knowledge sources
+    # @return [AiAgentsInventory]
+    def get_ai_agents_inventory(opts = {})
+      data, _status_code, _headers = get_ai_agents_inventory_with_http_info(opts)
+      data
+    end
+
+    # GET AI Agents Inventory
+    # Get a list of all AI agents in the Applications inventory
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :name Agent name (partial match)
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :integration_id Comma separated list of integration IDs
+    # @option opts [String] :access Filter by access value (exact match)
+    # @option opts [String] :agent_owner Filter by agent owner email (partial match)
+    # @option opts [String] :tool_type Filter by a single tool type contained in the agent&#39;s tool types
+    # @option opts [String] :knowledge_source Filter by a single knowledge source contained in the agent&#39;s knowledge sources
+    # @return [Array<(AiAgentsInventory, Integer, Hash)>] AiAgentsInventory data, response status code and response headers
+    def get_ai_agents_inventory_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.get_ai_agents_inventory ...'
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/ai-agents/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'name'] = opts[:'name'] if !opts[:'name'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'integration_id'] = opts[:'integration_id'] if !opts[:'integration_id'].nil?
+      query_params[:'access'] = opts[:'access'] if !opts[:'access'].nil?
+      query_params[:'agent_owner'] = opts[:'agent_owner'] if !opts[:'agent_owner'].nil?
+      query_params[:'tool_type'] = opts[:'tool_type'] if !opts[:'tool_type'].nil?
+      query_params[:'knowledge_source'] = opts[:'knowledge_source'] if !opts[:'knowledge_source'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AiAgentsInventory'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.get_ai_agents_inventory",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#get_ai_agents_inventory\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # GET Alert by ID or GET Alerts
     # Get a data on a specific alert or get a list of all alerts
     # @param [Hash] opts the optional parameters
@@ -301,7 +792,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SaasSecurity.get_alerts_v3 ...'
       end
-      allowable_values = ["configuration_drift", "check_degraded", "integration_failure", "Threat"]
+      allowable_values = ["configuration_drift", "check_degraded", "integration_failure", "threat"]
       if @api_client.config.client_side_validation && opts[:'type'] && !allowable_values.include?(opts[:'type'])
         fail ArgumentError, "invalid value for \"type\", must be one of #{allowable_values}"
       end
@@ -509,6 +1000,79 @@ module Falcon
       return data, status_code, headers
     end
 
+    # GET App Journal
+    # Get the journal entries for an app inventory item
+    # @param id [String] App item identity (app_item_id, format &#39;app_id|||integration_id&#39;)
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :author Filter by entry author: a full or partial creator name, a creator email address, or an API client id
+    # @return [GetJournal]
+    def get_app_journal_v3(id, opts = {})
+      data, _status_code, _headers = get_app_journal_v3_with_http_info(id, opts)
+      data
+    end
+
+    # GET App Journal
+    # Get the journal entries for an app inventory item
+    # @param id [String] App item identity (app_item_id, format &#39;app_id|||integration_id&#39;)
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :author Filter by entry author: a full or partial creator name, a creator email address, or an API client id
+    # @return [Array<(GetJournal, Integer, Hash)>] GetJournal data, response status code and response headers
+    def get_app_journal_v3_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.get_app_journal_v3 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SaasSecurity.get_app_journal_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/app-journal/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'author'] = opts[:'author'] if !opts[:'author'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetJournal'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.get_app_journal_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#get_app_journal_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # GET Data Inventory
     # Get a list of all assets in the Data Inventory
     # @param [Hash] opts the optional parameters
@@ -598,6 +1162,200 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SaasSecurity#get_asset_inventory_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # GET Security Check Journal
+    # Get the journal entries for a security check
+    # @param id [String] Security Check ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :author Filter by entry author: a full or partial creator name, a creator email address, or an API client id
+    # @return [GetJournal]
+    def get_check_journal_v3(id, opts = {})
+      data, _status_code, _headers = get_check_journal_v3_with_http_info(id, opts)
+      data
+    end
+
+    # GET Security Check Journal
+    # Get the journal entries for a security check
+    # @param id [String] Security Check ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :author Filter by entry author: a full or partial creator name, a creator email address, or an API client id
+    # @return [Array<(GetJournal, Integer, Hash)>] GetJournal data, response status code and response headers
+    def get_check_journal_v3_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.get_check_journal_v3 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SaasSecurity.get_check_journal_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/check-journal/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'author'] = opts[:'author'] if !opts[:'author'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetJournal'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.get_check_journal_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#get_check_journal_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # GET List Security Check Params
+    # Get every tunable param of a security check, with the value in effect for this instance of it. `edited` says whether that value is a customization or the built-in default
+    # @param id [String] Security Check ID
+    # @param [Hash] opts the optional parameters
+    # @return [GetCheckParams]
+    def get_check_params_v3(id, opts = {})
+      data, _status_code, _headers = get_check_params_v3_with_http_info(id, opts)
+      data
+    end
+
+    # GET List Security Check Params
+    # Get every tunable param of a security check, with the value in effect for this instance of it. &#x60;edited&#x60; says whether that value is a customization or the built-in default
+    # @param id [String] Security Check ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetCheckParams, Integer, Hash)>] GetCheckParams data, response status code and response headers
+    def get_check_params_v3_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.get_check_params_v3 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SaasSecurity.get_check_params_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/check-params/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetCheckParams'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.get_check_params_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#get_check_params_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # GET List Check Tags
+    # Get all the security check tags defined in the account
+    # @param [Hash] opts the optional parameters
+    # @return [GetCheckTags]
+    def get_check_tags_v3(opts = {})
+      data, _status_code, _headers = get_check_tags_v3_with_http_info(opts)
+      data
+    end
+
+    # GET List Check Tags
+    # Get all the security check tags defined in the account
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetCheckTags, Integer, Hash)>] GetCheckTags data, response status code and response headers
+    def get_check_tags_v3_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.get_check_tags_v3 ...'
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/check-tags/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetCheckTags'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.get_check_tags_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#get_check_tags_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -747,6 +1505,9 @@ module Falcon
     # @option opts [String] :impact Impact
     # @option opts [Boolean] :compliance Compliance
     # @option opts [String] :check_type Check Type
+    # @option opts [String] :check_tags Comma separated list of check tags names or ids
+    # @option opts [String] :business_owner Business owner email of the integration the check belongs to
+    # @option opts [String] :org_domain Org domain of the integration the check belongs to
     # @return [GetMetrics]
     def get_metrics_v3(opts = {})
       data, _status_code, _headers = get_metrics_v3_with_http_info(opts)
@@ -763,12 +1524,15 @@ module Falcon
     # @option opts [String] :impact Impact
     # @option opts [Boolean] :compliance Compliance
     # @option opts [String] :check_type Check Type
+    # @option opts [String] :check_tags Comma separated list of check tags names or ids
+    # @option opts [String] :business_owner Business owner email of the integration the check belongs to
+    # @option opts [String] :org_domain Org domain of the integration the check belongs to
     # @return [Array<(GetMetrics, Integer, Hash)>] GetMetrics data, response status code and response headers
     def get_metrics_v3_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SaasSecurity.get_metrics_v3 ...'
       end
-      allowable_values = ["Passed", "Failed", "Dismissed", "Pending", "Can't Run", "Stale"]
+      allowable_values = ["Can't Run", "Dismissed", "Failed", "Passed", "Pending", "Stale", "NA", "Not Available"]
       if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
         fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
       end
@@ -776,7 +1540,7 @@ module Falcon
       if @api_client.config.client_side_validation && opts[:'impact'] && !allowable_values.include?(opts[:'impact'])
         fail ArgumentError, "invalid value for \"impact\", must be one of #{allowable_values}"
       end
-      allowable_values = ["apps", "devices", "users", "assets", "permissions", "Falcon Shield Security Check", "custom"]
+      allowable_values = ["apps", "devices", "users", "assets", "permissions", "shadow_vendors", "Falcon Shield Security Check", "custom"]
       if @api_client.config.client_side_validation && opts[:'check_type'] && !allowable_values.include?(opts[:'check_type'])
         fail ArgumentError, "invalid value for \"check_type\", must be one of #{allowable_values}"
       end
@@ -792,6 +1556,9 @@ module Falcon
       query_params[:'impact'] = opts[:'impact'] if !opts[:'impact'].nil?
       query_params[:'compliance'] = opts[:'compliance'] if !opts[:'compliance'].nil?
       query_params[:'check_type'] = opts[:'check_type'] if !opts[:'check_type'].nil?
+      query_params[:'check_tags'] = opts[:'check_tags'] if !opts[:'check_tags'].nil?
+      query_params[:'business_owner'] = opts[:'business_owner'] if !opts[:'business_owner'].nil?
+      query_params[:'org_domain'] = opts[:'org_domain'] if !opts[:'org_domain'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -897,6 +1664,87 @@ module Falcon
       return data, status_code, headers
     end
 
+    # GET Security Check Change Log
+    # Get the log of CrowdStrike's own changes to security checks - detection logic, impact, title and so on. meta.pagination.total is only populated when total_count=true is passed.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :action Actions to filter by, comma separated (e.g. renamed,impact_changed)
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :app Supported integration (app) ids to filter by, comma separated
+    # @option opts [String] :check_id Security check id - stable across a rename, so it returns the whole history
+    # @option opts [Time] :from_date From Date (in YYYY-MM-DD format)
+    # @option opts [Time] :to_date To Date (in YYYY-MM-DD format)
+    # @option opts [Boolean] :total_count Fetch Total Count?
+    # @return [GetSecurityCheckChangeLog]
+    def get_security_check_change_log_v3(opts = {})
+      data, _status_code, _headers = get_security_check_change_log_v3_with_http_info(opts)
+      data
+    end
+
+    # GET Security Check Change Log
+    # Get the log of CrowdStrike&#39;s own changes to security checks - detection logic, impact, title and so on. meta.pagination.total is only populated when total_count&#x3D;true is passed.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :action Actions to filter by, comma separated (e.g. renamed,impact_changed)
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :app Supported integration (app) ids to filter by, comma separated
+    # @option opts [String] :check_id Security check id - stable across a rename, so it returns the whole history
+    # @option opts [Time] :from_date From Date (in YYYY-MM-DD format)
+    # @option opts [Time] :to_date To Date (in YYYY-MM-DD format)
+    # @option opts [Boolean] :total_count Fetch Total Count?
+    # @return [Array<(GetSecurityCheckChangeLog, Integer, Hash)>] GetSecurityCheckChangeLog data, response status code and response headers
+    def get_security_check_change_log_v3_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.get_security_check_change_log_v3 ...'
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/checks-change-log/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'action'] = opts[:'action'] if !opts[:'action'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'app'] = opts[:'app'] if !opts[:'app'].nil?
+      query_params[:'check_id'] = opts[:'check_id'] if !opts[:'check_id'].nil?
+      query_params[:'from_date'] = opts[:'from_date'] if !opts[:'from_date'].nil?
+      query_params[:'to_date'] = opts[:'to_date'] if !opts[:'to_date'].nil?
+      query_params[:'total_count'] = opts[:'total_count'] if !opts[:'total_count'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetSecurityCheckChangeLog'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.get_security_check_change_log_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#get_security_check_change_log_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # GET Compliance
     # Get a list of compliance standards attached to a check
     # @param id [String] Security Check ID
@@ -973,6 +1821,8 @@ module Falcon
     # @option opts [Boolean] :compliance Compliance
     # @option opts [String] :check_type Check Type
     # @option opts [String] :check_tags Comma separated list of check tags names or ids
+    # @option opts [String] :business_owner Business owner email of the integration the check belongs to
+    # @option opts [String] :org_domain Org domain of the integration the check belongs to
     # @return [GetSecurityChecks]
     def get_security_checks_v3(opts = {})
       data, _status_code, _headers = get_security_checks_v3_with_http_info(opts)
@@ -991,12 +1841,14 @@ module Falcon
     # @option opts [Boolean] :compliance Compliance
     # @option opts [String] :check_type Check Type
     # @option opts [String] :check_tags Comma separated list of check tags names or ids
+    # @option opts [String] :business_owner Business owner email of the integration the check belongs to
+    # @option opts [String] :org_domain Org domain of the integration the check belongs to
     # @return [Array<(GetSecurityChecks, Integer, Hash)>] GetSecurityChecks data, response status code and response headers
     def get_security_checks_v3_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SaasSecurity.get_security_checks_v3 ...'
       end
-      allowable_values = ["Passed", "Failed", "Dismissed", "Pending", "Can't Run", "Stale"]
+      allowable_values = ["Can't Run", "Dismissed", "Failed", "Passed", "Pending", "Stale", "NA", "Not Available"]
       if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
         fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
       end
@@ -1004,7 +1856,7 @@ module Falcon
       if @api_client.config.client_side_validation && opts[:'impact'] && !allowable_values.include?(opts[:'impact'])
         fail ArgumentError, "invalid value for \"impact\", must be one of #{allowable_values}"
       end
-      allowable_values = ["apps", "devices", "users", "assets", "permissions", "Falcon Shield Security Check", "custom"]
+      allowable_values = ["apps", "devices", "users", "assets", "permissions", "shadow_vendors", "Falcon Shield Security Check", "custom"]
       if @api_client.config.client_side_validation && opts[:'check_type'] && !allowable_values.include?(opts[:'check_type'])
         fail ArgumentError, "invalid value for \"check_type\", must be one of #{allowable_values}"
       end
@@ -1022,6 +1874,8 @@ module Falcon
       query_params[:'compliance'] = opts[:'compliance'] if !opts[:'compliance'].nil?
       query_params[:'check_type'] = opts[:'check_type'] if !opts[:'check_type'].nil?
       query_params[:'check_tags'] = opts[:'check_tags'] if !opts[:'check_tags'].nil?
+      query_params[:'business_owner'] = opts[:'business_owner'] if !opts[:'business_owner'].nil?
+      query_params[:'org_domain'] = opts[:'org_domain'] if !opts[:'org_domain'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1315,6 +2169,79 @@ module Falcon
       return data, status_code, headers
     end
 
+    # GET User Journal
+    # Get the journal entries for a user inventory item
+    # @param id [String] User item identity (email / login name)
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :author Filter by entry author: a full or partial creator name, a creator email address, or an API client id
+    # @return [GetJournal]
+    def get_user_journal_v3(id, opts = {})
+      data, _status_code, _headers = get_user_journal_v3_with_http_info(id, opts)
+      data
+    end
+
+    # GET User Journal
+    # Get the journal entries for a user inventory item
+    # @param id [String] User item identity (email / login name)
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :author Filter by entry author: a full or partial creator name, a creator email address, or an API client id
+    # @return [Array<(GetJournal, Integer, Hash)>] GetJournal data, response status code and response headers
+    def get_user_journal_v3_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.get_user_journal_v3 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SaasSecurity.get_user_journal_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/user-journal/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'author'] = opts[:'author'] if !opts[:'author'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetJournal'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.get_user_journal_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#get_user_journal_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # POST Data Upload Transaction Completion
     # Make a close transaction call after uploading the data
     # @param id [String] Integration ID
@@ -1585,6 +2512,306 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SaasSecurity#integration_builder_upload_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # POST Restore Affected Entity
+    # Restore dismissed affected entities of a security check
+    # @param id [String] Security Check ID
+    # @param body [RestoreAffectedEntityV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [RestoreAffected]
+    def restore_affected_entity_v3(id, body, opts = {})
+      data, _status_code, _headers = restore_affected_entity_v3_with_http_info(id, body, opts)
+      data
+    end
+
+    # POST Restore Affected Entity
+    # Restore dismissed affected entities of a security check
+    # @param id [String] Security Check ID
+    # @param body [RestoreAffectedEntityV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RestoreAffected, Integer, Hash)>] RestoreAffected data, response status code and response headers
+    def restore_affected_entity_v3_with_http_info(id, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.restore_affected_entity_v3 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SaasSecurity.restore_affected_entity_v3"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SaasSecurity.restore_affected_entity_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/check-restore-affected/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RestoreAffected'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.restore_affected_entity_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#restore_affected_entity_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # POST Restore Security Check by ID
+    # Restore a dismissed security check. Does not restore its dismissed affected entities
+    # @param id [String] Security Check ID
+    # @param body [Object]
+    # @param [Hash] opts the optional parameters
+    # @return [RestoreSecurityCheck]
+    def restore_security_check_v3(id, body, opts = {})
+      data, _status_code, _headers = restore_security_check_v3_with_http_info(id, body, opts)
+      data
+    end
+
+    # POST Restore Security Check by ID
+    # Restore a dismissed security check. Does not restore its dismissed affected entities
+    # @param id [String] Security Check ID
+    # @param body [Object]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RestoreSecurityCheck, Integer, Hash)>] RestoreSecurityCheck data, response status code and response headers
+    def restore_security_check_v3_with_http_info(id, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.restore_security_check_v3 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SaasSecurity.restore_security_check_v3"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SaasSecurity.restore_security_check_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/check-restore/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RestoreSecurityCheck'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.restore_security_check_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#restore_security_check_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # POST Set a Security Check Impact
+    # Set the impact of one instance of a security check. Set `all_future_instances` to also apply it to instances of the same SaaS connected in the future; it does not change instances that already exist. The check is not re-evaluated, only its impact changes
+    # @param id [String] Security Check ID
+    # @param body [SetCheckImpactV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [SetCheckImpact]
+    def set_check_impact_v3(id, body, opts = {})
+      data, _status_code, _headers = set_check_impact_v3_with_http_info(id, body, opts)
+      data
+    end
+
+    # POST Set a Security Check Impact
+    # Set the impact of one instance of a security check. Set &#x60;all_future_instances&#x60; to also apply it to instances of the same SaaS connected in the future; it does not change instances that already exist. The check is not re-evaluated, only its impact changes
+    # @param id [String] Security Check ID
+    # @param body [SetCheckImpactV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SetCheckImpact, Integer, Hash)>] SetCheckImpact data, response status code and response headers
+    def set_check_impact_v3_with_http_info(id, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.set_check_impact_v3 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SaasSecurity.set_check_impact_v3"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SaasSecurity.set_check_impact_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/check-impact/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SetCheckImpact'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.set_check_impact_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#set_check_impact_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # POST Set a Security Check Param
+    # Set one param's value on one instance of a security check. Set `all_future_instances` to also apply the value to instances of the same SaaS connected in the future; it does not change instances that already exist. Re-evaluates the check, so the result is not reflected immediately
+    # @param id [String] Security Check ID
+    # @param body [SetCheckParamV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [SetCheckParam]
+    def set_check_param_v3(id, body, opts = {})
+      data, _status_code, _headers = set_check_param_v3_with_http_info(id, body, opts)
+      data
+    end
+
+    # POST Set a Security Check Param
+    # Set one param&#39;s value on one instance of a security check. Set &#x60;all_future_instances&#x60; to also apply the value to instances of the same SaaS connected in the future; it does not change instances that already exist. Re-evaluates the check, so the result is not reflected immediately
+    # @param id [String] Security Check ID
+    # @param body [SetCheckParamV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SetCheckParam, Integer, Hash)>] SetCheckParam data, response status code and response headers
+    def set_check_param_v3_with_http_info(id, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.set_check_param_v3 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SaasSecurity.set_check_param_v3"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SaasSecurity.set_check_param_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/check-params/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SetCheckParam'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.set_check_param_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#set_check_param_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

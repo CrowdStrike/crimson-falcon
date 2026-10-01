@@ -53,6 +53,12 @@ describe Falcon::SdkTemplateVM do
     end
   end
 
+  describe 'test attribute "owner_group_ids"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "snapshot_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

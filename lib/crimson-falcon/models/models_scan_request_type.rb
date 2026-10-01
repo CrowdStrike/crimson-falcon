@@ -55,6 +55,8 @@ module Falcon
 
     attr_accessor :scan_request_s3_key
 
+    attr_accessor :should_preserve_paths
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -69,7 +71,8 @@ module Falcon
         :'image_inventory_s3_key' => :'image_inventory_s3_key',
         :'layer_inventory_s3_key' => :'layer_inventory_s3_key',
         :'scan_report_s3_key' => :'scan_report_s3_key',
-        :'scan_request_s3_key' => :'scan_request_s3_key'
+        :'scan_request_s3_key' => :'scan_request_s3_key',
+        :'should_preserve_paths' => :'should_preserve_paths'
       }
     end
 
@@ -92,7 +95,8 @@ module Falcon
         :'image_inventory_s3_key' => :'String',
         :'layer_inventory_s3_key' => :'String',
         :'scan_report_s3_key' => :'String',
-        :'scan_request_s3_key' => :'String'
+        :'scan_request_s3_key' => :'String',
+        :'should_preserve_paths' => :'Boolean'
       }
     end
 
@@ -165,6 +169,10 @@ module Falcon
 
       if attributes.key?(:'scan_request_s3_key')
         self.scan_request_s3_key = attributes[:'scan_request_s3_key']
+      end
+
+      if attributes.key?(:'should_preserve_paths')
+        self.should_preserve_paths = attributes[:'should_preserve_paths']
       end
     end
 
@@ -247,7 +255,8 @@ module Falcon
           image_inventory_s3_key == o.image_inventory_s3_key &&
           layer_inventory_s3_key == o.layer_inventory_s3_key &&
           scan_report_s3_key == o.scan_report_s3_key &&
-          scan_request_s3_key == o.scan_request_s3_key
+          scan_request_s3_key == o.scan_request_s3_key &&
+          should_preserve_paths == o.should_preserve_paths
     end
 
     # @see the `==` method
@@ -259,7 +268,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [config, config_info, image_info, image_metadata, layers, manifest, scan_info, high_entropy_strings_s3_key, image_inventory_s3_key, layer_inventory_s3_key, scan_report_s3_key, scan_request_s3_key].hash
+      [config, config_info, image_info, image_metadata, layers, manifest, scan_info, high_entropy_strings_s3_key, image_inventory_s3_key, layer_inventory_s3_key, scan_report_s3_key, scan_request_s3_key, should_preserve_paths].hash
     end
 
     # Builds the object from hash

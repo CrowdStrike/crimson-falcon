@@ -51,7 +51,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'sub_schema' => :'JsonschemaSubSchema',
+        :'sub_schema' => :'String',
         :'definitions' => :'Hash<String, JsonschemaSubSchema>'
       }
     end

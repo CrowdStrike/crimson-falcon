@@ -111,7 +111,7 @@ module Falcon
     # @option opts [Integer] :limit The number of \&quot;zones\&quot; to return in this response (Min: 1, Max: 100, Default: 100)
     # @option opts [String] :sort Sort \&quot;zones\&quot; by their properties. A single sort field is allowed
     # @option opts [String] :filter Search for \&quot;zones\&quot; by providing an FQL filter
-    # @return [DomainZoneEntitiesResponse]
+    # @return [NvaapiZoneEntitiesResponse]
     def combined_zones(opts = {})
       data, _status_code, _headers = combined_zones_with_http_info(opts)
       data
@@ -124,7 +124,7 @@ module Falcon
     # @option opts [Integer] :limit The number of \&quot;zones\&quot; to return in this response (Min: 1, Max: 100, Default: 100)
     # @option opts [String] :sort Sort \&quot;zones\&quot; by their properties. A single sort field is allowed
     # @option opts [String] :filter Search for \&quot;zones\&quot; by providing an FQL filter
-    # @return [Array<(DomainZoneEntitiesResponse, Integer, Hash)>] DomainZoneEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiZoneEntitiesResponse, Integer, Hash)>] NvaapiZoneEntitiesResponse data, response status code and response headers
     def combined_zones_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanZones.combined_zones ...'
@@ -164,7 +164,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainZoneEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiZoneEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -187,20 +187,20 @@ module Falcon
     end
 
     # Create \"zones\" using provided specifications
-    # @param body [Array<DomainZoneCreateRequest>] \&quot;zones\&quot; specifications
+    # @param body [Array<NvaapiZoneCreateRequest>] \&quot;zones\&quot; specifications
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainZoneEntitiesResponse]
+    # @return [NvaapiZoneEntitiesResponse]
     def create_zones(body, opts = {})
       data, _status_code, _headers = create_zones_with_http_info(body, opts)
       data
     end
 
     # Create \&quot;zones\&quot; using provided specifications
-    # @param body [Array<DomainZoneCreateRequest>] \&quot;zones\&quot; specifications
+    # @param body [Array<NvaapiZoneCreateRequest>] \&quot;zones\&quot; specifications
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainZoneEntitiesResponse, Integer, Hash)>] DomainZoneEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiZoneEntitiesResponse, Integer, Hash)>] NvaapiZoneEntitiesResponse data, response status code and response headers
     def create_zones_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanZones.create_zones ...'
@@ -233,7 +233,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainZoneEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiZoneEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -324,7 +324,7 @@ module Falcon
     # @param ids [Array<String>] IDs of \&quot;zones\&quot; to be retrieved (Min: 1, Max: 100)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainZoneEntitiesResponse]
+    # @return [NvaapiZoneEntitiesResponse]
     def get_zones(ids, opts = {})
       data, _status_code, _headers = get_zones_with_http_info(ids, opts)
       data
@@ -334,7 +334,7 @@ module Falcon
     # @param ids [Array<String>] IDs of \&quot;zones\&quot; to be retrieved (Min: 1, Max: 100)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainZoneEntitiesResponse, Integer, Hash)>] DomainZoneEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiZoneEntitiesResponse, Integer, Hash)>] NvaapiZoneEntitiesResponse data, response status code and response headers
     def get_zones_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanZones.get_zones ...'
@@ -363,7 +363,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainZoneEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiZoneEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -468,20 +468,20 @@ module Falcon
     end
 
     # Update \"zones\" using provided specifications
-    # @param body [Array<DomainZoneUpdateRequest>] \&quot;zones\&quot; specifications for updating
+    # @param body [Array<NvaapiZoneUpdateRequest>] \&quot;zones\&quot; specifications for updating
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainZoneEntitiesResponse]
+    # @return [NvaapiZoneEntitiesResponse]
     def update_zones(body, opts = {})
       data, _status_code, _headers = update_zones_with_http_info(body, opts)
       data
     end
 
     # Update \&quot;zones\&quot; using provided specifications
-    # @param body [Array<DomainZoneUpdateRequest>] \&quot;zones\&quot; specifications for updating
+    # @param body [Array<NvaapiZoneUpdateRequest>] \&quot;zones\&quot; specifications for updating
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainZoneEntitiesResponse, Integer, Hash)>] DomainZoneEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiZoneEntitiesResponse, Integer, Hash)>] NvaapiZoneEntitiesResponse data, response status code and response headers
     def update_zones_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanZones.update_zones ...'
@@ -514,7 +514,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainZoneEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiZoneEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

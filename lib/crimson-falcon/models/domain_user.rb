@@ -31,23 +31,44 @@ require 'time'
 
 module Falcon
   class DomainUser
+    attr_accessor :access_granted_at
+
     attr_accessor :cid
 
-    attr_accessor :email
+    attr_accessor :created_at
+
+    attr_accessor :factors
 
     attr_accessor :first_name
 
+    attr_accessor :last_login_at
+
     attr_accessor :last_name
+
+    attr_accessor :status
+
+    attr_accessor :uid
+
+    attr_accessor :updated_at
+
+    attr_accessor :user_type
 
     attr_accessor :uuid
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'access_granted_at' => :'access_granted_at',
         :'cid' => :'cid',
-        :'email' => :'email',
-        :'first_name' => :'firstName',
-        :'last_name' => :'lastName',
+        :'created_at' => :'created_at',
+        :'factors' => :'factors',
+        :'first_name' => :'first_name',
+        :'last_login_at' => :'last_login_at',
+        :'last_name' => :'last_name',
+        :'status' => :'status',
+        :'uid' => :'uid',
+        :'updated_at' => :'updated_at',
+        :'user_type' => :'user_type',
         :'uuid' => :'uuid'
       }
     end
@@ -60,10 +81,17 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'access_granted_at' => :'Time',
         :'cid' => :'String',
-        :'email' => :'String',
+        :'created_at' => :'Time',
+        :'factors' => :'Array<String>',
         :'first_name' => :'String',
+        :'last_login_at' => :'Time',
         :'last_name' => :'String',
+        :'status' => :'String',
+        :'uid' => :'String',
+        :'updated_at' => :'Time',
+        :'user_type' => :'String',
         :'uuid' => :'String'
       }
     end
@@ -89,20 +117,50 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'access_granted_at')
+        self.access_granted_at = attributes[:'access_granted_at']
+      end
+
       if attributes.key?(:'cid')
         self.cid = attributes[:'cid']
       end
 
-      if attributes.key?(:'email')
-        self.email = attributes[:'email']
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'factors')
+        if (value = attributes[:'factors']).is_a?(Array)
+          self.factors = value
+        end
       end
 
       if attributes.key?(:'first_name')
         self.first_name = attributes[:'first_name']
       end
 
+      if attributes.key?(:'last_login_at')
+        self.last_login_at = attributes[:'last_login_at']
+      end
+
       if attributes.key?(:'last_name')
         self.last_name = attributes[:'last_name']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'uid')
+        self.uid = attributes[:'uid']
+      end
+
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
+      end
+
+      if attributes.key?(:'user_type')
+        self.user_type = attributes[:'user_type']
       end
 
       if attributes.key?(:'uuid')
@@ -128,10 +186,17 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          access_granted_at == o.access_granted_at &&
           cid == o.cid &&
-          email == o.email &&
+          created_at == o.created_at &&
+          factors == o.factors &&
           first_name == o.first_name &&
+          last_login_at == o.last_login_at &&
           last_name == o.last_name &&
+          status == o.status &&
+          uid == o.uid &&
+          updated_at == o.updated_at &&
+          user_type == o.user_type &&
           uuid == o.uuid
     end
 
@@ -144,7 +209,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, email, first_name, last_name, uuid].hash
+      [access_granted_at, cid, created_at, factors, first_name, last_login_at, last_name, status, uid, updated_at, user_type, uuid].hash
     end
 
     # Builds the object from hash

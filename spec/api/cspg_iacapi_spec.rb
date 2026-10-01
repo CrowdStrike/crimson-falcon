@@ -51,10 +51,10 @@ describe 'CspgIacapi' do
   # unit tests for combined_detections
   # Search IaC Detections using a query in Falcon Query Language
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search IaC detections using a query in Falcon Query Language (FQL). Supported filters: detection_uuid,file_name,last_detected,platform,project_name,project_owner,project_ref,provider,resource_name,rule_category,rule_name,rule_type,rule_uuid,service,severity
+  # @option opts [String] :filter Search IaC detections using a query in Falcon Query Language (FQL). Supported filters: detection_uuid,file_name,is_from_module,last_detected,module_path,module_source,module_version,platform,project_name,project_owner,project_ref,provider,resource_name,rule_category,rule_name,rule_type,rule_uuid,service,severity
   # @option opts [Integer] :limit the upper-bound on the number of records to retrieve
   # @option opts [Integer] :offset The offset from where to begin.
-  # @option opts [String] :sort fields to sort the records on. Supported columns:  [detection_uuid file_name last_detected platform project_name project_owner project_ref provider resource_name rule_category rule_name rule_type rule_uuid service severity]
+  # @option opts [String] :sort fields to sort the records on. Supported columns:  [detection_uuid file_name is_from_module last_detected module_path module_source module_version platform project_name project_owner project_ref provider resource_name rule_category rule_name rule_type rule_uuid service severity]
   # @return [ModelsDetectionsCombinedResponse]
   describe 'combined_detections test' do
     it 'should work' do

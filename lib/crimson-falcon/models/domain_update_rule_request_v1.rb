@@ -37,6 +37,8 @@ module Falcon
     # Whether to monitor for exposed data. Available only for `Company Domains` and `Email addresses` rule topics.
     attr_accessor :breach_monitoring_enabled
 
+    attr_accessor :exposed_data_match_type
+
     # The FQL filter to be used for searching
     attr_accessor :filter
 
@@ -52,24 +54,33 @@ module Falcon
     # The permissions for a given rule which specifies the rule's access by other users. Possible values: [`public`, `private`]
     attr_accessor :permissions
 
+    # The PIR(priority intelligence requirement) IDs associated with the rule. One rule can pertain to multiple PIRs
+    attr_accessor :pir_ids
+
     # The priority for a given rule. Possible values: [`none`, `low`, `medium`, `high`, `critical`]
     attr_accessor :priority
 
     # Whether to monitor for substring matches. Only available for the `Typosquatting` topic.
     attr_accessor :substring_matching_enabled
 
+    # The edit distance to be used with the loosely_matches(~) filter operator(eg: typosquatting_term:~'yourdomain') in the context of Typosquatting topic rules. Possible values: [`auto`, `1`, `2`]. Not permitted with other rule topics and/or operators.
+    attr_accessor :tsq_match_edit_distance
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'breach_monitor_only' => :'breach_monitor_only',
         :'breach_monitoring_enabled' => :'breach_monitoring_enabled',
+        :'exposed_data_match_type' => :'exposed_data_match_type',
         :'filter' => :'filter',
         :'id' => :'id',
         :'match_on_tsq_result_types' => :'match_on_tsq_result_types',
         :'name' => :'name',
         :'permissions' => :'permissions',
+        :'pir_ids' => :'pir_ids',
         :'priority' => :'priority',
-        :'substring_matching_enabled' => :'substring_matching_enabled'
+        :'substring_matching_enabled' => :'substring_matching_enabled',
+        :'tsq_match_edit_distance' => :'tsq_match_edit_distance'
       }
     end
 
@@ -83,13 +94,16 @@ module Falcon
       {
         :'breach_monitor_only' => :'Boolean',
         :'breach_monitoring_enabled' => :'Boolean',
+        :'exposed_data_match_type' => :'String',
         :'filter' => :'String',
         :'id' => :'String',
         :'match_on_tsq_result_types' => :'Array<String>',
         :'name' => :'String',
         :'permissions' => :'String',
+        :'pir_ids' => :'Array<String>',
         :'priority' => :'String',
-        :'substring_matching_enabled' => :'Boolean'
+        :'substring_matching_enabled' => :'Boolean',
+        :'tsq_match_edit_distance' => :'String'
       }
     end
 
@@ -122,6 +136,10 @@ module Falcon
         self.breach_monitoring_enabled = attributes[:'breach_monitoring_enabled']
       end
 
+      if attributes.key?(:'exposed_data_match_type')
+        self.exposed_data_match_type = attributes[:'exposed_data_match_type']
+      end
+
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
       end
@@ -144,12 +162,22 @@ module Falcon
         self.permissions = attributes[:'permissions']
       end
 
+      if attributes.key?(:'pir_ids')
+        if (value = attributes[:'pir_ids']).is_a?(Array)
+          self.pir_ids = value
+        end
+      end
+
       if attributes.key?(:'priority')
         self.priority = attributes[:'priority']
       end
 
       if attributes.key?(:'substring_matching_enabled')
         self.substring_matching_enabled = attributes[:'substring_matching_enabled']
+      end
+
+      if attributes.key?(:'tsq_match_edit_distance')
+        self.tsq_match_edit_distance = attributes[:'tsq_match_edit_distance']
       end
     end
 
@@ -185,6 +213,10 @@ module Falcon
         invalid_properties.push('invalid value for "permissions", permissions cannot be nil.')
       end
 
+      if @pir_ids.nil?
+        invalid_properties.push('invalid value for "pir_ids", pir_ids cannot be nil.')
+      end
+
       if @priority.nil?
         invalid_properties.push('invalid value for "priority", priority cannot be nil.')
       end
@@ -206,6 +238,7 @@ module Falcon
       return false if @match_on_tsq_result_types.nil?
       return false if @name.nil?
       return false if @permissions.nil?
+      return false if @pir_ids.nil?
       return false if @priority.nil?
       return false if @substring_matching_enabled.nil?
       true
@@ -218,13 +251,16 @@ module Falcon
       self.class == o.class &&
           breach_monitor_only == o.breach_monitor_only &&
           breach_monitoring_enabled == o.breach_monitoring_enabled &&
+          exposed_data_match_type == o.exposed_data_match_type &&
           filter == o.filter &&
           id == o.id &&
           match_on_tsq_result_types == o.match_on_tsq_result_types &&
           name == o.name &&
           permissions == o.permissions &&
+          pir_ids == o.pir_ids &&
           priority == o.priority &&
-          substring_matching_enabled == o.substring_matching_enabled
+          substring_matching_enabled == o.substring_matching_enabled &&
+          tsq_match_edit_distance == o.tsq_match_edit_distance
     end
 
     # @see the `==` method
@@ -236,7 +272,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [breach_monitor_only, breach_monitoring_enabled, filter, id, match_on_tsq_result_types, name, permissions, priority, substring_matching_enabled].hash
+      [breach_monitor_only, breach_monitoring_enabled, exposed_data_match_type, filter, id, match_on_tsq_result_types, name, permissions, pir_ids, priority, substring_matching_enabled, tsq_match_edit_distance].hash
     end
 
     # Builds the object from hash

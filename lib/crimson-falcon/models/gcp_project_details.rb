@@ -67,6 +67,8 @@ module Falcon
 
     attr_accessor :registration_scope
 
+    attr_accessor :root_folder_id
+
     attr_accessor :service_account
 
     attr_accessor :status
@@ -96,6 +98,7 @@ module Falcon
         :'registration_id' => :'registration_id',
         :'registration_name' => :'registration_name',
         :'registration_scope' => :'registration_scope',
+        :'root_folder_id' => :'root_folder_id',
         :'service_account' => :'service_account',
         :'status' => :'status',
         :'updated' => :'updated',
@@ -129,6 +132,7 @@ module Falcon
         :'registration_id' => :'String',
         :'registration_name' => :'String',
         :'registration_scope' => :'String',
+        :'root_folder_id' => :'String',
         :'service_account' => :'String',
         :'status' => :'String',
         :'updated' => :'Time',
@@ -237,6 +241,10 @@ module Falcon
         self.registration_scope = attributes[:'registration_scope']
       end
 
+      if attributes.key?(:'root_folder_id')
+        self.root_folder_id = attributes[:'root_folder_id']
+      end
+
       if attributes.key?(:'service_account')
         self.service_account = attributes[:'service_account']
       end
@@ -290,6 +298,7 @@ module Falcon
           registration_id == o.registration_id &&
           registration_name == o.registration_name &&
           registration_scope == o.registration_scope &&
+          root_folder_id == o.root_folder_id &&
           service_account == o.service_account &&
           status == o.status &&
           updated == o.updated &&
@@ -305,7 +314,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created, deployment_method, dspm_status, ioa_failed_permissions, ioa_passed_permissions, ioa_status, iom_failed_permissions, iom_passed_permissions, iom_status, is_initial_registration, organization_id, project_id, project_name, project_number, registration_description, registration_id, registration_name, registration_scope, service_account, status, updated, vulnerability_scanning_status].hash
+      [created, deployment_method, dspm_status, ioa_failed_permissions, ioa_passed_permissions, ioa_status, iom_failed_permissions, iom_passed_permissions, iom_status, is_initial_registration, organization_id, project_id, project_name, project_number, registration_description, registration_id, registration_name, registration_scope, root_folder_id, service_account, status, updated, vulnerability_scanning_status].hash
     end
 
     # Builds the object from hash

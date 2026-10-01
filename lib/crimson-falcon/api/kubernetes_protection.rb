@@ -3748,7 +3748,7 @@ module Falcon
     # @option opts [String] :sort The fields to sort the records on.
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 200. (default to 200)
     # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
-    # @return [ModelsContainerImage]
+    # @return [ModelsContainerImageResponse]
     def read_running_container_images(opts = {})
       data, _status_code, _headers = read_running_container_images_with_http_info(opts)
       data
@@ -3760,7 +3760,7 @@ module Falcon
     # @option opts [String] :sort The fields to sort the records on.
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 200. (default to 200)
     # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
-    # @return [Array<(ModelsContainerImage, Integer, Hash)>] ModelsContainerImage data, response status code and response headers
+    # @return [Array<(ModelsContainerImageResponse, Integer, Hash)>] ModelsContainerImageResponse data, response status code and response headers
     def read_running_container_images_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_running_container_images ...'
@@ -3787,7 +3787,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ModelsContainerImage'
+      return_type = opts[:debug_return_type] || 'ModelsContainerImageResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

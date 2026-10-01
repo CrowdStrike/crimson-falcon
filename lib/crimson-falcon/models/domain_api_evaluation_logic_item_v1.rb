@@ -31,6 +31,8 @@ require 'time'
 
 module Falcon
   class DomainAPIEvaluationLogicItemV1
+    attr_accessor :assessment_result
+
     attr_accessor :comparison_check
 
     attr_accessor :comparisons
@@ -54,6 +56,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'assessment_result' => :'assessment_result',
         :'comparison_check' => :'comparison_check',
         :'comparisons' => :'comparisons',
         :'description' => :'description',
@@ -75,6 +78,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'assessment_result' => :'String',
         :'comparison_check' => :'String',
         :'comparisons' => :'DomainAPIEvaluationLogicComparisonsV1',
         :'description' => :'String',
@@ -108,6 +112,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'assessment_result')
+        self.assessment_result = attributes[:'assessment_result']
+      end
 
       if attributes.key?(:'comparison_check')
         self.comparison_check = attributes[:'comparison_check']
@@ -180,6 +188,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          assessment_result == o.assessment_result &&
           comparison_check == o.comparison_check &&
           comparisons == o.comparisons &&
           description == o.description &&
@@ -201,7 +210,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [comparison_check, comparisons, description, determined_by_comparison, existence_check, id, items, negate, title, type].hash
+      [assessment_result, comparison_check, comparisons, description, determined_by_comparison, existence_check, id, items, negate, title, type].hash
     end
 
     # Builds the object from hash

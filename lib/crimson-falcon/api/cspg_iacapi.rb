@@ -37,10 +37,10 @@ module Falcon
     end
     # Search IaC Detections using a query in Falcon Query Language
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search IaC detections using a query in Falcon Query Language (FQL). Supported filters: detection_uuid,file_name,last_detected,platform,project_name,project_owner,project_ref,provider,resource_name,rule_category,rule_name,rule_type,rule_uuid,service,severity
+    # @option opts [String] :filter Search IaC detections using a query in Falcon Query Language (FQL). Supported filters: detection_uuid,file_name,is_from_module,last_detected,module_path,module_source,module_version,platform,project_name,project_owner,project_ref,provider,resource_name,rule_category,rule_name,rule_type,rule_uuid,service,severity
     # @option opts [Integer] :limit the upper-bound on the number of records to retrieve
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort fields to sort the records on. Supported columns:  [detection_uuid file_name last_detected platform project_name project_owner project_ref provider resource_name rule_category rule_name rule_type rule_uuid service severity]
+    # @option opts [String] :sort fields to sort the records on. Supported columns:  [detection_uuid file_name is_from_module last_detected module_path module_source module_version platform project_name project_owner project_ref provider resource_name rule_category rule_name rule_type rule_uuid service severity]
     # @return [ModelsDetectionsCombinedResponse]
     def combined_detections(opts = {})
       data, _status_code, _headers = combined_detections_with_http_info(opts)
@@ -49,10 +49,10 @@ module Falcon
 
     # Search IaC Detections using a query in Falcon Query Language
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search IaC detections using a query in Falcon Query Language (FQL). Supported filters: detection_uuid,file_name,last_detected,platform,project_name,project_owner,project_ref,provider,resource_name,rule_category,rule_name,rule_type,rule_uuid,service,severity
+    # @option opts [String] :filter Search IaC detections using a query in Falcon Query Language (FQL). Supported filters: detection_uuid,file_name,is_from_module,last_detected,module_path,module_source,module_version,platform,project_name,project_owner,project_ref,provider,resource_name,rule_category,rule_name,rule_type,rule_uuid,service,severity
     # @option opts [Integer] :limit the upper-bound on the number of records to retrieve
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort fields to sort the records on. Supported columns:  [detection_uuid file_name last_detected platform project_name project_owner project_ref provider resource_name rule_category rule_name rule_type rule_uuid service severity]
+    # @option opts [String] :sort fields to sort the records on. Supported columns:  [detection_uuid file_name is_from_module last_detected module_path module_source module_version platform project_name project_owner project_ref provider resource_name rule_category rule_name rule_type rule_uuid service severity]
     # @return [Array<(ModelsDetectionsCombinedResponse, Integer, Hash)>] ModelsDetectionsCombinedResponse data, response status code and response headers
     def combined_detections_with_http_info(opts = {})
       if @api_client.config.debugging

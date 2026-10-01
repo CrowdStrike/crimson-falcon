@@ -41,6 +41,9 @@ module Falcon
     # The name of the country where the asset is located.
     attr_accessor :country
 
+    # The criticality of the asset.
+    attr_accessor :criticality
+
     # The last seen MAC address of the asset.
     attr_accessor :current_mac_address
 
@@ -64,6 +67,9 @@ module Falcon
 
     # For Linux and Mac hosts: the major version, minor version, and patch version of the kernel for the asset. For Windows hosts: the build number of the asset.
     attr_accessor :kernel_version
+
+    # The date the asset was last seen.
+    attr_accessor :last_seen_date
 
     # The domain name the asset is currently joined to.
     attr_accessor :machine_domain
@@ -89,6 +95,9 @@ module Falcon
     # The asset's system manufacturer.
     attr_accessor :system_manufacturer
 
+    # The asset's system serial number.
+    attr_accessor :system_serial_number
+
     # The sensor and cloud tags of the asset.
     attr_accessor :tags
 
@@ -98,6 +107,7 @@ module Falcon
         :'agent_version' => :'agent_version',
         :'aid' => :'aid',
         :'country' => :'country',
+        :'criticality' => :'criticality',
         :'current_mac_address' => :'current_mac_address',
         :'current_network_prefix' => :'current_network_prefix',
         :'external_ip' => :'external_ip',
@@ -106,6 +116,7 @@ module Falcon
         :'id' => :'id',
         :'internet_exposure' => :'internet_exposure',
         :'kernel_version' => :'kernel_version',
+        :'last_seen_date' => :'last_seen_date',
         :'machine_domain' => :'machine_domain',
         :'os_version' => :'os_version',
         :'ou' => :'ou',
@@ -114,6 +125,7 @@ module Falcon
         :'product_type_desc' => :'product_type_desc',
         :'site_name' => :'site_name',
         :'system_manufacturer' => :'system_manufacturer',
+        :'system_serial_number' => :'system_serial_number',
         :'tags' => :'tags'
       }
     end
@@ -129,6 +141,7 @@ module Falcon
         :'agent_version' => :'String',
         :'aid' => :'String',
         :'country' => :'String',
+        :'criticality' => :'String',
         :'current_mac_address' => :'String',
         :'current_network_prefix' => :'String',
         :'external_ip' => :'String',
@@ -137,6 +150,7 @@ module Falcon
         :'id' => :'String',
         :'internet_exposure' => :'String',
         :'kernel_version' => :'String',
+        :'last_seen_date' => :'String',
         :'machine_domain' => :'String',
         :'os_version' => :'String',
         :'ou' => :'String',
@@ -145,6 +159,7 @@ module Falcon
         :'product_type_desc' => :'String',
         :'site_name' => :'String',
         :'system_manufacturer' => :'String',
+        :'system_serial_number' => :'String',
         :'tags' => :'Array<String>'
       }
     end
@@ -182,6 +197,10 @@ module Falcon
         self.country = attributes[:'country']
       end
 
+      if attributes.key?(:'criticality')
+        self.criticality = attributes[:'criticality']
+      end
+
       if attributes.key?(:'current_mac_address')
         self.current_mac_address = attributes[:'current_mac_address']
       end
@@ -214,6 +233,10 @@ module Falcon
 
       if attributes.key?(:'kernel_version')
         self.kernel_version = attributes[:'kernel_version']
+      end
+
+      if attributes.key?(:'last_seen_date')
+        self.last_seen_date = attributes[:'last_seen_date']
       end
 
       if attributes.key?(:'machine_domain')
@@ -250,6 +273,10 @@ module Falcon
         self.system_manufacturer = attributes[:'system_manufacturer']
       end
 
+      if attributes.key?(:'system_serial_number')
+        self.system_serial_number = attributes[:'system_serial_number']
+      end
+
       if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -283,6 +310,7 @@ module Falcon
           agent_version == o.agent_version &&
           aid == o.aid &&
           country == o.country &&
+          criticality == o.criticality &&
           current_mac_address == o.current_mac_address &&
           current_network_prefix == o.current_network_prefix &&
           external_ip == o.external_ip &&
@@ -291,6 +319,7 @@ module Falcon
           id == o.id &&
           internet_exposure == o.internet_exposure &&
           kernel_version == o.kernel_version &&
+          last_seen_date == o.last_seen_date &&
           machine_domain == o.machine_domain &&
           os_version == o.os_version &&
           ou == o.ou &&
@@ -299,6 +328,7 @@ module Falcon
           product_type_desc == o.product_type_desc &&
           site_name == o.site_name &&
           system_manufacturer == o.system_manufacturer &&
+          system_serial_number == o.system_serial_number &&
           tags == o.tags
     end
 
@@ -311,7 +341,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_version, aid, country, current_mac_address, current_network_prefix, external_ip, groups, hostname, id, internet_exposure, kernel_version, machine_domain, os_version, ou, ous, platform_name, product_type_desc, site_name, system_manufacturer, tags].hash
+      [agent_version, aid, country, criticality, current_mac_address, current_network_prefix, external_ip, groups, hostname, id, internet_exposure, kernel_version, last_seen_date, machine_domain, os_version, ou, ous, platform_name, product_type_desc, site_name, system_manufacturer, system_serial_number, tags].hash
     end
 
     # Builds the object from hash

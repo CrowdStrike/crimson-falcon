@@ -31,14 +31,42 @@ require 'time'
 
 module Falcon
   class QuickscanproLaunchScanRequestResource
+    # Password for encrypted archives and documents. Optional.
     attr_accessor :password
 
+    # Scan mode for this resource. Optional, default is 'standard'. 'fast': less than 5 seconds, ML-based detection and signature matching. 'standard': less than 30 seconds, adds heuristic analysis to fast scan coverage. 'deep': less than 90 seconds, adds static analysis and dynamic execution monitoring to standard scan coverage.
+    attr_accessor :scan_mode
+
+    # SHA256 of a file previously uploaded via '/quickscanpro/entities/files/v1'. Required.
     attr_accessor :sha256
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'password' => :'password',
+        :'scan_mode' => :'scan_mode',
         :'sha256' => :'sha256'
       }
     end
@@ -52,6 +80,7 @@ module Falcon
     def self.openapi_types
       {
         :'password' => :'String',
+        :'scan_mode' => :'String',
         :'sha256' => :'String'
       }
     end
@@ -81,6 +110,10 @@ module Falcon
         self.password = attributes[:'password']
       end
 
+      if attributes.key?(:'scan_mode')
+        self.scan_mode = attributes[:'scan_mode']
+      end
+
       if attributes.key?(:'sha256')
         self.sha256 = attributes[:'sha256']
       end
@@ -100,8 +133,20 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      scan_mode_validator = EnumAttributeValidator.new('String', ["fast", "standard", "deep"])
+      return false unless scan_mode_validator.valid?(@scan_mode)
       return false if @sha256.nil?
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] scan_mode Object to be assigned
+    def scan_mode=(scan_mode)
+      validator = EnumAttributeValidator.new('String', ["fast", "standard", "deep"])
+      unless validator.valid?(scan_mode)
+        fail ArgumentError, "invalid value for \"scan_mode\", must be one of #{validator.allowable_values}."
+      end
+      @scan_mode = scan_mode
     end
 
     # Checks equality by comparing each attribute.
@@ -110,6 +155,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           password == o.password &&
+          scan_mode == o.scan_mode &&
           sha256 == o.sha256
     end
 
@@ -122,7 +168,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [password, sha256].hash
+      [password, scan_mode, sha256].hash
     end
 
     # Builds the object from hash

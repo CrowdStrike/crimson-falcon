@@ -55,7 +55,7 @@ describe 'Execution' do
   # @param filename filename to be retrieved
   # @param sha256 sha256 checksum for file to be retrieved
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [nil]
   describe 'read_request_body test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

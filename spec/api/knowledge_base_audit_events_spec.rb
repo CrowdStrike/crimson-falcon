@@ -48,18 +48,6 @@ describe 'KnowledgeBaseAuditEvents' do
     end
   end
 
-  # unit tests for aggregates_knowledge_base_audit_events_v1
-  # Aggregate knowledge base audit events based on the provided msa criteria.
-  # @param body Aggregate requests for knowledge base audit event data.
-  # @param [Hash] opts the optional parameters
-  # @option opts [Boolean] :include_deleted Include audit events for deleted knowledge bases. Defaults to false.
-  # @return [MsaAggregatesResponse]
-  describe 'aggregates_knowledge_base_audit_events_v1 test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for combined_knowledge_base_audit_events_v1
   # Get knowledge base audit events with full event details and pagination.
   # @param knowledge_base_id ID of the knowledge base to get audit events for
@@ -69,6 +57,7 @@ describe 'KnowledgeBaseAuditEvents' do
   # @option opts [String] :sort Sort order. Ex: &#39;created_at|desc&#39;.
   # @option opts [String] :filter FQL query specifying the filter parameters.
   # @option opts [Boolean] :include_deleted Include audit events for deleted knowledge bases. Defaults to false.
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [DomainReplyCombinedKnowledgeBaseAuditEventsResponse]
   describe 'combined_knowledge_base_audit_events_v1 test' do
     it 'should work' do
@@ -82,6 +71,7 @@ describe 'KnowledgeBaseAuditEvents' do
   # @param ids IDs of audit events to retrieve.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :include_deleted Include audit events for deleted knowledge bases. Defaults to false.
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [DomainReplyEntitiesKnowledgeBaseAuditEventsResponse]
   describe 'entities_knowledge_base_audit_events_v1 test' do
     it 'should work' do
@@ -98,6 +88,7 @@ describe 'KnowledgeBaseAuditEvents' do
   # @option opts [String] :sort Sort order. Ex: &#39;created_at|desc&#39;.
   # @option opts [String] :filter FQL query specifying the filter parameters.
   # @option opts [Boolean] :include_deleted Include audit events for deleted knowledge bases. Defaults to false.
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [DomainReplyQueryKnowledgeBaseAuditEventsResponse]
   describe 'queries_knowledge_base_audit_events_v1 test' do
     it 'should work' do

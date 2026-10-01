@@ -49,9 +49,10 @@ describe 'AgentInvocation' do
   end
 
   # unit tests for get_agent_invocation_v3
-  # Retrieves the list of of messages that are resulted from the specified invocation
+  # Get the messages that an invocation produced.
   # @param id Invocation ID
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [ApiInvokeAgentResponse]
   describe 'get_agent_invocation_v3 test' do
     it 'should work' do
@@ -59,12 +60,35 @@ describe 'AgentInvocation' do
     end
   end
 
+  # unit tests for invoke_agent_version_external_v1
+  # Invoke a specific agent version by agent ID and version ID with the specified input. Returns the agent&#39;s completion response.
+  # @param body Agent version invocation request containing agent ID, version ID and input
+  # @param [Hash] opts the optional parameters
+  # @return [ApiInvokeAgentResponse]
+  describe 'invoke_agent_version_external_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for invoke_published_agent_external_v1
   # Invoke a published agent by ID with the specified input. Returns the agent&#39;s completion response.
-  # @param body Published agent invocation request containing agent ID and input
+  # @param body Published agent invocation request containing agent ID and input. Optional deadline_seconds must be at least 90; smaller values are rejected with a 400.
   # @param [Hash] opts the optional parameters
   # @return [ApiInvokeAgentResponse]
   describe 'invoke_published_agent_external_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for patch_agent_invocation_v3
+  # Modify an in-flight agent invocation. The only accepted status transition is to cancelled, which cancels the invocation; any other status is rejected with 400. Cancelling an invocation that has already reached a terminal state succeeds without changing it.
+  # @param body Invocation ID and the status to move it to. Only cancelled is accepted.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :project_id Scope the operation to a project.
+  # @return [MsaspecResponseFields]
+  describe 'patch_agent_invocation_v3 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

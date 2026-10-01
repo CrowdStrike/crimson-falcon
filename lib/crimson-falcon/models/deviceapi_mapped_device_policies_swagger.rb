@@ -43,6 +43,8 @@ module Falcon
 
     attr_accessor :browser_extension
 
+    attr_accessor :cloud_container_workload
+
     attr_accessor :cloud_ml
 
     attr_accessor :content_update
@@ -108,6 +110,7 @@ module Falcon
         :'automox' => :'automox',
         :'aws_verified_access' => :'aws-verified-access',
         :'browser_extension' => :'browser-extension',
+        :'cloud_container_workload' => :'cloud-container-workload',
         :'cloud_ml' => :'cloud-ml',
         :'content_update' => :'content-update',
         :'customer_entitlements' => :'customer-entitlements',
@@ -147,40 +150,41 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'aidr' => :'DeviceDevicePolicy',
-        :'airlock' => :'DeviceDevicePolicy',
-        :'application_abuse_prevention' => :'DeviceDevicePolicy',
-        :'automox' => :'DeviceDevicePolicy',
-        :'aws_verified_access' => :'DeviceDevicePolicy',
-        :'browser_extension' => :'DeviceDevicePolicy',
-        :'cloud_ml' => :'DeviceDevicePolicy',
-        :'content_update' => :'DeviceDevicePolicy',
-        :'customer_entitlements' => :'DeviceDevicePolicy',
-        :'data_protection' => :'DeviceDevicePolicy',
-        :'data_protection_cloud' => :'DeviceDevicePolicy',
-        :'device_control' => :'DeviceDevicePolicy',
-        :'exposure_management' => :'DeviceDevicePolicy',
-        :'fem_browser_extension_control' => :'DeviceDevicePolicy',
-        :'fim' => :'DeviceDevicePolicy',
-        :'firewall' => :'DeviceDevicePolicy',
-        :'global_config' => :'DeviceDevicePolicy',
-        :'host_retention' => :'DeviceDevicePolicy',
-        :'identity_endpoint' => :'DeviceDevicePolicy',
-        :'identity_protection' => :'DeviceDevicePolicy',
-        :'it_automation' => :'DeviceDevicePolicy',
-        :'jumpcloud' => :'DeviceDevicePolicy',
-        :'kubernetes_admission_control' => :'DeviceDevicePolicy',
-        :'logscale_collector' => :'DeviceDevicePolicy',
-        :'mobile' => :'DeviceDevicePolicy',
-        :'netskope' => :'DeviceDevicePolicy',
-        :'network_scan_content' => :'DeviceDevicePolicy',
-        :'prevention' => :'DeviceDevicePolicy',
-        :'remote_response' => :'DeviceDevicePolicy',
-        :'sca' => :'DeviceDevicePolicy',
-        :'sensor_update' => :'DeviceDevicePolicy',
-        :'system_tray' => :'DeviceDevicePolicy',
-        :'vulnerability_management' => :'DeviceDevicePolicy',
-        :'ztl' => :'DeviceDevicePolicy'
+        :'aidr' => :'DeviceapiDevicePolicySwagger',
+        :'airlock' => :'DeviceapiDevicePolicySwagger',
+        :'application_abuse_prevention' => :'DeviceapiDevicePolicySwagger',
+        :'automox' => :'DeviceapiDevicePolicySwagger',
+        :'aws_verified_access' => :'DeviceapiDevicePolicySwagger',
+        :'browser_extension' => :'DeviceapiDevicePolicySwagger',
+        :'cloud_container_workload' => :'DeviceapiDevicePolicySwagger',
+        :'cloud_ml' => :'DeviceapiDevicePolicySwagger',
+        :'content_update' => :'DeviceapiDevicePolicySwagger',
+        :'customer_entitlements' => :'DeviceapiDevicePolicySwagger',
+        :'data_protection' => :'DeviceapiDevicePolicySwagger',
+        :'data_protection_cloud' => :'DeviceapiDevicePolicySwagger',
+        :'device_control' => :'DeviceapiDevicePolicySwagger',
+        :'exposure_management' => :'DeviceapiDevicePolicySwagger',
+        :'fem_browser_extension_control' => :'DeviceapiDevicePolicySwagger',
+        :'fim' => :'DeviceapiDevicePolicySwagger',
+        :'firewall' => :'DeviceapiDevicePolicySwagger',
+        :'global_config' => :'DeviceapiDevicePolicySwagger',
+        :'host_retention' => :'DeviceapiDevicePolicySwagger',
+        :'identity_endpoint' => :'DeviceapiDevicePolicySwagger',
+        :'identity_protection' => :'DeviceapiDevicePolicySwagger',
+        :'it_automation' => :'DeviceapiDevicePolicySwagger',
+        :'jumpcloud' => :'DeviceapiDevicePolicySwagger',
+        :'kubernetes_admission_control' => :'DeviceapiDevicePolicySwagger',
+        :'logscale_collector' => :'DeviceapiDevicePolicySwagger',
+        :'mobile' => :'DeviceapiDevicePolicySwagger',
+        :'netskope' => :'DeviceapiDevicePolicySwagger',
+        :'network_scan_content' => :'DeviceapiDevicePolicySwagger',
+        :'prevention' => :'DeviceapiDevicePolicySwagger',
+        :'remote_response' => :'DeviceapiDevicePolicySwagger',
+        :'sca' => :'DeviceapiDevicePolicySwagger',
+        :'sensor_update' => :'DeviceapiDevicePolicySwagger',
+        :'system_tray' => :'DeviceapiDevicePolicySwagger',
+        :'vulnerability_management' => :'DeviceapiDevicePolicySwagger',
+        :'ztl' => :'DeviceapiDevicePolicySwagger'
       }
     end
 
@@ -227,6 +231,10 @@ module Falcon
 
       if attributes.key?(:'browser_extension')
         self.browser_extension = attributes[:'browser_extension']
+      end
+
+      if attributes.key?(:'cloud_container_workload')
+        self.cloud_container_workload = attributes[:'cloud_container_workload']
       end
 
       if attributes.key?(:'cloud_ml')
@@ -366,6 +374,7 @@ module Falcon
           automox == o.automox &&
           aws_verified_access == o.aws_verified_access &&
           browser_extension == o.browser_extension &&
+          cloud_container_workload == o.cloud_container_workload &&
           cloud_ml == o.cloud_ml &&
           content_update == o.content_update &&
           customer_entitlements == o.customer_entitlements &&
@@ -405,7 +414,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aidr, airlock, application_abuse_prevention, automox, aws_verified_access, browser_extension, cloud_ml, content_update, customer_entitlements, data_protection, data_protection_cloud, device_control, exposure_management, fem_browser_extension_control, fim, firewall, global_config, host_retention, identity_endpoint, identity_protection, it_automation, jumpcloud, kubernetes_admission_control, logscale_collector, mobile, netskope, network_scan_content, prevention, remote_response, sca, sensor_update, system_tray, vulnerability_management, ztl].hash
+      [aidr, airlock, application_abuse_prevention, automox, aws_verified_access, browser_extension, cloud_container_workload, cloud_ml, content_update, customer_entitlements, data_protection, data_protection_cloud, device_control, exposure_management, fem_browser_extension_control, fim, firewall, global_config, host_retention, identity_endpoint, identity_protection, it_automation, jumpcloud, kubernetes_admission_control, logscale_collector, mobile, netskope, network_scan_content, prevention, remote_response, sca, sensor_update, system_tray, vulnerability_management, ztl].hash
     end
 
     # Builds the object from hash

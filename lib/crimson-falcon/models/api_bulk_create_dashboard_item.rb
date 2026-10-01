@@ -31,6 +31,9 @@ require 'time'
 
 module Falcon
   class ApiBulkCreateDashboardItem
+    # Optional labels to apply to the dashboard (max 10 labels, max 60 chars each)
+    attr_accessor :labels
+
     # The name of the dashboard
     attr_accessor :name
 
@@ -40,6 +43,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'labels' => :'labels',
         :'name' => :'name',
         :'yaml_template' => :'yaml_template'
       }
@@ -53,6 +57,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'labels' => :'Array<String>',
         :'name' => :'String',
         :'yaml_template' => :'String'
       }
@@ -78,6 +83,12 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'labels')
+        if (value = attributes[:'labels']).is_a?(Array)
+          self.labels = value
+        end
+      end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
@@ -116,6 +127,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          labels == o.labels &&
           name == o.name &&
           yaml_template == o.yaml_template
     end
@@ -129,7 +141,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, yaml_template].hash
+      [labels, name, yaml_template].hash
     end
 
     # Builds the object from hash

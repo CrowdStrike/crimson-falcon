@@ -35,8 +35,6 @@ module Falcon
 
     attr_accessor :lookback_timeframe
 
-    attr_accessor :scope
-
     attr_accessor :scopes
 
     attr_accessor :type
@@ -48,7 +46,6 @@ module Falcon
       {
         :'event_field_names' => :'event_field_names',
         :'lookback_timeframe' => :'lookback_timeframe',
-        :'scope' => :'scope',
         :'scopes' => :'scopes',
         :'type' => :'type',
         :'use_established_entity_only' => :'use_established_entity_only'
@@ -65,7 +62,6 @@ module Falcon
       {
         :'event_field_names' => :'Array<String>',
         :'lookback_timeframe' => :'String',
-        :'scope' => :'String',
         :'scopes' => :'Array<CorrelationrulesapiAnomalyScopes>',
         :'type' => :'String',
         :'use_established_entity_only' => :'Boolean'
@@ -103,10 +99,6 @@ module Falcon
         self.lookback_timeframe = attributes[:'lookback_timeframe']
       end
 
-      if attributes.key?(:'scope')
-        self.scope = attributes[:'scope']
-      end
-
       if attributes.key?(:'scopes')
         if (value = attributes[:'scopes']).is_a?(Array)
           self.scopes = value
@@ -134,6 +126,10 @@ module Falcon
         invalid_properties.push('invalid value for "lookback_timeframe", lookback_timeframe cannot be nil.')
       end
 
+      if @scopes.nil?
+        invalid_properties.push('invalid value for "scopes", scopes cannot be nil.')
+      end
+
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
@@ -150,6 +146,7 @@ module Falcon
     def valid?
       return false if @event_field_names.nil?
       return false if @lookback_timeframe.nil?
+      return false if @scopes.nil?
       return false if @type.nil?
       return false if @use_established_entity_only.nil?
       true
@@ -162,7 +159,6 @@ module Falcon
       self.class == o.class &&
           event_field_names == o.event_field_names &&
           lookback_timeframe == o.lookback_timeframe &&
-          scope == o.scope &&
           scopes == o.scopes &&
           type == o.type &&
           use_established_entity_only == o.use_established_entity_only
@@ -177,7 +173,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event_field_names, lookback_timeframe, scope, scopes, type, use_established_entity_only].hash
+      [event_field_names, lookback_timeframe, scopes, type, use_established_entity_only].hash
     end
 
     # Builds the object from hash

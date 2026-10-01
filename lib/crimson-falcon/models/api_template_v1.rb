@@ -51,6 +51,8 @@ module Falcon
 
     attr_accessor :name
 
+    attr_accessor :owner_group_ids
+
     attr_accessor :sla_id
 
     attr_accessor :sla_method
@@ -78,6 +80,7 @@ module Falcon
         :'has_access' => :'has_access',
         :'id' => :'id',
         :'name' => :'name',
+        :'owner_group_ids' => :'owner_group_ids',
         :'sla_id' => :'sla_id',
         :'sla_method' => :'sla_method',
         :'sla_rules' => :'sla_rules',
@@ -106,6 +109,7 @@ module Falcon
         :'has_access' => :'Boolean',
         :'id' => :'String',
         :'name' => :'String',
+        :'owner_group_ids' => :'Array<String>',
         :'sla_id' => :'String',
         :'sla_method' => :'String',
         :'sla_rules' => :'Array<ApiTemplateSLARuleV1>',
@@ -179,6 +183,12 @@ module Falcon
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'owner_group_ids')
+        if (value = attributes[:'owner_group_ids']).is_a?(Array)
+          self.owner_group_ids = value
+        end
       end
 
       if attributes.key?(:'sla_id')
@@ -292,6 +302,7 @@ module Falcon
           has_access == o.has_access &&
           id == o.id &&
           name == o.name &&
+          owner_group_ids == o.owner_group_ids &&
           sla_id == o.sla_id &&
           sla_method == o.sla_method &&
           sla_rules == o.sla_rules &&
@@ -310,7 +321,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_tags, cid, created_by, created_by_name, created_timestamp, description, fields, has_access, id, name, sla_id, sla_method, sla_rules, updated_by, updated_by_name, updated_timestamp, workflows].hash
+      [access_tags, cid, created_by, created_by_name, created_timestamp, description, fields, has_access, id, name, owner_group_ids, sla_id, sla_method, sla_rules, updated_by, updated_by_name, updated_timestamp, workflows].hash
     end
 
     # Builds the object from hash

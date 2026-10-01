@@ -40,6 +40,7 @@ module Falcon
     # @param file [File] File to be uploaded
     # @param [Hash] opts the optional parameters
     # @option opts [String] :file_description Description for the uploaded file
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [DomainReplyEntitiesKnowledgeBaseFilesResponse]
     def entities_knowledge_base_files_create_v1(knowledge_base_id, file, opts = {})
       data, _status_code, _headers = entities_knowledge_base_files_create_v1_with_http_info(knowledge_base_id, file, opts)
@@ -51,6 +52,7 @@ module Falcon
     # @param file [File] File to be uploaded
     # @param [Hash] opts the optional parameters
     # @option opts [String] :file_description Description for the uploaded file
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(DomainReplyEntitiesKnowledgeBaseFilesResponse, Integer, Hash)>] DomainReplyEntitiesKnowledgeBaseFilesResponse data, response status code and response headers
     def entities_knowledge_base_files_create_v1_with_http_info(knowledge_base_id, file, opts = {})
       if @api_client.config.debugging
@@ -85,6 +87,7 @@ module Falcon
       form_params['knowledge_base_id'] = knowledge_base_id
       form_params['file'] = file
       form_params['file_description'] = opts[:'file_description'] if !opts[:'file_description'].nil?
+      form_params['project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # http body (model)
       post_body = opts[:debug_body]
@@ -112,20 +115,22 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Delete document from knowledge base.
+    # Delete a knowledge base file.
     # @param knowledge_base_id [String] ID of the knowledge base
-    # @param id [String] ID of the document to delete
+    # @param id [String] ID of the knowledge base file to delete
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [MsaspecResponseFields]
     def entities_knowledge_base_files_delete_v1(knowledge_base_id, id, opts = {})
       data, _status_code, _headers = entities_knowledge_base_files_delete_v1_with_http_info(knowledge_base_id, id, opts)
       data
     end
 
-    # Delete document from knowledge base.
+    # Delete a knowledge base file.
     # @param knowledge_base_id [String] ID of the knowledge base
-    # @param id [String] ID of the document to delete
+    # @param id [String] ID of the knowledge base file to delete
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def entities_knowledge_base_files_delete_v1_with_http_info(knowledge_base_id, id, opts = {})
       if @api_client.config.debugging
@@ -146,6 +151,7 @@ module Falcon
       query_params = opts[:query_params] || {}
       query_params[:'knowledge_base_id'] = knowledge_base_id
       query_params[:'id'] = id
+      query_params[:'project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -185,6 +191,7 @@ module Falcon
     # @param knowledge_base_id [String] ID of the knowledge base
     # @param id [String] ID of entities to retrieve.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [nil]
     def entities_knowledge_base_files_download_v1(knowledge_base_id, id, opts = {})
       entities_knowledge_base_files_download_v1_with_http_info(knowledge_base_id, id, opts)
@@ -195,6 +202,7 @@ module Falcon
     # @param knowledge_base_id [String] ID of the knowledge base
     # @param id [String] ID of entities to retrieve.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def entities_knowledge_base_files_download_v1_with_http_info(knowledge_base_id, id, opts = {})
       if @api_client.config.debugging
@@ -215,6 +223,7 @@ module Falcon
       query_params = opts[:query_params] || {}
       query_params[:'knowledge_base_id'] = knowledge_base_id
       query_params[:'id'] = id
+      query_params[:'project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -251,10 +260,11 @@ module Falcon
     end
 
     # Update an existing file in a knowledge base. Supports updating file content and optionally its description.
-    # @param id [String] ID of the document to update
-    # @param file [File] New file content to replace the existing document
+    # @param id [String] ID of the knowledge base file to update
+    # @param file [File] New file content to replace the existing knowledge base file
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :file_description New description for the document
+    # @option opts [String] :file_description New description for the knowledge base file
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [DomainReplyEntitiesKnowledgeBaseFilesResponse]
     def entities_knowledge_base_files_update_v1(id, file, opts = {})
       data, _status_code, _headers = entities_knowledge_base_files_update_v1_with_http_info(id, file, opts)
@@ -262,10 +272,11 @@ module Falcon
     end
 
     # Update an existing file in a knowledge base. Supports updating file content and optionally its description.
-    # @param id [String] ID of the document to update
-    # @param file [File] New file content to replace the existing document
+    # @param id [String] ID of the knowledge base file to update
+    # @param file [File] New file content to replace the existing knowledge base file
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :file_description New description for the document
+    # @option opts [String] :file_description New description for the knowledge base file
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(DomainReplyEntitiesKnowledgeBaseFilesResponse, Integer, Hash)>] DomainReplyEntitiesKnowledgeBaseFilesResponse data, response status code and response headers
     def entities_knowledge_base_files_update_v1_with_http_info(id, file, opts = {})
       if @api_client.config.debugging
@@ -300,6 +311,7 @@ module Falcon
       form_params['id'] = id
       form_params['file'] = file
       form_params['file_description'] = opts[:'file_description'] if !opts[:'file_description'].nil?
+      form_params['project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # http body (model)
       post_body = opts[:debug_body]
@@ -332,6 +344,7 @@ module Falcon
     # @param ids [Array<String>] IDs of entities to retrieve.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_deleted Include deleted knowledge base files in the result. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [DomainReplyEntitiesKnowledgeBaseFilesResponse]
     def entities_knowledge_base_files_v1(knowledge_base_id, ids, opts = {})
       data, _status_code, _headers = entities_knowledge_base_files_v1_with_http_info(knowledge_base_id, ids, opts)
@@ -343,6 +356,7 @@ module Falcon
     # @param ids [Array<String>] IDs of entities to retrieve.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_deleted Include deleted knowledge base files in the result. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(DomainReplyEntitiesKnowledgeBaseFilesResponse, Integer, Hash)>] DomainReplyEntitiesKnowledgeBaseFilesResponse data, response status code and response headers
     def entities_knowledge_base_files_v1_with_http_info(knowledge_base_id, ids, opts = {})
       if @api_client.config.debugging
@@ -364,6 +378,7 @@ module Falcon
       query_params[:'knowledge_base_id'] = knowledge_base_id
       query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
       query_params[:'include_deleted'] = opts[:'include_deleted'] if !opts[:'include_deleted'].nil?
+      query_params[:'project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -406,6 +421,7 @@ module Falcon
     # @option opts [Integer] :limit Number of IDs to return. Offset + limit should NOT be above 10K. (default to 10)
     # @option opts [String] :filter FQL query specifying the filter parameters.
     # @option opts [Boolean] :include_deleted Include deleted knowledge base files in the result. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [DomainReplyQueryKnowledgeBaseFilesResponse]
     def queries_knowledge_base_files_v1(knowledge_base_id, opts = {})
       data, _status_code, _headers = queries_knowledge_base_files_v1_with_http_info(knowledge_base_id, opts)
@@ -419,6 +435,7 @@ module Falcon
     # @option opts [Integer] :limit Number of IDs to return. Offset + limit should NOT be above 10K. (default to 10)
     # @option opts [String] :filter FQL query specifying the filter parameters.
     # @option opts [Boolean] :include_deleted Include deleted knowledge base files in the result. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(DomainReplyQueryKnowledgeBaseFilesResponse, Integer, Hash)>] DomainReplyQueryKnowledgeBaseFilesResponse data, response status code and response headers
     def queries_knowledge_base_files_v1_with_http_info(knowledge_base_id, opts = {})
       if @api_client.config.debugging
@@ -446,6 +463,7 @@ module Falcon
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'include_deleted'] = opts[:'include_deleted'] if !opts[:'include_deleted'].nil?
+      query_params[:'project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

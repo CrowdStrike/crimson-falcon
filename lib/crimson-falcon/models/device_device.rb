@@ -113,6 +113,8 @@ module Falcon
 
     attr_accessor :k8s_cluster_version
 
+    attr_accessor :k8s_node_uid
+
     attr_accessor :kernel_version
 
     attr_accessor :last_login_timestamp
@@ -271,6 +273,7 @@ module Falcon
         :'k8s_cluster_git_version' => :'k8s_cluster_git_version',
         :'k8s_cluster_id' => :'k8s_cluster_id',
         :'k8s_cluster_version' => :'k8s_cluster_version',
+        :'k8s_node_uid' => :'k8s_node_uid',
         :'kernel_version' => :'kernel_version',
         :'last_login_timestamp' => :'last_login_timestamp',
         :'last_login_uid' => :'last_login_uid',
@@ -380,6 +383,7 @@ module Falcon
         :'k8s_cluster_git_version' => :'String',
         :'k8s_cluster_id' => :'String',
         :'k8s_cluster_version' => :'String',
+        :'k8s_node_uid' => :'String',
         :'kernel_version' => :'String',
         :'last_login_timestamp' => :'String',
         :'last_login_uid' => :'String',
@@ -625,6 +629,10 @@ module Falcon
 
       if attributes.key?(:'k8s_cluster_version')
         self.k8s_cluster_version = attributes[:'k8s_cluster_version']
+      end
+
+      if attributes.key?(:'k8s_node_uid')
+        self.k8s_node_uid = attributes[:'k8s_node_uid']
       end
 
       if attributes.key?(:'kernel_version')
@@ -937,6 +945,7 @@ module Falcon
           k8s_cluster_git_version == o.k8s_cluster_git_version &&
           k8s_cluster_id == o.k8s_cluster_id &&
           k8s_cluster_version == o.k8s_cluster_version &&
+          k8s_node_uid == o.k8s_node_uid &&
           kernel_version == o.kernel_version &&
           last_login_timestamp == o.last_login_timestamp &&
           last_login_uid == o.last_login_uid &&
@@ -1005,7 +1014,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_load_flags, agent_local_time, agent_version, base_image_version, bios_manufacturer, bios_version, build_number, chassis_type, chassis_type_desc, cid, cloud_service_compartment_id, config_id_base, config_id_build, config_id_platform, connection_ip, connection_mac_address, cpu_signature, cpu_vendor, criticality, default_gateway_ip, deployment_type, detection_suppression_status, device_id, device_policies, email, external_ip, filesystem_containment_status, first_login_timestamp, first_login_user, first_seen, group_hash, groups, host_deleted_status, host_hidden_status, host_utc_offset, hostname, instance_id, internet_exposure, k8s_cluster_git_version, k8s_cluster_id, k8s_cluster_version, kernel_version, last_login_timestamp, last_login_uid, last_login_user, last_login_user_sid, last_reboot, last_seen, license_activation_state, linux_sensor_mode, local_ip, mac_address, machine_domain, major_version, managed_apps, meta, migration_completed_time, minor_version, modified_timestamp, notes, os_build, os_product_name, os_version, ou, platform_id, platform_name, pod_annotations, pod_host_ip4, pod_host_ip6, pod_hostname, pod_id, pod_ip4, pod_ip6, pod_labels, pod_name, pod_namespace, pod_service_account_name, pointer_size, policies, product_type, product_type_desc, provision_status, reduced_functionality_mode, release_group, rtr_state, safe_mode, serial_number, service_pack_major, service_pack_minor, service_provider, service_provider_account_id, site_name, slow_changing_modified_timestamp, status, system_manufacturer, system_product_name, tags, zone_group].hash
+      [agent_load_flags, agent_local_time, agent_version, base_image_version, bios_manufacturer, bios_version, build_number, chassis_type, chassis_type_desc, cid, cloud_service_compartment_id, config_id_base, config_id_build, config_id_platform, connection_ip, connection_mac_address, cpu_signature, cpu_vendor, criticality, default_gateway_ip, deployment_type, detection_suppression_status, device_id, device_policies, email, external_ip, filesystem_containment_status, first_login_timestamp, first_login_user, first_seen, group_hash, groups, host_deleted_status, host_hidden_status, host_utc_offset, hostname, instance_id, internet_exposure, k8s_cluster_git_version, k8s_cluster_id, k8s_cluster_version, k8s_node_uid, kernel_version, last_login_timestamp, last_login_uid, last_login_user, last_login_user_sid, last_reboot, last_seen, license_activation_state, linux_sensor_mode, local_ip, mac_address, machine_domain, major_version, managed_apps, meta, migration_completed_time, minor_version, modified_timestamp, notes, os_build, os_product_name, os_version, ou, platform_id, platform_name, pod_annotations, pod_host_ip4, pod_host_ip6, pod_hostname, pod_id, pod_ip4, pod_ip6, pod_labels, pod_name, pod_namespace, pod_service_account_name, pointer_size, policies, product_type, product_type_desc, provision_status, reduced_functionality_mode, release_group, rtr_state, safe_mode, serial_number, service_pack_major, service_pack_minor, service_provider, service_provider_account_id, site_name, slow_changing_modified_timestamp, status, system_manufacturer, system_product_name, tags, zone_group].hash
     end
 
     # Builds the object from hash

@@ -34,6 +34,9 @@ module Falcon
     # supported file extensions for file upload, eg. '.yaml', '.json'
     attr_accessor :accept
 
+    # show a create-new button alongside the select dropdown
+    attr_accessor :add_button
+
     attr_accessor :component
 
     attr_accessor :custom_group_name
@@ -43,12 +46,22 @@ module Falcon
     # supported encoding for file upload, eg. 'base64'
     attr_accessor :encoding
 
+    attr_accessor :footer_action
+
     attr_accessor :helper_text
 
     # generate a hidden card during mobiledoc generation
     attr_accessor :hide
 
+    attr_accessor :input_type
+
+    # specify the position of the label relative to its associated element
+    attr_accessor :label_position
+
     attr_accessor :meta
+
+    # navigate to a specified route after successful action
+    attr_accessor :navigate_on_success
 
     # placeholder default text for form field
     attr_accessor :placeholder
@@ -62,6 +75,9 @@ module Falcon
     # skip generating a card during mobiledoc generation
     attr_accessor :skip
 
+    # SkyCheck expression controlling whether the field is rendered
+    attr_accessor :sky_check
+
     attr_accessor :statement
 
     # decimal step to increment float values
@@ -74,17 +90,23 @@ module Falcon
     def self.attribute_map
       {
         :'accept' => :'accept',
+        :'add_button' => :'add-button',
         :'component' => :'component',
         :'custom_group_name' => :'customGroupName',
         :'duration_options' => :'durationOptions',
         :'encoding' => :'encoding',
+        :'footer_action' => :'footerAction',
         :'helper_text' => :'helperText',
         :'hide' => :'hide',
+        :'input_type' => :'inputType',
+        :'label_position' => :'labelPosition',
         :'meta' => :'meta',
+        :'navigate_on_success' => :'navigateOnSuccess',
         :'placeholder' => :'placeholder',
         :'read_only' => :'readOnly',
         :'schema_reference' => :'schema_reference',
         :'skip' => :'skip',
+        :'sky_check' => :'skyCheck',
         :'statement' => :'statement',
         :'step' => :'step',
         :'tooltip' => :'tooltip'
@@ -100,17 +122,23 @@ module Falcon
     def self.openapi_types
       {
         :'accept' => :'Array<String>',
+        :'add_button' => :'Boolean',
         :'component' => :'String',
         :'custom_group_name' => :'String',
         :'duration_options' => :'Array<JsonschemaDurationOption>',
         :'encoding' => :'String',
+        :'footer_action' => :'JsonschemaFooterAction',
         :'helper_text' => :'String',
         :'hide' => :'Boolean',
+        :'input_type' => :'String',
+        :'label_position' => :'String',
         :'meta' => :'JsonschemaMeta',
+        :'navigate_on_success' => :'String',
         :'placeholder' => :'String',
         :'read_only' => :'Boolean',
         :'schema_reference' => :'String',
         :'skip' => :'Boolean',
+        :'sky_check' => :'String',
         :'statement' => :'JsonschemaStatement',
         :'step' => :'Float',
         :'tooltip' => :'String'
@@ -144,6 +172,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'add_button')
+        self.add_button = attributes[:'add_button']
+      end
+
       if attributes.key?(:'component')
         self.component = attributes[:'component']
       end
@@ -162,6 +194,10 @@ module Falcon
         self.encoding = attributes[:'encoding']
       end
 
+      if attributes.key?(:'footer_action')
+        self.footer_action = attributes[:'footer_action']
+      end
+
       if attributes.key?(:'helper_text')
         self.helper_text = attributes[:'helper_text']
       end
@@ -170,8 +206,20 @@ module Falcon
         self.hide = attributes[:'hide']
       end
 
+      if attributes.key?(:'input_type')
+        self.input_type = attributes[:'input_type']
+      end
+
+      if attributes.key?(:'label_position')
+        self.label_position = attributes[:'label_position']
+      end
+
       if attributes.key?(:'meta')
         self.meta = attributes[:'meta']
+      end
+
+      if attributes.key?(:'navigate_on_success')
+        self.navigate_on_success = attributes[:'navigate_on_success']
       end
 
       if attributes.key?(:'placeholder')
@@ -188,6 +236,10 @@ module Falcon
 
       if attributes.key?(:'skip')
         self.skip = attributes[:'skip']
+      end
+
+      if attributes.key?(:'sky_check')
+        self.sky_check = attributes[:'sky_check']
       end
 
       if attributes.key?(:'statement')
@@ -222,17 +274,23 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           accept == o.accept &&
+          add_button == o.add_button &&
           component == o.component &&
           custom_group_name == o.custom_group_name &&
           duration_options == o.duration_options &&
           encoding == o.encoding &&
+          footer_action == o.footer_action &&
           helper_text == o.helper_text &&
           hide == o.hide &&
+          input_type == o.input_type &&
+          label_position == o.label_position &&
           meta == o.meta &&
+          navigate_on_success == o.navigate_on_success &&
           placeholder == o.placeholder &&
           read_only == o.read_only &&
           schema_reference == o.schema_reference &&
           skip == o.skip &&
+          sky_check == o.sky_check &&
           statement == o.statement &&
           step == o.step &&
           tooltip == o.tooltip
@@ -247,7 +305,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accept, component, custom_group_name, duration_options, encoding, helper_text, hide, meta, placeholder, read_only, schema_reference, skip, statement, step, tooltip].hash
+      [accept, add_button, component, custom_group_name, duration_options, encoding, footer_action, helper_text, hide, input_type, label_position, meta, navigate_on_success, placeholder, read_only, schema_reference, skip, sky_check, statement, step, tooltip].hash
     end
 
     # Builds the object from hash

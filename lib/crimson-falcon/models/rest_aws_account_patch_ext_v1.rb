@@ -65,6 +65,10 @@ module Falcon
 
     attr_accessor :reader_role_arn
 
+    attr_accessor :registration_description
+
+    attr_accessor :registration_name
+
     attr_accessor :remediation_region
 
     attr_accessor :remediation_tou_accepted
@@ -115,6 +119,8 @@ module Falcon
         :'organization_id' => :'organization_id',
         :'products' => :'products',
         :'reader_role_arn' => :'reader_role_arn',
+        :'registration_description' => :'registration_description',
+        :'registration_name' => :'registration_name',
         :'remediation_region' => :'remediation_region',
         :'remediation_tou_accepted' => :'remediation_tou_accepted',
         :'resource_name_prefix' => :'resource_name_prefix',
@@ -158,6 +164,8 @@ module Falcon
         :'organization_id' => :'String',
         :'products' => :'Array<RestAccountProductRequestExtV1>',
         :'reader_role_arn' => :'String',
+        :'registration_description' => :'String',
+        :'registration_name' => :'String',
         :'remediation_region' => :'String',
         :'remediation_tou_accepted' => :'Time',
         :'resource_name_prefix' => :'String',
@@ -277,6 +285,14 @@ module Falcon
         self.reader_role_arn = attributes[:'reader_role_arn']
       end
 
+      if attributes.key?(:'registration_description')
+        self.registration_description = attributes[:'registration_description']
+      end
+
+      if attributes.key?(:'registration_name')
+        self.registration_name = attributes[:'registration_name']
+      end
+
       if attributes.key?(:'remediation_region')
         self.remediation_region = attributes[:'remediation_region']
       end
@@ -384,6 +400,8 @@ module Falcon
           organization_id == o.organization_id &&
           products == o.products &&
           reader_role_arn == o.reader_role_arn &&
+          registration_description == o.registration_description &&
+          registration_name == o.registration_name &&
           remediation_region == o.remediation_region &&
           remediation_tou_accepted == o.remediation_tou_accepted &&
           resource_name_prefix == o.resource_name_prefix &&
@@ -410,7 +428,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, cloudformation_stack_arn, cloudtrail_region, csp_events, disable_products, dspm_custom_vpc_configuration, dspm_host_account_id, dspm_network_configuration_type, dspm_regions, dspm_role, dspm_service_permissions_override, falcon_client_id, ioa_regions, log_ingestion_method, organization_id, products, reader_role_arn, remediation_region, remediation_tou_accepted, resource_name_prefix, resource_name_suffix, s3_log_ingestion_bucket_name, s3_log_ingestion_bucket_prefix, s3_log_ingestion_kms_key_arn, s3_log_ingestion_sns_topic_arn, target_ous, use_existing_cloudtrail, vulnerability_scanning_custom_vpc_configuration, vulnerability_scanning_host_account_id, vulnerability_scanning_network_configuration_type, vulnerability_scanning_regions, vulnerability_scanning_role].hash
+      [account_id, cloudformation_stack_arn, cloudtrail_region, csp_events, disable_products, dspm_custom_vpc_configuration, dspm_host_account_id, dspm_network_configuration_type, dspm_regions, dspm_role, dspm_service_permissions_override, falcon_client_id, ioa_regions, log_ingestion_method, organization_id, products, reader_role_arn, registration_description, registration_name, remediation_region, remediation_tou_accepted, resource_name_prefix, resource_name_suffix, s3_log_ingestion_bucket_name, s3_log_ingestion_bucket_prefix, s3_log_ingestion_kms_key_arn, s3_log_ingestion_sns_topic_arn, target_ous, use_existing_cloudtrail, vulnerability_scanning_custom_vpc_configuration, vulnerability_scanning_host_account_id, vulnerability_scanning_network_configuration_type, vulnerability_scanning_regions, vulnerability_scanning_role].hash
     end
 
     # Builds the object from hash

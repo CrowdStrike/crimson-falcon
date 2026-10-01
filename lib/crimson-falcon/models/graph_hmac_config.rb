@@ -43,8 +43,14 @@ module Falcon
     # Name of the header containing the webhook message ID
     attr_accessor :message_id_header_name
 
+    # The message ids key in a compound header for HMAC authentication (e.g. 'm' for 'm=<message_id>,v1=<signature>').
+    attr_accessor :message_id_key
+
     # Secret key for HMAC signing
     attr_accessor :secret
+
+    # Encoding of the shared secret before use as HMAC key material (raw|base64). Defaults to raw.
+    attr_accessor :secret_encoding
 
     # Encoding format for the signature
     attr_accessor :signature_encoding
@@ -52,11 +58,20 @@ module Falcon
     # Name of the header containing the HMAC signature
     attr_accessor :signature_header_name
 
+    # The signatures key in a compound header for HMAC authentication (e.g. 'v1' for 't=<timestamp>,v1=<signature>')
+    attr_accessor :signature_key
+
     # Prefix of the HMAC signature which defines the signature format
     attr_accessor :signature_prefix
 
-    # Name of the header containing the timestamp
+    # Name of the header containing the timestamp. Mutually exclusive with timestamp_prefix.
     attr_accessor :timestamp_header_name
+
+    # The timestamps key in a compound header for HMAC authentication (e.g. 't' for 't=<timestamp>,v1=<signature>').
+    attr_accessor :timestamp_key
+
+    # Using a compound header searches the HMAC signature header for message_id and timestamp values using given
+    attr_accessor :use_compound_header
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -65,11 +80,16 @@ module Falcon
         :'fields' => :'fields',
         :'hash_function' => :'hash_function',
         :'message_id_header_name' => :'message_id_header_name',
+        :'message_id_key' => :'message_id_key',
         :'secret' => :'secret',
+        :'secret_encoding' => :'secret_encoding',
         :'signature_encoding' => :'signature_encoding',
         :'signature_header_name' => :'signature_header_name',
+        :'signature_key' => :'signature_key',
         :'signature_prefix' => :'signature_prefix',
-        :'timestamp_header_name' => :'timestamp_header_name'
+        :'timestamp_header_name' => :'timestamp_header_name',
+        :'timestamp_key' => :'timestamp_key',
+        :'use_compound_header' => :'use_compound_header'
       }
     end
 
@@ -85,11 +105,16 @@ module Falcon
         :'fields' => :'Array<String>',
         :'hash_function' => :'String',
         :'message_id_header_name' => :'String',
+        :'message_id_key' => :'String',
         :'secret' => :'String',
+        :'secret_encoding' => :'String',
         :'signature_encoding' => :'String',
         :'signature_header_name' => :'String',
+        :'signature_key' => :'String',
         :'signature_prefix' => :'String',
-        :'timestamp_header_name' => :'String'
+        :'timestamp_header_name' => :'String',
+        :'timestamp_key' => :'String',
+        :'use_compound_header' => :'Boolean'
       }
     end
 
@@ -132,8 +157,16 @@ module Falcon
         self.message_id_header_name = attributes[:'message_id_header_name']
       end
 
+      if attributes.key?(:'message_id_key')
+        self.message_id_key = attributes[:'message_id_key']
+      end
+
       if attributes.key?(:'secret')
         self.secret = attributes[:'secret']
+      end
+
+      if attributes.key?(:'secret_encoding')
+        self.secret_encoding = attributes[:'secret_encoding']
       end
 
       if attributes.key?(:'signature_encoding')
@@ -144,12 +177,24 @@ module Falcon
         self.signature_header_name = attributes[:'signature_header_name']
       end
 
+      if attributes.key?(:'signature_key')
+        self.signature_key = attributes[:'signature_key']
+      end
+
       if attributes.key?(:'signature_prefix')
         self.signature_prefix = attributes[:'signature_prefix']
       end
 
       if attributes.key?(:'timestamp_header_name')
         self.timestamp_header_name = attributes[:'timestamp_header_name']
+      end
+
+      if attributes.key?(:'timestamp_key')
+        self.timestamp_key = attributes[:'timestamp_key']
+      end
+
+      if attributes.key?(:'use_compound_header')
+        self.use_compound_header = attributes[:'use_compound_header']
       end
     end
 
@@ -175,11 +220,16 @@ module Falcon
           fields == o.fields &&
           hash_function == o.hash_function &&
           message_id_header_name == o.message_id_header_name &&
+          message_id_key == o.message_id_key &&
           secret == o.secret &&
+          secret_encoding == o.secret_encoding &&
           signature_encoding == o.signature_encoding &&
           signature_header_name == o.signature_header_name &&
+          signature_key == o.signature_key &&
           signature_prefix == o.signature_prefix &&
-          timestamp_header_name == o.timestamp_header_name
+          timestamp_header_name == o.timestamp_header_name &&
+          timestamp_key == o.timestamp_key &&
+          use_compound_header == o.use_compound_header
     end
 
     # @see the `==` method
@@ -191,7 +241,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [field_delimiter, fields, hash_function, message_id_header_name, secret, signature_encoding, signature_header_name, signature_prefix, timestamp_header_name].hash
+      [field_delimiter, fields, hash_function, message_id_header_name, message_id_key, secret, secret_encoding, signature_encoding, signature_header_name, signature_key, signature_prefix, timestamp_header_name, timestamp_key, use_compound_header].hash
     end
 
     # Builds the object from hash

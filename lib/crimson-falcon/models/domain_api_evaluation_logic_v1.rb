@@ -51,6 +51,9 @@ module Falcon
     # Refers to the actual evaluation logic data
     attr_accessor :logic
 
+    # Logical operator that combines the logic items of this evaluation logic. This is the outermost level of the operators also found on comparisons and state comparisons
+    attr_accessor :logic_operator
+
     # Refers to the identifier of the scanner that generated the evaluation logic
     attr_accessor :scanner_id
 
@@ -70,6 +73,7 @@ module Falcon
         :'host_info' => :'host_info',
         :'id' => :'id',
         :'logic' => :'logic',
+        :'logic_operator' => :'logic_operator',
         :'scanner_id' => :'scanner_id',
         :'simplified_logic' => :'simplified_logic',
         :'updated_timestamp' => :'updated_timestamp'
@@ -91,6 +95,7 @@ module Falcon
         :'host_info' => :'DomainAPIEvaluationLogicHostInfoV1',
         :'id' => :'String',
         :'logic' => :'Array<DomainAPIEvaluationLogicItemV1>',
+        :'logic_operator' => :'String',
         :'scanner_id' => :'String',
         :'simplified_logic' => :'Array<DomainAPISimplifiedEvaluationLogicItemV1>',
         :'updated_timestamp' => :'String'
@@ -148,6 +153,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'logic_operator')
+        self.logic_operator = attributes[:'logic_operator']
+      end
+
       if attributes.key?(:'scanner_id')
         self.scanner_id = attributes[:'scanner_id']
       end
@@ -193,6 +202,7 @@ module Falcon
           host_info == o.host_info &&
           id == o.id &&
           logic == o.logic &&
+          logic_operator == o.logic_operator &&
           scanner_id == o.scanner_id &&
           simplified_logic == o.simplified_logic &&
           updated_timestamp == o.updated_timestamp
@@ -207,7 +217,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aid, cid, created_timestamp, data_provider, host_info, id, logic, scanner_id, simplified_logic, updated_timestamp].hash
+      [aid, cid, created_timestamp, data_provider, host_info, id, logic, logic_operator, scanner_id, simplified_logic, updated_timestamp].hash
     end
 
     # Builds the object from hash

@@ -33,12 +33,15 @@ module Falcon
   class MessagesDetection
     attr_accessor :id
 
+    attr_accessor :kestrel_url
+
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
+        :'kestrel_url' => :'kestrel_url',
         :'url' => :'url'
       }
     end
@@ -52,6 +55,7 @@ module Falcon
     def self.openapi_types
       {
         :'id' => :'String',
+        :'kestrel_url' => :'String',
         :'url' => :'String'
       }
     end
@@ -79,6 +83,10 @@ module Falcon
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'kestrel_url')
+        self.kestrel_url = attributes[:'kestrel_url']
       end
 
       if attributes.key?(:'url')
@@ -115,6 +123,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
+          kestrel_url == o.kestrel_url &&
           url == o.url
     end
 
@@ -127,7 +136,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, url].hash
+      [id, kestrel_url, url].hash
     end
 
     # Builds the object from hash

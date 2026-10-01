@@ -59,6 +59,12 @@ describe Falcon::DomainDiscoverAPIApplicationHost do
     end
   end
 
+  describe 'test attribute "criticality"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "current_mac_address"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -107,6 +113,12 @@ describe Falcon::DomainDiscoverAPIApplicationHost do
     end
   end
 
+  describe 'test attribute "last_seen_date"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "machine_domain"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -150,6 +162,12 @@ describe Falcon::DomainDiscoverAPIApplicationHost do
   end
 
   describe 'test attribute "system_manufacturer"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "system_serial_number"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

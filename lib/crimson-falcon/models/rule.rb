@@ -31,33 +31,126 @@ require 'time'
 
 module Falcon
   class Rule
-    attr_accessor :cloud_provider
+    attr_accessor :advanced_settings
 
-    attr_accessor :platform
+    attr_accessor :alert_type
 
-    attr_accessor :rule_category
+    attr_accessor :any_target
 
-    attr_accessor :rule_name
+    attr_accessor :button_text
 
-    attr_accessor :rule_type
+    attr_accessor :category
 
-    attr_accessor :rule_uuid
+    attr_accessor :conditions
 
-    attr_accessor :service
+    attr_accessor :created_at
+
+    attr_accessor :created_by
+
+    attr_accessor :description
+
+    attr_accessor :description_params
+
+    attr_accessor :display_name
+
+    attr_accessor :enabled
+
+    attr_accessor :excluded_targets
+
+    attr_accessor :has_destinations
+
+    attr_accessor :has_two_destinations
+
+    attr_accessor :id
+
+    attr_accessor :input_description
+
+    attr_accessor :input_type
+
+    attr_accessor :is_default
+
+    attr_accessor :is_accumulative
+
+    attr_accessor :message
+
+    attr_accessor :message_title
+
+    attr_accessor :name
+
+    attr_accessor :notification_enabled
+
+    attr_accessor :notification_text
+
+    attr_accessor :priority
+
+    attr_accessor :rule_destinations
+
+    attr_accessor :rule_option_id
+
+    attr_accessor :selected_option
 
     attr_accessor :severity
+
+    attr_accessor :source_rule_destinations
+
+    attr_accessor :status
+
+    attr_accessor :stop_processing
+
+    attr_accessor :targets
+
+    attr_accessor :updated_at
+
+    attr_accessor :updated_by
+
+    attr_accessor :value
+
+    attr_accessor :values
+
+    attr_accessor :version
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'cloud_provider' => :'cloud_provider',
-        :'platform' => :'platform',
-        :'rule_category' => :'rule_category',
-        :'rule_name' => :'rule_name',
-        :'rule_type' => :'rule_type',
-        :'rule_uuid' => :'rule_uuid',
-        :'service' => :'service',
-        :'severity' => :'severity'
+        :'advanced_settings' => :'advanced_settings',
+        :'alert_type' => :'alertType',
+        :'any_target' => :'anyTarget',
+        :'button_text' => :'buttonText',
+        :'category' => :'category',
+        :'conditions' => :'conditions',
+        :'created_at' => :'createdAt',
+        :'created_by' => :'createdBy',
+        :'description' => :'description',
+        :'description_params' => :'description_params',
+        :'display_name' => :'displayName',
+        :'enabled' => :'enabled',
+        :'excluded_targets' => :'excluded_targets',
+        :'has_destinations' => :'has_destinations',
+        :'has_two_destinations' => :'has_two_destinations',
+        :'id' => :'id',
+        :'input_description' => :'input_description',
+        :'input_type' => :'input_type',
+        :'is_default' => :'isDefault',
+        :'is_accumulative' => :'is_accumulative',
+        :'message' => :'message',
+        :'message_title' => :'message_title',
+        :'name' => :'name',
+        :'notification_enabled' => :'notification_enabled',
+        :'notification_text' => :'notification_text',
+        :'priority' => :'priority',
+        :'rule_destinations' => :'ruleDestinations',
+        :'rule_option_id' => :'ruleOptionId',
+        :'selected_option' => :'selected_option',
+        :'severity' => :'severity',
+        :'source_rule_destinations' => :'sourceRuleDestinations',
+        :'status' => :'status',
+        :'stop_processing' => :'stop_processing',
+        :'targets' => :'targets',
+        :'updated_at' => :'updatedAt',
+        :'updated_by' => :'updatedBy',
+        :'value' => :'value',
+        :'values' => :'values',
+        :'version' => :'version'
       }
     end
 
@@ -69,14 +162,45 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'cloud_provider' => :'String',
-        :'platform' => :'String',
-        :'rule_category' => :'String',
-        :'rule_name' => :'String',
-        :'rule_type' => :'String',
-        :'rule_uuid' => :'String',
-        :'service' => :'String',
-        :'severity' => :'Integer'
+        :'advanced_settings' => :'RuleAdvancedSettings',
+        :'alert_type' => :'String',
+        :'any_target' => :'Boolean',
+        :'button_text' => :'String',
+        :'category' => :'String',
+        :'conditions' => :'Array<RuleCondition>',
+        :'created_at' => :'String',
+        :'created_by' => :'String',
+        :'description' => :'String',
+        :'description_params' => :'String',
+        :'display_name' => :'String',
+        :'enabled' => :'Boolean',
+        :'excluded_targets' => :'Array<RuleTarget>',
+        :'has_destinations' => :'Boolean',
+        :'has_two_destinations' => :'Boolean',
+        :'id' => :'Integer',
+        :'input_description' => :'String',
+        :'input_type' => :'String',
+        :'is_default' => :'Boolean',
+        :'is_accumulative' => :'Boolean',
+        :'message' => :'String',
+        :'message_title' => :'String',
+        :'name' => :'String',
+        :'notification_enabled' => :'Boolean',
+        :'notification_text' => :'String',
+        :'priority' => :'Integer',
+        :'rule_destinations' => :'Array<RuleDestination>',
+        :'rule_option_id' => :'Integer',
+        :'selected_option' => :'String',
+        :'severity' => :'String',
+        :'source_rule_destinations' => :'Array<RuleDestination>',
+        :'status' => :'String',
+        :'stop_processing' => :'Boolean',
+        :'targets' => :'Array<RuleTarget>',
+        :'updated_at' => :'String',
+        :'updated_by' => :'String',
+        :'value' => :'String',
+        :'values' => :'Array<String>',
+        :'version' => :'Integer'
       }
     end
 
@@ -101,36 +225,172 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'cloud_provider')
-        self.cloud_provider = attributes[:'cloud_provider']
+      if attributes.key?(:'advanced_settings')
+        self.advanced_settings = attributes[:'advanced_settings']
       end
 
-      if attributes.key?(:'platform')
-        self.platform = attributes[:'platform']
+      if attributes.key?(:'alert_type')
+        self.alert_type = attributes[:'alert_type']
       end
 
-      if attributes.key?(:'rule_category')
-        self.rule_category = attributes[:'rule_category']
+      if attributes.key?(:'any_target')
+        self.any_target = attributes[:'any_target']
       end
 
-      if attributes.key?(:'rule_name')
-        self.rule_name = attributes[:'rule_name']
+      if attributes.key?(:'button_text')
+        self.button_text = attributes[:'button_text']
       end
 
-      if attributes.key?(:'rule_type')
-        self.rule_type = attributes[:'rule_type']
+      if attributes.key?(:'category')
+        self.category = attributes[:'category']
       end
 
-      if attributes.key?(:'rule_uuid')
-        self.rule_uuid = attributes[:'rule_uuid']
+      if attributes.key?(:'conditions')
+        if (value = attributes[:'conditions']).is_a?(Array)
+          self.conditions = value
+        end
       end
 
-      if attributes.key?(:'service')
-        self.service = attributes[:'service']
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'created_by')
+        self.created_by = attributes[:'created_by']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'description_params')
+        self.description_params = attributes[:'description_params']
+      end
+
+      if attributes.key?(:'display_name')
+        self.display_name = attributes[:'display_name']
+      end
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
+
+      if attributes.key?(:'excluded_targets')
+        if (value = attributes[:'excluded_targets']).is_a?(Array)
+          self.excluded_targets = value
+        end
+      end
+
+      if attributes.key?(:'has_destinations')
+        self.has_destinations = attributes[:'has_destinations']
+      end
+
+      if attributes.key?(:'has_two_destinations')
+        self.has_two_destinations = attributes[:'has_two_destinations']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'input_description')
+        self.input_description = attributes[:'input_description']
+      end
+
+      if attributes.key?(:'input_type')
+        self.input_type = attributes[:'input_type']
+      end
+
+      if attributes.key?(:'is_default')
+        self.is_default = attributes[:'is_default']
+      end
+
+      if attributes.key?(:'is_accumulative')
+        self.is_accumulative = attributes[:'is_accumulative']
+      end
+
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
+      end
+
+      if attributes.key?(:'message_title')
+        self.message_title = attributes[:'message_title']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'notification_enabled')
+        self.notification_enabled = attributes[:'notification_enabled']
+      end
+
+      if attributes.key?(:'notification_text')
+        self.notification_text = attributes[:'notification_text']
+      end
+
+      if attributes.key?(:'priority')
+        self.priority = attributes[:'priority']
+      end
+
+      if attributes.key?(:'rule_destinations')
+        if (value = attributes[:'rule_destinations']).is_a?(Array)
+          self.rule_destinations = value
+        end
+      end
+
+      if attributes.key?(:'rule_option_id')
+        self.rule_option_id = attributes[:'rule_option_id']
+      end
+
+      if attributes.key?(:'selected_option')
+        self.selected_option = attributes[:'selected_option']
       end
 
       if attributes.key?(:'severity')
         self.severity = attributes[:'severity']
+      end
+
+      if attributes.key?(:'source_rule_destinations')
+        if (value = attributes[:'source_rule_destinations']).is_a?(Array)
+          self.source_rule_destinations = value
+        end
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'stop_processing')
+        self.stop_processing = attributes[:'stop_processing']
+      end
+
+      if attributes.key?(:'targets')
+        if (value = attributes[:'targets']).is_a?(Array)
+          self.targets = value
+        end
+      end
+
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
+      end
+
+      if attributes.key?(:'updated_by')
+        self.updated_by = attributes[:'updated_by']
+      end
+
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
+      end
+
+      if attributes.key?(:'values')
+        if (value = attributes[:'values']).is_a?(Array)
+          self.values = value
+        end
+      end
+
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
       end
     end
 
@@ -138,36 +398,52 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @cloud_provider.nil?
-        invalid_properties.push('invalid value for "cloud_provider", cloud_provider cannot be nil.')
+      if @any_target.nil?
+        invalid_properties.push('invalid value for "any_target", any_target cannot be nil.')
       end
 
-      if @platform.nil?
-        invalid_properties.push('invalid value for "platform", platform cannot be nil.')
+      if @category.nil?
+        invalid_properties.push('invalid value for "category", category cannot be nil.')
       end
 
-      if @rule_category.nil?
-        invalid_properties.push('invalid value for "rule_category", rule_category cannot be nil.')
+      if @has_destinations.nil?
+        invalid_properties.push('invalid value for "has_destinations", has_destinations cannot be nil.')
       end
 
-      if @rule_name.nil?
-        invalid_properties.push('invalid value for "rule_name", rule_name cannot be nil.')
+      if @has_two_destinations.nil?
+        invalid_properties.push('invalid value for "has_two_destinations", has_two_destinations cannot be nil.')
       end
 
-      if @rule_type.nil?
-        invalid_properties.push('invalid value for "rule_type", rule_type cannot be nil.')
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      if @rule_uuid.nil?
-        invalid_properties.push('invalid value for "rule_uuid", rule_uuid cannot be nil.')
+      if @input_type.nil?
+        invalid_properties.push('invalid value for "input_type", input_type cannot be nil.')
       end
 
-      if @service.nil?
-        invalid_properties.push('invalid value for "service", service cannot be nil.')
+      if @is_default.nil?
+        invalid_properties.push('invalid value for "is_default", is_default cannot be nil.')
       end
 
-      if @severity.nil?
-        invalid_properties.push('invalid value for "severity", severity cannot be nil.')
+      if @is_accumulative.nil?
+        invalid_properties.push('invalid value for "is_accumulative", is_accumulative cannot be nil.')
+      end
+
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @priority.nil?
+        invalid_properties.push('invalid value for "priority", priority cannot be nil.')
+      end
+
+      if @stop_processing.nil?
+        invalid_properties.push('invalid value for "stop_processing", stop_processing cannot be nil.')
+      end
+
+      if @version.nil?
+        invalid_properties.push('invalid value for "version", version cannot be nil.')
       end
 
       invalid_properties
@@ -176,14 +452,18 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @cloud_provider.nil?
-      return false if @platform.nil?
-      return false if @rule_category.nil?
-      return false if @rule_name.nil?
-      return false if @rule_type.nil?
-      return false if @rule_uuid.nil?
-      return false if @service.nil?
-      return false if @severity.nil?
+      return false if @any_target.nil?
+      return false if @category.nil?
+      return false if @has_destinations.nil?
+      return false if @has_two_destinations.nil?
+      return false if @id.nil?
+      return false if @input_type.nil?
+      return false if @is_default.nil?
+      return false if @is_accumulative.nil?
+      return false if @name.nil?
+      return false if @priority.nil?
+      return false if @stop_processing.nil?
+      return false if @version.nil?
       true
     end
 
@@ -192,14 +472,45 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          cloud_provider == o.cloud_provider &&
-          platform == o.platform &&
-          rule_category == o.rule_category &&
-          rule_name == o.rule_name &&
-          rule_type == o.rule_type &&
-          rule_uuid == o.rule_uuid &&
-          service == o.service &&
-          severity == o.severity
+          advanced_settings == o.advanced_settings &&
+          alert_type == o.alert_type &&
+          any_target == o.any_target &&
+          button_text == o.button_text &&
+          category == o.category &&
+          conditions == o.conditions &&
+          created_at == o.created_at &&
+          created_by == o.created_by &&
+          description == o.description &&
+          description_params == o.description_params &&
+          display_name == o.display_name &&
+          enabled == o.enabled &&
+          excluded_targets == o.excluded_targets &&
+          has_destinations == o.has_destinations &&
+          has_two_destinations == o.has_two_destinations &&
+          id == o.id &&
+          input_description == o.input_description &&
+          input_type == o.input_type &&
+          is_default == o.is_default &&
+          is_accumulative == o.is_accumulative &&
+          message == o.message &&
+          message_title == o.message_title &&
+          name == o.name &&
+          notification_enabled == o.notification_enabled &&
+          notification_text == o.notification_text &&
+          priority == o.priority &&
+          rule_destinations == o.rule_destinations &&
+          rule_option_id == o.rule_option_id &&
+          selected_option == o.selected_option &&
+          severity == o.severity &&
+          source_rule_destinations == o.source_rule_destinations &&
+          status == o.status &&
+          stop_processing == o.stop_processing &&
+          targets == o.targets &&
+          updated_at == o.updated_at &&
+          updated_by == o.updated_by &&
+          value == o.value &&
+          values == o.values &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -211,7 +522,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cloud_provider, platform, rule_category, rule_name, rule_type, rule_uuid, service, severity].hash
+      [advanced_settings, alert_type, any_target, button_text, category, conditions, created_at, created_by, description, description_params, display_name, enabled, excluded_targets, has_destinations, has_two_destinations, id, input_description, input_type, is_default, is_accumulative, message, message_title, name, notification_enabled, notification_text, priority, rule_destinations, rule_option_id, selected_option, severity, source_rule_destinations, status, stop_processing, targets, updated_at, updated_by, value, values, version].hash
     end
 
     # Builds the object from hash

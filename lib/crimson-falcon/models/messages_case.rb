@@ -65,6 +65,8 @@ module Falcon
 
     attr_accessor :recon_rule_type
 
+    attr_accessor :resolution_time
+
     attr_accessor :rfi_id
 
     attr_accessor :status
@@ -93,6 +95,7 @@ module Falcon
         :'malware_submission_id' => :'malware_submission_id',
         :'malware_submission_url' => :'malware_submission_url',
         :'recon_rule_type' => :'recon_rule_type',
+        :'resolution_time' => :'resolution_time',
         :'rfi_id' => :'rfi_id',
         :'status' => :'status',
         :'title' => :'title',
@@ -125,6 +128,7 @@ module Falcon
         :'malware_submission_id' => :'String',
         :'malware_submission_url' => :'String',
         :'recon_rule_type' => :'String',
+        :'resolution_time' => :'String',
         :'rfi_id' => :'String',
         :'status' => :'String',
         :'title' => :'String',
@@ -231,6 +235,10 @@ module Falcon
 
       if attributes.key?(:'recon_rule_type')
         self.recon_rule_type = attributes[:'recon_rule_type']
+      end
+
+      if attributes.key?(:'resolution_time')
+        self.resolution_time = attributes[:'resolution_time']
       end
 
       if attributes.key?(:'rfi_id')
@@ -385,6 +393,7 @@ module Falcon
           malware_submission_id == o.malware_submission_id &&
           malware_submission_url == o.malware_submission_url &&
           recon_rule_type == o.recon_rule_type &&
+          resolution_time == o.resolution_time &&
           rfi_id == o.rfi_id &&
           status == o.status &&
           title == o.title &&
@@ -400,7 +409,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aids, assigner, attachments, body, case_type, cid, created_time, detections, hosts, id, incidents, ip_addresses, key, last_modified_time, malware_submission_id, malware_submission_url, recon_rule_type, rfi_id, status, title, type].hash
+      [aids, assigner, attachments, body, case_type, cid, created_time, detections, hosts, id, incidents, ip_addresses, key, last_modified_time, malware_submission_id, malware_submission_url, recon_rule_type, resolution_time, rfi_id, status, title, type].hash
     end
 
     # Builds the object from hash

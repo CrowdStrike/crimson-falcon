@@ -34,16 +34,16 @@ module Falcon
     # Windows only. Allow notifications accepts values: 'default', 'custom'
     attr_accessor :allow_notifications
 
-    # Length must be at most 2048 characters
+    # Length must be at most 4096 characters
     attr_accessor :be_exclude_domains
 
-    # Must be a non-negative integer and max 65536
+    # Must be a non-negative integer and max 65536 bytes with consideration to the unit specified in be_paste_clipboard_max_size_unit
     attr_accessor :be_paste_clipboard_max_size
 
     # Accepts values: 'Bytes', 'KiB'
     attr_accessor :be_paste_clipboard_max_size_unit
 
-    # Must be a non-negative integer and max 65536
+    # Must be a non-negative integer and max 65536 bytes with consideration to the unit specified in be_paste_clipboard_min_size_unit
     attr_accessor :be_paste_clipboard_min_size
 
     # Accepts values: 'Bytes', 'KiB'
@@ -89,6 +89,9 @@ module Falcon
 
     attr_accessor :enable_clipboard_inspection
 
+    # Track and attribute web sources for clipboard content when copying from web applications. Requires context inspection to be enabled
+    attr_accessor :enable_clipboard_web_origin
+
     attr_accessor :enable_content_inspection
 
     attr_accessor :enable_context_inspection
@@ -98,6 +101,12 @@ module Falcon
 
     # Windows only. Enable or disable network inspection
     attr_accessor :enable_network_inspection
+
+    # Mac only. Enable or disable OCR
+    attr_accessor :enable_ocr
+
+    # Windows only. Enable or disable print monitoring
+    attr_accessor :enable_print_monitor
 
     # Windows only. Enable screen capture before and after egress event
     attr_accessor :enable_screen_capture
@@ -115,25 +124,25 @@ module Falcon
     # If enabled, the user must provide additional details to justify the egress
     attr_accessor :euj_require_additional_details
 
-    # Windows only. If enabled, Falcon Console users with Data Protection Forensics Manager role can request and download files for egress events. Data will be copied to the host's local storage when requested, or when matching a classification with storage enabled.
+    # If enabled, Falcon Console users with Data Protection Forensics Manager role can request and download files for egress events. Data will be copied to the host's local storage when requested, or when matching a classification with storage enabled.
     attr_accessor :evidence_download_enabled
 
-    # Windows only. If enabled, data is copied to a protected evidence folder on the host at the time a download is requested to prevent tampering. Copies of data will be stored on the originating host for up to 30 days.
+    # If enabled, data is copied to a protected evidence folder on the host at the time a download is requested to prevent tampering. Copies of data will be stored on the originating host for up to 30 days.
     attr_accessor :evidence_duplication_enabled_default
 
     # Windows only. If enabled, when data encryption occurs, a copy of the original data is stored in a protected folder on the host. This ensures encrypted data is retrievable if it is part of an egress event within the following 30 days.
     attr_accessor :evidence_encrypted_enabled
 
-    # Windows only. Must be between 1 and 90
+    # Must be between 1 and 90
     attr_accessor :evidence_storage_free_disk_perc
 
-    # Windows only. Must be between 1 and 100
+    # Must be between 1 and 100
     attr_accessor :evidence_storage_max_size
 
     # Inspection depth accepts values : 'balanced', 'high_performance', 'deep_scan'
     attr_accessor :inspection_depth
 
-    # Must be between 512 and 524288000 bytes
+    # Must be between 512 and 524288000 bytes, with consideration to the unit specified in max_file_size_to_inspect_unit
     attr_accessor :max_file_size_to_inspect
 
     # Must be either 'Bytes, KB or MB'
@@ -141,6 +150,9 @@ module Falcon
 
     # Confidence level accepts values: 'low', 'medium', 'high'
     attr_accessor :min_confidence_level
+
+    # Windows only. Network inspection exclusion list with at most 200 unique items
+    attr_accessor :network_inspection_exclude_list_v2
 
     # Windows only. Network inspection files exceeding size limit accepts values: 'block', 'allow'
     attr_accessor :network_inspection_files_exceeding_size_limit
@@ -202,10 +214,13 @@ module Falcon
         :'custom_allow_notification' => :'custom_allow_notification',
         :'custom_block_notification' => :'custom_block_notification',
         :'enable_clipboard_inspection' => :'enable_clipboard_inspection',
+        :'enable_clipboard_web_origin' => :'enable_clipboard_web_origin',
         :'enable_content_inspection' => :'enable_content_inspection',
         :'enable_context_inspection' => :'enable_context_inspection',
         :'enable_end_user_notifications_unsupported_browser' => :'enable_end_user_notifications_unsupported_browser',
         :'enable_network_inspection' => :'enable_network_inspection',
+        :'enable_ocr' => :'enable_ocr',
+        :'enable_print_monitor' => :'enable_print_monitor',
         :'enable_screen_capture' => :'enable_screen_capture',
         :'euj_dialog_box_logo' => :'euj_dialog_box_logo',
         :'euj_dialog_timeout' => :'euj_dialog_timeout',
@@ -221,6 +236,7 @@ module Falcon
         :'max_file_size_to_inspect' => :'max_file_size_to_inspect',
         :'max_file_size_to_inspect_unit' => :'max_file_size_to_inspect_unit',
         :'min_confidence_level' => :'min_confidence_level',
+        :'network_inspection_exclude_list_v2' => :'network_inspection_exclude_list_v2',
         :'network_inspection_files_exceeding_size_limit' => :'network_inspection_files_exceeding_size_limit',
         :'screen_capture_duration_post_event' => :'screen_capture_duration_post_event',
         :'screen_capture_duration_pre_event' => :'screen_capture_duration_pre_event',
@@ -258,10 +274,13 @@ module Falcon
         :'custom_allow_notification' => :'String',
         :'custom_block_notification' => :'String',
         :'enable_clipboard_inspection' => :'Boolean',
+        :'enable_clipboard_web_origin' => :'Boolean',
         :'enable_content_inspection' => :'Boolean',
         :'enable_context_inspection' => :'Boolean',
         :'enable_end_user_notifications_unsupported_browser' => :'Boolean',
         :'enable_network_inspection' => :'Boolean',
+        :'enable_ocr' => :'Boolean',
+        :'enable_print_monitor' => :'Boolean',
         :'enable_screen_capture' => :'Boolean',
         :'euj_dialog_box_logo' => :'String',
         :'euj_dialog_timeout' => :'Integer',
@@ -277,6 +296,7 @@ module Falcon
         :'max_file_size_to_inspect' => :'Float',
         :'max_file_size_to_inspect_unit' => :'String',
         :'min_confidence_level' => :'String',
+        :'network_inspection_exclude_list_v2' => :'Array<String>',
         :'network_inspection_files_exceeding_size_limit' => :'String',
         :'screen_capture_duration_post_event' => :'String',
         :'screen_capture_duration_pre_event' => :'String',
@@ -392,6 +412,10 @@ module Falcon
         self.enable_clipboard_inspection = attributes[:'enable_clipboard_inspection']
       end
 
+      if attributes.key?(:'enable_clipboard_web_origin')
+        self.enable_clipboard_web_origin = attributes[:'enable_clipboard_web_origin']
+      end
+
       if attributes.key?(:'enable_content_inspection')
         self.enable_content_inspection = attributes[:'enable_content_inspection']
       end
@@ -406,6 +430,14 @@ module Falcon
 
       if attributes.key?(:'enable_network_inspection')
         self.enable_network_inspection = attributes[:'enable_network_inspection']
+      end
+
+      if attributes.key?(:'enable_ocr')
+        self.enable_ocr = attributes[:'enable_ocr']
+      end
+
+      if attributes.key?(:'enable_print_monitor')
+        self.enable_print_monitor = attributes[:'enable_print_monitor']
       end
 
       if attributes.key?(:'enable_screen_capture')
@@ -466,6 +498,12 @@ module Falcon
 
       if attributes.key?(:'min_confidence_level')
         self.min_confidence_level = attributes[:'min_confidence_level']
+      end
+
+      if attributes.key?(:'network_inspection_exclude_list_v2')
+        if (value = attributes[:'network_inspection_exclude_list_v2']).is_a?(Array)
+          self.network_inspection_exclude_list_v2 = value
+        end
       end
 
       if attributes.key?(:'network_inspection_files_exceeding_size_limit')
@@ -708,10 +746,13 @@ module Falcon
           custom_allow_notification == o.custom_allow_notification &&
           custom_block_notification == o.custom_block_notification &&
           enable_clipboard_inspection == o.enable_clipboard_inspection &&
+          enable_clipboard_web_origin == o.enable_clipboard_web_origin &&
           enable_content_inspection == o.enable_content_inspection &&
           enable_context_inspection == o.enable_context_inspection &&
           enable_end_user_notifications_unsupported_browser == o.enable_end_user_notifications_unsupported_browser &&
           enable_network_inspection == o.enable_network_inspection &&
+          enable_ocr == o.enable_ocr &&
+          enable_print_monitor == o.enable_print_monitor &&
           enable_screen_capture == o.enable_screen_capture &&
           euj_dialog_box_logo == o.euj_dialog_box_logo &&
           euj_dialog_timeout == o.euj_dialog_timeout &&
@@ -727,6 +768,7 @@ module Falcon
           max_file_size_to_inspect == o.max_file_size_to_inspect &&
           max_file_size_to_inspect_unit == o.max_file_size_to_inspect_unit &&
           min_confidence_level == o.min_confidence_level &&
+          network_inspection_exclude_list_v2 == o.network_inspection_exclude_list_v2 &&
           network_inspection_files_exceeding_size_limit == o.network_inspection_files_exceeding_size_limit &&
           screen_capture_duration_post_event == o.screen_capture_duration_post_event &&
           screen_capture_duration_pre_event == o.screen_capture_duration_pre_event &&
@@ -743,7 +785,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_notifications, be_exclude_domains, be_paste_clipboard_max_size, be_paste_clipboard_max_size_unit, be_paste_clipboard_min_size, be_paste_clipboard_min_size_unit, be_paste_clipboard_over_size_behaviour_block, be_paste_timeout_duration_milliseconds, be_paste_timeout_response, be_splash_custom_message, be_splash_enabled, be_splash_message_source, be_upload_timeout_duration_seconds, be_upload_timeout_response, block_all_data_access, block_notifications, browsers_without_active_extension, classifications, custom_allow_notification, custom_block_notification, enable_clipboard_inspection, enable_content_inspection, enable_context_inspection, enable_end_user_notifications_unsupported_browser, enable_network_inspection, enable_screen_capture, euj_dialog_box_logo, euj_dialog_timeout, euj_dropdown_options, euj_header_text, euj_require_additional_details, evidence_download_enabled, evidence_duplication_enabled_default, evidence_encrypted_enabled, evidence_storage_free_disk_perc, evidence_storage_max_size, inspection_depth, max_file_size_to_inspect, max_file_size_to_inspect_unit, min_confidence_level, network_inspection_files_exceeding_size_limit, screen_capture_duration_post_event, screen_capture_duration_pre_event, similarity_detection, similarity_threshold].hash
+      [allow_notifications, be_exclude_domains, be_paste_clipboard_max_size, be_paste_clipboard_max_size_unit, be_paste_clipboard_min_size, be_paste_clipboard_min_size_unit, be_paste_clipboard_over_size_behaviour_block, be_paste_timeout_duration_milliseconds, be_paste_timeout_response, be_splash_custom_message, be_splash_enabled, be_splash_message_source, be_upload_timeout_duration_seconds, be_upload_timeout_response, block_all_data_access, block_notifications, browsers_without_active_extension, classifications, custom_allow_notification, custom_block_notification, enable_clipboard_inspection, enable_clipboard_web_origin, enable_content_inspection, enable_context_inspection, enable_end_user_notifications_unsupported_browser, enable_network_inspection, enable_ocr, enable_print_monitor, enable_screen_capture, euj_dialog_box_logo, euj_dialog_timeout, euj_dropdown_options, euj_header_text, euj_require_additional_details, evidence_download_enabled, evidence_duplication_enabled_default, evidence_encrypted_enabled, evidence_storage_free_disk_perc, evidence_storage_max_size, inspection_depth, max_file_size_to_inspect, max_file_size_to_inspect_unit, min_confidence_level, network_inspection_exclude_list_v2, network_inspection_files_exceeding_size_limit, screen_capture_duration_post_event, screen_capture_duration_pre_event, similarity_detection, similarity_threshold].hash
     end
 
     # Builds the object from hash

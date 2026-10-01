@@ -56,7 +56,7 @@ module Falcon
       {
         :'errors' => :'Array<MsaAPIError>',
         :'meta' => :'MsaMetaInfo',
-        :'resources' => :'Array<DataconnectionmanagementConnectionToken>'
+        :'resources' => :'DataconnectionmanagementConnectionToken'
       }
     end
 
@@ -92,9 +92,7 @@ module Falcon
       end
 
       if attributes.key?(:'resources')
-        if (value = attributes[:'resources']).is_a?(Array)
-          self.resources = value
-        end
+        self.resources = attributes[:'resources']
       end
     end
 

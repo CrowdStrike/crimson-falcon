@@ -41,6 +41,12 @@ describe Falcon::ApiBulkCreateDashboardItem do
       expect(instance).to be_instance_of(Falcon::ApiBulkCreateDashboardItem)
     end
   end
+  describe 'test attribute "labels"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "name"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

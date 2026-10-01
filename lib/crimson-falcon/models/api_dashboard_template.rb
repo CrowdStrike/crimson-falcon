@@ -34,6 +34,9 @@ module Falcon
     # The unique identifier of the dashboard
     attr_accessor :id
 
+    # Labels associated with the dashboard
+    attr_accessor :labels
+
     # The dashboard's name
     attr_accessor :name
 
@@ -44,6 +47,7 @@ module Falcon
     def self.attribute_map
       {
         :'id' => :'id',
+        :'labels' => :'labels',
         :'name' => :'name',
         :'yaml_template' => :'yaml_template'
       }
@@ -58,6 +62,7 @@ module Falcon
     def self.openapi_types
       {
         :'id' => :'String',
+        :'labels' => :'Array<String>',
         :'name' => :'String',
         :'yaml_template' => :'String'
       }
@@ -88,6 +93,12 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'labels')
+        if (value = attributes[:'labels']).is_a?(Array)
+          self.labels = value
+        end
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -105,6 +116,10 @@ module Falcon
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
+      if @labels.nil?
+        invalid_properties.push('invalid value for "labels", labels cannot be nil.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -120,6 +135,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @id.nil?
+      return false if @labels.nil?
       return false if @name.nil?
       return false if @yaml_template.nil?
       true
@@ -131,6 +147,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
+          labels == o.labels &&
           name == o.name &&
           yaml_template == o.yaml_template
     end
@@ -144,7 +161,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, yaml_template].hash
+      [id, labels, name, yaml_template].hash
     end
 
     # Builds the object from hash

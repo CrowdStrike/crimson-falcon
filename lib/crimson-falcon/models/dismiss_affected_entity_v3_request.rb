@@ -31,6 +31,9 @@ require 'time'
 
 module Falcon
   class DismissAffectedEntityV3Request
+    # Snooze the dismiss for this many days (1-365). Omit to dismiss indefinitely
+    attr_accessor :duration_in_days
+
     # Comma separated list of entity names to dismiss
     attr_accessor :entities
 
@@ -40,6 +43,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'duration_in_days' => :'duration_in_days',
         :'entities' => :'entities',
         :'reason' => :'reason'
       }
@@ -53,6 +57,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'duration_in_days' => :'Integer',
         :'entities' => :'String',
         :'reason' => :'String'
       }
@@ -78,6 +83,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'duration_in_days')
+        self.duration_in_days = attributes[:'duration_in_days']
+      end
 
       if attributes.key?(:'entities')
         self.entities = attributes[:'entities']
@@ -106,6 +115,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          duration_in_days == o.duration_in_days &&
           entities == o.entities &&
           reason == o.reason
     end
@@ -119,7 +129,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [entities, reason].hash
+      [duration_in_days, entities, reason].hash
     end
 
     # Builds the object from hash

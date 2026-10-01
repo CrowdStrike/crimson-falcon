@@ -37,6 +37,8 @@ module Falcon
 
     attr_accessor :assigned_to
 
+    attr_accessor :assigned_to_groups
+
     attr_accessor :cid
 
     attr_accessor :consistency
@@ -83,6 +85,8 @@ module Falcon
 
     attr_accessor :template
 
+    attr_accessor :templates
+
     attr_accessor :update_actor
 
     attr_accessor :updated_timestamp
@@ -97,6 +101,7 @@ module Falcon
         :'access_tags' => :'access_tags',
         :'analysis_results' => :'analysis_results',
         :'assigned_to' => :'assigned_to',
+        :'assigned_to_groups' => :'assigned_to_groups',
         :'cid' => :'cid',
         :'consistency' => :'consistency',
         :'created_by' => :'created_by',
@@ -120,6 +125,7 @@ module Falcon
         :'status' => :'status',
         :'tags' => :'tags',
         :'template' => :'template',
+        :'templates' => :'templates',
         :'update_actor' => :'update_actor',
         :'updated_timestamp' => :'updated_timestamp',
         :'version' => :'version',
@@ -138,6 +144,7 @@ module Falcon
         :'access_tags' => :'Array<SdkCaseAccessTag>',
         :'analysis_results' => :'SdkAnalysisResultsVM',
         :'assigned_to' => :'SdkFalconUserVM',
+        :'assigned_to_groups' => :'Array<SdkAssigneeGroupVM>',
         :'cid' => :'String',
         :'consistency' => :'SdkConsistencyVM',
         :'created_by' => :'SdkFalconUserVM',
@@ -161,6 +168,7 @@ module Falcon
         :'status' => :'String',
         :'tags' => :'Array<String>',
         :'template' => :'SdkTemplateVM',
+        :'templates' => :'Array<SdkTemplateVM>',
         :'update_actor' => :'SdkActorVM',
         :'updated_timestamp' => :'Time',
         :'version' => :'Integer',
@@ -201,6 +209,12 @@ module Falcon
 
       if attributes.key?(:'assigned_to')
         self.assigned_to = attributes[:'assigned_to']
+      end
+
+      if attributes.key?(:'assigned_to_groups')
+        if (value = attributes[:'assigned_to_groups']).is_a?(Array)
+          self.assigned_to_groups = value
+        end
       end
 
       if attributes.key?(:'cid')
@@ -301,6 +315,12 @@ module Falcon
         self.template = attributes[:'template']
       end
 
+      if attributes.key?(:'templates')
+        if (value = attributes[:'templates']).is_a?(Array)
+          self.templates = value
+        end
+      end
+
       if attributes.key?(:'update_actor')
         self.update_actor = attributes[:'update_actor']
       end
@@ -330,6 +350,10 @@ module Falcon
 
       if @assigned_to.nil?
         invalid_properties.push('invalid value for "assigned_to", assigned_to cannot be nil.')
+      end
+
+      if @assigned_to_groups.nil?
+        invalid_properties.push('invalid value for "assigned_to_groups", assigned_to_groups cannot be nil.')
       end
 
       if @cid.nil?
@@ -420,6 +444,7 @@ module Falcon
     def valid?
       return false if @analysis_results.nil?
       return false if @assigned_to.nil?
+      return false if @assigned_to_groups.nil?
       return false if @cid.nil?
       return false if @consistency.nil?
       return false if @created_by.nil?
@@ -451,6 +476,7 @@ module Falcon
           access_tags == o.access_tags &&
           analysis_results == o.analysis_results &&
           assigned_to == o.assigned_to &&
+          assigned_to_groups == o.assigned_to_groups &&
           cid == o.cid &&
           consistency == o.consistency &&
           created_by == o.created_by &&
@@ -474,6 +500,7 @@ module Falcon
           status == o.status &&
           tags == o.tags &&
           template == o.template &&
+          templates == o.templates &&
           update_actor == o.update_actor &&
           updated_timestamp == o.updated_timestamp &&
           version == o.version &&
@@ -489,7 +516,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_tags, analysis_results, assigned_to, cid, consistency, created_by, created_timestamp, creation_actor, description, description_format, description_tagged_users, end_timestamp, evidence, fields, id, last_updated_by, name, read_only, reference_id, severity, severity_info, sla, start_timestamp, status, tags, template, update_actor, updated_timestamp, version, workflows].hash
+      [access_tags, analysis_results, assigned_to, assigned_to_groups, cid, consistency, created_by, created_timestamp, creation_actor, description, description_format, description_tagged_users, end_timestamp, evidence, fields, id, last_updated_by, name, read_only, reference_id, severity, severity_info, sla, start_timestamp, status, tags, template, templates, update_actor, updated_timestamp, version, workflows].hash
     end
 
     # Builds the object from hash

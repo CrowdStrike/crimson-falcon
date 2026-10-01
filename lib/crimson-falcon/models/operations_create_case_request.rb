@@ -33,7 +33,11 @@ module Falcon
   class OperationsCreateCaseRequest
     attr_accessor :access_tags
 
+    attr_accessor :assigned_to_group_ids
+
     attr_accessor :assigned_to_user_uuid
+
+    attr_accessor :custom_fields
 
     attr_accessor :description
 
@@ -55,11 +59,15 @@ module Falcon
 
     attr_accessor :template
 
+    attr_accessor :templates
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'access_tags' => :'access_tags',
+        :'assigned_to_group_ids' => :'assigned_to_group_ids',
         :'assigned_to_user_uuid' => :'assigned_to_user_uuid',
+        :'custom_fields' => :'custom_fields',
         :'description' => :'description',
         :'description_format' => :'description_format',
         :'description_tagged_users' => :'description_tagged_users',
@@ -69,7 +77,8 @@ module Falcon
         :'severity_info' => :'severity_info',
         :'status' => :'status',
         :'tags' => :'tags',
-        :'template' => :'template'
+        :'template' => :'template',
+        :'templates' => :'templates'
       }
     end
 
@@ -82,7 +91,9 @@ module Falcon
     def self.openapi_types
       {
         :'access_tags' => :'Array<SdkCaseAccessTag>',
+        :'assigned_to_group_ids' => :'Array<String>',
         :'assigned_to_user_uuid' => :'String',
+        :'custom_fields' => :'Array<SdkCustomField>',
         :'description' => :'String',
         :'description_format' => :'String',
         :'description_tagged_users' => :'Array<String>',
@@ -92,7 +103,8 @@ module Falcon
         :'severity_info' => :'SdkCaseSeverityInfoAssignment',
         :'status' => :'String',
         :'tags' => :'Array<String>',
-        :'template' => :'SdkTemplateSelector'
+        :'template' => :'SdkTemplateSelector',
+        :'templates' => :'Array<SdkTemplateSelector>'
       }
     end
 
@@ -123,8 +135,20 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'assigned_to_group_ids')
+        if (value = attributes[:'assigned_to_group_ids']).is_a?(Array)
+          self.assigned_to_group_ids = value
+        end
+      end
+
       if attributes.key?(:'assigned_to_user_uuid')
         self.assigned_to_user_uuid = attributes[:'assigned_to_user_uuid']
+      end
+
+      if attributes.key?(:'custom_fields')
+        if (value = attributes[:'custom_fields']).is_a?(Array)
+          self.custom_fields = value
+        end
       end
 
       if attributes.key?(:'description')
@@ -170,12 +194,22 @@ module Falcon
       if attributes.key?(:'template')
         self.template = attributes[:'template']
       end
+
+      if attributes.key?(:'templates')
+        if (value = attributes[:'templates']).is_a?(Array)
+          self.templates = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @assigned_to_group_ids.nil?
+        invalid_properties.push('invalid value for "assigned_to_group_ids", assigned_to_group_ids cannot be nil.')
+      end
+
       if @assigned_to_user_uuid.nil?
         invalid_properties.push('invalid value for "assigned_to_user_uuid", assigned_to_user_uuid cannot be nil.')
       end
@@ -210,6 +244,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @assigned_to_group_ids.nil?
       return false if @assigned_to_user_uuid.nil?
       return false if @description.nil?
       return false if @evidence.nil?
@@ -226,7 +261,9 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           access_tags == o.access_tags &&
+          assigned_to_group_ids == o.assigned_to_group_ids &&
           assigned_to_user_uuid == o.assigned_to_user_uuid &&
+          custom_fields == o.custom_fields &&
           description == o.description &&
           description_format == o.description_format &&
           description_tagged_users == o.description_tagged_users &&
@@ -236,7 +273,8 @@ module Falcon
           severity_info == o.severity_info &&
           status == o.status &&
           tags == o.tags &&
-          template == o.template
+          template == o.template &&
+          templates == o.templates
     end
 
     # @see the `==` method
@@ -248,7 +286,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_tags, assigned_to_user_uuid, description, description_format, description_tagged_users, evidence, name, severity, severity_info, status, tags, template].hash
+      [access_tags, assigned_to_group_ids, assigned_to_user_uuid, custom_fields, description, description_format, description_tagged_users, evidence, name, severity, severity_info, status, tags, template, templates].hash
     end
 
     # Builds the object from hash

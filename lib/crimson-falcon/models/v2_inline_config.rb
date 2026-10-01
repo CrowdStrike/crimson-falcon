@@ -55,8 +55,8 @@ module Falcon
     def self.openapi_types
       {
         :'config' => :'Object',
-        :'input_schema' => :'JsonschemaSchema',
-        :'output_schema' => :'JsonschemaSchema'
+        :'input_schema' => :'String',
+        :'output_schema' => :'String'
       }
     end
 

@@ -53,6 +53,12 @@ describe Falcon::SadomainCreateRuleRequestV1 do
     end
   end
 
+  describe 'test attribute "exposed_data_match_type"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "filter"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -89,6 +95,12 @@ describe Falcon::SadomainCreateRuleRequestV1 do
     end
   end
 
+  describe 'test attribute "pir_ids"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "priority"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -102,6 +114,12 @@ describe Falcon::SadomainCreateRuleRequestV1 do
   end
 
   describe 'test attribute "topic"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "tsq_match_edit_distance"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

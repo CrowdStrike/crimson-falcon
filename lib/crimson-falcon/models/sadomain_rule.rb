@@ -45,6 +45,8 @@ module Falcon
     # The creation time for a given rule
     attr_accessor :created_timestamp
 
+    attr_accessor :exposed_data_match_type
+
     # The FQL filter contained in a rule and used for searching. Parentheses may be added automatically for clarity
     attr_accessor :filter
 
@@ -68,6 +70,9 @@ module Falcon
     # The permissions for a given rule which specifies the rule's access by other users. Possible values: [`public (All Recon users)`, `private (Recon admins)`]
     attr_accessor :permissions
 
+    # The PIR IDs associated with the rule
+    attr_accessor :pir_ids
+
     # The priority of a given rule
     attr_accessor :priority
 
@@ -84,6 +89,9 @@ module Falcon
 
     # The topic of a given rule. Possible values: [`SA_BRAND_PRODUCT (Brands and products)`, `SA_VIP (High-profile-employees)`, `SA_THIRD_PARTY (Supply chain vendors)`, `SA_IP (IP addresses)`, `SA_CVE (Vulnerabilities (CVEs))`, `SA_BIN (Bank identification numbers (BINs))`, `SA_DOMAIN (Company domains)`, `SA_EMAIL (Email addresses)`, `SA_ALIAS (Company names)`, `SA_AUTHOR (Authors)`, `SA_CUSTOM (Custom)`, `SA_TYPOSQUATTING (Typosquatting)`]
     attr_accessor :topic
+
+    # The edit distance to be used with the loosely_matches(~) filter operator(eg: typosquatting_term:~'yourdomain') in the context of Typosquatting topic rules. Possible values: [`auto`, `1`, `2`]. Not permitted with other rule topics and/or operators.
+    attr_accessor :tsq_match_edit_distance
 
     # The last updated time for a given rule
     attr_accessor :updated_timestamp
@@ -105,6 +113,7 @@ module Falcon
         :'cid' => :'cid',
         :'created_by' => :'created_by',
         :'created_timestamp' => :'created_timestamp',
+        :'exposed_data_match_type' => :'exposed_data_match_type',
         :'filter' => :'filter',
         :'id' => :'id',
         :'lookback_period' => :'lookback_period',
@@ -113,12 +122,14 @@ module Falcon
         :'originating_template_id' => :'originating_template_id',
         :'ownership_assets' => :'ownership_assets',
         :'permissions' => :'permissions',
+        :'pir_ids' => :'pir_ids',
         :'priority' => :'priority',
         :'status' => :'status',
         :'status_message' => :'status_message',
         :'substring_matching_enabled' => :'substring_matching_enabled',
         :'template_priority' => :'template_priority',
         :'topic' => :'topic',
+        :'tsq_match_edit_distance' => :'tsq_match_edit_distance',
         :'updated_timestamp' => :'updated_timestamp',
         :'user_id' => :'user_id',
         :'user_name' => :'user_name',
@@ -139,6 +150,7 @@ module Falcon
         :'cid' => :'String',
         :'created_by' => :'String',
         :'created_timestamp' => :'Time',
+        :'exposed_data_match_type' => :'String',
         :'filter' => :'String',
         :'id' => :'String',
         :'lookback_period' => :'Integer',
@@ -147,12 +159,14 @@ module Falcon
         :'originating_template_id' => :'String',
         :'ownership_assets' => :'SadomainCustomerAssets',
         :'permissions' => :'String',
+        :'pir_ids' => :'Array<String>',
         :'priority' => :'String',
         :'status' => :'String',
         :'status_message' => :'String',
         :'substring_matching_enabled' => :'Boolean',
         :'template_priority' => :'Integer',
         :'topic' => :'String',
+        :'tsq_match_edit_distance' => :'String',
         :'updated_timestamp' => :'Time',
         :'user_id' => :'String',
         :'user_name' => :'String',
@@ -201,6 +215,10 @@ module Falcon
         self.created_timestamp = attributes[:'created_timestamp']
       end
 
+      if attributes.key?(:'exposed_data_match_type')
+        self.exposed_data_match_type = attributes[:'exposed_data_match_type']
+      end
+
       if attributes.key?(:'filter')
         self.filter = attributes[:'filter']
       end
@@ -235,6 +253,12 @@ module Falcon
         self.permissions = attributes[:'permissions']
       end
 
+      if attributes.key?(:'pir_ids')
+        if (value = attributes[:'pir_ids']).is_a?(Array)
+          self.pir_ids = value
+        end
+      end
+
       if attributes.key?(:'priority')
         self.priority = attributes[:'priority']
       end
@@ -257,6 +281,10 @@ module Falcon
 
       if attributes.key?(:'topic')
         self.topic = attributes[:'topic']
+      end
+
+      if attributes.key?(:'tsq_match_edit_distance')
+        self.tsq_match_edit_distance = attributes[:'tsq_match_edit_distance']
       end
 
       if attributes.key?(:'updated_timestamp')
@@ -316,6 +344,10 @@ module Falcon
         invalid_properties.push('invalid value for "permissions", permissions cannot be nil.')
       end
 
+      if @pir_ids.nil?
+        invalid_properties.push('invalid value for "pir_ids", pir_ids cannot be nil.')
+      end
+
       if @priority.nil?
         invalid_properties.push('invalid value for "priority", priority cannot be nil.')
       end
@@ -355,6 +387,7 @@ module Falcon
       return false if @match_on_tsq_result_types.nil?
       return false if @name.nil?
       return false if @permissions.nil?
+      return false if @pir_ids.nil?
       return false if @priority.nil?
       return false if @status.nil?
       return false if @substring_matching_enabled.nil?
@@ -374,6 +407,7 @@ module Falcon
           cid == o.cid &&
           created_by == o.created_by &&
           created_timestamp == o.created_timestamp &&
+          exposed_data_match_type == o.exposed_data_match_type &&
           filter == o.filter &&
           id == o.id &&
           lookback_period == o.lookback_period &&
@@ -382,12 +416,14 @@ module Falcon
           originating_template_id == o.originating_template_id &&
           ownership_assets == o.ownership_assets &&
           permissions == o.permissions &&
+          pir_ids == o.pir_ids &&
           priority == o.priority &&
           status == o.status &&
           status_message == o.status_message &&
           substring_matching_enabled == o.substring_matching_enabled &&
           template_priority == o.template_priority &&
           topic == o.topic &&
+          tsq_match_edit_distance == o.tsq_match_edit_distance &&
           updated_timestamp == o.updated_timestamp &&
           user_id == o.user_id &&
           user_name == o.user_name &&
@@ -403,7 +439,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [breach_monitor_only, breach_monitoring_enabled, cid, created_by, created_timestamp, filter, id, lookback_period, match_on_tsq_result_types, name, originating_template_id, ownership_assets, permissions, priority, status, status_message, substring_matching_enabled, template_priority, topic, updated_timestamp, user_id, user_name, user_uuid].hash
+      [breach_monitor_only, breach_monitoring_enabled, cid, created_by, created_timestamp, exposed_data_match_type, filter, id, lookback_period, match_on_tsq_result_types, name, originating_template_id, ownership_assets, permissions, pir_ids, priority, status, status_message, substring_matching_enabled, template_priority, topic, tsq_match_edit_distance, updated_timestamp, user_id, user_name, user_uuid].hash
     end
 
     # Builds the object from hash

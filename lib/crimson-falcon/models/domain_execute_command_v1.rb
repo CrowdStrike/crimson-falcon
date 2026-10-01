@@ -48,6 +48,8 @@ module Falcon
     # The specific operation to execute.
     attr_accessor :operation_id
 
+    attr_accessor :redirect
+
     attr_accessor :request
 
     # The version of the definition to execute.
@@ -62,6 +64,7 @@ module Falcon
         :'definition_id' => :'definition_id',
         :'id' => :'id',
         :'operation_id' => :'operation_id',
+        :'redirect' => :'redirect',
         :'request' => :'request',
         :'version' => :'version'
       }
@@ -81,6 +84,7 @@ module Falcon
         :'definition_id' => :'String',
         :'id' => :'String',
         :'operation_id' => :'String',
+        :'redirect' => :'DomainRedirect',
         :'request' => :'DomainRequest',
         :'version' => :'Integer'
       }
@@ -129,6 +133,10 @@ module Falcon
 
       if attributes.key?(:'operation_id')
         self.operation_id = attributes[:'operation_id']
+      end
+
+      if attributes.key?(:'redirect')
+        self.redirect = attributes[:'redirect']
       end
 
       if attributes.key?(:'request')
@@ -199,6 +207,7 @@ module Falcon
           definition_id == o.definition_id &&
           id == o.id &&
           operation_id == o.operation_id &&
+          redirect == o.redirect &&
           request == o.request &&
           version == o.version
     end
@@ -212,7 +221,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [config, config_auth_type, config_id, definition_id, id, operation_id, request, version].hash
+      [config, config_auth_type, config_id, definition_id, id, operation_id, redirect, request, version].hash
     end
 
     # Builds the object from hash

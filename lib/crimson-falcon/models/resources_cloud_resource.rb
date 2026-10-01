@@ -79,6 +79,8 @@ module Falcon
 
     attr_accessor :id
 
+    attr_accessor :infrastructure_provider
+
     attr_accessor :location
 
     attr_accessor :organization_id
@@ -162,6 +164,7 @@ module Falcon
         :'groups' => :'groups',
         :'hash' => :'hash',
         :'id' => :'id',
+        :'infrastructure_provider' => :'infrastructure_provider',
         :'location' => :'location',
         :'organization_id' => :'organization_id',
         :'parent' => :'parent',
@@ -225,6 +228,7 @@ module Falcon
         :'groups' => :'Array<String>',
         :'hash' => :'String',
         :'id' => :'String',
+        :'infrastructure_provider' => :'String',
         :'location' => :'String',
         :'organization_id' => :'String',
         :'parent' => :'String',
@@ -379,6 +383,10 @@ module Falcon
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'infrastructure_provider')
+        self.infrastructure_provider = attributes[:'infrastructure_provider']
       end
 
       if attributes.key?(:'location')
@@ -542,6 +550,7 @@ module Falcon
           groups == o.groups &&
           hash == o.hash &&
           id == o.id &&
+          infrastructure_provider == o.infrastructure_provider &&
           location == o.location &&
           organization_id == o.organization_id &&
           parent == o.parent &&
@@ -581,7 +590,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_name, active, arn, category, cid, cloud_context, cloud_groups, cloud_groups_v2, cloud_labels, cloud_provider, cluster_id, cluster_name, compartment_name, compartment_ocid, compartment_path, configuration, configuration_metadata, creation_time, first_seen, gcrn, groups, @hash, id, location, organization_id, parent, project_id, project_number, region, relationships, resource_group, resource_id, resource_name, resource_number, resource_type, resource_type_name, resource_url, revision, service, service_category, status, subscription_id, supplementary_configuration, tags, tenancy_name, tenancy_ocid, tenancy_type, tenant_id, updated_at, zone, zones].hash
+      [account_id, account_name, active, arn, category, cid, cloud_context, cloud_groups, cloud_groups_v2, cloud_labels, cloud_provider, cluster_id, cluster_name, compartment_name, compartment_ocid, compartment_path, configuration, configuration_metadata, creation_time, first_seen, gcrn, groups, @hash, id, infrastructure_provider, location, organization_id, parent, project_id, project_number, region, relationships, resource_group, resource_id, resource_name, resource_number, resource_type, resource_type_name, resource_url, revision, service, service_category, status, subscription_id, supplementary_configuration, tags, tenancy_name, tenancy_ocid, tenancy_type, tenant_id, updated_at, zone, zones].hash
     end
 
     # Builds the object from hash

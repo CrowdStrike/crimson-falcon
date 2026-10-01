@@ -71,6 +71,12 @@ describe Falcon::DtoCreateGCPRegistrationRequest do
     end
   end
 
+  describe 'test attribute "existing_wif_pool_id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "falcon_client_key_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

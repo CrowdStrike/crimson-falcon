@@ -317,6 +317,12 @@ describe Falcon::JsonschemaSubSchema do
     end
   end
 
+  describe 'test attribute "x_cs_depends_on"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "x_cs_do_not_hide"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -324,6 +330,12 @@ describe Falcon::JsonschemaSubSchema do
   end
 
   describe 'test attribute "x_cs_error_message"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "x_cs_extensible_enum"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -426,6 +438,18 @@ describe Falcon::JsonschemaSubSchema do
   end
 
   describe 'test attribute "x_cs_ucl_cid_specific"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "x_cs_ucl_key_value_display"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "x_cs_ucl_key_value_display_order"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

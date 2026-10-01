@@ -33,6 +33,8 @@ module Falcon
   class CommonUpdateRuleRequest
     attr_accessor :alert_info
 
+    attr_accessor :annotation_status
+
     attr_accessor :attack_types
 
     attr_accessor :category
@@ -53,6 +55,7 @@ module Falcon
     def self.attribute_map
       {
         :'alert_info' => :'alert_info',
+        :'annotation_status' => :'annotation_status',
         :'attack_types' => :'attack_types',
         :'category' => :'category',
         :'controls' => :'controls',
@@ -73,6 +76,7 @@ module Falcon
     def self.openapi_types
       {
         :'alert_info' => :'String',
+        :'annotation_status' => :'String',
         :'attack_types' => :'Array<String>',
         :'category' => :'String',
         :'controls' => :'Array<ApimodelsControlReference>',
@@ -107,6 +111,10 @@ module Falcon
 
       if attributes.key?(:'alert_info')
         self.alert_info = attributes[:'alert_info']
+      end
+
+      if attributes.key?(:'annotation_status')
+        self.annotation_status = attributes[:'annotation_status']
       end
 
       if attributes.key?(:'attack_types')
@@ -172,6 +180,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           alert_info == o.alert_info &&
+          annotation_status == o.annotation_status &&
           attack_types == o.attack_types &&
           category == o.category &&
           controls == o.controls &&
@@ -191,7 +200,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alert_info, attack_types, category, controls, description, name, rule_logic_list, severity, uuid].hash
+      [alert_info, annotation_status, attack_types, category, controls, description, name, rule_logic_list, severity, uuid].hash
     end
 
     # Builds the object from hash

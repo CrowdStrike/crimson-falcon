@@ -185,24 +185,6 @@ describe 'Workflows' do
     end
   end
 
-  # unit tests for workflow_execute_internal
-  # Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)
-  # @param body
-  # @param [Hash] opts the optional parameters
-  # @option opts [Array<String>] :execution_cid CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
-  # @option opts [Array<String>] :definition_id Definition ID to execute, either a name or an ID can be specified.
-  # @option opts [String] :name Workflow name to execute, either a name or an ID can be specified.
-  # @option opts [String] :key Key used to help deduplicate executions, if unset a new UUID is used
-  # @option opts [Integer] :depth Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
-  # @option opts [Integer] :batch_size Used to set the batchSize, if unset the default batchSize is used
-  # @option opts [String] :source_event_url Used to record a URL to the source that led to triggering this workflow
-  # @return [ApiResourceIDsResponse]
-  describe 'workflow_execute_internal test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for workflow_execute_single_node_v1
   # Executes a single activity node, resulting in an execution where test_mode&#x3D;true and single_node_execution&#x3D;true, associated with a definition ID if provided
   # @param body
@@ -244,12 +226,13 @@ describe 'Workflows' do
   end
 
   # unit tests for workflow_executions_combined
-  # Search workflow executions based on the provided filter
+  # Search workflow executions based on the provided filter. Note: the &#39;entity&#39; filter matches associated entity values (e.g. hostnames, IPs, emails, detection IDs) by exact match; only the first 1024 characters of each entity value are indexed for filtering.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter FQL query specifying filter parameters.
   # @option opts [String] :offset Starting pagination offset of records to return.
   # @option opts [Integer] :limit Maximum number of records to return.
   # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+  # @option opts [Array<String>] :skip_fields Fields to omit from the response; valid values are (trigger, activities, flows, submodels). When specified, the corresponding node-level details are skipped.
   # @return [ApiExecutionResultsResponse]
   describe 'workflow_executions_combined test' do
     it 'should work' do

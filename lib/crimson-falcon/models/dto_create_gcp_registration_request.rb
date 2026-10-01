@@ -41,6 +41,8 @@ module Falcon
 
     attr_accessor :excluded_project_patterns
 
+    attr_accessor :existing_wif_pool_id
+
     attr_accessor :falcon_client_key_id
 
     attr_accessor :falcon_client_key_type
@@ -79,6 +81,7 @@ module Falcon
         :'dspm_settings' => :'dspm_settings',
         :'entity_id' => :'entity_id',
         :'excluded_project_patterns' => :'excluded_project_patterns',
+        :'existing_wif_pool_id' => :'existing_wif_pool_id',
         :'falcon_client_key_id' => :'falcon_client_key_id',
         :'falcon_client_key_type' => :'falcon_client_key_type',
         :'infra_manager_region' => :'infra_manager_region',
@@ -110,6 +113,7 @@ module Falcon
         :'dspm_settings' => :'GcpAgentlessScanningSettings',
         :'entity_id' => :'Array<String>',
         :'excluded_project_patterns' => :'Array<String>',
+        :'existing_wif_pool_id' => :'String',
         :'falcon_client_key_id' => :'String',
         :'falcon_client_key_type' => :'String',
         :'infra_manager_region' => :'String',
@@ -171,6 +175,10 @@ module Falcon
         if (value = attributes[:'excluded_project_patterns']).is_a?(Array)
           self.excluded_project_patterns = value
         end
+      end
+
+      if attributes.key?(:'existing_wif_pool_id')
+        self.existing_wif_pool_id = attributes[:'existing_wif_pool_id']
       end
 
       if attributes.key?(:'falcon_client_key_id')
@@ -293,6 +301,7 @@ module Falcon
           dspm_settings == o.dspm_settings &&
           entity_id == o.entity_id &&
           excluded_project_patterns == o.excluded_project_patterns &&
+          existing_wif_pool_id == o.existing_wif_pool_id &&
           falcon_client_key_id == o.falcon_client_key_id &&
           falcon_client_key_type == o.falcon_client_key_type &&
           infra_manager_region == o.infra_manager_region &&
@@ -319,7 +328,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [additional_properties, deployment_method, dspm_settings, entity_id, excluded_project_patterns, falcon_client_key_id, falcon_client_key_type, infra_manager_region, infra_project_id, labels, products, registration_description, registration_name, registration_scope, resource_name_prefix, resource_name_suffix, tags, vulnerability_scanning_settings, wif_project_id, wif_project_number].hash
+      [additional_properties, deployment_method, dspm_settings, entity_id, excluded_project_patterns, existing_wif_pool_id, falcon_client_key_id, falcon_client_key_type, infra_manager_region, infra_project_id, labels, products, registration_description, registration_name, registration_scope, resource_name_prefix, resource_name_suffix, tags, vulnerability_scanning_settings, wif_project_id, wif_project_number].hash
     end
 
     # Builds the object from hash

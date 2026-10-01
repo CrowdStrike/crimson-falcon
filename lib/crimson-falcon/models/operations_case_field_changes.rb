@@ -33,6 +33,8 @@ module Falcon
   class OperationsCaseFieldChanges
     attr_accessor :access_tags
 
+    attr_accessor :assigned_to_group_ids
+
     attr_accessor :assigned_to_user_uuid
 
     attr_accessor :custom_fields
@@ -44,6 +46,8 @@ module Falcon
     attr_accessor :description_tagged_users
 
     attr_accessor :name
+
+    attr_accessor :remove_group_assignment
 
     attr_accessor :remove_user_assignment
 
@@ -57,24 +61,29 @@ module Falcon
 
     attr_accessor :template
 
+    attr_accessor :templates
+
     attr_accessor :workflows
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'access_tags' => :'access_tags',
+        :'assigned_to_group_ids' => :'assigned_to_group_ids',
         :'assigned_to_user_uuid' => :'assigned_to_user_uuid',
         :'custom_fields' => :'custom_fields',
         :'description' => :'description',
         :'description_format' => :'description_format',
         :'description_tagged_users' => :'description_tagged_users',
         :'name' => :'name',
+        :'remove_group_assignment' => :'remove_group_assignment',
         :'remove_user_assignment' => :'remove_user_assignment',
         :'severity' => :'severity',
         :'severity_info' => :'severity_info',
         :'slas_active' => :'slas_active',
         :'status' => :'status',
         :'template' => :'template',
+        :'templates' => :'templates',
         :'workflows' => :'workflows'
       }
     end
@@ -88,18 +97,21 @@ module Falcon
     def self.openapi_types
       {
         :'access_tags' => :'Array<SdkCaseAccessTag>',
+        :'assigned_to_group_ids' => :'Array<String>',
         :'assigned_to_user_uuid' => :'String',
         :'custom_fields' => :'Array<SdkCustomField>',
         :'description' => :'String',
         :'description_format' => :'String',
         :'description_tagged_users' => :'Array<String>',
         :'name' => :'String',
+        :'remove_group_assignment' => :'Boolean',
         :'remove_user_assignment' => :'Boolean',
         :'severity' => :'Integer',
         :'severity_info' => :'SdkCaseSeverityInfoUpdate',
         :'slas_active' => :'Boolean',
         :'status' => :'String',
         :'template' => :'SdkTemplateSelector',
+        :'templates' => :'Array<SdkTemplateSelector>',
         :'workflows' => :'Array<SdkWorkflow>'
       }
     end
@@ -131,6 +143,12 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'assigned_to_group_ids')
+        if (value = attributes[:'assigned_to_group_ids']).is_a?(Array)
+          self.assigned_to_group_ids = value
+        end
+      end
+
       if attributes.key?(:'assigned_to_user_uuid')
         self.assigned_to_user_uuid = attributes[:'assigned_to_user_uuid']
       end
@@ -159,6 +177,10 @@ module Falcon
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'remove_group_assignment')
+        self.remove_group_assignment = attributes[:'remove_group_assignment']
+      end
+
       if attributes.key?(:'remove_user_assignment')
         self.remove_user_assignment = attributes[:'remove_user_assignment']
       end
@@ -183,6 +205,12 @@ module Falcon
         self.template = attributes[:'template']
       end
 
+      if attributes.key?(:'templates')
+        if (value = attributes[:'templates']).is_a?(Array)
+          self.templates = value
+        end
+      end
+
       if attributes.key?(:'workflows')
         if (value = attributes[:'workflows']).is_a?(Array)
           self.workflows = value
@@ -194,6 +222,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @assigned_to_group_ids.nil?
+        invalid_properties.push('invalid value for "assigned_to_group_ids", assigned_to_group_ids cannot be nil.')
+      end
+
       if @assigned_to_user_uuid.nil?
         invalid_properties.push('invalid value for "assigned_to_user_uuid", assigned_to_user_uuid cannot be nil.')
       end
@@ -208,6 +240,10 @@ module Falcon
 
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @remove_group_assignment.nil?
+        invalid_properties.push('invalid value for "remove_group_assignment", remove_group_assignment cannot be nil.')
       end
 
       if @remove_user_assignment.nil?
@@ -236,10 +272,12 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @assigned_to_group_ids.nil?
       return false if @assigned_to_user_uuid.nil?
       return false if @custom_fields.nil?
       return false if @description.nil?
       return false if @name.nil?
+      return false if @remove_group_assignment.nil?
       return false if @remove_user_assignment.nil?
       return false if @severity.nil?
       return false if @severity_info.nil?
@@ -254,18 +292,21 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           access_tags == o.access_tags &&
+          assigned_to_group_ids == o.assigned_to_group_ids &&
           assigned_to_user_uuid == o.assigned_to_user_uuid &&
           custom_fields == o.custom_fields &&
           description == o.description &&
           description_format == o.description_format &&
           description_tagged_users == o.description_tagged_users &&
           name == o.name &&
+          remove_group_assignment == o.remove_group_assignment &&
           remove_user_assignment == o.remove_user_assignment &&
           severity == o.severity &&
           severity_info == o.severity_info &&
           slas_active == o.slas_active &&
           status == o.status &&
           template == o.template &&
+          templates == o.templates &&
           workflows == o.workflows
     end
 
@@ -278,7 +319,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_tags, assigned_to_user_uuid, custom_fields, description, description_format, description_tagged_users, name, remove_user_assignment, severity, severity_info, slas_active, status, template, workflows].hash
+      [access_tags, assigned_to_group_ids, assigned_to_user_uuid, custom_fields, description, description_format, description_tagged_users, name, remove_group_assignment, remove_user_assignment, severity, severity_info, slas_active, status, template, templates, workflows].hash
     end
 
     # Builds the object from hash

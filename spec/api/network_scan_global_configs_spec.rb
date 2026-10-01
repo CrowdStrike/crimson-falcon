@@ -52,7 +52,7 @@ describe 'NetworkScanGlobalConfigs' do
   # Get \&quot;global-configs\&quot; for the CID
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_useruuid User UUID
-  # @return [DomainGlobalConfigEntitiesResponse]
+  # @return [NvaapiGlobalConfigEntitiesResponse]
   describe 'get_global_configs test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -64,7 +64,7 @@ describe 'NetworkScanGlobalConfigs' do
   # @param body \&quot;global-configs\&quot; specifications for updating
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_useruuid User UUID
-  # @return [DomainGlobalConfigEntitiesResponse]
+  # @return [NvaapiGlobalConfigEntitiesResponse]
   describe 'update_global_configs test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

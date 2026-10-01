@@ -215,6 +215,12 @@ describe Falcon::DtoGCPRegistration do
     end
   end
 
+  describe 'test attribute "wif_pool_registration_id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "wif_properties"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

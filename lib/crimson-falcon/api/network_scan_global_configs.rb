@@ -38,7 +38,7 @@ module Falcon
     # Get \"global-configs\" for the CID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainGlobalConfigEntitiesResponse]
+    # @return [NvaapiGlobalConfigEntitiesResponse]
     def get_global_configs(opts = {})
       data, _status_code, _headers = get_global_configs_with_http_info(opts)
       data
@@ -47,7 +47,7 @@ module Falcon
     # Get \&quot;global-configs\&quot; for the CID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainGlobalConfigEntitiesResponse, Integer, Hash)>] DomainGlobalConfigEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiGlobalConfigEntitiesResponse, Integer, Hash)>] NvaapiGlobalConfigEntitiesResponse data, response status code and response headers
     def get_global_configs_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanGlobalConfigs.get_global_configs ...'
@@ -71,7 +71,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainGlobalConfigEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiGlobalConfigEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -94,20 +94,20 @@ module Falcon
     end
 
     # Update \"global-configs\" using provided specifications
-    # @param body [DomainGlobalConfigUpdateRequest] \&quot;global-configs\&quot; specifications for updating
+    # @param body [NvaapiGlobalConfigUpdateRequest] \&quot;global-configs\&quot; specifications for updating
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainGlobalConfigEntitiesResponse]
+    # @return [NvaapiGlobalConfigEntitiesResponse]
     def update_global_configs(body, opts = {})
       data, _status_code, _headers = update_global_configs_with_http_info(body, opts)
       data
     end
 
     # Update \&quot;global-configs\&quot; using provided specifications
-    # @param body [DomainGlobalConfigUpdateRequest] \&quot;global-configs\&quot; specifications for updating
+    # @param body [NvaapiGlobalConfigUpdateRequest] \&quot;global-configs\&quot; specifications for updating
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainGlobalConfigEntitiesResponse, Integer, Hash)>] DomainGlobalConfigEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiGlobalConfigEntitiesResponse, Integer, Hash)>] NvaapiGlobalConfigEntitiesResponse data, response status code and response headers
     def update_global_configs_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanGlobalConfigs.update_global_configs ...'
@@ -140,7 +140,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainGlobalConfigEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiGlobalConfigEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

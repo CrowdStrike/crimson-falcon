@@ -33,6 +33,8 @@ module Falcon
   class ApiAgentInvocationResponseResource
     attr_accessor :ai_trace_id
 
+    attr_accessor :budget_approvals
+
     attr_accessor :compaction
 
     attr_accessor :conversation
@@ -47,6 +49,7 @@ module Falcon
     def self.attribute_map
       {
         :'ai_trace_id' => :'ai_trace_id',
+        :'budget_approvals' => :'budget_approvals',
         :'compaction' => :'compaction',
         :'conversation' => :'conversation',
         :'id' => :'id',
@@ -64,6 +67,7 @@ module Falcon
     def self.openapi_types
       {
         :'ai_trace_id' => :'String',
+        :'budget_approvals' => :'Array<ApiBudgetApproval>',
         :'compaction' => :'ApiCompactionMetadata',
         :'conversation' => :'Array<ApiMessage>',
         :'id' => :'String',
@@ -95,6 +99,12 @@ module Falcon
 
       if attributes.key?(:'ai_trace_id')
         self.ai_trace_id = attributes[:'ai_trace_id']
+      end
+
+      if attributes.key?(:'budget_approvals')
+        if (value = attributes[:'budget_approvals']).is_a?(Array)
+          self.budget_approvals = value
+        end
       end
 
       if attributes.key?(:'compaction')
@@ -146,6 +156,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           ai_trace_id == o.ai_trace_id &&
+          budget_approvals == o.budget_approvals &&
           compaction == o.compaction &&
           conversation == o.conversation &&
           id == o.id &&
@@ -162,7 +173,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ai_trace_id, compaction, conversation, id, status, tool_approvals].hash
+      [ai_trace_id, budget_approvals, compaction, conversation, id, status, tool_approvals].hash
     end
 
     # Builds the object from hash

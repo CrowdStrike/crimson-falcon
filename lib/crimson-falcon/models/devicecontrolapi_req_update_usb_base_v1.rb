@@ -47,9 +47,6 @@ module Falcon
     # Enforcement for Windows Storage Spaces (omit to keep current).
     attr_accessor :storage_space_enforcement_mode
 
-    # Enforcement mode for User Based exceptions
-    attr_accessor :user_based_enforcement_mode
-
     # Determines if the policy will include whitelist exceptions
     attr_accessor :whitelist_mode
 
@@ -84,7 +81,6 @@ module Falcon
         :'enhanced_file_metadata' => :'enhanced_file_metadata',
         :'pcie_enforcement_mode' => :'pcie_enforcement_mode',
         :'storage_space_enforcement_mode' => :'storage_space_enforcement_mode',
-        :'user_based_enforcement_mode' => :'user_based_enforcement_mode',
         :'whitelist_mode' => :'whitelist_mode'
       }
     end
@@ -103,7 +99,6 @@ module Falcon
         :'enhanced_file_metadata' => :'Boolean',
         :'pcie_enforcement_mode' => :'String',
         :'storage_space_enforcement_mode' => :'String',
-        :'user_based_enforcement_mode' => :'String',
         :'whitelist_mode' => :'String'
       }
     end
@@ -153,10 +148,6 @@ module Falcon
         self.storage_space_enforcement_mode = attributes[:'storage_space_enforcement_mode']
       end
 
-      if attributes.key?(:'user_based_enforcement_mode')
-        self.user_based_enforcement_mode = attributes[:'user_based_enforcement_mode']
-      end
-
       if attributes.key?(:'whitelist_mode')
         self.whitelist_mode = attributes[:'whitelist_mode']
       end
@@ -180,8 +171,6 @@ module Falcon
       return false unless pcie_enforcement_mode_validator.valid?(@pcie_enforcement_mode)
       storage_space_enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
       return false unless storage_space_enforcement_mode_validator.valid?(@storage_space_enforcement_mode)
-      user_based_enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
-      return false unless user_based_enforcement_mode_validator.valid?(@user_based_enforcement_mode)
       whitelist_mode_validator = EnumAttributeValidator.new('String', ["ENABLE_ALWAYS", "DISABLE_VIRTUAL"])
       return false unless whitelist_mode_validator.valid?(@whitelist_mode)
       true
@@ -228,16 +217,6 @@ module Falcon
     end
 
     # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] user_based_enforcement_mode Object to be assigned
-    def user_based_enforcement_mode=(user_based_enforcement_mode)
-      validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
-      unless validator.valid?(user_based_enforcement_mode)
-        fail ArgumentError, "invalid value for \"user_based_enforcement_mode\", must be one of #{validator.allowable_values}."
-      end
-      @user_based_enforcement_mode = user_based_enforcement_mode
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
     # @param [Object] whitelist_mode Object to be assigned
     def whitelist_mode=(whitelist_mode)
       validator = EnumAttributeValidator.new('String', ["ENABLE_ALWAYS", "DISABLE_VIRTUAL"])
@@ -258,7 +237,6 @@ module Falcon
           enhanced_file_metadata == o.enhanced_file_metadata &&
           pcie_enforcement_mode == o.pcie_enforcement_mode &&
           storage_space_enforcement_mode == o.storage_space_enforcement_mode &&
-          user_based_enforcement_mode == o.user_based_enforcement_mode &&
           whitelist_mode == o.whitelist_mode
     end
 
@@ -271,7 +249,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_notifications, end_user_notification, enforcement_mode, enhanced_file_metadata, pcie_enforcement_mode, storage_space_enforcement_mode, user_based_enforcement_mode, whitelist_mode].hash
+      [custom_notifications, end_user_notification, enforcement_mode, enhanced_file_metadata, pcie_enforcement_mode, storage_space_enforcement_mode, whitelist_mode].hash
     end
 
     # Builds the object from hash

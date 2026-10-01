@@ -31,7 +31,7 @@ require 'time'
 
 module Falcon
   class DevicecontrolapiIdentityV1
-    # Domain name the id belongs to
+    # Domain name the id belongs to. Not required for well-known SIDs.
     attr_accessor :domain
 
     # ID of the user or group

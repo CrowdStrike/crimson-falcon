@@ -96,6 +96,7 @@ describe 'Hosts' do
   # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :disable_hostname_check Bool to disable hostname check on add-member
+  # @option opts [Boolean] :skip_membership_validation Skip membership validation on remove (allows removing unmatched hosts)
   # @return [DeviceapiGroupsResponseV1]
   describe 'entities_perform_action test' do
     it 'should work' do
@@ -188,7 +189,7 @@ describe 'Hosts' do
   end
 
   # unit tests for query_devices_by_filter_scroll
-  # Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
+  # Deprecated: Please use the GET /devices/combined/devices/v1 endpoint. Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
   # @param [Hash] opts the optional parameters
   # @option opts [String] :offset The offset to page from, provided from the previous scroll call, for the next result set. For the first call, do not supply an offset.
   # @option opts [Integer] :limit The maximum records to return. [1-10000]

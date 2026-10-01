@@ -43,6 +43,8 @@ module Falcon
 
     attr_accessor :browser_extension
 
+    attr_accessor :cloud_container_workload
+
     attr_accessor :cloud_ml
 
     attr_accessor :consumer_subscription
@@ -110,6 +112,7 @@ module Falcon
         :'automox' => :'automox',
         :'aws_verified_access' => :'aws-verified-access',
         :'browser_extension' => :'browser-extension',
+        :'cloud_container_workload' => :'cloud-container-workload',
         :'cloud_ml' => :'cloud-ml',
         :'consumer_subscription' => :'consumer-subscription',
         :'content_update' => :'content-update',
@@ -156,6 +159,7 @@ module Falcon
         :'automox' => :'DeviceDevicePolicy',
         :'aws_verified_access' => :'DeviceDevicePolicy',
         :'browser_extension' => :'DeviceDevicePolicy',
+        :'cloud_container_workload' => :'DeviceDevicePolicy',
         :'cloud_ml' => :'DeviceDevicePolicy',
         :'consumer_subscription' => :'DeviceDevicePolicy',
         :'content_update' => :'DeviceDevicePolicy',
@@ -231,6 +235,10 @@ module Falcon
 
       if attributes.key?(:'browser_extension')
         self.browser_extension = attributes[:'browser_extension']
+      end
+
+      if attributes.key?(:'cloud_container_workload')
+        self.cloud_container_workload = attributes[:'cloud_container_workload']
       end
 
       if attributes.key?(:'cloud_ml')
@@ -374,6 +382,7 @@ module Falcon
           automox == o.automox &&
           aws_verified_access == o.aws_verified_access &&
           browser_extension == o.browser_extension &&
+          cloud_container_workload == o.cloud_container_workload &&
           cloud_ml == o.cloud_ml &&
           consumer_subscription == o.consumer_subscription &&
           content_update == o.content_update &&
@@ -414,7 +423,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aidr, airlock, application_abuse_prevention, automox, aws_verified_access, browser_extension, cloud_ml, consumer_subscription, content_update, customer_entitlements, data_protection, data_protection_cloud, device_control, exposure_management, fem_browser_extension_control, fim, firewall, global_config, host_retention, identity_endpoint, identity_protection, it_automation, jumpcloud, kubernetes_admission_control, logscale_collector, mobile, netskope, network_scan_content, prevention, remote_response, sca, sensor_update, system_tray, vulnerability_management, ztl].hash
+      [aidr, airlock, application_abuse_prevention, automox, aws_verified_access, browser_extension, cloud_container_workload, cloud_ml, consumer_subscription, content_update, customer_entitlements, data_protection, data_protection_cloud, device_control, exposure_management, fem_browser_extension_control, fim, firewall, global_config, host_retention, identity_endpoint, identity_protection, it_automation, jumpcloud, kubernetes_admission_control, logscale_collector, mobile, netskope, network_scan_content, prevention, remote_response, sca, sensor_update, system_tray, vulnerability_management, ztl].hash
     end
 
     # Builds the object from hash

@@ -48,6 +48,72 @@ describe 'Ngsiem' do
     end
   end
 
+  # unit tests for add_dashboard_labels
+  # Add multiple labels to a single dashboard
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiLabelResponseV1]
+  describe 'add_dashboard_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for add_file_labels
+  # Add multiple labels to a single file
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiFileLabelResponseV1]
+  describe 'add_file_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for add_saved_query_labels
+  # Add multiple labels to a saved query
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiLabelResponseV1]
+  describe 'add_saved_query_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_add_dashboard_labels
+  # Add labels to multiple dashboards (max 100 items, non-transactional)
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkDashboardLabelsResponseV1]
+  describe 'bulk_add_dashboard_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_add_lookup_file_labels
+  # Add labels to multiple lookup files (max 100 items, non-transactional)
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkLookupFileLabelsResponseV1]
+  describe 'bulk_add_lookup_file_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_add_saved_query_labels
+  # Add labels to multiple saved queries (max 100 items, non-transactional)
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkSavedQueryLabelsResponseV1]
+  describe 'bulk_add_saved_query_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for bulk_create_dashboards_from_template
   # Create Multiple Dashboards from YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
   # @param body
@@ -65,6 +131,17 @@ describe 'Ngsiem' do
   # @param [Hash] opts the optional parameters
   # @return [ApiBulkCreateLookupFilesResponseV1]
   describe 'bulk_create_lookup_files test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_create_persisted_aggregations
+  # Create Multiple Persisted Aggregations. Processes all items and returns per-item success/failure results
+  # @param body bulk create persisted aggregations request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkCreatePersistedAggregationsResponseV1]
+  describe 'bulk_create_persisted_aggregations test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -104,12 +181,67 @@ describe 'Ngsiem' do
     end
   end
 
+  # unit tests for bulk_remove_dashboard_labels
+  # Remove labels from multiple dashboards (max 100 items, non-transactional)
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkDashboardLabelsResponseV1]
+  describe 'bulk_remove_dashboard_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_remove_lookup_file_labels
+  # Remove labels from multiple lookup files (max 100 items, non-transactional)
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkLookupFileLabelsResponseV1]
+  describe 'bulk_remove_lookup_file_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_remove_saved_query_labels
+  # Remove labels from multiple saved queries (max 100 items, non-transactional)
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkSavedQueryLabelsResponseV1]
+  describe 'bulk_remove_saved_query_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_update_dashboard_labels
+  # Replace all labels on multiple dashboards (max 100 items, non-transactional)
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkDashboardLabelsResponseV1]
+  describe 'bulk_update_dashboard_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for bulk_update_dashboards_from_template
   # Update Multiple Dashboards from YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
   # @param body
   # @param [Hash] opts the optional parameters
   # @return [ApiBulkUpdateDashboardsFromTemplateResponseV1]
   describe 'bulk_update_dashboards_from_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_update_lookup_file_labels
+  # Replace all labels on multiple lookup files (max 100 items, non-transactional)
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkLookupFileLabelsResponseV1]
+  describe 'bulk_update_lookup_file_labels test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -126,12 +258,34 @@ describe 'Ngsiem' do
     end
   end
 
+  # unit tests for bulk_update_persisted_aggregations
+  # Update Multiple Persisted Aggregations. Processes all items and returns per-item success/failure results
+  # @param body bulk update persisted aggregations request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkUpdatePersistedAggregationsResponseV1]
+  describe 'bulk_update_persisted_aggregations test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for bulk_update_saved_queries_from_template
   # Update Multiple Saved Queries from LogScale YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
   # @param body bulk update saved queries request
   # @param [Hash] opts the optional parameters
   # @return [ApiBulkUpdateSavedQueriesFromTemplateResponseV1]
   describe 'bulk_update_saved_queries_from_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for bulk_update_saved_query_labels
+  # Replace all labels on multiple saved queries (max 100 items, non-transactional)
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiBulkSavedQueryLabelsResponseV1]
+  describe 'bulk_update_saved_query_labels test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -208,6 +362,17 @@ describe 'Ngsiem' do
     end
   end
 
+  # unit tests for create_persisted_aggregation
+  # Create a Persisted Aggregation in LogScale
+  # @param body create persisted aggregation request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiCreatePersistedAggregationResponseV1]
+  describe 'create_persisted_aggregation test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for create_saved_query
   # Create Saved Query from LogScale YAML Template in NGSIEM
   # @param [Hash] opts the optional parameters
@@ -215,6 +380,17 @@ describe 'Ngsiem' do
   # @option opts [File] :yaml_template LogScale Saved Query YAML template content, see schema at https://schemas.humio.com/
   # @return [ApiCreateSavedQueryResponseV1]
   describe 'create_saved_query test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for create_scheduled_report
+  # Create a Scheduled Report in LogScale
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiCreateScheduledReportResponseV1]
+  describe 'create_scheduled_report test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -256,6 +432,18 @@ describe 'Ngsiem' do
     end
   end
 
+  # unit tests for delete_persisted_aggregation
+  # Delete one or more Persisted Aggregations by ID
+  # @param ids Persisted aggregation ID(s) to delete. Supports single or multiple IDs.
+  # @param search_domain name of search domain (view or repo)
+  # @param [Hash] opts the optional parameters
+  # @return [ApiDeletePersistedAggregationResponseV1]
+  describe 'delete_persisted_aggregation test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for delete_saved_query
   # Delete Saved Query in NGSIEM
   # @param [Hash] opts the optional parameters
@@ -263,6 +451,18 @@ describe 'Ngsiem' do
   # @option opts [String] :search_domain name of search domain (view or repo)
   # @return [ApiDeleteSavedQueryResponseV1]
   describe 'delete_saved_query test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for delete_scheduled_report
+  # Delete Scheduled Report(s) in LogScale
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :ids scheduled report ID value(s). Supports single or multiple IDs for bulk delete.
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @return [ApiDeleteScheduledReportResponseV1]
+  describe 'delete_scheduled_report test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -507,6 +707,17 @@ describe 'Ngsiem' do
     end
   end
 
+  # unit tests for get_parser_rollback_options
+  # Retrieve available rollback versions for a parser. Returns a list of previous versions that the parser can be rolled back to, including version metadata, changelog, and author information.
+  # @param parser_id The unique identifier for the parser
+  # @param [Hash] opts the optional parameters
+  # @return [ApiGetParserRollbackOptionsResponseV1]
+  describe 'get_parser_rollback_options test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_parser_template
   # Retrieve Parser in NGSIEM as LogScale YAML Template
   # @param [Hash] opts the optional parameters
@@ -519,6 +730,18 @@ describe 'Ngsiem' do
     end
   end
 
+  # unit tests for get_persisted_aggregation
+  # Get a persisted aggregation by ID
+  # @param ids Persisted aggregation ID
+  # @param search_domain name of search domain (view or repo)
+  # @param [Hash] opts the optional parameters
+  # @return [ApiGetPersistedAggregationResponseV1]
+  describe 'get_persisted_aggregation test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_saved_query_template
   # Retrieve Saved Quer(ies) in NGSIEM as LogScale YAML Template. Supports single or multiple IDs.
   # @param [Hash] opts the optional parameters
@@ -526,6 +749,18 @@ describe 'Ngsiem' do
   # @option opts [String] :search_domain name of search domain (view or repo)
   # @return [ApiGetSavedQueryResponseV1]
   describe 'get_saved_query_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_scheduled_report
+  # Get Scheduled Report(s) in LogScale
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :ids scheduled report ID value(s)
+  # @option opts [String] :search_domain name of search domain (view or repo)
+  # @return [ApiGetScheduledReportResponseV1]
+  describe 'get_scheduled_report test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -598,6 +833,20 @@ describe 'Ngsiem' do
     end
   end
 
+  # unit tests for list_persisted_aggregations
+  # List persisted aggregations in a search domain with pagination
+  # @param search_domain name of search domain (view or repo)
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :limit maximum number of results to return
+  # @option opts [String] :offset number of results to offset the returned results by
+  # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+  # @return [ApiListPersistedAggregationsResponseV1]
+  describe 'list_persisted_aggregations test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for list_saved_queries
   # List Saved Queries in NGSIEM with Pagination and Filtering. Supports bulk listing with pagination (default limit: 50) and optional name filtering.
   # @param [Hash] opts the optional parameters
@@ -607,6 +856,64 @@ describe 'Ngsiem' do
   # @option opts [String] :search_domain name of search domain (view or repo)
   # @return [ApiListSavedQueriesResponseV1]
   describe 'list_saved_queries test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for list_scheduled_reports
+  # List Scheduled Reports in a view with Pagination and Filtering. Returns scheduled report details. Supports pagination (default limit: 50) and optional name filtering.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :limit maximum number of results to return
+  # @option opts [String] :offset number of results to offset the returned results by
+  # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+  # @option opts [String] :view_name name of view or repo
+  # @return [ApiListScheduledReportsResponseV1]
+  describe 'list_scheduled_reports test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for remove_dashboard_labels
+  # Remove multiple labels from a single dashboard
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiLabelResponseV1]
+  describe 'remove_dashboard_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for remove_file_labels
+  # Remove multiple labels from a single file
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiFileLabelResponseV1]
+  describe 'remove_file_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for remove_saved_query_labels
+  # Remove multiple labels from a saved query
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiLabelResponseV1]
+  describe 'remove_saved_query_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for rollback_parser
+  # Rollback a parser to a previously installed version. This operation changes the active parser version to a specified earlier version. The rollback is recorded in audit logs with the initiator&#39;s identity. Requires parser_id and target_version in the request body.
+  # @param body rollback parser request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiRollbackParserResponseV1]
+  describe 'rollback_parser test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -656,6 +963,28 @@ describe 'Ngsiem' do
   # @option opts [File] :yaml_template LogScale dashboard YAML template content, see schema at https://schemas.humio.com/
   # @return [ApiUpdateDashboardFromTemplateResponseV1]
   describe 'update_dashboard_from_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_dashboard_labels
+  # Replace all labels on a single dashboard
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiLabelResponseV1]
+  describe 'update_dashboard_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_file_labels
+  # Replace all labels on a single file
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiFileLabelResponseV1]
+  describe 'update_file_labels test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -736,6 +1065,17 @@ describe 'Ngsiem' do
     end
   end
 
+  # unit tests for update_persisted_aggregation
+  # Update a Persisted Aggregation. Supports renaming via currentName → newName
+  # @param body update persisted aggregation request
+  # @param [Hash] opts the optional parameters
+  # @return [ApiUpdatePersistedAggregationResponseV1]
+  describe 'update_persisted_aggregation test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for update_saved_query_from_template
   # Update Saved Query from LogScale YAML Template in NGSIEM.
   # @param [Hash] opts the optional parameters
@@ -744,6 +1084,28 @@ describe 'Ngsiem' do
   # @option opts [File] :yaml_template LogScale Saved Query YAML template content, see schema at https://schemas.humio.com/
   # @return [ApiUpdateSavedQueryResponseV1]
   describe 'update_saved_query_from_template test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_saved_query_labels
+  # Replace all labels on a single saved query
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiLabelResponseV1]
+  describe 'update_saved_query_labels test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_scheduled_report
+  # Update a Scheduled Report in LogScale
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiUpdateScheduledReportResponseV1]
+  describe 'update_scheduled_report test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

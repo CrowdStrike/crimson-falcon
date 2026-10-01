@@ -35,18 +35,20 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Retrieves the list of of messages that are resulted from the specified invocation
+    # Get the messages that an invocation produced.
     # @param id [String] Invocation ID
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [ApiInvokeAgentResponse]
     def get_agent_invocation_v3(id, opts = {})
       data, _status_code, _headers = get_agent_invocation_v3_with_http_info(id, opts)
       data
     end
 
-    # Retrieves the list of of messages that are resulted from the specified invocation
+    # Get the messages that an invocation produced.
     # @param id [String] Invocation ID
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(ApiInvokeAgentResponse, Integer, Hash)>] ApiInvokeAgentResponse data, response status code and response headers
     def get_agent_invocation_v3_with_http_info(id, opts = {})
       if @api_client.config.debugging
@@ -62,6 +64,7 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'id'] = id
+      query_params[:'project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -97,8 +100,74 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Invoke a specific agent version by agent ID and version ID with the specified input. Returns the agent's completion response.
+    # @param body [ApiInvokeAgentVersionExternalRequest] Agent version invocation request containing agent ID, version ID and input
+    # @param [Hash] opts the optional parameters
+    # @return [ApiInvokeAgentResponse]
+    def invoke_agent_version_external_v1(body, opts = {})
+      data, _status_code, _headers = invoke_agent_version_external_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Invoke a specific agent version by agent ID and version ID with the specified input. Returns the agent&#39;s completion response.
+    # @param body [ApiInvokeAgentVersionExternalRequest] Agent version invocation request containing agent ID, version ID and input
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiInvokeAgentResponse, Integer, Hash)>] ApiInvokeAgentResponse data, response status code and response headers
+    def invoke_agent_version_external_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AgentInvocation.invoke_agent_version_external_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AgentInvocation.invoke_agent_version_external_v1"
+      end
+      # resource path
+      local_var_path = '/agentic-studio/entities/agent-version-invocations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiInvokeAgentResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"AgentInvocation.invoke_agent_version_external_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AgentInvocation#invoke_agent_version_external_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Invoke a published agent by ID with the specified input. Returns the agent's completion response.
-    # @param body [ApiInvokePublishedAgentExternalRequest] Published agent invocation request containing agent ID and input
+    # @param body [ApiInvokePublishedAgentExternalRequest] Published agent invocation request containing agent ID and input. Optional deadline_seconds must be at least 90; smaller values are rejected with a 400.
     # @param [Hash] opts the optional parameters
     # @return [ApiInvokeAgentResponse]
     def invoke_published_agent_external_v1(body, opts = {})
@@ -107,7 +176,7 @@ module Falcon
     end
 
     # Invoke a published agent by ID with the specified input. Returns the agent&#39;s completion response.
-    # @param body [ApiInvokePublishedAgentExternalRequest] Published agent invocation request containing agent ID and input
+    # @param body [ApiInvokePublishedAgentExternalRequest] Published agent invocation request containing agent ID and input. Optional deadline_seconds must be at least 90; smaller values are rejected with a 400.
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiInvokeAgentResponse, Integer, Hash)>] ApiInvokeAgentResponse data, response status code and response headers
     def invoke_published_agent_external_v1_with_http_info(body, opts = {})
@@ -159,6 +228,75 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AgentInvocation#invoke_published_agent_external_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Modify an in-flight agent invocation. The only accepted status transition is to cancelled, which cancels the invocation; any other status is rejected with 400. Cancelling an invocation that has already reached a terminal state succeeds without changing it.
+    # @param body [ApiPatchAgentInvocationRequest] Invocation ID and the status to move it to. Only cancelled is accepted.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :project_id Scope the operation to a project.
+    # @return [MsaspecResponseFields]
+    def patch_agent_invocation_v3(body, opts = {})
+      data, _status_code, _headers = patch_agent_invocation_v3_with_http_info(body, opts)
+      data
+    end
+
+    # Modify an in-flight agent invocation. The only accepted status transition is to cancelled, which cancels the invocation; any other status is rejected with 400. Cancelling an invocation that has already reached a terminal state succeeds without changing it.
+    # @param body [ApiPatchAgentInvocationRequest] Invocation ID and the status to move it to. Only cancelled is accepted.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :project_id Scope the operation to a project.
+    # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
+    def patch_agent_invocation_v3_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AgentInvocation.patch_agent_invocation_v3 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AgentInvocation.patch_agent_invocation_v3"
+      end
+      # resource path
+      local_var_path = '/agentic-studio/entities/agent-invocations/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecResponseFields'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"AgentInvocation.patch_agent_invocation_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AgentInvocation#patch_agent_invocation_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

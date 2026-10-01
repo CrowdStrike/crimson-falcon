@@ -736,7 +736,7 @@ describe 'KubernetesProtection' do
   # @option opts [String] :sort The fields to sort the records on.
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 200.
   # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
-  # @return [ModelsContainerImage]
+  # @return [ModelsContainerImageResponse]
   describe 'read_running_container_images test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

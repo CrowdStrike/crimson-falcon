@@ -33,6 +33,8 @@ module Falcon
   class ApidomainSavedSearchExecuteRequestV1
     attr_accessor :_end
 
+    attr_accessor :extra_log_fields
+
     attr_accessor :id
 
     attr_accessor :mode
@@ -55,6 +57,7 @@ module Falcon
     def self.attribute_map
       {
         :'_end' => :'end',
+        :'extra_log_fields' => :'extra_log_fields',
         :'id' => :'id',
         :'mode' => :'mode',
         :'name' => :'name',
@@ -76,6 +79,7 @@ module Falcon
     def self.openapi_types
       {
         :'_end' => :'String',
+        :'extra_log_fields' => :'Hash<String, String>',
         :'id' => :'String',
         :'mode' => :'String',
         :'name' => :'String',
@@ -111,6 +115,12 @@ module Falcon
 
       if attributes.key?(:'_end')
         self._end = attributes[:'_end']
+      end
+
+      if attributes.key?(:'extra_log_fields')
+        if (value = attributes[:'extra_log_fields']).is_a?(Hash)
+          self.extra_log_fields = value
+        end
       end
 
       if attributes.key?(:'id')
@@ -171,6 +181,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           _end == o._end &&
+          extra_log_fields == o.extra_log_fields &&
           id == o.id &&
           mode == o.mode &&
           name == o.name &&
@@ -191,7 +202,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_end, id, mode, name, start, version, with_in, with_limit, with_renames, with_sort].hash
+      [_end, extra_log_fields, id, mode, name, start, version, with_in, with_limit, with_renames, with_sort].hash
     end
 
     # Builds the object from hash

@@ -63,6 +63,9 @@ module Falcon
 
     attr_accessor :severity
 
+    # Example values: standard, custom
+    attr_accessor :source_type
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -81,7 +84,8 @@ module Falcon
         :'policy_id' => :'policy_id',
         :'policy_name' => :'policy_name',
         :'recommendation_id' => :'recommendation_id',
-        :'severity' => :'severity'
+        :'severity' => :'severity',
+        :'source_type' => :'source_type'
       }
     end
 
@@ -108,7 +112,8 @@ module Falcon
         :'policy_id' => :'String',
         :'policy_name' => :'String',
         :'recommendation_id' => :'String',
-        :'severity' => :'String'
+        :'severity' => :'String',
+        :'source_type' => :'String'
       }
     end
 
@@ -200,6 +205,10 @@ module Falcon
       if attributes.key?(:'severity')
         self.severity = attributes[:'severity']
       end
+
+      if attributes.key?(:'source_type')
+        self.source_type = attributes[:'source_type']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -245,7 +254,8 @@ module Falcon
           policy_id == o.policy_id &&
           policy_name == o.policy_name &&
           recommendation_id == o.recommendation_id &&
-          severity == o.severity
+          severity == o.severity &&
+          source_type == o.source_type
     end
 
     # @see the `==` method
@@ -257,7 +267,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authority, benchmark_type, cce, compliance_mappings, edited, group_id, group_name, id, last_edited_timestamp, mitre_attack_tactics, name, platform_name, policy_id, policy_name, recommendation_id, severity].hash
+      [authority, benchmark_type, cce, compliance_mappings, edited, group_id, group_name, id, last_edited_timestamp, mitre_attack_tactics, name, platform_name, policy_id, policy_name, recommendation_id, severity, source_type].hash
     end
 
     # Builds the object from hash

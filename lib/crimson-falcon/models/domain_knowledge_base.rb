@@ -31,6 +31,8 @@ require 'time'
 
 module Falcon
   class DomainKnowledgeBase
+    attr_accessor :attribution
+
     attr_accessor :created_at
 
     attr_accessor :created_by
@@ -47,6 +49,8 @@ module Falcon
 
     attr_accessor :name
 
+    attr_accessor :project_id
+
     attr_accessor :updated_at
 
     attr_accessor :updated_by
@@ -54,6 +58,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'attribution' => :'attribution',
         :'created_at' => :'created_at',
         :'created_by' => :'created_by',
         :'description' => :'description',
@@ -62,6 +67,7 @@ module Falcon
         :'id' => :'id',
         :'is_deleted' => :'is_deleted',
         :'name' => :'name',
+        :'project_id' => :'project_id',
         :'updated_at' => :'updated_at',
         :'updated_by' => :'updated_by'
       }
@@ -75,6 +81,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'attribution' => :'DomainAttribution',
         :'created_at' => :'Time',
         :'created_by' => :'DomainUser',
         :'description' => :'String',
@@ -83,6 +90,7 @@ module Falcon
         :'id' => :'String',
         :'is_deleted' => :'Boolean',
         :'name' => :'String',
+        :'project_id' => :'String',
         :'updated_at' => :'Time',
         :'updated_by' => :'DomainUser'
       }
@@ -108,6 +116,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'attribution')
+        self.attribution = attributes[:'attribution']
+      end
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
@@ -139,6 +151,10 @@ module Falcon
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'project_id')
+        self.project_id = attributes[:'project_id']
       end
 
       if attributes.key?(:'updated_at')
@@ -218,6 +234,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          attribution == o.attribution &&
           created_at == o.created_at &&
           created_by == o.created_by &&
           description == o.description &&
@@ -226,6 +243,7 @@ module Falcon
           id == o.id &&
           is_deleted == o.is_deleted &&
           name == o.name &&
+          project_id == o.project_id &&
           updated_at == o.updated_at &&
           updated_by == o.updated_by
     end
@@ -239,7 +257,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, created_by, description, embedding_model, files_count, id, is_deleted, name, updated_at, updated_by].hash
+      [attribution, created_at, created_by, description, embedding_model, files_count, id, is_deleted, name, project_id, updated_at, updated_by].hash
     end
 
     # Builds the object from hash

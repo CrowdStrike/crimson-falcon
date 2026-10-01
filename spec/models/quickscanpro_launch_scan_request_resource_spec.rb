@@ -47,6 +47,16 @@ describe Falcon::QuickscanproLaunchScanRequestResource do
     end
   end
 
+  describe 'test attribute "scan_mode"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["fast", "standard", "deep"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.scan_mode = value }.not_to raise_error
+      # end
+    end
+  end
+
   describe 'test attribute "sha256"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

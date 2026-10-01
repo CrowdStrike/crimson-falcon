@@ -34,6 +34,9 @@ module Falcon
     # The unique identifier of the dashboard to update
     attr_accessor :id
 
+    # Optional labels to replace existing labels (max 10 labels, max 60 chars each)
+    attr_accessor :labels
+
     # The YAML representation of the dashboard to update
     attr_accessor :yaml_template
 
@@ -41,6 +44,7 @@ module Falcon
     def self.attribute_map
       {
         :'id' => :'id',
+        :'labels' => :'labels',
         :'yaml_template' => :'yaml_template'
       }
     end
@@ -54,6 +58,7 @@ module Falcon
     def self.openapi_types
       {
         :'id' => :'String',
+        :'labels' => :'Array<String>',
         :'yaml_template' => :'String'
       }
     end
@@ -81,6 +86,12 @@ module Falcon
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'labels')
+        if (value = attributes[:'labels']).is_a?(Array)
+          self.labels = value
+        end
       end
 
       if attributes.key?(:'yaml_template')
@@ -117,6 +128,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
+          labels == o.labels &&
           yaml_template == o.yaml_template
     end
 
@@ -129,7 +141,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, yaml_template].hash
+      [id, labels, yaml_template].hash
     end
 
     # Builds the object from hash

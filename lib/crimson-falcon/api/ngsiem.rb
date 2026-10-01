@@ -35,6 +35,402 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Add multiple labels to a single dashboard
+    # @param body [ApiAddDashboardLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiLabelResponseV1]
+    def add_dashboard_labels(body, opts = {})
+      data, _status_code, _headers = add_dashboard_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Add multiple labels to a single dashboard
+    # @param body [ApiAddDashboardLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiLabelResponseV1, Integer, Hash)>] ApiLabelResponseV1 data, response status code and response headers
+    def add_dashboard_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.add_dashboard_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.add_dashboard_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/dashboard-labels/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiLabelResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.add_dashboard_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#add_dashboard_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Add multiple labels to a single file
+    # @param body [ApiAddFileLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiFileLabelResponseV1]
+    def add_file_labels(body, opts = {})
+      data, _status_code, _headers = add_file_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Add multiple labels to a single file
+    # @param body [ApiAddFileLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiFileLabelResponseV1, Integer, Hash)>] ApiFileLabelResponseV1 data, response status code and response headers
+    def add_file_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.add_file_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.add_file_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/lookupfile-labels/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiFileLabelResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.add_file_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#add_file_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Add multiple labels to a saved query
+    # @param body [ApiAddSavedQueryLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiLabelResponseV1]
+    def add_saved_query_labels(body, opts = {})
+      data, _status_code, _headers = add_saved_query_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Add multiple labels to a saved query
+    # @param body [ApiAddSavedQueryLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiLabelResponseV1, Integer, Hash)>] ApiLabelResponseV1 data, response status code and response headers
+    def add_saved_query_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.add_saved_query_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.add_saved_query_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/savedquery-labels/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiLabelResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.add_saved_query_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#add_saved_query_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Add labels to multiple dashboards (max 100 items, non-transactional)
+    # @param body [ApiBulkDashboardLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkDashboardLabelsResponseV1]
+    def bulk_add_dashboard_labels(body, opts = {})
+      data, _status_code, _headers = bulk_add_dashboard_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Add labels to multiple dashboards (max 100 items, non-transactional)
+    # @param body [ApiBulkDashboardLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkDashboardLabelsResponseV1, Integer, Hash)>] ApiBulkDashboardLabelsResponseV1 data, response status code and response headers
+    def bulk_add_dashboard_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_add_dashboard_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_add_dashboard_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-dashboard-labels-add/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkDashboardLabelsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_add_dashboard_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_add_dashboard_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Add labels to multiple lookup files (max 100 items, non-transactional)
+    # @param body [ApiBulkLookupFileLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkLookupFileLabelsResponseV1]
+    def bulk_add_lookup_file_labels(body, opts = {})
+      data, _status_code, _headers = bulk_add_lookup_file_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Add labels to multiple lookup files (max 100 items, non-transactional)
+    # @param body [ApiBulkLookupFileLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkLookupFileLabelsResponseV1, Integer, Hash)>] ApiBulkLookupFileLabelsResponseV1 data, response status code and response headers
+    def bulk_add_lookup_file_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_add_lookup_file_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_add_lookup_file_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-lookupfile-labels-add/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkLookupFileLabelsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_add_lookup_file_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_add_lookup_file_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Add labels to multiple saved queries (max 100 items, non-transactional)
+    # @param body [ApiBulkSavedQueryLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkSavedQueryLabelsResponseV1]
+    def bulk_add_saved_query_labels(body, opts = {})
+      data, _status_code, _headers = bulk_add_saved_query_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Add labels to multiple saved queries (max 100 items, non-transactional)
+    # @param body [ApiBulkSavedQueryLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkSavedQueryLabelsResponseV1, Integer, Hash)>] ApiBulkSavedQueryLabelsResponseV1 data, response status code and response headers
+    def bulk_add_saved_query_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_add_saved_query_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_add_saved_query_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-savedquery-labels-add/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkSavedQueryLabelsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_add_saved_query_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_add_saved_query_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create Multiple Dashboards from YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
     # @param body [ApiBulkCreateDashboardsFromTemplateRequestV1]
     # @param [Hash] opts the optional parameters
@@ -167,6 +563,72 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Create Multiple Persisted Aggregations. Processes all items and returns per-item success/failure results
+    # @param body [ApiBulkCreatePersistedAggregationsRequestV1] bulk create persisted aggregations request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkCreatePersistedAggregationsResponseV1]
+    def bulk_create_persisted_aggregations(body, opts = {})
+      data, _status_code, _headers = bulk_create_persisted_aggregations_with_http_info(body, opts)
+      data
+    end
+
+    # Create Multiple Persisted Aggregations. Processes all items and returns per-item success/failure results
+    # @param body [ApiBulkCreatePersistedAggregationsRequestV1] bulk create persisted aggregations request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkCreatePersistedAggregationsResponseV1, Integer, Hash)>] ApiBulkCreatePersistedAggregationsResponseV1 data, response status code and response headers
+    def bulk_create_persisted_aggregations_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_create_persisted_aggregations ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_create_persisted_aggregations"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-persisted-aggregations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkCreatePersistedAggregationsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_create_persisted_aggregations",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_create_persisted_aggregations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create Multiple Saved Queries from LogScale YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
     # @param body [ApiBulkCreateSavedQueriesFromTemplateRequestV1] bulk create saved queries request
     # @param [Hash] opts the optional parameters
@@ -256,7 +718,7 @@ module Falcon
       if @api_client.config.client_side_validation && filename.nil?
         fail ArgumentError, "Missing the required parameter 'filename' when calling Ngsiem.bulk_get_lookup_files"
       end
-      allowable_values = ["all", "falcon", "third-party", "dashboards", "parsers-repository"]
+      allowable_values = ["all", "falcon", "third-party", "dashboards", "parsers-repository", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -368,6 +830,270 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Remove labels from multiple dashboards (max 100 items, non-transactional)
+    # @param body [ApiBulkDashboardLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkDashboardLabelsResponseV1]
+    def bulk_remove_dashboard_labels(body, opts = {})
+      data, _status_code, _headers = bulk_remove_dashboard_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Remove labels from multiple dashboards (max 100 items, non-transactional)
+    # @param body [ApiBulkDashboardLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkDashboardLabelsResponseV1, Integer, Hash)>] ApiBulkDashboardLabelsResponseV1 data, response status code and response headers
+    def bulk_remove_dashboard_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_remove_dashboard_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_remove_dashboard_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-dashboard-labels-remove/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkDashboardLabelsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_remove_dashboard_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_remove_dashboard_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove labels from multiple lookup files (max 100 items, non-transactional)
+    # @param body [ApiBulkLookupFileLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkLookupFileLabelsResponseV1]
+    def bulk_remove_lookup_file_labels(body, opts = {})
+      data, _status_code, _headers = bulk_remove_lookup_file_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Remove labels from multiple lookup files (max 100 items, non-transactional)
+    # @param body [ApiBulkLookupFileLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkLookupFileLabelsResponseV1, Integer, Hash)>] ApiBulkLookupFileLabelsResponseV1 data, response status code and response headers
+    def bulk_remove_lookup_file_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_remove_lookup_file_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_remove_lookup_file_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-lookupfile-labels-remove/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkLookupFileLabelsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_remove_lookup_file_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_remove_lookup_file_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove labels from multiple saved queries (max 100 items, non-transactional)
+    # @param body [ApiBulkSavedQueryLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkSavedQueryLabelsResponseV1]
+    def bulk_remove_saved_query_labels(body, opts = {})
+      data, _status_code, _headers = bulk_remove_saved_query_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Remove labels from multiple saved queries (max 100 items, non-transactional)
+    # @param body [ApiBulkSavedQueryLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkSavedQueryLabelsResponseV1, Integer, Hash)>] ApiBulkSavedQueryLabelsResponseV1 data, response status code and response headers
+    def bulk_remove_saved_query_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_remove_saved_query_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_remove_saved_query_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-savedquery-labels-remove/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkSavedQueryLabelsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_remove_saved_query_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_remove_saved_query_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Replace all labels on multiple dashboards (max 100 items, non-transactional)
+    # @param body [ApiBulkDashboardLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkDashboardLabelsResponseV1]
+    def bulk_update_dashboard_labels(body, opts = {})
+      data, _status_code, _headers = bulk_update_dashboard_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Replace all labels on multiple dashboards (max 100 items, non-transactional)
+    # @param body [ApiBulkDashboardLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkDashboardLabelsResponseV1, Integer, Hash)>] ApiBulkDashboardLabelsResponseV1 data, response status code and response headers
+    def bulk_update_dashboard_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_update_dashboard_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_update_dashboard_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-dashboard-labels-replace/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkDashboardLabelsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_update_dashboard_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_update_dashboard_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update Multiple Dashboards from YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
     # @param body [ApiBulkUpdateDashboardsFromTemplateRequestV1]
     # @param [Hash] opts the optional parameters
@@ -430,6 +1156,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Ngsiem#bulk_update_dashboards_from_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Replace all labels on multiple lookup files (max 100 items, non-transactional)
+    # @param body [ApiBulkLookupFileLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkLookupFileLabelsResponseV1]
+    def bulk_update_lookup_file_labels(body, opts = {})
+      data, _status_code, _headers = bulk_update_lookup_file_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Replace all labels on multiple lookup files (max 100 items, non-transactional)
+    # @param body [ApiBulkLookupFileLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkLookupFileLabelsResponseV1, Integer, Hash)>] ApiBulkLookupFileLabelsResponseV1 data, response status code and response headers
+    def bulk_update_lookup_file_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_update_lookup_file_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_update_lookup_file_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-lookupfile-labels-replace/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkLookupFileLabelsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_update_lookup_file_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_update_lookup_file_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -500,6 +1292,72 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Update Multiple Persisted Aggregations. Processes all items and returns per-item success/failure results
+    # @param body [ApiBulkUpdatePersistedAggregationsRequestV1] bulk update persisted aggregations request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkUpdatePersistedAggregationsResponseV1]
+    def bulk_update_persisted_aggregations(body, opts = {})
+      data, _status_code, _headers = bulk_update_persisted_aggregations_with_http_info(body, opts)
+      data
+    end
+
+    # Update Multiple Persisted Aggregations. Processes all items and returns per-item success/failure results
+    # @param body [ApiBulkUpdatePersistedAggregationsRequestV1] bulk update persisted aggregations request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkUpdatePersistedAggregationsResponseV1, Integer, Hash)>] ApiBulkUpdatePersistedAggregationsResponseV1 data, response status code and response headers
+    def bulk_update_persisted_aggregations_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_update_persisted_aggregations ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_update_persisted_aggregations"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-persisted-aggregations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkUpdatePersistedAggregationsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_update_persisted_aggregations",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_update_persisted_aggregations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update Multiple Saved Queries from LogScale YAML Templates. Processes all items and returns per-item success/failure results. Failed items are included in the errors array with appropriate HTTP status codes.
     # @param body [ApiBulkUpdateSavedQueriesFromTemplateRequestV1] bulk update saved queries request
     # @param [Hash] opts the optional parameters
@@ -562,6 +1420,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Ngsiem#bulk_update_saved_queries_from_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Replace all labels on multiple saved queries (max 100 items, non-transactional)
+    # @param body [ApiBulkSavedQueryLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiBulkSavedQueryLabelsResponseV1]
+    def bulk_update_saved_query_labels(body, opts = {})
+      data, _status_code, _headers = bulk_update_saved_query_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Replace all labels on multiple saved queries (max 100 items, non-transactional)
+    # @param body [ApiBulkSavedQueryLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiBulkSavedQueryLabelsResponseV1, Integer, Hash)>] ApiBulkSavedQueryLabelsResponseV1 data, response status code and response headers
+    def bulk_update_saved_query_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_update_saved_query_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_update_saved_query_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/bulk-savedquery-labels-replace/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiBulkSavedQueryLabelsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_update_saved_query_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_update_saved_query_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -653,7 +1577,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ngsiem.create_dashboard_from_template ...'
       end
-      allowable_values = ["all", "falcon", "third-party"]
+      allowable_values = ["all", "falcon", "third-party", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -980,6 +1904,72 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Create a Persisted Aggregation in LogScale
+    # @param body [ApiCreatePersistedAggregationRequestV1] create persisted aggregation request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiCreatePersistedAggregationResponseV1]
+    def create_persisted_aggregation(body, opts = {})
+      data, _status_code, _headers = create_persisted_aggregation_with_http_info(body, opts)
+      data
+    end
+
+    # Create a Persisted Aggregation in LogScale
+    # @param body [ApiCreatePersistedAggregationRequestV1] create persisted aggregation request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiCreatePersistedAggregationResponseV1, Integer, Hash)>] ApiCreatePersistedAggregationResponseV1 data, response status code and response headers
+    def create_persisted_aggregation_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.create_persisted_aggregation ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.create_persisted_aggregation"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/persisted-aggregations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiCreatePersistedAggregationResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.create_persisted_aggregation",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#create_persisted_aggregation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create Saved Query from LogScale YAML Template in NGSIEM
     # @param [Hash] opts the optional parameters
     # @option opts [String] :search_domain name of search domain (view or repo)
@@ -999,7 +1989,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ngsiem.create_saved_query ...'
       end
-      allowable_values = ["all", "falcon", "third-party"]
+      allowable_values = ["all", "falcon", "third-party", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -1050,6 +2040,72 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Create a Scheduled Report in LogScale
+    # @param body [ApiCreateScheduledReportRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiCreateScheduledReportResponseV1]
+    def create_scheduled_report(body, opts = {})
+      data, _status_code, _headers = create_scheduled_report_with_http_info(body, opts)
+      data
+    end
+
+    # Create a Scheduled Report in LogScale
+    # @param body [ApiCreateScheduledReportRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiCreateScheduledReportResponseV1, Integer, Hash)>] ApiCreateScheduledReportResponseV1 data, response status code and response headers
+    def create_scheduled_report_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.create_scheduled_report ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.create_scheduled_report"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/scheduled-reports/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiCreateScheduledReportResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.create_scheduled_report",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#create_scheduled_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete Dashboard in NGSIEM
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids dashboard ID value(s). Supports single or multiple IDs for bulk delete.
@@ -1069,7 +2125,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ngsiem.delete_dashboard ...'
       end
-      allowable_values = ["all", "falcon", "third-party"]
+      allowable_values = ["all", "falcon", "third-party", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -1134,7 +2190,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ngsiem.delete_lookup_file ...'
       end
-      allowable_values = ["all", "falcon", "third-party", "parsers-repository"]
+      allowable_values = ["all", "falcon", "third-party", "parsers-repository", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -1245,6 +2301,75 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Delete one or more Persisted Aggregations by ID
+    # @param ids [Array<String>] Persisted aggregation ID(s) to delete. Supports single or multiple IDs.
+    # @param search_domain [String] name of search domain (view or repo)
+    # @param [Hash] opts the optional parameters
+    # @return [ApiDeletePersistedAggregationResponseV1]
+    def delete_persisted_aggregation(ids, search_domain, opts = {})
+      data, _status_code, _headers = delete_persisted_aggregation_with_http_info(ids, search_domain, opts)
+      data
+    end
+
+    # Delete one or more Persisted Aggregations by ID
+    # @param ids [Array<String>] Persisted aggregation ID(s) to delete. Supports single or multiple IDs.
+    # @param search_domain [String] name of search domain (view or repo)
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiDeletePersistedAggregationResponseV1, Integer, Hash)>] ApiDeletePersistedAggregationResponseV1 data, response status code and response headers
+    def delete_persisted_aggregation_with_http_info(ids, search_domain, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.delete_persisted_aggregation ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ngsiem.delete_persisted_aggregation"
+      end
+      # verify the required parameter 'search_domain' is set
+      if @api_client.config.client_side_validation && search_domain.nil?
+        fail ArgumentError, "Missing the required parameter 'search_domain' when calling Ngsiem.delete_persisted_aggregation"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/persisted-aggregations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :csv)
+      query_params[:'search_domain'] = search_domain
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiDeletePersistedAggregationResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.delete_persisted_aggregation",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#delete_persisted_aggregation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete Saved Query in NGSIEM
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids saved query ID value(s). Supports single or multiple IDs for bulk delete.
@@ -1264,7 +2389,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ngsiem.delete_saved_query ...'
       end
-      allowable_values = ["all", "falcon", "third-party"]
+      allowable_values = ["all", "falcon", "third-party", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -1306,6 +2431,67 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Ngsiem#delete_saved_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete Scheduled Report(s) in LogScale
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids scheduled report ID value(s). Supports single or multiple IDs for bulk delete.
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [ApiDeleteScheduledReportResponseV1]
+    def delete_scheduled_report(opts = {})
+      data, _status_code, _headers = delete_scheduled_report_with_http_info(opts)
+      data
+    end
+
+    # Delete Scheduled Report(s) in LogScale
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids scheduled report ID value(s). Supports single or multiple IDs for bulk delete.
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [Array<(ApiDeleteScheduledReportResponseV1, Integer, Hash)>] ApiDeleteScheduledReportResponseV1 data, response status code and response headers
+    def delete_scheduled_report_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.delete_scheduled_report ...'
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/scheduled-reports/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiDeleteScheduledReportResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.delete_scheduled_report",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#delete_scheduled_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2259,7 +3445,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ngsiem.get_dashboard_template ...'
       end
-      allowable_values = ["all", "falcon", "third-party", "dashboards"]
+      allowable_values = ["all", "falcon", "third-party", "dashboards", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -2324,7 +3510,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ngsiem.get_lookup_file ...'
       end
-      allowable_values = ["all", "falcon", "third-party", "dashboards", "parsers-repository"]
+      allowable_values = ["all", "falcon", "third-party", "dashboards", "parsers-repository", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -2654,6 +3840,68 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Retrieve available rollback versions for a parser. Returns a list of previous versions that the parser can be rolled back to, including version metadata, changelog, and author information.
+    # @param parser_id [String] The unique identifier for the parser
+    # @param [Hash] opts the optional parameters
+    # @return [ApiGetParserRollbackOptionsResponseV1]
+    def get_parser_rollback_options(parser_id, opts = {})
+      data, _status_code, _headers = get_parser_rollback_options_with_http_info(parser_id, opts)
+      data
+    end
+
+    # Retrieve available rollback versions for a parser. Returns a list of previous versions that the parser can be rolled back to, including version metadata, changelog, and author information.
+    # @param parser_id [String] The unique identifier for the parser
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiGetParserRollbackOptionsResponseV1, Integer, Hash)>] ApiGetParserRollbackOptionsResponseV1 data, response status code and response headers
+    def get_parser_rollback_options_with_http_info(parser_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.get_parser_rollback_options ...'
+      end
+      # verify the required parameter 'parser_id' is set
+      if @api_client.config.client_side_validation && parser_id.nil?
+        fail ArgumentError, "Missing the required parameter 'parser_id' when calling Ngsiem.get_parser_rollback_options"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers-rollback/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'parser_id'] = parser_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiGetParserRollbackOptionsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.get_parser_rollback_options",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#get_parser_rollback_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retrieve Parser in NGSIEM as LogScale YAML Template
     # @param [Hash] opts the optional parameters
     # @option opts [String] :ids parser ID value
@@ -2719,6 +3967,75 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get a persisted aggregation by ID
+    # @param ids [String] Persisted aggregation ID
+    # @param search_domain [String] name of search domain (view or repo)
+    # @param [Hash] opts the optional parameters
+    # @return [ApiGetPersistedAggregationResponseV1]
+    def get_persisted_aggregation(ids, search_domain, opts = {})
+      data, _status_code, _headers = get_persisted_aggregation_with_http_info(ids, search_domain, opts)
+      data
+    end
+
+    # Get a persisted aggregation by ID
+    # @param ids [String] Persisted aggregation ID
+    # @param search_domain [String] name of search domain (view or repo)
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiGetPersistedAggregationResponseV1, Integer, Hash)>] ApiGetPersistedAggregationResponseV1 data, response status code and response headers
+    def get_persisted_aggregation_with_http_info(ids, search_domain, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.get_persisted_aggregation ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ngsiem.get_persisted_aggregation"
+      end
+      # verify the required parameter 'search_domain' is set
+      if @api_client.config.client_side_validation && search_domain.nil?
+        fail ArgumentError, "Missing the required parameter 'search_domain' when calling Ngsiem.get_persisted_aggregation"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/persisted-aggregations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = ids
+      query_params[:'search_domain'] = search_domain
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiGetPersistedAggregationResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.get_persisted_aggregation",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#get_persisted_aggregation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retrieve Saved Quer(ies) in NGSIEM as LogScale YAML Template. Supports single or multiple IDs.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids saved query ID value(s)
@@ -2738,7 +4055,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ngsiem.get_saved_query_template ...'
       end
-      allowable_values = ["all", "falcon", "third-party", "dashboards"]
+      allowable_values = ["all", "falcon", "third-party", "dashboards", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -2780,6 +4097,67 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Ngsiem#get_saved_query_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Scheduled Report(s) in LogScale
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids scheduled report ID value(s)
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [ApiGetScheduledReportResponseV1]
+    def get_scheduled_report(opts = {})
+      data, _status_code, _headers = get_scheduled_report_with_http_info(opts)
+      data
+    end
+
+    # Get Scheduled Report(s) in LogScale
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids scheduled report ID value(s)
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [Array<(ApiGetScheduledReportResponseV1, Integer, Hash)>] ApiGetScheduledReportResponseV1 data, response status code and response headers
+    def get_scheduled_report_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.get_scheduled_report ...'
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/scheduled-reports/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiGetScheduledReportResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.get_scheduled_report",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#get_scheduled_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2950,7 +4328,7 @@ module Falcon
         fail ArgumentError, "invalid value for 'opts[:\"offset\"]' when calling Ngsiem.list_dashboards, must conform to the pattern #{pattern}."
       end
 
-      allowable_values = ["all", "falcon", "third-party", "dashboards"]
+      allowable_values = ["all", "falcon", "third-party", "dashboards", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -3031,7 +4409,7 @@ module Falcon
         fail ArgumentError, "invalid value for 'opts[:\"offset\"]' when calling Ngsiem.list_lookup_files, must conform to the pattern #{pattern}."
       end
 
-      allowable_values = ["all", "falcon", "third-party", "dashboards", "parsers-repository"]
+      allowable_values = ["all", "falcon", "third-party", "dashboards", "parsers-repository", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -3174,6 +4552,87 @@ module Falcon
       return data, status_code, headers
     end
 
+    # List persisted aggregations in a search domain with pagination
+    # @param search_domain [String] name of search domain (view or repo)
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit maximum number of results to return (default to '50')
+    # @option opts [String] :offset number of results to offset the returned results by (default to '0')
+    # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+    # @return [ApiListPersistedAggregationsResponseV1]
+    def list_persisted_aggregations(search_domain, opts = {})
+      data, _status_code, _headers = list_persisted_aggregations_with_http_info(search_domain, opts)
+      data
+    end
+
+    # List persisted aggregations in a search domain with pagination
+    # @param search_domain [String] name of search domain (view or repo)
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit maximum number of results to return (default to '50')
+    # @option opts [String] :offset number of results to offset the returned results by (default to '0')
+    # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+    # @return [Array<(ApiListPersistedAggregationsResponseV1, Integer, Hash)>] ApiListPersistedAggregationsResponseV1 data, response status code and response headers
+    def list_persisted_aggregations_with_http_info(search_domain, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.list_persisted_aggregations ...'
+      end
+      # verify the required parameter 'search_domain' is set
+      if @api_client.config.client_side_validation && search_domain.nil?
+        fail ArgumentError, "Missing the required parameter 'search_domain' when calling Ngsiem.list_persisted_aggregations"
+      end
+      pattern = Regexp.new(/^\d{1,4}$/)
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"limit\"]' when calling Ngsiem.list_persisted_aggregations, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/^\d{1,4}$/)
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"offset\"]' when calling Ngsiem.list_persisted_aggregations, must conform to the pattern #{pattern}."
+      end
+
+      # resource path
+      local_var_path = '/ngsiem-content/queries/persisted-aggregations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'search_domain'] = search_domain
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiListPersistedAggregationsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.list_persisted_aggregations",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#list_persisted_aggregations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List Saved Queries in NGSIEM with Pagination and Filtering. Supports bulk listing with pagination (default limit: 50) and optional name filtering.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :limit maximum number of results to return (default to '50')
@@ -3207,7 +4666,7 @@ module Falcon
         fail ArgumentError, "invalid value for 'opts[:\"offset\"]' when calling Ngsiem.list_saved_queries, must conform to the pattern #{pattern}."
       end
 
-      allowable_values = ["all", "falcon", "third-party", "dashboards"]
+      allowable_values = ["all", "falcon", "third-party", "dashboards", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -3251,6 +4710,347 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Ngsiem#list_saved_queries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Scheduled Reports in a view with Pagination and Filtering. Returns scheduled report details. Supports pagination (default limit: 50) and optional name filtering.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit maximum number of results to return (default to '50')
+    # @option opts [String] :offset number of results to offset the returned results by (default to '0')
+    # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+    # @option opts [String] :view_name name of view or repo
+    # @return [ApiListScheduledReportsResponseV1]
+    def list_scheduled_reports(opts = {})
+      data, _status_code, _headers = list_scheduled_reports_with_http_info(opts)
+      data
+    end
+
+    # List Scheduled Reports in a view with Pagination and Filtering. Returns scheduled report details. Supports pagination (default limit: 50) and optional name filtering.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit maximum number of results to return (default to '50')
+    # @option opts [String] :offset number of results to offset the returned results by (default to '0')
+    # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+    # @option opts [String] :view_name name of view or repo
+    # @return [Array<(ApiListScheduledReportsResponseV1, Integer, Hash)>] ApiListScheduledReportsResponseV1 data, response status code and response headers
+    def list_scheduled_reports_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.list_scheduled_reports ...'
+      end
+      pattern = Regexp.new(/^\d{1,4}$/)
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"limit\"]' when calling Ngsiem.list_scheduled_reports, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/^\d{1,4}$/)
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"offset\"]' when calling Ngsiem.list_scheduled_reports, must conform to the pattern #{pattern}."
+      end
+
+      # resource path
+      local_var_path = '/ngsiem-content/queries/scheduled-reports/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'view_name'] = opts[:'view_name'] if !opts[:'view_name'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiListScheduledReportsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.list_scheduled_reports",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#list_scheduled_reports\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove multiple labels from a single dashboard
+    # @param body [ApiRemoveDashboardLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiLabelResponseV1]
+    def remove_dashboard_labels(body, opts = {})
+      data, _status_code, _headers = remove_dashboard_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Remove multiple labels from a single dashboard
+    # @param body [ApiRemoveDashboardLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiLabelResponseV1, Integer, Hash)>] ApiLabelResponseV1 data, response status code and response headers
+    def remove_dashboard_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.remove_dashboard_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.remove_dashboard_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/dashboard-labels/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiLabelResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.remove_dashboard_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#remove_dashboard_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove multiple labels from a single file
+    # @param body [ApiRemoveFileLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiFileLabelResponseV1]
+    def remove_file_labels(body, opts = {})
+      data, _status_code, _headers = remove_file_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Remove multiple labels from a single file
+    # @param body [ApiRemoveFileLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiFileLabelResponseV1, Integer, Hash)>] ApiFileLabelResponseV1 data, response status code and response headers
+    def remove_file_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.remove_file_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.remove_file_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/lookupfile-labels/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiFileLabelResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.remove_file_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#remove_file_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove multiple labels from a saved query
+    # @param body [ApiRemoveSavedQueryLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiLabelResponseV1]
+    def remove_saved_query_labels(body, opts = {})
+      data, _status_code, _headers = remove_saved_query_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Remove multiple labels from a saved query
+    # @param body [ApiRemoveSavedQueryLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiLabelResponseV1, Integer, Hash)>] ApiLabelResponseV1 data, response status code and response headers
+    def remove_saved_query_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.remove_saved_query_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.remove_saved_query_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/savedquery-labels/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiLabelResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.remove_saved_query_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#remove_saved_query_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Rollback a parser to a previously installed version. This operation changes the active parser version to a specified earlier version. The rollback is recorded in audit logs with the initiator's identity. Requires parser_id and target_version in the request body.
+    # @param body [ApiRollbackParserRequestV1] rollback parser request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiRollbackParserResponseV1]
+    def rollback_parser(body, opts = {})
+      data, _status_code, _headers = rollback_parser_with_http_info(body, opts)
+      data
+    end
+
+    # Rollback a parser to a previously installed version. This operation changes the active parser version to a specified earlier version. The rollback is recorded in audit logs with the initiator&#39;s identity. Requires parser_id and target_version in the request body.
+    # @param body [ApiRollbackParserRequestV1] rollback parser request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiRollbackParserResponseV1, Integer, Hash)>] ApiRollbackParserResponseV1 data, response status code and response headers
+    def rollback_parser_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.rollback_parser ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.rollback_parser"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers-rollback/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiRollbackParserResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.rollback_parser",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#rollback_parser\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3481,7 +5281,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ngsiem.update_dashboard_from_template ...'
       end
-      allowable_values = ["all", "falcon", "third-party"]
+      allowable_values = ["all", "falcon", "third-party", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -3533,6 +5333,138 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Replace all labels on a single dashboard
+    # @param body [ApiUpdateDashboardLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiLabelResponseV1]
+    def update_dashboard_labels(body, opts = {})
+      data, _status_code, _headers = update_dashboard_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Replace all labels on a single dashboard
+    # @param body [ApiUpdateDashboardLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiLabelResponseV1, Integer, Hash)>] ApiLabelResponseV1 data, response status code and response headers
+    def update_dashboard_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.update_dashboard_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.update_dashboard_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/dashboard-labels/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiLabelResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.update_dashboard_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#update_dashboard_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Replace all labels on a single file
+    # @param body [ApiUpdateFileLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiFileLabelResponseV1]
+    def update_file_labels(body, opts = {})
+      data, _status_code, _headers = update_file_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Replace all labels on a single file
+    # @param body [ApiUpdateFileLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiFileLabelResponseV1, Integer, Hash)>] ApiFileLabelResponseV1 data, response status code and response headers
+    def update_file_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.update_file_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.update_file_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/lookupfile-labels/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiFileLabelResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.update_file_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#update_file_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update an entire Lookup File in NGSIEM
     # @param [Hash] opts the optional parameters
     # @option opts [String] :search_domain name of search domain (view or repo)
@@ -3554,7 +5486,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ngsiem.update_lookup_file ...'
       end
-      allowable_values = ["all", "falcon", "falcon-for-it", "third-party", "parsers-repository"]
+      allowable_values = ["all", "falcon", "falcon-for-it", "third-party", "parsers-repository", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -3633,7 +5565,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ngsiem.update_lookup_file_entries ...'
       end
-      allowable_values = ["all", "falcon", "third-party", "parsers-repository"]
+      allowable_values = ["all", "falcon", "third-party", "parsers-repository", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -3967,6 +5899,72 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Update a Persisted Aggregation. Supports renaming via currentName → newName
+    # @param body [ApiUpdatePersistedAggregationRequestV1] update persisted aggregation request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiUpdatePersistedAggregationResponseV1]
+    def update_persisted_aggregation(body, opts = {})
+      data, _status_code, _headers = update_persisted_aggregation_with_http_info(body, opts)
+      data
+    end
+
+    # Update a Persisted Aggregation. Supports renaming via currentName → newName
+    # @param body [ApiUpdatePersistedAggregationRequestV1] update persisted aggregation request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiUpdatePersistedAggregationResponseV1, Integer, Hash)>] ApiUpdatePersistedAggregationResponseV1 data, response status code and response headers
+    def update_persisted_aggregation_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.update_persisted_aggregation ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.update_persisted_aggregation"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/persisted-aggregations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiUpdatePersistedAggregationResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.update_persisted_aggregation",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#update_persisted_aggregation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update Saved Query from LogScale YAML Template in NGSIEM.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :search_domain name of search domain (view or repo)
@@ -3988,7 +5986,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ngsiem.update_saved_query_from_template ...'
       end
-      allowable_values = ["all", "falcon", "third-party"]
+      allowable_values = ["all", "falcon", "third-party", "query-audit"]
       if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
         fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
       end
@@ -4036,6 +6034,138 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Ngsiem#update_saved_query_from_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Replace all labels on a single saved query
+    # @param body [ApiUpdateSavedQueryLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiLabelResponseV1]
+    def update_saved_query_labels(body, opts = {})
+      data, _status_code, _headers = update_saved_query_labels_with_http_info(body, opts)
+      data
+    end
+
+    # Replace all labels on a single saved query
+    # @param body [ApiUpdateSavedQueryLabelsRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiLabelResponseV1, Integer, Hash)>] ApiLabelResponseV1 data, response status code and response headers
+    def update_saved_query_labels_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.update_saved_query_labels ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.update_saved_query_labels"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/savedquery-labels/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiLabelResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.update_saved_query_labels",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#update_saved_query_labels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a Scheduled Report in LogScale
+    # @param body [ApiUpdateScheduledReportRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiUpdateScheduledReportResponseV1]
+    def update_scheduled_report(body, opts = {})
+      data, _status_code, _headers = update_scheduled_report_with_http_info(body, opts)
+      data
+    end
+
+    # Update a Scheduled Report in LogScale
+    # @param body [ApiUpdateScheduledReportRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiUpdateScheduledReportResponseV1, Integer, Hash)>] ApiUpdateScheduledReportResponseV1 data, response status code and response headers
+    def update_scheduled_report_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.update_scheduled_report ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.update_scheduled_report"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/scheduled-reports/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiUpdateScheduledReportResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.update_scheduled_report",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#update_scheduled_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

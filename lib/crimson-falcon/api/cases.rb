@@ -101,6 +101,203 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Adds the given list of alert evidence to the specified case and returns the created evidence records.
+    # @param body [OperationsAddAlertsToCaseRequestV2]
+    # @param [Hash] opts the optional parameters
+    # @return [OperationsAddAlertsToCaseResponseV2VM]
+    def entities_alert_evidence_post_v2(body, opts = {})
+      data, _status_code, _headers = entities_alert_evidence_post_v2_with_http_info(body, opts)
+      data
+    end
+
+    # Adds the given list of alert evidence to the specified case and returns the created evidence records.
+    # @param body [OperationsAddAlertsToCaseRequestV2]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OperationsAddAlertsToCaseResponseV2VM, Integer, Hash)>] OperationsAddAlertsToCaseResponseV2VM data, response status code and response headers
+    def entities_alert_evidence_post_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Cases.entities_alert_evidence_post_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Cases.entities_alert_evidence_post_v2"
+      end
+      # resource path
+      local_var_path = '/cases/entities/alert-evidence/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OperationsAddAlertsToCaseResponseV2VM'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Cases.entities_alert_evidence_post_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Cases#entities_alert_evidence_post_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Removes the specified access tags from the specified case.
+    # @param id [String] The ID of the case to remove access tags from.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :access_tag_id The ID of the access tag to remove from the case.
+    # @return [OperationsUpdateCaseResponseVM]
+    def entities_case_access_tags_delete_v1(id, opts = {})
+      data, _status_code, _headers = entities_case_access_tags_delete_v1_with_http_info(id, opts)
+      data
+    end
+
+    # Removes the specified access tags from the specified case.
+    # @param id [String] The ID of the case to remove access tags from.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :access_tag_id The ID of the access tag to remove from the case.
+    # @return [Array<(OperationsUpdateCaseResponseVM, Integer, Hash)>] OperationsUpdateCaseResponseVM data, response status code and response headers
+    def entities_case_access_tags_delete_v1_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Cases.entities_case_access_tags_delete_v1 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling Cases.entities_case_access_tags_delete_v1"
+      end
+      # resource path
+      local_var_path = '/cases/entities/case-access-tags/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+      query_params[:'access_tag_id'] = @api_client.build_collection_param(opts[:'access_tag_id'], :multi) if !opts[:'access_tag_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OperationsUpdateCaseResponseVM'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Cases.entities_case_access_tags_delete_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Cases#entities_case_access_tags_delete_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Adds the given list of access tags to the specified case.
+    # @param body [OperationsAddAccessTagsToCaseRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [OperationsUpdateCaseResponseVM]
+    def entities_case_access_tags_post_v1(body, opts = {})
+      data, _status_code, _headers = entities_case_access_tags_post_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Adds the given list of access tags to the specified case.
+    # @param body [OperationsAddAccessTagsToCaseRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OperationsUpdateCaseResponseVM, Integer, Hash)>] OperationsUpdateCaseResponseVM data, response status code and response headers
+    def entities_case_access_tags_post_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Cases.entities_case_access_tags_post_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Cases.entities_case_access_tags_post_v1"
+      end
+      # resource path
+      local_var_path = '/cases/entities/case-access-tags/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OperationsUpdateCaseResponseVM'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Cases.entities_case_access_tags_post_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Cases#entities_case_access_tags_post_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Removes the specified tags from the specified case.
     # @param id [String] The ID of the case to remove tags from.
     # @param tag [Array<String>] The tag to remove from the case.
@@ -434,6 +631,72 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Adds the given custom evidence to the specified case.
+    # @param body [OperationsAddCustomEvidenceToCaseRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [OperationsAddCustomEvidenceResponseVM]
+    def entities_custom_evidence_post_v1(body, opts = {})
+      data, _status_code, _headers = entities_custom_evidence_post_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Adds the given custom evidence to the specified case.
+    # @param body [OperationsAddCustomEvidenceToCaseRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OperationsAddCustomEvidenceResponseVM, Integer, Hash)>] OperationsAddCustomEvidenceResponseVM data, response status code and response headers
+    def entities_custom_evidence_post_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Cases.entities_custom_evidence_post_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Cases.entities_custom_evidence_post_v1"
+      end
+      # resource path
+      local_var_path = '/cases/entities/custom-evidence/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OperationsAddCustomEvidenceResponseVM'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Cases.entities_custom_evidence_post_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Cases#entities_custom_evidence_post_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Adds the given list of event evidence to the specified case.
     # @param body [OperationsAddEventsToCaseRequest]
     # @param [Hash] opts the optional parameters
@@ -562,6 +825,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Cases#entities_merge_post_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Adds user evidence to the specified case.
+    # @param body [OperationsAddUserToCaseRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [OperationsAddUserToCaseResponseVM]
+    def entities_user_evidence_post_v1(body, opts = {})
+      data, _status_code, _headers = entities_user_evidence_post_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Adds user evidence to the specified case.
+    # @param body [OperationsAddUserToCaseRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OperationsAddUserToCaseResponseVM, Integer, Hash)>] OperationsAddUserToCaseResponseVM data, response status code and response headers
+    def entities_user_evidence_post_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Cases.entities_user_evidence_post_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Cases.entities_user_evidence_post_v1"
+      end
+      # resource path
+      local_var_path = '/cases/entities/user-evidence/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'OperationsAddUserToCaseResponseVM'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Cases.entities_user_evidence_post_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Cases#entities_user_evidence_post_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

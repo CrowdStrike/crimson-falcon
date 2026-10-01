@@ -48,6 +48,68 @@ describe 'SaasSecurity' do
     end
   end
 
+  # unit tests for connect_check_tag_v3
+  # POST Connect a Check Tag to a Security Check
+  # Connect an existing check tag to a security check. Idempotent
+  # @param id Security Check ID
+  # @param tag_id Check Tag ID
+  # @param [Hash] opts the optional parameters
+  # @return [CheckTag]
+  describe 'connect_check_tag_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for create_app_journal_comment_v3
+  # POST App Journal Comment
+  # Append a comment to one or more app inventory items
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [CreateJournal]
+  describe 'create_app_journal_comment_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for create_check_journal_comment_v3
+  # POST Security Check Journal Comment
+  # Append a comment to one or more security checks
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [CreateJournal]
+  describe 'create_check_journal_comment_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for create_user_journal_comment_v3
+  # POST User Journal Comment
+  # Append a comment to one or more user inventory items
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [CreateJournal]
+  describe 'create_user_journal_comment_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for disconnect_check_tag_v3
+  # DELETE Disconnect a Check Tag from a Security Check
+  # Disconnect a check tag from a security check. Idempotent
+  # @param id Security Check ID
+  # @param tag_id Check Tag ID
+  # @param [Hash] opts the optional parameters
+  # @return [CheckTag]
+  describe 'disconnect_check_tag_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for dismiss_affected_entity_v3
   # POST Dismiss Affected Entity
   # Preform dismiss to an affected entity in a security check
@@ -88,6 +150,37 @@ describe 'SaasSecurity' do
   # @option opts [Integer] :skip Number of logs to skip
   # @return [GetActivityMonitor]
   describe 'get_activity_monitor_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_ai_agent_details
+  # GET AI Agent Details
+  # Get full details for a single AI agent, including tools and knowledge
+  # @param id Agent item ID in format: &#39;agent_id|||integration_id&#39; (id)
+  # @param [Hash] opts the optional parameters
+  # @return [AiAgentDetails]
+  describe 'get_ai_agent_details test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_ai_agents_inventory
+  # GET AI Agents Inventory
+  # Get a list of all AI agents in the Applications inventory
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :name Agent name (partial match)
+  # @option opts [Integer] :limit The maximum number of objects to return
+  # @option opts [Integer] :offset The starting index of the results
+  # @option opts [String] :integration_id Comma separated list of integration IDs
+  # @option opts [String] :access Filter by access value (exact match)
+  # @option opts [String] :agent_owner Filter by agent owner email (partial match)
+  # @option opts [String] :tool_type Filter by a single tool type contained in the agent&#39;s tool types
+  # @option opts [String] :knowledge_source Filter by a single knowledge source contained in the agent&#39;s knowledge sources
+  # @return [AiAgentsInventory]
+  describe 'get_ai_agents_inventory test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -146,6 +239,21 @@ describe 'SaasSecurity' do
     end
   end
 
+  # unit tests for get_app_journal_v3
+  # GET App Journal
+  # Get the journal entries for an app inventory item
+  # @param id App item identity (app_item_id, format &#39;app_id|||integration_id&#39;)
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The maximum number of objects to return
+  # @option opts [Integer] :offset The starting index of the results
+  # @option opts [String] :author Filter by entry author: a full or partial creator name, a creator email address, or an API client id
+  # @return [GetJournal]
+  describe 'get_app_journal_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_asset_inventory_v3
   # GET Data Inventory
   # Get a list of all assets in the Data Inventory
@@ -164,6 +272,44 @@ describe 'SaasSecurity' do
   # @option opts [String] :unmanaged_domain Comma separated list of unmanaged domains
   # @return [GetAssetInventory]
   describe 'get_asset_inventory_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_check_journal_v3
+  # GET Security Check Journal
+  # Get the journal entries for a security check
+  # @param id Security Check ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The maximum number of objects to return
+  # @option opts [Integer] :offset The starting index of the results
+  # @option opts [String] :author Filter by entry author: a full or partial creator name, a creator email address, or an API client id
+  # @return [GetJournal]
+  describe 'get_check_journal_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_check_params_v3
+  # GET List Security Check Params
+  # Get every tunable param of a security check, with the value in effect for this instance of it. &#x60;edited&#x60; says whether that value is a customization or the built-in default
+  # @param id Security Check ID
+  # @param [Hash] opts the optional parameters
+  # @return [GetCheckParams]
+  describe 'get_check_params_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_check_tags_v3
+  # GET List Check Tags
+  # Get all the security check tags defined in the account
+  # @param [Hash] opts the optional parameters
+  # @return [GetCheckTags]
+  describe 'get_check_tags_v3 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -209,6 +355,9 @@ describe 'SaasSecurity' do
   # @option opts [String] :impact Impact
   # @option opts [Boolean] :compliance Compliance
   # @option opts [String] :check_type Check Type
+  # @option opts [String] :check_tags Comma separated list of check tags names or ids
+  # @option opts [String] :business_owner Business owner email of the integration the check belongs to
+  # @option opts [String] :org_domain Org domain of the integration the check belongs to
   # @return [GetMetrics]
   describe 'get_metrics_v3 test' do
     it 'should work' do
@@ -225,6 +374,25 @@ describe 'SaasSecurity' do
   # @option opts [Integer] :offset The starting index of the results
   # @return [GetAffected]
   describe 'get_security_check_affected_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_security_check_change_log_v3
+  # GET Security Check Change Log
+  # Get the log of CrowdStrike&#39;s own changes to security checks - detection logic, impact, title and so on. meta.pagination.total is only populated when total_count&#x3D;true is passed.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :action Actions to filter by, comma separated (e.g. renamed,impact_changed)
+  # @option opts [Integer] :limit The maximum number of objects to return
+  # @option opts [Integer] :offset The starting index of the results
+  # @option opts [String] :app Supported integration (app) ids to filter by, comma separated
+  # @option opts [String] :check_id Security check id - stable across a rename, so it returns the whole history
+  # @option opts [Time] :from_date From Date (in YYYY-MM-DD format)
+  # @option opts [Time] :to_date To Date (in YYYY-MM-DD format)
+  # @option opts [Boolean] :total_count Fetch Total Count?
+  # @return [GetSecurityCheckChangeLog]
+  describe 'get_security_check_change_log_v3 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -255,6 +423,8 @@ describe 'SaasSecurity' do
   # @option opts [Boolean] :compliance Compliance
   # @option opts [String] :check_type Check Type
   # @option opts [String] :check_tags Comma separated list of check tags names or ids
+  # @option opts [String] :business_owner Business owner email of the integration the check belongs to
+  # @option opts [String] :org_domain Org domain of the integration the check belongs to
   # @return [GetSecurityChecks]
   describe 'get_security_checks_v3 test' do
     it 'should work' do
@@ -316,6 +486,21 @@ describe 'SaasSecurity' do
     end
   end
 
+  # unit tests for get_user_journal_v3
+  # GET User Journal
+  # Get the journal entries for a user inventory item
+  # @param id User item identity (email / login name)
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The maximum number of objects to return
+  # @option opts [Integer] :offset The starting index of the results
+  # @option opts [String] :author Filter by entry author: a full or partial creator name, a creator email address, or an API client id
+  # @return [GetJournal]
+  describe 'get_user_journal_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for integration_builder_end_transaction_v3
   # POST Data Upload Transaction Completion
   # Make a close transaction call after uploading the data
@@ -361,6 +546,58 @@ describe 'SaasSecurity' do
   # @param [Hash] opts the optional parameters
   # @return [UploadDataResponse]
   describe 'integration_builder_upload_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for restore_affected_entity_v3
+  # POST Restore Affected Entity
+  # Restore dismissed affected entities of a security check
+  # @param id Security Check ID
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [RestoreAffected]
+  describe 'restore_affected_entity_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for restore_security_check_v3
+  # POST Restore Security Check by ID
+  # Restore a dismissed security check. Does not restore its dismissed affected entities
+  # @param id Security Check ID
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [RestoreSecurityCheck]
+  describe 'restore_security_check_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for set_check_impact_v3
+  # POST Set a Security Check Impact
+  # Set the impact of one instance of a security check. Set &#x60;all_future_instances&#x60; to also apply it to instances of the same SaaS connected in the future; it does not change instances that already exist. The check is not re-evaluated, only its impact changes
+  # @param id Security Check ID
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [SetCheckImpact]
+  describe 'set_check_impact_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for set_check_param_v3
+  # POST Set a Security Check Param
+  # Set one param&#39;s value on one instance of a security check. Set &#x60;all_future_instances&#x60; to also apply the value to instances of the same SaaS connected in the future; it does not change instances that already exist. Re-evaluates the check, so the result is not reflected immediately
+  # @param id Security Check ID
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [SetCheckParam]
+  describe 'set_check_param_v3 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
