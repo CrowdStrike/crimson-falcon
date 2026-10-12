@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/CrowdStrike/crimson-falcon/compare/v1.4.0...v1.5.0) (2026-10-12)
+
+
+### Features
+
+* regenerate SDK from latest swagger spec ([#64](https://github.com/CrowdStrike/crimson-falcon/issues/64)) ([4abfa90](https://github.com/CrowdStrike/crimson-falcon/commit/4abfa903bf628c7ae99aa661afeff93eb38a9198))
+
 ## [1.4.0](https://github.com/CrowdStrike/crimson-falcon/compare/v1.3.0...v1.4.0) (2026-07-23)
 
 
