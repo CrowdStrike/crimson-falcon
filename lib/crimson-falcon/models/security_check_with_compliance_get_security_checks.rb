@@ -35,7 +35,15 @@ module Falcon
 
     attr_accessor :affected
 
+    attr_accessor :affected_impact_percentage
+
+    attr_accessor :affected_impact_total
+
+    attr_accessor :affected_impact_type
+
     attr_accessor :base_check_id
+
+    attr_accessor :business_owners
 
     attr_accessor :check_tags
 
@@ -63,6 +71,8 @@ module Falcon
 
     attr_accessor :name
 
+    attr_accessor :org_domains
+
     attr_accessor :remediation_plan
 
     attr_accessor :saas_name
@@ -84,7 +94,11 @@ module Falcon
       {
         :'account_id' => :'account_id',
         :'affected' => :'affected',
+        :'affected_impact_percentage' => :'affected_impact_percentage',
+        :'affected_impact_total' => :'affected_impact_total',
+        :'affected_impact_type' => :'affected_impact_type',
         :'base_check_id' => :'base_check_id',
+        :'business_owners' => :'business_owners',
         :'check_tags' => :'check_tags',
         :'compliance_data' => :'compliance_data',
         :'created_by' => :'created_by',
@@ -98,6 +112,7 @@ module Falcon
         :'integration_id' => :'integration_id',
         :'is_global' => :'is_global',
         :'name' => :'name',
+        :'org_domains' => :'org_domains',
         :'remediation_plan' => :'remediation_plan',
         :'saas_name' => :'saas_name',
         :'security_check_type' => :'security_check_type',
@@ -119,7 +134,11 @@ module Falcon
       {
         :'account_id' => :'String',
         :'affected' => :'Integer',
+        :'affected_impact_percentage' => :'Integer',
+        :'affected_impact_total' => :'Integer',
+        :'affected_impact_type' => :'String',
         :'base_check_id' => :'String',
+        :'business_owners' => :'Array<Hash<String, String>>',
         :'check_tags' => :'Array<Hash<String, String>>',
         :'compliance_data' => :'Array<Hash<String, String>>',
         :'created_by' => :'String',
@@ -133,6 +152,7 @@ module Falcon
         :'integration_id' => :'String',
         :'is_global' => :'Boolean',
         :'name' => :'String',
+        :'org_domains' => :'Array<String>',
         :'remediation_plan' => :'String',
         :'saas_name' => :'String',
         :'security_check_type' => :'String',
@@ -147,6 +167,9 @@ module Falcon
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'affected_impact_percentage',
+        :'affected_impact_total',
+        :'affected_impact_type',
         :'dismiss_expiration_date',
         :'integration_alias',
         :'status_last_changed_date',
@@ -176,8 +199,26 @@ module Falcon
         self.affected = attributes[:'affected']
       end
 
+      if attributes.key?(:'affected_impact_percentage')
+        self.affected_impact_percentage = attributes[:'affected_impact_percentage']
+      end
+
+      if attributes.key?(:'affected_impact_total')
+        self.affected_impact_total = attributes[:'affected_impact_total']
+      end
+
+      if attributes.key?(:'affected_impact_type')
+        self.affected_impact_type = attributes[:'affected_impact_type']
+      end
+
       if attributes.key?(:'base_check_id')
         self.base_check_id = attributes[:'base_check_id']
+      end
+
+      if attributes.key?(:'business_owners')
+        if (value = attributes[:'business_owners']).is_a?(Array)
+          self.business_owners = value
+        end
       end
 
       if attributes.key?(:'check_tags')
@@ -236,6 +277,12 @@ module Falcon
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'org_domains')
+        if (value = attributes[:'org_domains']).is_a?(Array)
+          self.org_domains = value
+        end
+      end
+
       if attributes.key?(:'remediation_plan')
         self.remediation_plan = attributes[:'remediation_plan']
       end
@@ -281,8 +328,16 @@ module Falcon
         invalid_properties.push('invalid value for "affected", affected cannot be nil.')
       end
 
+      if @affected_impact_type.to_s.length < 1
+        invalid_properties.push('invalid value for "affected_impact_type", the character length must be great than or equal to 1.')
+      end
+
       if @base_check_id.nil?
         invalid_properties.push('invalid value for "base_check_id", base_check_id cannot be nil.')
+      end
+
+      if @business_owners.nil?
+        invalid_properties.push('invalid value for "business_owners", business_owners cannot be nil.')
       end
 
       if @check_tags.nil?
@@ -353,6 +408,10 @@ module Falcon
         invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
       end
 
+      if @org_domains.nil?
+        invalid_properties.push('invalid value for "org_domains", org_domains cannot be nil.')
+      end
+
       if @remediation_plan.nil?
         invalid_properties.push('invalid value for "remediation_plan", remediation_plan cannot be nil.')
       end
@@ -417,7 +476,9 @@ module Falcon
     def valid?
       return false if @account_id.nil?
       return false if @affected.nil?
+      return false if @affected_impact_type.to_s.length < 1
       return false if @base_check_id.nil?
+      return false if @business_owners.nil?
       return false if @check_tags.nil?
       return false if @compliance_data.nil?
       return false if @created_by.nil?
@@ -435,6 +496,7 @@ module Falcon
       return false if @is_global.nil?
       return false if @name.nil?
       return false if @name.to_s.length < 1
+      return false if @org_domains.nil?
       return false if @remediation_plan.nil?
       return false if @remediation_plan.to_s.length < 1
       return false if @saas_name.nil?
@@ -450,6 +512,16 @@ module Falcon
       return false if @user_who_dismissed.nil?
       return false if @user_who_dismissed.to_s.length < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] affected_impact_type Value to be assigned
+    def affected_impact_type=(affected_impact_type)
+      if affected_impact_type.to_s.length < 1
+        fail ArgumentError, 'invalid value for "affected_impact_type", the character length must be great than or equal to 1.'
+      end
+
+      @affected_impact_type = affected_impact_type
     end
 
     # Custom attribute writer method with validation
@@ -637,7 +709,11 @@ module Falcon
       self.class == o.class &&
           account_id == o.account_id &&
           affected == o.affected &&
+          affected_impact_percentage == o.affected_impact_percentage &&
+          affected_impact_total == o.affected_impact_total &&
+          affected_impact_type == o.affected_impact_type &&
           base_check_id == o.base_check_id &&
+          business_owners == o.business_owners &&
           check_tags == o.check_tags &&
           compliance_data == o.compliance_data &&
           created_by == o.created_by &&
@@ -651,6 +727,7 @@ module Falcon
           integration_id == o.integration_id &&
           is_global == o.is_global &&
           name == o.name &&
+          org_domains == o.org_domains &&
           remediation_plan == o.remediation_plan &&
           saas_name == o.saas_name &&
           security_check_type == o.security_check_type &&
@@ -670,7 +747,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, affected, base_check_id, check_tags, compliance_data, created_by, creation_date, details, dismiss_expiration_date, dismiss_reason, id, impact, integration_alias, integration_id, is_global, name, remediation_plan, saas_name, security_check_type, security_domain, status, status_last_changed_date, status_reason, user_who_dismissed].hash
+      [account_id, affected, affected_impact_percentage, affected_impact_total, affected_impact_type, base_check_id, business_owners, check_tags, compliance_data, created_by, creation_date, details, dismiss_expiration_date, dismiss_reason, id, impact, integration_alias, integration_id, is_global, name, org_domains, remediation_plan, saas_name, security_check_type, security_domain, status, status_last_changed_date, status_reason, user_who_dismissed].hash
     end
 
     # Builds the object from hash

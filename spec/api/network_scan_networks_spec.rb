@@ -65,7 +65,7 @@ describe 'NetworkScanNetworks' do
   # @param body \&quot;networks\&quot; specifications
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_useruuid User UUID
-  # @return [DomainNetworkEntitiesResponse]
+  # @return [NvaapiNetworkEntitiesResponse]
   describe 'create_networks test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -89,7 +89,7 @@ describe 'NetworkScanNetworks' do
   # @param ids IDs of \&quot;networks\&quot; to be retrieved (Min: 1, Max: 100)
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_useruuid User UUID
-  # @return [DomainNetworkEntitiesResponse]
+  # @return [NvaapiNetworkEntitiesResponse]
   describe 'get_networks test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -116,7 +116,7 @@ describe 'NetworkScanNetworks' do
   # @param body \&quot;networks\&quot; specifications for updating
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_useruuid User UUID
-  # @return [DomainNetworkEntitiesResponse]
+  # @return [NvaapiNetworkEntitiesResponse]
   describe 'update_networks test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

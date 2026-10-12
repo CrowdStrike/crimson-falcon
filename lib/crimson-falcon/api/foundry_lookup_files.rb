@@ -145,7 +145,7 @@ module Falcon
       return_type = opts[:debug_return_type] || 'DomainLookupFileWrapper'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
         :operation => :"FoundryLookupFiles.create_file_v1",
@@ -244,7 +244,7 @@ module Falcon
       return_type = opts[:debug_return_type] || 'DomainLookupFileWrapper'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
         :operation => :"FoundryLookupFiles.update_file_v1",

@@ -33,6 +33,8 @@ module Falcon
   class ApimodelsRule
     attr_accessor :alert_info
 
+    attr_accessor :annotation_status
+
     attr_accessor :attack_types
 
     attr_accessor :auto_remediable
@@ -60,6 +62,8 @@ module Falcon
     attr_accessor :description
 
     attr_accessor :domain
+
+    attr_accessor :insight_id
 
     attr_accessor :logic
 
@@ -131,6 +135,7 @@ module Falcon
     def self.attribute_map
       {
         :'alert_info' => :'alert_info',
+        :'annotation_status' => :'annotation_status',
         :'attack_types' => :'attack_types',
         :'auto_remediable' => :'auto_remediable',
         :'category' => :'category',
@@ -145,6 +150,7 @@ module Falcon
         :'deprecated' => :'deprecated',
         :'description' => :'description',
         :'domain' => :'domain',
+        :'insight_id' => :'insight_id',
         :'logic' => :'logic',
         :'logic_format' => :'logic_format',
         :'mitre_tactics_id' => :'mitre_tactics_id',
@@ -190,6 +196,7 @@ module Falcon
     def self.openapi_types
       {
         :'alert_info' => :'String',
+        :'annotation_status' => :'String',
         :'attack_types' => :'Array<String>',
         :'auto_remediable' => :'Boolean',
         :'category' => :'String',
@@ -204,6 +211,7 @@ module Falcon
         :'deprecated' => :'Boolean',
         :'description' => :'String',
         :'domain' => :'String',
+        :'insight_id' => :'String',
         :'logic' => :'String',
         :'logic_format' => :'String',
         :'mitre_tactics_id' => :'String',
@@ -265,6 +273,10 @@ module Falcon
         self.alert_info = attributes[:'alert_info']
       end
 
+      if attributes.key?(:'annotation_status')
+        self.annotation_status = attributes[:'annotation_status']
+      end
+
       if attributes.key?(:'attack_types')
         if (value = attributes[:'attack_types']).is_a?(Array)
           self.attack_types = value
@@ -323,6 +335,10 @@ module Falcon
 
       if attributes.key?(:'domain')
         self.domain = attributes[:'domain']
+      end
+
+      if attributes.key?(:'insight_id')
+        self.insight_id = attributes[:'insight_id']
       end
 
       if attributes.key?(:'logic')
@@ -618,6 +634,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           alert_info == o.alert_info &&
+          annotation_status == o.annotation_status &&
           attack_types == o.attack_types &&
           auto_remediable == o.auto_remediable &&
           category == o.category &&
@@ -632,6 +649,7 @@ module Falcon
           deprecated == o.deprecated &&
           description == o.description &&
           domain == o.domain &&
+          insight_id == o.insight_id &&
           logic == o.logic &&
           logic_format == o.logic_format &&
           mitre_tactics_id == o.mitre_tactics_id &&
@@ -676,7 +694,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alert_info, attack_types, auto_remediable, category, cid, cloneable, controls, created_at, created_by, custom_configuration, deleted_at, deleted_by, deprecated, description, domain, logic, logic_format, mitre_tactics_id, mitre_tactics_name, mitre_tactics_url, mitre_techniques_id, mitre_techniques_name, mitre_techniques_url, mutable, name, origin, overrides, parent_rule__pk, parent_rule_short_code, parent_rule_short_uuid, platform, provider, remediation, remediation_url, resource_metadata, resource_types, revision, rule_logic_list, scope_asset_filter, scope_type, severity, short_code, subdomain, update_reason, updated_at, updated_by, uuid, visible].hash
+      [alert_info, annotation_status, attack_types, auto_remediable, category, cid, cloneable, controls, created_at, created_by, custom_configuration, deleted_at, deleted_by, deprecated, description, domain, insight_id, logic, logic_format, mitre_tactics_id, mitre_tactics_name, mitre_tactics_url, mitre_techniques_id, mitre_techniques_name, mitre_techniques_url, mutable, name, origin, overrides, parent_rule__pk, parent_rule_short_code, parent_rule_short_uuid, platform, provider, remediation, remediation_url, resource_metadata, resource_types, revision, rule_logic_list, scope_asset_filter, scope_type, severity, short_code, subdomain, update_reason, updated_at, updated_by, uuid, visible].hash
     end
 
     # Builds the object from hash

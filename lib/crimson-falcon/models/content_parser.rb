@@ -51,6 +51,8 @@ module Falcon
 
     attr_accessor :product
 
+    attr_accessor :rollback_available
+
     attr_accessor :update_available
 
     attr_accessor :vendor
@@ -70,6 +72,7 @@ module Falcon
         :'parser_type' => :'parser_type',
         :'pass_through_alerts' => :'pass_through_alerts',
         :'product' => :'product',
+        :'rollback_available' => :'rollback_available',
         :'update_available' => :'update_available',
         :'vendor' => :'vendor',
         :'version' => :'version'
@@ -94,6 +97,7 @@ module Falcon
         :'parser_type' => :'String',
         :'pass_through_alerts' => :'Boolean',
         :'product' => :'Array<String>',
+        :'rollback_available' => :'Boolean',
         :'update_available' => :'Boolean',
         :'vendor' => :'String',
         :'version' => :'String'
@@ -163,6 +167,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'rollback_available')
+        self.rollback_available = attributes[:'rollback_available']
+      end
+
       if attributes.key?(:'update_available')
         self.update_available = attributes[:'update_available']
       end
@@ -204,6 +212,10 @@ module Falcon
         invalid_properties.push('invalid value for "product", product cannot be nil.')
       end
 
+      if @rollback_available.nil?
+        invalid_properties.push('invalid value for "rollback_available", rollback_available cannot be nil.')
+      end
+
       if @vendor.nil?
         invalid_properties.push('invalid value for "vendor", vendor cannot be nil.')
       end
@@ -224,6 +236,7 @@ module Falcon
       return false if @impacted_connections.nil?
       return false if @pass_through_alerts.nil?
       return false if @product.nil?
+      return false if @rollback_available.nil?
       return false if @vendor.nil?
       return false if @version.nil?
       true
@@ -244,6 +257,7 @@ module Falcon
           parser_type == o.parser_type &&
           pass_through_alerts == o.pass_through_alerts &&
           product == o.product &&
+          rollback_available == o.rollback_available &&
           update_available == o.update_available &&
           vendor == o.vendor &&
           version == o.version
@@ -258,7 +272,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, built_by, changelog, current_version, impacted_connections, latest_version, parser_type, pass_through_alerts, product, update_available, vendor, version].hash
+      [id, name, built_by, changelog, current_version, impacted_connections, latest_version, parser_type, pass_through_alerts, product, rollback_available, update_available, vendor, version].hash
     end
 
     # Builds the object from hash

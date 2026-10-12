@@ -48,18 +48,6 @@ describe 'KnowledgeBases' do
     end
   end
 
-  # unit tests for aggregates_knowledge_bases_v1
-  # Aggregate knowledge bases based on the provided msa criteria.
-  # @param body Aggregate requests for knowledge base data.
-  # @param [Hash] opts the optional parameters
-  # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false.
-  # @return [MsaAggregatesResponse]
-  describe 'aggregates_knowledge_bases_v1 test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for combined_knowledge_bases_v1
   # Search for knowledge bases with filtering and return full entity details in a single response.
   # @param [Hash] opts the optional parameters
@@ -68,6 +56,7 @@ describe 'KnowledgeBases' do
   # @option opts [String] :sort Possible order by fields: name, created_at. Ex: &#39;created_at|desc&#39; or &#39;name|asc&#39;.
   # @option opts [String] :filter FQL query specifying the filter parameters.
   # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false.
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [DomainReplyEntitiesKnowledgeBasesResponse]
   describe 'combined_knowledge_bases_v1 test' do
     it 'should work' do
@@ -76,8 +65,8 @@ describe 'KnowledgeBases' do
   end
 
   # unit tests for entities_knowledge_bases_create_v1
-  # Create or update a knowledge base. For deletion, provide knowledge base with IsDeleted&#x3D;true.
-  # @param body Knowledge base definition to create or update
+  # Create or update a knowledge base. To delete a knowledge base, set is_deleted to true.
+  # @param body Knowledge base definition to create or update.
   # @param [Hash] opts the optional parameters
   # @return [DomainReplyEntitiesKnowledgeBasesResponse]
   describe 'entities_knowledge_bases_create_v1 test' do
@@ -90,6 +79,7 @@ describe 'KnowledgeBases' do
   # Update an existing knowledge base.
   # @param body Knowledge base definition with updated fields
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [DomainReplyEntitiesKnowledgeBasesResponse]
   describe 'entities_knowledge_bases_update_v1 test' do
     it 'should work' do
@@ -102,6 +92,7 @@ describe 'KnowledgeBases' do
   # @param ids IDs of entities to retrieve.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false.
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [DomainReplyEntitiesKnowledgeBasesResponse]
   describe 'entities_knowledge_bases_v1 test' do
     it 'should work' do
@@ -117,6 +108,7 @@ describe 'KnowledgeBases' do
   # @option opts [String] :sort Possible order by fields: name, created_at. Ex: &#39;created_at|desc&#39; or &#39;name|asc&#39;.
   # @option opts [String] :filter FQL query specifying the filter parameters.
   # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false.
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [DomainReplyQueryKnowledgeBasesResponse]
   describe 'queries_knowledge_bases_v1 test' do
     it 'should work' do

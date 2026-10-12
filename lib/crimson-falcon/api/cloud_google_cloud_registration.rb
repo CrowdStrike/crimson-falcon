@@ -171,6 +171,7 @@ module Falcon
     # @option opts [String] :sort Field and direction for sorting results (e.g., &#39;created|desc&#39;). Sorting applies across all entity types before grouping.
     # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 500). Limit applies across all entity types. (default to 100)
     # @option opts [Integer] :offset Starting index of result (default to 0)
+    # @option opts [Boolean] :include_all_statuses Include entities with any registration status (default: false) (default to false)
     # @return [DtoGCPEntitiesResponseV1]
     def cloud_registration_gcp_get_entities(opts = {})
       data, _status_code, _headers = cloud_registration_gcp_get_entities_with_http_info(opts)
@@ -185,6 +186,7 @@ module Falcon
     # @option opts [String] :sort Field and direction for sorting results (e.g., &#39;created|desc&#39;). Sorting applies across all entity types before grouping.
     # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 500). Limit applies across all entity types. (default to 100)
     # @option opts [Integer] :offset Starting index of result (default to 0)
+    # @option opts [Boolean] :include_all_statuses Include entities with any registration status (default: false) (default to false)
     # @return [Array<(DtoGCPEntitiesResponseV1, Integer, Hash)>] DtoGCPEntitiesResponseV1 data, response status code and response headers
     def cloud_registration_gcp_get_entities_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -212,6 +214,7 @@ module Falcon
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'include_all_statuses'] = opts[:'include_all_statuses'] if !opts[:'include_all_statuses'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -305,6 +308,74 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudGoogleCloudRegistration#cloud_registration_gcp_get_registration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Generate Google Cloud Infrastructure Manager deployment commands
+    # Only supports infrastructure-manager deployment method. Returns gcloud infra-manager commands as structured JSON.
+    # @param body [DtoGCPInfraManagerScriptRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [DtoGCPDeploymentCommandResponseV1]
+    def cloud_registration_gcp_post_infra_manager_script(body, opts = {})
+      data, _status_code, _headers = cloud_registration_gcp_post_infra_manager_script_with_http_info(body, opts)
+      data
+    end
+
+    # Generate Google Cloud Infrastructure Manager deployment commands
+    # Only supports infrastructure-manager deployment method. Returns gcloud infra-manager commands as structured JSON.
+    # @param body [DtoGCPInfraManagerScriptRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DtoGCPDeploymentCommandResponseV1, Integer, Hash)>] DtoGCPDeploymentCommandResponseV1 data, response status code and response headers
+    def cloud_registration_gcp_post_infra_manager_script_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudGoogleCloudRegistration.cloud_registration_gcp_post_infra_manager_script ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudGoogleCloudRegistration.cloud_registration_gcp_post_infra_manager_script"
+      end
+      # resource path
+      local_var_path = '/cloud-security-registration-google-cloud/entities/scripts-infra-manager/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DtoGCPDeploymentCommandResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudGoogleCloudRegistration.cloud_registration_gcp_post_infra_manager_script",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudGoogleCloudRegistration#cloud_registration_gcp_post_infra_manager_script\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

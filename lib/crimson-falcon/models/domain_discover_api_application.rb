@@ -32,6 +32,15 @@ require 'time'
 module Falcon
   # Represents information about an application.
   class DomainDiscoverAPIApplication
+    # The name of the account that last used this application.
+    attr_accessor :account_name
+
+    # The type of the account (Local or Domain).
+    attr_accessor :account_type
+
+    # Whether the account has admin privileges (Yes, No, or Unknown).
+    attr_accessor :admin_privileges
+
     # Represents the application architectures (x86 / x64).
     attr_accessor :architectures
 
@@ -44,6 +53,9 @@ module Falcon
     attr_accessor :cid
 
     attr_accessor :dev_package
+
+    # The methods used to discover this application.
+    attr_accessor :discovery_methods
 
     # The unique identifier for the extension.
     attr_accessor :extension_id
@@ -58,6 +70,9 @@ module Falcon
     attr_accessor :homepage
 
     attr_accessor :host
+
+    # The host application for this application.
+    attr_accessor :host_application
 
     # The unique ID for the application.
     attr_accessor :id
@@ -97,6 +112,9 @@ module Falcon
     # The user SID of the last user that used this application.
     attr_accessor :last_used_user_sid
 
+    # Whether the account has local admin privileges (Yes, No, or Unknown).
+    attr_accessor :local_admin_privileges
+
     # The name of the application.
     attr_accessor :name
 
@@ -130,16 +148,21 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'account_name' => :'account_name',
+        :'account_type' => :'account_type',
+        :'admin_privileges' => :'admin_privileges',
         :'architectures' => :'architectures',
         :'browser_extension' => :'browser_extension',
         :'category' => :'category',
         :'cid' => :'cid',
         :'dev_package' => :'dev_package',
+        :'discovery_methods' => :'discovery_methods',
         :'extension_id' => :'extension_id',
         :'first_seen_timestamp' => :'first_seen_timestamp',
         :'groups' => :'groups',
         :'homepage' => :'homepage',
         :'host' => :'host',
+        :'host_application' => :'host_application',
         :'id' => :'id',
         :'ide_extension' => :'ide_extension',
         :'installation_paths' => :'installation_paths',
@@ -153,6 +176,7 @@ module Falcon
         :'last_used_timestamp' => :'last_used_timestamp',
         :'last_used_user_name' => :'last_used_user_name',
         :'last_used_user_sid' => :'last_used_user_sid',
+        :'local_admin_privileges' => :'local_admin_privileges',
         :'name' => :'name',
         :'name_vendor' => :'name_vendor',
         :'name_vendor_version' => :'name_vendor_version',
@@ -174,16 +198,21 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'account_name' => :'String',
+        :'account_type' => :'String',
+        :'admin_privileges' => :'String',
         :'architectures' => :'Array<String>',
         :'browser_extension' => :'DomainDiscoverAPIApplicationBrowserExtension',
         :'category' => :'String',
         :'cid' => :'String',
         :'dev_package' => :'DomainDiscoverAPIApplicationPackage',
+        :'discovery_methods' => :'Array<String>',
         :'extension_id' => :'String',
         :'first_seen_timestamp' => :'String',
         :'groups' => :'Array<String>',
         :'homepage' => :'String',
         :'host' => :'DomainDiscoverAPIApplicationHost',
+        :'host_application' => :'String',
         :'id' => :'String',
         :'ide_extension' => :'DomainDiscoverAPIApplicationIDEExtension',
         :'installation_paths' => :'Array<String>',
@@ -197,6 +226,7 @@ module Falcon
         :'last_used_timestamp' => :'String',
         :'last_used_user_name' => :'String',
         :'last_used_user_sid' => :'String',
+        :'local_admin_privileges' => :'String',
         :'name' => :'String',
         :'name_vendor' => :'String',
         :'name_vendor_version' => :'String',
@@ -231,6 +261,18 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'account_name')
+        self.account_name = attributes[:'account_name']
+      end
+
+      if attributes.key?(:'account_type')
+        self.account_type = attributes[:'account_type']
+      end
+
+      if attributes.key?(:'admin_privileges')
+        self.admin_privileges = attributes[:'admin_privileges']
+      end
+
       if attributes.key?(:'architectures')
         if (value = attributes[:'architectures']).is_a?(Array)
           self.architectures = value
@@ -253,6 +295,12 @@ module Falcon
         self.dev_package = attributes[:'dev_package']
       end
 
+      if attributes.key?(:'discovery_methods')
+        if (value = attributes[:'discovery_methods']).is_a?(Array)
+          self.discovery_methods = value
+        end
+      end
+
       if attributes.key?(:'extension_id')
         self.extension_id = attributes[:'extension_id']
       end
@@ -273,6 +321,10 @@ module Falcon
 
       if attributes.key?(:'host')
         self.host = attributes[:'host']
+      end
+
+      if attributes.key?(:'host_application')
+        self.host_application = attributes[:'host_application']
       end
 
       if attributes.key?(:'id')
@@ -327,6 +379,10 @@ module Falcon
 
       if attributes.key?(:'last_used_user_sid')
         self.last_used_user_sid = attributes[:'last_used_user_sid']
+      end
+
+      if attributes.key?(:'local_admin_privileges')
+        self.local_admin_privileges = attributes[:'local_admin_privileges']
       end
 
       if attributes.key?(:'name')
@@ -400,16 +456,21 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          account_name == o.account_name &&
+          account_type == o.account_type &&
+          admin_privileges == o.admin_privileges &&
           architectures == o.architectures &&
           browser_extension == o.browser_extension &&
           category == o.category &&
           cid == o.cid &&
           dev_package == o.dev_package &&
+          discovery_methods == o.discovery_methods &&
           extension_id == o.extension_id &&
           first_seen_timestamp == o.first_seen_timestamp &&
           groups == o.groups &&
           homepage == o.homepage &&
           host == o.host &&
+          host_application == o.host_application &&
           id == o.id &&
           ide_extension == o.ide_extension &&
           installation_paths == o.installation_paths &&
@@ -423,6 +484,7 @@ module Falcon
           last_used_timestamp == o.last_used_timestamp &&
           last_used_user_name == o.last_used_user_name &&
           last_used_user_sid == o.last_used_user_sid &&
+          local_admin_privileges == o.local_admin_privileges &&
           name == o.name &&
           name_vendor == o.name_vendor &&
           name_vendor_version == o.name_vendor_version &&
@@ -444,7 +506,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [architectures, browser_extension, category, cid, dev_package, extension_id, first_seen_timestamp, groups, homepage, host, id, ide_extension, installation_paths, installation_timestamp, is_normalized, is_suspicious, last_published, last_updated_timestamp, last_used_file_hash, last_used_file_name, last_used_timestamp, last_used_user_name, last_used_user_sid, name, name_vendor, name_vendor_version, software_type, store_listing, store_listing_status, suspicious_indicators, vendor, version, versioning_scheme].hash
+      [account_name, account_type, admin_privileges, architectures, browser_extension, category, cid, dev_package, discovery_methods, extension_id, first_seen_timestamp, groups, homepage, host, host_application, id, ide_extension, installation_paths, installation_timestamp, is_normalized, is_suspicious, last_published, last_updated_timestamp, last_used_file_hash, last_used_file_name, last_used_timestamp, last_used_user_name, last_used_user_sid, local_admin_privileges, name, name_vendor, name_vendor_version, software_type, store_listing, store_listing_status, suspicious_indicators, vendor, version, versioning_scheme].hash
     end
 
     # Builds the object from hash

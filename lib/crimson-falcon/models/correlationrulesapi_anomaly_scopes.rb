@@ -31,6 +31,8 @@ require 'time'
 
 module Falcon
   class CorrelationrulesapiAnomalyScopes
+    attr_accessor :custom_field_name
+
     attr_accessor :role
 
     attr_accessor :scope
@@ -38,6 +40,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'custom_field_name' => :'custom_field_name',
         :'role' => :'role',
         :'scope' => :'scope'
       }
@@ -51,6 +54,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'custom_field_name' => :'String',
         :'role' => :'String',
         :'scope' => :'String'
       }
@@ -76,6 +80,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'custom_field_name')
+        self.custom_field_name = attributes[:'custom_field_name']
+      end
 
       if attributes.key?(:'role')
         self.role = attributes[:'role']
@@ -109,6 +117,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          custom_field_name == o.custom_field_name &&
           role == o.role &&
           scope == o.scope
     end
@@ -122,7 +131,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [role, scope].hash
+      [custom_field_name, role, scope].hash
     end
 
     # Builds the object from hash

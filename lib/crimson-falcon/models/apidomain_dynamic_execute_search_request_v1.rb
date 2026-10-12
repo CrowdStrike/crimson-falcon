@@ -33,6 +33,8 @@ module Falcon
   class ApidomainDynamicExecuteSearchRequestV1
     attr_accessor :_end
 
+    attr_accessor :extra_log_fields
+
     attr_accessor :repo_or_view
 
     attr_accessor :search_query
@@ -45,6 +47,7 @@ module Falcon
     def self.attribute_map
       {
         :'_end' => :'end',
+        :'extra_log_fields' => :'extra_log_fields',
         :'repo_or_view' => :'repo_or_view',
         :'search_query' => :'search_query',
         :'search_query_args' => :'search_query_args',
@@ -61,6 +64,7 @@ module Falcon
     def self.openapi_types
       {
         :'_end' => :'String',
+        :'extra_log_fields' => :'Hash<String, String>',
         :'repo_or_view' => :'String',
         :'search_query' => :'String',
         :'search_query_args' => :'Object',
@@ -91,6 +95,12 @@ module Falcon
 
       if attributes.key?(:'_end')
         self._end = attributes[:'_end']
+      end
+
+      if attributes.key?(:'extra_log_fields')
+        if (value = attributes[:'extra_log_fields']).is_a?(Hash)
+          self.extra_log_fields = value
+        end
       end
 
       if attributes.key?(:'repo_or_view')
@@ -144,6 +154,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           _end == o._end &&
+          extra_log_fields == o.extra_log_fields &&
           repo_or_view == o.repo_or_view &&
           search_query == o.search_query &&
           search_query_args == o.search_query_args &&
@@ -159,7 +170,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_end, repo_or_view, search_query, search_query_args, start].hash
+      [_end, extra_log_fields, repo_or_view, search_query, search_query_args, start].hash
     end
 
     # Builds the object from hash

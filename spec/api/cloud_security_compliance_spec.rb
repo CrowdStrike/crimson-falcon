@@ -52,7 +52,7 @@ describe 'CloudSecurityCompliance' do
   # Get sections and requirements with scores for benchmarks.
   # @param ids The uuids of compliance frameworks to retrieve (maximum 20 IDs allowed).
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter FQL filter, supported properties:   - &#x60;account_id&#x60; - &#x60;account_name&#x60; - &#x60;business_impact&#x60; - &#x60;cloud_label&#x60; - &#x60;cloud_label_id&#x60; - &#x60;cloud_provider&#x60; - &#x60;environment&#x60; - &#x60;groups&#x60; - &#x60;region&#x60; - &#x60;resource_type&#x60; - &#x60;resource_type_name&#x60; - &#x60;tag_key&#x60; - &#x60;tag_value&#x60; - &#x60;tags_string&#x60;
+  # @option opts [String] :filter FQL filter, supported properties:   - &#x60;account_id&#x60; - &#x60;account_name&#x60; - &#x60;business_impact&#x60; - &#x60;cloud_label&#x60; - &#x60;cloud_label_id&#x60; - &#x60;cloud_provider&#x60; - &#x60;environment&#x60; - &#x60;groups&#x60; - &#x60;region&#x60; - &#x60;resource_gcrn&#x60; - &#x60;resource_type&#x60; - &#x60;resource_type_name&#x60; - &#x60;tag_key&#x60; - &#x60;tag_value&#x60; - &#x60;tags_string&#x60;
   # @return [ComplianceFrameworkPostureSummaryResponse]
   describe 'cloud_compliance_framework_posture_summaries test' do
     it 'should work' do
@@ -64,7 +64,7 @@ describe 'CloudSecurityCompliance' do
   # Get compliance score and counts for rules.
   # @param ids The uuids of compliance rules to retrieve (maximum 350 IDs allowed).
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter FQL filter, supported properties:   - &#x60;account_id&#x60; - &#x60;account_name&#x60; - &#x60;business_impact&#x60; - &#x60;cloud_label&#x60; - &#x60;cloud_label_id&#x60; - &#x60;cloud_provider&#x60; - &#x60;environment&#x60; - &#x60;groups&#x60; - &#x60;region&#x60; - &#x60;resource_type&#x60; - &#x60;resource_type_name&#x60; - &#x60;tag_key&#x60; - &#x60;tag_value&#x60; - &#x60;tags_string&#x60;
+  # @option opts [String] :filter FQL filter, supported properties:   - &#x60;account_id&#x60; - &#x60;account_name&#x60; - &#x60;business_impact&#x60; - &#x60;cloud_label&#x60; - &#x60;cloud_label_id&#x60; - &#x60;cloud_provider&#x60; - &#x60;environment&#x60; - &#x60;groups&#x60; - &#x60;region&#x60; - &#x60;resource_gcrn&#x60; - &#x60;resource_type&#x60; - &#x60;resource_type_name&#x60; - &#x60;tag_key&#x60; - &#x60;tag_value&#x60; - &#x60;tags_string&#x60;
   # @return [ComplianceRulePostureSummaryResponse]
   describe 'cloud_compliance_rule_posture_summaries test' do
     it 'should work' do

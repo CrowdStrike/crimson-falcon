@@ -153,6 +153,9 @@ module Falcon
     # The description the user entered when manually assigning a criticality level
     attr_accessor :criticality_description
 
+    # The numerical value for the criticality level (25 = Unassigned, 50 = Noncritical, 75 = High, 100 = Critical).
+    attr_accessor :criticality_numerical
+
     # The ID of the criticality rule that has most recently applied to the asset.
     attr_accessor :criticality_rule_id
 
@@ -267,6 +270,9 @@ module Falcon
     # The host management groups the asset is part of.
     attr_accessor :groups
 
+    # The hardware version of the IoT Asset
+    attr_accessor :hardware_version
+
     # The asset's hostname.
     attr_accessor :hostname
 
@@ -314,6 +320,9 @@ module Falcon
 
     # The date of the most recent unauthenticated scan.
     attr_accessor :last_unauthenticated_scan_date
+
+    # The fieldbus link address of the IoT Asset
+    attr_accessor :link_address
 
     # The sensor mode of the Linux asset.
     attr_accessor :linux_sensor_mode
@@ -389,11 +398,23 @@ module Falcon
     # The OS version of the asset.
     attr_accessor :os_version
 
+    # Protocol behaviour observed on the IoT Asset, grouped by protocol and category
+    attr_accessor :ot_behavioral_profile
+
     # A list of sources through which host is discovered
     attr_accessor :ot_information_sources
 
     # A list of network ids to which host belongs
     attr_accessor :ot_network_ids
+
+    # Operations observed being performed on or by the IoT Asset, grouped by protocol and category
+    attr_accessor :ot_observed_operations
+
+    # The OT platform of the device
+    attr_accessor :ot_platform
+
+    # The OT platform version of the device
+    attr_accessor :ot_platform_version
 
     # A list of ot serial numbers that discovered with host
     attr_accessor :ot_serial_numbers
@@ -415,6 +436,9 @@ module Falcon
 
     # The first and last name of the person who owns this asset.
     attr_accessor :owned_by
+
+    # The ID of the asset discovered by CrowdStrike passive PCAP collection
+    attr_accessor :pcap_passive_id
 
     # The number of physical CPU cores available on the system.
     attr_accessor :physical_core_count
@@ -576,6 +600,7 @@ module Falcon
         :'creation_timestamp' => :'creation_timestamp',
         :'criticality' => :'criticality',
         :'criticality_description' => :'criticality_description',
+        :'criticality_numerical' => :'criticality_numerical',
         :'criticality_rule_id' => :'criticality_rule_id',
         :'criticality_timestamp' => :'criticality_timestamp',
         :'criticality_username' => :'criticality_username',
@@ -614,6 +639,7 @@ module Falcon
         :'form_factor' => :'form_factor',
         :'fqdn' => :'fqdn',
         :'groups' => :'groups',
+        :'hardware_version' => :'hardware_version',
         :'hostname' => :'hostname',
         :'ics_id' => :'ics_id',
         :'id' => :'id',
@@ -631,6 +657,7 @@ module Falcon
         :'last_discoverer_ics_collector_id' => :'last_discoverer_ics_collector_id',
         :'last_seen_timestamp' => :'last_seen_timestamp',
         :'last_unauthenticated_scan_date' => :'last_unauthenticated_scan_date',
+        :'link_address' => :'link_address',
         :'linux_sensor_mode' => :'linux_sensor_mode',
         :'local_ip_addresses' => :'local_ip_addresses',
         :'local_ips_count' => :'local_ips_count',
@@ -656,8 +683,12 @@ module Falcon
         :'os_security' => :'os_security',
         :'os_service_pack' => :'os_service_pack',
         :'os_version' => :'os_version',
+        :'ot_behavioral_profile' => :'ot_behavioral_profile',
         :'ot_information_sources' => :'ot_information_sources',
         :'ot_network_ids' => :'ot_network_ids',
+        :'ot_observed_operations' => :'ot_observed_operations',
+        :'ot_platform' => :'ot_platform',
+        :'ot_platform_version' => :'ot_platform_version',
         :'ot_serial_numbers' => :'ot_serial_numbers',
         :'ou' => :'ou',
         :'ous' => :'ous',
@@ -665,6 +696,7 @@ module Falcon
         :'override_criticality_rules' => :'override_criticality_rules',
         :'override_internet_exposure' => :'override_internet_exposure',
         :'owned_by' => :'owned_by',
+        :'pcap_passive_id' => :'pcap_passive_id',
         :'physical_core_count' => :'physical_core_count',
         :'platform_name' => :'platform_name',
         :'processor_package_count' => :'processor_package_count',
@@ -756,6 +788,7 @@ module Falcon
         :'creation_timestamp' => :'String',
         :'criticality' => :'String',
         :'criticality_description' => :'String',
+        :'criticality_numerical' => :'Integer',
         :'criticality_rule_id' => :'String',
         :'criticality_timestamp' => :'String',
         :'criticality_username' => :'String',
@@ -794,6 +827,7 @@ module Falcon
         :'form_factor' => :'String',
         :'fqdn' => :'String',
         :'groups' => :'Array<String>',
+        :'hardware_version' => :'String',
         :'hostname' => :'String',
         :'ics_id' => :'String',
         :'id' => :'String',
@@ -811,6 +845,7 @@ module Falcon
         :'last_discoverer_ics_collector_id' => :'String',
         :'last_seen_timestamp' => :'String',
         :'last_unauthenticated_scan_date' => :'String',
+        :'link_address' => :'String',
         :'linux_sensor_mode' => :'String',
         :'local_ip_addresses' => :'Array<String>',
         :'local_ips_count' => :'Integer',
@@ -836,8 +871,12 @@ module Falcon
         :'os_security' => :'DomainDiscoverAPIOsSecurity',
         :'os_service_pack' => :'String',
         :'os_version' => :'String',
+        :'ot_behavioral_profile' => :'Array<DomainDiscoverAPIOtObservation>',
         :'ot_information_sources' => :'Array<String>',
         :'ot_network_ids' => :'Array<String>',
+        :'ot_observed_operations' => :'Array<DomainDiscoverAPIOtObservation>',
+        :'ot_platform' => :'String',
+        :'ot_platform_version' => :'String',
         :'ot_serial_numbers' => :'Array<String>',
         :'ou' => :'String',
         :'ous' => :'Array<String>',
@@ -845,6 +884,7 @@ module Falcon
         :'override_criticality_rules' => :'Boolean',
         :'override_internet_exposure' => :'Boolean',
         :'owned_by' => :'String',
+        :'pcap_passive_id' => :'String',
         :'physical_core_count' => :'Integer',
         :'platform_name' => :'String',
         :'processor_package_count' => :'Integer',
@@ -1080,6 +1120,10 @@ module Falcon
         self.criticality_description = attributes[:'criticality_description']
       end
 
+      if attributes.key?(:'criticality_numerical')
+        self.criticality_numerical = attributes[:'criticality_numerical']
+      end
+
       if attributes.key?(:'criticality_rule_id')
         self.criticality_rule_id = attributes[:'criticality_rule_id']
       end
@@ -1262,6 +1306,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'hardware_version')
+        self.hardware_version = attributes[:'hardware_version']
+      end
+
       if attributes.key?(:'hostname')
         self.hostname = attributes[:'hostname']
       end
@@ -1330,6 +1378,10 @@ module Falcon
 
       if attributes.key?(:'last_unauthenticated_scan_date')
         self.last_unauthenticated_scan_date = attributes[:'last_unauthenticated_scan_date']
+      end
+
+      if attributes.key?(:'link_address')
+        self.link_address = attributes[:'link_address']
       end
 
       if attributes.key?(:'linux_sensor_mode')
@@ -1444,6 +1496,12 @@ module Falcon
         self.os_version = attributes[:'os_version']
       end
 
+      if attributes.key?(:'ot_behavioral_profile')
+        if (value = attributes[:'ot_behavioral_profile']).is_a?(Array)
+          self.ot_behavioral_profile = value
+        end
+      end
+
       if attributes.key?(:'ot_information_sources')
         if (value = attributes[:'ot_information_sources']).is_a?(Array)
           self.ot_information_sources = value
@@ -1454,6 +1512,20 @@ module Falcon
         if (value = attributes[:'ot_network_ids']).is_a?(Array)
           self.ot_network_ids = value
         end
+      end
+
+      if attributes.key?(:'ot_observed_operations')
+        if (value = attributes[:'ot_observed_operations']).is_a?(Array)
+          self.ot_observed_operations = value
+        end
+      end
+
+      if attributes.key?(:'ot_platform')
+        self.ot_platform = attributes[:'ot_platform']
+      end
+
+      if attributes.key?(:'ot_platform_version')
+        self.ot_platform_version = attributes[:'ot_platform_version']
       end
 
       if attributes.key?(:'ot_serial_numbers')
@@ -1486,6 +1558,10 @@ module Falcon
 
       if attributes.key?(:'owned_by')
         self.owned_by = attributes[:'owned_by']
+      end
+
+      if attributes.key?(:'pcap_passive_id')
+        self.pcap_passive_id = attributes[:'pcap_passive_id']
       end
 
       if attributes.key?(:'physical_core_count')
@@ -1732,6 +1808,7 @@ module Falcon
           creation_timestamp == o.creation_timestamp &&
           criticality == o.criticality &&
           criticality_description == o.criticality_description &&
+          criticality_numerical == o.criticality_numerical &&
           criticality_rule_id == o.criticality_rule_id &&
           criticality_timestamp == o.criticality_timestamp &&
           criticality_username == o.criticality_username &&
@@ -1770,6 +1847,7 @@ module Falcon
           form_factor == o.form_factor &&
           fqdn == o.fqdn &&
           groups == o.groups &&
+          hardware_version == o.hardware_version &&
           hostname == o.hostname &&
           ics_id == o.ics_id &&
           id == o.id &&
@@ -1787,6 +1865,7 @@ module Falcon
           last_discoverer_ics_collector_id == o.last_discoverer_ics_collector_id &&
           last_seen_timestamp == o.last_seen_timestamp &&
           last_unauthenticated_scan_date == o.last_unauthenticated_scan_date &&
+          link_address == o.link_address &&
           linux_sensor_mode == o.linux_sensor_mode &&
           local_ip_addresses == o.local_ip_addresses &&
           local_ips_count == o.local_ips_count &&
@@ -1812,8 +1891,12 @@ module Falcon
           os_security == o.os_security &&
           os_service_pack == o.os_service_pack &&
           os_version == o.os_version &&
+          ot_behavioral_profile == o.ot_behavioral_profile &&
           ot_information_sources == o.ot_information_sources &&
           ot_network_ids == o.ot_network_ids &&
+          ot_observed_operations == o.ot_observed_operations &&
+          ot_platform == o.ot_platform &&
+          ot_platform_version == o.ot_platform_version &&
           ot_serial_numbers == o.ot_serial_numbers &&
           ou == o.ou &&
           ous == o.ous &&
@@ -1821,6 +1904,7 @@ module Falcon
           override_criticality_rules == o.override_criticality_rules &&
           override_internet_exposure == o.override_internet_exposure &&
           owned_by == o.owned_by &&
+          pcap_passive_id == o.pcap_passive_id &&
           physical_core_count == o.physical_core_count &&
           platform_name == o.platform_name &&
           processor_package_count == o.processor_package_count &&
@@ -1871,7 +1955,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_enabled, active_discovery, ad_user_account_control, ad_virtual_server, agent_version, aid, all_subnets, asset_roles, assigned_to, available_disk_space, available_disk_space_pct, average_memory_usage, average_memory_usage_pct, average_processor_usage, bios_hashes_data, bios_id, bios_manufacturer, bios_version, business_criticality, cid, city, claroty_id, classification, cloud_account_id, cloud_instance_id, cloud_provider, cloud_region, cloud_registered, cloud_resource_id, composite_internet_exposure, computed_asset_roles, computed_internet_exposure, computed_internet_exposure_external_ip, computed_internet_exposure_last_seen, confidence, country, cpu_manufacturer, cpu_processor_name, creation_timestamp, criticality, criticality_description, criticality_rule_id, criticality_timestamp, criticality_username, current_local_ip, current_network_prefix, data_providers, data_providers_count, department, deployment_type, descriptions, device_class, device_family, device_mode, device_slots, device_type, discoverer_aids, discoverer_count, discoverer_criticalities, discoverer_hostnames, discoverer_ics_collector_ids, discoverer_platform_names, discoverer_product_type_descs, discoverer_tags, discovering_by, disk_sizes, dragos_id, email, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_discoverer_aid, first_seen_timestamp, form_factor, fqdn, groups, hostname, ics_id, id, imported_host_id, internet_exposure, internet_exposure_description, internet_exposure_timestamp, internet_exposure_username, iot_imported, iot_tags, kernel_version, last_authenticated_scan_date, last_discoverer_aid, last_discoverer_hostname, last_discoverer_ics_collector_id, last_seen_timestamp, last_unauthenticated_scan_date, linux_sensor_mode, local_ip_addresses, local_ips_count, location, logical_core_count, mac_addresses, machine_domain, managed_by, max_memory_usage, max_memory_usage_pct, max_processor_usage, memory_total, mount_storage_info, multi_nic_ip_addresses, network_id, network_interfaces, network_scanned_ids, nozomi_id, number_of_disk_drives, object_guid, object_sid, os_is_eol, os_security, os_service_pack, os_version, ot_information_sources, ot_network_ids, ot_serial_numbers, ou, ous, override_asset_roles, override_criticality_rules, override_internet_exposure, owned_by, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, protocols, purdue_level, qualys_id, qualys_network_id, reduced_functionality_mode, scan_details, servicenow_id, site_name, state, subnet, subnet_history, system_manufacturer, system_product_name, system_serial_number, tags, tenableio_id, total_bios_files, total_disk_space, total_memory, triage, unencrypted_drives, unencrypted_drives_count, used_disk_space, used_disk_space_pct, used_for, user_asset_roles, user_internet_exposure, virtual_zone, vlan, vulnerability_assessment_date, xdome_id, xiot_discoverer_hostnames, xiot_discoverer_tags, xiot_last_discoverer_hostname].hash
+      [account_enabled, active_discovery, ad_user_account_control, ad_virtual_server, agent_version, aid, all_subnets, asset_roles, assigned_to, available_disk_space, available_disk_space_pct, average_memory_usage, average_memory_usage_pct, average_processor_usage, bios_hashes_data, bios_id, bios_manufacturer, bios_version, business_criticality, cid, city, claroty_id, classification, cloud_account_id, cloud_instance_id, cloud_provider, cloud_region, cloud_registered, cloud_resource_id, composite_internet_exposure, computed_asset_roles, computed_internet_exposure, computed_internet_exposure_external_ip, computed_internet_exposure_last_seen, confidence, country, cpu_manufacturer, cpu_processor_name, creation_timestamp, criticality, criticality_description, criticality_numerical, criticality_rule_id, criticality_timestamp, criticality_username, current_local_ip, current_network_prefix, data_providers, data_providers_count, department, deployment_type, descriptions, device_class, device_family, device_mode, device_slots, device_type, discoverer_aids, discoverer_count, discoverer_criticalities, discoverer_hostnames, discoverer_ics_collector_ids, discoverer_platform_names, discoverer_product_type_descs, discoverer_tags, discovering_by, disk_sizes, dragos_id, email, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_discoverer_aid, first_seen_timestamp, form_factor, fqdn, groups, hardware_version, hostname, ics_id, id, imported_host_id, internet_exposure, internet_exposure_description, internet_exposure_timestamp, internet_exposure_username, iot_imported, iot_tags, kernel_version, last_authenticated_scan_date, last_discoverer_aid, last_discoverer_hostname, last_discoverer_ics_collector_id, last_seen_timestamp, last_unauthenticated_scan_date, link_address, linux_sensor_mode, local_ip_addresses, local_ips_count, location, logical_core_count, mac_addresses, machine_domain, managed_by, max_memory_usage, max_memory_usage_pct, max_processor_usage, memory_total, mount_storage_info, multi_nic_ip_addresses, network_id, network_interfaces, network_scanned_ids, nozomi_id, number_of_disk_drives, object_guid, object_sid, os_is_eol, os_security, os_service_pack, os_version, ot_behavioral_profile, ot_information_sources, ot_network_ids, ot_observed_operations, ot_platform, ot_platform_version, ot_serial_numbers, ou, ous, override_asset_roles, override_criticality_rules, override_internet_exposure, owned_by, pcap_passive_id, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, protocols, purdue_level, qualys_id, qualys_network_id, reduced_functionality_mode, scan_details, servicenow_id, site_name, state, subnet, subnet_history, system_manufacturer, system_product_name, system_serial_number, tags, tenableio_id, total_bios_files, total_disk_space, total_memory, triage, unencrypted_drives, unencrypted_drives_count, used_disk_space, used_disk_space_pct, used_for, user_asset_roles, user_internet_exposure, virtual_zone, vlan, vulnerability_assessment_date, xdome_id, xiot_discoverer_hostnames, xiot_discoverer_tags, xiot_last_discoverer_hostname].hash
     end
 
     # Builds the object from hash

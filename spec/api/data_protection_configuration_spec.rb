@@ -93,7 +93,7 @@ describe 'DataProtectionConfiguration' do
   end
 
   # unit tests for entities_cloud_application_create
-  # Persist the given cloud application for the provided entity instance
+  # Persist the given cloud application for the provided entity instance. Each URL is normalized (FQDN and path lowercased) and validated: if not compliant, it is rejected with a 400.
   # @param body The cloud-application definition to create
   # @param [Hash] opts the optional parameters
   # @return [ApiCloudApplicationMSAResponseV1]
@@ -126,7 +126,7 @@ describe 'DataProtectionConfiguration' do
   end
 
   # unit tests for entities_cloud_application_patch
-  # Update a cloud application
+  # Update a cloud application. Every URL in the request payload is normalized (FQDN and path lowercased) and validated with the same rules as create; the whole payload is checked, not just newly-added URLs.
   # @param id The cloud app id to update.
   # @param body The new cloud-application definition
   # @param [Hash] opts the optional parameters
@@ -452,6 +452,55 @@ describe 'DataProtectionConfiguration' do
     end
   end
 
+  # unit tests for entities_web_location_group_create
+  # Create a web location group
+  # @param x_cs_useruuid The user ID
+  # @param body The web location group definition to create
+  # @param [Hash] opts the optional parameters
+  # @return [ApiWebLocationGroupMSAResponseV2]
+  describe 'entities_web_location_group_create test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for entities_web_location_group_delete
+  # Soft delete web location groups
+  # @param x_cs_useruuid The user ID
+  # @param ids The id(s) of the web location group to delete.
+  # @param [Hash] opts the optional parameters
+  # @return [ApiWebLocationGroupMSAResponseV2]
+  describe 'entities_web_location_group_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for entities_web_location_group_get
+  # Get specific web location groups
+  # @param x_cs_useruuid The user ID
+  # @param ids The web location group id(s) to get.
+  # @param [Hash] opts the optional parameters
+  # @return [ApiWebLocationGroupMSAResponseV2]
+  describe 'entities_web_location_group_get test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for entities_web_location_group_patch
+  # Update a web location group
+  # @param x_cs_useruuid The user ID
+  # @param id The web location group id to update.
+  # @param body The new web location group definition
+  # @param [Hash] opts the optional parameters
+  # @return [ApiWebLocationGroupMSAResponseV2]
+  describe 'entities_web_location_group_patch test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for entities_web_location_patch_v2
   # Update a web-location
   # @param id The web-location entity id to update.
@@ -467,10 +516,10 @@ describe 'DataProtectionConfiguration' do
   # unit tests for queries_classification_get_v2
   # Search for classifications that match the provided criteria
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.content_patterns properties.evidence_duplication_enabled properties.protection_mode properties.sensitivity_labels created_at properties.content_patterns_operator properties.file_types properties.web_sources name created_by modified_by modified_at]
+  # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.content_patterns_operator properties.protection_mode name created_by modified_at properties.content_patterns properties.evidence_duplication_enabled properties.file_types properties.sensitivity_labels properties.web_sources created_at modified_by]
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @option opts [Integer] :limit The maximum records to return
-  # @option opts [String] :sort The property to sort by, allowed fields are :[modified_at name created_at]
+  # @option opts [String] :sort The property to sort by, allowed fields are :[name created_at modified_at]
   # @return [ResponsesPolicySearchV1]
   describe 'queries_classification_get_v2 test' do
     it 'should work' do
@@ -481,8 +530,8 @@ describe 'DataProtectionConfiguration' do
   # unit tests for queries_cloud_application_get_v2
   # Get all cloud-application IDs matching the query with filter
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Optional filter for searching cloud applications. Allowed filters are &#39;name&#39; (string), &#39;type&#39; (array of strings representing the tier, accepted values are: integrated, predefined, custom), &#39;deleted&#39; (boolean), supports_network_inspection (boolean) and &#39;application_group_id&#39; (string)
-  # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39; (string), &#39;type&#39; (array of strings representing the tier, accepted values are: integrated, predefined, custom), &#39;deleted&#39; (boolean) and &#39;application_group_id&#39; (string)
+  # @option opts [String] :filter Optional filter for searching cloud applications. Allowed filters are &#39;name&#39; (string), &#39;type&#39; (array of strings representing the tier, accepted values are: integrated, predefined, custom), &#39;deleted&#39; (boolean), supports_network_inspection (boolean), &#39;application_group_id&#39; (string), &#39;created&#39; and &#39;last_updated&#39;
+  # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39; (string), &#39;type&#39; (array of strings representing the tier, accepted values are: integrated, predefined, custom), &#39;deleted&#39; (boolean), &#39;application_group_id&#39; (string), &#39;created&#39; and &#39;last_updated&#39;
   # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
   # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
   # @return [MsaspecQueryResponse]
@@ -495,8 +544,8 @@ describe 'DataProtectionConfiguration' do
   # unit tests for queries_content_pattern_get_v2
   # Get all content-pattern IDs matching the query with filter
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter The filter to use when finding content patterns. Allowed filters are &#39;name&#39;, &#39;type&#39;, &#39;category&#39;, &#39;region&#39;, &#39;example&#39;, &#39;created_at&#39;, &#39;updated_at&#39; and &#39;deleted&#39;
-  # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;type&#39;, &#39;category&#39;, &#39;region&#39;, &#39;created_at&#39;, &#39;updated_at&#39;, &#39;example&#39; and &#39;deleted&#39;
+  # @option opts [String] :filter The filter to use when finding content patterns. Allowed filters are &#39;name&#39;, &#39;type&#39;, &#39;category&#39;, &#39;region&#39;, &#39;example&#39;, &#39;created&#39;, &#39;last_updated&#39; and &#39;deleted&#39;
+  # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;type&#39;, &#39;category&#39;, &#39;region&#39;, &#39;created&#39;, &#39;last_updated&#39;, &#39;example&#39; and &#39;deleted&#39;
   # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
   # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
   # @return [MsaspecQueryResponse]
@@ -509,8 +558,8 @@ describe 'DataProtectionConfiguration' do
   # unit tests for queries_enterprise_account_get_v2
   # Get all enterprise-account IDs matching the query with filter
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter The filter to use when finding enterprise accounts. Allowed filters are &#39;name&#39;, &#39;application_group_id&#39;, &#39;deleted&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
-  # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;application_group_id&#39;, &#39;deleted&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
+  # @option opts [String] :filter The filter to use when finding enterprise accounts. Allowed filters are &#39;name&#39;, &#39;application_group_id&#39;, &#39;deleted&#39;, &#39;created&#39; and &#39;last_updated&#39;
+  # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;application_group_id&#39;, &#39;deleted&#39;, &#39;created&#39; and &#39;last_updated&#39;
   # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
   # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
   # @return [MsaspecQueryResponse]
@@ -523,8 +572,8 @@ describe 'DataProtectionConfiguration' do
   # unit tests for queries_file_type_get_v2
   # Get all file-type IDs matching the query with filter
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter The filter to use when finding file types. Allowed filter is &#39;name&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
-  # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
+  # @option opts [String] :filter The filter to use when finding file types. Allowed filters are &#39;name&#39;, &#39;created&#39;, &#39;last_updated&#39; and &#39;product&#39;
+  # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;created&#39; and &#39;last_updated&#39;
   # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
   # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
   # @return [MsaspecQueryResponse]
@@ -538,7 +587,8 @@ describe 'DataProtectionConfiguration' do
   # Get all local-application IDs matching the query with filter
   # @param x_cs_useruuid The user ID
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Optional filter for searching local applications. Allowed filters are &#39;name&#39; (string), is_deleted (boolean), &#39;created_at&#39; and &#39;updated_at&#39;
+  # @option opts [String] :filter Optional filter for searching local applications. Allowed filters are &#39;name&#39; (string), is_deleted (boolean), &#39;created&#39; and &#39;last_updated&#39;
+  # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;executable_name&#39;, &#39;created&#39; and &#39;last_updated&#39;
   # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
   # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
   # @return [MsaspecQueryResponse]
@@ -552,7 +602,8 @@ describe 'DataProtectionConfiguration' do
   # Get all local application group IDs matching the query with filter
   # @param x_cs_useruuid The user ID
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Optional filter for searching local application group. Allowed filters are &#39;name&#39; (string), is_deleted (boolean), platform (string), &#39;created_at&#39; and &#39;updated_at&#39;
+  # @option opts [String] :filter Optional filter for searching local application group. Allowed filters are &#39;name&#39; (string), is_deleted (boolean), platform (string), &#39;created&#39; and &#39;last_updated&#39;
+  # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;created&#39; and &#39;last_updated&#39;
   # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
   # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
   # @return [MsaspecQueryResponse]
@@ -566,7 +617,7 @@ describe 'DataProtectionConfiguration' do
   # Search for policies that match the provided criteria
   # @param platform_name platform name of the policies to search, either &#39;win&#39; or &#39;mac&#39;
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [created_by properties.block_all_data_access properties.be_upload_timeout_response properties.be_paste_clipboard_max_size_unit properties.evidence_storage_max_size properties.enable_screen_capture name properties.custom_allow_notification properties.evidence_encrypted_enabled properties.be_paste_timeout_response properties.euj_dialog_timeout properties.screen_capture_duration_pre_event created_at properties.max_file_size_to_inspect_unit properties.allow_notifications properties.network_inspection_files_exceeding_size_limit properties.besplash_custom_message properties.screen_capture_duration_post_event description is_default modified_at properties.enable_content_inspection properties.be_paste_timeout_duration_milliseconds properties.be_paste_clipboard_max_size modified_by properties.enable_context_inspection properties.enable_end_user_notifications_unsupported_browser properties.be_exclude_domains properties.custom_block_notification properties.enable_network_inspection properties.besplash_enabled properties.be_paste_clipboard_over_size_behaviour_block properties.max_file_size_to_inspect is_enabled properties.similarity_detection properties.enable_clipboard_inspection properties.evidence_duplication_enabled_default properties.classifications properties.be_upload_timeout_duration_seconds properties.be_paste_clipboard_min_size properties.be_paste_clipboard_min_size_unit properties.min_confidence_level properties.inspection_depth properties.browsers_without_active_extension properties.similarity_threshold properties.block_notifications properties.evidence_download_enabled properties.besplash_message_source properties.evidence_storage_free_disk_perc precedence]
+  # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.enable_context_inspection properties.similarity_threshold properties.enable_end_user_notifications_unsupported_browser properties.besplash_custom_message properties.be_paste_clipboard_min_size properties.evidence_storage_free_disk_perc properties.max_file_size_to_inspect is_enabled is_default created_by properties.be_paste_clipboard_max_size properties.screen_capture_duration_post_event properties.enable_ocr properties.block_all_data_access properties.enable_clipboard_web_origin properties.evidence_duplication_enabled_default properties.be_upload_timeout_duration_seconds properties.be_paste_clipboard_min_size_unit properties.evidence_storage_max_size properties.enable_screen_capture properties.enable_print_monitor properties.min_confidence_level properties.allow_notifications properties.custom_block_notification properties.besplash_enabled properties.be_paste_timeout_response properties.be_paste_clipboard_over_size_behaviour_block properties.euj_dialog_timeout properties.screen_capture_duration_pre_event properties.inspection_depth properties.browsers_without_active_extension properties.network_inspection_exclude_list_v2 precedence created_at modified_at properties.similarity_detection properties.block_notifications properties.evidence_download_enabled properties.evidence_encrypted_enabled properties.classifications properties.enable_content_inspection properties.max_file_size_to_inspect_unit properties.network_inspection_files_exceeding_size_limit properties.be_upload_timeout_response properties.be_paste_timeout_duration_milliseconds properties.be_paste_clipboard_max_size_unit description modified_by host_groups properties.enable_clipboard_inspection properties.custom_allow_notification properties.enable_network_inspection properties.be_exclude_domains properties.besplash_message_source name]
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @option opts [Integer] :limit The maximum records to return
   # @option opts [String] :sort The property to sort by, allowed fields are :[name precedence created_at modified_at]
@@ -580,8 +631,8 @@ describe 'DataProtectionConfiguration' do
   # unit tests for queries_sensitivity_label_get_v2
   # Get all sensitivity label IDs matching the query with filter
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter The filter to use when finding sensitivity labels. The only allowed filters are &#39;name&#39;, &#39;display_name&#39;, &#39;external_id&#39; and &#39;deleted&#39;
-  # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;display_name&#39;, &#39;deleted&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
+  # @option opts [String] :filter The filter to use when finding sensitivity labels. The only allowed filters are &#39;name&#39;, &#39;display_name&#39;, &#39;external_id&#39;, &#39;deleted&#39;, &#39;created&#39; and &#39;last_updated&#39;
+  # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;display_name&#39;, &#39;deleted&#39;, &#39;created&#39; and &#39;last_updated&#39;
   # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
   # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
   # @return [MsaspecQueryResponse]
@@ -594,12 +645,29 @@ describe 'DataProtectionConfiguration' do
   # unit tests for queries_web_location_get_v2
   # Get web-location IDs matching the query with filter
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter The filter to use when finding web locations. Allowed filters are &#39;name&#39;, &#39;type&#39;, &#39;deleted&#39;, &#39;application_id&#39;, &#39;provider_location_id&#39; and &#39;enterprise_account_id&#39;
+  # @option opts [String] :filter The filter to use when finding web locations. Allowed filters are &#39;name&#39;, &#39;type&#39;, &#39;deleted&#39;, &#39;application_id&#39;, &#39;provider_location_id&#39;, &#39;enterprise_account_id&#39;, &#39;created&#39; and &#39;last_updated&#39;
+  # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;type&#39;, &#39;deleted&#39;, &#39;application_id&#39;, &#39;provider_location_id&#39;, &#39;enterprise_account_id&#39;, &#39;created&#39; and &#39;last_updated&#39;
   # @option opts [String] :type The type of entity to query. Allowed values are &#39;predefined&#39; and &#39;custom&#39;
   # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
   # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
   # @return [MsaspecQueryResponse]
   describe 'queries_web_location_get_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for queries_web_location_group_get
+  # Get all web location group IDs matching the query with filter
+  # @param x_cs_useruuid The user ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter Optional filter for searching web location groups. Allowed filters are &#39;name&#39; (string), &#39;deleted&#39; (boolean), &#39;type&#39; (string: &#39;predefined&#39; or &#39;custom&#39;), &#39;created&#39; and &#39;last_updated&#39;
+  # @option opts [String] :type The type of entity to query. Allowed values are &#39;predefined&#39; and &#39;custom&#39;
+  # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;created&#39; and &#39;last_updated&#39;
+  # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
+  # @return [MsaspecQueryResponse]
+  describe 'queries_web_location_group_get test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

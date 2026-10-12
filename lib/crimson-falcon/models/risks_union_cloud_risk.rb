@@ -73,9 +73,13 @@ module Falcon
 
     attr_accessor :provider
 
+    attr_accessor :remediation_plan
+
     attr_accessor :resolved_at
 
     attr_accessor :risk_factors
+
+    attr_accessor :risk_summary
 
     attr_accessor :rule_description
 
@@ -117,8 +121,10 @@ module Falcon
         :'insight_categories' => :'insight_categories',
         :'last_seen' => :'last_seen',
         :'provider' => :'provider',
+        :'remediation_plan' => :'remediation_plan',
         :'resolved_at' => :'resolved_at',
         :'risk_factors' => :'risk_factors',
+        :'risk_summary' => :'risk_summary',
         :'rule_description' => :'rule_description',
         :'rule_id' => :'rule_id',
         :'rule_name' => :'rule_name',
@@ -159,8 +165,10 @@ module Falcon
         :'insight_categories' => :'Array<String>',
         :'last_seen' => :'Time',
         :'provider' => :'String',
+        :'remediation_plan' => :'String',
         :'resolved_at' => :'Time',
         :'risk_factors' => :'Array<Object>',
+        :'risk_summary' => :'String',
         :'rule_description' => :'String',
         :'rule_id' => :'String',
         :'rule_name' => :'String',
@@ -287,6 +295,10 @@ module Falcon
         self.provider = attributes[:'provider']
       end
 
+      if attributes.key?(:'remediation_plan')
+        self.remediation_plan = attributes[:'remediation_plan']
+      end
+
       if attributes.key?(:'resolved_at')
         self.resolved_at = attributes[:'resolved_at']
       end
@@ -295,6 +307,10 @@ module Falcon
         if (value = attributes[:'risk_factors']).is_a?(Array)
           self.risk_factors = value
         end
+      end
+
+      if attributes.key?(:'risk_summary')
+        self.risk_summary = attributes[:'risk_summary']
       end
 
       if attributes.key?(:'rule_description')
@@ -474,8 +490,10 @@ module Falcon
           insight_categories == o.insight_categories &&
           last_seen == o.last_seen &&
           provider == o.provider &&
+          remediation_plan == o.remediation_plan &&
           resolved_at == o.resolved_at &&
           risk_factors == o.risk_factors &&
+          risk_summary == o.risk_summary &&
           rule_description == o.rule_description &&
           rule_id == o.rule_id &&
           rule_name == o.rule_name &&
@@ -495,7 +513,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_name, adversaries, agv2_id, asset_gcrn, asset_id, asset_name, asset_region, asset_tags, asset_type, cid, cloud_groups, comments, crn, disabled, first_seen, graph, id, insight_categories, last_seen, provider, resolved_at, risk_factors, rule_description, rule_id, rule_name, score, service_category, severity, status, suppression].hash
+      [account_id, account_name, adversaries, agv2_id, asset_gcrn, asset_id, asset_name, asset_region, asset_tags, asset_type, cid, cloud_groups, comments, crn, disabled, first_seen, graph, id, insight_categories, last_seen, provider, remediation_plan, resolved_at, risk_factors, risk_summary, rule_description, rule_id, rule_name, score, service_category, severity, status, suppression].hash
     end
 
     # Builds the object from hash

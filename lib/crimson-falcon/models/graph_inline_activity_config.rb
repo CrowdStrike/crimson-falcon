@@ -34,8 +34,10 @@ module Falcon
     # A map containing an activity configuration for an inline action.
     attr_accessor :config
 
+    # Input JSON Schema defining parameters required by an inline action.
     attr_accessor :input_schema
 
+    # Output JSON Schema defining parameters returns from an inline action.
     attr_accessor :output_schema
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -56,8 +58,8 @@ module Falcon
     def self.openapi_types
       {
         :'config' => :'Object',
-        :'input_schema' => :'JsonschemaSchema',
-        :'output_schema' => :'JsonschemaSchema'
+        :'input_schema' => :'String',
+        :'output_schema' => :'String'
       }
     end
 

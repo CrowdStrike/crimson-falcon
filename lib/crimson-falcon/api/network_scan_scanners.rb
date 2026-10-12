@@ -108,7 +108,7 @@ module Falcon
     # @param ids [Array<String>] IDs of \&quot;scanners\&quot; to be retrieved (Min: 1, Max: 100)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainScannerEntitiesResponse]
+    # @return [NvaapiScannerEntitiesResponse]
     def get_scanners(ids, opts = {})
       data, _status_code, _headers = get_scanners_with_http_info(ids, opts)
       data
@@ -118,7 +118,7 @@ module Falcon
     # @param ids [Array<String>] IDs of \&quot;scanners\&quot; to be retrieved (Min: 1, Max: 100)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainScannerEntitiesResponse, Integer, Hash)>] DomainScannerEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiScannerEntitiesResponse, Integer, Hash)>] NvaapiScannerEntitiesResponse data, response status code and response headers
     def get_scanners_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanScanners.get_scanners ...'
@@ -147,7 +147,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainScannerEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiScannerEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -252,20 +252,20 @@ module Falcon
     end
 
     # Update \"scanners\" using provided specifications
-    # @param body [DomainScannersUpdateRequest] \&quot;scanners\&quot; specifications for updating
+    # @param body [NvaapiScannersUpdateRequest] \&quot;scanners\&quot; specifications for updating
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainScannersUpdateResponse]
+    # @return [NvaapiScannersUpdateResponse]
     def update_scanners(body, opts = {})
       data, _status_code, _headers = update_scanners_with_http_info(body, opts)
       data
     end
 
     # Update \&quot;scanners\&quot; using provided specifications
-    # @param body [DomainScannersUpdateRequest] \&quot;scanners\&quot; specifications for updating
+    # @param body [NvaapiScannersUpdateRequest] \&quot;scanners\&quot; specifications for updating
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainScannersUpdateResponse, Integer, Hash)>] DomainScannersUpdateResponse data, response status code and response headers
+    # @return [Array<(NvaapiScannersUpdateResponse, Integer, Hash)>] NvaapiScannersUpdateResponse data, response status code and response headers
     def update_scanners_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanScanners.update_scanners ...'
@@ -298,7 +298,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainScannersUpdateResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiScannersUpdateResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

@@ -79,6 +79,7 @@ describe 'CloudGoogleCloudRegistration' do
   # @option opts [String] :sort Field and direction for sorting results (e.g., &#39;created|desc&#39;). Sorting applies across all entity types before grouping.
   # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 500). Limit applies across all entity types.
   # @option opts [Integer] :offset Starting index of result
+  # @option opts [Boolean] :include_all_statuses Include entities with any registration status (default: false)
   # @return [DtoGCPEntitiesResponseV1]
   describe 'cloud_registration_gcp_get_entities test' do
     it 'should work' do
@@ -92,6 +93,18 @@ describe 'CloudGoogleCloudRegistration' do
   # @param [Hash] opts the optional parameters
   # @return [DtoGCPRegistrationResponseExtV1]
   describe 'cloud_registration_gcp_get_registration test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_gcp_post_infra_manager_script
+  # Generate Google Cloud Infrastructure Manager deployment commands
+  # Only supports infrastructure-manager deployment method. Returns gcloud infra-manager commands as structured JSON.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DtoGCPDeploymentCommandResponseV1]
+  describe 'cloud_registration_gcp_post_infra_manager_script test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

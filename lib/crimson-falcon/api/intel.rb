@@ -622,7 +622,7 @@ module Falcon
     end
 
     # Download the latest rule set.
-    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
+    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog (deprecated)  yara-master  yara-update  yara-changelog (deprecated)  common-event-format  netwitness  cql-master (deprecated)  cql-update (deprecated)  cql-changelog (deprecated)  Note: CQL rules (cql-master, cql-update, cql-changelog) and Changelog rules (snort-suricata-changelog, yara-changelog) are deprecated starting 28 September 2026. cql-changelog belongs to both families. No new rules of these types will be published after that date. Already-published rules will continue to be available via other means (e.g. direct ID-based download, email notifications).
     # @param [Hash] opts the optional parameters
     # @option opts [String] :accept Choose the format you want the rule set in.
     # @option opts [String] :if_none_match Download the latest rule set only if it doesn&#39;t have an ETag matching the given ones.
@@ -636,7 +636,7 @@ module Falcon
     end
 
     # Download the latest rule set.
-    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
+    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog (deprecated)  yara-master  yara-update  yara-changelog (deprecated)  common-event-format  netwitness  cql-master (deprecated)  cql-update (deprecated)  cql-changelog (deprecated)  Note: CQL rules (cql-master, cql-update, cql-changelog) and Changelog rules (snort-suricata-changelog, yara-changelog) are deprecated starting 28 September 2026. cql-changelog belongs to both families. No new rules of these types will be published after that date. Already-published rules will continue to be available via other means (e.g. direct ID-based download, email notifications).
     # @param [Hash] opts the optional parameters
     # @option opts [String] :accept Choose the format you want the rule set in.
     # @option opts [String] :if_none_match Download the latest rule set only if it doesn&#39;t have an ETag matching the given ones.
@@ -701,6 +701,7 @@ module Falcon
     # Get malware entities for specified ids.
     # @param ids [Array<String>] Malware family name in lower case with spaces, dots and slashes replaced with dashes
     # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :fields Fields to return in response
     # @return [DomainMalwareResponse]
     def get_malware_entities(ids, opts = {})
       data, _status_code, _headers = get_malware_entities_with_http_info(ids, opts)
@@ -710,6 +711,7 @@ module Falcon
     # Get malware entities for specified ids.
     # @param ids [Array<String>] Malware family name in lower case with spaces, dots and slashes replaced with dashes
     # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :fields Fields to return in response
     # @return [Array<(DomainMalwareResponse, Integer, Hash)>] DomainMalwareResponse data, response status code and response headers
     def get_malware_entities_with_http_info(ids, opts = {})
       if @api_client.config.debugging
@@ -725,6 +727,7 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+      query_params[:'fields'] = @api_client.build_collection_param(opts[:'fields'], :multi) if !opts[:'fields'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1472,7 +1475,7 @@ module Falcon
     end
 
     # Search for rule IDs that match provided filter criteria.
-    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
+    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog (deprecated)  yara-master  yara-update  yara-changelog (deprecated)  common-event-format  netwitness  cql-master (deprecated)  cql-update (deprecated)  cql-changelog (deprecated)  Note: CQL rules (cql-master, cql-update, cql-changelog) and Changelog rules (snort-suricata-changelog, yara-changelog) are deprecated starting 28 September 2026. cql-changelog belongs to both families. No new rules of these types will be published after that date. Already-published rules will continue to be available via other means (e.g. direct ID-based download, email notifications).
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset Set the starting row number to return reports from. Defaults to 0.
     # @option opts [Integer] :limit The number of rule IDs to return. Defaults to 10.
@@ -1490,7 +1493,7 @@ module Falcon
     end
 
     # Search for rule IDs that match provided filter criteria.
-    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
+    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog (deprecated)  yara-master  yara-update  yara-changelog (deprecated)  common-event-format  netwitness  cql-master (deprecated)  cql-update (deprecated)  cql-changelog (deprecated)  Note: CQL rules (cql-master, cql-update, cql-changelog) and Changelog rules (snort-suricata-changelog, yara-changelog) are deprecated starting 28 September 2026. cql-changelog belongs to both families. No new rules of these types will be published after that date. Already-published rules will continue to be available via other means (e.g. direct ID-based download, email notifications).
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset Set the starting row number to return reports from. Defaults to 0.
     # @option opts [Integer] :limit The number of rule IDs to return. Defaults to 10.

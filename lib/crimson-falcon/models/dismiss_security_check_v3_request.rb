@@ -31,12 +31,16 @@ require 'time'
 
 module Falcon
   class DismissSecurityCheckV3Request
+    # Snooze the dismiss for this many days (1-365). Omit to dismiss indefinitely
+    attr_accessor :duration_in_days
+
     # Dismiss reason
     attr_accessor :reason
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'duration_in_days' => :'duration_in_days',
         :'reason' => :'reason'
       }
     end
@@ -49,6 +53,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'duration_in_days' => :'Integer',
         :'reason' => :'String'
       }
     end
@@ -74,6 +79,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'duration_in_days')
+        self.duration_in_days = attributes[:'duration_in_days']
+      end
+
       if attributes.key?(:'reason')
         self.reason = attributes[:'reason']
       end
@@ -97,6 +106,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          duration_in_days == o.duration_in_days &&
           reason == o.reason
     end
 
@@ -109,7 +119,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [reason].hash
+      [duration_in_days, reason].hash
     end
 
     # Builds the object from hash

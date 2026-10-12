@@ -41,6 +41,10 @@ module Falcon
 
     attr_accessor :ffcid
 
+    attr_accessor :hostname
+
+    attr_accessor :ip_address
+
     attr_accessor :modified_timestamp
 
     attr_accessor :notes
@@ -63,6 +67,8 @@ module Falcon
         :'created_timestamp' => :'created_timestamp',
         :'deployed_timestamp' => :'deployed_timestamp',
         :'ffcid' => :'ffcid',
+        :'hostname' => :'hostname',
+        :'ip_address' => :'ip_address',
         :'modified_timestamp' => :'modified_timestamp',
         :'notes' => :'notes',
         :'platform' => :'platform',
@@ -86,6 +92,8 @@ module Falcon
         :'created_timestamp' => :'Time',
         :'deployed_timestamp' => :'Time',
         :'ffcid' => :'String',
+        :'hostname' => :'String',
+        :'ip_address' => :'String',
         :'modified_timestamp' => :'Time',
         :'notes' => :'String',
         :'platform' => :'Integer',
@@ -135,6 +143,14 @@ module Falcon
 
       if attributes.key?(:'ffcid')
         self.ffcid = attributes[:'ffcid']
+      end
+
+      if attributes.key?(:'hostname')
+        self.hostname = attributes[:'hostname']
+      end
+
+      if attributes.key?(:'ip_address')
+        self.ip_address = attributes[:'ip_address']
       end
 
       if attributes.key?(:'modified_timestamp')
@@ -270,6 +286,8 @@ module Falcon
           created_timestamp == o.created_timestamp &&
           deployed_timestamp == o.deployed_timestamp &&
           ffcid == o.ffcid &&
+          hostname == o.hostname &&
+          ip_address == o.ip_address &&
           modified_timestamp == o.modified_timestamp &&
           notes == o.notes &&
           platform == o.platform &&
@@ -288,7 +306,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aid, cid, created_timestamp, deployed_timestamp, ffcid, modified_timestamp, notes, platform, seen_timestamp, sessionid, state, updated_by].hash
+      [aid, cid, created_timestamp, deployed_timestamp, ffcid, hostname, ip_address, modified_timestamp, notes, platform, seen_timestamp, sessionid, state, updated_by].hash
     end
 
     # Builds the object from hash

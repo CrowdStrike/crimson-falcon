@@ -48,9 +48,6 @@ module Falcon
     # Enforcement for Windows Storage Spaces (omit to keep current).
     attr_accessor :storage_space_enforcement_mode
 
-    # Enforcement mode for User Based exceptions
-    attr_accessor :user_based_enforcement_mode
-
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -81,8 +78,7 @@ module Falcon
         :'enforcement_mode' => :'enforcement_mode',
         :'enhanced_file_metadata' => :'enhanced_file_metadata',
         :'pcie_enforcement_mode' => :'pcie_enforcement_mode',
-        :'storage_space_enforcement_mode' => :'storage_space_enforcement_mode',
-        :'user_based_enforcement_mode' => :'user_based_enforcement_mode'
+        :'storage_space_enforcement_mode' => :'storage_space_enforcement_mode'
       }
     end
 
@@ -99,8 +95,7 @@ module Falcon
         :'enforcement_mode' => :'String',
         :'enhanced_file_metadata' => :'Boolean',
         :'pcie_enforcement_mode' => :'String',
-        :'storage_space_enforcement_mode' => :'String',
-        :'user_based_enforcement_mode' => :'String'
+        :'storage_space_enforcement_mode' => :'String'
       }
     end
 
@@ -148,10 +143,6 @@ module Falcon
       if attributes.key?(:'storage_space_enforcement_mode')
         self.storage_space_enforcement_mode = attributes[:'storage_space_enforcement_mode']
       end
-
-      if attributes.key?(:'user_based_enforcement_mode')
-        self.user_based_enforcement_mode = attributes[:'user_based_enforcement_mode']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -172,8 +163,6 @@ module Falcon
       return false unless pcie_enforcement_mode_validator.valid?(@pcie_enforcement_mode)
       storage_space_enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
       return false unless storage_space_enforcement_mode_validator.valid?(@storage_space_enforcement_mode)
-      user_based_enforcement_mode_validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
-      return false unless user_based_enforcement_mode_validator.valid?(@user_based_enforcement_mode)
       true
     end
 
@@ -217,16 +206,6 @@ module Falcon
       @storage_space_enforcement_mode = storage_space_enforcement_mode
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] user_based_enforcement_mode Object to be assigned
-    def user_based_enforcement_mode=(user_based_enforcement_mode)
-      validator = EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
-      unless validator.valid?(user_based_enforcement_mode)
-        fail ArgumentError, "invalid value for \"user_based_enforcement_mode\", must be one of #{validator.allowable_values}."
-      end
-      @user_based_enforcement_mode = user_based_enforcement_mode
-    end
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -237,8 +216,7 @@ module Falcon
           enforcement_mode == o.enforcement_mode &&
           enhanced_file_metadata == o.enhanced_file_metadata &&
           pcie_enforcement_mode == o.pcie_enforcement_mode &&
-          storage_space_enforcement_mode == o.storage_space_enforcement_mode &&
-          user_based_enforcement_mode == o.user_based_enforcement_mode
+          storage_space_enforcement_mode == o.storage_space_enforcement_mode
     end
 
     # @see the `==` method
@@ -250,7 +228,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [custom_notifications, end_user_notification, enforcement_mode, enhanced_file_metadata, pcie_enforcement_mode, storage_space_enforcement_mode, user_based_enforcement_mode].hash
+      [custom_notifications, end_user_notification, enforcement_mode, enhanced_file_metadata, pcie_enforcement_mode, storage_space_enforcement_mode].hash
     end
 
     # Builds the object from hash

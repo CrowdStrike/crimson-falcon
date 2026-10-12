@@ -227,7 +227,7 @@ module Falcon
 
     # Retrieve a list of OCI tenancies with support for FQL filtering, sorting, and pagination
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{tenancy_name, home_region, key_age, overall_status, created_at, updated_at, registration_name, tenancy_ocid}
+    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{home_region, key_age, overall_status, created_at, updated_at, registration_name, tenancy_ocid, tenancy_name}
     # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are Set{home_region, key_age, overall_status, created_at, updated_at, registration_name, tenancy_ocid, tenancy_name}
     # @option opts [String] :next_token Token for cursor-based pagination. Currently unsupported.
     # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 10000) (default to 100)
@@ -240,7 +240,7 @@ module Falcon
 
     # Retrieve a list of OCI tenancies with support for FQL filtering, sorting, and pagination
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{tenancy_name, home_region, key_age, overall_status, created_at, updated_at, registration_name, tenancy_ocid}
+    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{home_region, key_age, overall_status, created_at, updated_at, registration_name, tenancy_ocid, tenancy_name}
     # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are Set{home_region, key_age, overall_status, created_at, updated_at, registration_name, tenancy_ocid, tenancy_name}
     # @option opts [String] :next_token Token for cursor-based pagination. Currently unsupported.
     # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 10000) (default to 100)

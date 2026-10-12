@@ -218,6 +218,61 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get default device control settings
+    # @param [Hash] opts the optional parameters
+    # @return [DevicecontrolapiRespDefaultSettingsV2]
+    def get_default_device_control_settings(opts = {})
+      data, _status_code, _headers = get_default_device_control_settings_with_http_info(opts)
+      data
+    end
+
+    # Get default device control settings
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DevicecontrolapiRespDefaultSettingsV2, Integer, Hash)>] DevicecontrolapiRespDefaultSettingsV2 data, response status code and response headers
+    def get_default_device_control_settings_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.get_default_device_control_settings ...'
+      end
+      # resource path
+      local_var_path = '/policy/entities/device-control-default-settings/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DevicecontrolapiRespDefaultSettingsV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DeviceControlPolicies.get_default_device_control_settings",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#get_default_device_control_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retrieve a set of Device Control Policies by specifying their IDs
     # @param ids [Array<String>] The IDs of the Device Control Policies to return
     # @param [Hash] opts the optional parameters
@@ -276,6 +331,200 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DeviceControlPolicies#get_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get device control policies for the given filter criteria.
+    # @param ids [Array<String>] The IDs of the policies to get
+    # @param [Hash] opts the optional parameters
+    # @return [DevicecontrolapiRespPoliciesV2]
+    def get_device_control_policies_v2(ids, opts = {})
+      data, _status_code, _headers = get_device_control_policies_v2_with_http_info(ids, opts)
+      data
+    end
+
+    # Get device control policies for the given filter criteria.
+    # @param ids [Array<String>] The IDs of the policies to get
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DevicecontrolapiRespPoliciesV2, Integer, Hash)>] DevicecontrolapiRespPoliciesV2 data, response status code and response headers
+    def get_device_control_policies_v2_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.get_device_control_policies_v2 ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling DeviceControlPolicies.get_device_control_policies_v2"
+      end
+      # resource path
+      local_var_path = '/policy/entities/device-control/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DevicecontrolapiRespPoliciesV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DeviceControlPolicies.get_device_control_policies_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#get_device_control_policies_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update device control policy's classes
+    # @param body [DevicecontrolapiReqUpdatePoliciesClassesV1]
+    # @param [Hash] opts the optional parameters
+    # @return [DevicecontrolapiRespPoliciesV2]
+    def patch_device_control_policies_classes_v1(body, opts = {})
+      data, _status_code, _headers = patch_device_control_policies_classes_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Update device control policy&#39;s classes
+    # @param body [DevicecontrolapiReqUpdatePoliciesClassesV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DevicecontrolapiRespPoliciesV2, Integer, Hash)>] DevicecontrolapiRespPoliciesV2 data, response status code and response headers
+    def patch_device_control_policies_classes_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.patch_device_control_policies_classes_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DeviceControlPolicies.patch_device_control_policies_classes_v1"
+      end
+      # resource path
+      local_var_path = '/policy/entities/device-control-classes/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DevicecontrolapiRespPoliciesV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DeviceControlPolicies.patch_device_control_policies_classes_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#patch_device_control_policies_classes_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update device control policy base
+    # @param body [DevicecontrolapiReqUpdateBasesV1External]
+    # @param [Hash] opts the optional parameters
+    # @return [DevicecontrolapiRespPoliciesV2]
+    def patch_device_control_policies_v2(body, opts = {})
+      data, _status_code, _headers = patch_device_control_policies_v2_with_http_info(body, opts)
+      data
+    end
+
+    # Update device control policy base
+    # @param body [DevicecontrolapiReqUpdateBasesV1External]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DevicecontrolapiRespPoliciesV2, Integer, Hash)>] DevicecontrolapiRespPoliciesV2 data, response status code and response headers
+    def patch_device_control_policies_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.patch_device_control_policies_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DeviceControlPolicies.patch_device_control_policies_v2"
+      end
+      # resource path
+      local_var_path = '/policy/entities/device-control/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DevicecontrolapiRespPoliciesV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DeviceControlPolicies.patch_device_control_policies_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#patch_device_control_policies_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -354,6 +603,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DeviceControlPolicies#perform_device_control_policies_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create/clone a device control policy
+    # @param body [DevicecontrolapiReqCreatePoliciesV1]
+    # @param [Hash] opts the optional parameters
+    # @return [DevicecontrolapiRespPoliciesV2]
+    def post_device_control_policies_v2(body, opts = {})
+      data, _status_code, _headers = post_device_control_policies_v2_with_http_info(body, opts)
+      data
+    end
+
+    # Create/clone a device control policy
+    # @param body [DevicecontrolapiReqCreatePoliciesV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DevicecontrolapiRespPoliciesV2, Integer, Hash)>] DevicecontrolapiRespPoliciesV2 data, response status code and response headers
+    def post_device_control_policies_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.post_device_control_policies_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DeviceControlPolicies.post_device_control_policies_v2"
+      end
+      # resource path
+      local_var_path = '/policy/entities/device-control/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DevicecontrolapiRespPoliciesV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DeviceControlPolicies.post_device_control_policies_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#post_device_control_policies_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -816,6 +1131,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DeviceControlPolicies#update_default_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update the configuration for Default Device Control Settings
+    # @param body [DevicecontrolapiReqUpdateDefaultSettingsV2]
+    # @param [Hash] opts the optional parameters
+    # @return [DevicecontrolapiRespDefaultSettingsV2]
+    def update_default_device_control_settings(body, opts = {})
+      data, _status_code, _headers = update_default_device_control_settings_with_http_info(body, opts)
+      data
+    end
+
+    # Update the configuration for Default Device Control Settings
+    # @param body [DevicecontrolapiReqUpdateDefaultSettingsV2]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DevicecontrolapiRespDefaultSettingsV2, Integer, Hash)>] DevicecontrolapiRespDefaultSettingsV2 data, response status code and response headers
+    def update_default_device_control_settings_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.update_default_device_control_settings ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DeviceControlPolicies.update_default_device_control_settings"
+      end
+      # resource path
+      local_var_path = '/policy/entities/device-control-default-settings/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DevicecontrolapiRespDefaultSettingsV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DeviceControlPolicies.update_default_device_control_settings",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#update_default_device_control_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

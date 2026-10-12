@@ -105,20 +105,20 @@ module Falcon
     end
 
     # Create \"networks\" using provided specifications
-    # @param body [Array<DomainNetworkCreateRequest>] \&quot;networks\&quot; specifications
+    # @param body [Array<NvaapiNetworkCreateRequest>] \&quot;networks\&quot; specifications
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainNetworkEntitiesResponse]
+    # @return [NvaapiNetworkEntitiesResponse]
     def create_networks(body, opts = {})
       data, _status_code, _headers = create_networks_with_http_info(body, opts)
       data
     end
 
     # Create \&quot;networks\&quot; using provided specifications
-    # @param body [Array<DomainNetworkCreateRequest>] \&quot;networks\&quot; specifications
+    # @param body [Array<NvaapiNetworkCreateRequest>] \&quot;networks\&quot; specifications
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainNetworkEntitiesResponse, Integer, Hash)>] DomainNetworkEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiNetworkEntitiesResponse, Integer, Hash)>] NvaapiNetworkEntitiesResponse data, response status code and response headers
     def create_networks_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanNetworks.create_networks ...'
@@ -151,7 +151,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainNetworkEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiNetworkEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -242,7 +242,7 @@ module Falcon
     # @param ids [Array<String>] IDs of \&quot;networks\&quot; to be retrieved (Min: 1, Max: 100)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainNetworkEntitiesResponse]
+    # @return [NvaapiNetworkEntitiesResponse]
     def get_networks(ids, opts = {})
       data, _status_code, _headers = get_networks_with_http_info(ids, opts)
       data
@@ -252,7 +252,7 @@ module Falcon
     # @param ids [Array<String>] IDs of \&quot;networks\&quot; to be retrieved (Min: 1, Max: 100)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainNetworkEntitiesResponse, Integer, Hash)>] DomainNetworkEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiNetworkEntitiesResponse, Integer, Hash)>] NvaapiNetworkEntitiesResponse data, response status code and response headers
     def get_networks_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanNetworks.get_networks ...'
@@ -281,7 +281,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainNetworkEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiNetworkEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -386,20 +386,20 @@ module Falcon
     end
 
     # Update \"networks\" using provided specifications
-    # @param body [Array<DomainNetworkUpdateRequest>] \&quot;networks\&quot; specifications for updating
+    # @param body [Array<NvaapiNetworkUpdateRequest>] \&quot;networks\&quot; specifications for updating
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainNetworkEntitiesResponse]
+    # @return [NvaapiNetworkEntitiesResponse]
     def update_networks(body, opts = {})
       data, _status_code, _headers = update_networks_with_http_info(body, opts)
       data
     end
 
     # Update \&quot;networks\&quot; using provided specifications
-    # @param body [Array<DomainNetworkUpdateRequest>] \&quot;networks\&quot; specifications for updating
+    # @param body [Array<NvaapiNetworkUpdateRequest>] \&quot;networks\&quot; specifications for updating
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainNetworkEntitiesResponse, Integer, Hash)>] DomainNetworkEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiNetworkEntitiesResponse, Integer, Hash)>] NvaapiNetworkEntitiesResponse data, response status code and response headers
     def update_networks_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanNetworks.update_networks ...'
@@ -432,7 +432,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainNetworkEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiNetworkEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

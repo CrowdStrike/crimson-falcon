@@ -105,20 +105,20 @@ module Falcon
     end
 
     # Create \"scans\" using provided specifications
-    # @param body [Array<DomainScanCreateRequest>] \&quot;scans\&quot; specifications
+    # @param body [Array<NvaapiScanCreateRequest>] \&quot;scans\&quot; specifications
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainScanEntitiesResponse]
+    # @return [NvaapiScanEntitiesResponse]
     def create_scans(body, opts = {})
       data, _status_code, _headers = create_scans_with_http_info(body, opts)
       data
     end
 
     # Create \&quot;scans\&quot; using provided specifications
-    # @param body [Array<DomainScanCreateRequest>] \&quot;scans\&quot; specifications
+    # @param body [Array<NvaapiScanCreateRequest>] \&quot;scans\&quot; specifications
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainScanEntitiesResponse, Integer, Hash)>] DomainScanEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiScanEntitiesResponse, Integer, Hash)>] NvaapiScanEntitiesResponse data, response status code and response headers
     def create_scans_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanScans.create_scans ...'
@@ -151,7 +151,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainScanEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiScanEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -242,7 +242,7 @@ module Falcon
     # @param ids [Array<String>] IDs of \&quot;scans\&quot; to be retrieved (Min: 1, Max: 100)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainScanEntitiesResponse]
+    # @return [NvaapiScanEntitiesResponse]
     def get_scans(ids, opts = {})
       data, _status_code, _headers = get_scans_with_http_info(ids, opts)
       data
@@ -252,7 +252,7 @@ module Falcon
     # @param ids [Array<String>] IDs of \&quot;scans\&quot; to be retrieved (Min: 1, Max: 100)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainScanEntitiesResponse, Integer, Hash)>] DomainScanEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiScanEntitiesResponse, Integer, Hash)>] NvaapiScanEntitiesResponse data, response status code and response headers
     def get_scans_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanScans.get_scans ...'
@@ -281,7 +281,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainScanEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiScanEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -386,20 +386,20 @@ module Falcon
     end
 
     # Update \"scans\" using provided specifications
-    # @param body [Array<DomainScanUpdateRequest>] \&quot;scans\&quot; specifications for updating
+    # @param body [Array<NvaapiScanUpdateRequest>] \&quot;scans\&quot; specifications for updating
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [DomainScanEntitiesResponse]
+    # @return [NvaapiScanEntitiesResponse]
     def update_scans(body, opts = {})
       data, _status_code, _headers = update_scans_with_http_info(body, opts)
       data
     end
 
     # Update \&quot;scans\&quot; using provided specifications
-    # @param body [Array<DomainScanUpdateRequest>] \&quot;scans\&quot; specifications for updating
+    # @param body [Array<NvaapiScanUpdateRequest>] \&quot;scans\&quot; specifications for updating
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_useruuid User UUID
-    # @return [Array<(DomainScanEntitiesResponse, Integer, Hash)>] DomainScanEntitiesResponse data, response status code and response headers
+    # @return [Array<(NvaapiScanEntitiesResponse, Integer, Hash)>] NvaapiScanEntitiesResponse data, response status code and response headers
     def update_scans_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NetworkScanScans.update_scans ...'
@@ -432,7 +432,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainScanEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'NvaapiScanEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

@@ -777,93 +777,6 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)
-    # @param body [Object]
-    # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :execution_cid CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
-    # @option opts [Array<String>] :definition_id Definition ID to execute, either a name or an ID can be specified.
-    # @option opts [String] :name Workflow name to execute, either a name or an ID can be specified.
-    # @option opts [String] :key Key used to help deduplicate executions, if unset a new UUID is used
-    # @option opts [Integer] :depth Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
-    # @option opts [Integer] :batch_size Used to set the batchSize, if unset the default batchSize is used
-    # @option opts [String] :source_event_url Used to record a URL to the source that led to triggering this workflow
-    # @return [ApiResourceIDsResponse]
-    def workflow_execute_internal(body, opts = {})
-      data, _status_code, _headers = workflow_execute_internal_with_http_info(body, opts)
-      data
-    end
-
-    # Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)
-    # @param body [Object]
-    # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :execution_cid CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
-    # @option opts [Array<String>] :definition_id Definition ID to execute, either a name or an ID can be specified.
-    # @option opts [String] :name Workflow name to execute, either a name or an ID can be specified.
-    # @option opts [String] :key Key used to help deduplicate executions, if unset a new UUID is used
-    # @option opts [Integer] :depth Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
-    # @option opts [Integer] :batch_size Used to set the batchSize, if unset the default batchSize is used
-    # @option opts [String] :source_event_url Used to record a URL to the source that led to triggering this workflow
-    # @return [Array<(ApiResourceIDsResponse, Integer, Hash)>] ApiResourceIDsResponse data, response status code and response headers
-    def workflow_execute_internal_with_http_info(body, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: Workflows.workflow_execute_internal ...'
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling Workflows.workflow_execute_internal"
-      end
-      # resource path
-      local_var_path = '/workflows/entities/execute/internal/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'execution_cid'] = @api_client.build_collection_param(opts[:'execution_cid'], :csv) if !opts[:'execution_cid'].nil?
-      query_params[:'definition_id'] = @api_client.build_collection_param(opts[:'definition_id'], :csv) if !opts[:'definition_id'].nil?
-      query_params[:'name'] = opts[:'name'] if !opts[:'name'].nil?
-      query_params[:'key'] = opts[:'key'] if !opts[:'key'].nil?
-      query_params[:'depth'] = opts[:'depth'] if !opts[:'depth'].nil?
-      query_params[:'batch_size'] = opts[:'batch_size'] if !opts[:'batch_size'].nil?
-      query_params[:'source_event_url'] = opts[:'source_event_url'] if !opts[:'source_event_url'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-        header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'ApiResourceIDsResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"Workflows.workflow_execute_internal",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: Workflows#workflow_execute_internal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Executes a single activity node, resulting in an execution where test_mode=true and single_node_execution=true, associated with a definition ID if provided
     # @param body [ModelsSingleNodeExecutionCreateRequestV1]
     # @param [Hash] opts the optional parameters
@@ -1100,24 +1013,26 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Search workflow executions based on the provided filter
+    # Search workflow executions based on the provided filter. Note: the 'entity' filter matches associated entity values (e.g. hostnames, IPs, emails, detection IDs) by exact match; only the first 1024 characters of each entity value are indexed for filtering.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter FQL query specifying filter parameters.
     # @option opts [String] :offset Starting pagination offset of records to return.
     # @option opts [Integer] :limit Maximum number of records to return.
     # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+    # @option opts [Array<String>] :skip_fields Fields to omit from the response; valid values are (trigger, activities, flows, submodels). When specified, the corresponding node-level details are skipped.
     # @return [ApiExecutionResultsResponse]
     def workflow_executions_combined(opts = {})
       data, _status_code, _headers = workflow_executions_combined_with_http_info(opts)
       data
     end
 
-    # Search workflow executions based on the provided filter
+    # Search workflow executions based on the provided filter. Note: the &#39;entity&#39; filter matches associated entity values (e.g. hostnames, IPs, emails, detection IDs) by exact match; only the first 1024 characters of each entity value are indexed for filtering.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter FQL query specifying filter parameters.
     # @option opts [String] :offset Starting pagination offset of records to return.
     # @option opts [Integer] :limit Maximum number of records to return.
     # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+    # @option opts [Array<String>] :skip_fields Fields to omit from the response; valid values are (trigger, activities, flows, submodels). When specified, the corresponding node-level details are skipped.
     # @return [Array<(ApiExecutionResultsResponse, Integer, Hash)>] ApiExecutionResultsResponse data, response status code and response headers
     def workflow_executions_combined_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1126,6 +1041,10 @@ module Falcon
       pattern = Regexp.new(/^\w+(\.asc|\.desc)?(,\w+(\.asc|\.desc)?)*$/)
       if @api_client.config.client_side_validation && !opts[:'sort'].nil? && opts[:'sort'] !~ pattern
         fail ArgumentError, "invalid value for 'opts[:\"sort\"]' when calling Workflows.workflow_executions_combined, must conform to the pattern #{pattern}."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip_fields'].nil? && opts[:'skip_fields'].length > 4
+        fail ArgumentError, 'invalid value for "opts[:"skip_fields"]" when calling Workflows.workflow_executions_combined, number of items must be less than or equal to 4.'
       end
 
       # resource path
@@ -1137,6 +1056,7 @@ module Falcon
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'skip_fields'] = @api_client.build_collection_param(opts[:'skip_fields'], :csv) if !opts[:'skip_fields'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

@@ -31,6 +31,8 @@ require 'time'
 
 module Falcon
   class ApiMessage
+    attr_accessor :budget_approval
+
     attr_accessor :content
 
     attr_accessor :error
@@ -46,6 +48,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'budget_approval' => :'budget_approval',
         :'content' => :'content',
         :'error' => :'error',
         :'reasoning' => :'reasoning',
@@ -63,6 +66,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'budget_approval' => :'ApiBudgetApproval',
         :'content' => :'String',
         :'error' => :'ApiInvocationErrorMessage',
         :'reasoning' => :'String',
@@ -92,6 +96,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'budget_approval')
+        self.budget_approval = attributes[:'budget_approval']
+      end
 
       if attributes.key?(:'content')
         self.content = attributes[:'content']
@@ -146,6 +154,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          budget_approval == o.budget_approval &&
           content == o.content &&
           error == o.error &&
           reasoning == o.reasoning &&
@@ -163,7 +172,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [content, error, reasoning, role, tool, tool_approval].hash
+      [budget_approval, content, error, reasoning, role, tool, tool_approval].hash
     end
 
     # Builds the object from hash

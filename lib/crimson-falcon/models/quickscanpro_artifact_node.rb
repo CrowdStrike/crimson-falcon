@@ -79,7 +79,7 @@ module Falcon
         :'id' => :'String',
         :'malicious_confidence' => :'Integer',
         :'malware_family' => :'String',
-        :'properties' => :'Hash<String, String>',
+        :'properties' => :'Object',
         :'type' => :'String',
         :'value' => :'String',
         :'verdict' => :'String',
@@ -126,9 +126,7 @@ module Falcon
       end
 
       if attributes.key?(:'properties')
-        if (value = attributes[:'properties']).is_a?(Hash)
-          self.properties = value
-        end
+        self.properties = attributes[:'properties']
       end
 
       if attributes.key?(:'type')

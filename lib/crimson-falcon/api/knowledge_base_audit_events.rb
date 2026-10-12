@@ -35,75 +35,6 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Aggregate knowledge base audit events based on the provided msa criteria.
-    # @param body [Array<MsaAggregateQueryRequest>] Aggregate requests for knowledge base audit event data.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :include_deleted Include audit events for deleted knowledge bases. Defaults to false. (default to false)
-    # @return [MsaAggregatesResponse]
-    def aggregates_knowledge_base_audit_events_v1(body, opts = {})
-      data, _status_code, _headers = aggregates_knowledge_base_audit_events_v1_with_http_info(body, opts)
-      data
-    end
-
-    # Aggregate knowledge base audit events based on the provided msa criteria.
-    # @param body [Array<MsaAggregateQueryRequest>] Aggregate requests for knowledge base audit event data.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :include_deleted Include audit events for deleted knowledge bases. Defaults to false. (default to false)
-    # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
-    def aggregates_knowledge_base_audit_events_v1_with_http_info(body, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KnowledgeBaseAuditEvents.aggregates_knowledge_base_audit_events_v1 ...'
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling KnowledgeBaseAuditEvents.aggregates_knowledge_base_audit_events_v1"
-      end
-      # resource path
-      local_var_path = '/agentic-studio/aggregates/knowledge_base_audit_events/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'include_deleted'] = opts[:'include_deleted'] if !opts[:'include_deleted'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-        header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'MsaAggregatesResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"KnowledgeBaseAuditEvents.aggregates_knowledge_base_audit_events_v1",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KnowledgeBaseAuditEvents#aggregates_knowledge_base_audit_events_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Get knowledge base audit events with full event details and pagination.
     # @param knowledge_base_id [String] ID of the knowledge base to get audit events for
     # @param [Hash] opts the optional parameters
@@ -112,6 +43,7 @@ module Falcon
     # @option opts [String] :sort Sort order. Ex: &#39;created_at|desc&#39;.
     # @option opts [String] :filter FQL query specifying the filter parameters.
     # @option opts [Boolean] :include_deleted Include audit events for deleted knowledge bases. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [DomainReplyCombinedKnowledgeBaseAuditEventsResponse]
     def combined_knowledge_base_audit_events_v1(knowledge_base_id, opts = {})
       data, _status_code, _headers = combined_knowledge_base_audit_events_v1_with_http_info(knowledge_base_id, opts)
@@ -126,6 +58,7 @@ module Falcon
     # @option opts [String] :sort Sort order. Ex: &#39;created_at|desc&#39;.
     # @option opts [String] :filter FQL query specifying the filter parameters.
     # @option opts [Boolean] :include_deleted Include audit events for deleted knowledge bases. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(DomainReplyCombinedKnowledgeBaseAuditEventsResponse, Integer, Hash)>] DomainReplyCombinedKnowledgeBaseAuditEventsResponse data, response status code and response headers
     def combined_knowledge_base_audit_events_v1_with_http_info(knowledge_base_id, opts = {})
       if @api_client.config.debugging
@@ -154,6 +87,7 @@ module Falcon
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'include_deleted'] = opts[:'include_deleted'] if !opts[:'include_deleted'].nil?
+      query_params[:'project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -194,6 +128,7 @@ module Falcon
     # @param ids [Array<String>] IDs of audit events to retrieve.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_deleted Include audit events for deleted knowledge bases. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [DomainReplyEntitiesKnowledgeBaseAuditEventsResponse]
     def entities_knowledge_base_audit_events_v1(knowledge_base_id, ids, opts = {})
       data, _status_code, _headers = entities_knowledge_base_audit_events_v1_with_http_info(knowledge_base_id, ids, opts)
@@ -205,6 +140,7 @@ module Falcon
     # @param ids [Array<String>] IDs of audit events to retrieve.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_deleted Include audit events for deleted knowledge bases. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(DomainReplyEntitiesKnowledgeBaseAuditEventsResponse, Integer, Hash)>] DomainReplyEntitiesKnowledgeBaseAuditEventsResponse data, response status code and response headers
     def entities_knowledge_base_audit_events_v1_with_http_info(knowledge_base_id, ids, opts = {})
       if @api_client.config.debugging
@@ -226,6 +162,7 @@ module Falcon
       query_params[:'knowledge_base_id'] = knowledge_base_id
       query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
       query_params[:'include_deleted'] = opts[:'include_deleted'] if !opts[:'include_deleted'].nil?
+      query_params[:'project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -269,6 +206,7 @@ module Falcon
     # @option opts [String] :sort Sort order. Ex: &#39;created_at|desc&#39;.
     # @option opts [String] :filter FQL query specifying the filter parameters.
     # @option opts [Boolean] :include_deleted Include audit events for deleted knowledge bases. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [DomainReplyQueryKnowledgeBaseAuditEventsResponse]
     def queries_knowledge_base_audit_events_v1(knowledge_base_id, opts = {})
       data, _status_code, _headers = queries_knowledge_base_audit_events_v1_with_http_info(knowledge_base_id, opts)
@@ -283,6 +221,7 @@ module Falcon
     # @option opts [String] :sort Sort order. Ex: &#39;created_at|desc&#39;.
     # @option opts [String] :filter FQL query specifying the filter parameters.
     # @option opts [Boolean] :include_deleted Include audit events for deleted knowledge bases. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(DomainReplyQueryKnowledgeBaseAuditEventsResponse, Integer, Hash)>] DomainReplyQueryKnowledgeBaseAuditEventsResponse data, response status code and response headers
     def queries_knowledge_base_audit_events_v1_with_http_info(knowledge_base_id, opts = {})
       if @api_client.config.debugging
@@ -311,6 +250,7 @@ module Falcon
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'include_deleted'] = opts[:'include_deleted'] if !opts[:'include_deleted'].nil?
+      query_params[:'project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

@@ -44,6 +44,7 @@ module Falcon
     # Reference to the ID of the flow node outbound from the trigger.
     attr_accessor :outgoing_flow
 
+    # JSON Schema defining parameters required for an on-demand trigger.
     attr_accessor :parameters
 
     attr_accessor :position
@@ -88,7 +89,7 @@ module Falcon
         :'name' => :'String',
         :'node_id' => :'String',
         :'outgoing_flow' => :'String',
-        :'parameters' => :'JsonschemaSchema',
+        :'parameters' => :'String',
         :'position' => :'GraphNodePosition',
         :'timer_event_definition' => :'GraphTimerEventDefinition',
         :'trigger_type' => :'String',

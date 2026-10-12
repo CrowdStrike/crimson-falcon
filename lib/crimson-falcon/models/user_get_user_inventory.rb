@@ -55,6 +55,8 @@ module Falcon
 
     attr_accessor :integrations_total
 
+    attr_accessor :item_id
+
     attr_accessor :login_names
 
     attr_accessor :roles
@@ -78,6 +80,7 @@ module Falcon
         :'full_name' => :'full_name',
         :'integrations' => :'integrations',
         :'integrations_total' => :'integrations_total',
+        :'item_id' => :'item_id',
         :'login_names' => :'login_names',
         :'roles' => :'roles',
         :'title' => :'title',
@@ -105,6 +108,7 @@ module Falcon
         :'full_name' => :'String',
         :'integrations' => :'Array<IntegrationUserGetUserInventory>',
         :'integrations_total' => :'Integer',
+        :'item_id' => :'String',
         :'login_names' => :'Array<String>',
         :'roles' => :'Integer',
         :'title' => :'String',
@@ -115,6 +119,7 @@ module Falcon
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'item_id',
         :'user_item_identity'
       ])
     end
@@ -184,6 +189,10 @@ module Falcon
 
       if attributes.key?(:'integrations_total')
         self.integrations_total = attributes[:'integrations_total']
+      end
+
+      if attributes.key?(:'item_id')
+        self.item_id = attributes[:'item_id']
       end
 
       if attributes.key?(:'login_names')
@@ -281,6 +290,10 @@ module Falcon
         invalid_properties.push('invalid value for "integrations_total", integrations_total cannot be nil.')
       end
 
+      if @item_id.to_s.length < 1
+        invalid_properties.push('invalid value for "item_id", the character length must be great than or equal to 1.')
+      end
+
       if @login_names.nil?
         invalid_properties.push('invalid value for "login_names", login_names cannot be nil.')
       end
@@ -325,6 +338,7 @@ module Falcon
       return false if @full_name.to_s.length < 1
       return false if @integrations.nil?
       return false if @integrations_total.nil?
+      return false if @item_id.to_s.length < 1
       return false if @login_names.nil?
       return false if @roles.nil?
       return false if @title.nil?
@@ -418,6 +432,16 @@ module Falcon
     end
 
     # Custom attribute writer method with validation
+    # @param [Object] item_id Value to be assigned
+    def item_id=(item_id)
+      if item_id.to_s.length < 1
+        fail ArgumentError, 'invalid value for "item_id", the character length must be great than or equal to 1.'
+      end
+
+      @item_id = item_id
+    end
+
+    # Custom attribute writer method with validation
     # @param [Object] title Value to be assigned
     def title=(title)
       if title.nil?
@@ -458,6 +482,7 @@ module Falcon
           full_name == o.full_name &&
           integrations == o.integrations &&
           integrations_total == o.integrations_total &&
+          item_id == o.item_id &&
           login_names == o.login_names &&
           roles == o.roles &&
           title == o.title &&
@@ -473,7 +498,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, company, country, department, domain, email, enabled, exposures, exposures_total, full_name, integrations, integrations_total, login_names, roles, title, user_item_identity].hash
+      [account_id, company, country, department, domain, email, enabled, exposures, exposures_total, full_name, integrations, integrations_total, item_id, login_names, roles, title, user_item_identity].hash
     end
 
     # Builds the object from hash

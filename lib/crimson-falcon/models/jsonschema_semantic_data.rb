@@ -34,6 +34,9 @@ module Falcon
     # The entity
     attr_accessor :data_frame
 
+    # The semantic type to use when formatting the field value for display (e.g. system.semantic.DateTime)
+    attr_accessor :display_format
+
     # The field name in an entity
     attr_accessor :field_name
 
@@ -44,6 +47,7 @@ module Falcon
     def self.attribute_map
       {
         :'data_frame' => :'data_frame',
+        :'display_format' => :'display_format',
         :'field_name' => :'field_name',
         :'type' => :'type'
       }
@@ -58,6 +62,7 @@ module Falcon
     def self.openapi_types
       {
         :'data_frame' => :'String',
+        :'display_format' => :'String',
         :'field_name' => :'String',
         :'type' => :'String'
       }
@@ -88,6 +93,10 @@ module Falcon
         self.data_frame = attributes[:'data_frame']
       end
 
+      if attributes.key?(:'display_format')
+        self.display_format = attributes[:'display_format']
+      end
+
       if attributes.key?(:'field_name')
         self.field_name = attributes[:'field_name']
       end
@@ -116,6 +125,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           data_frame == o.data_frame &&
+          display_format == o.display_format &&
           field_name == o.field_name &&
           type == o.type
     end
@@ -129,7 +139,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [data_frame, field_name, type].hash
+      [data_frame, display_format, field_name, type].hash
     end
 
     # Builds the object from hash

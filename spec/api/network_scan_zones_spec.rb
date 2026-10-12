@@ -68,7 +68,7 @@ describe 'NetworkScanZones' do
   # @option opts [Integer] :limit The number of \&quot;zones\&quot; to return in this response (Min: 1, Max: 100, Default: 100)
   # @option opts [String] :sort Sort \&quot;zones\&quot; by their properties. A single sort field is allowed
   # @option opts [String] :filter Search for \&quot;zones\&quot; by providing an FQL filter
-  # @return [DomainZoneEntitiesResponse]
+  # @return [NvaapiZoneEntitiesResponse]
   describe 'combined_zones test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -80,7 +80,7 @@ describe 'NetworkScanZones' do
   # @param body \&quot;zones\&quot; specifications
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_useruuid User UUID
-  # @return [DomainZoneEntitiesResponse]
+  # @return [NvaapiZoneEntitiesResponse]
   describe 'create_zones test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -104,7 +104,7 @@ describe 'NetworkScanZones' do
   # @param ids IDs of \&quot;zones\&quot; to be retrieved (Min: 1, Max: 100)
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_useruuid User UUID
-  # @return [DomainZoneEntitiesResponse]
+  # @return [NvaapiZoneEntitiesResponse]
   describe 'get_zones test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -131,7 +131,7 @@ describe 'NetworkScanZones' do
   # @param body \&quot;zones\&quot; specifications for updating
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_useruuid User UUID
-  # @return [DomainZoneEntitiesResponse]
+  # @return [NvaapiZoneEntitiesResponse]
   describe 'update_zones test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

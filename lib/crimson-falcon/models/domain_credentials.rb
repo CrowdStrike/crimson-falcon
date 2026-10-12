@@ -30,19 +30,13 @@ require 'date'
 require 'time'
 
 module Falcon
-  # Represents credentials entity
   class DomainCredentials
-    # Indicates if auto authorize scanners is enabled
-    attr_accessor :auto_authorize_scanners
-
-    # Credential IDs associated with this scan
-    attr_accessor :ids
+    attr_accessor :token
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'auto_authorize_scanners' => :'auto_authorize_scanners',
-        :'ids' => :'ids'
+        :'token' => :'token'
       }
     end
 
@@ -54,8 +48,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'auto_authorize_scanners' => :'Boolean',
-        :'ids' => :'Array<String>'
+        :'token' => :'String'
       }
     end
 
@@ -80,14 +73,8 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'auto_authorize_scanners')
-        self.auto_authorize_scanners = attributes[:'auto_authorize_scanners']
-      end
-
-      if attributes.key?(:'ids')
-        if (value = attributes[:'ids']).is_a?(Array)
-          self.ids = value
-        end
+      if attributes.key?(:'token')
+        self.token = attributes[:'token']
       end
     end
 
@@ -95,12 +82,8 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @auto_authorize_scanners.nil?
-        invalid_properties.push('invalid value for "auto_authorize_scanners", auto_authorize_scanners cannot be nil.')
-      end
-
-      if @ids.nil?
-        invalid_properties.push('invalid value for "ids", ids cannot be nil.')
+      if @token.nil?
+        invalid_properties.push('invalid value for "token", token cannot be nil.')
       end
 
       invalid_properties
@@ -109,8 +92,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @auto_authorize_scanners.nil?
-      return false if @ids.nil?
+      return false if @token.nil?
       true
     end
 
@@ -119,8 +101,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          auto_authorize_scanners == o.auto_authorize_scanners &&
-          ids == o.ids
+          token == o.token
     end
 
     # @see the `==` method
@@ -132,7 +113,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [auto_authorize_scanners, ids].hash
+      [token].hash
     end
 
     # Builds the object from hash

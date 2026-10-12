@@ -199,6 +199,12 @@ describe Falcon::PolicymanagerPolicyProperties do
     end
   end
 
+  describe 'test attribute "enable_clipboard_web_origin"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "enable_content_inspection"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -218,6 +224,18 @@ describe Falcon::PolicymanagerPolicyProperties do
   end
 
   describe 'test attribute "enable_network_inspection"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "enable_ocr"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "enable_print_monitor"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -322,6 +340,12 @@ describe Falcon::PolicymanagerPolicyProperties do
       # validator.allowable_values.each do |value|
       #   expect { instance.min_confidence_level = value }.not_to raise_error
       # end
+    end
+  end
+
+  describe 'test attribute "network_inspection_exclude_list_v2"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 

@@ -31,20 +31,46 @@ require 'time'
 
 module Falcon
   class UploadFileQuickScanProRequest
-    # Binary file to be uploaded. Max file size: 256 MB. Use `--data-binary @$FILE_PATH` for octet-stream/cURL uploads
+    # Binary file to be uploaded. Max file size: 256 MB. Use `--data-binary @$FILE_PATH` for octet-stream/cURL uploads.
     attr_accessor :file
 
-    # If true, after upload, it starts scanning immediately. Default scan mode is 'false'
+    # If true, after upload, it starts scanning immediately. Default scan mode is 'false'.
     attr_accessor :scan
+
+    # Sets the scan mode for the scan started when 'scan' is true. Default is 'standard'.  'fast': less than 5 seconds, ML-based detection and signature matching. 'standard': less than 30 seconds, adds heuristic analysis to fast scan coverage. 'deep': less than 90 seconds, adds static analysis and dynamic execution monitoring to standard scan coverage.
+    attr_accessor :scan_mode
 
     # MULTIPART ONLY - Password for encrypted archives (use for multipart/form-data uploads). If 'scan' is true, the value is used for the scan just starting.
     attr_accessor :password
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'file' => :'file',
         :'scan' => :'scan',
+        :'scan_mode' => :'scan_mode',
         :'password' => :'password'
       }
     end
@@ -59,6 +85,7 @@ module Falcon
       {
         :'file' => :'File',
         :'scan' => :'Boolean',
+        :'scan_mode' => :'String',
         :'password' => :'String'
       }
     end
@@ -94,6 +121,12 @@ module Falcon
         self.scan = false
       end
 
+      if attributes.key?(:'scan_mode')
+        self.scan_mode = attributes[:'scan_mode']
+      else
+        self.scan_mode = 'standard'
+      end
+
       if attributes.key?(:'password')
         self.password = attributes[:'password']
       end
@@ -114,7 +147,19 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @file.nil?
+      scan_mode_validator = EnumAttributeValidator.new('String', ["fast", "standard", "deep"])
+      return false unless scan_mode_validator.valid?(@scan_mode)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] scan_mode Object to be assigned
+    def scan_mode=(scan_mode)
+      validator = EnumAttributeValidator.new('String', ["fast", "standard", "deep"])
+      unless validator.valid?(scan_mode)
+        fail ArgumentError, "invalid value for \"scan_mode\", must be one of #{validator.allowable_values}."
+      end
+      @scan_mode = scan_mode
     end
 
     # Checks equality by comparing each attribute.
@@ -124,6 +169,7 @@ module Falcon
       self.class == o.class &&
           file == o.file &&
           scan == o.scan &&
+          scan_mode == o.scan_mode &&
           password == o.password
     end
 
@@ -136,7 +182,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [file, scan, password].hash
+      [file, scan, scan_mode, password].hash
     end
 
     # Builds the object from hash

@@ -72,7 +72,7 @@ module Falcon
         :'event' => :'String',
         :'name' => :'String',
         :'_next' => :'Array<String>',
-        :'parameters' => :'JsonschemaSchema',
+        :'parameters' => :'String',
         :'schedule' => :'GraphTimerEventDefinition',
         :'type' => :'String',
         :'version_constraint' => :'String',

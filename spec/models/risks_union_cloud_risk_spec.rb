@@ -167,6 +167,12 @@ describe Falcon::RisksUnionCloudRisk do
     end
   end
 
+  describe 'test attribute "remediation_plan"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "resolved_at"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -174,6 +180,12 @@ describe Falcon::RisksUnionCloudRisk do
   end
 
   describe 'test attribute "risk_factors"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "risk_summary"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -37,9 +37,13 @@ module Falcon
 
     attr_accessor :cloud_instance_id
 
+    attr_accessor :device_ip
+
     attr_accessor :hostname
 
     attr_accessor :local_ip
+
+    attr_accessor :observed_ip
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -47,8 +51,10 @@ module Falcon
         :'agent_ip' => :'agent_ip',
         :'aid' => :'aid',
         :'cloud_instance_id' => :'cloud_instance_id',
+        :'device_ip' => :'device_ip',
         :'hostname' => :'hostname',
-        :'local_ip' => :'local_ip'
+        :'local_ip' => :'local_ip',
+        :'observed_ip' => :'observed_ip'
       }
     end
 
@@ -63,8 +69,10 @@ module Falcon
         :'agent_ip' => :'String',
         :'aid' => :'String',
         :'cloud_instance_id' => :'String',
+        :'device_ip' => :'String',
         :'hostname' => :'String',
-        :'local_ip' => :'String'
+        :'local_ip' => :'String',
+        :'observed_ip' => :'String'
       }
     end
 
@@ -101,12 +109,20 @@ module Falcon
         self.cloud_instance_id = attributes[:'cloud_instance_id']
       end
 
+      if attributes.key?(:'device_ip')
+        self.device_ip = attributes[:'device_ip']
+      end
+
       if attributes.key?(:'hostname')
         self.hostname = attributes[:'hostname']
       end
 
       if attributes.key?(:'local_ip')
         self.local_ip = attributes[:'local_ip']
+      end
+
+      if attributes.key?(:'observed_ip')
+        self.observed_ip = attributes[:'observed_ip']
       end
     end
 
@@ -126,12 +142,20 @@ module Falcon
         invalid_properties.push('invalid value for "cloud_instance_id", cloud_instance_id cannot be nil.')
       end
 
+      if @device_ip.nil?
+        invalid_properties.push('invalid value for "device_ip", device_ip cannot be nil.')
+      end
+
       if @hostname.nil?
         invalid_properties.push('invalid value for "hostname", hostname cannot be nil.')
       end
 
       if @local_ip.nil?
         invalid_properties.push('invalid value for "local_ip", local_ip cannot be nil.')
+      end
+
+      if @observed_ip.nil?
+        invalid_properties.push('invalid value for "observed_ip", observed_ip cannot be nil.')
       end
 
       invalid_properties
@@ -143,8 +167,10 @@ module Falcon
       return false if @agent_ip.nil?
       return false if @aid.nil?
       return false if @cloud_instance_id.nil?
+      return false if @device_ip.nil?
       return false if @hostname.nil?
       return false if @local_ip.nil?
+      return false if @observed_ip.nil?
       true
     end
 
@@ -156,8 +182,10 @@ module Falcon
           agent_ip == o.agent_ip &&
           aid == o.aid &&
           cloud_instance_id == o.cloud_instance_id &&
+          device_ip == o.device_ip &&
           hostname == o.hostname &&
-          local_ip == o.local_ip
+          local_ip == o.local_ip &&
+          observed_ip == o.observed_ip
     end
 
     # @see the `==` method
@@ -169,7 +197,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_ip, aid, cloud_instance_id, hostname, local_ip].hash
+      [agent_ip, aid, cloud_instance_id, device_ip, hostname, local_ip, observed_ip].hash
     end
 
     # Builds the object from hash

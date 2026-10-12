@@ -35,75 +35,6 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Aggregate knowledge bases based on the provided msa criteria.
-    # @param body [Array<MsaAggregateQueryRequest>] Aggregate requests for knowledge base data.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false. (default to false)
-    # @return [MsaAggregatesResponse]
-    def aggregates_knowledge_bases_v1(body, opts = {})
-      data, _status_code, _headers = aggregates_knowledge_bases_v1_with_http_info(body, opts)
-      data
-    end
-
-    # Aggregate knowledge bases based on the provided msa criteria.
-    # @param body [Array<MsaAggregateQueryRequest>] Aggregate requests for knowledge base data.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false. (default to false)
-    # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
-    def aggregates_knowledge_bases_v1_with_http_info(body, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KnowledgeBases.aggregates_knowledge_bases_v1 ...'
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling KnowledgeBases.aggregates_knowledge_bases_v1"
-      end
-      # resource path
-      local_var_path = '/agentic-studio/aggregates/knowledge_bases/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'include_deleted'] = opts[:'include_deleted'] if !opts[:'include_deleted'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-        header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'MsaAggregatesResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"KnowledgeBases.aggregates_knowledge_bases_v1",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KnowledgeBases#aggregates_knowledge_bases_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Search for knowledge bases with filtering and return full entity details in a single response.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
@@ -111,6 +42,7 @@ module Falcon
     # @option opts [String] :sort Possible order by fields: name, created_at. Ex: &#39;created_at|desc&#39; or &#39;name|asc&#39;.
     # @option opts [String] :filter FQL query specifying the filter parameters.
     # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [DomainReplyEntitiesKnowledgeBasesResponse]
     def combined_knowledge_bases_v1(opts = {})
       data, _status_code, _headers = combined_knowledge_bases_v1_with_http_info(opts)
@@ -124,6 +56,7 @@ module Falcon
     # @option opts [String] :sort Possible order by fields: name, created_at. Ex: &#39;created_at|desc&#39; or &#39;name|asc&#39;.
     # @option opts [String] :filter FQL query specifying the filter parameters.
     # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(DomainReplyEntitiesKnowledgeBasesResponse, Integer, Hash)>] DomainReplyEntitiesKnowledgeBasesResponse data, response status code and response headers
     def combined_knowledge_bases_v1_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -147,6 +80,7 @@ module Falcon
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'include_deleted'] = opts[:'include_deleted'] if !opts[:'include_deleted'].nil?
+      query_params[:'project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -182,8 +116,8 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Create or update a knowledge base. For deletion, provide knowledge base with IsDeleted=true.
-    # @param body [DomainKnowledgeBase] Knowledge base definition to create or update
+    # Create or update a knowledge base. To delete a knowledge base, set is_deleted to true.
+    # @param body [DomainKnowledgeBase] Knowledge base definition to create or update.
     # @param [Hash] opts the optional parameters
     # @return [DomainReplyEntitiesKnowledgeBasesResponse]
     def entities_knowledge_bases_create_v1(body, opts = {})
@@ -191,8 +125,8 @@ module Falcon
       data
     end
 
-    # Create or update a knowledge base. For deletion, provide knowledge base with IsDeleted&#x3D;true.
-    # @param body [DomainKnowledgeBase] Knowledge base definition to create or update
+    # Create or update a knowledge base. To delete a knowledge base, set is_deleted to true.
+    # @param body [DomainKnowledgeBase] Knowledge base definition to create or update.
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainReplyEntitiesKnowledgeBasesResponse, Integer, Hash)>] DomainReplyEntitiesKnowledgeBasesResponse data, response status code and response headers
     def entities_knowledge_bases_create_v1_with_http_info(body, opts = {})
@@ -251,6 +185,7 @@ module Falcon
     # Update an existing knowledge base.
     # @param body [DomainKnowledgeBase] Knowledge base definition with updated fields
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [DomainReplyEntitiesKnowledgeBasesResponse]
     def entities_knowledge_bases_update_v1(body, opts = {})
       data, _status_code, _headers = entities_knowledge_bases_update_v1_with_http_info(body, opts)
@@ -260,6 +195,7 @@ module Falcon
     # Update an existing knowledge base.
     # @param body [DomainKnowledgeBase] Knowledge base definition with updated fields
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(DomainReplyEntitiesKnowledgeBasesResponse, Integer, Hash)>] DomainReplyEntitiesKnowledgeBasesResponse data, response status code and response headers
     def entities_knowledge_bases_update_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
@@ -274,6 +210,7 @@ module Falcon
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -318,6 +255,7 @@ module Falcon
     # @param ids [Array<String>] IDs of entities to retrieve.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [DomainReplyEntitiesKnowledgeBasesResponse]
     def entities_knowledge_bases_v1(ids, opts = {})
       data, _status_code, _headers = entities_knowledge_bases_v1_with_http_info(ids, opts)
@@ -328,6 +266,7 @@ module Falcon
     # @param ids [Array<String>] IDs of entities to retrieve.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(DomainReplyEntitiesKnowledgeBasesResponse, Integer, Hash)>] DomainReplyEntitiesKnowledgeBasesResponse data, response status code and response headers
     def entities_knowledge_bases_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
@@ -344,6 +283,7 @@ module Falcon
       query_params = opts[:query_params] || {}
       query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
       query_params[:'include_deleted'] = opts[:'include_deleted'] if !opts[:'include_deleted'].nil?
+      query_params[:'project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -386,6 +326,7 @@ module Falcon
     # @option opts [String] :sort Possible order by fields: name, created_at. Ex: &#39;created_at|desc&#39; or &#39;name|asc&#39;.
     # @option opts [String] :filter FQL query specifying the filter parameters.
     # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [DomainReplyQueryKnowledgeBasesResponse]
     def queries_knowledge_bases_v1(opts = {})
       data, _status_code, _headers = queries_knowledge_bases_v1_with_http_info(opts)
@@ -399,6 +340,7 @@ module Falcon
     # @option opts [String] :sort Possible order by fields: name, created_at. Ex: &#39;created_at|desc&#39; or &#39;name|asc&#39;.
     # @option opts [String] :filter FQL query specifying the filter parameters.
     # @option opts [Boolean] :include_deleted Include deleted knowledge bases in the result. Defaults to false. (default to false)
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(DomainReplyQueryKnowledgeBasesResponse, Integer, Hash)>] DomainReplyQueryKnowledgeBasesResponse data, response status code and response headers
     def queries_knowledge_bases_v1_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -422,6 +364,7 @@ module Falcon
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'include_deleted'] = opts[:'include_deleted'] if !opts[:'include_deleted'].nil?
+      query_params[:'project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

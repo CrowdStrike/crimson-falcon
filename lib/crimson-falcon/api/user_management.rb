@@ -101,6 +101,79 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get user aggregates including external users as specified via json in request body.
+    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :user_type Filter results by user type (internal or external). Omit to return all users.
+    # @return [FlightcontrolapiAggregatesResponse]
+    def aggregate_users_v2(body, opts = {})
+      data, _status_code, _headers = aggregate_users_v2_with_http_info(body, opts)
+      data
+    end
+
+    # Get user aggregates including external users as specified via json in request body.
+    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :user_type Filter results by user type (internal or external). Omit to return all users.
+    # @return [Array<(FlightcontrolapiAggregatesResponse, Integer, Hash)>] FlightcontrolapiAggregatesResponse data, response status code and response headers
+    def aggregate_users_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserManagement.aggregate_users_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.aggregate_users_v2"
+      end
+      allowable_values = ["external", "internal"]
+      if @api_client.config.client_side_validation && opts[:'user_type'] && !allowable_values.include?(opts[:'user_type'])
+        fail ArgumentError, "invalid value for \"user_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/user-management/aggregates/users/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'user_type'] = opts[:'user_type'] if !opts[:'user_type'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FlightcontrolapiAggregatesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"UserManagement.aggregate_users_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserManagement#aggregate_users_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Deprecated : Please use GET /user-management/combined/user-roles/v2. Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
     # @param user_uuid [String] User UUID to get available roles for.
     # @param [Hash] opts the optional parameters
@@ -289,6 +362,102 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UserManagement#combined_user_roles_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get User Grant(s) including external users. This endpoint lists grants between a User and a Customer, where the user may be homed in a partner CID.
+    # @param user_uuid [String] User UUID to get available roles for.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :cid Customer ID to get grants for. Empty CID would result in Role IDs for user against current CID in view.
+    # @option opts [Boolean] :direct_only Specifies if to request direct Only role grants or all role grants between user and CID (specified in query params) (default to false)
+    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: expires_at, role_id, role_name
+    # @option opts [Integer] :offset The offset to start retrieving records from (default to 0)
+    # @option opts [Integer] :limit The maximum records to return. [1-500] (default to 100)
+    # @option opts [String] :sort The property to sort by (default to 'role_name|asc')
+    # @return [FlightcontrolapiCombinedUserRolesResponseV2]
+    def combined_user_roles_v3(user_uuid, opts = {})
+      data, _status_code, _headers = combined_user_roles_v3_with_http_info(user_uuid, opts)
+      data
+    end
+
+    # Get User Grant(s) including external users. This endpoint lists grants between a User and a Customer, where the user may be homed in a partner CID.
+    # @param user_uuid [String] User UUID to get available roles for.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :cid Customer ID to get grants for. Empty CID would result in Role IDs for user against current CID in view.
+    # @option opts [Boolean] :direct_only Specifies if to request direct Only role grants or all role grants between user and CID (specified in query params) (default to false)
+    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: expires_at, role_id, role_name
+    # @option opts [Integer] :offset The offset to start retrieving records from (default to 0)
+    # @option opts [Integer] :limit The maximum records to return. [1-500] (default to 100)
+    # @option opts [String] :sort The property to sort by (default to 'role_name|asc')
+    # @return [Array<(FlightcontrolapiCombinedUserRolesResponseV2, Integer, Hash)>] FlightcontrolapiCombinedUserRolesResponseV2 data, response status code and response headers
+    def combined_user_roles_v3_with_http_info(user_uuid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserManagement.combined_user_roles_v3 ...'
+      end
+      # verify the required parameter 'user_uuid' is set
+      if @api_client.config.client_side_validation && user_uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagement.combined_user_roles_v3"
+      end
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling UserManagement.combined_user_roles_v3, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.combined_user_roles_v3, must be smaller than or equal to 500.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.combined_user_roles_v3, must be greater than or equal to 1.'
+      end
+
+      allowable_values = ["cid", "cid|asc", "cid|desc", "expires_at", "expires_at|asc", "expires_at|desc", "role_name", "role_name|asc", "role_name|desc", "type", "type|asc", "type|desc", "user_uuid", "user_uuid|asc", "user_uuid|desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/user-management/combined/user-roles/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'user_uuid'] = user_uuid
+      query_params[:'cid'] = opts[:'cid'] if !opts[:'cid'].nil?
+      query_params[:'direct_only'] = opts[:'direct_only'] if !opts[:'direct_only'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FlightcontrolapiCombinedUserRolesResponseV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"UserManagement.combined_user_roles_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserManagement#combined_user_roles_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -552,6 +721,200 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get details about permission groups including name and description.
+    # @param body [MsaspecIdsRequest] Maximum of 500 Permission Group IDs can be specified per request.
+    # @param [Hash] opts the optional parameters
+    # @return [FlightcontrolapiGetPermissionGroupsResponse]
+    def entities_permission_groups_getv1(body, opts = {})
+      data, _status_code, _headers = entities_permission_groups_getv1_with_http_info(body, opts)
+      data
+    end
+
+    # Get details about permission groups including name and description.
+    # @param body [MsaspecIdsRequest] Maximum of 500 Permission Group IDs can be specified per request.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(FlightcontrolapiGetPermissionGroupsResponse, Integer, Hash)>] FlightcontrolapiGetPermissionGroupsResponse data, response status code and response headers
+    def entities_permission_groups_getv1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserManagement.entities_permission_groups_getv1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.entities_permission_groups_getv1"
+      end
+      # resource path
+      local_var_path = '/user-management/entities/permission-groups/GET/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FlightcontrolapiGetPermissionGroupsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"UserManagement.entities_permission_groups_getv1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserManagement#entities_permission_groups_getv1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get details about permissions including name, description, and which permission groups they belong to.
+    # @param body [MsaspecIdsRequest] Maximum of 500 Permission IDs can be specified per request.
+    # @param [Hash] opts the optional parameters
+    # @return [FlightcontrolapiGetPermissionsResponse]
+    def entities_permissions_getv1(body, opts = {})
+      data, _status_code, _headers = entities_permissions_getv1_with_http_info(body, opts)
+      data
+    end
+
+    # Get details about permissions including name, description, and which permission groups they belong to.
+    # @param body [MsaspecIdsRequest] Maximum of 500 Permission IDs can be specified per request.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(FlightcontrolapiGetPermissionsResponse, Integer, Hash)>] FlightcontrolapiGetPermissionsResponse data, response status code and response headers
+    def entities_permissions_getv1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserManagement.entities_permissions_getv1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.entities_permissions_getv1"
+      end
+      # resource path
+      local_var_path = '/user-management/entities/permissions/GET/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FlightcontrolapiGetPermissionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"UserManagement.entities_permissions_getv1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserManagement#entities_permissions_getv1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get permission IDs assigned to a given role.
+    # @param id [String] Role ID to get permission IDs for. Find a role ID from &#x60;/user-management/queries/roles/v1&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [FlightcontrolapiGetRolePermissionsResponse]
+    def entities_role_permissions_v1(id, opts = {})
+      data, _status_code, _headers = entities_role_permissions_v1_with_http_info(id, opts)
+      data
+    end
+
+    # Get permission IDs assigned to a given role.
+    # @param id [String] Role ID to get permission IDs for. Find a role ID from &#x60;/user-management/queries/roles/v1&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(FlightcontrolapiGetRolePermissionsResponse, Integer, Hash)>] FlightcontrolapiGetRolePermissionsResponse data, response status code and response headers
+    def entities_role_permissions_v1_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserManagement.entities_role_permissions_v1 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling UserManagement.entities_role_permissions_v1"
+      end
+      # resource path
+      local_var_path = '/user-management/entities/role-permissions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FlightcontrolapiGetRolePermissionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"UserManagement.entities_role_permissions_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserManagement#entities_role_permissions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get info about a role
     # @param body [MsaspecIdsRequest] Maximum of 5000 Role IDs can be specified per request.
     # @param [Hash] opts the optional parameters
@@ -803,6 +1166,72 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get one or more external user invitations by ID.
+    # @param body [MsaspecIdsRequest] List of invitation IDs to retrieve.
+    # @param [Hash] opts the optional parameters
+    # @return [FlightcontrolapiInvitationResponse]
+    def get_user_invitations_getv1(body, opts = {})
+      data, _status_code, _headers = get_user_invitations_getv1_with_http_info(body, opts)
+      data
+    end
+
+    # Get one or more external user invitations by ID.
+    # @param body [MsaspecIdsRequest] List of invitation IDs to retrieve.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(FlightcontrolapiInvitationResponse, Integer, Hash)>] FlightcontrolapiInvitationResponse data, response status code and response headers
+    def get_user_invitations_getv1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserManagement.get_user_invitations_getv1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.get_user_invitations_getv1"
+      end
+      # resource path
+      local_var_path = '/user-management/entities/user-invitations/GET/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FlightcontrolapiInvitationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"UserManagement.get_user_invitations_getv1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserManagement#get_user_invitations_getv1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Deprecated : Please use GET /user-management/combined/user-roles/v1. Show role IDs of roles assigned to a user. For more information on each role, provide the role ID to `/customer/entities/roles/v1`.
     # @param user_uuid [String] ID of a user. Find a user&#39;s ID from &#x60;/users/entities/user/v1&#x60;.
     # @param [Hash] opts the optional parameters
@@ -938,6 +1367,79 @@ module Falcon
       return data, status_code, headers
     end
 
+    # List all permission IDs available to your CID based on product subscriptions.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset The offset to start retrieving records from (default to 0)
+    # @option opts [Integer] :limit The maximum records to return. [1-5000] (default to 100)
+    # @return [MsaspecQueryResponse]
+    def queries_permissions_v1(opts = {})
+      data, _status_code, _headers = queries_permissions_v1_with_http_info(opts)
+      data
+    end
+
+    # List all permission IDs available to your CID based on product subscriptions.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset The offset to start retrieving records from (default to 0)
+    # @option opts [Integer] :limit The maximum records to return. [1-5000] (default to 100)
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def queries_permissions_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserManagement.queries_permissions_v1 ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling UserManagement.queries_permissions_v1, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.queries_permissions_v1, must be smaller than or equal to 5000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.queries_permissions_v1, must be greater than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/user-management/queries/permissions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"UserManagement.queries_permissions_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserManagement#queries_permissions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Show role IDs for all roles available in your customer account. For more information on each role, provide the role ID to `/user-management/entities/roles/v1`.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :cid Customer ID to get available roles for. Empty CID would result in Role IDs for current CID in view.
@@ -998,6 +1500,85 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UserManagement#queries_roles_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Query external user invitation IDs using an FQL filter.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL filter expression (e.g. target_cid:&#39;cid-123&#39;+status:&#39;pending&#39;).
+    # @option opts [String] :sort FQL sort expression (e.g. created_at.desc).
+    # @option opts [Integer] :offset The offset to start retrieving records from. (default to 0)
+    # @option opts [Integer] :limit The maximum records to return. [1-500] (default to 100)
+    # @return [FlightcontrolapiQueryInvitationResponse]
+    def query_user_invitations_v1(opts = {})
+      data, _status_code, _headers = query_user_invitations_v1_with_http_info(opts)
+      data
+    end
+
+    # Query external user invitation IDs using an FQL filter.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL filter expression (e.g. target_cid:&#39;cid-123&#39;+status:&#39;pending&#39;).
+    # @option opts [String] :sort FQL sort expression (e.g. created_at.desc).
+    # @option opts [Integer] :offset The offset to start retrieving records from. (default to 0)
+    # @option opts [Integer] :limit The maximum records to return. [1-500] (default to 100)
+    # @return [Array<(FlightcontrolapiQueryInvitationResponse, Integer, Hash)>] FlightcontrolapiQueryInvitationResponse data, response status code and response headers
+    def query_user_invitations_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserManagement.query_user_invitations_v1 ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling UserManagement.query_user_invitations_v1, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.query_user_invitations_v1, must be smaller than or equal to 500.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.query_user_invitations_v1, must be greater than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/user-management/queries/user-invitations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FlightcontrolapiQueryInvitationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"UserManagement.query_user_invitations_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserManagement#query_user_invitations_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1081,6 +1662,96 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UserManagement#query_user_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List user IDs for all users in your customer account, including external users who have roles assigned in your customer account. For more information on each user, provide the user ID to `/user-management/entities/users/GET/v1`.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, non_ancestor_assigned_cids, status, temporarily_assigned_cids, uid, uuid, associated_cids
+    # @option opts [Integer] :offset The offset to start retrieving records from (default to 0)
+    # @option opts [Integer] :limit The maximum records to return. [1-500] (default to 100)
+    # @option opts [String] :sort The property to sort by (default to 'uid|asc')
+    # @option opts [String] :user_type Filter results by user type (internal or external). Omit to return all users.
+    # @return [MsaspecQueryResponse]
+    def query_user_v2(opts = {})
+      data, _status_code, _headers = query_user_v2_with_http_info(opts)
+      data
+    end
+
+    # List user IDs for all users in your customer account, including external users who have roles assigned in your customer account. For more information on each user, provide the user ID to &#x60;/user-management/entities/users/GET/v1&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, non_ancestor_assigned_cids, status, temporarily_assigned_cids, uid, uuid, associated_cids
+    # @option opts [Integer] :offset The offset to start retrieving records from (default to 0)
+    # @option opts [Integer] :limit The maximum records to return. [1-500] (default to 100)
+    # @option opts [String] :sort The property to sort by (default to 'uid|asc')
+    # @option opts [String] :user_type Filter results by user type (internal or external). Omit to return all users.
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def query_user_v2_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserManagement.query_user_v2 ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling UserManagement.query_user_v2, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.query_user_v2, must be smaller than or equal to 500.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.query_user_v2, must be greater than or equal to 1.'
+      end
+
+      allowable_values = ["cid_name", "cid_name|asc", "cid_name|desc", "created_at", "created_at|asc", "created_at|desc", "first_name", "first_name|asc", "first_name|desc", "has_temporary_roles", "has_temporary_roles|asc", "has_temporary_roles|desc", "last_login_at", "last_login_at|asc", "last_login_at|desc", "last_name", "last_name|asc", "last_name|desc", "name", "name|asc", "name|desc", "status", "status|asc", "status|desc", "temporarily_assigned_cids", "temporarily_assigned_cids|asc", "temporarily_assigned_cids|desc", "uid", "uid|asc", "uid|desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["internal", "external"]
+      if @api_client.config.client_side_validation && opts[:'user_type'] && !allowable_values.include?(opts[:'user_type'])
+        fail ArgumentError, "invalid value for \"user_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/user-management/queries/users/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'user_type'] = opts[:'user_type'] if !opts[:'user_type'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"UserManagement.query_user_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserManagement#query_user_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1385,6 +2056,72 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get info about users including their name, UID, CID and whether they are external by providing user UUIDs
+    # @param body [MsaspecIdsRequest] Maximum of 5000 User UUIDs can be specified per request.
+    # @param [Hash] opts the optional parameters
+    # @return [FlightcontrolapiUserV2Response]
+    def retrieve_users_getv2(body, opts = {})
+      data, _status_code, _headers = retrieve_users_getv2_with_http_info(body, opts)
+      data
+    end
+
+    # Get info about users including their name, UID, CID and whether they are external by providing user UUIDs
+    # @param body [MsaspecIdsRequest] Maximum of 5000 User UUIDs can be specified per request.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(FlightcontrolapiUserV2Response, Integer, Hash)>] FlightcontrolapiUserV2Response data, response status code and response headers
+    def retrieve_users_getv2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserManagement.retrieve_users_getv2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.retrieve_users_getv2"
+      end
+      # resource path
+      local_var_path = '/user-management/entities/users/GET/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FlightcontrolapiUserV2Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"UserManagement.retrieve_users_getv2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserManagement#retrieve_users_getv2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Revoke one or more roles from a user
     # @param user_uuid [String] ID of a user. Find a user&#39;s ID from &#x60;/users/entities/user/v1&#x60;.
     # @param ids [Array<String>] One or more role IDs to revoke. Find a role&#39;s ID from &#x60;/users/queries/roles/v1&#x60;.
@@ -1666,6 +2403,72 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Provides the list of actions that can performed on the user on the CID.
+    # @param body [DomainActionValidationRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [DomainActionValidationResponse]
+    def user_allowed_actions_v1(body, opts = {})
+      data, _status_code, _headers = user_allowed_actions_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Provides the list of actions that can performed on the user on the CID.
+    # @param body [DomainActionValidationRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainActionValidationResponse, Integer, Hash)>] DomainActionValidationResponse data, response status code and response headers
+    def user_allowed_actions_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserManagement.user_allowed_actions_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.user_allowed_actions_v1"
+      end
+      # resource path
+      local_var_path = '/user-management/entities/user-allowed-actions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainActionValidationResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"UserManagement.user_allowed_actions_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserManagement#user_allowed_actions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke
     # @param body [FlightcontrolapiGrantInput] CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include &#39;grant&#39; and &#39;revoke&#39;.
     # @param [Hash] opts the optional parameters
@@ -1728,6 +2531,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UserManagement#user_roles_action_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Grant or Revoke one or more role(s) to a user against a CID. The user can be a regular user or a invited external user to the CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : assign-role or grant, AND remove-role or revoke
+    # @param body [DomainActionUserRolesRequestV2] CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include &#39;grant&#39;/&#39;assign-role&#39; and &#39;revoke&#39;/remove-role&#39;.
+    # @param [Hash] opts the optional parameters
+    # @return [MsaspecResponseFields]
+    def user_roles_action_v2(body, opts = {})
+      data, _status_code, _headers = user_roles_action_v2_with_http_info(body, opts)
+      data
+    end
+
+    # Grant or Revoke one or more role(s) to a user against a CID. The user can be a regular user or a invited external user to the CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : assign-role or grant, AND remove-role or revoke
+    # @param body [DomainActionUserRolesRequestV2] CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include &#39;grant&#39;/&#39;assign-role&#39; and &#39;revoke&#39;/remove-role&#39;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
+    def user_roles_action_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserManagement.user_roles_action_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.user_roles_action_v2"
+      end
+      # resource path
+      local_var_path = '/user-management/entities/user-role-actions/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecResponseFields'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"UserManagement.user_roles_action_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserManagement#user_roles_action_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

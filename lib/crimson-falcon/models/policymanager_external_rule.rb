@@ -72,6 +72,9 @@ module Falcon
     # Accepts values: 'all', 'specific'
     attr_accessor :user_scope
 
+    # List of web location destination groups. Maximum of 15 unique UUID groups are allowed
+    attr_accessor :web_location_destination_groups
+
     attr_accessor :web_locations
 
     # Accepts values: 'all', 'specific'
@@ -119,6 +122,7 @@ module Falcon
         :'response_action' => :'response_action',
         :'trigger_detection' => :'trigger_detection',
         :'user_scope' => :'user_scope',
+        :'web_location_destination_groups' => :'web_location_destination_groups',
         :'web_locations' => :'web_locations',
         :'web_locations_scope' => :'web_locations_scope'
       }
@@ -149,6 +153,7 @@ module Falcon
         :'response_action' => :'String',
         :'trigger_detection' => :'Boolean',
         :'user_scope' => :'String',
+        :'web_location_destination_groups' => :'Array<String>',
         :'web_locations' => :'Array<String>',
         :'web_locations_scope' => :'String'
       }
@@ -249,6 +254,12 @@ module Falcon
         self.user_scope = attributes[:'user_scope']
       end
 
+      if attributes.key?(:'web_location_destination_groups')
+        if (value = attributes[:'web_location_destination_groups']).is_a?(Array)
+          self.web_location_destination_groups = value
+        end
+      end
+
       if attributes.key?(:'web_locations')
         if (value = attributes[:'web_locations']).is_a?(Array)
           self.web_locations = value
@@ -324,6 +335,10 @@ module Falcon
         invalid_properties.push('invalid value for "user_scope", user_scope cannot be nil.')
       end
 
+      if @web_location_destination_groups.nil?
+        invalid_properties.push('invalid value for "web_location_destination_groups", web_location_destination_groups cannot be nil.')
+      end
+
       if @web_locations.nil?
         invalid_properties.push('invalid value for "web_locations", web_locations cannot be nil.')
       end
@@ -359,6 +374,7 @@ module Falcon
       return false if @user_scope.nil?
       user_scope_validator = EnumAttributeValidator.new('String', ["all", "specific"])
       return false unless user_scope_validator.valid?(@user_scope)
+      return false if @web_location_destination_groups.nil?
       return false if @web_locations.nil?
       return false if @web_locations_scope.nil?
       web_locations_scope_validator = EnumAttributeValidator.new('String', ["all", "specific"])
@@ -428,6 +444,7 @@ module Falcon
           response_action == o.response_action &&
           trigger_detection == o.trigger_detection &&
           user_scope == o.user_scope &&
+          web_location_destination_groups == o.web_location_destination_groups &&
           web_locations == o.web_locations &&
           web_locations_scope == o.web_locations_scope
     end
@@ -441,7 +458,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ad_groups, ad_users, created_time_stamp, description, detection_severity, enable_local_application_groups, enable_printer_egress, enable_screen_capture_rule, enable_usb_devices, enable_web_locations, id, local_application_groups, modified_time_stamp, notify_end_user, response_action, trigger_detection, user_scope, web_locations, web_locations_scope].hash
+      [ad_groups, ad_users, created_time_stamp, description, detection_severity, enable_local_application_groups, enable_printer_egress, enable_screen_capture_rule, enable_usb_devices, enable_web_locations, id, local_application_groups, modified_time_stamp, notify_end_user, response_action, trigger_detection, user_scope, web_location_destination_groups, web_locations, web_locations_scope].hash
     end
 
     # Builds the object from hash

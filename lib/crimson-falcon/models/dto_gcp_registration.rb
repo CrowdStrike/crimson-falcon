@@ -89,6 +89,8 @@ module Falcon
 
     attr_accessor :vulnerability_scanning_settings
 
+    attr_accessor :wif_pool_registration_id
+
     attr_accessor :wif_properties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -123,6 +125,7 @@ module Falcon
         :'tags' => :'tags',
         :'updated' => :'updated',
         :'vulnerability_scanning_settings' => :'vulnerability_scanning_settings',
+        :'wif_pool_registration_id' => :'wif_pool_registration_id',
         :'wif_properties' => :'wif_properties'
       }
     end
@@ -164,6 +167,7 @@ module Falcon
         :'tags' => :'Hash<String, String>',
         :'updated' => :'Time',
         :'vulnerability_scanning_settings' => :'GcpAgentlessScanningSettings',
+        :'wif_pool_registration_id' => :'String',
         :'wif_properties' => :'DtoWIFProperties'
       }
     end
@@ -317,6 +321,10 @@ module Falcon
         self.vulnerability_scanning_settings = attributes[:'vulnerability_scanning_settings']
       end
 
+      if attributes.key?(:'wif_pool_registration_id')
+        self.wif_pool_registration_id = attributes[:'wif_pool_registration_id']
+      end
+
       if attributes.key?(:'wif_properties')
         self.wif_properties = attributes[:'wif_properties']
       end
@@ -379,6 +387,7 @@ module Falcon
           tags == o.tags &&
           updated == o.updated &&
           vulnerability_scanning_settings == o.vulnerability_scanning_settings &&
+          wif_pool_registration_id == o.wif_pool_registration_id &&
           wif_properties == o.wif_properties
     end
 
@@ -391,7 +400,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [additional_properties, cloud_registration_enabled, created, cspm_enabled, deployment_method, dspm_settings, excluded_project_patterns, falcon_client_key_id, falcon_client_key_type, folders, infra_manager_properties, infra_project_id, labels, last_healthcheck_completed_at, log_ingestion_properties, organization, products, projects, registration_description, registration_id, registration_name, registration_scope, resource_name_prefix, resource_name_suffix, service_account_properties, status, tags, updated, vulnerability_scanning_settings, wif_properties].hash
+      [additional_properties, cloud_registration_enabled, created, cspm_enabled, deployment_method, dspm_settings, excluded_project_patterns, falcon_client_key_id, falcon_client_key_type, folders, infra_manager_properties, infra_project_id, labels, last_healthcheck_completed_at, log_ingestion_properties, organization, products, projects, registration_description, registration_id, registration_name, registration_scope, resource_name_prefix, resource_name_suffix, service_account_properties, status, tags, updated, vulnerability_scanning_settings, wif_pool_registration_id, wif_properties].hash
     end
 
     # Builds the object from hash

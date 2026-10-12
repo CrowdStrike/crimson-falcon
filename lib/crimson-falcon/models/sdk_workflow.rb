@@ -39,13 +39,16 @@ module Falcon
 
     attr_accessor :status
 
+    attr_accessor :template_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'execution_id' => :'execution_id',
         :'id' => :'id',
         :'name' => :'name',
-        :'status' => :'status'
+        :'status' => :'status',
+        :'template_id' => :'template_id'
       }
     end
 
@@ -60,7 +63,8 @@ module Falcon
         :'execution_id' => :'String',
         :'id' => :'String',
         :'name' => :'String',
-        :'status' => :'String'
+        :'status' => :'String',
+        :'template_id' => :'String'
       }
     end
 
@@ -99,6 +103,10 @@ module Falcon
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'template_id')
+        self.template_id = attributes[:'template_id']
       end
     end
 
@@ -143,7 +151,8 @@ module Falcon
           execution_id == o.execution_id &&
           id == o.id &&
           name == o.name &&
-          status == o.status
+          status == o.status &&
+          template_id == o.template_id
     end
 
     # @see the `==` method
@@ -155,7 +164,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [execution_id, id, name, status].hash
+      [execution_id, id, name, status, template_id].hash
     end
 
     # Builds the object from hash

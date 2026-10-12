@@ -59,6 +59,18 @@ describe 'UserManagement' do
     end
   end
 
+  # unit tests for aggregate_users_v2
+  # Get user aggregates including external users as specified via json in request body.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :user_type Filter results by user type (internal or external). Omit to return all users.
+  # @return [FlightcontrolapiAggregatesResponse]
+  describe 'aggregate_users_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for combined_user_roles_v1
   # Deprecated : Please use GET /user-management/combined/user-roles/v2. Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
   # @param user_uuid User UUID to get available roles for.
@@ -88,6 +100,23 @@ describe 'UserManagement' do
   # @option opts [String] :sort The property to sort by
   # @return [FlightcontrolapiCombinedUserRolesResponseV2]
   describe 'combined_user_roles_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for combined_user_roles_v3
+  # Get User Grant(s) including external users. This endpoint lists grants between a User and a Customer, where the user may be homed in a partner CID.
+  # @param user_uuid User UUID to get available roles for.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :cid Customer ID to get grants for. Empty CID would result in Role IDs for user against current CID in view.
+  # @option opts [Boolean] :direct_only Specifies if to request direct Only role grants or all role grants between user and CID (specified in query params)
+  # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: expires_at, role_id, role_name
+  # @option opts [Integer] :offset The offset to start retrieving records from
+  # @option opts [Integer] :limit The maximum records to return. [1-500]
+  # @option opts [String] :sort The property to sort by
+  # @return [FlightcontrolapiCombinedUserRolesResponseV2]
+  describe 'combined_user_roles_v3 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -138,6 +167,39 @@ describe 'UserManagement' do
     end
   end
 
+  # unit tests for entities_permission_groups_getv1
+  # Get details about permission groups including name and description.
+  # @param body Maximum of 500 Permission Group IDs can be specified per request.
+  # @param [Hash] opts the optional parameters
+  # @return [FlightcontrolapiGetPermissionGroupsResponse]
+  describe 'entities_permission_groups_getv1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for entities_permissions_getv1
+  # Get details about permissions including name, description, and which permission groups they belong to.
+  # @param body Maximum of 500 Permission IDs can be specified per request.
+  # @param [Hash] opts the optional parameters
+  # @return [FlightcontrolapiGetPermissionsResponse]
+  describe 'entities_permissions_getv1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for entities_role_permissions_v1
+  # Get permission IDs assigned to a given role.
+  # @param id Role ID to get permission IDs for. Find a role ID from &#x60;/user-management/queries/roles/v1&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [FlightcontrolapiGetRolePermissionsResponse]
+  describe 'entities_role_permissions_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for entities_roles_getv2
   # Get info about a role
   # @param body Maximum of 5000 Role IDs can be specified per request.
@@ -183,6 +245,17 @@ describe 'UserManagement' do
     end
   end
 
+  # unit tests for get_user_invitations_getv1
+  # Get one or more external user invitations by ID.
+  # @param body List of invitation IDs to retrieve.
+  # @param [Hash] opts the optional parameters
+  # @return [FlightcontrolapiInvitationResponse]
+  describe 'get_user_invitations_getv1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_user_role_ids
   # Deprecated : Please use GET /user-management/combined/user-roles/v1. Show role IDs of roles assigned to a user. For more information on each role, provide the role ID to &#x60;/customer/entities/roles/v1&#x60;.
   # @param user_uuid ID of a user. Find a user&#39;s ID from &#x60;/users/entities/user/v1&#x60;.
@@ -206,6 +279,18 @@ describe 'UserManagement' do
     end
   end
 
+  # unit tests for queries_permissions_v1
+  # List all permission IDs available to your CID based on product subscriptions.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :offset The offset to start retrieving records from
+  # @option opts [Integer] :limit The maximum records to return. [1-5000]
+  # @return [MsaspecQueryResponse]
+  describe 'queries_permissions_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for queries_roles_v1
   # Show role IDs for all roles available in your customer account. For more information on each role, provide the role ID to &#x60;/user-management/entities/roles/v1&#x60;.
   # @param [Hash] opts the optional parameters
@@ -214,6 +299,20 @@ describe 'UserManagement' do
   # @option opts [String] :action Actionable purpose of the query
   # @return [MsaspecQueryResponse]
   describe 'queries_roles_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for query_user_invitations_v1
+  # Query external user invitation IDs using an FQL filter.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL filter expression (e.g. target_cid:&#39;cid-123&#39;+status:&#39;pending&#39;).
+  # @option opts [String] :sort FQL sort expression (e.g. created_at.desc).
+  # @option opts [Integer] :offset The offset to start retrieving records from.
+  # @option opts [Integer] :limit The maximum records to return. [1-500]
+  # @return [FlightcontrolapiQueryInvitationResponse]
+  describe 'query_user_invitations_v1 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -228,6 +327,21 @@ describe 'UserManagement' do
   # @option opts [String] :sort The property to sort by
   # @return [MsaspecQueryResponse]
   describe 'query_user_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for query_user_v2
+  # List user IDs for all users in your customer account, including external users who have roles assigned in your customer account. For more information on each user, provide the user ID to &#x60;/user-management/entities/users/GET/v1&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, non_ancestor_assigned_cids, status, temporarily_assigned_cids, uid, uuid, associated_cids
+  # @option opts [Integer] :offset The offset to start retrieving records from
+  # @option opts [Integer] :limit The maximum records to return. [1-500]
+  # @option opts [String] :sort The property to sort by
+  # @option opts [String] :user_type Filter results by user type (internal or external). Omit to return all users.
+  # @return [MsaspecQueryResponse]
+  describe 'query_user_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -286,6 +400,17 @@ describe 'UserManagement' do
     end
   end
 
+  # unit tests for retrieve_users_getv2
+  # Get info about users including their name, UID, CID and whether they are external by providing user UUIDs
+  # @param body Maximum of 5000 User UUIDs can be specified per request.
+  # @param [Hash] opts the optional parameters
+  # @return [FlightcontrolapiUserV2Response]
+  describe 'retrieve_users_getv2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for revoke_user_role_ids
   # Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Revoke one or more roles from a user
   # @param user_uuid ID of a user. Find a user&#39;s ID from &#x60;/users/entities/user/v1&#x60;.
@@ -333,12 +458,34 @@ describe 'UserManagement' do
     end
   end
 
+  # unit tests for user_allowed_actions_v1
+  # Provides the list of actions that can performed on the user on the CID.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DomainActionValidationResponse]
+  describe 'user_allowed_actions_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for user_roles_action_v1
   # Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke
   # @param body CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include &#39;grant&#39; and &#39;revoke&#39;.
   # @param [Hash] opts the optional parameters
   # @return [MsaspecResponseFields]
   describe 'user_roles_action_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for user_roles_action_v2
+  # Grant or Revoke one or more role(s) to a user against a CID. The user can be a regular user or a invited external user to the CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : assign-role or grant, AND remove-role or revoke
+  # @param body CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include &#39;grant&#39;/&#39;assign-role&#39; and &#39;revoke&#39;/remove-role&#39;.
+  # @param [Hash] opts the optional parameters
+  # @return [MsaspecResponseFields]
+  describe 'user_roles_action_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -35,9 +35,19 @@ module Falcon
 
     attr_accessor :file_name
 
+    attr_accessor :is_from_module
+
     attr_accessor :last_detected
 
     attr_accessor :misconfigured_line
+
+    attr_accessor :module_path
+
+    attr_accessor :module_remediation
+
+    attr_accessor :module_source
+
+    attr_accessor :module_version
 
     attr_accessor :project_name
 
@@ -58,8 +68,13 @@ module Falcon
       {
         :'detection_uuid' => :'detection_uuid',
         :'file_name' => :'file_name',
+        :'is_from_module' => :'is_from_module',
         :'last_detected' => :'last_detected',
         :'misconfigured_line' => :'misconfigured_line',
+        :'module_path' => :'module_path',
+        :'module_remediation' => :'module_remediation',
+        :'module_source' => :'module_source',
+        :'module_version' => :'module_version',
         :'project_name' => :'project_name',
         :'project_owners' => :'project_owners',
         :'project_ref' => :'project_ref',
@@ -80,8 +95,13 @@ module Falcon
       {
         :'detection_uuid' => :'String',
         :'file_name' => :'String',
+        :'is_from_module' => :'Boolean',
         :'last_detected' => :'Time',
         :'misconfigured_line' => :'Integer',
+        :'module_path' => :'String',
+        :'module_remediation' => :'ModelsModuleRemediation',
+        :'module_source' => :'String',
+        :'module_version' => :'String',
         :'project_name' => :'String',
         :'project_owners' => :'Array<String>',
         :'project_ref' => :'String',
@@ -121,12 +141,32 @@ module Falcon
         self.file_name = attributes[:'file_name']
       end
 
+      if attributes.key?(:'is_from_module')
+        self.is_from_module = attributes[:'is_from_module']
+      end
+
       if attributes.key?(:'last_detected')
         self.last_detected = attributes[:'last_detected']
       end
 
       if attributes.key?(:'misconfigured_line')
         self.misconfigured_line = attributes[:'misconfigured_line']
+      end
+
+      if attributes.key?(:'module_path')
+        self.module_path = attributes[:'module_path']
+      end
+
+      if attributes.key?(:'module_remediation')
+        self.module_remediation = attributes[:'module_remediation']
+      end
+
+      if attributes.key?(:'module_source')
+        self.module_source = attributes[:'module_source']
+      end
+
+      if attributes.key?(:'module_version')
+        self.module_version = attributes[:'module_version']
       end
 
       if attributes.key?(:'project_name')
@@ -170,6 +210,10 @@ module Falcon
 
       if @file_name.nil?
         invalid_properties.push('invalid value for "file_name", file_name cannot be nil.')
+      end
+
+      if @is_from_module.nil?
+        invalid_properties.push('invalid value for "is_from_module", is_from_module cannot be nil.')
       end
 
       if @last_detected.nil?
@@ -216,6 +260,7 @@ module Falcon
     def valid?
       return false if @detection_uuid.nil?
       return false if @file_name.nil?
+      return false if @is_from_module.nil?
       return false if @last_detected.nil?
       return false if @misconfigured_line.nil?
       return false if @project_name.nil?
@@ -235,8 +280,13 @@ module Falcon
       self.class == o.class &&
           detection_uuid == o.detection_uuid &&
           file_name == o.file_name &&
+          is_from_module == o.is_from_module &&
           last_detected == o.last_detected &&
           misconfigured_line == o.misconfigured_line &&
+          module_path == o.module_path &&
+          module_remediation == o.module_remediation &&
+          module_source == o.module_source &&
+          module_version == o.module_version &&
           project_name == o.project_name &&
           project_owners == o.project_owners &&
           project_ref == o.project_ref &&
@@ -255,7 +305,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [detection_uuid, file_name, last_detected, misconfigured_line, project_name, project_owners, project_ref, remediation, resource_name, resource_type, rule].hash
+      [detection_uuid, file_name, is_from_module, last_detected, misconfigured_line, module_path, module_remediation, module_source, module_version, project_name, project_owners, project_ref, remediation, resource_name, resource_type, rule].hash
     end
 
     # Builds the object from hash

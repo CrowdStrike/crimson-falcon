@@ -52,6 +52,7 @@ describe 'Stream' do
   # Retrieves the stream of results for an invocation
   # @param id Invocation ID
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [nil]
   describe 'stream_invocation_response_v1 test' do
     it 'should work' do

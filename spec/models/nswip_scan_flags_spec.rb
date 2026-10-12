@@ -41,6 +41,12 @@ describe Falcon::NswipScanFlags do
       expect(instance).to be_instance_of(Falcon::NswipScanFlags)
     end
   end
+  describe 'test attribute "defeat_icmp_ratelimit"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "defeat_rst_ratelimit"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

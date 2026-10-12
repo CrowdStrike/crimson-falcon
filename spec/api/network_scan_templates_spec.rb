@@ -53,7 +53,7 @@ describe 'NetworkScanTemplates' do
   # @param body \&quot;templates\&quot; specifications
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_useruuid User UUID
-  # @return [DomainTemplateEntitiesResponse]
+  # @return [NvaapiTemplateEntitiesResponse]
   describe 'create_templates test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -88,7 +88,7 @@ describe 'NetworkScanTemplates' do
   # @param ids IDs of \&quot;templates\&quot; to be retrieved (Min: 1, Max: 100)
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_useruuid User UUID
-  # @return [DomainTemplateEntitiesResponse]
+  # @return [NvaapiTemplateEntitiesResponse]
   describe 'get_templates test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -115,7 +115,7 @@ describe 'NetworkScanTemplates' do
   # @param body \&quot;templates\&quot; specifications for updating
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_useruuid User UUID
-  # @return [DomainTemplateEntitiesResponse]
+  # @return [NvaapiTemplateEntitiesResponse]
   describe 'update_templates test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -56,7 +56,7 @@ module Falcon
       {
         :'errors' => :'Array<MsaAPIError>',
         :'meta' => :'MsaMetaInfo',
-        :'resources' => :'Array<FigapiIndicator>'
+        :'resources' => :'Array<RestapiIndicator>'
       }
     end
 

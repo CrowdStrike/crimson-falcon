@@ -38,6 +38,7 @@ module Falcon
     # Retrieves the stream of results for an invocation
     # @param id [String] Invocation ID
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [nil]
     def stream_invocation_response_v1(id, opts = {})
       stream_invocation_response_v1_with_http_info(id, opts)
@@ -47,6 +48,7 @@ module Falcon
     # Retrieves the stream of results for an invocation
     # @param id [String] Invocation ID
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :project_id Scope the operation to a project.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def stream_invocation_response_v1_with_http_info(id, opts = {})
       if @api_client.config.debugging
@@ -62,6 +64,7 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'id'] = id
+      query_params[:'project_id'] = opts[:'project_id'] if !opts[:'project_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

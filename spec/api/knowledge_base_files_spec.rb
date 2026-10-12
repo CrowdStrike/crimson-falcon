@@ -54,6 +54,7 @@ describe 'KnowledgeBaseFiles' do
   # @param file File to be uploaded
   # @param [Hash] opts the optional parameters
   # @option opts [String] :file_description Description for the uploaded file
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [DomainReplyEntitiesKnowledgeBaseFilesResponse]
   describe 'entities_knowledge_base_files_create_v1 test' do
     it 'should work' do
@@ -62,10 +63,11 @@ describe 'KnowledgeBaseFiles' do
   end
 
   # unit tests for entities_knowledge_base_files_delete_v1
-  # Delete document from knowledge base.
+  # Delete a knowledge base file.
   # @param knowledge_base_id ID of the knowledge base
-  # @param id ID of the document to delete
+  # @param id ID of the knowledge base file to delete
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [MsaspecResponseFields]
   describe 'entities_knowledge_base_files_delete_v1 test' do
     it 'should work' do
@@ -78,6 +80,7 @@ describe 'KnowledgeBaseFiles' do
   # @param knowledge_base_id ID of the knowledge base
   # @param id ID of entities to retrieve.
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [nil]
   describe 'entities_knowledge_base_files_download_v1 test' do
     it 'should work' do
@@ -87,10 +90,11 @@ describe 'KnowledgeBaseFiles' do
 
   # unit tests for entities_knowledge_base_files_update_v1
   # Update an existing file in a knowledge base. Supports updating file content and optionally its description.
-  # @param id ID of the document to update
-  # @param file New file content to replace the existing document
+  # @param id ID of the knowledge base file to update
+  # @param file New file content to replace the existing knowledge base file
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :file_description New description for the document
+  # @option opts [String] :file_description New description for the knowledge base file
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [DomainReplyEntitiesKnowledgeBaseFilesResponse]
   describe 'entities_knowledge_base_files_update_v1 test' do
     it 'should work' do
@@ -104,6 +108,7 @@ describe 'KnowledgeBaseFiles' do
   # @param ids IDs of entities to retrieve.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :include_deleted Include deleted knowledge base files in the result. Defaults to false.
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [DomainReplyEntitiesKnowledgeBaseFilesResponse]
   describe 'entities_knowledge_base_files_v1 test' do
     it 'should work' do
@@ -119,6 +124,7 @@ describe 'KnowledgeBaseFiles' do
   # @option opts [Integer] :limit Number of IDs to return. Offset + limit should NOT be above 10K.
   # @option opts [String] :filter FQL query specifying the filter parameters.
   # @option opts [Boolean] :include_deleted Include deleted knowledge base files in the result. Defaults to false.
+  # @option opts [String] :project_id Scope the operation to a project.
   # @return [DomainReplyQueryKnowledgeBaseFilesResponse]
   describe 'queries_knowledge_base_files_v1 test' do
     it 'should work' do

@@ -35,6 +35,8 @@ module Falcon
 
     attr_accessor :errors
 
+    attr_accessor :mode
+
     attr_accessor :sha256
 
     attr_accessor :status
@@ -46,6 +48,7 @@ module Falcon
       {
         :'created_timestamp' => :'created_timestamp',
         :'errors' => :'errors',
+        :'mode' => :'mode',
         :'sha256' => :'sha256',
         :'status' => :'status',
         :'updated_timestamp' => :'updated_timestamp'
@@ -62,6 +65,7 @@ module Falcon
       {
         :'created_timestamp' => :'Time',
         :'errors' => :'Array<QuickscanproError>',
+        :'mode' => :'String',
         :'sha256' => :'String',
         :'status' => :'String',
         :'updated_timestamp' => :'Time'
@@ -97,6 +101,10 @@ module Falcon
         if (value = attributes[:'errors']).is_a?(Array)
           self.errors = value
         end
+      end
+
+      if attributes.key?(:'mode')
+        self.mode = attributes[:'mode']
       end
 
       if attributes.key?(:'sha256')
@@ -152,6 +160,7 @@ module Falcon
       self.class == o.class &&
           created_timestamp == o.created_timestamp &&
           errors == o.errors &&
+          mode == o.mode &&
           sha256 == o.sha256 &&
           status == o.status &&
           updated_timestamp == o.updated_timestamp
@@ -166,7 +175,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_timestamp, errors, sha256, status, updated_timestamp].hash
+      [created_timestamp, errors, mode, sha256, status, updated_timestamp].hash
     end
 
     # Builds the object from hash

@@ -50,6 +50,8 @@ module Falcon
     # The Unicode representation of the domain
     attr_accessor :unicode_format
 
+    attr_accessor :url_scan
+
     attr_accessor :whois
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -62,6 +64,7 @@ module Falcon
         :'submit_for_blocking_info' => :'submit_for_blocking_info',
         :'submit_for_takedown_info' => :'submit_for_takedown_info',
         :'unicode_format' => :'unicode_format',
+        :'url_scan' => :'url_scan',
         :'whois' => :'whois'
       }
     end
@@ -81,6 +84,7 @@ module Falcon
         :'submit_for_blocking_info' => :'SadomainSubmissionInformation',
         :'submit_for_takedown_info' => :'SadomainSubmissionInformation',
         :'unicode_format' => :'String',
+        :'url_scan' => :'SadomainURLScan',
         :'whois' => :'SadomainWhoisRecord'
       }
     end
@@ -134,6 +138,10 @@ module Falcon
         self.unicode_format = attributes[:'unicode_format']
       end
 
+      if attributes.key?(:'url_scan')
+        self.url_scan = attributes[:'url_scan']
+      end
+
       if attributes.key?(:'whois')
         self.whois = attributes[:'whois']
       end
@@ -184,6 +192,7 @@ module Falcon
           submit_for_blocking_info == o.submit_for_blocking_info &&
           submit_for_takedown_info == o.submit_for_takedown_info &&
           unicode_format == o.unicode_format &&
+          url_scan == o.url_scan &&
           whois == o.whois
     end
 
@@ -196,7 +205,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_date, id, is_registered, punycode_format, submit_for_blocking_info, submit_for_takedown_info, unicode_format, whois].hash
+      [created_date, id, is_registered, punycode_format, submit_for_blocking_info, submit_for_takedown_info, unicode_format, url_scan, whois].hash
     end
 
     # Builds the object from hash

@@ -157,7 +157,7 @@ describe 'Intel' do
 
   # unit tests for get_latest_intel_rule_file
   # Download the latest rule set.
-  # @param type The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
+  # @param type The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog (deprecated)  yara-master  yara-update  yara-changelog (deprecated)  common-event-format  netwitness  cql-master (deprecated)  cql-update (deprecated)  cql-changelog (deprecated)  Note: CQL rules (cql-master, cql-update, cql-changelog) and Changelog rules (snort-suricata-changelog, yara-changelog) are deprecated starting 28 September 2026. cql-changelog belongs to both families. No new rules of these types will be published after that date. Already-published rules will continue to be available via other means (e.g. direct ID-based download, email notifications).
   # @param [Hash] opts the optional parameters
   # @option opts [String] :accept Choose the format you want the rule set in.
   # @option opts [String] :if_none_match Download the latest rule set only if it doesn&#39;t have an ETag matching the given ones.
@@ -175,6 +175,7 @@ describe 'Intel' do
   # Get malware entities for specified ids.
   # @param ids Malware family name in lower case with spaces, dots and slashes replaced with dashes
   # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :fields Fields to return in response
   # @return [DomainMalwareResponse]
   describe 'get_malware_entities test' do
     it 'should work' do
@@ -327,7 +328,7 @@ describe 'Intel' do
 
   # unit tests for query_intel_rule_ids
   # Search for rule IDs that match provided filter criteria.
-  # @param type The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
+  # @param type The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog (deprecated)  yara-master  yara-update  yara-changelog (deprecated)  common-event-format  netwitness  cql-master (deprecated)  cql-update (deprecated)  cql-changelog (deprecated)  Note: CQL rules (cql-master, cql-update, cql-changelog) and Changelog rules (snort-suricata-changelog, yara-changelog) are deprecated starting 28 September 2026. cql-changelog belongs to both families. No new rules of these types will be published after that date. Already-published rules will continue to be available via other means (e.g. direct ID-based download, email notifications).
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :offset Set the starting row number to return reports from. Defaults to 0.
   # @option opts [Integer] :limit The number of rule IDs to return. Defaults to 10.

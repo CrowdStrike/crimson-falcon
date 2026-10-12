@@ -189,7 +189,7 @@ describe 'ItAutomation' do
   # Retrieve tasks associated with the provided file id
   # @param id The ID of the file to fetch associated tasks for
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter The filter expression that should be used to limit the results. Allowed filter fields: [access_type, created_by, created_time, last_run_time, modified_by, modified_time, name, runs, task_type] Example: example_string_field:&#39;example@example.com&#39;+example_date_field:&gt;&#x3D;&#39;2024-08-27T03:21:32Z&#39;
+  # @option opts [String] :filter The filter expression that should be used to limit the results. Allowed filter fields: [access_type, created_by, created_time, has_task_parameters, last_run_time, modified_by, modified_time, name, runs, task_type] Example: example_string_field:&#39;example@example.com&#39;+example_date_field:&gt;&#x3D;&#39;2024-08-27T03:21:32Z&#39;
   # @option opts [String] :sort The sort expression that should be used to sort the results. Allowed sort fields: [name]. Sort either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). Example: example_field|asc
   # @option opts [Integer] :offset Starting index for record retrieval. Example: 100
   # @option opts [Integer] :limit The maximum records to return. Example: 50
@@ -328,7 +328,7 @@ describe 'ItAutomation' do
   # unit tests for i_t_automation_get_tasks_by_query
   # Returns full details of tasks matching the filter query parameter.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter The filter expression that should be used to limit the results. Allowed filter fields: [access_type, created_by, created_time, last_run_time, modified_by, modified_time, name, runs, task_type] Example: example_string_field:&#39;example@example.com&#39;+example_date_field:&gt;&#x3D;&#39;2024-08-27T03:21:32Z&#39;
+  # @option opts [String] :filter The filter expression that should be used to limit the results. Allowed filter fields: [access_type, created_by, created_time, has_task_parameters, last_run_time, modified_by, modified_time, name, runs, task_type] Example: example_string_field:&#39;example@example.com&#39;+example_date_field:&gt;&#x3D;&#39;2024-08-27T03:21:32Z&#39;
   # @option opts [String] :sort The sort expression that should be used to sort the results. Allowed sort fields: [access_type, created_by, created_time, last_run_time, modified_by, modified_time, name, runs, task_type]. Sort either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). Example: example_field|asc
   # @option opts [Integer] :offset Starting index for record retrieval. Example: 100
   # @option opts [Integer] :limit The maximum records to return. Example: 50
@@ -433,7 +433,7 @@ describe 'ItAutomation' do
   # unit tests for i_t_automation_search_tasks
   # Returns the list of task IDs matching the filter query parameter.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter The filter expression that should be used to limit the results. Allowed filter fields: [access_type, created_by, created_time, last_run_time, modified_by, modified_time, name, runs, task_type] Example: example_string_field:&#39;example@example.com&#39;+example_date_field:&gt;&#x3D;&#39;2024-08-27T03:21:32Z&#39;
+  # @option opts [String] :filter The filter expression that should be used to limit the results. Allowed filter fields: [access_type, created_by, created_time, has_task_parameters, last_run_time, modified_by, modified_time, name, runs, task_type] Example: example_string_field:&#39;example@example.com&#39;+example_date_field:&gt;&#x3D;&#39;2024-08-27T03:21:32Z&#39;
   # @option opts [String] :sort The sort expression that should be used to sort the results. Allowed sort fields: [access_type, created_by, created_time, last_run_time, modified_by, modified_time, name, runs, task_type]. Sort either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). Example: example_field|asc
   # @option opts [Integer] :offset Starting index for record retrieval. Example: 100
   # @option opts [Integer] :limit The maximum records to return. Example: 50

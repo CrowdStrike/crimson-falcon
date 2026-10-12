@@ -77,6 +77,12 @@ describe Falcon::DeviceMappedDevicePolicies do
     end
   end
 
+  describe 'test attribute "cloud_container_workload"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "cloud_ml"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

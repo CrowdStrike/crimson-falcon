@@ -41,10 +41,10 @@ module Falcon
     # @param filename [String] filename to be retrieved
     # @param sha256 [String] sha256 checksum for file to be retrieved
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [nil]
     def read_request_body(id, fn, filename, sha256, opts = {})
-      data, _status_code, _headers = read_request_body_with_http_info(id, fn, filename, sha256, opts)
-      data
+      read_request_body_with_http_info(id, fn, filename, sha256, opts)
+      nil
     end
 
     # retrieve a large request body, such as a file, that has spilled into object storage
@@ -53,7 +53,7 @@ module Falcon
     # @param filename [String] filename to be retrieved
     # @param sha256 [String] sha256 checksum for file to be retrieved
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def read_request_body_with_http_info(id, fn, filename, sha256, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Execution.read_request_body ...'
@@ -96,7 +96,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type]
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

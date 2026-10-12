@@ -59,6 +59,9 @@ module Falcon
     # The type of the account's most recent failed login. <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Remote interactive</li><li>Cached credentials</li><li>Auditing</li></ul>
     attr_accessor :last_failed_login_type
 
+    # The agent ID of the asset on which the account last successfully logged in.
+    attr_accessor :last_successful_login_aid
+
     # The name of the city where the asset is located on which the account last successfully logged in.
     attr_accessor :last_successful_login_host_city
 
@@ -104,6 +107,7 @@ module Falcon
         :'last_failed_login_hostname' => :'last_failed_login_hostname',
         :'last_failed_login_timestamp' => :'last_failed_login_timestamp',
         :'last_failed_login_type' => :'last_failed_login_type',
+        :'last_successful_login_aid' => :'last_successful_login_aid',
         :'last_successful_login_host_city' => :'last_successful_login_host_city',
         :'last_successful_login_host_country' => :'last_successful_login_host_country',
         :'last_successful_login_hostname' => :'last_successful_login_hostname',
@@ -135,6 +139,7 @@ module Falcon
         :'last_failed_login_hostname' => :'String',
         :'last_failed_login_timestamp' => :'String',
         :'last_failed_login_type' => :'String',
+        :'last_successful_login_aid' => :'String',
         :'last_successful_login_host_city' => :'String',
         :'last_successful_login_host_country' => :'String',
         :'last_successful_login_hostname' => :'String',
@@ -204,6 +209,10 @@ module Falcon
 
       if attributes.key?(:'last_failed_login_type')
         self.last_failed_login_type = attributes[:'last_failed_login_type']
+      end
+
+      if attributes.key?(:'last_successful_login_aid')
+        self.last_successful_login_aid = attributes[:'last_successful_login_aid']
       end
 
       if attributes.key?(:'last_successful_login_host_city')
@@ -288,6 +297,7 @@ module Falcon
           last_failed_login_hostname == o.last_failed_login_hostname &&
           last_failed_login_timestamp == o.last_failed_login_timestamp &&
           last_failed_login_type == o.last_failed_login_type &&
+          last_successful_login_aid == o.last_successful_login_aid &&
           last_successful_login_host_city == o.last_successful_login_host_city &&
           last_successful_login_host_country == o.last_successful_login_host_country &&
           last_successful_login_hostname == o.last_successful_login_hostname &&
@@ -310,7 +320,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_name, account_type, admin_privileges, cid, first_seen_timestamp, id, last_failed_login_hostname, last_failed_login_timestamp, last_failed_login_type, last_successful_login_host_city, last_successful_login_host_country, last_successful_login_hostname, last_successful_login_remote_ip, last_successful_login_timestamp, last_successful_login_type, local_admin_privileges, login_domain, password_last_set_timestamp, user_sid, username].hash
+      [account_name, account_type, admin_privileges, cid, first_seen_timestamp, id, last_failed_login_hostname, last_failed_login_timestamp, last_failed_login_type, last_successful_login_aid, last_successful_login_host_city, last_successful_login_host_country, last_successful_login_hostname, last_successful_login_remote_ip, last_successful_login_timestamp, last_successful_login_type, local_admin_privileges, login_domain, password_last_set_timestamp, user_sid, username].hash
     end
 
     # Builds the object from hash

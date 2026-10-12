@@ -49,6 +49,8 @@ module Falcon
 
     attr_accessor :default_subscription_id
 
+    attr_accessor :display_name
+
     attr_accessor :encrypted_private_key
 
     attr_accessor :is_shared_client
@@ -74,6 +76,7 @@ module Falcon
         :'conditions' => :'conditions',
         :'cspm_enabled' => :'cspm_enabled',
         :'default_subscription_id' => :'default_subscription_id',
+        :'display_name' => :'display_name',
         :'encrypted_private_key' => :'encrypted_private_key',
         :'is_shared_client' => :'is_shared_client',
         :'public_certificate' => :'public_certificate',
@@ -100,6 +103,7 @@ module Falcon
         :'conditions' => :'Array<StatemgmtCondition>',
         :'cspm_enabled' => :'Boolean',
         :'default_subscription_id' => :'String',
+        :'display_name' => :'String',
         :'encrypted_private_key' => :'String',
         :'is_shared_client' => :'Boolean',
         :'public_certificate' => :'String',
@@ -163,6 +167,10 @@ module Falcon
 
       if attributes.key?(:'default_subscription_id')
         self.default_subscription_id = attributes[:'default_subscription_id']
+      end
+
+      if attributes.key?(:'display_name')
+        self.display_name = attributes[:'display_name']
       end
 
       if attributes.key?(:'encrypted_private_key')
@@ -247,6 +255,7 @@ module Falcon
           conditions == o.conditions &&
           cspm_enabled == o.cspm_enabled &&
           default_subscription_id == o.default_subscription_id &&
+          display_name == o.display_name &&
           encrypted_private_key == o.encrypted_private_key &&
           is_shared_client == o.is_shared_client &&
           public_certificate == o.public_certificate &&
@@ -265,7 +274,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_type, behavior_assessment_override, cid, client_id, cloud_registration_enabled, conditions, cspm_enabled, default_subscription_id, encrypted_private_key, is_shared_client, public_certificate, resource_permissions, tenant_id, x5t, obj_id].hash
+      [account_type, behavior_assessment_override, cid, client_id, cloud_registration_enabled, conditions, cspm_enabled, default_subscription_id, display_name, encrypted_private_key, is_shared_client, public_certificate, resource_permissions, tenant_id, x5t, obj_id].hash
     end
 
     # Builds the object from hash

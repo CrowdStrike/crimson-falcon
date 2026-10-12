@@ -131,6 +131,8 @@ module Falcon
 
     attr_accessor :processes
 
+    attr_accessor :report_id
+
     attr_accessor :sample_flags
 
     attr_accessor :screenshots_artifact_ids
@@ -224,6 +226,7 @@ module Falcon
         :'packer' => :'packer',
         :'pcap_report_artifact_id' => :'pcap_report_artifact_id',
         :'processes' => :'processes',
+        :'report_id' => :'report_id',
         :'sample_flags' => :'sample_flags',
         :'screenshots_artifact_ids' => :'screenshots_artifact_ids',
         :'sha256' => :'sha256',
@@ -305,6 +308,7 @@ module Falcon
         :'packer' => :'String',
         :'pcap_report_artifact_id' => :'String',
         :'processes' => :'Array<FalconxProcess>',
+        :'report_id' => :'String',
         :'sample_flags' => :'Array<String>',
         :'screenshots_artifact_ids' => :'Array<String>',
         :'sha256' => :'String',
@@ -593,6 +597,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'report_id')
+        self.report_id = attributes[:'report_id']
+      end
+
       if attributes.key?(:'sample_flags')
         if (value = attributes[:'sample_flags']).is_a?(Array)
           self.sample_flags = value
@@ -759,6 +767,7 @@ module Falcon
           packer == o.packer &&
           pcap_report_artifact_id == o.pcap_report_artifact_id &&
           processes == o.processes &&
+          report_id == o.report_id &&
           sample_flags == o.sample_flags &&
           screenshots_artifact_ids == o.screenshots_artifact_ids &&
           sha256 == o.sha256 &&
@@ -790,7 +799,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [all_extracted_strings_artifact_id, architecture, certificates, certificates_validation_message, classification, classification_tags, contacted_hosts, dll_characteristics, dns_requests, entrypoint, entrypoint_preview_count, entrypoint_preview_instructions, entrypoint_section, environment_description, environment_id, error_message, error_origin, error_type, exact_deep_hash, extracted_files, extracted_interesting_strings, file_data_directories, file_imports, file_metadata, file_resources, file_sections, file_size, file_type, file_type_short, http_requests, icon, image_base, image_file_characteristics, incidents, intelligence_mitre_attacks, ioc_report_broad_artifact_id, ioc_report_strict_artifact_id, is_certificates_valid, language, major_os_version, memory_dumps, memory_dumps_artifact_id, memory_forensics, memory_strings_artifact_id, minor_os_version, mitre_attacks, network_settings, packer, pcap_report_artifact_id, processes, sample_flags, screenshots_artifact_ids, sha256, signatures, submission_type, submit_name, submit_url, subsystem, suricata_alerts, target_url, threat_score, urls, verdict, version_info, visualization, windows_version_bitness, windows_version_edition, windows_version_name, windows_version_service_pack, windows_version_version].hash
+      [all_extracted_strings_artifact_id, architecture, certificates, certificates_validation_message, classification, classification_tags, contacted_hosts, dll_characteristics, dns_requests, entrypoint, entrypoint_preview_count, entrypoint_preview_instructions, entrypoint_section, environment_description, environment_id, error_message, error_origin, error_type, exact_deep_hash, extracted_files, extracted_interesting_strings, file_data_directories, file_imports, file_metadata, file_resources, file_sections, file_size, file_type, file_type_short, http_requests, icon, image_base, image_file_characteristics, incidents, intelligence_mitre_attacks, ioc_report_broad_artifact_id, ioc_report_strict_artifact_id, is_certificates_valid, language, major_os_version, memory_dumps, memory_dumps_artifact_id, memory_forensics, memory_strings_artifact_id, minor_os_version, mitre_attacks, network_settings, packer, pcap_report_artifact_id, processes, report_id, sample_flags, screenshots_artifact_ids, sha256, signatures, submission_type, submit_name, submit_url, subsystem, suricata_alerts, target_url, threat_score, urls, verdict, version_info, visualization, windows_version_bitness, windows_version_edition, windows_version_name, windows_version_service_pack, windows_version_version].hash
     end
 
     # Builds the object from hash

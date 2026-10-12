@@ -80,12 +80,55 @@ describe 'DeviceControlPolicies' do
     end
   end
 
+  # unit tests for get_default_device_control_settings
+  # Get default device control settings
+  # @param [Hash] opts the optional parameters
+  # @return [DevicecontrolapiRespDefaultSettingsV2]
+  describe 'get_default_device_control_settings test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_device_control_policies
   # Retrieve a set of Device Control Policies by specifying their IDs
   # @param ids The IDs of the Device Control Policies to return
   # @param [Hash] opts the optional parameters
   # @return [DeviceControlRespV1]
   describe 'get_device_control_policies test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_device_control_policies_v2
+  # Get device control policies for the given filter criteria.
+  # @param ids The IDs of the policies to get
+  # @param [Hash] opts the optional parameters
+  # @return [DevicecontrolapiRespPoliciesV2]
+  describe 'get_device_control_policies_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for patch_device_control_policies_classes_v1
+  # Update device control policy&#39;s classes
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DevicecontrolapiRespPoliciesV2]
+  describe 'patch_device_control_policies_classes_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for patch_device_control_policies_v2
+  # Update device control policy base
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DevicecontrolapiRespPoliciesV2]
+  describe 'patch_device_control_policies_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -98,6 +141,17 @@ describe 'DeviceControlPolicies' do
   # @param [Hash] opts the optional parameters
   # @return [DeviceControlRespV1]
   describe 'perform_device_control_policies_action test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for post_device_control_policies_v2
+  # Create/clone a device control policy
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DevicecontrolapiRespPoliciesV2]
+  describe 'post_device_control_policies_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -178,6 +232,17 @@ describe 'DeviceControlPolicies' do
   # @param [Hash] opts the optional parameters
   # @return [DeviceControlRespV1]
   describe 'update_default_device_control_policies test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_default_device_control_settings
+  # Update the configuration for Default Device Control Settings
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DevicecontrolapiRespDefaultSettingsV2]
+  describe 'update_default_device_control_settings test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

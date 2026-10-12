@@ -31,23 +31,38 @@ require 'time'
 
 module Falcon
   class SdkEvidenceVM
+    attr_accessor :adversary_evidence
+
     attr_accessor :alerts
 
     attr_accessor :custom_evidence
 
     attr_accessor :events
 
+    attr_accessor :hash_evidence
+
+    attr_accessor :host_evidence
+
+    attr_accessor :host_group_evidence
+
     attr_accessor :leads
+
+    attr_accessor :report_evidence
 
     attr_accessor :users
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'adversary_evidence' => :'adversary_evidence',
         :'alerts' => :'alerts',
         :'custom_evidence' => :'custom_evidence',
         :'events' => :'events',
+        :'hash_evidence' => :'hash_evidence',
+        :'host_evidence' => :'host_evidence',
+        :'host_group_evidence' => :'host_group_evidence',
         :'leads' => :'leads',
+        :'report_evidence' => :'report_evidence',
         :'users' => :'users'
       }
     end
@@ -60,10 +75,15 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'adversary_evidence' => :'SdkAdversaryEvidenceVM',
         :'alerts' => :'SdkAlertEvidenceVM',
         :'custom_evidence' => :'SdkCustomEvidenceVM',
         :'events' => :'SdkEventEvidenceVM',
+        :'hash_evidence' => :'SdkHashEvidenceVM',
+        :'host_evidence' => :'SdkHostEvidenceVM',
+        :'host_group_evidence' => :'SdkHostGroupEvidenceVM',
         :'leads' => :'SdkLeadEvidenceVM',
+        :'report_evidence' => :'SdkReportEvidenceVM',
         :'users' => :'SdkUserEvidenceVM'
       }
     end
@@ -89,6 +109,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'adversary_evidence')
+        self.adversary_evidence = attributes[:'adversary_evidence']
+      end
+
       if attributes.key?(:'alerts')
         self.alerts = attributes[:'alerts']
       end
@@ -101,8 +125,24 @@ module Falcon
         self.events = attributes[:'events']
       end
 
+      if attributes.key?(:'hash_evidence')
+        self.hash_evidence = attributes[:'hash_evidence']
+      end
+
+      if attributes.key?(:'host_evidence')
+        self.host_evidence = attributes[:'host_evidence']
+      end
+
+      if attributes.key?(:'host_group_evidence')
+        self.host_group_evidence = attributes[:'host_group_evidence']
+      end
+
       if attributes.key?(:'leads')
         self.leads = attributes[:'leads']
+      end
+
+      if attributes.key?(:'report_evidence')
+        self.report_evidence = attributes[:'report_evidence']
       end
 
       if attributes.key?(:'users')
@@ -114,6 +154,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @adversary_evidence.nil?
+        invalid_properties.push('invalid value for "adversary_evidence", adversary_evidence cannot be nil.')
+      end
+
       if @alerts.nil?
         invalid_properties.push('invalid value for "alerts", alerts cannot be nil.')
       end
@@ -126,8 +170,24 @@ module Falcon
         invalid_properties.push('invalid value for "events", events cannot be nil.')
       end
 
+      if @hash_evidence.nil?
+        invalid_properties.push('invalid value for "hash_evidence", hash_evidence cannot be nil.')
+      end
+
+      if @host_evidence.nil?
+        invalid_properties.push('invalid value for "host_evidence", host_evidence cannot be nil.')
+      end
+
+      if @host_group_evidence.nil?
+        invalid_properties.push('invalid value for "host_group_evidence", host_group_evidence cannot be nil.')
+      end
+
       if @leads.nil?
         invalid_properties.push('invalid value for "leads", leads cannot be nil.')
+      end
+
+      if @report_evidence.nil?
+        invalid_properties.push('invalid value for "report_evidence", report_evidence cannot be nil.')
       end
 
       if @users.nil?
@@ -140,10 +200,15 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @adversary_evidence.nil?
       return false if @alerts.nil?
       return false if @custom_evidence.nil?
       return false if @events.nil?
+      return false if @hash_evidence.nil?
+      return false if @host_evidence.nil?
+      return false if @host_group_evidence.nil?
       return false if @leads.nil?
+      return false if @report_evidence.nil?
       return false if @users.nil?
       true
     end
@@ -153,10 +218,15 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          adversary_evidence == o.adversary_evidence &&
           alerts == o.alerts &&
           custom_evidence == o.custom_evidence &&
           events == o.events &&
+          hash_evidence == o.hash_evidence &&
+          host_evidence == o.host_evidence &&
+          host_group_evidence == o.host_group_evidence &&
           leads == o.leads &&
+          report_evidence == o.report_evidence &&
           users == o.users
     end
 
@@ -169,7 +239,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alerts, custom_evidence, events, leads, users].hash
+      [adversary_evidence, alerts, custom_evidence, events, hash_evidence, host_evidence, host_group_evidence, leads, report_evidence, users].hash
     end
 
     # Builds the object from hash

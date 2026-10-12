@@ -65,7 +65,7 @@ describe 'NetworkScanScanRuns' do
   # @param body \&quot;scan-runs\&quot; specifications
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_useruuid User UUID
-  # @return [DomainScanRunEntitiesResponse]
+  # @return [NvaapiScanRunEntitiesResponse]
   describe 'create_scan_runs test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -77,7 +77,7 @@ describe 'NetworkScanScanRuns' do
   # @param ids IDs of \&quot;scan-runs\&quot; to be retrieved (Min: 1, Max: 100)
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_useruuid User UUID
-  # @return [DomainScanRunEntitiesResponse]
+  # @return [NvaapiScanRunEntitiesResponse]
   describe 'get_scan_runs test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -104,7 +104,7 @@ describe 'NetworkScanScanRuns' do
   # @param body \&quot;scan-runs\&quot; specifications for updating
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_useruuid User UUID
-  # @return [DomainScanRunEntitiesResponse]
+  # @return [NvaapiScanRunEntitiesResponse]
   describe 'update_scan_runs test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

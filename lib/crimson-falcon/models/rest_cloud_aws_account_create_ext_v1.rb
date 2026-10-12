@@ -69,6 +69,10 @@ module Falcon
 
     attr_accessor :products
 
+    attr_accessor :registration_description
+
+    attr_accessor :registration_name
+
     attr_accessor :resource_name_prefix
 
     attr_accessor :resource_name_suffix
@@ -119,6 +123,8 @@ module Falcon
         :'log_ingestion_method' => :'log_ingestion_method',
         :'organization_id' => :'organization_id',
         :'products' => :'products',
+        :'registration_description' => :'registration_description',
+        :'registration_name' => :'registration_name',
         :'resource_name_prefix' => :'resource_name_prefix',
         :'resource_name_suffix' => :'resource_name_suffix',
         :'root_stack_id' => :'root_stack_id',
@@ -163,6 +169,8 @@ module Falcon
         :'log_ingestion_method' => :'String',
         :'organization_id' => :'String',
         :'products' => :'Array<RestAccountProductRequestExtV1>',
+        :'registration_description' => :'String',
+        :'registration_name' => :'String',
         :'resource_name_prefix' => :'String',
         :'resource_name_suffix' => :'String',
         :'root_stack_id' => :'String',
@@ -287,6 +295,14 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'registration_description')
+        self.registration_description = attributes[:'registration_description']
+      end
+
+      if attributes.key?(:'registration_name')
+        self.registration_name = attributes[:'registration_name']
+      end
+
       if attributes.key?(:'resource_name_prefix')
         self.resource_name_prefix = attributes[:'resource_name_prefix']
       end
@@ -392,6 +408,8 @@ module Falcon
           log_ingestion_method == o.log_ingestion_method &&
           organization_id == o.organization_id &&
           products == o.products &&
+          registration_description == o.registration_description &&
+          registration_name == o.registration_name &&
           resource_name_prefix == o.resource_name_prefix &&
           resource_name_suffix == o.resource_name_suffix &&
           root_stack_id == o.root_stack_id &&
@@ -417,7 +435,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_type, cloudformation_stack_arn, cloudtrail_region, csp_events, deployment_method, dspm_custom_vpc_configuration, dspm_host_account_id, dspm_network_configuration_type, dspm_regions, dspm_role, dspm_service_permissions_override, falcon_client_id, iam_role_arn, ioa_regions, is_master, log_ingestion_method, organization_id, products, resource_name_prefix, resource_name_suffix, root_stack_id, s3_log_ingestion_bucket_name, s3_log_ingestion_bucket_prefix, s3_log_ingestion_kms_key_arn, s3_log_ingestion_sns_topic_arn, target_ous, use_existing_cloudtrail, vulnerability_scanning_custom_vpc_configuration, vulnerability_scanning_host_account_id, vulnerability_scanning_network_configuration_type, vulnerability_scanning_regions, vulnerability_scanning_role].hash
+      [account_id, account_type, cloudformation_stack_arn, cloudtrail_region, csp_events, deployment_method, dspm_custom_vpc_configuration, dspm_host_account_id, dspm_network_configuration_type, dspm_regions, dspm_role, dspm_service_permissions_override, falcon_client_id, iam_role_arn, ioa_regions, is_master, log_ingestion_method, organization_id, products, registration_description, registration_name, resource_name_prefix, resource_name_suffix, root_stack_id, s3_log_ingestion_bucket_name, s3_log_ingestion_bucket_prefix, s3_log_ingestion_kms_key_arn, s3_log_ingestion_sns_topic_arn, target_ous, use_existing_cloudtrail, vulnerability_scanning_custom_vpc_configuration, vulnerability_scanning_host_account_id, vulnerability_scanning_network_configuration_type, vulnerability_scanning_regions, vulnerability_scanning_role].hash
     end
 
     # Builds the object from hash

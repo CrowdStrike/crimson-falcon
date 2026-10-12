@@ -36,6 +36,9 @@ module Falcon
     # Limit results to files of certain types such as EMAIL, PCAP, PDF, PE32. Full list can be found in the documentation
     attr_accessor :filter_filetypes
 
+    # Limit results to files with specific labels. Possible values: clean, malware, pua, unknown
+    attr_accessor :filter_labels
+
     # Specify a subset of metadata fields to return in the results. Possible values: sha256, md5, type, size, first_seen, label, family
     attr_accessor :filter_meta
 
@@ -62,6 +65,7 @@ module Falcon
       {
         :'app' => :'app',
         :'filter_filetypes' => :'filter_filetypes',
+        :'filter_labels' => :'filter_labels',
         :'filter_meta' => :'filter_meta',
         :'limit' => :'limit',
         :'max_date' => :'max_date',
@@ -82,6 +86,7 @@ module Falcon
       {
         :'app' => :'String',
         :'filter_filetypes' => :'Array<String>',
+        :'filter_labels' => :'Array<String>',
         :'filter_meta' => :'Array<String>',
         :'limit' => :'Integer',
         :'max_date' => :'String',
@@ -120,6 +125,12 @@ module Falcon
       if attributes.key?(:'filter_filetypes')
         if (value = attributes[:'filter_filetypes']).is_a?(Array)
           self.filter_filetypes = value
+        end
+      end
+
+      if attributes.key?(:'filter_labels')
+        if (value = attributes[:'filter_labels']).is_a?(Array)
+          self.filter_labels = value
         end
       end
 
@@ -174,6 +185,7 @@ module Falcon
       self.class == o.class &&
           app == o.app &&
           filter_filetypes == o.filter_filetypes &&
+          filter_labels == o.filter_labels &&
           filter_meta == o.filter_meta &&
           limit == o.limit &&
           max_date == o.max_date &&
@@ -192,7 +204,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [app, filter_filetypes, filter_meta, limit, max_date, max_size, min_date, min_size, submitted_by_customer].hash
+      [app, filter_filetypes, filter_labels, filter_meta, limit, max_date, max_size, min_date, min_size, submitted_by_customer].hash
     end
 
     # Builds the object from hash

@@ -33,12 +33,15 @@ module Falcon
   class ApiAgentInvocationTool
     attr_accessor :calls
 
+    attr_accessor :result
+
     attr_accessor :tool_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'calls' => :'calls',
+        :'result' => :'result',
         :'tool_id' => :'tool_id'
       }
     end
@@ -52,6 +55,7 @@ module Falcon
     def self.openapi_types
       {
         :'calls' => :'Array<ApiAgentInvocationToolCall>',
+        :'result' => :'ApiAgentInvocationToolResult',
         :'tool_id' => :'String'
       }
     end
@@ -81,6 +85,10 @@ module Falcon
         if (value = attributes[:'calls']).is_a?(Array)
           self.calls = value
         end
+      end
+
+      if attributes.key?(:'result')
+        self.result = attributes[:'result']
       end
 
       if attributes.key?(:'tool_id')
@@ -117,6 +125,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           calls == o.calls &&
+          result == o.result &&
           tool_id == o.tool_id
     end
 
@@ -129,7 +138,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [calls, tool_id].hash
+      [calls, result, tool_id].hash
     end
 
     # Builds the object from hash

@@ -307,7 +307,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Persist the given cloud application for the provided entity instance
+    # Persist the given cloud application for the provided entity instance. Each URL is normalized (FQDN and path lowercased) and validated: if not compliant, it is rejected with a 400.
     # @param body [ApiCloudApplicationCreateRequestV1] The cloud-application definition to create
     # @param [Hash] opts the optional parameters
     # @return [ApiCloudApplicationMSAResponseV1]
@@ -316,7 +316,7 @@ module Falcon
       data
     end
 
-    # Persist the given cloud application for the provided entity instance
+    # Persist the given cloud application for the provided entity instance. Each URL is normalized (FQDN and path lowercased) and validated: if not compliant, it is rejected with a 400.
     # @param body [ApiCloudApplicationCreateRequestV1] The cloud-application definition to create
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiCloudApplicationMSAResponseV1, Integer, Hash)>] ApiCloudApplicationMSAResponseV1 data, response status code and response headers
@@ -497,7 +497,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Update a cloud application
+    # Update a cloud application. Every URL in the request payload is normalized (FQDN and path lowercased) and validated with the same rules as create; the whole payload is checked, not just newly-added URLs.
     # @param id [String] The cloud app id to update.
     # @param body [ApiCloudApplicationUpdateRequestV1] The new cloud-application definition
     # @param [Hash] opts the optional parameters
@@ -507,7 +507,7 @@ module Falcon
       data
     end
 
-    # Update a cloud application
+    # Update a cloud application. Every URL in the request payload is normalized (FQDN and path lowercased) and validated with the same rules as create; the whole payload is checked, not just newly-added URLs.
     # @param id [String] The cloud app id to update.
     # @param body [ApiCloudApplicationUpdateRequestV1] The new cloud-application definition
     # @param [Hash] opts the optional parameters
@@ -2423,6 +2423,297 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Create a web location group
+    # @param x_cs_useruuid [String] The user ID
+    # @param body [ApiWebLocationGroupCreateRequestV2] The web location group definition to create
+    # @param [Hash] opts the optional parameters
+    # @return [ApiWebLocationGroupMSAResponseV2]
+    def entities_web_location_group_create(x_cs_useruuid, body, opts = {})
+      data, _status_code, _headers = entities_web_location_group_create_with_http_info(x_cs_useruuid, body, opts)
+      data
+    end
+
+    # Create a web location group
+    # @param x_cs_useruuid [String] The user ID
+    # @param body [ApiWebLocationGroupCreateRequestV2] The web location group definition to create
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiWebLocationGroupMSAResponseV2, Integer, Hash)>] ApiWebLocationGroupMSAResponseV2 data, response status code and response headers
+    def entities_web_location_group_create_with_http_info(x_cs_useruuid, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DataProtectionConfiguration.entities_web_location_group_create ...'
+      end
+      # verify the required parameter 'x_cs_useruuid' is set
+      if @api_client.config.client_side_validation && x_cs_useruuid.nil?
+        fail ArgumentError, "Missing the required parameter 'x_cs_useruuid' when calling DataProtectionConfiguration.entities_web_location_group_create"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DataProtectionConfiguration.entities_web_location_group_create"
+      end
+      # resource path
+      local_var_path = '/data-protection/entities/web-location-groups/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+      header_params[:'X-CS-USERUUID'] = x_cs_useruuid
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiWebLocationGroupMSAResponseV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DataProtectionConfiguration.entities_web_location_group_create",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DataProtectionConfiguration#entities_web_location_group_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Soft delete web location groups
+    # @param x_cs_useruuid [String] The user ID
+    # @param ids [Array<String>] The id(s) of the web location group to delete.
+    # @param [Hash] opts the optional parameters
+    # @return [ApiWebLocationGroupMSAResponseV2]
+    def entities_web_location_group_delete(x_cs_useruuid, ids, opts = {})
+      data, _status_code, _headers = entities_web_location_group_delete_with_http_info(x_cs_useruuid, ids, opts)
+      data
+    end
+
+    # Soft delete web location groups
+    # @param x_cs_useruuid [String] The user ID
+    # @param ids [Array<String>] The id(s) of the web location group to delete.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiWebLocationGroupMSAResponseV2, Integer, Hash)>] ApiWebLocationGroupMSAResponseV2 data, response status code and response headers
+    def entities_web_location_group_delete_with_http_info(x_cs_useruuid, ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DataProtectionConfiguration.entities_web_location_group_delete ...'
+      end
+      # verify the required parameter 'x_cs_useruuid' is set
+      if @api_client.config.client_side_validation && x_cs_useruuid.nil?
+        fail ArgumentError, "Missing the required parameter 'x_cs_useruuid' when calling DataProtectionConfiguration.entities_web_location_group_delete"
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling DataProtectionConfiguration.entities_web_location_group_delete"
+      end
+      # resource path
+      local_var_path = '/data-protection/entities/web-location-groups/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'X-CS-USERUUID'] = x_cs_useruuid
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiWebLocationGroupMSAResponseV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DataProtectionConfiguration.entities_web_location_group_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DataProtectionConfiguration#entities_web_location_group_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get specific web location groups
+    # @param x_cs_useruuid [String] The user ID
+    # @param ids [Array<String>] The web location group id(s) to get.
+    # @param [Hash] opts the optional parameters
+    # @return [ApiWebLocationGroupMSAResponseV2]
+    def entities_web_location_group_get(x_cs_useruuid, ids, opts = {})
+      data, _status_code, _headers = entities_web_location_group_get_with_http_info(x_cs_useruuid, ids, opts)
+      data
+    end
+
+    # Get specific web location groups
+    # @param x_cs_useruuid [String] The user ID
+    # @param ids [Array<String>] The web location group id(s) to get.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiWebLocationGroupMSAResponseV2, Integer, Hash)>] ApiWebLocationGroupMSAResponseV2 data, response status code and response headers
+    def entities_web_location_group_get_with_http_info(x_cs_useruuid, ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DataProtectionConfiguration.entities_web_location_group_get ...'
+      end
+      # verify the required parameter 'x_cs_useruuid' is set
+      if @api_client.config.client_side_validation && x_cs_useruuid.nil?
+        fail ArgumentError, "Missing the required parameter 'x_cs_useruuid' when calling DataProtectionConfiguration.entities_web_location_group_get"
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling DataProtectionConfiguration.entities_web_location_group_get"
+      end
+      # resource path
+      local_var_path = '/data-protection/entities/web-location-groups/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'X-CS-USERUUID'] = x_cs_useruuid
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiWebLocationGroupMSAResponseV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DataProtectionConfiguration.entities_web_location_group_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DataProtectionConfiguration#entities_web_location_group_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a web location group
+    # @param x_cs_useruuid [String] The user ID
+    # @param id [String] The web location group id to update.
+    # @param body [ApiWebLocationGroupUpdateRequestV2] The new web location group definition
+    # @param [Hash] opts the optional parameters
+    # @return [ApiWebLocationGroupMSAResponseV2]
+    def entities_web_location_group_patch(x_cs_useruuid, id, body, opts = {})
+      data, _status_code, _headers = entities_web_location_group_patch_with_http_info(x_cs_useruuid, id, body, opts)
+      data
+    end
+
+    # Update a web location group
+    # @param x_cs_useruuid [String] The user ID
+    # @param id [String] The web location group id to update.
+    # @param body [ApiWebLocationGroupUpdateRequestV2] The new web location group definition
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiWebLocationGroupMSAResponseV2, Integer, Hash)>] ApiWebLocationGroupMSAResponseV2 data, response status code and response headers
+    def entities_web_location_group_patch_with_http_info(x_cs_useruuid, id, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DataProtectionConfiguration.entities_web_location_group_patch ...'
+      end
+      # verify the required parameter 'x_cs_useruuid' is set
+      if @api_client.config.client_side_validation && x_cs_useruuid.nil?
+        fail ArgumentError, "Missing the required parameter 'x_cs_useruuid' when calling DataProtectionConfiguration.entities_web_location_group_patch"
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DataProtectionConfiguration.entities_web_location_group_patch"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling DataProtectionConfiguration.entities_web_location_group_patch"
+      end
+      # resource path
+      local_var_path = '/data-protection/entities/web-location-groups/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+      header_params[:'X-CS-USERUUID'] = x_cs_useruuid
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiWebLocationGroupMSAResponseV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DataProtectionConfiguration.entities_web_location_group_patch",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DataProtectionConfiguration#entities_web_location_group_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a web-location
     # @param id [String] The web-location entity id to update.
     # @param body [ApiUpdateWebLocationRequestV2] Definition of updated web-location
@@ -2498,10 +2789,10 @@ module Falcon
 
     # Search for classifications that match the provided criteria
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.content_patterns properties.evidence_duplication_enabled properties.protection_mode properties.sensitivity_labels created_at properties.content_patterns_operator properties.file_types properties.web_sources name created_by modified_by modified_at]
+    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.content_patterns_operator properties.protection_mode name created_by modified_at properties.content_patterns properties.evidence_duplication_enabled properties.file_types properties.sensitivity_labels properties.web_sources created_at modified_by]
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return (default to 100)
-    # @option opts [String] :sort The property to sort by, allowed fields are :[modified_at name created_at]
+    # @option opts [String] :sort The property to sort by, allowed fields are :[name created_at modified_at]
     # @return [ResponsesPolicySearchV1]
     def queries_classification_get_v2(opts = {})
       data, _status_code, _headers = queries_classification_get_v2_with_http_info(opts)
@@ -2510,10 +2801,10 @@ module Falcon
 
     # Search for classifications that match the provided criteria
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.content_patterns properties.evidence_duplication_enabled properties.protection_mode properties.sensitivity_labels created_at properties.content_patterns_operator properties.file_types properties.web_sources name created_by modified_by modified_at]
+    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.content_patterns_operator properties.protection_mode name created_by modified_at properties.content_patterns properties.evidence_duplication_enabled properties.file_types properties.sensitivity_labels properties.web_sources created_at modified_by]
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return (default to 100)
-    # @option opts [String] :sort The property to sort by, allowed fields are :[modified_at name created_at]
+    # @option opts [String] :sort The property to sort by, allowed fields are :[name created_at modified_at]
     # @return [Array<(ResponsesPolicySearchV1, Integer, Hash)>] ResponsesPolicySearchV1 data, response status code and response headers
     def queries_classification_get_v2_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2581,8 +2872,8 @@ module Falcon
 
     # Get all cloud-application IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Optional filter for searching cloud applications. Allowed filters are &#39;name&#39; (string), &#39;type&#39; (array of strings representing the tier, accepted values are: integrated, predefined, custom), &#39;deleted&#39; (boolean), supports_network_inspection (boolean) and &#39;application_group_id&#39; (string)
-    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39; (string), &#39;type&#39; (array of strings representing the tier, accepted values are: integrated, predefined, custom), &#39;deleted&#39; (boolean) and &#39;application_group_id&#39; (string)
+    # @option opts [String] :filter Optional filter for searching cloud applications. Allowed filters are &#39;name&#39; (string), &#39;type&#39; (array of strings representing the tier, accepted values are: integrated, predefined, custom), &#39;deleted&#39; (boolean), supports_network_inspection (boolean), &#39;application_group_id&#39; (string), &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39; (string), &#39;type&#39; (array of strings representing the tier, accepted values are: integrated, predefined, custom), &#39;deleted&#39; (boolean), &#39;application_group_id&#39; (string), &#39;created&#39; and &#39;last_updated&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
     # @return [MsaspecQueryResponse]
@@ -2593,8 +2884,8 @@ module Falcon
 
     # Get all cloud-application IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Optional filter for searching cloud applications. Allowed filters are &#39;name&#39; (string), &#39;type&#39; (array of strings representing the tier, accepted values are: integrated, predefined, custom), &#39;deleted&#39; (boolean), supports_network_inspection (boolean) and &#39;application_group_id&#39; (string)
-    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39; (string), &#39;type&#39; (array of strings representing the tier, accepted values are: integrated, predefined, custom), &#39;deleted&#39; (boolean) and &#39;application_group_id&#39; (string)
+    # @option opts [String] :filter Optional filter for searching cloud applications. Allowed filters are &#39;name&#39; (string), &#39;type&#39; (array of strings representing the tier, accepted values are: integrated, predefined, custom), &#39;deleted&#39; (boolean), supports_network_inspection (boolean), &#39;application_group_id&#39; (string), &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39; (string), &#39;type&#39; (array of strings representing the tier, accepted values are: integrated, predefined, custom), &#39;deleted&#39; (boolean), &#39;application_group_id&#39; (string), &#39;created&#39; and &#39;last_updated&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
@@ -2648,8 +2939,8 @@ module Falcon
 
     # Get all content-pattern IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter The filter to use when finding content patterns. Allowed filters are &#39;name&#39;, &#39;type&#39;, &#39;category&#39;, &#39;region&#39;, &#39;example&#39;, &#39;created_at&#39;, &#39;updated_at&#39; and &#39;deleted&#39;
-    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;type&#39;, &#39;category&#39;, &#39;region&#39;, &#39;created_at&#39;, &#39;updated_at&#39;, &#39;example&#39; and &#39;deleted&#39;
+    # @option opts [String] :filter The filter to use when finding content patterns. Allowed filters are &#39;name&#39;, &#39;type&#39;, &#39;category&#39;, &#39;region&#39;, &#39;example&#39;, &#39;created&#39;, &#39;last_updated&#39; and &#39;deleted&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;type&#39;, &#39;category&#39;, &#39;region&#39;, &#39;created&#39;, &#39;last_updated&#39;, &#39;example&#39; and &#39;deleted&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
     # @return [MsaspecQueryResponse]
@@ -2660,8 +2951,8 @@ module Falcon
 
     # Get all content-pattern IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter The filter to use when finding content patterns. Allowed filters are &#39;name&#39;, &#39;type&#39;, &#39;category&#39;, &#39;region&#39;, &#39;example&#39;, &#39;created_at&#39;, &#39;updated_at&#39; and &#39;deleted&#39;
-    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;type&#39;, &#39;category&#39;, &#39;region&#39;, &#39;created_at&#39;, &#39;updated_at&#39;, &#39;example&#39; and &#39;deleted&#39;
+    # @option opts [String] :filter The filter to use when finding content patterns. Allowed filters are &#39;name&#39;, &#39;type&#39;, &#39;category&#39;, &#39;region&#39;, &#39;example&#39;, &#39;created&#39;, &#39;last_updated&#39; and &#39;deleted&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;type&#39;, &#39;category&#39;, &#39;region&#39;, &#39;created&#39;, &#39;last_updated&#39;, &#39;example&#39; and &#39;deleted&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
@@ -2715,8 +3006,8 @@ module Falcon
 
     # Get all enterprise-account IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter The filter to use when finding enterprise accounts. Allowed filters are &#39;name&#39;, &#39;application_group_id&#39;, &#39;deleted&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
-    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;application_group_id&#39;, &#39;deleted&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
+    # @option opts [String] :filter The filter to use when finding enterprise accounts. Allowed filters are &#39;name&#39;, &#39;application_group_id&#39;, &#39;deleted&#39;, &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;application_group_id&#39;, &#39;deleted&#39;, &#39;created&#39; and &#39;last_updated&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
     # @return [MsaspecQueryResponse]
@@ -2727,8 +3018,8 @@ module Falcon
 
     # Get all enterprise-account IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter The filter to use when finding enterprise accounts. Allowed filters are &#39;name&#39;, &#39;application_group_id&#39;, &#39;deleted&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
-    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;application_group_id&#39;, &#39;deleted&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
+    # @option opts [String] :filter The filter to use when finding enterprise accounts. Allowed filters are &#39;name&#39;, &#39;application_group_id&#39;, &#39;deleted&#39;, &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;application_group_id&#39;, &#39;deleted&#39;, &#39;created&#39; and &#39;last_updated&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
@@ -2782,8 +3073,8 @@ module Falcon
 
     # Get all file-type IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter The filter to use when finding file types. Allowed filter is &#39;name&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
-    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
+    # @option opts [String] :filter The filter to use when finding file types. Allowed filters are &#39;name&#39;, &#39;created&#39;, &#39;last_updated&#39; and &#39;product&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;created&#39; and &#39;last_updated&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
     # @return [MsaspecQueryResponse]
@@ -2794,8 +3085,8 @@ module Falcon
 
     # Get all file-type IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter The filter to use when finding file types. Allowed filter is &#39;name&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
-    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
+    # @option opts [String] :filter The filter to use when finding file types. Allowed filters are &#39;name&#39;, &#39;created&#39;, &#39;last_updated&#39; and &#39;product&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;created&#39; and &#39;last_updated&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
@@ -2850,7 +3141,8 @@ module Falcon
     # Get all local-application IDs matching the query with filter
     # @param x_cs_useruuid [String] The user ID
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Optional filter for searching local applications. Allowed filters are &#39;name&#39; (string), is_deleted (boolean), &#39;created_at&#39; and &#39;updated_at&#39;
+    # @option opts [String] :filter Optional filter for searching local applications. Allowed filters are &#39;name&#39; (string), is_deleted (boolean), &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;executable_name&#39;, &#39;created&#39; and &#39;last_updated&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
     # @return [MsaspecQueryResponse]
@@ -2862,7 +3154,8 @@ module Falcon
     # Get all local-application IDs matching the query with filter
     # @param x_cs_useruuid [String] The user ID
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Optional filter for searching local applications. Allowed filters are &#39;name&#39; (string), is_deleted (boolean), &#39;created_at&#39; and &#39;updated_at&#39;
+    # @option opts [String] :filter Optional filter for searching local applications. Allowed filters are &#39;name&#39; (string), is_deleted (boolean), &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;executable_name&#39;, &#39;created&#39; and &#39;last_updated&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
@@ -2880,6 +3173,7 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
 
@@ -2921,7 +3215,8 @@ module Falcon
     # Get all local application group IDs matching the query with filter
     # @param x_cs_useruuid [String] The user ID
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Optional filter for searching local application group. Allowed filters are &#39;name&#39; (string), is_deleted (boolean), platform (string), &#39;created_at&#39; and &#39;updated_at&#39;
+    # @option opts [String] :filter Optional filter for searching local application group. Allowed filters are &#39;name&#39; (string), is_deleted (boolean), platform (string), &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;created&#39; and &#39;last_updated&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
     # @return [MsaspecQueryResponse]
@@ -2933,7 +3228,8 @@ module Falcon
     # Get all local application group IDs matching the query with filter
     # @param x_cs_useruuid [String] The user ID
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Optional filter for searching local application group. Allowed filters are &#39;name&#39; (string), is_deleted (boolean), platform (string), &#39;created_at&#39; and &#39;updated_at&#39;
+    # @option opts [String] :filter Optional filter for searching local application group. Allowed filters are &#39;name&#39; (string), is_deleted (boolean), platform (string), &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;created&#39; and &#39;last_updated&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
@@ -2951,6 +3247,7 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
 
@@ -2992,7 +3289,7 @@ module Falcon
     # Search for policies that match the provided criteria
     # @param platform_name [String] platform name of the policies to search, either &#39;win&#39; or &#39;mac&#39;
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [created_by properties.block_all_data_access properties.be_upload_timeout_response properties.be_paste_clipboard_max_size_unit properties.evidence_storage_max_size properties.enable_screen_capture name properties.custom_allow_notification properties.evidence_encrypted_enabled properties.be_paste_timeout_response properties.euj_dialog_timeout properties.screen_capture_duration_pre_event created_at properties.max_file_size_to_inspect_unit properties.allow_notifications properties.network_inspection_files_exceeding_size_limit properties.besplash_custom_message properties.screen_capture_duration_post_event description is_default modified_at properties.enable_content_inspection properties.be_paste_timeout_duration_milliseconds properties.be_paste_clipboard_max_size modified_by properties.enable_context_inspection properties.enable_end_user_notifications_unsupported_browser properties.be_exclude_domains properties.custom_block_notification properties.enable_network_inspection properties.besplash_enabled properties.be_paste_clipboard_over_size_behaviour_block properties.max_file_size_to_inspect is_enabled properties.similarity_detection properties.enable_clipboard_inspection properties.evidence_duplication_enabled_default properties.classifications properties.be_upload_timeout_duration_seconds properties.be_paste_clipboard_min_size properties.be_paste_clipboard_min_size_unit properties.min_confidence_level properties.inspection_depth properties.browsers_without_active_extension properties.similarity_threshold properties.block_notifications properties.evidence_download_enabled properties.besplash_message_source properties.evidence_storage_free_disk_perc precedence]
+    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.enable_context_inspection properties.similarity_threshold properties.enable_end_user_notifications_unsupported_browser properties.besplash_custom_message properties.be_paste_clipboard_min_size properties.evidence_storage_free_disk_perc properties.max_file_size_to_inspect is_enabled is_default created_by properties.be_paste_clipboard_max_size properties.screen_capture_duration_post_event properties.enable_ocr properties.block_all_data_access properties.enable_clipboard_web_origin properties.evidence_duplication_enabled_default properties.be_upload_timeout_duration_seconds properties.be_paste_clipboard_min_size_unit properties.evidence_storage_max_size properties.enable_screen_capture properties.enable_print_monitor properties.min_confidence_level properties.allow_notifications properties.custom_block_notification properties.besplash_enabled properties.be_paste_timeout_response properties.be_paste_clipboard_over_size_behaviour_block properties.euj_dialog_timeout properties.screen_capture_duration_pre_event properties.inspection_depth properties.browsers_without_active_extension properties.network_inspection_exclude_list_v2 precedence created_at modified_at properties.similarity_detection properties.block_notifications properties.evidence_download_enabled properties.evidence_encrypted_enabled properties.classifications properties.enable_content_inspection properties.max_file_size_to_inspect_unit properties.network_inspection_files_exceeding_size_limit properties.be_upload_timeout_response properties.be_paste_timeout_duration_milliseconds properties.be_paste_clipboard_max_size_unit description modified_by host_groups properties.enable_clipboard_inspection properties.custom_allow_notification properties.enable_network_inspection properties.be_exclude_domains properties.besplash_message_source name]
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return (default to 100)
     # @option opts [String] :sort The property to sort by, allowed fields are :[name precedence created_at modified_at]
@@ -3005,7 +3302,7 @@ module Falcon
     # Search for policies that match the provided criteria
     # @param platform_name [String] platform name of the policies to search, either &#39;win&#39; or &#39;mac&#39;
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [created_by properties.block_all_data_access properties.be_upload_timeout_response properties.be_paste_clipboard_max_size_unit properties.evidence_storage_max_size properties.enable_screen_capture name properties.custom_allow_notification properties.evidence_encrypted_enabled properties.be_paste_timeout_response properties.euj_dialog_timeout properties.screen_capture_duration_pre_event created_at properties.max_file_size_to_inspect_unit properties.allow_notifications properties.network_inspection_files_exceeding_size_limit properties.besplash_custom_message properties.screen_capture_duration_post_event description is_default modified_at properties.enable_content_inspection properties.be_paste_timeout_duration_milliseconds properties.be_paste_clipboard_max_size modified_by properties.enable_context_inspection properties.enable_end_user_notifications_unsupported_browser properties.be_exclude_domains properties.custom_block_notification properties.enable_network_inspection properties.besplash_enabled properties.be_paste_clipboard_over_size_behaviour_block properties.max_file_size_to_inspect is_enabled properties.similarity_detection properties.enable_clipboard_inspection properties.evidence_duplication_enabled_default properties.classifications properties.be_upload_timeout_duration_seconds properties.be_paste_clipboard_min_size properties.be_paste_clipboard_min_size_unit properties.min_confidence_level properties.inspection_depth properties.browsers_without_active_extension properties.similarity_threshold properties.block_notifications properties.evidence_download_enabled properties.besplash_message_source properties.evidence_storage_free_disk_perc precedence]
+    # @option opts [String] :filter Filter results by specific attributes , allowed attributes are [properties.enable_context_inspection properties.similarity_threshold properties.enable_end_user_notifications_unsupported_browser properties.besplash_custom_message properties.be_paste_clipboard_min_size properties.evidence_storage_free_disk_perc properties.max_file_size_to_inspect is_enabled is_default created_by properties.be_paste_clipboard_max_size properties.screen_capture_duration_post_event properties.enable_ocr properties.block_all_data_access properties.enable_clipboard_web_origin properties.evidence_duplication_enabled_default properties.be_upload_timeout_duration_seconds properties.be_paste_clipboard_min_size_unit properties.evidence_storage_max_size properties.enable_screen_capture properties.enable_print_monitor properties.min_confidence_level properties.allow_notifications properties.custom_block_notification properties.besplash_enabled properties.be_paste_timeout_response properties.be_paste_clipboard_over_size_behaviour_block properties.euj_dialog_timeout properties.screen_capture_duration_pre_event properties.inspection_depth properties.browsers_without_active_extension properties.network_inspection_exclude_list_v2 precedence created_at modified_at properties.similarity_detection properties.block_notifications properties.evidence_download_enabled properties.evidence_encrypted_enabled properties.classifications properties.enable_content_inspection properties.max_file_size_to_inspect_unit properties.network_inspection_files_exceeding_size_limit properties.be_upload_timeout_response properties.be_paste_timeout_duration_milliseconds properties.be_paste_clipboard_max_size_unit description modified_by host_groups properties.enable_clipboard_inspection properties.custom_allow_notification properties.enable_network_inspection properties.be_exclude_domains properties.besplash_message_source name]
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return (default to 100)
     # @option opts [String] :sort The property to sort by, allowed fields are :[name precedence created_at modified_at]
@@ -3081,8 +3378,8 @@ module Falcon
 
     # Get all sensitivity label IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter The filter to use when finding sensitivity labels. The only allowed filters are &#39;name&#39;, &#39;display_name&#39;, &#39;external_id&#39; and &#39;deleted&#39;
-    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;display_name&#39;, &#39;deleted&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
+    # @option opts [String] :filter The filter to use when finding sensitivity labels. The only allowed filters are &#39;name&#39;, &#39;display_name&#39;, &#39;external_id&#39;, &#39;deleted&#39;, &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;display_name&#39;, &#39;deleted&#39;, &#39;created&#39; and &#39;last_updated&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
     # @return [MsaspecQueryResponse]
@@ -3093,8 +3390,8 @@ module Falcon
 
     # Get all sensitivity label IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter The filter to use when finding sensitivity labels. The only allowed filters are &#39;name&#39;, &#39;display_name&#39;, &#39;external_id&#39; and &#39;deleted&#39;
-    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;display_name&#39;, &#39;deleted&#39;, &#39;created_at&#39; and &#39;updated_at&#39;
+    # @option opts [String] :filter The filter to use when finding sensitivity labels. The only allowed filters are &#39;name&#39;, &#39;display_name&#39;, &#39;external_id&#39;, &#39;deleted&#39;, &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;display_name&#39;, &#39;deleted&#39;, &#39;created&#39; and &#39;last_updated&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
@@ -3148,7 +3445,8 @@ module Falcon
 
     # Get web-location IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter The filter to use when finding web locations. Allowed filters are &#39;name&#39;, &#39;type&#39;, &#39;deleted&#39;, &#39;application_id&#39;, &#39;provider_location_id&#39; and &#39;enterprise_account_id&#39;
+    # @option opts [String] :filter The filter to use when finding web locations. Allowed filters are &#39;name&#39;, &#39;type&#39;, &#39;deleted&#39;, &#39;application_id&#39;, &#39;provider_location_id&#39;, &#39;enterprise_account_id&#39;, &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;type&#39;, &#39;deleted&#39;, &#39;application_id&#39;, &#39;provider_location_id&#39;, &#39;enterprise_account_id&#39;, &#39;created&#39; and &#39;last_updated&#39;
     # @option opts [String] :type The type of entity to query. Allowed values are &#39;predefined&#39; and &#39;custom&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
@@ -3160,7 +3458,8 @@ module Falcon
 
     # Get web-location IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter The filter to use when finding web locations. Allowed filters are &#39;name&#39;, &#39;type&#39;, &#39;deleted&#39;, &#39;application_id&#39;, &#39;provider_location_id&#39; and &#39;enterprise_account_id&#39;
+    # @option opts [String] :filter The filter to use when finding web locations. Allowed filters are &#39;name&#39;, &#39;type&#39;, &#39;deleted&#39;, &#39;application_id&#39;, &#39;provider_location_id&#39;, &#39;enterprise_account_id&#39;, &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;type&#39;, &#39;deleted&#39;, &#39;application_id&#39;, &#39;provider_location_id&#39;, &#39;enterprise_account_id&#39;, &#39;created&#39; and &#39;last_updated&#39;
     # @option opts [String] :type The type of entity to query. Allowed values are &#39;predefined&#39; and &#39;custom&#39;
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
     # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
@@ -3175,6 +3474,7 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
@@ -3209,6 +3509,83 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DataProtectionConfiguration#queries_web_location_get_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all web location group IDs matching the query with filter
+    # @param x_cs_useruuid [String] The user ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Optional filter for searching web location groups. Allowed filters are &#39;name&#39; (string), &#39;deleted&#39; (boolean), &#39;type&#39; (string: &#39;predefined&#39; or &#39;custom&#39;), &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [String] :type The type of entity to query. Allowed values are &#39;predefined&#39; and &#39;custom&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
+    # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
+    # @return [MsaspecQueryResponse]
+    def queries_web_location_group_get(x_cs_useruuid, opts = {})
+      data, _status_code, _headers = queries_web_location_group_get_with_http_info(x_cs_useruuid, opts)
+      data
+    end
+
+    # Get all web location group IDs matching the query with filter
+    # @param x_cs_useruuid [String] The user ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Optional filter for searching web location groups. Allowed filters are &#39;name&#39; (string), &#39;deleted&#39; (boolean), &#39;type&#39; (string: &#39;predefined&#39; or &#39;custom&#39;), &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [String] :type The type of entity to query. Allowed values are &#39;predefined&#39; and &#39;custom&#39;
+    # @option opts [String] :sort The sort instructions to order by on. Allowed values are &#39;name&#39;, &#39;created&#39; and &#39;last_updated&#39;
+    # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. (default to 100)
+    # @option opts [Integer] :offset The offset to start retrieving records from. Use with the limit parameter to manage pagination of results.
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def queries_web_location_group_get_with_http_info(x_cs_useruuid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DataProtectionConfiguration.queries_web_location_group_get ...'
+      end
+      # verify the required parameter 'x_cs_useruuid' is set
+      if @api_client.config.client_side_validation && x_cs_useruuid.nil?
+        fail ArgumentError, "Missing the required parameter 'x_cs_useruuid' when calling DataProtectionConfiguration.queries_web_location_group_get"
+      end
+      # resource path
+      local_var_path = '/data-protection/queries/web-location-groups/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'X-CS-USERUUID'] = x_cs_useruuid
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DataProtectionConfiguration.queries_web_location_group_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DataProtectionConfiguration#queries_web_location_group_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

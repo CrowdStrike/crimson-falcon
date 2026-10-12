@@ -41,6 +41,12 @@ describe Falcon::DismissSecurityCheckV3Request do
       expect(instance).to be_instance_of(Falcon::DismissSecurityCheckV3Request)
     end
   end
+  describe 'test attribute "duration_in_days"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "reason"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

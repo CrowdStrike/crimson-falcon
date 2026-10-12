@@ -45,11 +45,15 @@ module Falcon
 
     attr_accessor :compliance_mappings
 
+    attr_accessor :created_by
+
     attr_accessor :description
 
     attr_accessor :id
 
     attr_accessor :impact_statement
+
+    attr_accessor :modified_by
 
     attr_accessor :platform
 
@@ -60,6 +64,10 @@ module Falcon
     attr_accessor :references
 
     attr_accessor :remediation_procedure
+
+    attr_accessor :rule_type
+
+    attr_accessor :script_uuid
 
     attr_accessor :title
 
@@ -73,14 +81,18 @@ module Falcon
         :'authority' => :'authority',
         :'benchmark_title' => :'benchmark_title',
         :'compliance_mappings' => :'compliance_mappings',
+        :'created_by' => :'created_by',
         :'description' => :'description',
         :'id' => :'id',
         :'impact_statement' => :'impact_statement',
+        :'modified_by' => :'modified_by',
         :'platform' => :'platform',
         :'rationale_statement' => :'rationale_statement',
         :'recommendation_id' => :'recommendation_id',
         :'references' => :'references',
         :'remediation_procedure' => :'remediation_procedure',
+        :'rule_type' => :'rule_type',
+        :'script_uuid' => :'script_uuid',
         :'title' => :'title'
       }
     end
@@ -100,14 +112,18 @@ module Falcon
         :'authority' => :'String',
         :'benchmark_title' => :'String',
         :'compliance_mappings' => :'Array<DomainAPIComplianceMappingV1>',
+        :'created_by' => :'String',
         :'description' => :'String',
         :'id' => :'String',
         :'impact_statement' => :'String',
+        :'modified_by' => :'String',
         :'platform' => :'String',
         :'rationale_statement' => :'String',
         :'recommendation_id' => :'String',
         :'references' => :'Array<String>',
         :'remediation_procedure' => :'String',
+        :'rule_type' => :'String',
+        :'script_uuid' => :'String',
         :'title' => :'String'
       }
     end
@@ -165,6 +181,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'created_by')
+        self.created_by = attributes[:'created_by']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -175,6 +195,10 @@ module Falcon
 
       if attributes.key?(:'impact_statement')
         self.impact_statement = attributes[:'impact_statement']
+      end
+
+      if attributes.key?(:'modified_by')
+        self.modified_by = attributes[:'modified_by']
       end
 
       if attributes.key?(:'platform')
@@ -197,6 +221,14 @@ module Falcon
 
       if attributes.key?(:'remediation_procedure')
         self.remediation_procedure = attributes[:'remediation_procedure']
+      end
+
+      if attributes.key?(:'rule_type')
+        self.rule_type = attributes[:'rule_type']
+      end
+
+      if attributes.key?(:'script_uuid')
+        self.script_uuid = attributes[:'script_uuid']
       end
 
       if attributes.key?(:'title')
@@ -299,14 +331,18 @@ module Falcon
           authority == o.authority &&
           benchmark_title == o.benchmark_title &&
           compliance_mappings == o.compliance_mappings &&
+          created_by == o.created_by &&
           description == o.description &&
           id == o.id &&
           impact_statement == o.impact_statement &&
+          modified_by == o.modified_by &&
           platform == o.platform &&
           rationale_statement == o.rationale_statement &&
           recommendation_id == o.recommendation_id &&
           references == o.references &&
           remediation_procedure == o.remediation_procedure &&
+          rule_type == o.rule_type &&
+          script_uuid == o.script_uuid &&
           title == o.title
     end
 
@@ -319,7 +355,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [additional_information, applicable_profiles, assessment_status, audit_procedure, authority, benchmark_title, compliance_mappings, description, id, impact_statement, platform, rationale_statement, recommendation_id, references, remediation_procedure, title].hash
+      [additional_information, applicable_profiles, assessment_status, audit_procedure, authority, benchmark_title, compliance_mappings, created_by, description, id, impact_statement, modified_by, platform, rationale_statement, recommendation_id, references, remediation_procedure, rule_type, script_uuid, title].hash
     end
 
     # Builds the object from hash

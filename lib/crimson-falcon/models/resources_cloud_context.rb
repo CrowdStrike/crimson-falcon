@@ -37,6 +37,8 @@ module Falcon
 
     attr_accessor :asset_graph
 
+    attr_accessor :business_context
+
     attr_accessor :cloud_risks
 
     attr_accessor :cspm_license
@@ -77,6 +79,7 @@ module Falcon
         :'account_name' => :'account_name',
         :'allows_public_access' => :'allows_public_access',
         :'asset_graph' => :'asset_graph',
+        :'business_context' => :'business_context',
         :'cloud_risks' => :'cloud_risks',
         :'cspm_license' => :'cspm_license',
         :'data_classifications' => :'data_classifications',
@@ -108,6 +111,7 @@ module Falcon
         :'account_name' => :'String',
         :'allows_public_access' => :'Boolean',
         :'asset_graph' => :'ResourcesAssetGraph',
+        :'business_context' => :'BusinesscontextData',
         :'cloud_risks' => :'ResourcesCloudRisks',
         :'cspm_license' => :'String',
         :'data_classifications' => :'DataclassificationsResponse',
@@ -159,6 +163,10 @@ module Falcon
 
       if attributes.key?(:'asset_graph')
         self.asset_graph = attributes[:'asset_graph']
+      end
+
+      if attributes.key?(:'business_context')
+        self.business_context = attributes[:'business_context']
       end
 
       if attributes.key?(:'cloud_risks')
@@ -251,6 +259,7 @@ module Falcon
           account_name == o.account_name &&
           allows_public_access == o.allows_public_access &&
           asset_graph == o.asset_graph &&
+          business_context == o.business_context &&
           cloud_risks == o.cloud_risks &&
           cspm_license == o.cspm_license &&
           data_classifications == o.data_classifications &&
@@ -279,7 +288,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_name, allows_public_access, asset_graph, cloud_risks, cspm_license, data_classifications, detections, has_falcon_sensor, has_tags, host, insights, instance_id, instance_state, legacy_resource_id, legacy_type_id, legacy_uuid, managed_by, open_cloud_risks, publicly_exposed, scan_type].hash
+      [account_name, allows_public_access, asset_graph, business_context, cloud_risks, cspm_license, data_classifications, detections, has_falcon_sensor, has_tags, host, insights, instance_id, instance_state, legacy_resource_id, legacy_type_id, legacy_uuid, managed_by, open_cloud_risks, publicly_exposed, scan_type].hash
     end
 
     # Builds the object from hash

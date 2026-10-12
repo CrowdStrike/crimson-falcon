@@ -59,6 +59,12 @@ describe Falcon::SdkAnalysisResultsHostRecordVM do
     end
   end
 
+  describe 'test attribute "device_ip"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "hostname"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -66,6 +72,12 @@ describe Falcon::SdkAnalysisResultsHostRecordVM do
   end
 
   describe 'test attribute "local_ip"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "observed_ip"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

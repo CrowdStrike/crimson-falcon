@@ -41,6 +41,12 @@ describe Falcon::ApiMessage do
       expect(instance).to be_instance_of(Falcon::ApiMessage)
     end
   end
+  describe 'test attribute "budget_approval"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "content"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

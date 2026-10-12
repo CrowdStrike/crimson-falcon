@@ -33,16 +33,25 @@ module Falcon
   class ApiClientRequest
     attr_accessor :description
 
+    attr_accessor :is_confidential
+
     attr_accessor :name
 
+    attr_accessor :redirect_uris
+
     attr_accessor :scopes
+
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'description' => :'description',
+        :'is_confidential' => :'is_confidential',
         :'name' => :'name',
-        :'scopes' => :'scopes'
+        :'redirect_uris' => :'redirect_uris',
+        :'scopes' => :'scopes',
+        :'type' => :'type'
       }
     end
 
@@ -55,8 +64,11 @@ module Falcon
     def self.openapi_types
       {
         :'description' => :'String',
+        :'is_confidential' => :'Boolean',
         :'name' => :'String',
-        :'scopes' => :'Array<String>'
+        :'redirect_uris' => :'Array<String>',
+        :'scopes' => :'Array<String>',
+        :'type' => :'String'
       }
     end
 
@@ -85,14 +97,28 @@ module Falcon
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'is_confidential')
+        self.is_confidential = attributes[:'is_confidential']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'redirect_uris')
+        if (value = attributes[:'redirect_uris']).is_a?(Array)
+          self.redirect_uris = value
+        end
       end
 
       if attributes.key?(:'scopes')
         if (value = attributes[:'scopes']).is_a?(Array)
           self.scopes = value
         end
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -104,12 +130,24 @@ module Falcon
         invalid_properties.push('invalid value for "description", description cannot be nil.')
       end
 
+      if @is_confidential.nil?
+        invalid_properties.push('invalid value for "is_confidential", is_confidential cannot be nil.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
+      if @redirect_uris.nil?
+        invalid_properties.push('invalid value for "redirect_uris", redirect_uris cannot be nil.')
+      end
+
       if @scopes.nil?
         invalid_properties.push('invalid value for "scopes", scopes cannot be nil.')
+      end
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
       invalid_properties
@@ -119,8 +157,11 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @description.nil?
+      return false if @is_confidential.nil?
       return false if @name.nil?
+      return false if @redirect_uris.nil?
       return false if @scopes.nil?
+      return false if @type.nil?
       true
     end
 
@@ -130,8 +171,11 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           description == o.description &&
+          is_confidential == o.is_confidential &&
           name == o.name &&
-          scopes == o.scopes
+          redirect_uris == o.redirect_uris &&
+          scopes == o.scopes &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -143,7 +187,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, name, scopes].hash
+      [description, is_confidential, name, redirect_uris, scopes, type].hash
     end
 
     # Builds the object from hash

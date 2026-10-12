@@ -31,6 +31,8 @@ require 'time'
 
 module Falcon
   class NswipScanFlags
+    attr_accessor :defeat_icmp_ratelimit
+
     attr_accessor :defeat_rst_ratelimit
 
     attr_accessor :host_timeout
@@ -62,6 +64,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'defeat_icmp_ratelimit' => :'defeat_icmp_ratelimit',
         :'defeat_rst_ratelimit' => :'defeat_rst_ratelimit',
         :'host_timeout' => :'host_timeout',
         :'ignore_tcp_resets' => :'ignore_tcp_resets',
@@ -87,6 +90,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'defeat_icmp_ratelimit' => :'Boolean',
         :'defeat_rst_ratelimit' => :'Boolean',
         :'host_timeout' => :'Integer',
         :'ignore_tcp_resets' => :'Boolean',
@@ -124,6 +128,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'defeat_icmp_ratelimit')
+        self.defeat_icmp_ratelimit = attributes[:'defeat_icmp_ratelimit']
+      end
 
       if attributes.key?(:'defeat_rst_ratelimit')
         self.defeat_rst_ratelimit = attributes[:'defeat_rst_ratelimit']
@@ -200,6 +208,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          defeat_icmp_ratelimit == o.defeat_icmp_ratelimit &&
           defeat_rst_ratelimit == o.defeat_rst_ratelimit &&
           host_timeout == o.host_timeout &&
           ignore_tcp_resets == o.ignore_tcp_resets &&
@@ -225,7 +234,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [defeat_rst_ratelimit, host_timeout, ignore_tcp_resets, initial_rtt_timeout, max_parallelism, max_rate, max_retries, max_rtt_timeout, min_parallelism, min_rate, min_rtt_timeout, scan_delay, script_timeout, version_intensity].hash
+      [defeat_icmp_ratelimit, defeat_rst_ratelimit, host_timeout, ignore_tcp_resets, initial_rtt_timeout, max_parallelism, max_rate, max_retries, max_rtt_timeout, min_parallelism, min_rate, min_rtt_timeout, scan_delay, script_timeout, version_intensity].hash
     end
 
     # Builds the object from hash

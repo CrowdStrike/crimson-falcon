@@ -43,6 +43,8 @@ module Falcon
 
     attr_accessor :path
 
+    attr_accessor :paths
+
     attr_accessor :version
 
     attr_accessor :ai_related
@@ -56,6 +58,7 @@ module Falcon
         :'license' => :'License',
         :'name' => :'Name',
         :'path' => :'Path',
+        :'paths' => :'Paths',
         :'version' => :'Version',
         :'ai_related' => :'ai_related'
       }
@@ -75,6 +78,7 @@ module Falcon
         :'license' => :'String',
         :'name' => :'String',
         :'path' => :'String',
+        :'paths' => :'Array<ModelsPathInfo>',
         :'version' => :'String',
         :'ai_related' => :'Boolean'
       }
@@ -125,6 +129,12 @@ module Falcon
         self.path = attributes[:'path']
       end
 
+      if attributes.key?(:'paths')
+        if (value = attributes[:'paths']).is_a?(Array)
+          self.paths = value
+        end
+      end
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
@@ -163,6 +173,7 @@ module Falcon
           license == o.license &&
           name == o.name &&
           path == o.path &&
+          paths == o.paths &&
           version == o.version &&
           ai_related == o.ai_related
     end
@@ -176,7 +187,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [hash, layer_hash, layer_index, license, name, path, version, ai_related].hash
+      [hash, layer_hash, layer_index, license, name, path, paths, version, ai_related].hash
     end
 
     # Builds the object from hash

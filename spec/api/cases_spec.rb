@@ -59,6 +59,40 @@ describe 'Cases' do
     end
   end
 
+  # unit tests for entities_alert_evidence_post_v2
+  # Adds the given list of alert evidence to the specified case and returns the created evidence records.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [OperationsAddAlertsToCaseResponseV2VM]
+  describe 'entities_alert_evidence_post_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for entities_case_access_tags_delete_v1
+  # Removes the specified access tags from the specified case.
+  # @param id The ID of the case to remove access tags from.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :access_tag_id The ID of the access tag to remove from the case.
+  # @return [OperationsUpdateCaseResponseVM]
+  describe 'entities_case_access_tags_delete_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for entities_case_access_tags_post_v1
+  # Adds the given list of access tags to the specified case.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [OperationsUpdateCaseResponseVM]
+  describe 'entities_case_access_tags_post_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for entities_case_tags_delete_v1
   # Removes the specified tags from the specified case.
   # @param id The ID of the case to remove tags from.
@@ -115,6 +149,17 @@ describe 'Cases' do
     end
   end
 
+  # unit tests for entities_custom_evidence_post_v1
+  # Adds the given custom evidence to the specified case.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [OperationsAddCustomEvidenceResponseVM]
+  describe 'entities_custom_evidence_post_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for entities_event_evidence_post_v1
   # Adds the given list of event evidence to the specified case.
   # @param body
@@ -132,6 +177,17 @@ describe 'Cases' do
   # @param [Hash] opts the optional parameters
   # @return [MsaspecResponseFields]
   describe 'entities_merge_post_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for entities_user_evidence_post_v1
+  # Adds user evidence to the specified case.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [OperationsAddUserToCaseResponseVM]
+  describe 'entities_user_evidence_post_v1 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -93,16 +93,6 @@ describe Falcon::DevicecontrolapiReqUpdateUSBBaseV1 do
     end
   end
 
-  describe 'test attribute "user_based_enforcement_mode"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
-      # validator.allowable_values.each do |value|
-      #   expect { instance.user_based_enforcement_mode = value }.not_to raise_error
-      # end
-    end
-  end
-
   describe 'test attribute "whitelist_mode"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

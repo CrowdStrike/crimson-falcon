@@ -43,6 +43,9 @@ module Falcon
     # Unique identifier for the selected trigger as provided by the triggers API
     attr_accessor :id
 
+    # Execution-time node metadata (e.g. throttling counters/timestamps, rate limit, version constraint). Keys mirror the node config.
+    attr_accessor :metadata
+
     # Whether this node's result is mocked
     attr_accessor :mocked
 
@@ -96,6 +99,7 @@ module Falcon
         :'error_code' => :'error_code',
         :'error_message' => :'error_message',
         :'id' => :'id',
+        :'metadata' => :'metadata',
         :'mocked' => :'mocked',
         :'name' => :'name',
         :'node_id' => :'node_id',
@@ -119,6 +123,7 @@ module Falcon
         :'error_code' => :'Integer',
         :'error_message' => :'String',
         :'id' => :'String',
+        :'metadata' => :'Hash<String, String>',
         :'mocked' => :'Boolean',
         :'name' => :'String',
         :'node_id' => :'String',
@@ -165,6 +170,12 @@ module Falcon
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'metadata')
+        if (value = attributes[:'metadata']).is_a?(Hash)
+          self.metadata = value
+        end
       end
 
       if attributes.key?(:'mocked')
@@ -266,6 +277,7 @@ module Falcon
           error_code == o.error_code &&
           error_message == o.error_message &&
           id == o.id &&
+          metadata == o.metadata &&
           mocked == o.mocked &&
           name == o.name &&
           node_id == o.node_id &&
@@ -285,7 +297,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [end_timestamp, error_code, error_message, id, mocked, name, node_id, result, start_timestamp, status, type, ui_status].hash
+      [end_timestamp, error_code, error_message, id, metadata, mocked, name, node_id, result, start_timestamp, status, type, ui_status].hash
     end
 
     # Builds the object from hash

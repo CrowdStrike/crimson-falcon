@@ -65,6 +65,12 @@ describe Falcon::ExecutionsTriggerResult do
     end
   end
 
+  describe 'test attribute "metadata"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "mocked"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

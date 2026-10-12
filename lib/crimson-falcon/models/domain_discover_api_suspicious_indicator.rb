@@ -31,6 +31,9 @@ require 'time'
 
 module Falcon
   class DomainDiscoverAPISuspiciousIndicator
+    # A description of the indicator
+    attr_accessor :description
+
     # The indicator name (e.g., low_prevalence, known_malicious)
     attr_accessor :name
 
@@ -40,6 +43,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'description' => :'description',
         :'name' => :'name',
         :'severity' => :'severity'
       }
@@ -53,6 +57,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'description' => :'String',
         :'name' => :'String',
         :'severity' => :'String'
       }
@@ -79,6 +84,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -92,6 +101,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @description.nil?
+        invalid_properties.push('invalid value for "description", description cannot be nil.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -106,6 +119,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @description.nil?
       return false if @name.nil?
       return false if @severity.nil?
       true
@@ -116,6 +130,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          description == o.description &&
           name == o.name &&
           severity == o.severity
     end
@@ -129,7 +144,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, severity].hash
+      [description, name, severity].hash
     end
 
     # Builds the object from hash

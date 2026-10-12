@@ -123,9 +123,13 @@ module Falcon
 
     attr_accessor :x_cs_default_table_column
 
+    attr_accessor :x_cs_depends_on
+
     attr_accessor :x_cs_do_not_hide
 
     attr_accessor :x_cs_error_message
+
+    attr_accessor :x_cs_extensible_enum
 
     attr_accessor :x_cs_immutable
 
@@ -160,6 +164,10 @@ module Falcon
     attr_accessor :x_cs_tags
 
     attr_accessor :x_cs_ucl_cid_specific
+
+    attr_accessor :x_cs_ucl_key_value_display
+
+    attr_accessor :x_cs_ucl_key_value_display_order
 
     attr_accessor :x_cs_ui
 
@@ -214,8 +222,10 @@ module Falcon
         :'x_cs_can_create' => :'x-cs-can-create',
         :'x_cs_condition_group_fields' => :'x-cs-condition-group-fields',
         :'x_cs_default_table_column' => :'x-cs-default-table-column',
+        :'x_cs_depends_on' => :'x-cs-dependsOn',
         :'x_cs_do_not_hide' => :'x-cs-do-not-hide',
         :'x_cs_error_message' => :'x-cs-errorMessage',
+        :'x_cs_extensible_enum' => :'x-cs-extensible-enum',
         :'x_cs_immutable' => :'x-cs-immutable',
         :'x_cs_indexable' => :'x-cs-indexable',
         :'x_cs_indexable_fields' => :'x-cs-indexable-fields',
@@ -233,6 +243,8 @@ module Falcon
         :'x_cs_signals_sub_category' => :'x-cs-signals-subCategory',
         :'x_cs_tags' => :'x-cs-tags',
         :'x_cs_ucl_cid_specific' => :'x-cs-ucl-cid-specific',
+        :'x_cs_ucl_key_value_display' => :'x-cs-ucl-key-value-display',
+        :'x_cs_ucl_key_value_display_order' => :'x-cs-ucl-key-value-display-order',
         :'x_cs_ui' => :'x-cs-ui',
         :'x_cs_workflow' => :'x-cs-workflow'
       }
@@ -258,32 +270,32 @@ module Falcon
         :'dependencies' => :'Hash<String, JsonschemaSubSchema>',
         :'deprecated' => :'Boolean',
         :'description' => :'String',
-        :'_else' => :'JsonschemaSubSchema',
+        :'_else' => :'String',
         :'enum' => :'Array<Object>',
         :'error_message' => :'String',
         :'examples' => :'Array<Object>',
         :'exclusive_maximum' => :'Boolean',
         :'exclusive_minimum' => :'Boolean',
         :'format' => :'String',
-        :'_if' => :'JsonschemaSubSchema',
-        :'items' => :'JsonschemaSubSchema',
+        :'_if' => :'String',
+        :'items' => :'String',
         :'max_items' => :'Integer',
         :'max_length' => :'Integer',
         :'max_properties' => :'Integer',
         :'maximum' => :'Integer',
-        :'media' => :'JsonschemaSubSchema',
+        :'media' => :'String',
         :'min_items' => :'Integer',
         :'min_length' => :'Integer',
         :'min_properties' => :'Integer',
         :'minimum' => :'Integer',
         :'multiple_of' => :'Integer',
-        :'_not' => :'JsonschemaSubSchema',
+        :'_not' => :'String',
         :'one_of' => :'Array<JsonschemaSubSchema>',
         :'pattern' => :'String',
         :'pattern_properties' => :'Hash<String, JsonschemaSubSchema>',
         :'properties' => :'Hash<String, JsonschemaSubSchema>',
         :'required' => :'Array<String>',
-        :'_then' => :'JsonschemaSubSchema',
+        :'_then' => :'String',
         :'title' => :'String',
         :'type' => :'String',
         :'ui_component' => :'String',
@@ -292,8 +304,10 @@ module Falcon
         :'x_cs_can_create' => :'Boolean',
         :'x_cs_condition_group_fields' => :'JsonschemaConditionGroupFields',
         :'x_cs_default_table_column' => :'Boolean',
+        :'x_cs_depends_on' => :'Array<String>',
         :'x_cs_do_not_hide' => :'Boolean',
         :'x_cs_error_message' => :'Hash<String, String>',
+        :'x_cs_extensible_enum' => :'Array<Object>',
         :'x_cs_immutable' => :'Boolean',
         :'x_cs_indexable' => :'Boolean',
         :'x_cs_indexable_fields' => :'Array<JsonschemaCollectionIndexField>',
@@ -311,6 +325,8 @@ module Falcon
         :'x_cs_signals_sub_category' => :'String',
         :'x_cs_tags' => :'Array<String>',
         :'x_cs_ucl_cid_specific' => :'Boolean',
+        :'x_cs_ucl_key_value_display' => :'Boolean',
+        :'x_cs_ucl_key_value_display_order' => :'Integer',
         :'x_cs_ui' => :'JsonschemaUIExtensions',
         :'x_cs_workflow' => :'JsonschemaWorkflowExtensions'
       }
@@ -539,6 +555,12 @@ module Falcon
         self.x_cs_default_table_column = attributes[:'x_cs_default_table_column']
       end
 
+      if attributes.key?(:'x_cs_depends_on')
+        if (value = attributes[:'x_cs_depends_on']).is_a?(Array)
+          self.x_cs_depends_on = value
+        end
+      end
+
       if attributes.key?(:'x_cs_do_not_hide')
         self.x_cs_do_not_hide = attributes[:'x_cs_do_not_hide']
       end
@@ -546,6 +568,12 @@ module Falcon
       if attributes.key?(:'x_cs_error_message')
         if (value = attributes[:'x_cs_error_message']).is_a?(Hash)
           self.x_cs_error_message = value
+        end
+      end
+
+      if attributes.key?(:'x_cs_extensible_enum')
+        if (value = attributes[:'x_cs_extensible_enum']).is_a?(Array)
+          self.x_cs_extensible_enum = value
         end
       end
 
@@ -625,6 +653,14 @@ module Falcon
         self.x_cs_ucl_cid_specific = attributes[:'x_cs_ucl_cid_specific']
       end
 
+      if attributes.key?(:'x_cs_ucl_key_value_display')
+        self.x_cs_ucl_key_value_display = attributes[:'x_cs_ucl_key_value_display']
+      end
+
+      if attributes.key?(:'x_cs_ucl_key_value_display_order')
+        self.x_cs_ucl_key_value_display_order = attributes[:'x_cs_ucl_key_value_display_order']
+      end
+
       if attributes.key?(:'x_cs_ui')
         self.x_cs_ui = attributes[:'x_cs_ui']
       end
@@ -698,8 +734,10 @@ module Falcon
           x_cs_can_create == o.x_cs_can_create &&
           x_cs_condition_group_fields == o.x_cs_condition_group_fields &&
           x_cs_default_table_column == o.x_cs_default_table_column &&
+          x_cs_depends_on == o.x_cs_depends_on &&
           x_cs_do_not_hide == o.x_cs_do_not_hide &&
           x_cs_error_message == o.x_cs_error_message &&
+          x_cs_extensible_enum == o.x_cs_extensible_enum &&
           x_cs_immutable == o.x_cs_immutable &&
           x_cs_indexable == o.x_cs_indexable &&
           x_cs_indexable_fields == o.x_cs_indexable_fields &&
@@ -717,6 +755,8 @@ module Falcon
           x_cs_signals_sub_category == o.x_cs_signals_sub_category &&
           x_cs_tags == o.x_cs_tags &&
           x_cs_ucl_cid_specific == o.x_cs_ucl_cid_specific &&
+          x_cs_ucl_key_value_display == o.x_cs_ucl_key_value_display &&
+          x_cs_ucl_key_value_display_order == o.x_cs_ucl_key_value_display_order &&
           x_cs_ui == o.x_cs_ui &&
           x_cs_workflow == o.x_cs_workflow
     end
@@ -730,7 +770,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ref, schema, additional_items, additional_properties, all_of, any_of, binary_encoding, const, default, dependencies, deprecated, description, _else, enum, error_message, examples, exclusive_maximum, exclusive_minimum, format, _if, items, max_items, max_length, max_properties, maximum, media, min_items, min_length, min_properties, minimum, multiple_of, _not, one_of, pattern, pattern_properties, properties, required, _then, title, type, ui_component, unique_items, x_cs_authorization, x_cs_can_create, x_cs_condition_group_fields, x_cs_default_table_column, x_cs_do_not_hide, x_cs_error_message, x_cs_immutable, x_cs_indexable, x_cs_indexable_fields, x_cs_max_duration, x_cs_min_duration, x_cs_not_parameterizable, x_cs_openapi, x_cs_order, x_cs_pivot, x_cs_queryable, x_cs_semantic_data, x_cs_signals, x_cs_signals_category, x_cs_signals_operators, x_cs_signals_sub_category, x_cs_tags, x_cs_ucl_cid_specific, x_cs_ui, x_cs_workflow].hash
+      [ref, schema, additional_items, additional_properties, all_of, any_of, binary_encoding, const, default, dependencies, deprecated, description, _else, enum, error_message, examples, exclusive_maximum, exclusive_minimum, format, _if, items, max_items, max_length, max_properties, maximum, media, min_items, min_length, min_properties, minimum, multiple_of, _not, one_of, pattern, pattern_properties, properties, required, _then, title, type, ui_component, unique_items, x_cs_authorization, x_cs_can_create, x_cs_condition_group_fields, x_cs_default_table_column, x_cs_depends_on, x_cs_do_not_hide, x_cs_error_message, x_cs_extensible_enum, x_cs_immutable, x_cs_indexable, x_cs_indexable_fields, x_cs_max_duration, x_cs_min_duration, x_cs_not_parameterizable, x_cs_openapi, x_cs_order, x_cs_pivot, x_cs_queryable, x_cs_semantic_data, x_cs_signals, x_cs_signals_category, x_cs_signals_operators, x_cs_signals_sub_category, x_cs_tags, x_cs_ucl_cid_specific, x_cs_ucl_key_value_display, x_cs_ucl_key_value_display_order, x_cs_ui, x_cs_workflow].hash
     end
 
     # Builds the object from hash

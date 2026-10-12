@@ -101,6 +101,12 @@ describe Falcon::ContentParser do
     end
   end
 
+  describe 'test attribute "rollback_available"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "update_available"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -34,6 +34,12 @@ module Falcon
     # List of dependencies including app details and logo URLs
     attr_accessor :dependencies
 
+    # Latest semantic version of this activity
+    attr_accessor :latest_semantic_version
+
+    # Latest version constraint of this activity
+    attr_accessor :latest_version_constraint
+
     # Use cases associated with this activity
     attr_accessor :use_cases
 
@@ -44,6 +50,8 @@ module Falcon
     def self.attribute_map
       {
         :'dependencies' => :'dependencies',
+        :'latest_semantic_version' => :'latest_semantic_version',
+        :'latest_version_constraint' => :'latest_version_constraint',
         :'use_cases' => :'use_cases',
         :'vendor' => :'vendor'
       }
@@ -58,6 +66,8 @@ module Falcon
     def self.openapi_types
       {
         :'dependencies' => :'Array<ActivitiesDependency>',
+        :'latest_semantic_version' => :'String',
+        :'latest_version_constraint' => :'String',
         :'use_cases' => :'Array<String>',
         :'vendor' => :'String'
       }
@@ -88,6 +98,14 @@ module Falcon
         if (value = attributes[:'dependencies']).is_a?(Array)
           self.dependencies = value
         end
+      end
+
+      if attributes.key?(:'latest_semantic_version')
+        self.latest_semantic_version = attributes[:'latest_semantic_version']
+      end
+
+      if attributes.key?(:'latest_version_constraint')
+        self.latest_version_constraint = attributes[:'latest_version_constraint']
       end
 
       if attributes.key?(:'use_cases')
@@ -130,6 +148,8 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           dependencies == o.dependencies &&
+          latest_semantic_version == o.latest_semantic_version &&
+          latest_version_constraint == o.latest_version_constraint &&
           use_cases == o.use_cases &&
           vendor == o.vendor
     end
@@ -143,7 +163,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [dependencies, use_cases, vendor].hash
+      [dependencies, latest_semantic_version, latest_version_constraint, use_cases, vendor].hash
     end
 
     # Builds the object from hash

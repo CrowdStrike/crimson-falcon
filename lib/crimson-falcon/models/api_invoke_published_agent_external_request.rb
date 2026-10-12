@@ -39,13 +39,16 @@ module Falcon
 
     attr_accessor :messages
 
+    attr_accessor :project_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'credit_cents_limit' => :'credit_cents_limit',
         :'deadline_seconds' => :'deadline_seconds',
         :'id' => :'id',
-        :'messages' => :'messages'
+        :'messages' => :'messages',
+        :'project_id' => :'project_id'
       }
     end
 
@@ -60,7 +63,8 @@ module Falcon
         :'credit_cents_limit' => :'Integer',
         :'deadline_seconds' => :'Integer',
         :'id' => :'String',
-        :'messages' => :'Array<ApiMessage>'
+        :'messages' => :'Array<ApiMessage>',
+        :'project_id' => :'String'
       }
     end
 
@@ -102,6 +106,10 @@ module Falcon
           self.messages = value
         end
       end
+
+      if attributes.key?(:'project_id')
+        self.project_id = attributes[:'project_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -135,7 +143,8 @@ module Falcon
           credit_cents_limit == o.credit_cents_limit &&
           deadline_seconds == o.deadline_seconds &&
           id == o.id &&
-          messages == o.messages
+          messages == o.messages &&
+          project_id == o.project_id
     end
 
     # @see the `==` method
@@ -147,7 +156,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [credit_cents_limit, deadline_seconds, id, messages].hash
+      [credit_cents_limit, deadline_seconds, id, messages, project_id].hash
     end
 
     # Builds the object from hash

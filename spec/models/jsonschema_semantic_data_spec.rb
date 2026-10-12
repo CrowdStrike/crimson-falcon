@@ -47,6 +47,12 @@ describe Falcon::JsonschemaSemanticData do
     end
   end
 
+  describe 'test attribute "display_format"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "field_name"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

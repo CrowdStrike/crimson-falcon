@@ -31,6 +31,8 @@ require 'time'
 
 module Falcon
   class MalqueryFuzzyOptions
+    attr_accessor :filter_labels
+
     attr_accessor :filter_meta
 
     attr_accessor :limit
@@ -38,6 +40,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'filter_labels' => :'filter_labels',
         :'filter_meta' => :'filter_meta',
         :'limit' => :'limit'
       }
@@ -51,6 +54,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'filter_labels' => :'Array<String>',
         :'filter_meta' => :'Array<String>',
         :'limit' => :'Integer'
       }
@@ -76,6 +80,12 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'filter_labels')
+        if (value = attributes[:'filter_labels']).is_a?(Array)
+          self.filter_labels = value
+        end
+      end
 
       if attributes.key?(:'filter_meta')
         if (value = attributes[:'filter_meta']).is_a?(Array)
@@ -106,6 +116,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          filter_labels == o.filter_labels &&
           filter_meta == o.filter_meta &&
           limit == o.limit
     end
@@ -119,7 +130,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [filter_meta, limit].hash
+      [filter_labels, filter_meta, limit].hash
     end
 
     # Builds the object from hash
