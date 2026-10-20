@@ -177,3 +177,16 @@
         .
       end
     )
+  # Shorten the SaaS integration definitions: the longest one's generated spec file name passes
+  # rubygems' 100-character limit, and `gem build` refuses the package.
+  | reduce (
+      ["SupportedIntegrationWithCreationSchema_GetSupportedSaas", "SupportedSaasIntegration"],
+      ["Creation_Schema_SupportedIntegrationWithCreationSchema_GetSupportedSaas", "SupportedSaasCreationSchema"],
+      ["Extra_Field_Creation_Schema_SupportedIntegrationWithCreationSchema_GetSupportedSaas", "SupportedSaasExtraField"],
+      ["Option_Extra_Field_Creation_Schema_SupportedIntegrationWithCreationSchema_GetSupportedSaas", "SupportedSaasExtraFieldOption"]
+    ) as [$old, $new] (.;
+      if .definitions[$old] then
+        .definitions[$new] = .definitions[$old] | del(.definitions[$old])
+        | walk(if type == "object" and ."$ref" == "#/definitions/\($old)" then ."$ref" = "#/definitions/\($new)" else . end)
+      else . end
+    )
