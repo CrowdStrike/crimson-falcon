@@ -190,3 +190,6 @@
         | walk(if type == "object" and ."$ref" == "#/definitions/\($old)" then ."$ref" = "#/definitions/\($new)" else . end)
       else . end
     )
+  # The 2026-10-20 spec lists sensor update stage's empty value as the two-character string `""` instead
+  # of an empty string. The API sends an empty string, and the `stage=` setter raises on anything not listed.
+  | .definitions."sensor_update.SettingsRespV2".properties.stage.enum |= map(if . == "\"\"" then "" else . end)
