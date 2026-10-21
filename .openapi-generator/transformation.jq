@@ -193,3 +193,7 @@
   # The 2026-10-20 spec lists sensor update stage's empty value as the two-character string `""` instead
   # of an empty string. The API sends an empty string, and the `stage=` setter raises on anything not listed.
   | .definitions."sensor_update.SettingsRespV2".properties.stage.enum |= map(if . == "\"\"" then "" else . end)
+  # The 10-20 spec makes client_secret optional on /oauth2/token, for the new authorization-code (PKCE) flow.
+  # Client-credentials requests are unchanged, so keep it required: optional would move it out of
+  # oauth2_access_token's positional arguments into opts and break every caller.
+  | (.paths."/oauth2/token".post.parameters[] | select(.name == "client_secret")).required = true
