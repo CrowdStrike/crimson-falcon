@@ -31,8 +31,6 @@ require 'time'
 
 module Falcon
   class AffectedEntityGetAffected
-    attr_accessor :account_id
-
     attr_accessor :dismiss_expiration_date
 
     attr_accessor :dismissed
@@ -52,7 +50,6 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
         :'dismiss_expiration_date' => :'dismiss_expiration_date',
         :'dismissed' => :'dismissed',
         :'dismissed_reason' => :'dismissed_reason',
@@ -72,7 +69,6 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
         :'dismiss_expiration_date' => :'Time',
         :'dismissed' => :'Boolean',
         :'dismissed_reason' => :'String',
@@ -108,10 +104,6 @@ module Falcon
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
 
       if attributes.key?(:'dismiss_expiration_date')
         self.dismiss_expiration_date = attributes[:'dismiss_expiration_date']
@@ -152,10 +144,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
       if @dismissed.nil?
         invalid_properties.push('invalid value for "dismissed", dismissed cannot be nil.')
       end
@@ -190,7 +178,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
       return false if @dismissed.nil?
       return false if !@dismissed_reason.nil? && @dismissed_reason.to_s.length < 1
       return false if @entity_name.nil?
@@ -244,7 +231,6 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
           dismiss_expiration_date == o.dismiss_expiration_date &&
           dismissed == o.dismissed &&
           dismissed_reason == o.dismissed_reason &&
@@ -264,7 +250,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, dismiss_expiration_date, dismissed, dismissed_reason, entity_name, extra_context, has_usage, type, usage].hash
+      [dismiss_expiration_date, dismissed, dismissed_reason, entity_name, extra_context, has_usage, type, usage].hash
     end
 
     # Builds the object from hash

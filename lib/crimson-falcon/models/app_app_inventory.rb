@@ -33,8 +33,6 @@ module Falcon
   class AppAppInventory
     attr_accessor :access_level
 
-    attr_accessor :account_id
-
     attr_accessor :app_id
 
     attr_accessor :app_name
@@ -65,7 +63,6 @@ module Falcon
     def self.attribute_map
       {
         :'access_level' => :'access_level',
-        :'account_id' => :'account_id',
         :'app_id' => :'app_id',
         :'app_name' => :'app_name',
         :'app_type' => :'app_type',
@@ -91,7 +88,6 @@ module Falcon
     def self.openapi_types
       {
         :'access_level' => :'String',
-        :'account_id' => :'String',
         :'app_id' => :'String',
         :'app_name' => :'String',
         :'app_type' => :'String',
@@ -131,10 +127,6 @@ module Falcon
 
       if attributes.key?(:'access_level')
         self.access_level = attributes[:'access_level']
-      end
-
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
       end
 
       if attributes.key?(:'app_id')
@@ -202,10 +194,6 @@ module Falcon
 
       if @access_level.to_s.length < 1
         invalid_properties.push('invalid value for "access_level", the character length must be great than or equal to 1.')
-      end
-
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
       end
 
       if @app_id.nil?
@@ -300,7 +288,6 @@ module Falcon
     def valid?
       return false if @access_level.nil?
       return false if @access_level.to_s.length < 1
-      return false if @account_id.nil?
       return false if @app_id.nil?
       return false if @app_id.to_s.length < 1
       return false if @app_name.nil?
@@ -457,7 +444,6 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           access_level == o.access_level &&
-          account_id == o.account_id &&
           app_id == o.app_id &&
           app_name == o.app_name &&
           app_type == o.app_type &&
@@ -482,7 +468,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_level, account_id, app_id, app_name, app_type, created, integration_alias, integration_id, integration_name, item_id, last_activity, scopes, status, status_expiration_date, status_reason].hash
+      [access_level, app_id, app_name, app_type, created, integration_alias, integration_id, integration_name, item_id, last_activity, scopes, status, status_expiration_date, status_reason].hash
     end
 
     # Builds the object from hash

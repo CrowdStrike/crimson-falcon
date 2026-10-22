@@ -31,8 +31,6 @@ require 'time'
 
 module Falcon
   class UserGetUserInventory
-    attr_accessor :account_id
-
     attr_accessor :company
 
     attr_accessor :country
@@ -68,7 +66,6 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
         :'company' => :'company',
         :'country' => :'country',
         :'department' => :'department',
@@ -96,7 +93,6 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
         :'company' => :'String',
         :'country' => :'String',
         :'department' => :'String',
@@ -138,10 +134,6 @@ module Falcon
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
 
       if attributes.key?(:'company')
         self.company = attributes[:'company']
@@ -218,10 +210,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
       if @company.nil?
         invalid_properties.push('invalid value for "company", company cannot be nil.')
       end
@@ -320,7 +308,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
       return false if @company.nil?
       return false if @company.to_s.length < 1
       return false if @country.nil?
@@ -470,7 +457,6 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
           company == o.company &&
           country == o.country &&
           department == o.department &&
@@ -498,7 +484,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, company, country, department, domain, email, enabled, exposures, exposures_total, full_name, integrations, integrations_total, item_id, login_names, roles, title, user_item_identity].hash
+      [company, country, department, domain, email, enabled, exposures, exposures_total, full_name, integrations, integrations_total, item_id, login_names, roles, title, user_item_identity].hash
     end
 
     # Builds the object from hash

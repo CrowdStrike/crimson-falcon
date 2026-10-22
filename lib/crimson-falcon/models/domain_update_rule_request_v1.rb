@@ -31,6 +31,9 @@ require 'time'
 
 module Falcon
   class DomainUpdateRuleRequestV1
+    # The minimum risk score threshold at or above which AI summaries are generated for matches. `off` excludes the rule from AI summarization. Possible values: [`off`, `auto`, `low`, `medium`, `high`, `critical`].
+    attr_accessor :ai_summaries_risk_score_threshold
+
     # Monitor only for exposed data. Must be accompanied by breach_monitoring_enabled:true.
     attr_accessor :breach_monitor_only
 
@@ -69,6 +72,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ai_summaries_risk_score_threshold' => :'ai_summaries_risk_score_threshold',
         :'breach_monitor_only' => :'breach_monitor_only',
         :'breach_monitoring_enabled' => :'breach_monitoring_enabled',
         :'exposed_data_match_type' => :'exposed_data_match_type',
@@ -92,6 +96,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ai_summaries_risk_score_threshold' => :'String',
         :'breach_monitor_only' => :'Boolean',
         :'breach_monitoring_enabled' => :'Boolean',
         :'exposed_data_match_type' => :'String',
@@ -127,6 +132,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ai_summaries_risk_score_threshold')
+        self.ai_summaries_risk_score_threshold = attributes[:'ai_summaries_risk_score_threshold']
+      end
 
       if attributes.key?(:'breach_monitor_only')
         self.breach_monitor_only = attributes[:'breach_monitor_only']
@@ -249,6 +258,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ai_summaries_risk_score_threshold == o.ai_summaries_risk_score_threshold &&
           breach_monitor_only == o.breach_monitor_only &&
           breach_monitoring_enabled == o.breach_monitoring_enabled &&
           exposed_data_match_type == o.exposed_data_match_type &&
@@ -272,7 +282,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [breach_monitor_only, breach_monitoring_enabled, exposed_data_match_type, filter, id, match_on_tsq_result_types, name, permissions, pir_ids, priority, substring_matching_enabled, tsq_match_edit_distance].hash
+      [ai_summaries_risk_score_threshold, breach_monitor_only, breach_monitoring_enabled, exposed_data_match_type, filter, id, match_on_tsq_result_types, name, permissions, pir_ids, priority, substring_matching_enabled, tsq_match_edit_distance].hash
     end
 
     # Builds the object from hash

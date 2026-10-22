@@ -365,6 +365,346 @@ module Falcon
       return data, status_code, headers
     end
 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :repository Repository
+    # @option opts [String] :tag Tag
+    # @option opts [String] :image_id Image ID
+    # @option opts [String] :digest Digest
+    # @option opts [String] :architecture Platform architecture to filter multi-arch images (e.g. amd64, arm64)
+    # @return [nil]
+    def handle_get_report_by_reference(opts = {})
+      handle_get_report_by_reference_with_http_info(opts)
+      nil
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :repository Repository
+    # @option opts [String] :tag Tag
+    # @option opts [String] :image_id Image ID
+    # @option opts [String] :digest Digest
+    # @option opts [String] :architecture Platform architecture to filter multi-arch images (e.g. amd64, arm64)
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def handle_get_report_by_reference_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.handle_get_report_by_reference ...'
+      end
+      # resource path
+      local_var_path = '/reports'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'repository'] = opts[:'repository'] if !opts[:'repository'].nil?
+      query_params[:'tag'] = opts[:'tag'] if !opts[:'tag'].nil?
+      query_params[:'image_id'] = opts[:'image_id'] if !opts[:'image_id'].nil?
+      query_params[:'digest'] = opts[:'digest'] if !opts[:'digest'].nil?
+      query_params[:'architecture'] = opts[:'architecture'] if !opts[:'architecture'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FalconContainerImage.handle_get_report_by_reference",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FalconContainerImage#handle_get_report_by_reference\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get scan report by image reference v2. (DEPRECATED: Use the equivalent scan report endpoint in the image scan API instead)
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :repository Repository
+    # @option opts [String] :tag Tag
+    # @option opts [String] :image_id Image ID
+    # @option opts [String] :digest Digest
+    # @option opts [String] :architecture Platform architecture to filter multi-arch images (e.g. amd64, arm64)
+    # @return [nil]
+    def handle_get_report_by_reference_v2(opts = {})
+      handle_get_report_by_reference_v2_with_http_info(opts)
+      nil
+    end
+
+    # Get scan report by image reference v2. (DEPRECATED: Use the equivalent scan report endpoint in the image scan API instead)
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :repository Repository
+    # @option opts [String] :tag Tag
+    # @option opts [String] :image_id Image ID
+    # @option opts [String] :digest Digest
+    # @option opts [String] :architecture Platform architecture to filter multi-arch images (e.g. amd64, arm64)
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def handle_get_report_by_reference_v2_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.handle_get_report_by_reference_v2 ...'
+      end
+      # resource path
+      local_var_path = '/reports/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'repository'] = opts[:'repository'] if !opts[:'repository'].nil?
+      query_params[:'tag'] = opts[:'tag'] if !opts[:'tag'].nil?
+      query_params[:'image_id'] = opts[:'image_id'] if !opts[:'image_id'].nil?
+      query_params[:'digest'] = opts[:'digest'] if !opts[:'digest'].nil?
+      query_params[:'architecture'] = opts[:'architecture'] if !opts[:'architecture'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FalconContainerImage.handle_get_report_by_reference_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FalconContainerImage#handle_get_report_by_reference_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param uuid [String] Scan ID
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def handle_get_report_by_scan_id(uuid, opts = {})
+      handle_get_report_by_scan_id_with_http_info(uuid, opts)
+      nil
+    end
+
+    # @param uuid [String] Scan ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def handle_get_report_by_scan_id_with_http_info(uuid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.handle_get_report_by_scan_id ...'
+      end
+      # verify the required parameter 'uuid' is set
+      if @api_client.config.client_side_validation && uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'uuid' when calling FalconContainerImage.handle_get_report_by_scan_id"
+      end
+      # resource path
+      local_var_path = '/reports/{uuid}'.sub('{' + 'uuid' + '}', CGI.escape(uuid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FalconContainerImage.handle_get_report_by_scan_id",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FalconContainerImage#handle_get_report_by_scan_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get scan report by scan ID v2 (DEPRECATED: Use the equivalent scan report endpoint in the image scan API instead)
+    # @param uuid [String] Scan ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :report_format Image-assessment scan report format. Allowed formats:  - &#x60;cyclonedx-json&#x60; - &#x60;json&#x60; - &#x60;sarif&#x60; (default to 'json')
+    # @return [nil]
+    def handle_get_report_by_scan_idv2(uuid, opts = {})
+      handle_get_report_by_scan_idv2_with_http_info(uuid, opts)
+      nil
+    end
+
+    # Get scan report by scan ID v2 (DEPRECATED: Use the equivalent scan report endpoint in the image scan API instead)
+    # @param uuid [String] Scan ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :report_format Image-assessment scan report format. Allowed formats:  - &#x60;cyclonedx-json&#x60; - &#x60;json&#x60; - &#x60;sarif&#x60; (default to 'json')
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def handle_get_report_by_scan_idv2_with_http_info(uuid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.handle_get_report_by_scan_idv2 ...'
+      end
+      # verify the required parameter 'uuid' is set
+      if @api_client.config.client_side_validation && uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'uuid' when calling FalconContainerImage.handle_get_report_by_scan_idv2"
+      end
+      # resource path
+      local_var_path = '/reports/v2/{uuid}'.sub('{' + 'uuid' + '}', CGI.escape(uuid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'report_format'] = opts[:'report_format'] if !opts[:'report_format'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FalconContainerImage.handle_get_report_by_scan_idv2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FalconContainerImage#handle_get_report_by_scan_idv2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Check image assessment policy. (DEPRECATED: Use the equivalent scan report endpoint in the image scan API instead)
+    # @param policy_type [String] Policy Type
+    # @param repository [String] Repository
+    # @param tag [String] Tag
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :registry Registry
+    # @return [nil]
+    def handle_policy_check(policy_type, repository, tag, opts = {})
+      handle_policy_check_with_http_info(policy_type, repository, tag, opts)
+      nil
+    end
+
+    # Check image assessment policy. (DEPRECATED: Use the equivalent scan report endpoint in the image scan API instead)
+    # @param policy_type [String] Policy Type
+    # @param repository [String] Repository
+    # @param tag [String] Tag
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :registry Registry
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def handle_policy_check_with_http_info(policy_type, repository, tag, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.handle_policy_check ...'
+      end
+      # verify the required parameter 'policy_type' is set
+      if @api_client.config.client_side_validation && policy_type.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_type' when calling FalconContainerImage.handle_policy_check"
+      end
+      # verify the required parameter 'repository' is set
+      if @api_client.config.client_side_validation && repository.nil?
+        fail ArgumentError, "Missing the required parameter 'repository' when calling FalconContainerImage.handle_policy_check"
+      end
+      # verify the required parameter 'tag' is set
+      if @api_client.config.client_side_validation && tag.nil?
+        fail ArgumentError, "Missing the required parameter 'tag' when calling FalconContainerImage.handle_policy_check"
+      end
+      # resource path
+      local_var_path = '/policy-checks'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'policy_type'] = policy_type
+      query_params[:'repository'] = repository
+      query_params[:'tag'] = tag
+      query_params[:'registry'] = opts[:'registry'] if !opts[:'registry'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FalconContainerImage.handle_policy_check",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FalconContainerImage#handle_policy_check\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get headers for POST request for image scan inventory
     # @param [Hash] opts the optional parameters
     # @return [nil]

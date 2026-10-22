@@ -33,6 +33,14 @@ module Falcon
   class ComplianceFrameworkSummary
     attr_accessor :authority
 
+    attr_accessor :created_at
+
+    attr_accessor :created_by
+
+    attr_accessor :deleted_at
+
+    attr_accessor :deleted_by
+
     attr_accessor :id
 
     attr_accessor :name
@@ -41,16 +49,29 @@ module Falcon
 
     attr_accessor :sections
 
+    attr_accessor :update_reason
+
+    attr_accessor :updated_at
+
+    attr_accessor :updated_by
+
     attr_accessor :version
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'authority' => :'authority',
+        :'created_at' => :'created_at',
+        :'created_by' => :'created_by',
+        :'deleted_at' => :'deleted_at',
+        :'deleted_by' => :'deleted_by',
         :'id' => :'id',
         :'name' => :'name',
         :'posture' => :'posture',
         :'sections' => :'sections',
+        :'update_reason' => :'update_reason',
+        :'updated_at' => :'updated_at',
+        :'updated_by' => :'updated_by',
         :'version' => :'version'
       }
     end
@@ -64,10 +85,17 @@ module Falcon
     def self.openapi_types
       {
         :'authority' => :'String',
+        :'created_at' => :'Time',
+        :'created_by' => :'String',
+        :'deleted_at' => :'Time',
+        :'deleted_by' => :'String',
         :'id' => :'String',
         :'name' => :'String',
         :'posture' => :'CompliancePosture',
         :'sections' => :'Array<ComplianceSectionSummary>',
+        :'update_reason' => :'String',
+        :'updated_at' => :'Time',
+        :'updated_by' => :'String',
         :'version' => :'String'
       }
     end
@@ -97,6 +125,22 @@ module Falcon
         self.authority = attributes[:'authority']
       end
 
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'created_by')
+        self.created_by = attributes[:'created_by']
+      end
+
+      if attributes.key?(:'deleted_at')
+        self.deleted_at = attributes[:'deleted_at']
+      end
+
+      if attributes.key?(:'deleted_by')
+        self.deleted_by = attributes[:'deleted_by']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -115,6 +159,18 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'update_reason')
+        self.update_reason = attributes[:'update_reason']
+      end
+
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
+      end
+
+      if attributes.key?(:'updated_by')
+        self.updated_by = attributes[:'updated_by']
+      end
+
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
@@ -126,6 +182,14 @@ module Falcon
       invalid_properties = Array.new
       if @authority.nil?
         invalid_properties.push('invalid value for "authority", authority cannot be nil.')
+      end
+
+      if @created_at.nil?
+        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
+      end
+
+      if @created_by.nil?
+        invalid_properties.push('invalid value for "created_by", created_by cannot be nil.')
       end
 
       if @id.nil?
@@ -155,6 +219,8 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @authority.nil?
+      return false if @created_at.nil?
+      return false if @created_by.nil?
       return false if @id.nil?
       return false if @name.nil?
       return false if @posture.nil?
@@ -169,10 +235,17 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           authority == o.authority &&
+          created_at == o.created_at &&
+          created_by == o.created_by &&
+          deleted_at == o.deleted_at &&
+          deleted_by == o.deleted_by &&
           id == o.id &&
           name == o.name &&
           posture == o.posture &&
           sections == o.sections &&
+          update_reason == o.update_reason &&
+          updated_at == o.updated_at &&
+          updated_by == o.updated_by &&
           version == o.version
     end
 
@@ -185,7 +258,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authority, id, name, posture, sections, version].hash
+      [authority, created_at, created_by, deleted_at, deleted_by, id, name, posture, sections, update_reason, updated_at, updated_by, version].hash
     end
 
     # Builds the object from hash

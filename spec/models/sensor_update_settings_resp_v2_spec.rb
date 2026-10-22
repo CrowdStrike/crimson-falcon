@@ -71,10 +71,16 @@ describe Falcon::SensorUpdateSettingsRespV2 do
     end
   end
 
+  describe 'test attribute "show_ltv_builds"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "stage"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["prod", "early_adopter", ""])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["prod", "early_adopter", "ltv", ""])
       # validator.allowable_values.each do |value|
       #   expect { instance.stage = value }.not_to raise_error
       # end

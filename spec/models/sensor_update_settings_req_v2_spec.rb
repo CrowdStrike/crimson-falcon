@@ -59,6 +59,12 @@ describe Falcon::SensorUpdateSettingsReqV2 do
     end
   end
 
+  describe 'test attribute "show_ltv_builds"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "uninstall_protection"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

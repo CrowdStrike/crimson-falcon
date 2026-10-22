@@ -84,18 +84,6 @@ describe 'EvalRuns' do
     end
   end
 
-  # unit tests for entities_eval_runs_update_v1
-  # Update an existing evaluation run metadata.
-  # @param body Evaluation run definition with updated fields
-  # @param [Hash] opts the optional parameters
-  # @option opts [String] :project_id Scope the operation to a project.
-  # @return [EvalsEvalRunsResponse]
-  describe 'entities_eval_runs_update_v1 test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for entities_eval_runs_v1
   # Retrieve evaluation run entities for the provided id.
   # @param ids IDs of entities to retrieve.

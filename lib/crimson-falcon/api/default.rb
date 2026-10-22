@@ -399,7 +399,7 @@ module Falcon
       if @api_client.config.client_side_validation && opts[:'platform'] && !allowable_values.include?(opts[:'platform'])
         fail ArgumentError, "invalid value for \"platform\", must be one of #{allowable_values}"
       end
-      allowable_values = ["null", "aid|asc", "aid|desc", "ffcid|asc", "ffcid|desc", "platform|asc", "platform|desc", "modified_timestamp|asc", "modified_timestamp|desc", "state|asc", "state|desc"]
+      allowable_values = ["null", "aid|asc", "aid|desc", "ffcid|asc", "ffcid|desc", "platform|asc", "platform|desc", "modified_timestamp|asc", "modified_timestamp|desc", "seen_timestamp|asc", "seen_timestamp|desc", "state|asc", "state|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
@@ -545,7 +545,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Default.get_combined_collectors_v1 ...'
       end
-      allowable_values = ["null", "aid|asc", "aid|desc", "ffcid|asc", "ffcid|desc", "platform|asc", "platform|desc", "modified_timestamp|asc", "modified_timestamp|desc", "state|asc", "state|desc"]
+      allowable_values = ["null", "aid|asc", "aid|desc", "ffcid|asc", "ffcid|desc", "platform|asc", "platform|desc", "modified_timestamp|asc", "modified_timestamp|desc", "seen_timestamp|asc", "seen_timestamp|desc", "state|asc", "state|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
@@ -1446,7 +1446,7 @@ module Falcon
       if @api_client.config.client_side_validation && opts[:'platform'] && !allowable_values.include?(opts[:'platform'])
         fail ArgumentError, "invalid value for \"platform\", must be one of #{allowable_values}"
       end
-      allowable_values = ["null", "aid|asc", "aid|desc", "ffcid|asc", "ffcid|desc", "platform|asc", "platform|desc", "modified_timestamp|asc", "modified_timestamp|desc"]
+      allowable_values = ["null", "aid|asc", "aid|desc", "ffcid|asc", "ffcid|desc", "platform|asc", "platform|desc", "modified_timestamp|asc", "modified_timestamp|desc", "seen_timestamp|asc", "seen_timestamp|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end

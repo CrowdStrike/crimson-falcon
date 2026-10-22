@@ -61,9 +61,6 @@ module Falcon
     # Known-good software matches for the clean file
     attr_accessor :vendor
 
-    # Clean-file record version from CAO Labs
-    attr_accessor :version
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -76,8 +73,7 @@ module Falcon
         :'magic_file_type' => :'MagicFileType',
         :'sha1' => :'SHA1',
         :'sha256' => :'SHA256',
-        :'vendor' => :'Vendor',
-        :'version' => :'Version'
+        :'vendor' => :'Vendor'
       }
     end
 
@@ -98,8 +94,7 @@ module Falcon
         :'magic_file_type' => :'String',
         :'sha1' => :'String',
         :'sha256' => :'String',
-        :'vendor' => :'Array<RestapiVendor>',
-        :'version' => :'Integer'
+        :'vendor' => :'Array<RestapiVendor>'
       }
     end
 
@@ -173,10 +168,6 @@ module Falcon
           self.vendor = value
         end
       end
-
-      if attributes.key?(:'version')
-        self.version = attributes[:'version']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -206,8 +197,7 @@ module Falcon
           magic_file_type == o.magic_file_type &&
           sha1 == o.sha1 &&
           sha256 == o.sha256 &&
-          vendor == o.vendor &&
-          version == o.version
+          vendor == o.vendor
     end
 
     # @see the `==` method
@@ -219,7 +209,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [app_classification, file_properties, file_size, file_type, filename, md5, magic_file_type, sha1, sha256, vendor, version].hash
+      [app_classification, file_properties, file_size, file_type, filename, md5, magic_file_type, sha1, sha256, vendor].hash
     end
 
     # Builds the object from hash

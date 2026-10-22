@@ -81,7 +81,7 @@ module Falcon
         :'business_impact' => :'Array<String>',
         :'cid' => :'String',
         :'cloud' => :'EvaluationsEvaluationCloud',
-        :'cloud_groups' => :'Array<DomainCloudScope>',
+        :'cloud_groups' => :'Array<CloudScope>',
         :'cloud_groups_v2' => :'Array<DomainCloudGroup>',
         :'cloud_labels' => :'Array<ClassificationLabel>',
         :'environment' => :'Array<String>',

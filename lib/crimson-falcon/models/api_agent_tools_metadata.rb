@@ -33,10 +33,16 @@ module Falcon
   class ApiAgentToolsMetadata
     attr_accessor :enabled
 
+    attr_accessor :instruction_to_agents
+
+    attr_accessor :require_human_approval
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'enabled' => :'enabled'
+        :'enabled' => :'enabled',
+        :'instruction_to_agents' => :'instruction_to_agents',
+        :'require_human_approval' => :'require_human_approval'
       }
     end
 
@@ -48,7 +54,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'enabled' => :'Boolean'
+        :'enabled' => :'Boolean',
+        :'instruction_to_agents' => :'String',
+        :'require_human_approval' => :'Boolean'
       }
     end
 
@@ -76,6 +84,14 @@ module Falcon
       if attributes.key?(:'enabled')
         self.enabled = attributes[:'enabled']
       end
+
+      if attributes.key?(:'instruction_to_agents')
+        self.instruction_to_agents = attributes[:'instruction_to_agents']
+      end
+
+      if attributes.key?(:'require_human_approval')
+        self.require_human_approval = attributes[:'require_human_approval']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -101,7 +117,9 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          enabled == o.enabled
+          enabled == o.enabled &&
+          instruction_to_agents == o.instruction_to_agents &&
+          require_human_approval == o.require_human_approval
     end
 
     # @see the `==` method
@@ -113,7 +131,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [enabled].hash
+      [enabled, instruction_to_agents, require_human_approval].hash
     end
 
     # Builds the object from hash

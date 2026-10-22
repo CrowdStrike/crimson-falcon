@@ -35,6 +35,172 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Fetch 1–100 objects by key in a single request. Duplicate keys are deduped so fewer items may be returned than requested. When the response would exceed max configured limit the result is truncated: the object that crosses the budget is always included, and omitted keys are reported in the errors array (worst-case response size is the budget plus one maximum object size). Keys are passed as repeated object_keys query parameters; very long keys can hit ingress URL-length limits.
+    # @param collection_name [String] The name of the collection
+    # @param object_keys [Array<String>] A set of object keys to fetch
+    # @param [Hash] opts the optional parameters
+    # @return [CustomType2728568081]
+    def batch_get_objects(collection_name, object_keys, opts = {})
+      data, _status_code, _headers = batch_get_objects_with_http_info(collection_name, object_keys, opts)
+      data
+    end
+
+    # Fetch 1–100 objects by key in a single request. Duplicate keys are deduped so fewer items may be returned than requested. When the response would exceed max configured limit the result is truncated: the object that crosses the budget is always included, and omitted keys are reported in the errors array (worst-case response size is the budget plus one maximum object size). Keys are passed as repeated object_keys query parameters; very long keys can hit ingress URL-length limits.
+    # @param collection_name [String] The name of the collection
+    # @param object_keys [Array<String>] A set of object keys to fetch
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CustomType2728568081, Integer, Hash)>] CustomType2728568081 data, response status code and response headers
+    def batch_get_objects_with_http_info(collection_name, object_keys, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CustomStorage.batch_get_objects ...'
+      end
+      # verify the required parameter 'collection_name' is set
+      if @api_client.config.client_side_validation && collection_name.nil?
+        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorage.batch_get_objects"
+      end
+      if @api_client.config.client_side_validation && collection_name.to_s.length > 255
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorage.batch_get_objects, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && collection_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorage.batch_get_objects, the character length must be great than or equal to 1.'
+      end
+
+      # verify the required parameter 'object_keys' is set
+      if @api_client.config.client_side_validation && object_keys.nil?
+        fail ArgumentError, "Missing the required parameter 'object_keys' when calling CustomStorage.batch_get_objects"
+      end
+      # resource path
+      local_var_path = '/customobjects/v1/collections/{collection_name}/objects-batch'.sub('{' + 'collection_name' + '}', CGI.escape(collection_name.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'object_keys'] = @api_client.build_collection_param(object_keys, :csv)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomType2728568081'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CustomStorage.batch_get_objects",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CustomStorage#batch_get_objects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Fetch 1–100 objects by key in a single request. Duplicate keys are deduped so fewer items may be returned than requested. When the response would exceed max configured limit the result is truncated: the object that crosses the budget is always included, and omitted keys are reported in the errors array (worst-case response size is the budget plus one maximum object size). Keys are passed as repeated object_keys query parameters; very long keys can hit ingress URL-length limits.
+    # @param collection_name [String] The name of the collection
+    # @param collection_version [String] The version of the collection
+    # @param object_keys [Array<String>] A set of object keys to fetch
+    # @param [Hash] opts the optional parameters
+    # @return [CustomType2728568081]
+    def batch_get_objects_by_version(collection_name, collection_version, object_keys, opts = {})
+      data, _status_code, _headers = batch_get_objects_by_version_with_http_info(collection_name, collection_version, object_keys, opts)
+      data
+    end
+
+    # Fetch 1–100 objects by key in a single request. Duplicate keys are deduped so fewer items may be returned than requested. When the response would exceed max configured limit the result is truncated: the object that crosses the budget is always included, and omitted keys are reported in the errors array (worst-case response size is the budget plus one maximum object size). Keys are passed as repeated object_keys query parameters; very long keys can hit ingress URL-length limits.
+    # @param collection_name [String] The name of the collection
+    # @param collection_version [String] The version of the collection
+    # @param object_keys [Array<String>] A set of object keys to fetch
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CustomType2728568081, Integer, Hash)>] CustomType2728568081 data, response status code and response headers
+    def batch_get_objects_by_version_with_http_info(collection_name, collection_version, object_keys, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CustomStorage.batch_get_objects_by_version ...'
+      end
+      # verify the required parameter 'collection_name' is set
+      if @api_client.config.client_side_validation && collection_name.nil?
+        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorage.batch_get_objects_by_version"
+      end
+      if @api_client.config.client_side_validation && collection_name.to_s.length > 255
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorage.batch_get_objects_by_version, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && collection_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorage.batch_get_objects_by_version, the character length must be great than or equal to 1.'
+      end
+
+      # verify the required parameter 'collection_version' is set
+      if @api_client.config.client_side_validation && collection_version.nil?
+        fail ArgumentError, "Missing the required parameter 'collection_version' when calling CustomStorage.batch_get_objects_by_version"
+      end
+      if @api_client.config.client_side_validation && collection_version.to_s.length > 20
+        fail ArgumentError, 'invalid value for "collection_version" when calling CustomStorage.batch_get_objects_by_version, the character length must be smaller than or equal to 20.'
+      end
+
+      if @api_client.config.client_side_validation && collection_version.to_s.length < 1
+        fail ArgumentError, 'invalid value for "collection_version" when calling CustomStorage.batch_get_objects_by_version, the character length must be great than or equal to 1.'
+      end
+
+      # verify the required parameter 'object_keys' is set
+      if @api_client.config.client_side_validation && object_keys.nil?
+        fail ArgumentError, "Missing the required parameter 'object_keys' when calling CustomStorage.batch_get_objects_by_version"
+      end
+      # resource path
+      local_var_path = '/customobjects/v1/collections/{collection_name}/{collection_version}/objects-batch'.sub('{' + 'collection_name' + '}', CGI.escape(collection_name.to_s)).sub('{' + 'collection_version' + '}', CGI.escape(collection_version.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'object_keys'] = @api_client.build_collection_param(object_keys, :csv)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomType2728568081'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CustomStorage.batch_get_objects_by_version",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CustomStorage#batch_get_objects_by_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete the specified object
     # @param collection_name [String] The name of the collection
     # @param object_key [String] The object key

@@ -33,6 +33,8 @@ module Falcon
   class CorrelationrulesapiAnomalyV1
     attr_accessor :event_field_names
 
+    attr_accessor :event_field_operation
+
     attr_accessor :lookback_timeframe
 
     attr_accessor :scopes
@@ -45,6 +47,7 @@ module Falcon
     def self.attribute_map
       {
         :'event_field_names' => :'event_field_names',
+        :'event_field_operation' => :'event_field_operation',
         :'lookback_timeframe' => :'lookback_timeframe',
         :'scopes' => :'scopes',
         :'type' => :'type',
@@ -61,6 +64,7 @@ module Falcon
     def self.openapi_types
       {
         :'event_field_names' => :'Array<String>',
+        :'event_field_operation' => :'String',
         :'lookback_timeframe' => :'String',
         :'scopes' => :'Array<CorrelationrulesapiAnomalyScopes>',
         :'type' => :'String',
@@ -95,6 +99,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'event_field_operation')
+        self.event_field_operation = attributes[:'event_field_operation']
+      end
+
       if attributes.key?(:'lookback_timeframe')
         self.lookback_timeframe = attributes[:'lookback_timeframe']
       end
@@ -122,6 +130,10 @@ module Falcon
         invalid_properties.push('invalid value for "event_field_names", event_field_names cannot be nil.')
       end
 
+      if @event_field_operation.nil?
+        invalid_properties.push('invalid value for "event_field_operation", event_field_operation cannot be nil.')
+      end
+
       if @lookback_timeframe.nil?
         invalid_properties.push('invalid value for "lookback_timeframe", lookback_timeframe cannot be nil.')
       end
@@ -145,6 +157,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @event_field_names.nil?
+      return false if @event_field_operation.nil?
       return false if @lookback_timeframe.nil?
       return false if @scopes.nil?
       return false if @type.nil?
@@ -158,6 +171,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           event_field_names == o.event_field_names &&
+          event_field_operation == o.event_field_operation &&
           lookback_timeframe == o.lookback_timeframe &&
           scopes == o.scopes &&
           type == o.type &&
@@ -173,7 +187,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event_field_names, lookback_timeframe, scopes, type, use_established_entity_only].hash
+      [event_field_names, event_field_operation, lookback_timeframe, scopes, type, use_established_entity_only].hash
     end
 
     # Builds the object from hash

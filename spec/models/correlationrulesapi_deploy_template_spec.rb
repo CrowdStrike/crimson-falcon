@@ -41,6 +41,12 @@ describe Falcon::CorrelationrulesapiDeployTemplate do
       expect(instance).to be_instance_of(Falcon::CorrelationrulesapiDeployTemplate)
     end
   end
+  describe 'test attribute "anomaly"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "comment"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

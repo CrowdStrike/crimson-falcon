@@ -35,11 +35,14 @@ module Falcon
 
     attr_accessor :severity
 
+    attr_accessor :title
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'description' => :'description',
-        :'severity' => :'severity'
+        :'severity' => :'severity',
+        :'title' => :'title'
       }
     end
 
@@ -52,7 +55,8 @@ module Falcon
     def self.openapi_types
       {
         :'description' => :'String',
-        :'severity' => :'String'
+        :'severity' => :'String',
+        :'title' => :'String'
       }
     end
 
@@ -84,6 +88,10 @@ module Falcon
       if attributes.key?(:'severity')
         self.severity = attributes[:'severity']
       end
+
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -98,6 +106,10 @@ module Falcon
         invalid_properties.push('invalid value for "severity", severity cannot be nil.')
       end
 
+      if @title.nil?
+        invalid_properties.push('invalid value for "title", title cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -106,6 +118,7 @@ module Falcon
     def valid?
       return false if @description.nil?
       return false if @severity.nil?
+      return false if @title.nil?
       true
     end
 
@@ -115,7 +128,8 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           description == o.description &&
-          severity == o.severity
+          severity == o.severity &&
+          title == o.title
     end
 
     # @see the `==` method
@@ -127,7 +141,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, severity].hash
+      [description, severity, title].hash
     end
 
     # Builds the object from hash

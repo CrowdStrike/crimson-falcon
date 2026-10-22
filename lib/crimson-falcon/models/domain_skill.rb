@@ -47,6 +47,8 @@ module Falcon
 
     attr_accessor :name
 
+    attr_accessor :project_id
+
     attr_accessor :updated_at
 
     attr_accessor :updated_by
@@ -62,6 +64,7 @@ module Falcon
         :'is_deleted' => :'is_deleted',
         :'metadata' => :'metadata',
         :'name' => :'name',
+        :'project_id' => :'project_id',
         :'updated_at' => :'updated_at',
         :'updated_by' => :'updated_by'
       }
@@ -83,6 +86,7 @@ module Falcon
         :'is_deleted' => :'Boolean',
         :'metadata' => :'Hash<String, String>',
         :'name' => :'String',
+        :'project_id' => :'String',
         :'updated_at' => :'Time',
         :'updated_by' => :'DomainUser'
       }
@@ -141,6 +145,10 @@ module Falcon
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'project_id')
+        self.project_id = attributes[:'project_id']
       end
 
       if attributes.key?(:'updated_at')
@@ -218,6 +226,7 @@ module Falcon
           is_deleted == o.is_deleted &&
           metadata == o.metadata &&
           name == o.name &&
+          project_id == o.project_id &&
           updated_at == o.updated_at &&
           updated_by == o.updated_by
     end
@@ -231,7 +240,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [attribution, created_at, created_by, description, id, is_deleted, metadata, name, updated_at, updated_by].hash
+      [attribution, created_at, created_by, description, id, is_deleted, metadata, name, project_id, updated_at, updated_by].hash
     end
 
     # Builds the object from hash

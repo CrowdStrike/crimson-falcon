@@ -41,6 +41,8 @@ module Falcon
 
     attr_accessor :group_ids
 
+    attr_accessor :mac_block_on_timeout
+
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -51,6 +53,7 @@ module Falcon
         :'enable_rename_detection' => :'enable_rename_detection',
         :'executable_name' => :'executable_name',
         :'group_ids' => :'group_ids',
+        :'mac_block_on_timeout' => :'mac_block_on_timeout',
         :'name' => :'name'
       }
     end
@@ -68,6 +71,7 @@ module Falcon
         :'enable_rename_detection' => :'Boolean',
         :'executable_name' => :'String',
         :'group_ids' => :'Array<String>',
+        :'mac_block_on_timeout' => :'Boolean',
         :'name' => :'String'
       }
     end
@@ -115,6 +119,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'mac_block_on_timeout')
+        self.mac_block_on_timeout = attributes[:'mac_block_on_timeout']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -144,6 +152,10 @@ module Falcon
         invalid_properties.push('invalid value for "group_ids", group_ids cannot be nil.')
       end
 
+      if @mac_block_on_timeout.nil?
+        invalid_properties.push('invalid value for "mac_block_on_timeout", mac_block_on_timeout cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -155,6 +167,7 @@ module Falcon
       return false if @enable_rename_detection.nil?
       return false if @executable_name.nil?
       return false if @group_ids.nil?
+      return false if @mac_block_on_timeout.nil?
       true
     end
 
@@ -168,6 +181,7 @@ module Falcon
           enable_rename_detection == o.enable_rename_detection &&
           executable_name == o.executable_name &&
           group_ids == o.group_ids &&
+          mac_block_on_timeout == o.mac_block_on_timeout &&
           name == o.name
     end
 
@@ -180,7 +194,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [apply_rules_for_children_processes, emit_rule_matched_events_only, enable_rename_detection, executable_name, group_ids, name].hash
+      [apply_rules_for_children_processes, emit_rule_matched_events_only, enable_rename_detection, executable_name, group_ids, mac_block_on_timeout, name].hash
     end
 
     # Builds the object from hash

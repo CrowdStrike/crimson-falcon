@@ -31,8 +31,6 @@ require 'time'
 
 module Falcon
   class SystemLogGetSystemLogs
-    attr_accessor :account_id
-
     attr_accessor :action
 
     attr_accessor :event_time
@@ -54,7 +52,6 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
         :'action' => :'action',
         :'event_time' => :'event_time',
         :'id' => :'id',
@@ -75,7 +72,6 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
         :'action' => :'String',
         :'event_time' => :'Time',
         :'id' => :'String',
@@ -108,10 +104,6 @@ module Falcon
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
 
       if attributes.key?(:'action')
         self.action = attributes[:'action']
@@ -154,10 +146,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
       if @action.nil?
         invalid_properties.push('invalid value for "action", action cannot be nil.')
       end
@@ -224,7 +212,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
       return false if @action.nil?
       return false if @action.to_s.length < 1
       return false if @event_time.nil?
@@ -332,7 +319,6 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
           action == o.action &&
           event_time == o.event_time &&
           id == o.id &&
@@ -353,7 +339,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, action, event_time, id, integration_alias, integration_id, method, saas_name, source_ip, status].hash
+      [action, event_time, id, integration_alias, integration_id, method, saas_name, source_ip, status].hash
     end
 
     # Builds the object from hash

@@ -31,28 +31,46 @@ require 'time'
 
 module Falcon
   class ApiLocalApplication
+    # Whether rules for this application also apply to its child processes
     attr_accessor :apply_rules_for_children_processes
 
+    # Customer identifier that owns the local application
     attr_accessor :cid
 
+    # Timestamp when the local application was created
     attr_accessor :created_at
 
+    # Whether the local application is soft-deleted
     attr_accessor :deleted
 
+    # Timestamp when the local application was soft-deleted
     attr_accessor :deleted_at
 
+    # Whether to emit only events that match a rule
     attr_accessor :emit_rule_matched_events_only
 
+    # Whether executable rename detection is enabled
     attr_accessor :enable_rename_detection
 
+    # Name of the executable used to identify the local application
     attr_accessor :executable_name
 
+    # Identifiers of the local application groups that contain this application
     attr_accessor :group_ids
 
+    # Unique identifier of the local application
     attr_accessor :id
 
+    # Mac only. Whether to block application activity when inspection times out. Defaults is false
+    attr_accessor :mac_block_on_timeout
+
+    # Display name of the local application
     attr_accessor :name
 
+    # Operating system platform of the local application; accepts 'win' or 'mac'
+    attr_accessor :platform
+
+    # Timestamp when the local application was last updated
     attr_accessor :updated_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -68,7 +86,9 @@ module Falcon
         :'executable_name' => :'executable_name',
         :'group_ids' => :'group_ids',
         :'id' => :'id',
+        :'mac_block_on_timeout' => :'mac_block_on_timeout',
         :'name' => :'name',
+        :'platform' => :'platform',
         :'updated_at' => :'updated_at'
       }
     end
@@ -91,7 +111,9 @@ module Falcon
         :'executable_name' => :'String',
         :'group_ids' => :'Array<String>',
         :'id' => :'String',
+        :'mac_block_on_timeout' => :'Boolean',
         :'name' => :'String',
+        :'platform' => :'String',
         :'updated_at' => :'Time'
       }
     end
@@ -159,8 +181,16 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'mac_block_on_timeout')
+        self.mac_block_on_timeout = attributes[:'mac_block_on_timeout']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'platform')
+        self.platform = attributes[:'platform']
       end
 
       if attributes.key?(:'updated_at')
@@ -212,8 +242,16 @@ module Falcon
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
+      if @mac_block_on_timeout.nil?
+        invalid_properties.push('invalid value for "mac_block_on_timeout", mac_block_on_timeout cannot be nil.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @platform.nil?
+        invalid_properties.push('invalid value for "platform", platform cannot be nil.')
       end
 
       if @updated_at.nil?
@@ -236,7 +274,9 @@ module Falcon
       return false if @executable_name.nil?
       return false if @group_ids.nil?
       return false if @id.nil?
+      return false if @mac_block_on_timeout.nil?
       return false if @name.nil?
+      return false if @platform.nil?
       return false if @updated_at.nil?
       true
     end
@@ -256,7 +296,9 @@ module Falcon
           executable_name == o.executable_name &&
           group_ids == o.group_ids &&
           id == o.id &&
+          mac_block_on_timeout == o.mac_block_on_timeout &&
           name == o.name &&
+          platform == o.platform &&
           updated_at == o.updated_at
     end
 
@@ -269,7 +311,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [apply_rules_for_children_processes, cid, created_at, deleted, deleted_at, emit_rule_matched_events_only, enable_rename_detection, executable_name, group_ids, id, name, updated_at].hash
+      [apply_rules_for_children_processes, cid, created_at, deleted, deleted_at, emit_rule_matched_events_only, enable_rename_detection, executable_name, group_ids, id, mac_block_on_timeout, name, platform, updated_at].hash
     end
 
     # Builds the object from hash

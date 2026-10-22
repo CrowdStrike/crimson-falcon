@@ -47,6 +47,8 @@ module Falcon
 
     attr_accessor :parent_span_id
 
+    attr_accessor :project_id
+
     attr_accessor :span_id
 
     attr_accessor :span_type
@@ -68,6 +70,7 @@ module Falcon
         :'id' => :'id',
         :'name' => :'name',
         :'parent_span_id' => :'parent_span_id',
+        :'project_id' => :'project_id',
         :'span_id' => :'span_id',
         :'span_type' => :'span_type',
         :'start_time' => :'start_time',
@@ -92,6 +95,7 @@ module Falcon
         :'id' => :'String',
         :'name' => :'String',
         :'parent_span_id' => :'String',
+        :'project_id' => :'String',
         :'span_id' => :'String',
         :'span_type' => :'String',
         :'start_time' => :'Time',
@@ -151,6 +155,10 @@ module Falcon
 
       if attributes.key?(:'parent_span_id')
         self.parent_span_id = attributes[:'parent_span_id']
+      end
+
+      if attributes.key?(:'project_id')
+        self.project_id = attributes[:'project_id']
       end
 
       if attributes.key?(:'span_id')
@@ -250,6 +258,7 @@ module Falcon
           id == o.id &&
           name == o.name &&
           parent_span_id == o.parent_span_id &&
+          project_id == o.project_id &&
           span_id == o.span_id &&
           span_type == o.span_type &&
           start_time == o.start_time &&
@@ -266,7 +275,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [attributes, created_by, duration_ms, end_time, error, id, name, parent_span_id, span_id, span_type, start_time, status, trace_id].hash
+      [attributes, created_by, duration_ms, end_time, error, id, name, parent_span_id, project_id, span_id, span_type, start_time, status, trace_id].hash
     end
 
     # Builds the object from hash

@@ -41,31 +41,19 @@ describe Falcon::SecurityCheckChangeLogEntryGetSecurityCheckChangeLog do
       expect(instance).to be_instance_of(Falcon::SecurityCheckChangeLogEntryGetSecurityCheckChangeLog)
     end
   end
-  describe 'test attribute "account_id"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   describe 'test attribute "action"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  describe 'test attribute "app_display_name"' do
+  describe 'test attribute "app"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
   describe 'test attribute "changed_at"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  describe 'test attribute "check_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -114,12 +102,6 @@ describe Falcon::SecurityCheckChangeLogEntryGetSecurityCheckChangeLog do
   end
 
   describe 'test attribute "previous_value"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  describe 'test attribute "saas_name"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

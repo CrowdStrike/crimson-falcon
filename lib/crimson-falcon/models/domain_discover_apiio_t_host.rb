@@ -426,6 +426,12 @@ module Falcon
     # The product type of the asset (Workstation, Domain Controller, Server).
     attr_accessor :product_type_desc
 
+    # The list of encrypted drives on the host whose protection is suspended, meaning the volume key is stored in the clear
+    attr_accessor :protection_suspended_drives
+
+    # The count of encrypted drives on the host whose protection is suspended
+    attr_accessor :protection_suspended_drives_count
+
     # The list of protocols supported by the device
     attr_accessor :protocols
 
@@ -648,6 +654,8 @@ module Falcon
         :'processor_package_count' => :'processor_package_count',
         :'product_type' => :'product_type',
         :'product_type_desc' => :'product_type_desc',
+        :'protection_suspended_drives' => :'protection_suspended_drives',
+        :'protection_suspended_drives_count' => :'protection_suspended_drives_count',
         :'protocols' => :'protocols',
         :'purdue_level' => :'purdue_level',
         :'reduced_functionality_mode' => :'reduced_functionality_mode',
@@ -821,6 +829,8 @@ module Falcon
         :'processor_package_count' => :'Integer',
         :'product_type' => :'String',
         :'product_type_desc' => :'String',
+        :'protection_suspended_drives' => :'Array<String>',
+        :'protection_suspended_drives_count' => :'Integer',
         :'protocols' => :'Array<String>',
         :'purdue_level' => :'String',
         :'reduced_functionality_mode' => :'String',
@@ -1468,6 +1478,16 @@ module Falcon
         self.product_type_desc = attributes[:'product_type_desc']
       end
 
+      if attributes.key?(:'protection_suspended_drives')
+        if (value = attributes[:'protection_suspended_drives']).is_a?(Array)
+          self.protection_suspended_drives = value
+        end
+      end
+
+      if attributes.key?(:'protection_suspended_drives_count')
+        self.protection_suspended_drives_count = attributes[:'protection_suspended_drives_count']
+      end
+
       if attributes.key?(:'protocols')
         if (value = attributes[:'protocols']).is_a?(Array)
           self.protocols = value
@@ -1762,6 +1782,8 @@ module Falcon
           processor_package_count == o.processor_package_count &&
           product_type == o.product_type &&
           product_type_desc == o.product_type_desc &&
+          protection_suspended_drives == o.protection_suspended_drives &&
+          protection_suspended_drives_count == o.protection_suspended_drives_count &&
           protocols == o.protocols &&
           purdue_level == o.purdue_level &&
           reduced_functionality_mode == o.reduced_functionality_mode &&
@@ -1802,7 +1824,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_enabled, ad_user_account_control, ad_virtual_server, agent_version, aid, all_subnets, asset_roles, assigned_to, available_disk_space, available_disk_space_pct, average_memory_usage, average_memory_usage_pct, average_processor_usage, bios_hashes_data, bios_id, bios_manufacturer, bios_version, business_criticality, cid, city, claroty_id, classification, composite_internet_exposure, computed_asset_roles, computed_internet_exposure, computed_internet_exposure_external_ip, computed_internet_exposure_last_seen, confidence, country, cpu_manufacturer, cpu_processor_name, creation_timestamp, criticality, criticality_description, criticality_numerical, criticality_rule_id, criticality_timestamp, criticality_username, current_local_ip, current_network_prefix, data_providers, data_providers_count, department, deployment_type, descriptions, device_class, device_family, device_mode, device_slots, device_type, discoverer_aids, discoverer_count, discoverer_criticalities, discoverer_hostnames, discoverer_ics_collector_ids, discoverer_platform_names, discoverer_product_type_descs, discoverer_tags, discovering_by, disk_sizes, dragos_id, email, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_discoverer_aid, first_seen_timestamp, form_factor, fqdn, groups, hardware_version, hostname, ics_id, id, imported_host_id, internet_exposure, internet_exposure_description, internet_exposure_timestamp, internet_exposure_username, iot_imported, iot_tags, kernel_version, last_discoverer_aid, last_discoverer_hostname, last_discoverer_ics_collector_id, last_seen_timestamp, link_address, linux_sensor_mode, local_ip_addresses, local_ips_count, location, logical_core_count, mac_addresses, machine_domain, managed_by, max_memory_usage, max_memory_usage_pct, max_processor_usage, memory_total, mount_storage_info, multi_nic_ip_addresses, network_id, network_interfaces, nozomi_id, number_of_disk_drives, object_guid, object_sid, os_is_eol, os_security, os_service_pack, os_version, ot_behavioral_profile, ot_information_sources, ot_network_ids, ot_observed_operations, ot_platform, ot_platform_version, ot_serial_numbers, ou, ous, override_asset_roles, override_criticality_rules, override_internet_exposure, owned_by, pcap_passive_id, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, protocols, purdue_level, reduced_functionality_mode, servicenow_id, site_name, state, subnet, subnet_history, system_manufacturer, system_product_name, system_serial_number, tags, total_bios_files, total_disk_space, total_memory, triage, unencrypted_drives, unencrypted_drives_count, used_disk_space, used_disk_space_pct, used_for, user_asset_roles, user_internet_exposure, virtual_zone, vlan, xdome_id, xiot_discoverer_hostnames, xiot_discoverer_tags, xiot_last_discoverer_hostname].hash
+      [account_enabled, ad_user_account_control, ad_virtual_server, agent_version, aid, all_subnets, asset_roles, assigned_to, available_disk_space, available_disk_space_pct, average_memory_usage, average_memory_usage_pct, average_processor_usage, bios_hashes_data, bios_id, bios_manufacturer, bios_version, business_criticality, cid, city, claroty_id, classification, composite_internet_exposure, computed_asset_roles, computed_internet_exposure, computed_internet_exposure_external_ip, computed_internet_exposure_last_seen, confidence, country, cpu_manufacturer, cpu_processor_name, creation_timestamp, criticality, criticality_description, criticality_numerical, criticality_rule_id, criticality_timestamp, criticality_username, current_local_ip, current_network_prefix, data_providers, data_providers_count, department, deployment_type, descriptions, device_class, device_family, device_mode, device_slots, device_type, discoverer_aids, discoverer_count, discoverer_criticalities, discoverer_hostnames, discoverer_ics_collector_ids, discoverer_platform_names, discoverer_product_type_descs, discoverer_tags, discovering_by, disk_sizes, dragos_id, email, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_discoverer_aid, first_seen_timestamp, form_factor, fqdn, groups, hardware_version, hostname, ics_id, id, imported_host_id, internet_exposure, internet_exposure_description, internet_exposure_timestamp, internet_exposure_username, iot_imported, iot_tags, kernel_version, last_discoverer_aid, last_discoverer_hostname, last_discoverer_ics_collector_id, last_seen_timestamp, link_address, linux_sensor_mode, local_ip_addresses, local_ips_count, location, logical_core_count, mac_addresses, machine_domain, managed_by, max_memory_usage, max_memory_usage_pct, max_processor_usage, memory_total, mount_storage_info, multi_nic_ip_addresses, network_id, network_interfaces, nozomi_id, number_of_disk_drives, object_guid, object_sid, os_is_eol, os_security, os_service_pack, os_version, ot_behavioral_profile, ot_information_sources, ot_network_ids, ot_observed_operations, ot_platform, ot_platform_version, ot_serial_numbers, ou, ous, override_asset_roles, override_criticality_rules, override_internet_exposure, owned_by, pcap_passive_id, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, protection_suspended_drives, protection_suspended_drives_count, protocols, purdue_level, reduced_functionality_mode, servicenow_id, site_name, state, subnet, subnet_history, system_manufacturer, system_product_name, system_serial_number, tags, total_bios_files, total_disk_space, total_memory, triage, unencrypted_drives, unencrypted_drives_count, used_disk_space, used_disk_space_pct, used_for, user_asset_roles, user_internet_exposure, virtual_zone, vlan, xdome_id, xiot_discoverer_hostnames, xiot_discoverer_tags, xiot_last_discoverer_hostname].hash
     end
 
     # Builds the object from hash

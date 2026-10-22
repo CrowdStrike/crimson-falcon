@@ -31,8 +31,6 @@ require 'time'
 
 module Falcon
   class DeviceGetDeviceInventory
-    attr_accessor :account_id
-
     attr_accessor :apps_count
 
     attr_accessor :device_name
@@ -68,7 +66,6 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
         :'apps_count' => :'apps_count',
         :'device_name' => :'device_name',
         :'globally_compliant' => :'globally_compliant',
@@ -96,7 +93,6 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
         :'apps_count' => :'Integer',
         :'device_name' => :'String',
         :'globally_compliant' => :'String',
@@ -150,10 +146,6 @@ module Falcon
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
 
       if attributes.key?(:'apps_count')
         self.apps_count = attributes[:'apps_count']
@@ -230,10 +222,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
       if @device_name.to_s.length < 1
         invalid_properties.push('invalid value for "device_name", the character length must be great than or equal to 1.')
       end
@@ -284,7 +272,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
       return false if @device_name.to_s.length < 1
       return false if @globally_compliant.to_s.length < 1
       return false if @globally_managed.to_s.length < 1
@@ -398,7 +385,6 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
           apps_count == o.apps_count &&
           device_name == o.device_name &&
           globally_compliant == o.globally_compliant &&
@@ -426,7 +412,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, apps_count, device_name, globally_compliant, globally_managed, has_user_association, id, last_seen, mac_address_list, os, os_version, platform, privileged_roles_count, reported_apps, reporters, user_email, user_exists].hash
+      [apps_count, device_name, globally_compliant, globally_managed, has_user_association, id, last_seen, mac_address_list, os, os_version, platform, privileged_roles_count, reported_apps, reporters, user_email, user_exists].hash
     end
 
     # Builds the object from hash

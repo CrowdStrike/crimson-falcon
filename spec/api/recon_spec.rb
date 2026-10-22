@@ -310,10 +310,10 @@ describe 'Recon' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :offset Starting index of overall result set from which to return IDs.
   # @option opts [Integer] :limit Number of IDs to return. Offset + limit should NOT be above 10K.
-  # @option opts [String] :sort Possible order by fields: created_timestamp,last_updated_timestamp,permissions,priority,template_priority,topic. Ex: &#x60;last_updated_timestamp|desc&#x60;.
+  # @option opts [String] :sort Possible order by fields: ai_summaries_risk_score_threshold,created_timestamp,last_updated_timestamp,permissions,priority,template_priority,topic. Ex: &#x60;last_updated_timestamp|desc&#x60;.
   # @option opts [String] :filter FQL query to filter rules by. Possible filter properties are: [id cid user_uuid topic priority permissions status filter breach_monitoring_enabled substring_matching_enabled created_timestamp last_updated_timestamp].
   # @option opts [String] :q Free text search across all indexed fields.
-  # @option opts [String] :secondary_sort Possible order by fields: created_timestamp,last_updated_timestamp,permissions,priority,template_priority,topic. Ex: &#x60;last_updated_timestamp|desc&#x60;.
+  # @option opts [String] :secondary_sort Possible order by fields: ai_summaries_risk_score_threshold,created_timestamp,last_updated_timestamp,permissions,priority,template_priority,topic. Ex: &#x60;last_updated_timestamp|desc&#x60;.
   # @return [DomainRuleQueryResponseV1]
   describe 'query_rules_v1 test' do
     it 'should work' do

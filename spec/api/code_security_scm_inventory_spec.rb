@@ -48,6 +48,17 @@ describe 'CodeSecurityScmInventory' do
     end
   end
 
+  # unit tests for get_pull_job
+  # Get the status/artifact of an on-demand pull job
+  # @param pull_job_id Pull job UUID
+  # @param [Hash] opts the optional parameters
+  # @return [ApiResponse]
+  describe 'get_pull_job test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_scm_repository_aggregates
   # Get distinct values with counts for a repository field
   # @param field Field to aggregate: name, primary_language, visibility, artifact_types, topics, owner_org, default_branch
@@ -69,6 +80,17 @@ describe 'CodeSecurityScmInventory' do
   # @option opts [Integer] :offset Starting offset for pagination
   # @return [ApiResponse]
   describe 'list_scm_repositories test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for list_scm_repository_branches
+  # List branches for a repository
+  # @param repository_id Repository UUID
+  # @param [Hash] opts the optional parameters
+  # @return [ApiResponse]
+  describe 'list_scm_repository_branches test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

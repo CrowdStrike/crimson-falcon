@@ -33,6 +33,8 @@ module Falcon
   class PatchdeployerapiHostDeployment
     attr_accessor :aid
 
+    attr_accessor :completed_at
+
     attr_accessor :country
 
     attr_accessor :deployment_execution_id
@@ -59,6 +61,8 @@ module Falcon
 
     attr_accessor :stages
 
+    attr_accessor :started_at
+
     attr_accessor :status
 
     attr_accessor :tags
@@ -69,6 +73,7 @@ module Falcon
     def self.attribute_map
       {
         :'aid' => :'aid',
+        :'completed_at' => :'completed_at',
         :'country' => :'country',
         :'deployment_execution_id' => :'deployment_execution_id',
         :'description' => :'description',
@@ -82,6 +87,7 @@ module Falcon
         :'os_version' => :'os_version',
         :'stage' => :'stage',
         :'stages' => :'stages',
+        :'started_at' => :'started_at',
         :'status' => :'status',
         :'tags' => :'tags',
         :'total_patches' => :'total_patches'
@@ -97,6 +103,7 @@ module Falcon
     def self.openapi_types
       {
         :'aid' => :'String',
+        :'completed_at' => :'Time',
         :'country' => :'String',
         :'deployment_execution_id' => :'String',
         :'description' => :'String',
@@ -110,6 +117,7 @@ module Falcon
         :'os_version' => :'String',
         :'stage' => :'String',
         :'stages' => :'Array<PatchdeployerapiStageStatus>',
+        :'started_at' => :'Time',
         :'status' => :'String',
         :'tags' => :'Array<String>',
         :'total_patches' => :'Integer'
@@ -139,6 +147,10 @@ module Falcon
 
       if attributes.key?(:'aid')
         self.aid = attributes[:'aid']
+      end
+
+      if attributes.key?(:'completed_at')
+        self.completed_at = attributes[:'completed_at']
       end
 
       if attributes.key?(:'country')
@@ -195,6 +207,10 @@ module Falcon
         if (value = attributes[:'stages']).is_a?(Array)
           self.stages = value
         end
+      end
+
+      if attributes.key?(:'started_at')
+        self.started_at = attributes[:'started_at']
       end
 
       if attributes.key?(:'status')
@@ -296,6 +312,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           aid == o.aid &&
+          completed_at == o.completed_at &&
           country == o.country &&
           deployment_execution_id == o.deployment_execution_id &&
           description == o.description &&
@@ -309,6 +326,7 @@ module Falcon
           os_version == o.os_version &&
           stage == o.stage &&
           stages == o.stages &&
+          started_at == o.started_at &&
           status == o.status &&
           tags == o.tags &&
           total_patches == o.total_patches
@@ -323,7 +341,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aid, country, deployment_execution_id, description, device_type, host_groups, hostname, id, installation_duration_seconds, installed_patches, organizational_unit, os_version, stage, stages, status, tags, total_patches].hash
+      [aid, completed_at, country, deployment_execution_id, description, device_type, host_groups, hostname, id, installation_duration_seconds, installed_patches, organizational_unit, os_version, stage, stages, started_at, status, tags, total_patches].hash
     end
 
     # Builds the object from hash

@@ -33,8 +33,6 @@ module Falcon
   class AiAgentAiAgentsInventory
     attr_accessor :access
 
-    attr_accessor :account_id
-
     attr_accessor :agent_id
 
     attr_accessor :agent_type
@@ -63,7 +61,6 @@ module Falcon
     def self.attribute_map
       {
         :'access' => :'access',
-        :'account_id' => :'account_id',
         :'agent_id' => :'agent_id',
         :'agent_type' => :'agent_type',
         :'creation_date' => :'creation_date',
@@ -88,7 +85,6 @@ module Falcon
     def self.openapi_types
       {
         :'access' => :'String',
-        :'account_id' => :'String',
         :'agent_id' => :'String',
         :'agent_type' => :'String',
         :'creation_date' => :'String',
@@ -128,10 +124,6 @@ module Falcon
 
       if attributes.key?(:'access')
         self.access = attributes[:'access']
-      end
-
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
       end
 
       if attributes.key?(:'agent_id')
@@ -197,10 +189,6 @@ module Falcon
 
       if @access.to_s.length < 1
         invalid_properties.push('invalid value for "access", the character length must be great than or equal to 1.')
-      end
-
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
       end
 
       if @agent_id.to_s.length < 1
@@ -291,7 +279,6 @@ module Falcon
     def valid?
       return false if @access.nil?
       return false if @access.to_s.length < 1
-      return false if @account_id.nil?
       return false if @agent_id.to_s.length < 1
       return false if @agent_type.nil?
       return false if @agent_type.to_s.length < 1
@@ -457,7 +444,6 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           access == o.access &&
-          account_id == o.account_id &&
           agent_id == o.agent_id &&
           agent_type == o.agent_type &&
           creation_date == o.creation_date &&
@@ -481,7 +467,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access, account_id, agent_id, agent_type, creation_date, integration_alias, integration_id, integration_name, interaction_channels, item_id, knowledge_source, name, owner_email, tool_types].hash
+      [access, agent_id, agent_type, creation_date, integration_alias, integration_id, integration_name, interaction_channels, item_id, knowledge_source, name, owner_email, tool_types].hash
     end
 
     # Builds the object from hash

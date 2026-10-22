@@ -31,8 +31,6 @@ require 'time'
 
 module Falcon
   class DataTransactionResponseDtoUploadDataResponse
-    attr_accessor :account_id
-
     attr_accessor :account_integration_id
 
     attr_accessor :last_update
@@ -66,7 +64,6 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
         :'account_integration_id' => :'account_integration_id',
         :'last_update' => :'last_update',
         :'sources' => :'sources',
@@ -82,7 +79,6 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
         :'account_integration_id' => :'String',
         :'last_update' => :'Time',
         :'sources' => :'Array<SourceDataTransactionResponseDtoUploadDataResponse>',
@@ -112,10 +108,6 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
-
       if attributes.key?(:'account_integration_id')
         self.account_integration_id = attributes[:'account_integration_id']
       end
@@ -139,14 +131,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
-      if @account_id.to_s.length < 1
-        invalid_properties.push('invalid value for "account_id", the character length must be great than or equal to 1.')
-      end
-
       if @account_integration_id.nil?
         invalid_properties.push('invalid value for "account_integration_id", account_integration_id cannot be nil.')
       end
@@ -169,8 +153,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
-      return false if @account_id.to_s.length < 1
       return false if @account_integration_id.nil?
       return false if @account_integration_id.to_s.length < 1
       return false if @sources.nil?
@@ -178,20 +160,6 @@ module Falcon
       status_validator = EnumAttributeValidator.new('String', ["cancelled", "closed", "done", "in_progress", "pending"])
       return false unless status_validator.valid?(@status)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] account_id Value to be assigned
-    def account_id=(account_id)
-      if account_id.nil?
-        fail ArgumentError, 'account_id cannot be nil'
-      end
-
-      if account_id.to_s.length < 1
-        fail ArgumentError, 'invalid value for "account_id", the character length must be great than or equal to 1.'
-      end
-
-      @account_id = account_id
     end
 
     # Custom attribute writer method with validation
@@ -223,7 +191,6 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
           account_integration_id == o.account_integration_id &&
           last_update == o.last_update &&
           sources == o.sources &&
@@ -239,7 +206,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_integration_id, last_update, sources, status].hash
+      [account_integration_id, last_update, sources, status].hash
     end
 
     # Builds the object from hash

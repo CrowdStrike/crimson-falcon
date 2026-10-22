@@ -85,6 +85,9 @@ module Falcon
     # Timestamp when the application was installed on the host. We might not have this data.
     attr_accessor :installation_timestamp
 
+    # Whether or not the application is malicious
+    attr_accessor :is_malicious
+
     # Whether or not the application is normalized
     attr_accessor :is_normalized
 
@@ -115,6 +118,9 @@ module Falcon
     # Whether the account has local admin privileges (Yes, No, or Unknown).
     attr_accessor :local_admin_privileges
 
+    # List of malicious risk indicators for this application
+    attr_accessor :malicious_indicators
+
     # The name of the application.
     attr_accessor :name
 
@@ -123,6 +129,9 @@ module Falcon
 
     # The combined field on which we will be able to group by app + version.
     attr_accessor :name_vendor_version
+
+    # The latest available stable version of the application
+    attr_accessor :registry_latest_version_available
 
     # The type of software of the application. Types are application, browser_extension, dev_package, ide_extension
     attr_accessor :software_type
@@ -135,6 +144,9 @@ module Falcon
 
     # List of security risk indicators for this application
     attr_accessor :suspicious_indicators
+
+    # The threat verdict for the application (Malicious, No verdict).
+    attr_accessor :threat_level
 
     # The name the application's vendor.
     attr_accessor :vendor
@@ -167,6 +179,7 @@ module Falcon
         :'ide_extension' => :'ide_extension',
         :'installation_paths' => :'installation_paths',
         :'installation_timestamp' => :'installation_timestamp',
+        :'is_malicious' => :'is_malicious',
         :'is_normalized' => :'is_normalized',
         :'is_suspicious' => :'is_suspicious',
         :'last_published' => :'last_published',
@@ -177,13 +190,16 @@ module Falcon
         :'last_used_user_name' => :'last_used_user_name',
         :'last_used_user_sid' => :'last_used_user_sid',
         :'local_admin_privileges' => :'local_admin_privileges',
+        :'malicious_indicators' => :'malicious_indicators',
         :'name' => :'name',
         :'name_vendor' => :'name_vendor',
         :'name_vendor_version' => :'name_vendor_version',
+        :'registry_latest_version_available' => :'registry_latest_version_available',
         :'software_type' => :'software_type',
         :'store_listing' => :'store_listing',
         :'store_listing_status' => :'store_listing_status',
         :'suspicious_indicators' => :'suspicious_indicators',
+        :'threat_level' => :'threat_level',
         :'vendor' => :'vendor',
         :'version' => :'version',
         :'versioning_scheme' => :'versioning_scheme'
@@ -217,6 +233,7 @@ module Falcon
         :'ide_extension' => :'DomainDiscoverAPIApplicationIDEExtension',
         :'installation_paths' => :'Array<String>',
         :'installation_timestamp' => :'String',
+        :'is_malicious' => :'Boolean',
         :'is_normalized' => :'Boolean',
         :'is_suspicious' => :'Boolean',
         :'last_published' => :'String',
@@ -227,13 +244,16 @@ module Falcon
         :'last_used_user_name' => :'String',
         :'last_used_user_sid' => :'String',
         :'local_admin_privileges' => :'String',
+        :'malicious_indicators' => :'Array<DomainDiscoverAPIMaliciousIndicator>',
         :'name' => :'String',
         :'name_vendor' => :'String',
         :'name_vendor_version' => :'String',
+        :'registry_latest_version_available' => :'String',
         :'software_type' => :'String',
         :'store_listing' => :'String',
         :'store_listing_status' => :'String',
         :'suspicious_indicators' => :'Array<DomainDiscoverAPISuspiciousIndicator>',
+        :'threat_level' => :'String',
         :'vendor' => :'String',
         :'version' => :'String',
         :'versioning_scheme' => :'String'
@@ -345,6 +365,10 @@ module Falcon
         self.installation_timestamp = attributes[:'installation_timestamp']
       end
 
+      if attributes.key?(:'is_malicious')
+        self.is_malicious = attributes[:'is_malicious']
+      end
+
       if attributes.key?(:'is_normalized')
         self.is_normalized = attributes[:'is_normalized']
       end
@@ -385,6 +409,12 @@ module Falcon
         self.local_admin_privileges = attributes[:'local_admin_privileges']
       end
 
+      if attributes.key?(:'malicious_indicators')
+        if (value = attributes[:'malicious_indicators']).is_a?(Array)
+          self.malicious_indicators = value
+        end
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -395,6 +425,10 @@ module Falcon
 
       if attributes.key?(:'name_vendor_version')
         self.name_vendor_version = attributes[:'name_vendor_version']
+      end
+
+      if attributes.key?(:'registry_latest_version_available')
+        self.registry_latest_version_available = attributes[:'registry_latest_version_available']
       end
 
       if attributes.key?(:'software_type')
@@ -413,6 +447,10 @@ module Falcon
         if (value = attributes[:'suspicious_indicators']).is_a?(Array)
           self.suspicious_indicators = value
         end
+      end
+
+      if attributes.key?(:'threat_level')
+        self.threat_level = attributes[:'threat_level']
       end
 
       if attributes.key?(:'vendor')
@@ -475,6 +513,7 @@ module Falcon
           ide_extension == o.ide_extension &&
           installation_paths == o.installation_paths &&
           installation_timestamp == o.installation_timestamp &&
+          is_malicious == o.is_malicious &&
           is_normalized == o.is_normalized &&
           is_suspicious == o.is_suspicious &&
           last_published == o.last_published &&
@@ -485,13 +524,16 @@ module Falcon
           last_used_user_name == o.last_used_user_name &&
           last_used_user_sid == o.last_used_user_sid &&
           local_admin_privileges == o.local_admin_privileges &&
+          malicious_indicators == o.malicious_indicators &&
           name == o.name &&
           name_vendor == o.name_vendor &&
           name_vendor_version == o.name_vendor_version &&
+          registry_latest_version_available == o.registry_latest_version_available &&
           software_type == o.software_type &&
           store_listing == o.store_listing &&
           store_listing_status == o.store_listing_status &&
           suspicious_indicators == o.suspicious_indicators &&
+          threat_level == o.threat_level &&
           vendor == o.vendor &&
           version == o.version &&
           versioning_scheme == o.versioning_scheme
@@ -506,7 +548,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_name, account_type, admin_privileges, architectures, browser_extension, category, cid, dev_package, discovery_methods, extension_id, first_seen_timestamp, groups, homepage, host, host_application, id, ide_extension, installation_paths, installation_timestamp, is_normalized, is_suspicious, last_published, last_updated_timestamp, last_used_file_hash, last_used_file_name, last_used_timestamp, last_used_user_name, last_used_user_sid, local_admin_privileges, name, name_vendor, name_vendor_version, software_type, store_listing, store_listing_status, suspicious_indicators, vendor, version, versioning_scheme].hash
+      [account_name, account_type, admin_privileges, architectures, browser_extension, category, cid, dev_package, discovery_methods, extension_id, first_seen_timestamp, groups, homepage, host, host_application, id, ide_extension, installation_paths, installation_timestamp, is_malicious, is_normalized, is_suspicious, last_published, last_updated_timestamp, last_used_file_hash, last_used_file_name, last_used_timestamp, last_used_user_name, last_used_user_sid, local_admin_privileges, malicious_indicators, name, name_vendor, name_vendor_version, registry_latest_version_available, software_type, store_listing, store_listing_status, suspicious_indicators, threat_level, vendor, version, versioning_scheme].hash
     end
 
     # Builds the object from hash

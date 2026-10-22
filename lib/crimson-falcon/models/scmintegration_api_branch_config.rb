@@ -31,6 +31,8 @@ require 'time'
 
 module Falcon
   class ScmintegrationAPIBranchConfig
+    attr_accessor :branches
+
     attr_accessor :connection_id
 
     attr_accessor :created_at
@@ -39,8 +41,6 @@ module Falcon
 
     attr_accessor :mode
 
-    attr_accessor :patterns
-
     attr_accessor :repository_id
 
     attr_accessor :updated_at
@@ -48,11 +48,11 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'branches' => :'branches',
         :'connection_id' => :'connection_id',
         :'created_at' => :'created_at',
         :'id' => :'id',
         :'mode' => :'mode',
-        :'patterns' => :'patterns',
         :'repository_id' => :'repository_id',
         :'updated_at' => :'updated_at'
       }
@@ -66,11 +66,11 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'branches' => :'Array<String>',
         :'connection_id' => :'String',
         :'created_at' => :'Time',
         :'id' => :'String',
         :'mode' => :'String',
-        :'patterns' => :'Array<String>',
         :'repository_id' => :'String',
         :'updated_at' => :'Time'
       }
@@ -97,6 +97,12 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'branches')
+        if (value = attributes[:'branches']).is_a?(Array)
+          self.branches = value
+        end
+      end
+
       if attributes.key?(:'connection_id')
         self.connection_id = attributes[:'connection_id']
       end
@@ -113,12 +119,6 @@ module Falcon
         self.mode = attributes[:'mode']
       end
 
-      if attributes.key?(:'patterns')
-        if (value = attributes[:'patterns']).is_a?(Array)
-          self.patterns = value
-        end
-      end
-
       if attributes.key?(:'repository_id')
         self.repository_id = attributes[:'repository_id']
       end
@@ -132,6 +132,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @branches.nil?
+        invalid_properties.push('invalid value for "branches", branches cannot be nil.')
+      end
+
       if @connection_id.nil?
         invalid_properties.push('invalid value for "connection_id", connection_id cannot be nil.')
       end
@@ -148,10 +152,6 @@ module Falcon
         invalid_properties.push('invalid value for "mode", mode cannot be nil.')
       end
 
-      if @patterns.nil?
-        invalid_properties.push('invalid value for "patterns", patterns cannot be nil.')
-      end
-
       if @updated_at.nil?
         invalid_properties.push('invalid value for "updated_at", updated_at cannot be nil.')
       end
@@ -162,11 +162,11 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @branches.nil?
       return false if @connection_id.nil?
       return false if @created_at.nil?
       return false if @id.nil?
       return false if @mode.nil?
-      return false if @patterns.nil?
       return false if @updated_at.nil?
       true
     end
@@ -176,11 +176,11 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          branches == o.branches &&
           connection_id == o.connection_id &&
           created_at == o.created_at &&
           id == o.id &&
           mode == o.mode &&
-          patterns == o.patterns &&
           repository_id == o.repository_id &&
           updated_at == o.updated_at
     end
@@ -194,7 +194,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [connection_id, created_at, id, mode, patterns, repository_id, updated_at].hash
+      [branches, connection_id, created_at, id, mode, repository_id, updated_at].hash
     end
 
     # Builds the object from hash

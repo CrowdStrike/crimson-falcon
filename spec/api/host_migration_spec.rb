@@ -68,7 +68,7 @@ describe 'HostMigration' do
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @option opts [Integer] :limit The maximum records to return. [1-10000]
   # @option opts [String] :sort The property to sort by.
-  # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: status, source_cid, migration_id, id, host_migration_id, groups, hostgroups, target_cid, created_time, static_host_groups, hostname
+  # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: source_cid, id, created_time, groups, static_host_groups, status, target_cid, migration_id, host_migration_id, hostgroups, hostname
   # @return [MsaspecQueryResponse]
   describe 'get_host_migration_ids_v1 test' do
     it 'should work' do
@@ -106,7 +106,7 @@ describe 'HostMigration' do
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @option opts [Integer] :limit The maximum records to return. [1-10000]
   # @option opts [String] :sort The property to sort by.
-  # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: created_time, name, id, migration_id, target_cid, status, migration_status, created_by
+  # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: migration_status, created_by, created_time, name, id, migration_id, target_cid, status
   # @return [MsaspecQueryResponse]
   describe 'get_migration_ids_v1 test' do
     it 'should work' do

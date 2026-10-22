@@ -201,7 +201,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @frequency.nil?
-      frequency_validator = EnumAttributeValidator.new('String', ["once,daily,weekly,monthly"])
+      frequency_validator = EnumAttributeValidator.new('String', ["once,daily,weekly,biweekly,monthly"])
       return false unless frequency_validator.valid?(@frequency)
       occurrence_validator = EnumAttributeValidator.new('String', ["Day(s),First,Second,Third,Fourth,Last"])
       return false unless occurrence_validator.valid?(@occurrence)
@@ -213,7 +213,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] frequency Object to be assigned
     def frequency=(frequency)
-      validator = EnumAttributeValidator.new('String', ["once,daily,weekly,monthly"])
+      validator = EnumAttributeValidator.new('String', ["once,daily,weekly,biweekly,monthly"])
       unless validator.valid?(frequency)
         fail ArgumentError, "invalid value for \"frequency\", must be one of #{validator.allowable_values}."
       end

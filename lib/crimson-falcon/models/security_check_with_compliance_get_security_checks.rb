@@ -31,8 +31,6 @@ require 'time'
 
 module Falcon
   class SecurityCheckWithComplianceGetSecurityChecks
-    attr_accessor :account_id
-
     attr_accessor :affected
 
     attr_accessor :affected_impact_percentage
@@ -92,7 +90,6 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
         :'affected' => :'affected',
         :'affected_impact_percentage' => :'affected_impact_percentage',
         :'affected_impact_total' => :'affected_impact_total',
@@ -132,7 +129,6 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
         :'affected' => :'Integer',
         :'affected_impact_percentage' => :'Integer',
         :'affected_impact_total' => :'Integer',
@@ -190,10 +186,6 @@ module Falcon
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
 
       if attributes.key?(:'affected')
         self.affected = attributes[:'affected']
@@ -320,10 +312,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
       if @affected.nil?
         invalid_properties.push('invalid value for "affected", affected cannot be nil.')
       end
@@ -474,7 +462,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
       return false if @affected.nil?
       return false if @affected_impact_type.to_s.length < 1
       return false if @base_check_id.nil?
@@ -707,7 +694,6 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
           affected == o.affected &&
           affected_impact_percentage == o.affected_impact_percentage &&
           affected_impact_total == o.affected_impact_total &&
@@ -747,7 +733,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, affected, affected_impact_percentage, affected_impact_total, affected_impact_type, base_check_id, business_owners, check_tags, compliance_data, created_by, creation_date, details, dismiss_expiration_date, dismiss_reason, id, impact, integration_alias, integration_id, is_global, name, org_domains, remediation_plan, saas_name, security_check_type, security_domain, status, status_last_changed_date, status_reason, user_who_dismissed].hash
+      [affected, affected_impact_percentage, affected_impact_total, affected_impact_type, base_check_id, business_owners, check_tags, compliance_data, created_by, creation_date, details, dismiss_expiration_date, dismiss_reason, id, impact, integration_alias, integration_id, is_global, name, org_domains, remediation_plan, saas_name, security_check_type, security_domain, status, status_last_changed_date, status_reason, user_who_dismissed].hash
     end
 
     # Builds the object from hash

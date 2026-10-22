@@ -31,11 +31,15 @@ require 'time'
 
 module Falcon
   class CorrelationrulesapiTemplateV1
+    attr_accessor :anomaly
+
     attr_accessor :author
 
     attr_accessor :created_on
 
     attr_accessor :description
+
+    attr_accessor :execution_mode
 
     attr_accessor :id
 
@@ -60,9 +64,11 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'anomaly' => :'anomaly',
         :'author' => :'author',
         :'created_on' => :'created_on',
         :'description' => :'description',
+        :'execution_mode' => :'execution_mode',
         :'id' => :'id',
         :'last_updated_on' => :'last_updated_on',
         :'license_details' => :'license_details',
@@ -84,9 +90,11 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'anomaly' => :'CorrelationrulesapiAnomalyV1',
         :'author' => :'String',
         :'created_on' => :'Time',
         :'description' => :'String',
+        :'execution_mode' => :'String',
         :'id' => :'String',
         :'last_updated_on' => :'Time',
         :'license_details' => :'CorrelationrulesapiLicenseDetails',
@@ -121,6 +129,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'anomaly')
+        self.anomaly = attributes[:'anomaly']
+      end
+
       if attributes.key?(:'author')
         self.author = attributes[:'author']
       end
@@ -131,6 +143,10 @@ module Falcon
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'execution_mode')
+        self.execution_mode = attributes[:'execution_mode']
       end
 
       if attributes.key?(:'id')
@@ -261,9 +277,11 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          anomaly == o.anomaly &&
           author == o.author &&
           created_on == o.created_on &&
           description == o.description &&
+          execution_mode == o.execution_mode &&
           id == o.id &&
           last_updated_on == o.last_updated_on &&
           license_details == o.license_details &&
@@ -285,7 +303,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [author, created_on, description, id, last_updated_on, license_details, mitre_attack, name, operation, search, severity, type, vendors].hash
+      [anomaly, author, created_on, description, execution_mode, id, last_updated_on, license_details, mitre_attack, name, operation, search, severity, type, vendors].hash
     end
 
     # Builds the object from hash

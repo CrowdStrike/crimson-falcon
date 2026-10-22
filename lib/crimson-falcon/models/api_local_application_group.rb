@@ -31,22 +31,31 @@ require 'time'
 
 module Falcon
   class ApiLocalApplicationGroup
+    # Customer identifier that owns the local application group
     attr_accessor :cid
 
+    # Timestamp when the local application group was created
     attr_accessor :created_at
 
+    # Whether the local application group is soft-deleted
     attr_accessor :deleted
 
+    # Timestamp when the local application group was soft-deleted
     attr_accessor :deleted_at
 
+    # Description of the local application group
     attr_accessor :description
 
+    # Unique identifier of the local application group
     attr_accessor :id
 
+    # Identifiers of the local applications in this group
     attr_accessor :local_application_ids
 
+    # Name of the local application group
     attr_accessor :name
 
+    # Timestamp when the local application group was last updated
     attr_accessor :updated_at
 
     # Attribute mapping from ruby-style variable name to JSON key.

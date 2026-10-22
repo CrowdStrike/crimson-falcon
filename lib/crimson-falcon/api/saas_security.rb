@@ -242,6 +242,74 @@ module Falcon
       return data, status_code, headers
     end
 
+    # POST Discovered Vendor Journal Comment
+    # Append a comment to one or more discovered vendors, identified by their primary domains
+    # @param body [CreateAppJournalCommentV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [CreateJournal]
+    def create_discovered_vendor_journal_comment_v3(body, opts = {})
+      data, _status_code, _headers = create_discovered_vendor_journal_comment_v3_with_http_info(body, opts)
+      data
+    end
+
+    # POST Discovered Vendor Journal Comment
+    # Append a comment to one or more discovered vendors, identified by their primary domains
+    # @param body [CreateAppJournalCommentV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CreateJournal, Integer, Hash)>] CreateJournal data, response status code and response headers
+    def create_discovered_vendor_journal_comment_v3_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.create_discovered_vendor_journal_comment_v3 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SaasSecurity.create_discovered_vendor_journal_comment_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/discovered-vendor-journal/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CreateJournal'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.create_discovered_vendor_journal_comment_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#create_discovered_vendor_journal_comment_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # POST User Journal Comment
     # Append a comment to one or more user inventory items
     # @param body [CreateAppJournalCommentV3Request]
@@ -1435,10 +1503,342 @@ module Falcon
       return data, status_code, headers
     end
 
+    # GET Discovered Vendor Instances
+    # Get the instances (distinct subdomains or tenants observed in telemetry) of a discovered vendor, per vendor domain, sorted by device count (descending). Returns no resources when the domain isn't a discovered vendor
+    # @param primary_domain [String] Vendor primary domain (exact match), e.g. salesforce.com
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :name Instance name contains &#39;value&#39; (case insensitive). Only matching instances are returned, and domains without any are omitted
+    # @return [DiscoveredInstances]
+    def get_discovered_instances(primary_domain, opts = {})
+      data, _status_code, _headers = get_discovered_instances_with_http_info(primary_domain, opts)
+      data
+    end
+
+    # GET Discovered Vendor Instances
+    # Get the instances (distinct subdomains or tenants observed in telemetry) of a discovered vendor, per vendor domain, sorted by device count (descending). Returns no resources when the domain isn&#39;t a discovered vendor
+    # @param primary_domain [String] Vendor primary domain (exact match), e.g. salesforce.com
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :name Instance name contains &#39;value&#39; (case insensitive). Only matching instances are returned, and domains without any are omitted
+    # @return [Array<(DiscoveredInstances, Integer, Hash)>] DiscoveredInstances data, response status code and response headers
+    def get_discovered_instances_with_http_info(primary_domain, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.get_discovered_instances ...'
+      end
+      # verify the required parameter 'primary_domain' is set
+      if @api_client.config.client_side_validation && primary_domain.nil?
+        fail ArgumentError, "Missing the required parameter 'primary_domain' when calling SaasSecurity.get_discovered_instances"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/discovered-instances/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'primary_domain'] = primary_domain
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'name'] = opts[:'name'] if !opts[:'name'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DiscoveredInstances'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.get_discovered_instances",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#get_discovered_instances\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # GET Discovered Vendor Devices
+    # Get the devices observed accessing a discovered vendor in the last 7 days, most recently seen first. Returns no resources when the domain isn't a discovered vendor, or when `domain` isn't one of its domains
+    # @param primary_domain [String] Vendor primary domain (exact match), e.g. salesforce.com
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :domain One of the vendor&#39;s domains (exact match), e.g. force.com. Defaults to all of them
+    # @option opts [String] :instances Comma separated list of instance names (exact match), under &#x60;domain&#x60; when given, otherwise under any of the vendor&#39;s domains
+    # @option opts [String] :department Department of the device&#39;s user (exact match)
+    # @return [DiscoveredVendorDevices]
+    def get_discovered_vendor_devices(primary_domain, opts = {})
+      data, _status_code, _headers = get_discovered_vendor_devices_with_http_info(primary_domain, opts)
+      data
+    end
+
+    # GET Discovered Vendor Devices
+    # Get the devices observed accessing a discovered vendor in the last 7 days, most recently seen first. Returns no resources when the domain isn&#39;t a discovered vendor, or when &#x60;domain&#x60; isn&#39;t one of its domains
+    # @param primary_domain [String] Vendor primary domain (exact match), e.g. salesforce.com
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :domain One of the vendor&#39;s domains (exact match), e.g. force.com. Defaults to all of them
+    # @option opts [String] :instances Comma separated list of instance names (exact match), under &#x60;domain&#x60; when given, otherwise under any of the vendor&#39;s domains
+    # @option opts [String] :department Department of the device&#39;s user (exact match)
+    # @return [Array<(DiscoveredVendorDevices, Integer, Hash)>] DiscoveredVendorDevices data, response status code and response headers
+    def get_discovered_vendor_devices_with_http_info(primary_domain, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.get_discovered_vendor_devices ...'
+      end
+      # verify the required parameter 'primary_domain' is set
+      if @api_client.config.client_side_validation && primary_domain.nil?
+        fail ArgumentError, "Missing the required parameter 'primary_domain' when calling SaasSecurity.get_discovered_vendor_devices"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/discovered-vendor-devices/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'primary_domain'] = primary_domain
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'domain'] = opts[:'domain'] if !opts[:'domain'].nil?
+      query_params[:'instances'] = opts[:'instances'] if !opts[:'instances'].nil?
+      query_params[:'department'] = opts[:'department'] if !opts[:'department'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DiscoveredVendorDevices'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.get_discovered_vendor_devices",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#get_discovered_vendor_devices\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # GET Discovered Vendor Journal
+    # Get the journal entries for a discovered vendor
+    # @param id [String] Discovered vendor primary domain, e.g. salesforce.com
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :author Filter by entry author: a full or partial creator name, a creator email address, or an API client id
+    # @return [GetJournal]
+    def get_discovered_vendor_journal_v3(id, opts = {})
+      data, _status_code, _headers = get_discovered_vendor_journal_v3_with_http_info(id, opts)
+      data
+    end
+
+    # GET Discovered Vendor Journal
+    # Get the journal entries for a discovered vendor
+    # @param id [String] Discovered vendor primary domain, e.g. salesforce.com
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :author Filter by entry author: a full or partial creator name, a creator email address, or an API client id
+    # @return [Array<(GetJournal, Integer, Hash)>] GetJournal data, response status code and response headers
+    def get_discovered_vendor_journal_v3_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.get_discovered_vendor_journal_v3 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SaasSecurity.get_discovered_vendor_journal_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/discovered-vendor-journal/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'author'] = opts[:'author'] if !opts[:'author'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetJournal'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.get_discovered_vendor_journal_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#get_discovered_vendor_journal_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # GET Discovered Vendors
+    # Get a list of SaaS vendors observed across the organization's endpoints, aggregated per vendor across all its domains, sorted by device count (descending)
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :primary_domain Vendor primary domain (exact match), e.g. salesforce.com
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :vendor_name Vendor name contains &#39;value&#39; (case insensitive)
+    # @option opts [String] :relevance Vendor relevance. Filters on the last consolidated relevance, so a relevance modified just now may take effect in the filter only after the next inventory refresh
+    # @option opts [String] :category Comma separated list of categories (exact match), matching vendors having any of them
+    # @option opts [Boolean] :include_departments Include the departments of the vendor&#39;s users in the response
+    # @option opts [String] :department Department (exact match) of the vendor&#39;s users
+    # @option opts [Boolean] :login_indicator Whether login activity to the vendor was observed
+    # @option opts [Boolean] :has_oauth_apps Whether the vendor has OAuth apps
+    # @option opts [Boolean] :has_signin_apps Whether the vendor has sign-in apps
+    # @option opts [Time] :last_seen ISO 8601 datetime. Returns vendors last seen at or after it. Last seen is recorded per day
+    # @return [DiscoveredVendors]
+    def get_discovered_vendors(opts = {})
+      data, _status_code, _headers = get_discovered_vendors_with_http_info(opts)
+      data
+    end
+
+    # GET Discovered Vendors
+    # Get a list of SaaS vendors observed across the organization&#39;s endpoints, aggregated per vendor across all its domains, sorted by device count (descending)
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :primary_domain Vendor primary domain (exact match), e.g. salesforce.com
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :vendor_name Vendor name contains &#39;value&#39; (case insensitive)
+    # @option opts [String] :relevance Vendor relevance. Filters on the last consolidated relevance, so a relevance modified just now may take effect in the filter only after the next inventory refresh
+    # @option opts [String] :category Comma separated list of categories (exact match), matching vendors having any of them
+    # @option opts [Boolean] :include_departments Include the departments of the vendor&#39;s users in the response
+    # @option opts [String] :department Department (exact match) of the vendor&#39;s users
+    # @option opts [Boolean] :login_indicator Whether login activity to the vendor was observed
+    # @option opts [Boolean] :has_oauth_apps Whether the vendor has OAuth apps
+    # @option opts [Boolean] :has_signin_apps Whether the vendor has sign-in apps
+    # @option opts [Time] :last_seen ISO 8601 datetime. Returns vendors last seen at or after it. Last seen is recorded per day
+    # @return [Array<(DiscoveredVendors, Integer, Hash)>] DiscoveredVendors data, response status code and response headers
+    def get_discovered_vendors_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.get_discovered_vendors ...'
+      end
+      allowable_values = ["high", "medium", "low", "none"]
+      if @api_client.config.client_side_validation && opts[:'relevance'] && !allowable_values.include?(opts[:'relevance'])
+        fail ArgumentError, "invalid value for \"relevance\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/discovered-vendors/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'primary_domain'] = opts[:'primary_domain'] if !opts[:'primary_domain'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'vendor_name'] = opts[:'vendor_name'] if !opts[:'vendor_name'].nil?
+      query_params[:'relevance'] = opts[:'relevance'] if !opts[:'relevance'].nil?
+      query_params[:'category'] = opts[:'category'] if !opts[:'category'].nil?
+      query_params[:'include_departments'] = opts[:'include_departments'] if !opts[:'include_departments'].nil?
+      query_params[:'department'] = opts[:'department'] if !opts[:'department'].nil?
+      query_params[:'login_indicator'] = opts[:'login_indicator'] if !opts[:'login_indicator'].nil?
+      query_params[:'has_oauth_apps'] = opts[:'has_oauth_apps'] if !opts[:'has_oauth_apps'].nil?
+      query_params[:'has_signin_apps'] = opts[:'has_signin_apps'] if !opts[:'has_signin_apps'].nil?
+      query_params[:'last_seen'] = opts[:'last_seen'] if !opts[:'last_seen'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DiscoveredVendors'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.get_discovered_vendors",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#get_discovered_vendors\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # GET Integrations
     # Get a list of connected integrations in your account
     # @param [Hash] opts the optional parameters
     # @option opts [String] :saas_id Comma separated SaaS ID&#39;s
+    # @option opts [String] :integration_id Comma separated integration ID&#39;s. Also matches the parent of a multi-instance integration (as returned by POST create), which the unfiltered list does not show
+    # @option opts [String] :saas_name SaaS names. Comma separated or repeated param, case insensitive, matches any
+    # @option opts [String] :_alias Integration aliases. Comma separated or repeated param, case insensitive, matches any
+    # @option opts [String] :business_owners Business owner names or emails. Comma separated or repeated param, case insensitive, matches any
+    # @option opts [String] :org_domain Organization domains. Comma separated or repeated param, case insensitive, matches any. &#x60;organization_domain&#x60; is an alias
+    # @option opts [String] :status Integration status: succeeded, partial, failed. Comma separated
+    # @option opts [Boolean] :enabled Enabled
+    # @option opts [Boolean] :is_beta SaaS is in beta
+    # @option opts [String] :last_run Last run was or was not within the last &#39;value&#39; days. Format: &#39;was value&#39; or &#39;was not value&#39; or &#39;value&#39; (implies &#39;was value&#39;). &#39;was not&#39; includes never run
+    # @option opts [String] :integration_progress Integration progress (0-100). Format: &#39;less than value&#39;, &#39;greater than value&#39;, &#39;is equal to value&#39; or &#39;value&#39; (implies &#39;is equal to value&#39;)
     # @return [GetIntegrations]
     def get_integrations_v3(opts = {})
       data, _status_code, _headers = get_integrations_v3_with_http_info(opts)
@@ -1449,6 +1849,16 @@ module Falcon
     # Get a list of connected integrations in your account
     # @param [Hash] opts the optional parameters
     # @option opts [String] :saas_id Comma separated SaaS ID&#39;s
+    # @option opts [String] :integration_id Comma separated integration ID&#39;s. Also matches the parent of a multi-instance integration (as returned by POST create), which the unfiltered list does not show
+    # @option opts [String] :saas_name SaaS names. Comma separated or repeated param, case insensitive, matches any
+    # @option opts [String] :_alias Integration aliases. Comma separated or repeated param, case insensitive, matches any
+    # @option opts [String] :business_owners Business owner names or emails. Comma separated or repeated param, case insensitive, matches any
+    # @option opts [String] :org_domain Organization domains. Comma separated or repeated param, case insensitive, matches any. &#x60;organization_domain&#x60; is an alias
+    # @option opts [String] :status Integration status: succeeded, partial, failed. Comma separated
+    # @option opts [Boolean] :enabled Enabled
+    # @option opts [Boolean] :is_beta SaaS is in beta
+    # @option opts [String] :last_run Last run was or was not within the last &#39;value&#39; days. Format: &#39;was value&#39; or &#39;was not value&#39; or &#39;value&#39; (implies &#39;was value&#39;). &#39;was not&#39; includes never run
+    # @option opts [String] :integration_progress Integration progress (0-100). Format: &#39;less than value&#39;, &#39;greater than value&#39;, &#39;is equal to value&#39; or &#39;value&#39; (implies &#39;is equal to value&#39;)
     # @return [Array<(GetIntegrations, Integer, Hash)>] GetIntegrations data, response status code and response headers
     def get_integrations_v3_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1460,6 +1870,16 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'saas_id'] = opts[:'saas_id'] if !opts[:'saas_id'].nil?
+      query_params[:'integration_id'] = opts[:'integration_id'] if !opts[:'integration_id'].nil?
+      query_params[:'saas_name'] = opts[:'saas_name'] if !opts[:'saas_name'].nil?
+      query_params[:'alias'] = opts[:'_alias'] if !opts[:'_alias'].nil?
+      query_params[:'business_owners'] = opts[:'business_owners'] if !opts[:'business_owners'].nil?
+      query_params[:'org_domain'] = opts[:'org_domain'] if !opts[:'org_domain'].nil?
+      query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
+      query_params[:'enabled'] = opts[:'enabled'] if !opts[:'enabled'].nil?
+      query_params[:'is_beta'] = opts[:'is_beta'] if !opts[:'is_beta'].nil?
+      query_params[:'last_run'] = opts[:'last_run'] if !opts[:'last_run'].nil?
+      query_params[:'integration_progress'] = opts[:'integration_progress'] if !opts[:'integration_progress'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1665,7 +2085,7 @@ module Falcon
     end
 
     # GET Security Check Change Log
-    # Get the log of CrowdStrike's own changes to security checks - detection logic, impact, title and so on. meta.pagination.total is only populated when total_count=true is passed.
+    # Get the log of CrowdStrike's own changes to security checks - detection logic, impact, title and so on. meta.pagination.limit and offset describe the next page and are null on the last one.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :action Actions to filter by, comma separated (e.g. renamed,impact_changed)
     # @option opts [Integer] :limit The maximum number of objects to return
@@ -1674,7 +2094,6 @@ module Falcon
     # @option opts [String] :check_id Security check id - stable across a rename, so it returns the whole history
     # @option opts [Time] :from_date From Date (in YYYY-MM-DD format)
     # @option opts [Time] :to_date To Date (in YYYY-MM-DD format)
-    # @option opts [Boolean] :total_count Fetch Total Count?
     # @return [GetSecurityCheckChangeLog]
     def get_security_check_change_log_v3(opts = {})
       data, _status_code, _headers = get_security_check_change_log_v3_with_http_info(opts)
@@ -1682,7 +2101,7 @@ module Falcon
     end
 
     # GET Security Check Change Log
-    # Get the log of CrowdStrike&#39;s own changes to security checks - detection logic, impact, title and so on. meta.pagination.total is only populated when total_count&#x3D;true is passed.
+    # Get the log of CrowdStrike&#39;s own changes to security checks - detection logic, impact, title and so on. meta.pagination.limit and offset describe the next page and are null on the last one.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :action Actions to filter by, comma separated (e.g. renamed,impact_changed)
     # @option opts [Integer] :limit The maximum number of objects to return
@@ -1691,7 +2110,6 @@ module Falcon
     # @option opts [String] :check_id Security check id - stable across a rename, so it returns the whole history
     # @option opts [Time] :from_date From Date (in YYYY-MM-DD format)
     # @option opts [Time] :to_date To Date (in YYYY-MM-DD format)
-    # @option opts [Boolean] :total_count Fetch Total Count?
     # @return [Array<(GetSecurityCheckChangeLog, Integer, Hash)>] GetSecurityCheckChangeLog data, response status code and response headers
     def get_security_check_change_log_v3_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1709,7 +2127,6 @@ module Falcon
       query_params[:'check_id'] = opts[:'check_id'] if !opts[:'check_id'].nil?
       query_params[:'from_date'] = opts[:'from_date'] if !opts[:'from_date'].nil?
       query_params[:'to_date'] = opts[:'to_date'] if !opts[:'to_date'].nil?
-      query_params[:'total_count'] = opts[:'total_count'] if !opts[:'total_count'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1912,8 +2329,10 @@ module Falcon
     end
 
     # GET Supported SaaS
-    # Get a list of supported integrations
+    # Get a list of supported integrations. Set `include_schema` to also get, per SaaS, what `POST entities/integrations/v3` needs to create an integration of it
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :id SaaS ID
+    # @option opts [Boolean] :include_schema Include &#x60;creation_schema&#x60;: credential flags (&#39;require&#39;, &#39;show&#39; or &#39;&#39; &#x3D; not offered), extra fields, and &#x60;additional_steps&#x60; that can only be completed in the Falcon UI
     # @return [GetSupportedSaas]
     def get_supported_saas_v3(opts = {})
       data, _status_code, _headers = get_supported_saas_v3_with_http_info(opts)
@@ -1921,8 +2340,10 @@ module Falcon
     end
 
     # GET Supported SaaS
-    # Get a list of supported integrations
+    # Get a list of supported integrations. Set &#x60;include_schema&#x60; to also get, per SaaS, what &#x60;POST entities/integrations/v3&#x60; needs to create an integration of it
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :id SaaS ID
+    # @option opts [Boolean] :include_schema Include &#x60;creation_schema&#x60;: credential flags (&#39;require&#39;, &#39;show&#39; or &#39;&#39; &#x3D; not offered), extra fields, and &#x60;additional_steps&#x60; that can only be completed in the Falcon UI
     # @return [Array<(GetSupportedSaas, Integer, Hash)>] GetSupportedSaas data, response status code and response headers
     def get_supported_saas_v3_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1933,6 +2354,8 @@ module Falcon
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'id'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'include_schema'] = opts[:'include_schema'] if !opts[:'include_schema'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -2238,6 +2661,76 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SaasSecurity#get_user_journal_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # GET Vendor Details
+    # Get the vendor intelligence of a discovered vendor by its primary domain: name, categories, privacy policy, certifications and security measures. Returns no resources when the domain isn't a discovered vendor
+    # @param primary_domain [String] Vendor primary domain (exact match), e.g. slack.com
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @return [VendorDetails]
+    def get_vendor_details(primary_domain, opts = {})
+      data, _status_code, _headers = get_vendor_details_with_http_info(primary_domain, opts)
+      data
+    end
+
+    # GET Vendor Details
+    # Get the vendor intelligence of a discovered vendor by its primary domain: name, categories, privacy policy, certifications and security measures. Returns no resources when the domain isn&#39;t a discovered vendor
+    # @param primary_domain [String] Vendor primary domain (exact match), e.g. slack.com
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @return [Array<(VendorDetails, Integer, Hash)>] VendorDetails data, response status code and response headers
+    def get_vendor_details_with_http_info(primary_domain, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.get_vendor_details ...'
+      end
+      # verify the required parameter 'primary_domain' is set
+      if @api_client.config.client_side_validation && primary_domain.nil?
+        fail ArgumentError, "Missing the required parameter 'primary_domain' when calling SaasSecurity.get_vendor_details"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/vendor-details/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'primary_domain'] = primary_domain
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'VendorDetails'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.get_vendor_details",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#get_vendor_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2666,6 +3159,74 @@ module Falcon
       return data, status_code, headers
     end
 
+    # POST Update or Create an Integration
+    # With `id`: replace the integration's `business_owners` and/or `org_domains`. For an instance of a multi-instance integration the change applies to all its instances. Without `id`: create an integration of `saas_id`, per the `creation_schema` of GET entities/supported-saas/v3. When `additional_steps` is returned, the integration was created disabled and must be completed in the Falcon UI. For a multi-instance SaaS the returned id is the parent integration: GET with `integration_id=<id>` returns it, and its instances are listed with their own ids once selected in the UI
+    # @param body [SaveIntegrationV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [SaveIntegration]
+    def save_integration_v3(body, opts = {})
+      data, _status_code, _headers = save_integration_v3_with_http_info(body, opts)
+      data
+    end
+
+    # POST Update or Create an Integration
+    # With &#x60;id&#x60;: replace the integration&#39;s &#x60;business_owners&#x60; and/or &#x60;org_domains&#x60;. For an instance of a multi-instance integration the change applies to all its instances. Without &#x60;id&#x60;: create an integration of &#x60;saas_id&#x60;, per the &#x60;creation_schema&#x60; of GET entities/supported-saas/v3. When &#x60;additional_steps&#x60; is returned, the integration was created disabled and must be completed in the Falcon UI. For a multi-instance SaaS the returned id is the parent integration: GET with &#x60;integration_id&#x3D;&lt;id&gt;&#x60; returns it, and its instances are listed with their own ids once selected in the UI
+    # @param body [SaveIntegrationV3Request]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SaveIntegration, Integer, Hash)>] SaveIntegration data, response status code and response headers
+    def save_integration_v3_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.save_integration_v3 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SaasSecurity.save_integration_v3"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/integrations/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SaveIntegration'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.save_integration_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#save_integration_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # POST Set a Security Check Impact
     # Set the impact of one instance of a security check. Set `all_future_instances` to also apply it to instances of the same SaaS connected in the future; it does not change instances that already exist. The check is not re-evaluated, only its impact changes
     # @param id [String] Security Check ID
@@ -2812,6 +3373,74 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SaasSecurity#set_check_param_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # PATCH Update Discovered Vendor Relevance
+    # Update the relevance of a discovered vendor. Relevance is the only customer-managed attribute of a vendor; setting the same relevance again changes nothing, including its reason
+    # @param body [UpdateDiscoveredVendorRelevanceRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [UpdateDiscoveredVendorRelevance]
+    def update_discovered_vendor_relevance(body, opts = {})
+      data, _status_code, _headers = update_discovered_vendor_relevance_with_http_info(body, opts)
+      data
+    end
+
+    # PATCH Update Discovered Vendor Relevance
+    # Update the relevance of a discovered vendor. Relevance is the only customer-managed attribute of a vendor; setting the same relevance again changes nothing, including its reason
+    # @param body [UpdateDiscoveredVendorRelevanceRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UpdateDiscoveredVendorRelevance, Integer, Hash)>] UpdateDiscoveredVendorRelevance data, response status code and response headers
+    def update_discovered_vendor_relevance_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SaasSecurity.update_discovered_vendor_relevance ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling SaasSecurity.update_discovered_vendor_relevance"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/discovered-vendors/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UpdateDiscoveredVendorRelevance'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SaasSecurity.update_discovered_vendor_relevance",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SaasSecurity#update_discovered_vendor_relevance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

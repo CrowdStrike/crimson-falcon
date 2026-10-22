@@ -84,6 +84,9 @@ module Falcon
 
     attr_accessor :publish_date
 
+    # Whether CAO publishes this indicator
+    attr_accessor :published_indicator
+
     attr_accessor :reports
 
     attr_accessor :root_domain_details
@@ -130,6 +133,7 @@ module Falcon
         :'malicious_confidence' => :'MaliciousConfidence',
         :'malicious_confidence_validated_time' => :'MaliciousConfidenceValidatedTime',
         :'publish_date' => :'PublishDate',
+        :'published_indicator' => :'PublishedIndicator',
         :'reports' => :'Reports',
         :'root_domain_details' => :'RootDomainDetails',
         :'sectors' => :'Sectors',
@@ -173,6 +177,7 @@ module Falcon
         :'malicious_confidence' => :'String',
         :'malicious_confidence_validated_time' => :'String',
         :'publish_date' => :'String',
+        :'published_indicator' => :'Boolean',
         :'reports' => :'Array<RestapiReport>',
         :'root_domain_details' => :'RestapiDomain',
         :'sectors' => :'Array<RestapiSector>',
@@ -305,6 +310,10 @@ module Falcon
         self.publish_date = attributes[:'publish_date']
       end
 
+      if attributes.key?(:'published_indicator')
+        self.published_indicator = attributes[:'published_indicator']
+      end
+
       if attributes.key?(:'reports')
         if (value = attributes[:'reports']).is_a?(Array)
           self.reports = value
@@ -362,12 +371,17 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @published_indicator.nil?
+        invalid_properties.push('invalid value for "published_indicator", published_indicator cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @published_indicator.nil?
       true
     end
 
@@ -398,6 +412,7 @@ module Falcon
           malicious_confidence == o.malicious_confidence &&
           malicious_confidence_validated_time == o.malicious_confidence_validated_time &&
           publish_date == o.publish_date &&
+          published_indicator == o.published_indicator &&
           reports == o.reports &&
           root_domain_details == o.root_domain_details &&
           sectors == o.sectors &&
@@ -419,7 +434,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [adversaries, affected_customers, certificates, classification, coin_address_details, countries, credentials_details, domain_details, email_address_details, file_details, first_seen, id, ipv4_details, ipv6_details, kill_chain, last_seen, last_updated, lookup_value, mitre_attacks, malicious_confidence, malicious_confidence_validated_time, publish_date, reports, root_domain_details, sectors, software_packages, threat_types, threats, type, url_details, unique_identifier_details, vulnerabilities].hash
+      [adversaries, affected_customers, certificates, classification, coin_address_details, countries, credentials_details, domain_details, email_address_details, file_details, first_seen, id, ipv4_details, ipv6_details, kill_chain, last_seen, last_updated, lookup_value, mitre_attacks, malicious_confidence, malicious_confidence_validated_time, publish_date, published_indicator, reports, root_domain_details, sectors, software_packages, threat_types, threats, type, url_details, unique_identifier_details, vulnerabilities].hash
     end
 
     # Builds the object from hash

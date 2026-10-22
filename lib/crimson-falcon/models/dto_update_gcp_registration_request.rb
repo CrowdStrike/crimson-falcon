@@ -45,6 +45,8 @@ module Falcon
 
     attr_accessor :falcon_client_key_type
 
+    attr_accessor :google_workspace
+
     attr_accessor :infra_manager_region
 
     attr_accessor :infra_project_id
@@ -91,6 +93,7 @@ module Falcon
         :'excluded_project_patterns' => :'excluded_project_patterns',
         :'falcon_client_key_id' => :'falcon_client_key_id',
         :'falcon_client_key_type' => :'falcon_client_key_type',
+        :'google_workspace' => :'google_workspace',
         :'infra_manager_region' => :'infra_manager_region',
         :'infra_project_id' => :'infra_project_id',
         :'labels' => :'labels',
@@ -127,6 +130,7 @@ module Falcon
         :'excluded_project_patterns' => :'Array<String>',
         :'falcon_client_key_id' => :'String',
         :'falcon_client_key_type' => :'String',
+        :'google_workspace' => :'DtoWorkspaceRequest',
         :'infra_manager_region' => :'String',
         :'infra_project_id' => :'String',
         :'labels' => :'Hash<String, String>',
@@ -199,6 +203,10 @@ module Falcon
 
       if attributes.key?(:'falcon_client_key_type')
         self.falcon_client_key_type = attributes[:'falcon_client_key_type']
+      end
+
+      if attributes.key?(:'google_workspace')
+        self.google_workspace = attributes[:'google_workspace']
       end
 
       if attributes.key?(:'infra_manager_region')
@@ -305,6 +313,7 @@ module Falcon
           excluded_project_patterns == o.excluded_project_patterns &&
           falcon_client_key_id == o.falcon_client_key_id &&
           falcon_client_key_type == o.falcon_client_key_type &&
+          google_workspace == o.google_workspace &&
           infra_manager_region == o.infra_manager_region &&
           infra_project_id == o.infra_project_id &&
           labels == o.labels &&
@@ -334,7 +343,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [additional_properties, deployment_method, dspm_settings, entity_id, excluded_project_patterns, falcon_client_key_id, falcon_client_key_type, infra_manager_region, infra_project_id, labels, log_ingestion_sink_name, log_ingestion_subscription_name, log_ingestion_topic_id, products, registration_description, registration_name, registration_scope, resource_name_prefix, resource_name_suffix, tags, vulnerability_scanning_settings, wif_pool_name, wif_project_id, wif_project_number, wif_provider_name].hash
+      [additional_properties, deployment_method, dspm_settings, entity_id, excluded_project_patterns, falcon_client_key_id, falcon_client_key_type, google_workspace, infra_manager_region, infra_project_id, labels, log_ingestion_sink_name, log_ingestion_subscription_name, log_ingestion_topic_id, products, registration_description, registration_name, registration_scope, resource_name_prefix, resource_name_suffix, tags, vulnerability_scanning_settings, wif_pool_name, wif_project_id, wif_project_number, wif_provider_name].hash
     end
 
     # Builds the object from hash

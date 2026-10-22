@@ -59,6 +59,12 @@ describe Falcon::GcpProjectDetails do
     end
   end
 
+  describe 'test attribute "google_workspace_status"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "ioa_failed_permissions"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

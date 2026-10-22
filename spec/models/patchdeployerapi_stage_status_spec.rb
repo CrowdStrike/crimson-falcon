@@ -47,36 +47,54 @@ describe Falcon::PatchdeployerapiStageStatus do
     end
   end
 
-  describe 'test attribute "failure_reason"' do
+  describe 'test attribute "error"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  describe 'test attribute "initiated_at"' do
+  describe 'test attribute "error_code"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  describe 'test attribute "stage_name"' do
+  describe 'test attribute "error_output"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  describe 'test attribute "stage_order"' do
+  describe 'test attribute "name"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  describe 'test attribute "stage_status"' do
+  describe 'test attribute "order"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Running", "Completed", "Failed"])
+    end
+  end
+
+  describe 'test attribute "output"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "started_at"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "status"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Pending", "Running", "Completed", "Failed"])
       # validator.allowable_values.each do |value|
-      #   expect { instance.stage_status = value }.not_to raise_error
+      #   expect { instance.status = value }.not_to raise_error
       # end
     end
   end

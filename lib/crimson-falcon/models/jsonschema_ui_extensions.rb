@@ -37,6 +37,9 @@ module Falcon
     # show a create-new button alongside the select dropdown
     attr_accessor :add_button
 
+    # column definitions for data-fabric-entity-table component
+    attr_accessor :columns
+
     attr_accessor :component
 
     attr_accessor :custom_group_name
@@ -55,6 +58,9 @@ module Falcon
 
     attr_accessor :input_type
 
+    # label for each entry of a group-array input, e.g. Indicator
+    attr_accessor :item_label
+
     # specify the position of the label relative to its associated element
     attr_accessor :label_position
 
@@ -68,6 +74,9 @@ module Falcon
 
     # makes a form field read only
     attr_accessor :read_only
+
+    # column definitions for data-fabric-entity-table component
+    attr_accessor :row_actions
 
     # local reference to look up the dynamic json schema and mobiledoc card configuration returned in the top-level of api response
     attr_accessor :schema_reference
@@ -91,6 +100,7 @@ module Falcon
       {
         :'accept' => :'accept',
         :'add_button' => :'add-button',
+        :'columns' => :'columns',
         :'component' => :'component',
         :'custom_group_name' => :'customGroupName',
         :'duration_options' => :'durationOptions',
@@ -99,11 +109,13 @@ module Falcon
         :'helper_text' => :'helperText',
         :'hide' => :'hide',
         :'input_type' => :'inputType',
+        :'item_label' => :'itemLabel',
         :'label_position' => :'labelPosition',
         :'meta' => :'meta',
         :'navigate_on_success' => :'navigateOnSuccess',
         :'placeholder' => :'placeholder',
         :'read_only' => :'readOnly',
+        :'row_actions' => :'rowActions',
         :'schema_reference' => :'schema_reference',
         :'skip' => :'skip',
         :'sky_check' => :'skyCheck',
@@ -123,6 +135,7 @@ module Falcon
       {
         :'accept' => :'Array<String>',
         :'add_button' => :'Boolean',
+        :'columns' => :'Array<JsonschemaColumnDefinition>',
         :'component' => :'String',
         :'custom_group_name' => :'String',
         :'duration_options' => :'Array<JsonschemaDurationOption>',
@@ -131,11 +144,13 @@ module Falcon
         :'helper_text' => :'String',
         :'hide' => :'Boolean',
         :'input_type' => :'String',
+        :'item_label' => :'String',
         :'label_position' => :'String',
         :'meta' => :'JsonschemaMeta',
         :'navigate_on_success' => :'String',
         :'placeholder' => :'String',
         :'read_only' => :'Boolean',
+        :'row_actions' => :'Array<JsonschemaRowAction>',
         :'schema_reference' => :'String',
         :'skip' => :'Boolean',
         :'sky_check' => :'String',
@@ -176,6 +191,12 @@ module Falcon
         self.add_button = attributes[:'add_button']
       end
 
+      if attributes.key?(:'columns')
+        if (value = attributes[:'columns']).is_a?(Array)
+          self.columns = value
+        end
+      end
+
       if attributes.key?(:'component')
         self.component = attributes[:'component']
       end
@@ -210,6 +231,10 @@ module Falcon
         self.input_type = attributes[:'input_type']
       end
 
+      if attributes.key?(:'item_label')
+        self.item_label = attributes[:'item_label']
+      end
+
       if attributes.key?(:'label_position')
         self.label_position = attributes[:'label_position']
       end
@@ -228,6 +253,12 @@ module Falcon
 
       if attributes.key?(:'read_only')
         self.read_only = attributes[:'read_only']
+      end
+
+      if attributes.key?(:'row_actions')
+        if (value = attributes[:'row_actions']).is_a?(Array)
+          self.row_actions = value
+        end
       end
 
       if attributes.key?(:'schema_reference')
@@ -275,6 +306,7 @@ module Falcon
       self.class == o.class &&
           accept == o.accept &&
           add_button == o.add_button &&
+          columns == o.columns &&
           component == o.component &&
           custom_group_name == o.custom_group_name &&
           duration_options == o.duration_options &&
@@ -283,11 +315,13 @@ module Falcon
           helper_text == o.helper_text &&
           hide == o.hide &&
           input_type == o.input_type &&
+          item_label == o.item_label &&
           label_position == o.label_position &&
           meta == o.meta &&
           navigate_on_success == o.navigate_on_success &&
           placeholder == o.placeholder &&
           read_only == o.read_only &&
+          row_actions == o.row_actions &&
           schema_reference == o.schema_reference &&
           skip == o.skip &&
           sky_check == o.sky_check &&
@@ -305,7 +339,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accept, add_button, component, custom_group_name, duration_options, encoding, footer_action, helper_text, hide, input_type, label_position, meta, navigate_on_success, placeholder, read_only, schema_reference, skip, sky_check, statement, step, tooltip].hash
+      [accept, add_button, columns, component, custom_group_name, duration_options, encoding, footer_action, helper_text, hide, input_type, item_label, label_position, meta, navigate_on_success, placeholder, read_only, row_actions, schema_reference, skip, sky_check, statement, step, tooltip].hash
     end
 
     # Builds the object from hash

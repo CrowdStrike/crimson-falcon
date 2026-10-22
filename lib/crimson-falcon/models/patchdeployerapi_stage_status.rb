@@ -33,15 +33,21 @@ module Falcon
   class PatchdeployerapiStageStatus
     attr_accessor :completed_at
 
-    attr_accessor :failure_reason
+    attr_accessor :error
 
-    attr_accessor :initiated_at
+    attr_accessor :error_code
 
-    attr_accessor :stage_name
+    attr_accessor :error_output
 
-    attr_accessor :stage_order
+    attr_accessor :name
 
-    attr_accessor :stage_status
+    attr_accessor :order
+
+    attr_accessor :output
+
+    attr_accessor :started_at
+
+    attr_accessor :status
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -69,11 +75,14 @@ module Falcon
     def self.attribute_map
       {
         :'completed_at' => :'completed_at',
-        :'failure_reason' => :'failure_reason',
-        :'initiated_at' => :'initiated_at',
-        :'stage_name' => :'stage_name',
-        :'stage_order' => :'stage_order',
-        :'stage_status' => :'stage_status'
+        :'error' => :'error',
+        :'error_code' => :'error_code',
+        :'error_output' => :'error_output',
+        :'name' => :'name',
+        :'order' => :'order',
+        :'output' => :'output',
+        :'started_at' => :'started_at',
+        :'status' => :'status'
       }
     end
 
@@ -86,11 +95,14 @@ module Falcon
     def self.openapi_types
       {
         :'completed_at' => :'Time',
-        :'failure_reason' => :'String',
-        :'initiated_at' => :'Time',
-        :'stage_name' => :'String',
-        :'stage_order' => :'Integer',
-        :'stage_status' => :'String'
+        :'error' => :'String',
+        :'error_code' => :'Integer',
+        :'error_output' => :'String',
+        :'name' => :'String',
+        :'order' => :'Integer',
+        :'output' => :'String',
+        :'started_at' => :'Time',
+        :'status' => :'String'
       }
     end
 
@@ -119,24 +131,36 @@ module Falcon
         self.completed_at = attributes[:'completed_at']
       end
 
-      if attributes.key?(:'failure_reason')
-        self.failure_reason = attributes[:'failure_reason']
+      if attributes.key?(:'error')
+        self.error = attributes[:'error']
       end
 
-      if attributes.key?(:'initiated_at')
-        self.initiated_at = attributes[:'initiated_at']
+      if attributes.key?(:'error_code')
+        self.error_code = attributes[:'error_code']
       end
 
-      if attributes.key?(:'stage_name')
-        self.stage_name = attributes[:'stage_name']
+      if attributes.key?(:'error_output')
+        self.error_output = attributes[:'error_output']
       end
 
-      if attributes.key?(:'stage_order')
-        self.stage_order = attributes[:'stage_order']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'stage_status')
-        self.stage_status = attributes[:'stage_status']
+      if attributes.key?(:'order')
+        self.order = attributes[:'order']
+      end
+
+      if attributes.key?(:'output')
+        self.output = attributes[:'output']
+      end
+
+      if attributes.key?(:'started_at')
+        self.started_at = attributes[:'started_at']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
     end
 
@@ -144,20 +168,16 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @initiated_at.nil?
-        invalid_properties.push('invalid value for "initiated_at", initiated_at cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @stage_name.nil?
-        invalid_properties.push('invalid value for "stage_name", stage_name cannot be nil.')
+      if @order.nil?
+        invalid_properties.push('invalid value for "order", order cannot be nil.')
       end
 
-      if @stage_order.nil?
-        invalid_properties.push('invalid value for "stage_order", stage_order cannot be nil.')
-      end
-
-      if @stage_status.nil?
-        invalid_properties.push('invalid value for "stage_status", stage_status cannot be nil.')
+      if @status.nil?
+        invalid_properties.push('invalid value for "status", status cannot be nil.')
       end
 
       invalid_properties
@@ -166,23 +186,22 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @initiated_at.nil?
-      return false if @stage_name.nil?
-      return false if @stage_order.nil?
-      return false if @stage_status.nil?
-      stage_status_validator = EnumAttributeValidator.new('String', ["Running", "Completed", "Failed"])
-      return false unless stage_status_validator.valid?(@stage_status)
+      return false if @name.nil?
+      return false if @order.nil?
+      return false if @status.nil?
+      status_validator = EnumAttributeValidator.new('String', ["Pending", "Running", "Completed", "Failed"])
+      return false unless status_validator.valid?(@status)
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] stage_status Object to be assigned
-    def stage_status=(stage_status)
-      validator = EnumAttributeValidator.new('String', ["Running", "Completed", "Failed"])
-      unless validator.valid?(stage_status)
-        fail ArgumentError, "invalid value for \"stage_status\", must be one of #{validator.allowable_values}."
+    # @param [Object] status Object to be assigned
+    def status=(status)
+      validator = EnumAttributeValidator.new('String', ["Pending", "Running", "Completed", "Failed"])
+      unless validator.valid?(status)
+        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end
-      @stage_status = stage_status
+      @status = status
     end
 
     # Checks equality by comparing each attribute.
@@ -191,11 +210,14 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           completed_at == o.completed_at &&
-          failure_reason == o.failure_reason &&
-          initiated_at == o.initiated_at &&
-          stage_name == o.stage_name &&
-          stage_order == o.stage_order &&
-          stage_status == o.stage_status
+          error == o.error &&
+          error_code == o.error_code &&
+          error_output == o.error_output &&
+          name == o.name &&
+          order == o.order &&
+          output == o.output &&
+          started_at == o.started_at &&
+          status == o.status
     end
 
     # @see the `==` method
@@ -207,7 +229,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [completed_at, failure_reason, initiated_at, stage_name, stage_order, stage_status].hash
+      [completed_at, error, error_code, error_output, name, order, output, started_at, status].hash
     end
 
     # Builds the object from hash

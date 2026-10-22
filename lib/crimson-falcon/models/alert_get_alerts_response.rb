@@ -31,8 +31,6 @@ require 'time'
 
 module Falcon
   class AlertGetAlertsResponse
-    attr_accessor :account_id
-
     attr_accessor :affected_diff
 
     attr_accessor :alert_type
@@ -62,7 +60,6 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
         :'affected_diff' => :'affected_diff',
         :'alert_type' => :'alert_type',
         :'description' => :'description',
@@ -87,7 +84,6 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
         :'affected_diff' => :'Array<String>',
         :'alert_type' => :'String',
         :'description' => :'String',
@@ -124,10 +120,6 @@ module Falcon
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
 
       if attributes.key?(:'affected_diff')
         if (value = attributes[:'affected_diff']).is_a?(Array)
@@ -190,10 +182,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
       if @affected_diff.nil?
         invalid_properties.push('invalid value for "affected_diff", affected_diff cannot be nil.')
       end
@@ -276,7 +264,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
       return false if @affected_diff.nil?
       return false if @alert_type.nil?
       return false if @alert_type.to_s.length < 1
@@ -388,7 +375,6 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
           affected_diff == o.affected_diff &&
           alert_type == o.alert_type &&
           description == o.description &&
@@ -413,7 +399,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, affected_diff, alert_type, description, id, integration, is_archived, new_affected_count, security_check_api_link, source, source_id, threat_api_link, timestamp, user_who_archived].hash
+      [affected_diff, alert_type, description, id, integration, is_archived, new_affected_count, security_check_api_link, source, source_id, threat_api_link, timestamp, user_who_archived].hash
     end
 
     # Builds the object from hash
