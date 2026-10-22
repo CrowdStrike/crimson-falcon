@@ -959,7 +959,7 @@ module Falcon
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling CloudPolicies.get_evaluation_result"
       end
-      allowable_values = ["aws", "azure", "gcp", "oci"]
+      allowable_values = ["aws", "azure", "gcp", "oci", "gws"]
       if @api_client.config.client_side_validation && opts[:'cloud_provider'] && !allowable_values.include?(opts[:'cloud_provider'])
         fail ArgumentError, "invalid value for \"cloud_provider\", must be one of #{allowable_values}"
       end
@@ -1110,7 +1110,7 @@ module Falcon
       if @api_client.config.client_side_validation && resource_type.nil?
         fail ArgumentError, "Missing the required parameter 'resource_type' when calling CloudPolicies.get_rule_input_schema"
       end
-      allowable_values = ["aws", "azure", "gcp", "oci"]
+      allowable_values = ["aws", "azure", "gcp", "oci", "gws"]
       if @api_client.config.client_side_validation && opts[:'cloud_provider'] && !allowable_values.include?(opts[:'cloud_provider'])
         fail ArgumentError, "invalid value for \"cloud_provider\", must be one of #{allowable_values}"
       end
@@ -1419,10 +1419,10 @@ module Falcon
 
     # Query for rules by various parameters
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter FQL filter, allowed properties:    *rule_auto_remediable*  *rule_category*  *rule_cloneable*  *rule_compliance_benchmark*  *rule_compliance_benchmark_uuid*  *rule_compliance_framework*  *rule_control_requirement*  *rule_control_section*  *rule_created_at*  *rule_deleted_at*  *rule_description*  *rule_domain*  *rule_mitre_tactic*  *rule_mitre_technique*  *rule_name*  *rule_origin*  *rule_parent_uuid*  *rule_provider*  *rule_resource_type*  *rule_resource_type_name*  *rule_risk_factor*  *rule_annotation_status*  *rule_service*  *rule_severity*  *rule_short_code*  *rule_status*  *rule_subdomain*  *rule_updated_at*  *rule_updated_by*
+    # @option opts [String] :filter FQL filter, allowed properties:    *rule_auto_remediable*  *rule_category*  *rule_cloneable*  *rule_compliance_benchmark*  *rule_compliance_benchmark_uuid*  *rule_compliance_framework*  *rule_control_requirement*  *rule_control_section*  *rule_created_at*  *rule_description*  *rule_domain*  *rule_mitre_tactic*  *rule_mitre_technique*  *rule_name*  *rule_origin*  *rule_parent_uuid*  *rule_provider*  *rule_resource_type*  *rule_resource_type_name*  *rule_risk_factor*  *rule_annotation_status*  *rule_service*  *rule_severity*  *rule_short_code*  *rule_status*  *rule_subdomain*  *rule_updated_at*  *rule_updated_by*
     # @option opts [Integer] :limit The maximum number of resources to return. The maximum allowed is 500. (default to 100)
     # @option opts [Integer] :offset The number of results to skip before starting to return results. (default to 0)
-    # @option opts [String] :sort Field to sort on. Sortable fields:    *rule_auto_remediable*  *rule_category*  *rule_cloneable*  *rule_compliance_benchmark*  *rule_compliance_benchmark_uuid*  *rule_compliance_framework*  *rule_control_requirement*  *rule_control_section*  *rule_created_at*  *rule_deleted_at*  *rule_description*  *rule_domain*  *rule_mitre_tactic*  *rule_mitre_technique*  *rule_name*  *rule_origin*  *rule_parent_uuid*  *rule_provider*  *rule_resource_type*  *rule_resource_type_name*  *rule_risk_factor*  *rule_annotation_status*  *rule_service*  *rule_severity*  *rule_short_code*  *rule_status*  *rule_subdomain*  *rule_updated_at*  *rule_updated_by*     Use the &#x60;|asc&#x60; or &#x60;|desc&#x60; suffix to specify sort direction.
+    # @option opts [String] :sort Field to sort on. Sortable fields:    *rule_auto_remediable*  *rule_category*  *rule_cloneable*  *rule_compliance_benchmark*  *rule_compliance_benchmark_uuid*  *rule_compliance_framework*  *rule_control_requirement*  *rule_control_section*  *rule_created_at*  *rule_description*  *rule_domain*  *rule_mitre_tactic*  *rule_mitre_technique*  *rule_name*  *rule_origin*  *rule_parent_uuid*  *rule_provider*  *rule_resource_type*  *rule_resource_type_name*  *rule_risk_factor*  *rule_annotation_status*  *rule_service*  *rule_severity*  *rule_short_code*  *rule_status*  *rule_subdomain*  *rule_updated_at*  *rule_updated_by*     Use the &#x60;|asc&#x60; or &#x60;|desc&#x60; suffix to specify sort direction.
     # @return [CommonQueryResponse]
     def query_rule(opts = {})
       data, _status_code, _headers = query_rule_with_http_info(opts)
@@ -1431,10 +1431,10 @@ module Falcon
 
     # Query for rules by various parameters
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter FQL filter, allowed properties:    *rule_auto_remediable*  *rule_category*  *rule_cloneable*  *rule_compliance_benchmark*  *rule_compliance_benchmark_uuid*  *rule_compliance_framework*  *rule_control_requirement*  *rule_control_section*  *rule_created_at*  *rule_deleted_at*  *rule_description*  *rule_domain*  *rule_mitre_tactic*  *rule_mitre_technique*  *rule_name*  *rule_origin*  *rule_parent_uuid*  *rule_provider*  *rule_resource_type*  *rule_resource_type_name*  *rule_risk_factor*  *rule_annotation_status*  *rule_service*  *rule_severity*  *rule_short_code*  *rule_status*  *rule_subdomain*  *rule_updated_at*  *rule_updated_by*
+    # @option opts [String] :filter FQL filter, allowed properties:    *rule_auto_remediable*  *rule_category*  *rule_cloneable*  *rule_compliance_benchmark*  *rule_compliance_benchmark_uuid*  *rule_compliance_framework*  *rule_control_requirement*  *rule_control_section*  *rule_created_at*  *rule_description*  *rule_domain*  *rule_mitre_tactic*  *rule_mitre_technique*  *rule_name*  *rule_origin*  *rule_parent_uuid*  *rule_provider*  *rule_resource_type*  *rule_resource_type_name*  *rule_risk_factor*  *rule_annotation_status*  *rule_service*  *rule_severity*  *rule_short_code*  *rule_status*  *rule_subdomain*  *rule_updated_at*  *rule_updated_by*
     # @option opts [Integer] :limit The maximum number of resources to return. The maximum allowed is 500. (default to 100)
     # @option opts [Integer] :offset The number of results to skip before starting to return results. (default to 0)
-    # @option opts [String] :sort Field to sort on. Sortable fields:    *rule_auto_remediable*  *rule_category*  *rule_cloneable*  *rule_compliance_benchmark*  *rule_compliance_benchmark_uuid*  *rule_compliance_framework*  *rule_control_requirement*  *rule_control_section*  *rule_created_at*  *rule_deleted_at*  *rule_description*  *rule_domain*  *rule_mitre_tactic*  *rule_mitre_technique*  *rule_name*  *rule_origin*  *rule_parent_uuid*  *rule_provider*  *rule_resource_type*  *rule_resource_type_name*  *rule_risk_factor*  *rule_annotation_status*  *rule_service*  *rule_severity*  *rule_short_code*  *rule_status*  *rule_subdomain*  *rule_updated_at*  *rule_updated_by*     Use the &#x60;|asc&#x60; or &#x60;|desc&#x60; suffix to specify sort direction.
+    # @option opts [String] :sort Field to sort on. Sortable fields:    *rule_auto_remediable*  *rule_category*  *rule_cloneable*  *rule_compliance_benchmark*  *rule_compliance_benchmark_uuid*  *rule_compliance_framework*  *rule_control_requirement*  *rule_control_section*  *rule_created_at*  *rule_description*  *rule_domain*  *rule_mitre_tactic*  *rule_mitre_technique*  *rule_name*  *rule_origin*  *rule_parent_uuid*  *rule_provider*  *rule_resource_type*  *rule_resource_type_name*  *rule_risk_factor*  *rule_annotation_status*  *rule_service*  *rule_severity*  *rule_short_code*  *rule_status*  *rule_subdomain*  *rule_updated_at*  *rule_updated_by*     Use the &#x60;|asc&#x60; or &#x60;|desc&#x60; suffix to specify sort direction.
     # @return [Array<(CommonQueryResponse, Integer, Hash)>] CommonQueryResponse data, response status code and response headers
     def query_rule_with_http_info(opts = {})
       if @api_client.config.debugging

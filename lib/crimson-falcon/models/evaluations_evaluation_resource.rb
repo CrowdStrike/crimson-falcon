@@ -45,6 +45,8 @@ module Falcon
 
     attr_accessor :id
 
+    attr_accessor :namespace
+
     attr_accessor :resource_id
 
     attr_accessor :resource_name
@@ -73,6 +75,7 @@ module Falcon
         :'creation_time' => :'creation_time',
         :'gcrn' => :'gcrn',
         :'id' => :'id',
+        :'namespace' => :'namespace',
         :'resource_id' => :'resource_id',
         :'resource_name' => :'resource_name',
         :'resource_type' => :'resource_type',
@@ -94,12 +97,13 @@ module Falcon
     def self.openapi_types
       {
         :'captured' => :'Time',
-        :'cloud_groups' => :'Array<DomainCloudScope>',
+        :'cloud_groups' => :'Array<CloudScope>',
         :'cloud_labels' => :'Array<ClassificationLabel>',
         :'cloud_scopes' => :'Array<ClassificationCloudScopeRule>',
         :'creation_time' => :'Time',
         :'gcrn' => :'String',
         :'id' => :'String',
+        :'namespace' => :'String',
         :'resource_id' => :'String',
         :'resource_name' => :'String',
         :'resource_type' => :'String',
@@ -167,6 +171,10 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'namespace')
+        self.namespace = attributes[:'namespace']
+      end
+
       if attributes.key?(:'resource_id')
         self.resource_id = attributes[:'resource_id']
       end
@@ -231,6 +239,7 @@ module Falcon
           creation_time == o.creation_time &&
           gcrn == o.gcrn &&
           id == o.id &&
+          namespace == o.namespace &&
           resource_id == o.resource_id &&
           resource_name == o.resource_name &&
           resource_type == o.resource_type &&
@@ -251,7 +260,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [captured, cloud_groups, cloud_labels, cloud_scopes, creation_time, gcrn, id, resource_id, resource_name, resource_type, resource_type_name, service, service_category, status, tags, version].hash
+      [captured, cloud_groups, cloud_labels, cloud_scopes, creation_time, gcrn, id, namespace, resource_id, resource_name, resource_type, resource_type_name, service, service_category, status, tags, version].hash
     end
 
     # Builds the object from hash

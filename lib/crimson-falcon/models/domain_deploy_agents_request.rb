@@ -39,13 +39,16 @@ module Falcon
 
     attr_accessor :proxy_port
 
+    attr_accessor :queue_offline
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'aids' => :'aids',
         :'no_proxy' => :'no_proxy',
         :'proxy_host' => :'proxy_host',
-        :'proxy_port' => :'proxy_port'
+        :'proxy_port' => :'proxy_port',
+        :'queue_offline' => :'queue_offline'
       }
     end
 
@@ -60,7 +63,8 @@ module Falcon
         :'aids' => :'Array<Array>',
         :'no_proxy' => :'Boolean',
         :'proxy_host' => :'String',
-        :'proxy_port' => :'Integer'
+        :'proxy_port' => :'Integer',
+        :'queue_offline' => :'Boolean'
       }
     end
 
@@ -102,6 +106,10 @@ module Falcon
       if attributes.key?(:'proxy_port')
         self.proxy_port = attributes[:'proxy_port']
       end
+
+      if attributes.key?(:'queue_offline')
+        self.queue_offline = attributes[:'queue_offline']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -112,6 +120,10 @@ module Falcon
         invalid_properties.push('invalid value for "aids", aids cannot be nil.')
       end
 
+      if @queue_offline.nil?
+        invalid_properties.push('invalid value for "queue_offline", queue_offline cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -119,6 +131,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @aids.nil?
+      return false if @queue_offline.nil?
       true
     end
 
@@ -130,7 +143,8 @@ module Falcon
           aids == o.aids &&
           no_proxy == o.no_proxy &&
           proxy_host == o.proxy_host &&
-          proxy_port == o.proxy_port
+          proxy_port == o.proxy_port &&
+          queue_offline == o.queue_offline
     end
 
     # @see the `==` method
@@ -142,7 +156,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aids, no_proxy, proxy_host, proxy_port].hash
+      [aids, no_proxy, proxy_host, proxy_port, queue_offline].hash
     end
 
     # Builds the object from hash

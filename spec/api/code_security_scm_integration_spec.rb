@@ -68,9 +68,21 @@ describe 'CodeSecurityScmIntegration' do
     end
   end
 
+  # unit tests for create_pull_job
+  # Trigger an on-demand pull of a repository at a ref
+  # @param repository_id Repository UUID
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiResponse]
+  describe 'create_pull_job test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for delete_branch_config
-  # Delete a branch config, or exclude a specific repository from a connection-level config when repository_id query param is provided
-  # @param ids Branch config UUID
+  # Delete a branch config. With multiple ids, only repository-level configs are deleted; unknown or already-deleted ids are skipped
+  # @param ids Comma-separated branch config UUIDs (max 100)
   # @param [Hash] opts the optional parameters
   # @return [ApiResponse]
   describe 'delete_branch_config test' do

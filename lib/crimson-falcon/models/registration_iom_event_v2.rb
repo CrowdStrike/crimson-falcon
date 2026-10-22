@@ -152,7 +152,7 @@ module Falcon
         :'cloud_groups_v2' => :'Array<DomainCloudGroup>',
         :'cloud_labels' => :'Array<ClassificationLabel>',
         :'cloud_provider' => :'String',
-        :'cloud_scopes' => :'Array<DomainCloudScope>',
+        :'cloud_scopes' => :'Array<CloudScope>',
         :'custom_policy_id' => :'Integer',
         :'finding' => :'Object',
         :'findings' => :'Array<Object>',

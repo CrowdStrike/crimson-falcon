@@ -365,7 +365,7 @@ module Falcon
       return false if @created_timestamp.nil?
       return false if @credentialed.nil?
       return false if @frequency.nil?
-      frequency_validator = EnumAttributeValidator.new('String', ["not_scheduled,once,daily,weekly,monthly"])
+      frequency_validator = EnumAttributeValidator.new('String', ["not_scheduled,once,daily,weekly,biweekly,monthly"])
       return false unless frequency_validator.valid?(@frequency)
       return false if @id.nil?
       last_scan_status_validator = EnumAttributeValidator.new('String', ["created,pending,running,cancel_pending,done,canceled,error"])
@@ -384,7 +384,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] frequency Object to be assigned
     def frequency=(frequency)
-      validator = EnumAttributeValidator.new('String', ["not_scheduled,once,daily,weekly,monthly"])
+      validator = EnumAttributeValidator.new('String', ["not_scheduled,once,daily,weekly,biweekly,monthly"])
       unless validator.valid?(frequency)
         fail ArgumentError, "invalid value for \"frequency\", must be one of #{validator.allowable_values}."
       end

@@ -92,7 +92,7 @@ describe Falcon::NvaapiScan do
   describe 'test attribute "frequency"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["not_scheduled,once,daily,weekly,monthly"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["not_scheduled,once,daily,weekly,biweekly,monthly"])
       # validator.allowable_values.each do |value|
       #   expect { instance.frequency = value }.not_to raise_error
       # end

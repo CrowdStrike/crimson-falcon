@@ -31,9 +31,9 @@ require 'time'
 
 module Falcon
   class AccountIntegrationGetIntegrations
-    attr_accessor :account_id
-
     attr_accessor :_alias
+
+    attr_accessor :business_owners
 
     attr_accessor :created_time
 
@@ -41,11 +41,17 @@ module Falcon
 
     attr_accessor :id
 
+    attr_accessor :integration_progress
+
     attr_accessor :integration_status
+
+    attr_accessor :is_beta
 
     attr_accessor :issues
 
     attr_accessor :last_run
+
+    attr_accessor :org_domains
 
     attr_accessor :saas_id
 
@@ -54,14 +60,17 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
         :'_alias' => :'alias',
+        :'business_owners' => :'business_owners',
         :'created_time' => :'created_time',
         :'enabled' => :'enabled',
         :'id' => :'id',
+        :'integration_progress' => :'integration_progress',
         :'integration_status' => :'integration_status',
+        :'is_beta' => :'is_beta',
         :'issues' => :'issues',
         :'last_run' => :'last_run',
+        :'org_domains' => :'org_domains',
         :'saas_id' => :'saas_id',
         :'saas_name' => :'saas_name'
       }
@@ -75,14 +84,17 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
         :'_alias' => :'String',
+        :'business_owners' => :'Array<BusinessOwnerAccountIntegrationGetIntegrations>',
         :'created_time' => :'Time',
         :'enabled' => :'Boolean',
         :'id' => :'String',
+        :'integration_progress' => :'Integer',
         :'integration_status' => :'String',
+        :'is_beta' => :'Boolean',
         :'issues' => :'Array<IssueAccountIntegrationGetIntegrations>',
         :'last_run' => :'Time',
+        :'org_domains' => :'Array<String>',
         :'saas_id' => :'String',
         :'saas_name' => :'String'
       }
@@ -91,6 +103,7 @@ module Falcon
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'integration_progress',
       ])
     end
 
@@ -109,12 +122,14 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
-
       if attributes.key?(:'_alias')
         self._alias = attributes[:'_alias']
+      end
+
+      if attributes.key?(:'business_owners')
+        if (value = attributes[:'business_owners']).is_a?(Array)
+          self.business_owners = value
+        end
       end
 
       if attributes.key?(:'created_time')
@@ -129,8 +144,16 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'integration_progress')
+        self.integration_progress = attributes[:'integration_progress']
+      end
+
       if attributes.key?(:'integration_status')
         self.integration_status = attributes[:'integration_status']
+      end
+
+      if attributes.key?(:'is_beta')
+        self.is_beta = attributes[:'is_beta']
       end
 
       if attributes.key?(:'issues')
@@ -141,6 +164,12 @@ module Falcon
 
       if attributes.key?(:'last_run')
         self.last_run = attributes[:'last_run']
+      end
+
+      if attributes.key?(:'org_domains')
+        if (value = attributes[:'org_domains']).is_a?(Array)
+          self.org_domains = value
+        end
       end
 
       if attributes.key?(:'saas_id')
@@ -156,16 +185,16 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
       if @_alias.nil?
         invalid_properties.push('invalid value for "_alias", _alias cannot be nil.')
       end
 
       if @_alias.to_s.length < 1
         invalid_properties.push('invalid value for "_alias", the character length must be great than or equal to 1.')
+      end
+
+      if @business_owners.nil?
+        invalid_properties.push('invalid value for "business_owners", business_owners cannot be nil.')
       end
 
       if @created_time.nil?
@@ -188,12 +217,20 @@ module Falcon
         invalid_properties.push('invalid value for "integration_status", the character length must be great than or equal to 1.')
       end
 
+      if @is_beta.nil?
+        invalid_properties.push('invalid value for "is_beta", is_beta cannot be nil.')
+      end
+
       if @issues.nil?
         invalid_properties.push('invalid value for "issues", issues cannot be nil.')
       end
 
       if @last_run.nil?
         invalid_properties.push('invalid value for "last_run", last_run cannot be nil.')
+      end
+
+      if @org_domains.nil?
+        invalid_properties.push('invalid value for "org_domains", org_domains cannot be nil.')
       end
 
       if @saas_id.nil?
@@ -218,16 +255,18 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
       return false if @_alias.nil?
       return false if @_alias.to_s.length < 1
+      return false if @business_owners.nil?
       return false if @created_time.nil?
       return false if @enabled.nil?
       return false if @id.nil?
       return false if @integration_status.nil?
       return false if @integration_status.to_s.length < 1
+      return false if @is_beta.nil?
       return false if @issues.nil?
       return false if @last_run.nil?
+      return false if @org_domains.nil?
       return false if @saas_id.nil?
       return false if @saas_id.to_s.length < 1
       return false if @saas_name.nil?
@@ -296,14 +335,17 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
           _alias == o._alias &&
+          business_owners == o.business_owners &&
           created_time == o.created_time &&
           enabled == o.enabled &&
           id == o.id &&
+          integration_progress == o.integration_progress &&
           integration_status == o.integration_status &&
+          is_beta == o.is_beta &&
           issues == o.issues &&
           last_run == o.last_run &&
+          org_domains == o.org_domains &&
           saas_id == o.saas_id &&
           saas_name == o.saas_name
     end
@@ -317,7 +359,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, _alias, created_time, enabled, id, integration_status, issues, last_run, saas_id, saas_name].hash
+      [_alias, business_owners, created_time, enabled, id, integration_progress, integration_status, is_beta, issues, last_run, org_domains, saas_id, saas_name].hash
     end
 
     # Builds the object from hash

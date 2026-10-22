@@ -31,8 +31,6 @@ require 'time'
 
 module Falcon
   class CheckTagGetCheckTags
-    attr_accessor :account_id
-
     attr_accessor :color
 
     attr_accessor :id
@@ -42,7 +40,6 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
         :'color' => :'color',
         :'id' => :'id',
         :'name' => :'name'
@@ -57,7 +54,6 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
         :'color' => :'String',
         :'id' => :'String',
         :'name' => :'String'
@@ -85,10 +81,6 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
-
       if attributes.key?(:'color')
         self.color = attributes[:'color']
       end
@@ -106,10 +98,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
       if @color.nil?
         invalid_properties.push('invalid value for "color", color cannot be nil.')
       end
@@ -136,7 +124,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
       return false if @color.nil?
       return false if @color.to_s.length < 1
       return false if @id.nil?
@@ -178,7 +165,6 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
           color == o.color &&
           id == o.id &&
           name == o.name
@@ -193,7 +179,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, color, id, name].hash
+      [color, id, name].hash
     end
 
     # Builds the object from hash

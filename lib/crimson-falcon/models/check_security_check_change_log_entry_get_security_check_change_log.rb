@@ -35,11 +35,14 @@ module Falcon
 
     attr_accessor :integration
 
+    attr_accessor :integration_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'integration' => :'integration'
+        :'integration' => :'integration',
+        :'integration_id' => :'integration_id'
       }
     end
 
@@ -52,14 +55,15 @@ module Falcon
     def self.openapi_types
       {
         :'id' => :'String',
-        :'integration' => :'String'
+        :'integration' => :'String',
+        :'integration_id' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'integration'
+        :'integration',
       ])
     end
 
@@ -85,6 +89,10 @@ module Falcon
       if attributes.key?(:'integration')
         self.integration = attributes[:'integration']
       end
+
+      if attributes.key?(:'integration_id')
+        self.integration_id = attributes[:'integration_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -99,6 +107,10 @@ module Falcon
         invalid_properties.push('invalid value for "integration", the character length must be great than or equal to 1.')
       end
 
+      if @integration_id.nil?
+        invalid_properties.push('invalid value for "integration_id", integration_id cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -107,6 +119,7 @@ module Falcon
     def valid?
       return false if @id.nil?
       return false if @integration.to_s.length < 1
+      return false if @integration_id.nil?
       true
     end
 
@@ -126,7 +139,8 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          integration == o.integration
+          integration == o.integration &&
+          integration_id == o.integration_id
     end
 
     # @see the `==` method
@@ -138,7 +152,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, integration].hash
+      [id, integration, integration_id].hash
     end
 
     # Builds the object from hash

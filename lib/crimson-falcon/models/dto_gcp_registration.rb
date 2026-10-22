@@ -35,6 +35,10 @@ module Falcon
 
     attr_accessor :cloud_registration_enabled
 
+    attr_accessor :connected_through_registration_id
+
+    attr_accessor :connected_through_registration_name
+
     attr_accessor :created
 
     attr_accessor :cspm_enabled
@@ -50,6 +54,8 @@ module Falcon
     attr_accessor :falcon_client_key_type
 
     attr_accessor :folders
+
+    attr_accessor :google_workspace
 
     attr_accessor :infra_manager_properties
 
@@ -98,6 +104,8 @@ module Falcon
       {
         :'additional_properties' => :'additional_properties',
         :'cloud_registration_enabled' => :'cloud_registration_enabled',
+        :'connected_through_registration_id' => :'connected_through_registration_id',
+        :'connected_through_registration_name' => :'connected_through_registration_name',
         :'created' => :'created',
         :'cspm_enabled' => :'cspm_enabled',
         :'deployment_method' => :'deployment_method',
@@ -106,6 +114,7 @@ module Falcon
         :'falcon_client_key_id' => :'falcon_client_key_id',
         :'falcon_client_key_type' => :'falcon_client_key_type',
         :'folders' => :'folders',
+        :'google_workspace' => :'google_workspace',
         :'infra_manager_properties' => :'infra_manager_properties',
         :'infra_project_id' => :'infra_project_id',
         :'labels' => :'labels',
@@ -140,6 +149,8 @@ module Falcon
       {
         :'additional_properties' => :'Object',
         :'cloud_registration_enabled' => :'Boolean',
+        :'connected_through_registration_id' => :'String',
+        :'connected_through_registration_name' => :'String',
         :'created' => :'Time',
         :'cspm_enabled' => :'Boolean',
         :'deployment_method' => :'String',
@@ -148,6 +159,7 @@ module Falcon
         :'falcon_client_key_id' => :'String',
         :'falcon_client_key_type' => :'String',
         :'folders' => :'Array<DtoFolder>',
+        :'google_workspace' => :'DtoWorkspaceProperties',
         :'infra_manager_properties' => :'DtoInfraManagerProperties',
         :'infra_project_id' => :'String',
         :'labels' => :'Hash<String, String>',
@@ -201,6 +213,14 @@ module Falcon
         self.cloud_registration_enabled = attributes[:'cloud_registration_enabled']
       end
 
+      if attributes.key?(:'connected_through_registration_id')
+        self.connected_through_registration_id = attributes[:'connected_through_registration_id']
+      end
+
+      if attributes.key?(:'connected_through_registration_name')
+        self.connected_through_registration_name = attributes[:'connected_through_registration_name']
+      end
+
       if attributes.key?(:'created')
         self.created = attributes[:'created']
       end
@@ -235,6 +255,10 @@ module Falcon
         if (value = attributes[:'folders']).is_a?(Array)
           self.folders = value
         end
+      end
+
+      if attributes.key?(:'google_workspace')
+        self.google_workspace = attributes[:'google_workspace']
       end
 
       if attributes.key?(:'infra_manager_properties')
@@ -360,6 +384,8 @@ module Falcon
       self.class == o.class &&
           additional_properties == o.additional_properties &&
           cloud_registration_enabled == o.cloud_registration_enabled &&
+          connected_through_registration_id == o.connected_through_registration_id &&
+          connected_through_registration_name == o.connected_through_registration_name &&
           created == o.created &&
           cspm_enabled == o.cspm_enabled &&
           deployment_method == o.deployment_method &&
@@ -368,6 +394,7 @@ module Falcon
           falcon_client_key_id == o.falcon_client_key_id &&
           falcon_client_key_type == o.falcon_client_key_type &&
           folders == o.folders &&
+          google_workspace == o.google_workspace &&
           infra_manager_properties == o.infra_manager_properties &&
           infra_project_id == o.infra_project_id &&
           labels == o.labels &&
@@ -400,7 +427,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [additional_properties, cloud_registration_enabled, created, cspm_enabled, deployment_method, dspm_settings, excluded_project_patterns, falcon_client_key_id, falcon_client_key_type, folders, infra_manager_properties, infra_project_id, labels, last_healthcheck_completed_at, log_ingestion_properties, organization, products, projects, registration_description, registration_id, registration_name, registration_scope, resource_name_prefix, resource_name_suffix, service_account_properties, status, tags, updated, vulnerability_scanning_settings, wif_pool_registration_id, wif_properties].hash
+      [additional_properties, cloud_registration_enabled, connected_through_registration_id, connected_through_registration_name, created, cspm_enabled, deployment_method, dspm_settings, excluded_project_patterns, falcon_client_key_id, falcon_client_key_type, folders, google_workspace, infra_manager_properties, infra_project_id, labels, last_healthcheck_completed_at, log_ingestion_properties, organization, products, projects, registration_description, registration_id, registration_name, registration_scope, resource_name_prefix, resource_name_suffix, service_account_properties, status, tags, updated, vulnerability_scanning_settings, wif_pool_registration_id, wif_properties].hash
     end
 
     # Builds the object from hash

@@ -39,12 +39,15 @@ module Falcon
     # Query results
     attr_accessor :resources
 
+    attr_accessor :shadow_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'errors' => :'errors',
         :'meta' => :'meta',
-        :'resources' => :'resources'
+        :'resources' => :'resources',
+        :'shadow_id' => :'shadow_id'
       }
     end
 
@@ -58,7 +61,8 @@ module Falcon
       {
         :'errors' => :'Array<MalqueryQueryError>',
         :'meta' => :'MalqueryQueryMetaInfo',
-        :'resources' => :'Array<MalqueryExternalResource>'
+        :'resources' => :'Array<MalqueryExternalResource>',
+        :'shadow_id' => :'String'
       }
     end
 
@@ -98,6 +102,10 @@ module Falcon
           self.resources = value
         end
       end
+
+      if attributes.key?(:'shadow_id')
+        self.shadow_id = attributes[:'shadow_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -130,7 +138,8 @@ module Falcon
       self.class == o.class &&
           errors == o.errors &&
           meta == o.meta &&
-          resources == o.resources
+          resources == o.resources &&
+          shadow_id == o.shadow_id
     end
 
     # @see the `==` method
@@ -142,7 +151,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [errors, meta, resources].hash
+      [errors, meta, resources, shadow_id].hash
     end
 
     # Builds the object from hash

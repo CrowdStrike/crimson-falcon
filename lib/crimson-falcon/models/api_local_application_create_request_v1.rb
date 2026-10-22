@@ -41,7 +41,11 @@ module Falcon
 
     attr_accessor :group_ids
 
+    attr_accessor :mac_block_on_timeout
+
     attr_accessor :name
+
+    attr_accessor :platform
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -51,7 +55,9 @@ module Falcon
         :'enable_rename_detection' => :'enable_rename_detection',
         :'executable_name' => :'executable_name',
         :'group_ids' => :'group_ids',
-        :'name' => :'name'
+        :'mac_block_on_timeout' => :'mac_block_on_timeout',
+        :'name' => :'name',
+        :'platform' => :'platform'
       }
     end
 
@@ -68,7 +74,9 @@ module Falcon
         :'enable_rename_detection' => :'Boolean',
         :'executable_name' => :'String',
         :'group_ids' => :'Array<String>',
-        :'name' => :'String'
+        :'mac_block_on_timeout' => :'Boolean',
+        :'name' => :'String',
+        :'platform' => :'String'
       }
     end
 
@@ -115,8 +123,16 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'mac_block_on_timeout')
+        self.mac_block_on_timeout = attributes[:'mac_block_on_timeout']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'platform')
+        self.platform = attributes[:'platform']
       end
     end
 
@@ -144,8 +160,16 @@ module Falcon
         invalid_properties.push('invalid value for "group_ids", group_ids cannot be nil.')
       end
 
+      if @mac_block_on_timeout.nil?
+        invalid_properties.push('invalid value for "mac_block_on_timeout", mac_block_on_timeout cannot be nil.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @platform.nil?
+        invalid_properties.push('invalid value for "platform", platform cannot be nil.')
       end
 
       invalid_properties
@@ -159,7 +183,9 @@ module Falcon
       return false if @enable_rename_detection.nil?
       return false if @executable_name.nil?
       return false if @group_ids.nil?
+      return false if @mac_block_on_timeout.nil?
       return false if @name.nil?
+      return false if @platform.nil?
       true
     end
 
@@ -173,7 +199,9 @@ module Falcon
           enable_rename_detection == o.enable_rename_detection &&
           executable_name == o.executable_name &&
           group_ids == o.group_ids &&
-          name == o.name
+          mac_block_on_timeout == o.mac_block_on_timeout &&
+          name == o.name &&
+          platform == o.platform
     end
 
     # @see the `==` method
@@ -185,7 +213,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [apply_rules_for_children_processes, emit_rule_matched_events_only, enable_rename_detection, executable_name, group_ids, name].hash
+      [apply_rules_for_children_processes, emit_rule_matched_events_only, enable_rename_detection, executable_name, group_ids, mac_block_on_timeout, name, platform].hash
     end
 
     # Builds the object from hash

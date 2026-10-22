@@ -35,6 +35,72 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Report whether a Google Workspace customer ID or organization ID is already registered
+    # A taken customer ID blocks registration, because it is unique per customer. An organization ID already in use does not block registration: more than one Google Workspace may share one Google Cloud organization. At least one of the two parameters is required.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :customer_id Google Workspace customer ID to check. A match blocks registration.
+    # @option opts [String] :organization_id Google Cloud organization ID to check. A match is informational and does not block registration.
+    # @option opts [String] :exclude_gcp_registration_id Google Cloud registration ID being edited. A match on this registration is reported as not registered.
+    # @return [DtoWorkspaceAvailabilityResponseExtV1]
+    def cloud_registration_gcp_check_workspace_availability(opts = {})
+      data, _status_code, _headers = cloud_registration_gcp_check_workspace_availability_with_http_info(opts)
+      data
+    end
+
+    # Report whether a Google Workspace customer ID or organization ID is already registered
+    # A taken customer ID blocks registration, because it is unique per customer. An organization ID already in use does not block registration: more than one Google Workspace may share one Google Cloud organization. At least one of the two parameters is required.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :customer_id Google Workspace customer ID to check. A match blocks registration.
+    # @option opts [String] :organization_id Google Cloud organization ID to check. A match is informational and does not block registration.
+    # @option opts [String] :exclude_gcp_registration_id Google Cloud registration ID being edited. A match on this registration is reported as not registered.
+    # @return [Array<(DtoWorkspaceAvailabilityResponseExtV1, Integer, Hash)>] DtoWorkspaceAvailabilityResponseExtV1 data, response status code and response headers
+    def cloud_registration_gcp_check_workspace_availability_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudGoogleCloudRegistration.cloud_registration_gcp_check_workspace_availability ...'
+      end
+      # resource path
+      local_var_path = '/cloud-security-registration-google-workspace/entities/availability/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'customer_id'] = opts[:'customer_id'] if !opts[:'customer_id'].nil?
+      query_params[:'organization_id'] = opts[:'organization_id'] if !opts[:'organization_id'].nil?
+      query_params[:'exclude_gcp_registration_id'] = opts[:'exclude_gcp_registration_id'] if !opts[:'exclude_gcp_registration_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DtoWorkspaceAvailabilityResponseExtV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudGoogleCloudRegistration.cloud_registration_gcp_check_workspace_availability",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudGoogleCloudRegistration#cloud_registration_gcp_check_workspace_availability\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create a Google Cloud Registration.
     # @param body [DtoGCPRegistrationCreateRequestExtV1]
     # @param [Hash] opts the optional parameters
@@ -159,6 +225,68 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CloudGoogleCloudRegistration#cloud_registration_gcp_delete_registration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Deletes the Google Workspace registration attached to a Google Cloud Registration, and returns the deleted Workspace in the response body. The Google Cloud Registration itself is not affected.
+    # @param gcp_registration_id [String] Google Cloud Registration ID the Google Workspace is attached to
+    # @param [Hash] opts the optional parameters
+    # @return [DtoWorkspaceResponseExtV1]
+    def cloud_registration_gcp_delete_workspace_registration(gcp_registration_id, opts = {})
+      data, _status_code, _headers = cloud_registration_gcp_delete_workspace_registration_with_http_info(gcp_registration_id, opts)
+      data
+    end
+
+    # Deletes the Google Workspace registration attached to a Google Cloud Registration, and returns the deleted Workspace in the response body. The Google Cloud Registration itself is not affected.
+    # @param gcp_registration_id [String] Google Cloud Registration ID the Google Workspace is attached to
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DtoWorkspaceResponseExtV1, Integer, Hash)>] DtoWorkspaceResponseExtV1 data, response status code and response headers
+    def cloud_registration_gcp_delete_workspace_registration_with_http_info(gcp_registration_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudGoogleCloudRegistration.cloud_registration_gcp_delete_workspace_registration ...'
+      end
+      # verify the required parameter 'gcp_registration_id' is set
+      if @api_client.config.client_side_validation && gcp_registration_id.nil?
+        fail ArgumentError, "Missing the required parameter 'gcp_registration_id' when calling CloudGoogleCloudRegistration.cloud_registration_gcp_delete_workspace_registration"
+      end
+      # resource path
+      local_var_path = '/cloud-security-registration-google-workspace/entities/registrations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'gcp_registration_id'] = gcp_registration_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DtoWorkspaceResponseExtV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudGoogleCloudRegistration.cloud_registration_gcp_delete_workspace_registration",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudGoogleCloudRegistration#cloud_registration_gcp_delete_workspace_registration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

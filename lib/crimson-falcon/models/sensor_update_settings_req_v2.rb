@@ -39,6 +39,9 @@ module Falcon
     # If true, early adopter builds will be visible on the sensor update policy page
     attr_accessor :show_early_adopter_builds
 
+    # If true, LTV builds will be visible on the sensor update policy page
+    attr_accessor :show_ltv_builds
+
     # The uninstall protection state to apply to the policy
     attr_accessor :uninstall_protection
 
@@ -72,6 +75,7 @@ module Falcon
         :'build' => :'build',
         :'scheduler' => :'scheduler',
         :'show_early_adopter_builds' => :'show_early_adopter_builds',
+        :'show_ltv_builds' => :'show_ltv_builds',
         :'uninstall_protection' => :'uninstall_protection',
         :'variants' => :'variants'
       }
@@ -88,6 +92,7 @@ module Falcon
         :'build' => :'String',
         :'scheduler' => :'PolicySensorUpdateScheduler',
         :'show_early_adopter_builds' => :'Boolean',
+        :'show_ltv_builds' => :'Boolean',
         :'uninstall_protection' => :'String',
         :'variants' => :'Array<SensorUpdateBuildReqV1>'
       }
@@ -124,6 +129,10 @@ module Falcon
 
       if attributes.key?(:'show_early_adopter_builds')
         self.show_early_adopter_builds = attributes[:'show_early_adopter_builds']
+      end
+
+      if attributes.key?(:'show_ltv_builds')
+        self.show_ltv_builds = attributes[:'show_ltv_builds']
       end
 
       if attributes.key?(:'uninstall_protection')
@@ -180,6 +189,7 @@ module Falcon
           build == o.build &&
           scheduler == o.scheduler &&
           show_early_adopter_builds == o.show_early_adopter_builds &&
+          show_ltv_builds == o.show_ltv_builds &&
           uninstall_protection == o.uninstall_protection &&
           variants == o.variants
     end
@@ -193,7 +203,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [build, scheduler, show_early_adopter_builds, uninstall_protection, variants].hash
+      [build, scheduler, show_early_adopter_builds, show_ltv_builds, uninstall_protection, variants].hash
     end
 
     # Builds the object from hash

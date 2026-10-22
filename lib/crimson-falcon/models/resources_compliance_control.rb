@@ -111,7 +111,7 @@ module Falcon
         :'account_id' => :'String',
         :'account_name' => :'String',
         :'assessment_id' => :'String',
-        :'cloud_groups' => :'Array<DomainCloudScope>',
+        :'cloud_groups' => :'Array<CloudScope>',
         :'cloud_groups_v2' => :'Array<DomainCloudGroup>',
         :'cloud_labels' => :'Array<ClassificationLabel>',
         :'cloud_provider' => :'String',

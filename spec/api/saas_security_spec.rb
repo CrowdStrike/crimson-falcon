@@ -85,6 +85,18 @@ describe 'SaasSecurity' do
     end
   end
 
+  # unit tests for create_discovered_vendor_journal_comment_v3
+  # POST Discovered Vendor Journal Comment
+  # Append a comment to one or more discovered vendors, identified by their primary domains
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [CreateJournal]
+  describe 'create_discovered_vendor_journal_comment_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for create_user_journal_comment_v3
   # POST User Journal Comment
   # Append a comment to one or more user inventory items
@@ -332,11 +344,91 @@ describe 'SaasSecurity' do
     end
   end
 
+  # unit tests for get_discovered_instances
+  # GET Discovered Vendor Instances
+  # Get the instances (distinct subdomains or tenants observed in telemetry) of a discovered vendor, per vendor domain, sorted by device count (descending). Returns no resources when the domain isn&#39;t a discovered vendor
+  # @param primary_domain Vendor primary domain (exact match), e.g. salesforce.com
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The maximum number of objects to return
+  # @option opts [Integer] :offset The starting index of the results
+  # @option opts [String] :name Instance name contains &#39;value&#39; (case insensitive). Only matching instances are returned, and domains without any are omitted
+  # @return [DiscoveredInstances]
+  describe 'get_discovered_instances test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_discovered_vendor_devices
+  # GET Discovered Vendor Devices
+  # Get the devices observed accessing a discovered vendor in the last 7 days, most recently seen first. Returns no resources when the domain isn&#39;t a discovered vendor, or when &#x60;domain&#x60; isn&#39;t one of its domains
+  # @param primary_domain Vendor primary domain (exact match), e.g. salesforce.com
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The maximum number of objects to return
+  # @option opts [Integer] :offset The starting index of the results
+  # @option opts [String] :domain One of the vendor&#39;s domains (exact match), e.g. force.com. Defaults to all of them
+  # @option opts [String] :instances Comma separated list of instance names (exact match), under &#x60;domain&#x60; when given, otherwise under any of the vendor&#39;s domains
+  # @option opts [String] :department Department of the device&#39;s user (exact match)
+  # @return [DiscoveredVendorDevices]
+  describe 'get_discovered_vendor_devices test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_discovered_vendor_journal_v3
+  # GET Discovered Vendor Journal
+  # Get the journal entries for a discovered vendor
+  # @param id Discovered vendor primary domain, e.g. salesforce.com
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The maximum number of objects to return
+  # @option opts [Integer] :offset The starting index of the results
+  # @option opts [String] :author Filter by entry author: a full or partial creator name, a creator email address, or an API client id
+  # @return [GetJournal]
+  describe 'get_discovered_vendor_journal_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_discovered_vendors
+  # GET Discovered Vendors
+  # Get a list of SaaS vendors observed across the organization&#39;s endpoints, aggregated per vendor across all its domains, sorted by device count (descending)
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :primary_domain Vendor primary domain (exact match), e.g. salesforce.com
+  # @option opts [Integer] :limit The maximum number of objects to return
+  # @option opts [Integer] :offset The starting index of the results
+  # @option opts [String] :vendor_name Vendor name contains &#39;value&#39; (case insensitive)
+  # @option opts [String] :relevance Vendor relevance. Filters on the last consolidated relevance, so a relevance modified just now may take effect in the filter only after the next inventory refresh
+  # @option opts [String] :category Comma separated list of categories (exact match), matching vendors having any of them
+  # @option opts [Boolean] :include_departments Include the departments of the vendor&#39;s users in the response
+  # @option opts [String] :department Department (exact match) of the vendor&#39;s users
+  # @option opts [Boolean] :login_indicator Whether login activity to the vendor was observed
+  # @option opts [Boolean] :has_oauth_apps Whether the vendor has OAuth apps
+  # @option opts [Boolean] :has_signin_apps Whether the vendor has sign-in apps
+  # @option opts [Time] :last_seen ISO 8601 datetime. Returns vendors last seen at or after it. Last seen is recorded per day
+  # @return [DiscoveredVendors]
+  describe 'get_discovered_vendors test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_integrations_v3
   # GET Integrations
   # Get a list of connected integrations in your account
   # @param [Hash] opts the optional parameters
   # @option opts [String] :saas_id Comma separated SaaS ID&#39;s
+  # @option opts [String] :integration_id Comma separated integration ID&#39;s. Also matches the parent of a multi-instance integration (as returned by POST create), which the unfiltered list does not show
+  # @option opts [String] :saas_name SaaS names. Comma separated or repeated param, case insensitive, matches any
+  # @option opts [String] :_alias Integration aliases. Comma separated or repeated param, case insensitive, matches any
+  # @option opts [String] :business_owners Business owner names or emails. Comma separated or repeated param, case insensitive, matches any
+  # @option opts [String] :org_domain Organization domains. Comma separated or repeated param, case insensitive, matches any. &#x60;organization_domain&#x60; is an alias
+  # @option opts [String] :status Integration status: succeeded, partial, failed. Comma separated
+  # @option opts [Boolean] :enabled Enabled
+  # @option opts [Boolean] :is_beta SaaS is in beta
+  # @option opts [String] :last_run Last run was or was not within the last &#39;value&#39; days. Format: &#39;was value&#39; or &#39;was not value&#39; or &#39;value&#39; (implies &#39;was value&#39;). &#39;was not&#39; includes never run
+  # @option opts [String] :integration_progress Integration progress (0-100). Format: &#39;less than value&#39;, &#39;greater than value&#39;, &#39;is equal to value&#39; or &#39;value&#39; (implies &#39;is equal to value&#39;)
   # @return [GetIntegrations]
   describe 'get_integrations_v3 test' do
     it 'should work' do
@@ -381,7 +473,7 @@ describe 'SaasSecurity' do
 
   # unit tests for get_security_check_change_log_v3
   # GET Security Check Change Log
-  # Get the log of CrowdStrike&#39;s own changes to security checks - detection logic, impact, title and so on. meta.pagination.total is only populated when total_count&#x3D;true is passed.
+  # Get the log of CrowdStrike&#39;s own changes to security checks - detection logic, impact, title and so on. meta.pagination.limit and offset describe the next page and are null on the last one.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :action Actions to filter by, comma separated (e.g. renamed,impact_changed)
   # @option opts [Integer] :limit The maximum number of objects to return
@@ -390,7 +482,6 @@ describe 'SaasSecurity' do
   # @option opts [String] :check_id Security check id - stable across a rename, so it returns the whole history
   # @option opts [Time] :from_date From Date (in YYYY-MM-DD format)
   # @option opts [Time] :to_date To Date (in YYYY-MM-DD format)
-  # @option opts [Boolean] :total_count Fetch Total Count?
   # @return [GetSecurityCheckChangeLog]
   describe 'get_security_check_change_log_v3 test' do
     it 'should work' do
@@ -434,8 +525,10 @@ describe 'SaasSecurity' do
 
   # unit tests for get_supported_saas_v3
   # GET Supported SaaS
-  # Get a list of supported integrations
+  # Get a list of supported integrations. Set &#x60;include_schema&#x60; to also get, per SaaS, what &#x60;POST entities/integrations/v3&#x60; needs to create an integration of it
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :id SaaS ID
+  # @option opts [Boolean] :include_schema Include &#x60;creation_schema&#x60;: credential flags (&#39;require&#39;, &#39;show&#39; or &#39;&#39; &#x3D; not offered), extra fields, and &#x60;additional_steps&#x60; that can only be completed in the Falcon UI
   # @return [GetSupportedSaas]
   describe 'get_supported_saas_v3 test' do
     it 'should work' do
@@ -496,6 +589,20 @@ describe 'SaasSecurity' do
   # @option opts [String] :author Filter by entry author: a full or partial creator name, a creator email address, or an API client id
   # @return [GetJournal]
   describe 'get_user_journal_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_vendor_details
+  # GET Vendor Details
+  # Get the vendor intelligence of a discovered vendor by its primary domain: name, categories, privacy policy, certifications and security measures. Returns no resources when the domain isn&#39;t a discovered vendor
+  # @param primary_domain Vendor primary domain (exact match), e.g. slack.com
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The maximum number of objects to return
+  # @option opts [Integer] :offset The starting index of the results
+  # @return [VendorDetails]
+  describe 'get_vendor_details test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -577,6 +684,18 @@ describe 'SaasSecurity' do
     end
   end
 
+  # unit tests for save_integration_v3
+  # POST Update or Create an Integration
+  # With &#x60;id&#x60;: replace the integration&#39;s &#x60;business_owners&#x60; and/or &#x60;org_domains&#x60;. For an instance of a multi-instance integration the change applies to all its instances. Without &#x60;id&#x60;: create an integration of &#x60;saas_id&#x60;, per the &#x60;creation_schema&#x60; of GET entities/supported-saas/v3. When &#x60;additional_steps&#x60; is returned, the integration was created disabled and must be completed in the Falcon UI. For a multi-instance SaaS the returned id is the parent integration: GET with &#x60;integration_id&#x3D;&lt;id&gt;&#x60; returns it, and its instances are listed with their own ids once selected in the UI
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [SaveIntegration]
+  describe 'save_integration_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for set_check_impact_v3
   # POST Set a Security Check Impact
   # Set the impact of one instance of a security check. Set &#x60;all_future_instances&#x60; to also apply it to instances of the same SaaS connected in the future; it does not change instances that already exist. The check is not re-evaluated, only its impact changes
@@ -598,6 +717,18 @@ describe 'SaasSecurity' do
   # @param [Hash] opts the optional parameters
   # @return [SetCheckParam]
   describe 'set_check_param_v3 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_discovered_vendor_relevance
+  # PATCH Update Discovered Vendor Relevance
+  # Update the relevance of a discovered vendor. Relevance is the only customer-managed attribute of a vendor; setting the same relevance again changes nothing, including its reason
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [UpdateDiscoveredVendorRelevance]
+  describe 'update_discovered_vendor_relevance test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

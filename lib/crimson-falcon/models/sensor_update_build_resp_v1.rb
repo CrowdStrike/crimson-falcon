@@ -169,7 +169,7 @@ module Falcon
       return false if @platform.nil?
       return false if @sensor_version.nil?
       return false if @stage.nil?
-      stage_validator = EnumAttributeValidator.new('String', ["prod", "early_adopter"])
+      stage_validator = EnumAttributeValidator.new('String', ["prod", "early_adopter", "ltv"])
       return false unless stage_validator.valid?(@stage)
       true
     end
@@ -177,7 +177,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] stage Object to be assigned
     def stage=(stage)
-      validator = EnumAttributeValidator.new('String', ["prod", "early_adopter"])
+      validator = EnumAttributeValidator.new('String', ["prod", "early_adopter", "ltv"])
       unless validator.valid?(stage)
         fail ArgumentError, "invalid value for \"stage\", must be one of #{validator.allowable_values}."
       end

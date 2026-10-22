@@ -35,6 +35,67 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Get the status/artifact of an on-demand pull job
+    # @param pull_job_id [String] Pull job UUID
+    # @param [Hash] opts the optional parameters
+    # @return [ApiResponse]
+    def get_pull_job(pull_job_id, opts = {})
+      data, _status_code, _headers = get_pull_job_with_http_info(pull_job_id, opts)
+      data
+    end
+
+    # Get the status/artifact of an on-demand pull job
+    # @param pull_job_id [String] Pull job UUID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiResponse, Integer, Hash)>] ApiResponse data, response status code and response headers
+    def get_pull_job_with_http_info(pull_job_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CodeSecurityScmInventory.get_pull_job ...'
+      end
+      # verify the required parameter 'pull_job_id' is set
+      if @api_client.config.client_side_validation && pull_job_id.nil?
+        fail ArgumentError, "Missing the required parameter 'pull_job_id' when calling CodeSecurityScmInventory.get_pull_job"
+      end
+      # resource path
+      local_var_path = '/scm-integration/entities/pulls/v1/{pull_job_id}'.sub('{' + 'pull_job_id' + '}', CGI.escape(pull_job_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CodeSecurityScmInventory.get_pull_job",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CodeSecurityScmInventory#get_pull_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get distinct values with counts for a repository field
     # @param field [String] Field to aggregate: name, primary_language, visibility, artifact_types, topics, owner_org, default_branch
     # @param [Hash] opts the optional parameters
@@ -163,6 +224,67 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CodeSecurityScmInventory#list_scm_repositories\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List branches for a repository
+    # @param repository_id [String] Repository UUID
+    # @param [Hash] opts the optional parameters
+    # @return [ApiResponse]
+    def list_scm_repository_branches(repository_id, opts = {})
+      data, _status_code, _headers = list_scm_repository_branches_with_http_info(repository_id, opts)
+      data
+    end
+
+    # List branches for a repository
+    # @param repository_id [String] Repository UUID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiResponse, Integer, Hash)>] ApiResponse data, response status code and response headers
+    def list_scm_repository_branches_with_http_info(repository_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CodeSecurityScmInventory.list_scm_repository_branches ...'
+      end
+      # verify the required parameter 'repository_id' is set
+      if @api_client.config.client_side_validation && repository_id.nil?
+        fail ArgumentError, "Missing the required parameter 'repository_id' when calling CodeSecurityScmInventory.list_scm_repository_branches"
+      end
+      # resource path
+      local_var_path = '/scm-integration/entities/repositories/v1/{repository_id}/branches'.sub('{' + 'repository_id' + '}', CGI.escape(repository_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CodeSecurityScmInventory.list_scm_repository_branches",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CodeSecurityScmInventory#list_scm_repository_branches\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -31,8 +31,6 @@ require 'time'
 
 module Falcon
   class SystemUserGetSystemUsers
-    attr_accessor :account_id
-
     attr_accessor :bypass_sso
 
     attr_accessor :create_date
@@ -60,7 +58,6 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
         :'bypass_sso' => :'bypass_sso',
         :'create_date' => :'create_date',
         :'email' => :'email',
@@ -84,7 +81,6 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
         :'bypass_sso' => :'Boolean',
         :'create_date' => :'Time',
         :'email' => :'String',
@@ -120,10 +116,6 @@ module Falcon
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
 
       if attributes.key?(:'bypass_sso')
         self.bypass_sso = attributes[:'bypass_sso']
@@ -180,10 +172,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
       if @bypass_sso.nil?
         invalid_properties.push('invalid value for "bypass_sso", bypass_sso cannot be nil.')
       end
@@ -254,7 +242,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
       return false if @bypass_sso.nil?
       return false if @create_date.nil?
       return false if @email.nil?
@@ -335,7 +322,6 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
           bypass_sso == o.bypass_sso &&
           create_date == o.create_date &&
           email == o.email &&
@@ -359,7 +345,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, bypass_sso, create_date, email, enabled, first_name, id, last_login, last_name, locked_out, mfa_enabled, role, scoped_integration_ids].hash
+      [bypass_sso, create_date, email, enabled, first_name, id, last_login, last_name, locked_out, mfa_enabled, role, scoped_integration_ids].hash
     end
 
     # Builds the object from hash

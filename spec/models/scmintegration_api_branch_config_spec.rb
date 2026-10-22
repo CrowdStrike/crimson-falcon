@@ -41,6 +41,12 @@ describe Falcon::ScmintegrationAPIBranchConfig do
       expect(instance).to be_instance_of(Falcon::ScmintegrationAPIBranchConfig)
     end
   end
+  describe 'test attribute "branches"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "connection_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -60,12 +66,6 @@ describe Falcon::ScmintegrationAPIBranchConfig do
   end
 
   describe 'test attribute "mode"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  describe 'test attribute "patterns"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

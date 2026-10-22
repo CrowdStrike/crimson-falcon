@@ -156,7 +156,7 @@ module Falcon
         :'azure_permissions_status' => :'Array<DomainPermission>',
         :'cid' => :'String',
         :'client_id' => :'String',
-        :'cloud_scopes' => :'Array<DomainCloudScope>',
+        :'cloud_scopes' => :'Array<CloudScope>',
         :'conditions' => :'Array<StatemgmtCondition>',
         :'credentials_end_date' => :'Time',
         :'credentials_type' => :'String',

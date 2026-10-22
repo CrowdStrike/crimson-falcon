@@ -31,6 +31,9 @@ require 'time'
 
 module Falcon
   class SadomainRule
+    # The minimum risk score threshold at or above which AI summaries are generated for matches. `off` excludes the rule from AI summarization. Possible values: [`off`, `auto`, `low`, `medium`, `high`, `critical`].
+    attr_accessor :ai_summaries_risk_score_threshold
+
     # Monitor only for exposed data. Must be accompanied by breach_monitoring_enabled:true.
     attr_accessor :breach_monitor_only
 
@@ -108,6 +111,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ai_summaries_risk_score_threshold' => :'ai_summaries_risk_score_threshold',
         :'breach_monitor_only' => :'breach_monitor_only',
         :'breach_monitoring_enabled' => :'breach_monitoring_enabled',
         :'cid' => :'cid',
@@ -145,6 +149,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ai_summaries_risk_score_threshold' => :'String',
         :'breach_monitor_only' => :'Boolean',
         :'breach_monitoring_enabled' => :'Boolean',
         :'cid' => :'String',
@@ -194,6 +199,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ai_summaries_risk_score_threshold')
+        self.ai_summaries_risk_score_threshold = attributes[:'ai_summaries_risk_score_threshold']
+      end
 
       if attributes.key?(:'breach_monitor_only')
         self.breach_monitor_only = attributes[:'breach_monitor_only']
@@ -308,6 +317,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @ai_summaries_risk_score_threshold.nil?
+        invalid_properties.push('invalid value for "ai_summaries_risk_score_threshold", ai_summaries_risk_score_threshold cannot be nil.')
+      end
+
       if @breach_monitor_only.nil?
         invalid_properties.push('invalid value for "breach_monitor_only", breach_monitor_only cannot be nil.')
       end
@@ -378,6 +391,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @ai_summaries_risk_score_threshold.nil?
       return false if @breach_monitor_only.nil?
       return false if @breach_monitoring_enabled.nil?
       return false if @cid.nil?
@@ -402,6 +416,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ai_summaries_risk_score_threshold == o.ai_summaries_risk_score_threshold &&
           breach_monitor_only == o.breach_monitor_only &&
           breach_monitoring_enabled == o.breach_monitoring_enabled &&
           cid == o.cid &&
@@ -439,7 +454,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [breach_monitor_only, breach_monitoring_enabled, cid, created_by, created_timestamp, exposed_data_match_type, filter, id, lookback_period, match_on_tsq_result_types, name, originating_template_id, ownership_assets, permissions, pir_ids, priority, status, status_message, substring_matching_enabled, template_priority, topic, tsq_match_edit_distance, updated_timestamp, user_id, user_name, user_uuid].hash
+      [ai_summaries_risk_score_threshold, breach_monitor_only, breach_monitoring_enabled, cid, created_by, created_timestamp, exposed_data_match_type, filter, id, lookback_period, match_on_tsq_result_types, name, originating_template_id, ownership_assets, permissions, pir_ids, priority, status, status_message, substring_matching_enabled, template_priority, topic, tsq_match_edit_distance, updated_timestamp, user_id, user_name, user_uuid].hash
     end
 
     # Builds the object from hash

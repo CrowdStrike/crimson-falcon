@@ -31,8 +31,6 @@ require 'time'
 
 module Falcon
   class SecurityCheckMetricsGetMetrics
-    attr_accessor :account_id
-
     attr_accessor :integrations_count
 
     attr_accessor :security_domain_count
@@ -46,7 +44,6 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
         :'integrations_count' => :'integrations_count',
         :'security_domain_count' => :'security_domain_count',
         :'status_breakdown' => :'status_breakdown',
@@ -63,7 +60,6 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
         :'integrations_count' => :'Integer',
         :'security_domain_count' => :'Integer',
         :'status_breakdown' => :'StatusBreakdownSecurityCheckMetricsGetMetrics',
@@ -93,10 +89,6 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
-
       if attributes.key?(:'integrations_count')
         self.integrations_count = attributes[:'integrations_count']
       end
@@ -122,10 +114,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
       if @integrations_count.nil?
         invalid_properties.push('invalid value for "integrations_count", integrations_count cannot be nil.')
       end
@@ -152,7 +140,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
       return false if @integrations_count.nil?
       return false if @security_domain_count.nil?
       return false if @status_breakdown.nil?
@@ -166,7 +153,6 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
           integrations_count == o.integrations_count &&
           security_domain_count == o.security_domain_count &&
           status_breakdown == o.status_breakdown &&
@@ -183,7 +169,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, integrations_count, security_domain_count, status_breakdown, total_score_percentage, total_security_checks_count].hash
+      [integrations_count, security_domain_count, status_breakdown, total_score_percentage, total_security_checks_count].hash
     end
 
     # Builds the object from hash

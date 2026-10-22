@@ -33,8 +33,6 @@ module Falcon
   class AssetGetAssetInventory
     attr_accessor :access_level
 
-    attr_accessor :account_id
-
     attr_accessor :created
 
     attr_accessor :drive
@@ -75,7 +73,6 @@ module Falcon
     def self.attribute_map
       {
         :'access_level' => :'access_level',
-        :'account_id' => :'account_id',
         :'created' => :'created',
         :'drive' => :'drive',
         :'drive_id' => :'drive_id',
@@ -106,7 +103,6 @@ module Falcon
     def self.openapi_types
       {
         :'access_level' => :'String',
-        :'account_id' => :'String',
         :'created' => :'String',
         :'drive' => :'String',
         :'drive_id' => :'String',
@@ -151,10 +147,6 @@ module Falcon
 
       if attributes.key?(:'access_level')
         self.access_level = attributes[:'access_level']
-      end
-
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
       end
 
       if attributes.key?(:'created')
@@ -238,10 +230,6 @@ module Falcon
       invalid_properties = Array.new
       if !@access_level.nil? && @access_level.to_s.length < 1
         invalid_properties.push('invalid value for "access_level", the character length must be great than or equal to 1.')
-      end
-
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
       end
 
       if @created.nil?
@@ -359,7 +347,6 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if !@access_level.nil? && @access_level.to_s.length < 1
-      return false if @account_id.nil?
       return false if @created.nil?
       return false if @created.to_s.length < 1
       return false if !@drive.nil? && @drive.to_s.length < 1
@@ -600,7 +587,6 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           access_level == o.access_level &&
-          account_id == o.account_id &&
           created == o.created &&
           drive == o.drive &&
           drive_id == o.drive_id &&
@@ -630,7 +616,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access_level, account_id, created, drive, drive_id, integration_alias, integration_id, integration_name, last_accessed, last_modified, parent, password_protected, permission_id, resource_id, resource_name, resource_owner, resource_owner_department, resource_owner_enabled, resource_type, shared_with].hash
+      [access_level, created, drive, drive_id, integration_alias, integration_id, integration_name, last_accessed, last_modified, parent, password_protected, permission_id, resource_id, resource_name, resource_owner, resource_owner_department, resource_owner_enabled, resource_type, shared_with].hash
     end
 
     # Builds the object from hash

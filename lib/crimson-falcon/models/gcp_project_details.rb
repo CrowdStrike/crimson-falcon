@@ -37,6 +37,8 @@ module Falcon
 
     attr_accessor :dspm_status
 
+    attr_accessor :google_workspace_status
+
     attr_accessor :ioa_failed_permissions
 
     attr_accessor :ioa_passed_permissions
@@ -83,6 +85,7 @@ module Falcon
         :'created' => :'created',
         :'deployment_method' => :'deployment_method',
         :'dspm_status' => :'dspm_status',
+        :'google_workspace_status' => :'google_workspace_status',
         :'ioa_failed_permissions' => :'ioa_failed_permissions',
         :'ioa_passed_permissions' => :'ioa_passed_permissions',
         :'ioa_status' => :'ioa_status',
@@ -117,6 +120,7 @@ module Falcon
         :'created' => :'Time',
         :'deployment_method' => :'String',
         :'dspm_status' => :'String',
+        :'google_workspace_status' => :'String',
         :'ioa_failed_permissions' => :'Array<String>',
         :'ioa_passed_permissions' => :'Array<String>',
         :'ioa_status' => :'String',
@@ -171,6 +175,10 @@ module Falcon
 
       if attributes.key?(:'dspm_status')
         self.dspm_status = attributes[:'dspm_status']
+      end
+
+      if attributes.key?(:'google_workspace_status')
+        self.google_workspace_status = attributes[:'google_workspace_status']
       end
 
       if attributes.key?(:'ioa_failed_permissions')
@@ -283,6 +291,7 @@ module Falcon
           created == o.created &&
           deployment_method == o.deployment_method &&
           dspm_status == o.dspm_status &&
+          google_workspace_status == o.google_workspace_status &&
           ioa_failed_permissions == o.ioa_failed_permissions &&
           ioa_passed_permissions == o.ioa_passed_permissions &&
           ioa_status == o.ioa_status &&
@@ -314,7 +323,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created, deployment_method, dspm_status, ioa_failed_permissions, ioa_passed_permissions, ioa_status, iom_failed_permissions, iom_passed_permissions, iom_status, is_initial_registration, organization_id, project_id, project_name, project_number, registration_description, registration_id, registration_name, registration_scope, root_folder_id, service_account, status, updated, vulnerability_scanning_status].hash
+      [created, deployment_method, dspm_status, google_workspace_status, ioa_failed_permissions, ioa_passed_permissions, ioa_status, iom_failed_permissions, iom_passed_permissions, iom_status, is_initial_registration, organization_id, project_id, project_name, project_number, registration_description, registration_id, registration_name, registration_scope, root_folder_id, service_account, status, updated, vulnerability_scanning_status].hash
     end
 
     # Builds the object from hash

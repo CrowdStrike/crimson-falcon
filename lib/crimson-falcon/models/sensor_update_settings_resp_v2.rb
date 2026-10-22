@@ -44,6 +44,9 @@ module Falcon
     # If true, early adopter builds will be visible on the sensor update policy page
     attr_accessor :show_early_adopter_builds
 
+    # If true, LTV builds will be visible on the sensor update policy page
+    attr_accessor :show_ltv_builds
+
     # The release stage this build is in
     attr_accessor :stage
 
@@ -82,6 +85,7 @@ module Falcon
         :'scheduler' => :'scheduler',
         :'sensor_version' => :'sensor_version',
         :'show_early_adopter_builds' => :'show_early_adopter_builds',
+        :'show_ltv_builds' => :'show_ltv_builds',
         :'stage' => :'stage',
         :'uninstall_protection' => :'uninstall_protection',
         :'variants' => :'variants'
@@ -101,6 +105,7 @@ module Falcon
         :'scheduler' => :'PolicySensorUpdateScheduler',
         :'sensor_version' => :'String',
         :'show_early_adopter_builds' => :'Boolean',
+        :'show_ltv_builds' => :'Boolean',
         :'stage' => :'String',
         :'uninstall_protection' => :'String',
         :'variants' => :'Array<SensorUpdateBuildRespV1>'
@@ -148,6 +153,10 @@ module Falcon
         self.show_early_adopter_builds = attributes[:'show_early_adopter_builds']
       end
 
+      if attributes.key?(:'show_ltv_builds')
+        self.show_ltv_builds = attributes[:'show_ltv_builds']
+      end
+
       if attributes.key?(:'stage')
         self.stage = attributes[:'stage']
       end
@@ -187,6 +196,10 @@ module Falcon
         invalid_properties.push('invalid value for "show_early_adopter_builds", show_early_adopter_builds cannot be nil.')
       end
 
+      if @show_ltv_builds.nil?
+        invalid_properties.push('invalid value for "show_ltv_builds", show_ltv_builds cannot be nil.')
+      end
+
       if @stage.nil?
         invalid_properties.push('invalid value for "stage", stage cannot be nil.')
       end
@@ -210,8 +223,9 @@ module Falcon
       return false if @scheduler.nil?
       return false if @sensor_version.nil?
       return false if @show_early_adopter_builds.nil?
+      return false if @show_ltv_builds.nil?
       return false if @stage.nil?
-      stage_validator = EnumAttributeValidator.new('String', ["prod", "early_adopter", ""])
+      stage_validator = EnumAttributeValidator.new('String', ["prod", "early_adopter", "ltv", ""])
       return false unless stage_validator.valid?(@stage)
       return false if @uninstall_protection.nil?
       uninstall_protection_validator = EnumAttributeValidator.new('String', ["ENABLED", "DISABLED", "MAINTENANCE_MODE", "IGNORE", "UNKNOWN"])
@@ -223,7 +237,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] stage Object to be assigned
     def stage=(stage)
-      validator = EnumAttributeValidator.new('String', ["prod", "early_adopter", ""])
+      validator = EnumAttributeValidator.new('String', ["prod", "early_adopter", "ltv", ""])
       unless validator.valid?(stage)
         fail ArgumentError, "invalid value for \"stage\", must be one of #{validator.allowable_values}."
       end
@@ -250,6 +264,7 @@ module Falcon
           scheduler == o.scheduler &&
           sensor_version == o.sensor_version &&
           show_early_adopter_builds == o.show_early_adopter_builds &&
+          show_ltv_builds == o.show_ltv_builds &&
           stage == o.stage &&
           uninstall_protection == o.uninstall_protection &&
           variants == o.variants
@@ -264,7 +279,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [build, is_lts_build, scheduler, sensor_version, show_early_adopter_builds, stage, uninstall_protection, variants].hash
+      [build, is_lts_build, scheduler, sensor_version, show_early_adopter_builds, show_ltv_builds, stage, uninstall_protection, variants].hash
     end
 
     # Builds the object from hash

@@ -31,15 +31,11 @@ require 'time'
 
 module Falcon
   class SecurityCheckChangeLogEntryGetSecurityCheckChangeLog
-    attr_accessor :account_id
-
     attr_accessor :action
 
-    attr_accessor :app_display_name
+    attr_accessor :app
 
     attr_accessor :changed_at
-
-    attr_accessor :check_id
 
     attr_accessor :check_title
 
@@ -57,16 +53,12 @@ module Falcon
 
     attr_accessor :previous_value
 
-    attr_accessor :saas_name
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
         :'action' => :'action',
-        :'app_display_name' => :'app_display_name',
+        :'app' => :'app',
         :'changed_at' => :'changed_at',
-        :'check_id' => :'check_id',
         :'check_title' => :'check_title',
         :'checks' => :'checks',
         :'explanation_body' => :'explanation_body',
@@ -74,8 +66,7 @@ module Falcon
         :'id' => :'id',
         :'integration_supported_id' => :'integration_supported_id',
         :'new_value' => :'new_value',
-        :'previous_value' => :'previous_value',
-        :'saas_name' => :'saas_name'
+        :'previous_value' => :'previous_value'
       }
     end
 
@@ -87,11 +78,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
         :'action' => :'String',
-        :'app_display_name' => :'String',
+        :'app' => :'String',
         :'changed_at' => :'Time',
-        :'check_id' => :'String',
         :'check_title' => :'String',
         :'checks' => :'Array<CheckSecurityCheckChangeLogEntryGetSecurityCheckChangeLog>',
         :'explanation_body' => :'String',
@@ -99,20 +88,18 @@ module Falcon
         :'id' => :'String',
         :'integration_supported_id' => :'String',
         :'new_value' => :'String',
-        :'previous_value' => :'String',
-        :'saas_name' => :'String'
+        :'previous_value' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'app_display_name',
+        :'app',
         :'explanation_body',
         :'explanation_header',
         :'new_value',
-        :'previous_value',
-        :'saas_name'
+        :'previous_value'
       ])
     end
 
@@ -131,24 +118,16 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
-
       if attributes.key?(:'action')
         self.action = attributes[:'action']
       end
 
-      if attributes.key?(:'app_display_name')
-        self.app_display_name = attributes[:'app_display_name']
+      if attributes.key?(:'app')
+        self.app = attributes[:'app']
       end
 
       if attributes.key?(:'changed_at')
         self.changed_at = attributes[:'changed_at']
-      end
-
-      if attributes.key?(:'check_id')
-        self.check_id = attributes[:'check_id']
       end
 
       if attributes.key?(:'check_title')
@@ -184,20 +163,12 @@ module Falcon
       if attributes.key?(:'previous_value')
         self.previous_value = attributes[:'previous_value']
       end
-
-      if attributes.key?(:'saas_name')
-        self.saas_name = attributes[:'saas_name']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
       if @action.nil?
         invalid_properties.push('invalid value for "action", action cannot be nil.')
       end
@@ -206,16 +177,12 @@ module Falcon
         invalid_properties.push('invalid value for "action", the character length must be great than or equal to 1.')
       end
 
-      if @app_display_name.to_s.length < 1
-        invalid_properties.push('invalid value for "app_display_name", the character length must be great than or equal to 1.')
+      if @app.to_s.length < 1
+        invalid_properties.push('invalid value for "app", the character length must be great than or equal to 1.')
       end
 
       if @changed_at.nil?
         invalid_properties.push('invalid value for "changed_at", changed_at cannot be nil.')
-      end
-
-      if @check_id.nil?
-        invalid_properties.push('invalid value for "check_id", check_id cannot be nil.')
       end
 
       if @check_title.nil?
@@ -254,22 +221,16 @@ module Falcon
         invalid_properties.push('invalid value for "previous_value", the character length must be great than or equal to 1.')
       end
 
-      if @saas_name.to_s.length < 1
-        invalid_properties.push('invalid value for "saas_name", the character length must be great than or equal to 1.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
       return false if @action.nil?
       return false if @action.to_s.length < 1
-      return false if @app_display_name.to_s.length < 1
+      return false if @app.to_s.length < 1
       return false if @changed_at.nil?
-      return false if @check_id.nil?
       return false if @check_title.nil?
       return false if @check_title.to_s.length < 1
       return false if @checks.nil?
@@ -279,7 +240,6 @@ module Falcon
       return false if @integration_supported_id.nil?
       return false if @new_value.to_s.length < 1
       return false if @previous_value.to_s.length < 1
-      return false if @saas_name.to_s.length < 1
       true
     end
 
@@ -298,13 +258,13 @@ module Falcon
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] app_display_name Value to be assigned
-    def app_display_name=(app_display_name)
-      if app_display_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "app_display_name", the character length must be great than or equal to 1.'
+    # @param [Object] app Value to be assigned
+    def app=(app)
+      if app.to_s.length < 1
+        fail ArgumentError, 'invalid value for "app", the character length must be great than or equal to 1.'
       end
 
-      @app_display_name = app_display_name
+      @app = app
     end
 
     # Custom attribute writer method with validation
@@ -361,26 +321,14 @@ module Falcon
       @previous_value = previous_value
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] saas_name Value to be assigned
-    def saas_name=(saas_name)
-      if saas_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "saas_name", the character length must be great than or equal to 1.'
-      end
-
-      @saas_name = saas_name
-    end
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
           action == o.action &&
-          app_display_name == o.app_display_name &&
+          app == o.app &&
           changed_at == o.changed_at &&
-          check_id == o.check_id &&
           check_title == o.check_title &&
           checks == o.checks &&
           explanation_body == o.explanation_body &&
@@ -388,8 +336,7 @@ module Falcon
           id == o.id &&
           integration_supported_id == o.integration_supported_id &&
           new_value == o.new_value &&
-          previous_value == o.previous_value &&
-          saas_name == o.saas_name
+          previous_value == o.previous_value
     end
 
     # @see the `==` method
@@ -401,7 +348,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, action, app_display_name, changed_at, check_id, check_title, checks, explanation_body, explanation_header, id, integration_supported_id, new_value, previous_value, saas_name].hash
+      [action, app, changed_at, check_title, checks, explanation_body, explanation_header, id, integration_supported_id, new_value, previous_value].hash
     end
 
     # Builds the object from hash

@@ -140,7 +140,7 @@ module Falcon
         :'updated_at' => :'Time',
         :'cid' => :'String',
         :'cloud_registration_enabled' => :'Boolean',
-        :'cloud_scopes' => :'Array<DomainCloudScope>',
+        :'cloud_scopes' => :'Array<CloudScope>',
         :'conditions' => :'Array<StatemgmtCondition>',
         :'cspm_enabled' => :'Boolean',
         :'display_name' => :'String',

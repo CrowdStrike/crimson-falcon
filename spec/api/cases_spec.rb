@@ -171,17 +171,6 @@ describe 'Cases' do
     end
   end
 
-  # unit tests for entities_merge_post_v1
-  # Merges a source case into a destination case.
-  # @param body
-  # @param [Hash] opts the optional parameters
-  # @return [MsaspecResponseFields]
-  describe 'entities_merge_post_v1 test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for entities_user_evidence_post_v1
   # Adds user evidence to the specified case.
   # @param body

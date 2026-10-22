@@ -56,7 +56,7 @@ module Falcon
       {
         :'errors' => :'Array<ErrorGetSupportedSaas>',
         :'meta' => :'MetaGetSupportedSaas',
-        :'resources' => :'Array<SupportedIntegrationGetSupportedSaas>'
+        :'resources' => :'Array<SupportedSaasIntegration>'
       }
     end
 

@@ -167,6 +167,12 @@ describe Falcon::RestapiIndicator do
     end
   end
 
+  describe 'test attribute "published_indicator"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "reports"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

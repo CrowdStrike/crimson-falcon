@@ -110,6 +110,71 @@ describe 'FalconContainerImage' do
     end
   end
 
+  # unit tests for handle_get_report_by_reference
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :repository Repository
+  # @option opts [String] :tag Tag
+  # @option opts [String] :image_id Image ID
+  # @option opts [String] :digest Digest
+  # @option opts [String] :architecture Platform architecture to filter multi-arch images (e.g. amd64, arm64)
+  # @return [nil]
+  describe 'handle_get_report_by_reference test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for handle_get_report_by_reference_v2
+  # Get scan report by image reference v2. (DEPRECATED: Use the equivalent scan report endpoint in the image scan API instead)
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :repository Repository
+  # @option opts [String] :tag Tag
+  # @option opts [String] :image_id Image ID
+  # @option opts [String] :digest Digest
+  # @option opts [String] :architecture Platform architecture to filter multi-arch images (e.g. amd64, arm64)
+  # @return [nil]
+  describe 'handle_get_report_by_reference_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for handle_get_report_by_scan_id
+  # @param uuid Scan ID
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'handle_get_report_by_scan_id test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for handle_get_report_by_scan_idv2
+  # Get scan report by scan ID v2 (DEPRECATED: Use the equivalent scan report endpoint in the image scan API instead)
+  # @param uuid Scan ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :report_format Image-assessment scan report format. Allowed formats:  - &#x60;cyclonedx-json&#x60; - &#x60;json&#x60; - &#x60;sarif&#x60;
+  # @return [nil]
+  describe 'handle_get_report_by_scan_idv2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for handle_policy_check
+  # Check image assessment policy. (DEPRECATED: Use the equivalent scan report endpoint in the image scan API instead)
+  # @param policy_type Policy Type
+  # @param repository Repository
+  # @param tag Tag
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :registry Registry
+  # @return [nil]
+  describe 'handle_policy_check test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for head_image_scan_inventory
   # Get headers for POST request for image scan inventory
   # @param [Hash] opts the optional parameters

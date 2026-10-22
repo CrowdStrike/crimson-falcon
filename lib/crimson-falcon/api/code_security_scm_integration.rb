@@ -145,8 +145,80 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Delete a branch config, or exclude a specific repository from a connection-level config when repository_id query param is provided
-    # @param ids [String] Branch config UUID
+    # Trigger an on-demand pull of a repository at a ref
+    # @param repository_id [String] Repository UUID
+    # @param body [ApiPullJobTriggerRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [ApiResponse]
+    def create_pull_job(repository_id, body, opts = {})
+      data, _status_code, _headers = create_pull_job_with_http_info(repository_id, body, opts)
+      data
+    end
+
+    # Trigger an on-demand pull of a repository at a ref
+    # @param repository_id [String] Repository UUID
+    # @param body [ApiPullJobTriggerRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiResponse, Integer, Hash)>] ApiResponse data, response status code and response headers
+    def create_pull_job_with_http_info(repository_id, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CodeSecurityScmIntegration.create_pull_job ...'
+      end
+      # verify the required parameter 'repository_id' is set
+      if @api_client.config.client_side_validation && repository_id.nil?
+        fail ArgumentError, "Missing the required parameter 'repository_id' when calling CodeSecurityScmIntegration.create_pull_job"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CodeSecurityScmIntegration.create_pull_job"
+      end
+      # resource path
+      local_var_path = '/scm-integration/entities/repositories/v1/{repository_id}/pulls'.sub('{' + 'repository_id' + '}', CGI.escape(repository_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CodeSecurityScmIntegration.create_pull_job",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CodeSecurityScmIntegration#create_pull_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a branch config. With multiple ids, only repository-level configs are deleted; unknown or already-deleted ids are skipped
+    # @param ids [String] Comma-separated branch config UUIDs (max 100)
     # @param [Hash] opts the optional parameters
     # @return [ApiResponse]
     def delete_branch_config(ids, opts = {})
@@ -154,8 +226,8 @@ module Falcon
       data
     end
 
-    # Delete a branch config, or exclude a specific repository from a connection-level config when repository_id query param is provided
-    # @param ids [String] Branch config UUID
+    # Delete a branch config. With multiple ids, only repository-level configs are deleted; unknown or already-deleted ids are skipped
+    # @param ids [String] Comma-separated branch config UUIDs (max 100)
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiResponse, Integer, Hash)>] ApiResponse data, response status code and response headers
     def delete_branch_config_with_http_info(ids, opts = {})

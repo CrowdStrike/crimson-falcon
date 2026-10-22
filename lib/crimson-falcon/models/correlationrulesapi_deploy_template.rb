@@ -31,6 +31,8 @@ require 'time'
 
 module Falcon
   class CorrelationrulesapiDeployTemplate
+    attr_accessor :anomaly
+
     attr_accessor :comment
 
     attr_accessor :description
@@ -58,6 +60,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'anomaly' => :'anomaly',
         :'comment' => :'comment',
         :'description' => :'description',
         :'guardrail_notifications' => :'guardrail_notifications',
@@ -81,6 +84,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'anomaly' => :'CorrelationrulesapiAnomalyV1',
         :'comment' => :'String',
         :'description' => :'String',
         :'guardrail_notifications' => :'Array<CorrelationrulesapiCreateRuleNotifications>',
@@ -116,6 +120,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'anomaly')
+        self.anomaly = attributes[:'anomaly']
+      end
 
       if attributes.key?(:'comment')
         self.comment = attributes[:'comment']
@@ -220,6 +228,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          anomaly == o.anomaly &&
           comment == o.comment &&
           description == o.description &&
           guardrail_notifications == o.guardrail_notifications &&
@@ -243,7 +252,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [comment, description, guardrail_notifications, mitre_attack, name, notifications, operation, search, severity, status, template_id, trigger_on_create].hash
+      [anomaly, comment, description, guardrail_notifications, mitre_attack, name, notifications, operation, search, severity, status, template_id, trigger_on_create].hash
     end
 
     # Builds the object from hash

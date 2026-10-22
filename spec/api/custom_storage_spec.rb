@@ -48,6 +48,31 @@ describe 'CustomStorage' do
     end
   end
 
+  # unit tests for batch_get_objects
+  # Fetch 1–100 objects by key in a single request. Duplicate keys are deduped so fewer items may be returned than requested. When the response would exceed max configured limit the result is truncated: the object that crosses the budget is always included, and omitted keys are reported in the errors array (worst-case response size is the budget plus one maximum object size). Keys are passed as repeated object_keys query parameters; very long keys can hit ingress URL-length limits.
+  # @param collection_name The name of the collection
+  # @param object_keys A set of object keys to fetch
+  # @param [Hash] opts the optional parameters
+  # @return [CustomType2728568081]
+  describe 'batch_get_objects test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for batch_get_objects_by_version
+  # Fetch 1–100 objects by key in a single request. Duplicate keys are deduped so fewer items may be returned than requested. When the response would exceed max configured limit the result is truncated: the object that crosses the budget is always included, and omitted keys are reported in the errors array (worst-case response size is the budget plus one maximum object size). Keys are passed as repeated object_keys query parameters; very long keys can hit ingress URL-length limits.
+  # @param collection_name The name of the collection
+  # @param collection_version The version of the collection
+  # @param object_keys A set of object keys to fetch
+  # @param [Hash] opts the optional parameters
+  # @return [CustomType2728568081]
+  describe 'batch_get_objects_by_version test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for delete_object
   # Delete the specified object
   # @param collection_name The name of the collection

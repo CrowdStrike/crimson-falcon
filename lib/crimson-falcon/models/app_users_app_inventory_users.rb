@@ -31,8 +31,6 @@ require 'time'
 
 module Falcon
   class AppUsersAppInventoryUsers
-    attr_accessor :account_id
-
     attr_accessor :item_id
 
     attr_accessor :users
@@ -40,7 +38,6 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
         :'item_id' => :'item_id',
         :'users' => :'users'
       }
@@ -54,7 +51,6 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
         :'item_id' => :'String',
         :'users' => :'Array<String>'
       }
@@ -81,10 +77,6 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
-
       if attributes.key?(:'item_id')
         self.item_id = attributes[:'item_id']
       end
@@ -100,10 +92,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
       if @item_id.nil?
         invalid_properties.push('invalid value for "item_id", item_id cannot be nil.')
       end
@@ -122,7 +110,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
       return false if @item_id.nil?
       return false if @item_id.to_s.length < 1
       return false if @users.nil?
@@ -148,7 +135,6 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
           item_id == o.item_id &&
           users == o.users
     end
@@ -162,7 +148,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, item_id, users].hash
+      [item_id, users].hash
     end
 
     # Builds the object from hash

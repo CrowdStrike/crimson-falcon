@@ -39,6 +39,11 @@ module Falcon
     # @param client_id [String] The API client ID to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
     # @param client_secret [String] The API client secret to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :grant_type The OAuth2 grant type. Supported values: client_credentials (the default when omitted), authorization_code, refresh_token.
+    # @option opts [String] :code The authorization code returned by the /oauth2/auth endpoint. Mandatory for grant_type&#x3D;authorization_code.
+    # @option opts [String] :code_verifier The PKCE code verifier. Mandatory for grant_type&#x3D;authorization_code.
+    # @option opts [String] :redirect_uri The redirect URI used in the original authorization request. Mandatory for grant_type&#x3D;authorization_code.
+    # @option opts [String] :resource A URI indicating the target service/resource where the requested token will be used (RFC 8707). Optional; when supplied it must be an absolute URI.
     # @option opts [String] :member_cid For MSSP Master CIDs, optionally lock the token to act on behalf of this member CID
     # @return [DomainAccessTokenResponseV1]
     def oauth2_access_token(client_id, client_secret, opts = {})
@@ -50,6 +55,11 @@ module Falcon
     # @param client_id [String] The API client ID to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
     # @param client_secret [String] The API client secret to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :grant_type The OAuth2 grant type. Supported values: client_credentials (the default when omitted), authorization_code, refresh_token.
+    # @option opts [String] :code The authorization code returned by the /oauth2/auth endpoint. Mandatory for grant_type&#x3D;authorization_code.
+    # @option opts [String] :code_verifier The PKCE code verifier. Mandatory for grant_type&#x3D;authorization_code.
+    # @option opts [String] :redirect_uri The redirect URI used in the original authorization request. Mandatory for grant_type&#x3D;authorization_code.
+    # @option opts [String] :resource A URI indicating the target service/resource where the requested token will be used (RFC 8707). Optional; when supplied it must be an absolute URI.
     # @option opts [String] :member_cid For MSSP Master CIDs, optionally lock the token to act on behalf of this member CID
     # @return [Array<(DomainAccessTokenResponseV1, Integer, Hash)>] DomainAccessTokenResponseV1 data, response status code and response headers
     def oauth2_access_token_with_http_info(client_id, client_secret, opts = {})
@@ -84,6 +94,11 @@ module Falcon
       form_params = opts[:form_params] || {}
       form_params['client_id'] = client_id
       form_params['client_secret'] = client_secret
+      form_params['grant_type'] = opts[:'grant_type'] if !opts[:'grant_type'].nil?
+      form_params['code'] = opts[:'code'] if !opts[:'code'].nil?
+      form_params['code_verifier'] = opts[:'code_verifier'] if !opts[:'code_verifier'].nil?
+      form_params['redirect_uri'] = opts[:'redirect_uri'] if !opts[:'redirect_uri'].nil?
+      form_params['resource'] = opts[:'resource'] if !opts[:'resource'].nil?
       form_params['member_cid'] = opts[:'member_cid'] if !opts[:'member_cid'].nil?
 
       # http body (model)
@@ -108,6 +123,162 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Oauth2#oauth2_access_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Begins the OAuth2 authorization code grant
+    # @param client_id [String] The API client ID to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
+    # @param response_type [String] Must be set to \\\&quot;code\\\&quot;.
+    # @param redirect_uri [String] The URI to redirect to upon successful authorization.
+    # @param code_challenge [String] Code challenge for PKCE.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :client_secret The API client secret to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
+    # @option opts [String] :scope The scope of the access request.
+    # @option opts [String] :state An opaque value used by the client to maintain state between the request and callback.
+    # @option opts [String] :code_challenge_method PKCE code challenge method; rejected if provided and not \\\&quot;S256\\\&quot;.
+    # @option opts [String] :resource Target resource (RFC 8707). Required and must be an allowlisted resource server URL.
+    # @return [nil]
+    def oauth2_auth(client_id, response_type, redirect_uri, code_challenge, opts = {})
+      oauth2_auth_with_http_info(client_id, response_type, redirect_uri, code_challenge, opts)
+      nil
+    end
+
+    # Begins the OAuth2 authorization code grant
+    # @param client_id [String] The API client ID to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
+    # @param response_type [String] Must be set to \\\&quot;code\\\&quot;.
+    # @param redirect_uri [String] The URI to redirect to upon successful authorization.
+    # @param code_challenge [String] Code challenge for PKCE.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :client_secret The API client secret to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
+    # @option opts [String] :scope The scope of the access request.
+    # @option opts [String] :state An opaque value used by the client to maintain state between the request and callback.
+    # @option opts [String] :code_challenge_method PKCE code challenge method; rejected if provided and not \\\&quot;S256\\\&quot;.
+    # @option opts [String] :resource Target resource (RFC 8707). Required and must be an allowlisted resource server URL.
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def oauth2_auth_with_http_info(client_id, response_type, redirect_uri, code_challenge, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Oauth2.oauth2_auth ...'
+      end
+      # verify the required parameter 'client_id' is set
+      if @api_client.config.client_side_validation && client_id.nil?
+        fail ArgumentError, "Missing the required parameter 'client_id' when calling Oauth2.oauth2_auth"
+      end
+      # verify the required parameter 'response_type' is set
+      if @api_client.config.client_side_validation && response_type.nil?
+        fail ArgumentError, "Missing the required parameter 'response_type' when calling Oauth2.oauth2_auth"
+      end
+      # verify the required parameter 'redirect_uri' is set
+      if @api_client.config.client_side_validation && redirect_uri.nil?
+        fail ArgumentError, "Missing the required parameter 'redirect_uri' when calling Oauth2.oauth2_auth"
+      end
+      # verify the required parameter 'code_challenge' is set
+      if @api_client.config.client_side_validation && code_challenge.nil?
+        fail ArgumentError, "Missing the required parameter 'code_challenge' when calling Oauth2.oauth2_auth"
+      end
+      # resource path
+      local_var_path = '/oauth2/auth'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['text/html', 'application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/x-www-form-urlencoded', 'text/html'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['client_id'] = client_id
+      form_params['response_type'] = response_type
+      form_params['redirect_uri'] = redirect_uri
+      form_params['code_challenge'] = code_challenge
+      form_params['client_secret'] = opts[:'client_secret'] if !opts[:'client_secret'].nil?
+      form_params['scope'] = opts[:'scope'] if !opts[:'scope'].nil?
+      form_params['state'] = opts[:'state'] if !opts[:'state'].nil?
+      form_params['code_challenge_method'] = opts[:'code_challenge_method'] if !opts[:'code_challenge_method'].nil?
+      form_params['resource'] = opts[:'resource'] if !opts[:'resource'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"Oauth2.oauth2_auth",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Oauth2#oauth2_auth\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @return [Oauth2AuthorizationServerMetadata]
+    def oauth2_authorization_server_metadata(opts = {})
+      data, _status_code, _headers = oauth2_authorization_server_metadata_with_http_info(opts)
+      data
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Oauth2AuthorizationServerMetadata, Integer, Hash)>] Oauth2AuthorizationServerMetadata data, response status code and response headers
+    def oauth2_authorization_server_metadata_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Oauth2.oauth2_authorization_server_metadata ...'
+      end
+      # resource path
+      local_var_path = '/.well-known/oauth-authorization-server'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Oauth2AuthorizationServerMetadata'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"Oauth2.oauth2_authorization_server_metadata",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Oauth2#oauth2_authorization_server_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

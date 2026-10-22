@@ -48,6 +48,20 @@ describe 'CloudGoogleCloudRegistration' do
     end
   end
 
+  # unit tests for cloud_registration_gcp_check_workspace_availability
+  # Report whether a Google Workspace customer ID or organization ID is already registered
+  # A taken customer ID blocks registration, because it is unique per customer. An organization ID already in use does not block registration: more than one Google Workspace may share one Google Cloud organization. At least one of the two parameters is required.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :customer_id Google Workspace customer ID to check. A match blocks registration.
+  # @option opts [String] :organization_id Google Cloud organization ID to check. A match is informational and does not block registration.
+  # @option opts [String] :exclude_gcp_registration_id Google Cloud registration ID being edited. A match on this registration is reported as not registered.
+  # @return [DtoWorkspaceAvailabilityResponseExtV1]
+  describe 'cloud_registration_gcp_check_workspace_availability test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for cloud_registration_gcp_create_registration
   # Create a Google Cloud Registration.
   # @param body
@@ -65,6 +79,17 @@ describe 'CloudGoogleCloudRegistration' do
   # @param [Hash] opts the optional parameters
   # @return [DtoGCPRegistrationResponseExtV1]
   describe 'cloud_registration_gcp_delete_registration test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_gcp_delete_workspace_registration
+  # Deletes the Google Workspace registration attached to a Google Cloud Registration, and returns the deleted Workspace in the response body. The Google Cloud Registration itself is not affected.
+  # @param gcp_registration_id Google Cloud Registration ID the Google Workspace is attached to
+  # @param [Hash] opts the optional parameters
+  # @return [DtoWorkspaceResponseExtV1]
+  describe 'cloud_registration_gcp_delete_workspace_registration test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

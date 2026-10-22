@@ -110,7 +110,7 @@ module Falcon
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return. [1-10000]
     # @option opts [String] :sort The property to sort by.
-    # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: status, source_cid, migration_id, id, host_migration_id, groups, hostgroups, target_cid, created_time, static_host_groups, hostname
+    # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: source_cid, id, created_time, groups, static_host_groups, status, target_cid, migration_id, host_migration_id, hostgroups, hostname
     # @return [MsaspecQueryResponse]
     def get_host_migration_ids_v1(id, opts = {})
       data, _status_code, _headers = get_host_migration_ids_v1_with_http_info(id, opts)
@@ -124,7 +124,7 @@ module Falcon
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return. [1-10000]
     # @option opts [String] :sort The property to sort by.
-    # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: status, source_cid, migration_id, id, host_migration_id, groups, hostgroups, target_cid, created_time, static_host_groups, hostname
+    # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: source_cid, id, created_time, groups, static_host_groups, status, target_cid, migration_id, host_migration_id, hostgroups, hostname
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def get_host_migration_ids_v1_with_http_info(id, opts = {})
       if @api_client.config.debugging
@@ -134,7 +134,7 @@ module Falcon
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling HostMigration.get_host_migration_ids_v1"
       end
-      allowable_values = ["status|asc", "status|desc", "status", "source_cid|asc", "source_cid|desc", "source_cid", "migration_id|asc", "migration_id|desc", "migration_id", "id|asc", "id|desc", "id", "host_migration_id|asc", "host_migration_id|desc", "host_migration_id", "groups|asc", "groups|desc", "groups", "hostgroups|asc", "hostgroups|desc", "hostgroups", "target_cid|asc", "target_cid|desc", "target_cid", "created_time|asc", "created_time|desc", "created_time", "static_host_groups|asc", "static_host_groups|desc", "static_host_groups", "hostname|asc", "hostname|desc", "hostname"]
+      allowable_values = ["groups|asc", "groups|desc", "groups", "static_host_groups|asc", "static_host_groups|desc", "static_host_groups", "status|asc", "status|desc", "status", "target_cid|asc", "target_cid|desc", "target_cid", "migration_id|asc", "migration_id|desc", "migration_id", "host_migration_id|asc", "host_migration_id|desc", "host_migration_id", "hostgroups|asc", "hostgroups|desc", "hostgroups", "hostname|asc", "hostname|desc", "hostname", "source_cid|asc", "source_cid|desc", "source_cid", "id|asc", "id|desc", "id", "created_time|asc", "created_time|desc", "created_time"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
@@ -324,7 +324,7 @@ module Falcon
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return. [1-10000]
     # @option opts [String] :sort The property to sort by.
-    # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: created_time, name, id, migration_id, target_cid, status, migration_status, created_by
+    # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: migration_status, created_by, created_time, name, id, migration_id, target_cid, status
     # @return [MsaspecQueryResponse]
     def get_migration_ids_v1(opts = {})
       data, _status_code, _headers = get_migration_ids_v1_with_http_info(opts)
@@ -336,13 +336,13 @@ module Falcon
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return. [1-10000]
     # @option opts [String] :sort The property to sort by.
-    # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: created_time, name, id, migration_id, target_cid, status, migration_status, created_by
+    # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: migration_status, created_by, created_time, name, id, migration_id, target_cid, status
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def get_migration_ids_v1_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: HostMigration.get_migration_ids_v1 ...'
       end
-      allowable_values = ["target_cid|asc", "target_cid|desc", "target_cid", "status|asc", "status|desc", "status", "migration_status|asc", "migration_status|desc", "migration_status", "created_by|asc", "created_by|desc", "created_by", "created_time|asc", "created_time|desc", "created_time", "name|asc", "name|desc", "name", "id|asc", "id|desc", "id", "migration_id|asc", "migration_id|desc", "migration_id"]
+      allowable_values = ["status|asc", "status|desc", "status", "migration_status|asc", "migration_status|desc", "migration_status", "created_by|asc", "created_by|desc", "created_by", "created_time|asc", "created_time|desc", "created_time", "name|asc", "name|desc", "name", "id|asc", "id|desc", "id", "migration_id|asc", "migration_id|desc", "migration_id", "target_cid|asc", "target_cid|desc", "target_cid"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end

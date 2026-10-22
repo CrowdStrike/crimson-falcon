@@ -155,6 +155,12 @@ describe Falcon::DomainDiscoverAPIApplication do
     end
   end
 
+  describe 'test attribute "is_malicious"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "is_normalized"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -215,6 +221,12 @@ describe Falcon::DomainDiscoverAPIApplication do
     end
   end
 
+  describe 'test attribute "malicious_indicators"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "name"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -228,6 +240,12 @@ describe Falcon::DomainDiscoverAPIApplication do
   end
 
   describe 'test attribute "name_vendor_version"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "registry_latest_version_available"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -252,6 +270,12 @@ describe Falcon::DomainDiscoverAPIApplication do
   end
 
   describe 'test attribute "suspicious_indicators"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "threat_level"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

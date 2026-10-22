@@ -37,6 +37,21 @@ module Falcon
     # The API client secret to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
     attr_accessor :client_secret
 
+    # The OAuth2 grant type. Supported values: client_credentials (the default when omitted), authorization_code, refresh_token.
+    attr_accessor :grant_type
+
+    # The authorization code returned by the /oauth2/auth endpoint. Mandatory for grant_type=authorization_code.
+    attr_accessor :code
+
+    # The PKCE code verifier. Mandatory for grant_type=authorization_code.
+    attr_accessor :code_verifier
+
+    # The redirect URI used in the original authorization request. Mandatory for grant_type=authorization_code.
+    attr_accessor :redirect_uri
+
+    # A URI indicating the target service/resource where the requested token will be used (RFC 8707). Optional; when supplied it must be an absolute URI.
+    attr_accessor :resource
+
     # For MSSP Master CIDs, optionally lock the token to act on behalf of this member CID
     attr_accessor :member_cid
 
@@ -45,6 +60,11 @@ module Falcon
       {
         :'client_id' => :'client_id',
         :'client_secret' => :'client_secret',
+        :'grant_type' => :'grant_type',
+        :'code' => :'code',
+        :'code_verifier' => :'code_verifier',
+        :'redirect_uri' => :'redirect_uri',
+        :'resource' => :'resource',
         :'member_cid' => :'member_cid'
       }
     end
@@ -59,6 +79,11 @@ module Falcon
       {
         :'client_id' => :'String',
         :'client_secret' => :'String',
+        :'grant_type' => :'String',
+        :'code' => :'String',
+        :'code_verifier' => :'String',
+        :'redirect_uri' => :'String',
+        :'resource' => :'String',
         :'member_cid' => :'String'
       }
     end
@@ -90,6 +115,26 @@ module Falcon
 
       if attributes.key?(:'client_secret')
         self.client_secret = attributes[:'client_secret']
+      end
+
+      if attributes.key?(:'grant_type')
+        self.grant_type = attributes[:'grant_type']
+      end
+
+      if attributes.key?(:'code')
+        self.code = attributes[:'code']
+      end
+
+      if attributes.key?(:'code_verifier')
+        self.code_verifier = attributes[:'code_verifier']
+      end
+
+      if attributes.key?(:'redirect_uri')
+        self.redirect_uri = attributes[:'redirect_uri']
+      end
+
+      if attributes.key?(:'resource')
+        self.resource = attributes[:'resource']
       end
 
       if attributes.key?(:'member_cid')
@@ -127,6 +172,11 @@ module Falcon
       self.class == o.class &&
           client_id == o.client_id &&
           client_secret == o.client_secret &&
+          grant_type == o.grant_type &&
+          code == o.code &&
+          code_verifier == o.code_verifier &&
+          redirect_uri == o.redirect_uri &&
+          resource == o.resource &&
           member_cid == o.member_cid
     end
 
@@ -139,7 +189,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, client_secret, member_cid].hash
+      [client_id, client_secret, grant_type, code, code_verifier, redirect_uri, resource, member_cid].hash
     end
 
     # Builds the object from hash

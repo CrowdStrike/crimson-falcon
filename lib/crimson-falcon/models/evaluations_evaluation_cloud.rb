@@ -35,17 +35,29 @@ module Falcon
 
     attr_accessor :account_name
 
+    attr_accessor :cluster_id
+
+    attr_accessor :cluster_name
+
+    attr_accessor :infrastructure_provider
+
     attr_accessor :provider
 
     attr_accessor :region
+
+    attr_accessor :service_name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'account_id' => :'account_id',
         :'account_name' => :'account_name',
+        :'cluster_id' => :'cluster_id',
+        :'cluster_name' => :'cluster_name',
+        :'infrastructure_provider' => :'infrastructure_provider',
         :'provider' => :'provider',
-        :'region' => :'region'
+        :'region' => :'region',
+        :'service_name' => :'service_name'
       }
     end
 
@@ -59,8 +71,12 @@ module Falcon
       {
         :'account_id' => :'String',
         :'account_name' => :'String',
+        :'cluster_id' => :'String',
+        :'cluster_name' => :'String',
+        :'infrastructure_provider' => :'String',
         :'provider' => :'String',
-        :'region' => :'String'
+        :'region' => :'String',
+        :'service_name' => :'String'
       }
     end
 
@@ -93,12 +109,28 @@ module Falcon
         self.account_name = attributes[:'account_name']
       end
 
+      if attributes.key?(:'cluster_id')
+        self.cluster_id = attributes[:'cluster_id']
+      end
+
+      if attributes.key?(:'cluster_name')
+        self.cluster_name = attributes[:'cluster_name']
+      end
+
+      if attributes.key?(:'infrastructure_provider')
+        self.infrastructure_provider = attributes[:'infrastructure_provider']
+      end
+
       if attributes.key?(:'provider')
         self.provider = attributes[:'provider']
       end
 
       if attributes.key?(:'region')
         self.region = attributes[:'region']
+      end
+
+      if attributes.key?(:'service_name')
+        self.service_name = attributes[:'service_name']
       end
     end
 
@@ -122,8 +154,12 @@ module Falcon
       self.class == o.class &&
           account_id == o.account_id &&
           account_name == o.account_name &&
+          cluster_id == o.cluster_id &&
+          cluster_name == o.cluster_name &&
+          infrastructure_provider == o.infrastructure_provider &&
           provider == o.provider &&
-          region == o.region
+          region == o.region &&
+          service_name == o.service_name
     end
 
     # @see the `==` method
@@ -135,7 +171,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_name, provider, region].hash
+      [account_id, account_name, cluster_id, cluster_name, infrastructure_provider, provider, region, service_name].hash
     end
 
     # Builds the object from hash

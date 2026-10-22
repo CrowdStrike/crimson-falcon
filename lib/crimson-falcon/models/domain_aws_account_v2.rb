@@ -252,7 +252,7 @@ module Falcon
         :'behavior_assessment_enabled' => :'Boolean',
         :'cid' => :'String',
         :'cloud_registration_enabled' => :'Boolean',
-        :'cloud_scopes' => :'Array<DomainCloudScope>',
+        :'cloud_scopes' => :'Array<CloudScope>',
         :'cloudformation_root_stack_arn' => :'String',
         :'cloudformation_update_url' => :'String',
         :'cloudformation_url' => :'String',

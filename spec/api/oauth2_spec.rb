@@ -53,9 +53,42 @@ describe 'Oauth2' do
   # @param client_id The API client ID to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
   # @param client_secret The API client secret to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :grant_type The OAuth2 grant type. Supported values: client_credentials (the default when omitted), authorization_code, refresh_token.
+  # @option opts [String] :code The authorization code returned by the /oauth2/auth endpoint. Mandatory for grant_type&#x3D;authorization_code.
+  # @option opts [String] :code_verifier The PKCE code verifier. Mandatory for grant_type&#x3D;authorization_code.
+  # @option opts [String] :redirect_uri The redirect URI used in the original authorization request. Mandatory for grant_type&#x3D;authorization_code.
+  # @option opts [String] :resource A URI indicating the target service/resource where the requested token will be used (RFC 8707). Optional; when supplied it must be an absolute URI.
   # @option opts [String] :member_cid For MSSP Master CIDs, optionally lock the token to act on behalf of this member CID
   # @return [DomainAccessTokenResponseV1]
   describe 'oauth2_access_token test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for oauth2_auth
+  # Begins the OAuth2 authorization code grant
+  # @param client_id The API client ID to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
+  # @param response_type Must be set to \\\&quot;code\\\&quot;.
+  # @param redirect_uri The URI to redirect to upon successful authorization.
+  # @param code_challenge Code challenge for PKCE.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :client_secret The API client secret to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
+  # @option opts [String] :scope The scope of the access request.
+  # @option opts [String] :state An opaque value used by the client to maintain state between the request and callback.
+  # @option opts [String] :code_challenge_method PKCE code challenge method; rejected if provided and not \\\&quot;S256\\\&quot;.
+  # @option opts [String] :resource Target resource (RFC 8707). Required and must be an allowlisted resource server URL.
+  # @return [nil]
+  describe 'oauth2_auth test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for oauth2_authorization_server_metadata
+  # @param [Hash] opts the optional parameters
+  # @return [Oauth2AuthorizationServerMetadata]
+  describe 'oauth2_authorization_server_metadata test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

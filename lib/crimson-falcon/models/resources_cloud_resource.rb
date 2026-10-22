@@ -211,7 +211,7 @@ module Falcon
         :'category' => :'String',
         :'cid' => :'String',
         :'cloud_context' => :'ResourcesCloudContext',
-        :'cloud_groups' => :'Array<DomainCloudScope>',
+        :'cloud_groups' => :'Array<CloudScope>',
         :'cloud_groups_v2' => :'Array<DomainCloudGroup>',
         :'cloud_labels' => :'Array<ClassificationLabel>',
         :'cloud_provider' => :'String',

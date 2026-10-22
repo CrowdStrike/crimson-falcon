@@ -35,9 +35,23 @@ module Falcon
 
     attr_accessor :authority
 
+    attr_accessor :created_at
+
+    attr_accessor :created_by
+
+    attr_accessor :deleted_at
+
+    attr_accessor :deleted_by
+
     attr_accessor :description
 
     attr_accessor :name
+
+    attr_accessor :update_reason
+
+    attr_accessor :updated_at
+
+    attr_accessor :updated_by
 
     attr_accessor :uuid
 
@@ -48,8 +62,15 @@ module Falcon
       {
         :'active' => :'active',
         :'authority' => :'authority',
+        :'created_at' => :'created_at',
+        :'created_by' => :'created_by',
+        :'deleted_at' => :'deleted_at',
+        :'deleted_by' => :'deleted_by',
         :'description' => :'description',
         :'name' => :'name',
+        :'update_reason' => :'update_reason',
+        :'updated_at' => :'updated_at',
+        :'updated_by' => :'updated_by',
         :'uuid' => :'uuid',
         :'version' => :'version'
       }
@@ -65,8 +86,15 @@ module Falcon
       {
         :'active' => :'Boolean',
         :'authority' => :'String',
+        :'created_at' => :'Time',
+        :'created_by' => :'String',
+        :'deleted_at' => :'Time',
+        :'deleted_by' => :'String',
         :'description' => :'String',
         :'name' => :'String',
+        :'update_reason' => :'String',
+        :'updated_at' => :'Time',
+        :'updated_by' => :'String',
         :'uuid' => :'String',
         :'version' => :'String'
       }
@@ -101,12 +129,40 @@ module Falcon
         self.authority = attributes[:'authority']
       end
 
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'created_by')
+        self.created_by = attributes[:'created_by']
+      end
+
+      if attributes.key?(:'deleted_at')
+        self.deleted_at = attributes[:'deleted_at']
+      end
+
+      if attributes.key?(:'deleted_by')
+        self.deleted_by = attributes[:'deleted_by']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'update_reason')
+        self.update_reason = attributes[:'update_reason']
+      end
+
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
+      end
+
+      if attributes.key?(:'updated_by')
+        self.updated_by = attributes[:'updated_by']
       end
 
       if attributes.key?(:'uuid')
@@ -126,6 +182,14 @@ module Falcon
         invalid_properties.push('invalid value for "authority", authority cannot be nil.')
       end
 
+      if @created_at.nil?
+        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
+      end
+
+      if @created_by.nil?
+        invalid_properties.push('invalid value for "created_by", created_by cannot be nil.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -141,6 +205,8 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @authority.nil?
+      return false if @created_at.nil?
+      return false if @created_by.nil?
       return false if @name.nil?
       return false if @version.nil?
       true
@@ -153,8 +219,15 @@ module Falcon
       self.class == o.class &&
           active == o.active &&
           authority == o.authority &&
+          created_at == o.created_at &&
+          created_by == o.created_by &&
+          deleted_at == o.deleted_at &&
+          deleted_by == o.deleted_by &&
           description == o.description &&
           name == o.name &&
+          update_reason == o.update_reason &&
+          updated_at == o.updated_at &&
+          updated_by == o.updated_by &&
           uuid == o.uuid &&
           version == o.version
     end
@@ -168,7 +241,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active, authority, description, name, uuid, version].hash
+      [active, authority, created_at, created_by, deleted_at, deleted_by, description, name, update_reason, updated_at, updated_by, uuid, version].hash
     end
 
     # Builds the object from hash
