@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.6.0](https://github.com/CrowdStrike/crimson-falcon/compare/v1.5.0...v1.6.0) (2026-10-26)
+
+
+### Features
+
+* regenerate SDK from latest swagger spec ([25a6000](https://github.com/CrowdStrike/crimson-falcon/commit/25a60002f817dbdcb5242095b2538d814de877de))
+
+
+### Bug Fixes
+
+* group the authorization server metadata endpoint with oauth2 ([79f95b8](https://github.com/CrowdStrike/crimson-falcon/commit/79f95b8e7d11d236267ccff4d789e3fd2b20fedd))
+* keep client_secret required on /oauth2/token ([aa8a742](https://github.com/CrowdStrike/crimson-falcon/commit/aa8a742752f6c8549dd3259a18707f8db4d7d4c9))
+* restore the empty sensor update stage enum value ([e0fa057](https://github.com/CrowdStrike/crimson-falcon/commit/e0fa0579326d9450f826d1ce37a04fdbc461d51c))
+* shorten the supported SaaS integration definition names ([3702084](https://github.com/CrowdStrike/crimson-falcon/commit/3702084869497e41d1e1fe223649d54068c6b4c3))
+
 ## [1.5.0](https://github.com/CrowdStrike/crimson-falcon/compare/v1.4.0...v1.5.0) (2026-10-12)
 
 
