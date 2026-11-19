@@ -8,3 +8,4 @@ additionalProperties:
   gemVersion: "1.6.0" # x-release-please-version
   gemName: "crimson-falcon"
   moduleName: "Falcon"
+  gemRequiredRubyVersion: ">= 3.3"
