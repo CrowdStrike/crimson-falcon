@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/CrowdStrike/crimson-falcon/compare/v1.6.0...v1.6.1) (2026-11-19)
+
+
+### Miscellaneous
+
+* harden GitHub Actions workflows ([#69](https://github.com/CrowdStrike/crimson-falcon/issues/69)) ([486ae24](https://github.com/CrowdStrike/crimson-falcon/commit/486ae24567e2e79dcec8e89fe5ed5303666b55b3))
+
 ## [1.6.0](https://github.com/CrowdStrike/crimson-falcon/compare/v1.5.0...v1.6.0) (2026-10-26)
 
 
