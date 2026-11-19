@@ -6,17 +6,23 @@ on:
 permissions:
   contents: read
 
+# Never cancel a release that is in progress.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   release-please:
+    name: Release Please
     runs-on: ubuntu-latest
     timeout-minutes: 30
     outputs:
       release_created: ${{ steps.release-please.outputs.release_created }}
       tag_name: ${{ steps.release-please.outputs.tag_name }}
     permissions:
-      contents: write
-      pull-requests: write
-      issues: write
+      contents: write # create release commits, tags and GitHub releases
+      pull-requests: write # open and update the release PR
+      issues: write # manage labels on the release PR
     steps:
       - uses: google-github-actions/release-please-action@db8f2c60ee802b3748b512940dde88eabd7b7e01 # v3.7.13
         id: release-please
@@ -31,25 +37,33 @@ jobs:
             README.md
 
   gem-publish:
+    name: Publish Gem
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment: release
     permissions:
-      id-token: write
-      contents: write
+      id-token: write # RubyGems trusted publishing (OIDC)
+      contents: write # rake release pushes the release tag
     steps:
       - name: Checkout
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ needs.release-please.outputs.tag_name }}
+          # release-gem sets up its own short-lived git credentials.
+          persist-credentials: false
 
-      - name: Set up Ruby 3.2
-        uses: ruby/setup-ruby@3ff19f5e2baf30647122352b96108b1fbe250c64 # v1
+      # No bundler cache here: a cache written by a PR or branch run must
+      # never feed into the published gem.
+      - name: Set up Ruby 3.4.13
+        uses: ruby/setup-ruby@f9c4492e86def3e644ab32a0ef185eda5b0c20d0 # v1.342.0
         with:
-          ruby-version: 3.2
-          bundler-cache: true
+          ruby-version: "3.4.13"
+          bundler-cache: false
+
+      - name: Install dependencies
+        run: bundle install
 
       - name: Build and verify gem
         run: |
@@ -57,4 +71,4 @@ jobs:
           make install
 
       - name: Publish to RubyGems
-        uses: rubygems/release-gem@6317d8d1f7e28c24d28f6eff169ea854948bd9f7 # v1.2.0
+        uses: rubygems/release-gem@5c53f5308233b7c0f47411f0471b3faae6fa57b2 # v1.4.2

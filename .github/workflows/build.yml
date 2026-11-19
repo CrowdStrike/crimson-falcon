@@ -9,23 +9,29 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   build:
     name: Build and Install Gem
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: read # checkout the repository
     timeout-minutes: 15
     strategy:
       matrix:
-        ruby-version: ["3.0", "3.1", "3.2"]
+        ruby-version: ["3.3.14", "3.4.13"]
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Set up Ruby ${{ matrix.ruby-version }}
-        uses: ruby/setup-ruby@3ff19f5e2baf30647122352b96108b1fbe250c64 # v1
+        uses: ruby/setup-ruby@f9c4492e86def3e644ab32a0ef185eda5b0c20d0 # v1.342.0
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
