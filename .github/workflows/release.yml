@@ -56,10 +56,10 @@ jobs:
 
       # No bundler cache here: a cache written by a PR or branch run must
       # never feed into the published gem.
-      - name: Set up Ruby 3.2
+      - name: Set up Ruby 3.4.13
         uses: ruby/setup-ruby@f9c4492e86def3e644ab32a0ef185eda5b0c20d0 # v1.342.0
         with:
-          ruby-version: 3.2
+          ruby-version: "3.4.13"
           bundler-cache: false
 
       - name: Install dependencies

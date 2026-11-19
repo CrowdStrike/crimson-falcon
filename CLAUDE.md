@@ -47,6 +47,6 @@ Requires `swagger.json` in `.openapi-generator/`. Steps:
 ## Conventions
 
 - **Conventional Commits**: `feat:` (minor), `fix:` (patch), `chore:`, `docs:`. Releases via release-please.
-- **CI**: requires `ok-to-test` label on PRs. Tests Ruby 3.0, 3.1, 3.2.
+- **CI**: requires `ok-to-test` label on PRs. Tests Ruby 3.3.14 and 3.4.13 (patched for GHSA-34m4-m9fh-gqp5 and related Ruby advisories).
 - **Ruby >= 2.7** required.
 - **RuboCop**: `DisabledByDefault: true` — only explicitly listed cops active.
