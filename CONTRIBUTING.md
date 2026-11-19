@@ -70,7 +70,7 @@ The SDK is generated using the OpenAPI Generator tool. The OpenAPI Generator use
 
 #### Pre-requisites
 
-- `Ruby` - v2.7+
+- `Ruby` - v3.3+
 - `make` - This is used to run the commands in the Makefile.
 
 ---
